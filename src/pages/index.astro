@@ -1,0 +1,207 @@
+---
+import Base from '../layouts/Base.astro';
+import companies from '../data/companies.json';
+import categories from '../data/categories.json';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Insurans.co",
+  "url": "https://insurans.co",
+  "description": "Compare insurance in Malaysia. Find the best car, health, life, and travel insurance rates.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://insurans.co/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<Base
+  title="Insurance Malaysia 2026 — Compare & Save | Insurans.co"
+  description="Compare insurance in Malaysia. Find the best rates for car, health, life, travel insurance & takaful from 30+ providers. Updated for 2026."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 text-white">
+    <div class="container-wide py-16 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          Find the Best Insurance in Malaysia
+        </h1>
+        <p class="text-lg md:text-xl text-primary-100 mb-8 leading-relaxed">
+          Compare car insurance, health insurance, life insurance, and takaful from 30+ providers. 
+          Save time and money with honest, side-by-side comparisons.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/car-insurance/" class="inline-flex items-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors">
+            🚗 Compare Car Insurance
+          </a>
+          <a href="/companies/" class="inline-flex items-center px-6 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+            View All Companies →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance Categories -->
+  <section class="container-wide py-16">
+    <h2 class="text-3xl font-bold text-center mb-4">Compare Insurance by Category</h2>
+    <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+      Choose a category to compare rates, coverage, and providers side by side.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {categories.map((cat) => (
+        <a href={`/${cat.slug}/`} class="card text-center group">
+          <div class="text-4xl mb-3">{cat.icon}</div>
+          <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{cat.name}</h3>
+          <p class="text-sm text-gray-500 mt-1">{cat.nameBM}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Top Companies -->
+  <section class="bg-white py-16">
+    <div class="container-wide">
+      <h2 class="text-3xl font-bold text-center mb-4">Top Insurance Companies in Malaysia</h2>
+      <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        Trusted providers offering car insurance, health insurance, life insurance, and takaful.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {companies.slice(0, 9).map((company) => (
+          <a href={`/companies/${company.slug}/`} class="card group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                {company.name}
+              </h3>
+              <span class="text-sm font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
+                ★ {company.rating}
+              </span>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 line-clamp-2">{company.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {company.products.slice(0, 4).map((product) => (
+                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full capitalize">
+                  {product.replace('-', ' ')}
+                </span>
+              ))}
+              {company.products.length > 4 && (
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">
+                  +{company.products.length - 4} more
+                </span>
+              )}
+            </div>
+            {company.takaful && (
+              <div class="mt-3 text-xs text-accent-700 font-medium">
+                ☪️ Takaful available
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/companies/" class="btn-outline">View All Companies →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Insurans.co -->
+  <section class="container-wide py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Why Use Insurans.co?</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="text-4xl mb-4">🔍</div>
+        <h3 class="font-bold text-lg mb-2">Compare Instantly</h3>
+        <p class="text-gray-600">Side-by-side comparisons of 30+ insurance providers in Malaysia. No signup required.</p>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl mb-4">🇲🇾</div>
+        <h3 class="font-bold text-lg mb-2">Made for Malaysia</h3>
+        <p class="text-gray-600">Content in English and Bahasa Malaysia. Covers all major Malaysian insurers and takaful operators.</p>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl mb-4">💡</div>
+        <h3 class="font-bold text-lg mb-2">Expert Guides</h3>
+        <p class="text-gray-600">Easy-to-understand guides on NCD, claims, road tax renewal, and choosing the right coverage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Guides Preview -->
+  <section class="bg-white py-16">
+    <div class="container-wide">
+      <h2 class="text-3xl font-bold text-center mb-12">Insurance Guides</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/guides/ncd-explained/" class="card group">
+          <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Guide</span>
+          <h3 class="text-lg font-bold mt-2 group-hover:text-primary-600 transition-colors">
+            NCD (No Claim Discount) Explained
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">What is NCD, how it works, and how to maximize your discount on car insurance in Malaysia.</p>
+        </a>
+        <a href="/guides/renew-car-insurance/" class="card group">
+          <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Guide</span>
+          <h3 class="text-lg font-bold mt-2 group-hover:text-primary-600 transition-colors">
+            How to Renew Car Insurance Online
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">Step-by-step guide to renewing your car insurance online in Malaysia. MyEG, Bjak, and direct options.</p>
+        </a>
+        <a href="/guides/insurance-vs-takaful/" class="card group">
+          <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Guide</span>
+          <h3 class="text-lg font-bold mt-2 group-hover:text-primary-600 transition-colors">
+            Insurance vs Takaful: What's the Difference?
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">Understanding the key differences between conventional insurance and takaful in Malaysia.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Schema -->
+  <section class="container-narrow py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <details class="card cursor-pointer" open>
+        <summary class="font-semibold text-gray-900">What types of insurance are available in Malaysia?</summary>
+        <p class="text-gray-600 mt-3">
+          The main types of insurance in Malaysia include car/motor insurance, health insurance (medical cards), 
+          life insurance, travel insurance, home/fire insurance, and personal accident insurance. 
+          All categories are available in both conventional insurance and Shariah-compliant takaful versions.
+        </p>
+      </details>
+      <details class="card cursor-pointer">
+        <summary class="font-semibold text-gray-900">Is car insurance mandatory in Malaysia?</summary>
+        <p class="text-gray-600 mt-3">
+          Yes, at minimum third-party car insurance is mandatory in Malaysia under the Road Transport Act 1987. 
+          You cannot renew your road tax without valid motor insurance or takaful coverage.
+        </p>
+      </details>
+      <details class="card cursor-pointer">
+        <summary class="font-semibold text-gray-900">What is the difference between insurance and takaful?</summary>
+        <p class="text-gray-600 mt-3">
+          Takaful is the Islamic alternative to conventional insurance. It operates on the principles of 
+          mutual assistance (ta'awun) and shared responsibility. Participants contribute to a common fund, 
+          and any surplus is shared among participants, unlike conventional insurance where profits go to the company.
+        </p>
+      </details>
+      <details class="card cursor-pointer">
+        <summary class="font-semibold text-gray-900">How much does car insurance cost in Malaysia?</summary>
+        <p class="text-gray-600 mt-3">
+          Car insurance costs in Malaysia depend on your car's sum insured, engine capacity (cc), age, 
+          NCD (No Claim Discount), and coverage type. A typical comprehensive policy for a Perodua Myvi 
+          might cost RM800-1,500 per year, while a Honda Civic could be RM2,000-3,500.
+        </p>
+      </details>
+      <details class="card cursor-pointer">
+        <summary class="font-semibold text-gray-900">What is NCD (No Claim Discount)?</summary>
+        <p class="text-gray-600 mt-3">
+          NCD is a discount on your car insurance premium for every claim-free year. It starts at 25% after 
+          the first year and can go up to 55% after 5 consecutive claim-free years. This can significantly 
+          reduce your insurance costs over time.
+        </p>
+      </details>
+    </div>
+  </section>
+</Base>

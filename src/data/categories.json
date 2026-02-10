@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "car-insurance",
+    "name": "Car Insurance",
+    "nameBM": "Insurans Kereta",
+    "icon": "🚗",
+    "description": "Compare car insurance in Malaysia. Find the best rates from Etiqa, Allianz, Tokio Marine, and more.",
+    "descriptionBM": "Bandingkan insurans kereta di Malaysia. Cari kadar terbaik dari Etiqa, Allianz, Tokio Marine dan lain-lain.",
+    "keywords": ["car insurance malaysia", "insurans kereta", "motor insurance", "car insurance online"],
+    "volume": 2500
+  },
+  {
+    "slug": "motorcycle-insurance",
+    "name": "Motorcycle Insurance",
+    "nameBM": "Insurans Motosikal",
+    "icon": "🏍️",
+    "description": "Compare motorcycle insurance rates in Malaysia. Comprehensive and third-party coverage options.",
+    "descriptionBM": "Bandingkan kadar insurans motosikal di Malaysia.",
+    "keywords": ["motorcycle insurance malaysia", "insurans motor", "insurans motosikal"],
+    "volume": 600
+  },
+  {
+    "slug": "health-insurance",
+    "name": "Health Insurance",
+    "nameBM": "Insurans Kesihatan",
+    "icon": "🏥",
+    "description": "Find the best health insurance and medical cards in Malaysia. Compare plans from top providers.",
+    "descriptionBM": "Cari insurans kesihatan dan medical card terbaik di Malaysia.",
+    "keywords": ["health insurance malaysia", "medical card malaysia", "insurans kesihatan"],
+    "volume": 900
+  },
+  {
+    "slug": "life-insurance",
+    "name": "Life Insurance",
+    "nameBM": "Insurans Nyawa",
+    "icon": "💚",
+    "description": "Compare life insurance plans in Malaysia. Term life, whole life, and investment-linked plans.",
+    "descriptionBM": "Bandingkan pelan insurans nyawa di Malaysia.",
+    "keywords": ["life insurance malaysia", "insurans nyawa", "best life insurance"],
+    "volume": 700
+  },
+  {
+    "slug": "travel-insurance",
+    "name": "Travel Insurance",
+    "nameBM": "Insurans Perjalanan",
+    "icon": "✈️",
+    "description": "Get the best travel insurance for your trip. Compare coverage and prices for international and domestic travel.",
+    "descriptionBM": "Dapatkan insurans perjalanan terbaik untuk percutian anda.",
+    "keywords": ["travel insurance malaysia", "insurans perjalanan", "best travel insurance"],
+    "volume": 5400
+  },
+  {
+    "slug": "home-insurance",
+    "name": "Home Insurance",
+    "nameBM": "Insurans Rumah",
+    "icon": "🏠",
+    "description": "Protect your home with the right insurance. Compare fire insurance and houseowner policies in Malaysia.",
+    "descriptionBM": "Lindungi rumah anda dengan insurans yang tepat.",
+    "keywords": ["home insurance malaysia", "fire insurance", "insurans rumah"],
+    "volume": 250
+  },
+  {
+    "slug": "personal-accident",
+    "name": "Personal Accident Insurance",
+    "nameBM": "Insurans Kemalangan Diri",
+    "icon": "🛡️",
+    "description": "Personal accident insurance in Malaysia. Coverage for accidental death, disability, and medical expenses.",
+    "descriptionBM": "Insurans kemalangan diri di Malaysia.",
+    "keywords": ["personal accident insurance malaysia", "insurans kemalangan diri"],
+    "volume": 250
+  }
+]

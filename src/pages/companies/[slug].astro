@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+import companies from '../../data/companies.json';
+
+export function getStaticPaths() {
+  return companies.map((company) => ({
+    params: { slug: company.slug },
+    props: { company },
+  }));
+}
+
+const { company } = Astro.props;
+
+const productNames: Record<string, string> = {
+  'car': 'Car Insurance',
+  'motorcycle': 'Motorcycle Insurance',
+  'health': 'Health Insurance / Medical Card',
+  'life': 'Life Insurance',
+  'travel': 'Travel Insurance',
+  'home': 'Home / Fire Insurance',
+  'personal-accident': 'Personal Accident Insurance',
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": company.fullName,
+  "url": company.website,
+  "description": company.description,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": company.rating,
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": 100,
+  }
+};
+---
+
+<Base
+  title={`${company.name} Insurance Malaysia — Review & Products 2026`}
+  description={`${company.name} insurance review. Compare products, coverage, pricing, pros & cons. ${company.description}`}
+  schema={schema}
+>
+  <section class="container-wide py-12">
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="/" class="hover:text-primary-600">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/companies/" class="hover:text-primary-600">Companies</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-900">{company.name}</span>
+    </nav>
+
+    <div class="grid lg:grid-cols-3 gap-10">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+        <h1 class="text-4xl font-extrabold mb-2">{company.name} Insurance Malaysia</h1>
+        <p class="text-gray-500 mb-6">{company.fullName}</p>
+
+        <div class="flex items-center gap-4 mb-8">
+          <span class="text-2xl font-bold text-amber-600">★ {company.rating}</span>
+          <span class="text-gray-400">|</span>
+          <span class="text-sm text-gray-600">Est. {company.founded}</span>
+          <span class="text-gray-400">|</span>
+          <span class="text-sm text-gray-600">{company.headquarters}</span>
+          {company.takaful && (
+            <>
+              <span class="text-gray-400">|</span>
+              <span class="text-sm text-accent-700 font-medium">☪️ Takaful Available</span>
+            </>
+          )}
+        </div>
+
+        <!-- Overview -->
+        <div class="prose max-w-none mb-10">
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <p class="text-gray-700 leading-relaxed">{company.description}</p>
+          {company.takaful && company.takafulEntity && (
+            <p class="text-gray-700">
+              {company.name} also offers Shariah-compliant takaful products through <strong>{company.takafulEntity}</strong>.
+            </p>
+          )}
+        </div>
+
+        <!-- Products -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold mb-4">Products Available</h2>
+          <div class="grid grid-cols-2 gap-3">
+            {company.products.map((product) => (
+              <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100">
+                <span class="text-accent-500 font-bold">✓</span>
+                <span class="text-gray-800 font-medium">{productNames[product] || product}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Pros & Cons -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="bg-green-50 rounded-xl p-6">
+            <h3 class="font-bold text-green-800 mb-4">✅ Pros</h3>
+            <ul class="space-y-2">
+              {company.pros.map((pro) => (
+                <li class="text-sm text-green-700 flex items-start gap-2">
+                  <span class="mt-1">•</span>
+                  <span>{pro}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-red-50 rounded-xl p-6">
+            <h3 class="font-bold text-red-800 mb-4">❌ Cons</h3>
+            <ul class="space-y-2">
+              {company.cons.map((con) => (
+                <li class="text-sm text-red-700 flex items-start gap-2">
+                  <span class="mt-1">•</span>
+                  <span>{con}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-primary-50 rounded-xl p-6 mb-10">
+          <h3 class="font-bold text-primary-900 mb-2">Visit {company.name}</h3>
+          <p class="text-sm text-primary-700 mb-4">Get a quote or learn more about {company.name}'s insurance products.</p>
+          <a href={company.website} target="_blank" rel="noopener noreferrer" class="btn-primary text-sm">
+            Visit {company.name} Website →
+          </a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 space-y-6">
+          <!-- Quick Facts -->
+          <div class="card">
+            <h3 class="font-bold mb-4">Quick Facts</h3>
+            <dl class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <dt class="text-gray-500">Rating</dt>
+                <dd class="font-semibold text-amber-600">★ {company.rating}/5</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-500">Type</dt>
+                <dd class="font-medium capitalize">{company.type}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-500">Takaful</dt>
+                <dd class="font-medium">{company.takaful ? 'Yes' : 'No'}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-500">Founded</dt>
+                <dd class="font-medium">{company.founded}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-500">HQ</dt>
+                <dd class="font-medium">{company.headquarters}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-500">Products</dt>
+                <dd class="font-medium">{company.products.length}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Related Companies -->
+          <div class="card">
+            <h3 class="font-bold mb-4">Other Companies</h3>
+            <ul class="space-y-2">
+              {companies.filter(c => c.slug !== company.slug).slice(0, 5).map((c) => (
+                <li>
+                  <a href={`/companies/${c.slug}/`} class="text-sm text-primary-600 hover:text-primary-800 font-medium">
+                    {c.name} →
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="/companies/" class="block mt-3 text-xs text-gray-500 hover:text-primary-600">
+              View all companies →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
