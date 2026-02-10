@@ -1,0 +1,130 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NCD (No Claim Discount) — Panduan Lengkap",
+  "description": "Apa itu NCD, macam mana ia berfungsi, dan cara maximize diskaun insurans kereta anda.",
+  "url": "https://insurans.co/guides/ncd-explained/",
+  "datePublished": "2026-01-20",
+  "dateModified": "2026-02-01",
+  "inLanguage": "ms",
+  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+};
+---
+
+<Base
+  title="NCD (No Claim Discount) — Panduan Lengkap 2026"
+  description="Apa itu NCD, macam mana ia berfungsi, jadual NCD penuh (25%-55%), dan tips untuk maximize diskaun insurans kereta di Malaysia."
+  schema={schema}
+>
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/car-insurance/" class="hover:text-hijau-700 text-stone-500">Insurans Kereta</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">NCD Explained</span>
+      </nav>
+      <p class="label mb-3">Panduan</p>
+      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">NCD (No Claim Discount) — Panduan Lengkap</h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        NCD adalah diskaun yang anda dapat sebab tak buat claim insurans kereta. Faham NCD betul-betul
+        boleh jimat anda ribuan ringgit setiap tahun.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-article py-10 sm:py-14">
+    <article class="prose-editorial">
+      <h2>Apa itu NCD?</h2>
+      <p>
+        NCD bermaksud <strong>No Claim Discount</strong> — diskaun atas premium insurans kereta anda
+        untuk setiap tahun anda TIDAK buat apa-apa claim. Makin lama anda tak claim, makin besar diskaun.
+      </p>
+      <p>
+        NCD ni <strong>hak anda</strong>, bukan hak syarikat insurans. Maknanya kalau anda tukar syarikat
+        insurans, NCD anda ikut sama. Tak perlu start dari 0% balik.
+      </p>
+
+      <h2>Jadual NCD di Malaysia</h2>
+    </article>
+
+    <div class="overflow-x-auto my-8">
+      <table class="table-editorial">
+        <thead>
+          <tr>
+            <th>Tempoh Tanpa Claim</th>
+            <th>Diskaun NCD</th>
+            <th>Contoh: Premium RM2,000</th>
+            <th>Anda Jimat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Baru dapat lesen</td><td class="font-semibold">0%</td><td>RM2,000</td><td>—</td></tr>
+          <tr><td>1 tahun tanpa claim</td><td class="font-semibold">25%</td><td>RM1,500</td><td class="text-hijau-700">RM500</td></tr>
+          <tr><td>2 tahun</td><td class="font-semibold">30%</td><td>RM1,400</td><td class="text-hijau-700">RM600</td></tr>
+          <tr><td>3 tahun</td><td class="font-semibold">38.33%</td><td>RM1,233</td><td class="text-hijau-700">RM767</td></tr>
+          <tr><td>4 tahun</td><td class="font-semibold">45%</td><td>RM1,100</td><td class="text-hijau-700">RM900</td></tr>
+          <tr><td>5+ tahun</td><td class="font-semibold text-hijau-700">55%</td><td class="text-hijau-700 font-semibold">RM900</td><td class="text-hijau-700 font-semibold">RM1,100</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <article class="prose-editorial">
+      <h2>Bila NCD reset?</h2>
+      <p>
+        NCD reset ke <strong>0%</strong> bila anda buat claim. Satu claim je — tak kira besar atau kecil.
+        Sebab tu penting untuk fikir betul-betul sebelum claim.
+      </p>
+
+      <div class="info-box my-6">
+        <p class="text-sm text-stone-700">
+          <strong>Contoh sebenar:</strong> Kereta anda calar, kos repair RM600. NCD anda 55%, premium kereta RM2,500.
+          Kalau claim: anda save RM600 sekarang tapi tahun depan NCD reset, premium naik ~RM1,375.
+          <strong>Bayar sendiri lagi jimat RM775.</strong>
+        </p>
+      </div>
+
+      <h2>Tips maximize NCD</h2>
+      <ol class="list-decimal pl-5 space-y-3">
+        <li><strong>Jangan claim untuk kerosakan kecil.</strong> Kalau bawah RM1,000-1,500, usually lebih jimat bayar sendiri.</li>
+        <li><strong>Pasang dashcam.</strong> Kalau accident bukan salah anda, footage boleh bantu buktikan dan elak NCD affected.</li>
+        <li><strong>Drive carefully.</strong> Obvious, tapi NCD 55% bermakna anda bayar almost half price. Worth protecting.</li>
+        <li><strong>Semak NCD sebelum renew.</strong> Kadang syarikat tersalah rekod. Semak di MySIKAP atau tanya ejen.</li>
+      </ol>
+
+      <h2>Soalan lazim NCD</h2>
+    </article>
+
+    <div class="my-8">
+      <details class="faq-item" open>
+        <summary>Kalau tukar syarikat insurans, NCD hilang ke?</summary>
+        <p>Tidak. NCD ikut ANDA, bukan syarikat. Boleh pindah ke mana-mana syarikat berlesen dan NCD kekal sama.</p>
+      </details>
+      <details class="faq-item">
+        <summary>NCD apply untuk motor/motosikal juga?</summary>
+        <p>Ya, sistem NCD sama untuk kereta dan motosikal. Jadual diskaun pun sama — 25% hingga 55%.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Claim windscreen affect NCD ke?</summary>
+        <p>Tidak, kalau anda ada windscreen add-on. Claim windscreen bawah add-on coverage tak affect NCD. Tapi kalau claim bawah polisi utama, NCD akan affected.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kalau insurans lapse lebih dari setahun, NCD hilang?</summary>
+        <p>Ya. Kalau gap lebih dari 1 tahun, kebanyakan syarikat akan reset NCD ke 0%. Jadi jangan biarkan insurans lapse.</p>
+      </details>
+    </div>
+
+    <div class="border-t border-stone-200 pt-8 mt-8">
+      <p class="text-sm text-stone-500">Baca juga:</p>
+      <div class="flex flex-wrap gap-4 mt-2">
+        <a href="/car-insurance/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Panduan Insurans Kereta →</a>
+        <a href="/guides/how-to-claim/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Cara Buat Claim →</a>
+        <a href="/companies/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Syarikat Insurans →</a>
+      </div>
+    </div>
+  </div>
+</Base>

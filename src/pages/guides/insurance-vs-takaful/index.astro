@@ -1,0 +1,131 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Insurans vs Takaful — Apa Beza Sebenar?",
+  "datePublished": "2026-01-28",
+  "dateModified": "2026-02-01",
+  "inLanguage": "ms",
+  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+};
+---
+
+<Base
+  title="Insurans vs Takaful — Apa Beza Sebenar? Panduan 2026"
+  description="Beza insurans konvensional dan takaful di Malaysia. Konsep, cara berfungsi, kelebihan masing-masing, dan mana yang sesuai untuk anda."
+  schema={schema}
+>
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/takaful/" class="hover:text-hijau-700 text-stone-500">Takaful</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">Insurans vs Takaful</span>
+      </nav>
+      <p class="label mb-3">Panduan</p>
+      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Insurans vs Takaful — Apa Beza Sebenar?</h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Dua-dua bagi perlindungan yang sama, tapi cara kerja berbeza.
+        Ni breakdown yang simple supaya anda boleh decide.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-article py-10 sm:py-14">
+    <article class="prose-editorial">
+
+      <h2>Dalam satu ayat</h2>
+      <p>
+        <strong>Insurans:</strong> Anda bayar premium, syarikat tanggung risiko, profit masuk syarikat.<br/>
+        <strong>Takaful:</strong> Anda sumbang ke dana bersama, risiko dikongsi, lebihan dana dikongsi balik.
+      </p>
+
+      <h2>Beza utama</h2>
+    </article>
+
+    <div class="overflow-x-auto my-8">
+      <table class="table-editorial">
+        <thead>
+          <tr>
+            <th>Aspek</th>
+            <th>Insurans Konvensional</th>
+            <th>Takaful</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="font-medium">Konsep</td><td>Jual beli (kontrak)</td><td>Saling bantu-membantu (ta'awun)</td></tr>
+          <tr><td class="font-medium">Patuh Syariah?</td><td>Tidak semestinya</td><td>Ya — wajib patuh Syariah</td></tr>
+          <tr><td class="font-medium">Duit premium</td><td>Milik syarikat</td><td>Milik peserta (dalam dana)</td></tr>
+          <tr><td class="font-medium">Lebihan (surplus)</td><td>Profit syarikat</td><td>Dikongsi dengan peserta</td></tr>
+          <tr><td class="font-medium">Pelaburan</td><td>Boleh melabur apa saja</td><td>Hanya pelaburan patuh Syariah</td></tr>
+          <tr><td class="font-medium">Regulator</td><td>BNM</td><td>BNM + Majlis Penasihat Syariah</td></tr>
+          <tr><td class="font-medium">Harga</td><td>Kadang lebih murah</td><td>Kadang lebih murah — bergantung produk</td></tr>
+          <tr><td class="font-medium">Coverage</td><td>Sama</td><td>Sama</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <article class="prose-editorial">
+      <h2>Mana satu yang lebih baik?</h2>
+      <p>
+        Honestly? Dari segi <strong>perlindungan, coverage sama je</strong>. Kereta anda dilindungi sama rata
+        sama ada guna insurans atau takaful. Yang berbeza adalah konsep di belakang tabir.
+      </p>
+      <p>
+        <strong>Pilih takaful kalau:</strong>
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Anda nak produk yang patuh Syariah</li>
+        <li>Anda suka konsep surplus sharing — ada potensi dapat duit balik</li>
+        <li>Anda prefer pelaburan yang ethical/Syariah-compliant</li>
+      </ul>
+      <p>
+        <strong>Insurans konvensional okay kalau:</strong>
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Harga lebih murah untuk produk tertentu</li>
+        <li>Anda tak particular tentang Syariah-compliance</li>
+        <li>Syarikat tertentu yang anda nak takde takaful arm</li>
+      </ul>
+
+      <h2>Syarikat yang ada kedua-dua</h2>
+      <p>Ramai syarikat besar offer kedua-dua — conventional AND takaful:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><a href="/companies/etiqa/">Etiqa</a> (Etiqa General + Etiqa General Takaful)</li>
+        <li><a href="/companies/zurich/">Zurich</a> (Zurich Insurance + Zurich Takaful)</li>
+        <li><a href="/companies/aia/">AIA</a> (AIA Bhd + AIA PUBLIC Takaful)</li>
+        <li><a href="/companies/prudential/">Prudential</a> (Prudential + Prudential BSN Takaful)</li>
+      </ul>
+
+      <h2>Soalan lazim</h2>
+    </article>
+
+    <div class="my-8">
+      <details class="faq-item" open>
+        <summary>Non-Muslim boleh beli takaful?</summary>
+        <p>Ya, 100% boleh. Takaful terbuka untuk semua orang, tak kira agama. Ramai non-Muslim pilih takaful sebab surplus sharing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Claim process sama ke?</summary>
+        <p>Hampir sama. Panel bengkel, dokumen, proses — semuanya mirror insurans konvensional. Anda tak akan rasa beza dari segi proses.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Surplus sharing tu berapa biasanya?</summary>
+        <p>Bergantung pada prestasi dana takaful tahun tersebut. Kalau surplus ada, biasanya 30%-70% dikongsi dengan peserta. Tapi bukan guaranteed — ada tahun yang tak ada surplus.</p>
+      </details>
+    </div>
+
+    <div class="border-t border-stone-200 pt-8 mt-8">
+      <p class="text-sm text-stone-500">Baca juga:</p>
+      <div class="flex flex-wrap gap-4 mt-2">
+        <a href="/takaful/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Panduan Takaful →</a>
+        <a href="/companies/takaful-malaysia/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Takaful Malaysia →</a>
+        <a href="/car-insurance/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Insurans Kereta →</a>
+      </div>
+    </div>
+  </div>
+</Base>

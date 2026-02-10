@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Halaman Tidak Dijumpai — 404"
+  description="Halaman yang anda cari tidak wujud."
+>
+  <section class="container-article py-20 text-center">
+    <p class="text-6xl mb-4">🛡️</p>
+    <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Halaman tidak dijumpai</h1>
+    <p class="text-lg text-stone-600 mb-8 max-w-md mx-auto">
+      Mungkin URL salah, atau halaman ini dah dipindahkan. Cuba semak balik atau pergi ke muka utama.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/" class="btn-hijau">Ke Muka Utama</a>
+      <a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600 font-semibold underline">Insurans Kereta</a>
+      <a href="/companies/" class="text-hijau-700 hover:text-hijau-600 font-semibold underline">Syarikat Insurans</a>
+    </div>
+  </section>
+</Base>
