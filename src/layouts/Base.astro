@@ -15,12 +15,20 @@ const {
   description,
   canonical = Astro.url.href,
   ogImage = '/og-default.png',
-  lang = 'en',
+  lang = 'ms',
   schema,
 } = Astro.props;
 
 const siteName = 'Insurans.co';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+
+const navLinks = [
+  { href: '/car-insurance/', label: 'Kereta', labelEn: 'Car' },
+  { href: '/health-insurance/', label: 'Kesihatan', labelEn: 'Health' },
+  { href: '/life-insurance/', label: 'Nyawa', labelEn: 'Life' },
+  { href: '/takaful/', label: 'Takaful', labelEn: 'Takaful' },
+  { href: '/companies/', label: 'Syarikat', labelEn: 'Companies' },
+];
 ---
 
 <!DOCTYPE html>
@@ -31,7 +39,7 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={fullTitle} />
@@ -39,56 +47,75 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:image" content={ogImage} />
-  <meta property="og:locale" content={lang === 'ms' ? 'ms_MY' : 'en_MY'} />
-  
+  <meta property="og:locale" content="ms_MY" />
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  
+
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
 </head>
-<body class="min-h-screen flex flex-col bg-gray-50">
-  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <nav class="container-wide flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2 font-bold text-xl text-primary-700">
-        <span>🛡️</span>
-        <span>Insurans.co</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="/car-insurance/" class="hover:text-primary-600 transition-colors">Car Insurance</a>
-        <a href="/health-insurance/" class="hover:text-primary-600 transition-colors">Health Insurance</a>
-        <a href="/life-insurance/" class="hover:text-primary-600 transition-colors">Life Insurance</a>
-        <a href="/travel-insurance/" class="hover:text-primary-600 transition-colors">Travel Insurance</a>
-        <a href="/takaful/" class="hover:text-primary-600 transition-colors">Takaful</a>
-        <a href="/companies/" class="hover:text-primary-600 transition-colors">Companies</a>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+    <div class="container-wide">
+      <!-- Top bar -->
+      <div class="flex items-center justify-between h-14 sm:h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-baseline gap-1.5 group">
+          <span class="font-serif text-xl sm:text-2xl text-stone-900 group-hover:text-hijau-700 transition-colors">insurans</span>
+          <span class="font-serif text-xl sm:text-2xl text-hijau-600">.co</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class="px-3 py-2 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 -mr-2 text-stone-600 hover:text-stone-900"
+          aria-label="Menu"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600" aria-label="Menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </nav>
+    </div>
+
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
-      <div class="px-4 py-3 space-y-2">
-        <a href="/car-insurance/" class="block py-2 text-gray-600 hover:text-primary-600">Car Insurance</a>
-        <a href="/health-insurance/" class="block py-2 text-gray-600 hover:text-primary-600">Health Insurance</a>
-        <a href="/life-insurance/" class="block py-2 text-gray-600 hover:text-primary-600">Life Insurance</a>
-        <a href="/travel-insurance/" class="block py-2 text-gray-600 hover:text-primary-600">Travel Insurance</a>
-        <a href="/takaful/" class="block py-2 text-gray-600 hover:text-primary-600">Takaful</a>
-        <a href="/companies/" class="block py-2 text-gray-600 hover:text-primary-600">Companies</a>
-      </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-white">
+      <nav class="container-wide py-3 space-y-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="block py-2.5 px-3 text-sm font-medium text-stone-700 hover:text-hijau-700 hover:bg-hijau-50 rounded transition-colors"
+          >
+            {link.label}
+            <span class="text-stone-400 ml-1.5 text-xs">{link.labelEn}</span>
+          </a>
+        ))}
+      </nav>
     </div>
   </header>
 
@@ -96,50 +123,69 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     <slot />
   </main>
 
-  <footer class="bg-gray-900 text-gray-400 mt-20">
-    <div class="container-wide py-12">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-400 mt-16 sm:mt-20">
+    <div class="container-wide py-10 sm:py-14">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6">
+        <!-- Insurans -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Insurance</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="/car-insurance/" class="hover:text-white transition-colors">Car Insurance</a></li>
-            <li><a href="/motorcycle-insurance/" class="hover:text-white transition-colors">Motorcycle Insurance</a></li>
-            <li><a href="/health-insurance/" class="hover:text-white transition-colors">Health Insurance</a></li>
-            <li><a href="/life-insurance/" class="hover:text-white transition-colors">Life Insurance</a></li>
-            <li><a href="/travel-insurance/" class="hover:text-white transition-colors">Travel Insurance</a></li>
-            <li><a href="/home-insurance/" class="hover:text-white transition-colors">Home Insurance</a></li>
+          <h3 class="text-stone-200 font-sans font-semibold text-sm mb-4">Insurans</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="/car-insurance/" class="hover:text-white transition-colors">Insurans Kereta</a></li>
+            <li><a href="/motorcycle-insurance/" class="hover:text-white transition-colors">Insurans Motosikal</a></li>
+            <li><a href="/health-insurance/" class="hover:text-white transition-colors">Insurans Kesihatan</a></li>
+            <li><a href="/life-insurance/" class="hover:text-white transition-colors">Insurans Nyawa</a></li>
+            <li><a href="/travel-insurance/" class="hover:text-white transition-colors">Insurans Travel</a></li>
           </ul>
         </div>
+
+        <!-- Takaful -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Takaful</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="/takaful/" class="hover:text-white transition-colors">What is Takaful?</a></li>
-            <li><a href="/takaful/car/" class="hover:text-white transition-colors">Car Takaful</a></li>
-            <li><a href="/takaful/health/" class="hover:text-white transition-colors">Health Takaful</a></li>
+          <h3 class="text-stone-200 font-sans font-semibold text-sm mb-4">Takaful</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="/takaful/" class="hover:text-white transition-colors">Apa Itu Takaful?</a></li>
+            <li><a href="/takaful/car/" class="hover:text-white transition-colors">Takaful Kereta</a></li>
+            <li><a href="/takaful/health/" class="hover:text-white transition-colors">Takaful Kesihatan</a></li>
           </ul>
         </div>
+
+        <!-- Syarikat -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Companies</h3>
-          <ul class="space-y-2 text-sm">
+          <h3 class="text-stone-200 font-sans font-semibold text-sm mb-4">Syarikat</h3>
+          <ul class="space-y-2.5 text-sm">
             <li><a href="/companies/etiqa/" class="hover:text-white transition-colors">Etiqa</a></li>
             <li><a href="/companies/allianz/" class="hover:text-white transition-colors">Allianz</a></li>
             <li><a href="/companies/tokio-marine/" class="hover:text-white transition-colors">Tokio Marine</a></li>
-            <li><a href="/companies/aia/" class="hover:text-white transition-colors">AIA</a></li>
-            <li><a href="/companies/" class="hover:text-white transition-colors">View All →</a></li>
+            <li><a href="/companies/zurich/" class="hover:text-white transition-colors">Zurich</a></li>
+            <li><a href="/companies/" class="hover:text-white transition-colors">Semua syarikat →</a></li>
           </ul>
         </div>
+
+        <!-- Panduan -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Guides</h3>
-          <ul class="space-y-2 text-sm">
+          <h3 class="text-stone-200 font-sans font-semibold text-sm mb-4">Panduan</h3>
+          <ul class="space-y-2.5 text-sm">
             <li><a href="/guides/ncd-explained/" class="hover:text-white transition-colors">NCD Explained</a></li>
-            <li><a href="/guides/how-to-claim/" class="hover:text-white transition-colors">How to Claim</a></li>
-            <li><a href="/guides/renew-car-insurance/" class="hover:text-white transition-colors">Renew Car Insurance</a></li>
+            <li><a href="/guides/renew-car-insurance/" class="hover:text-white transition-colors">Renew Insurans Online</a></li>
+            <li><a href="/guides/how-to-claim/" class="hover:text-white transition-colors">Cara Buat Claim</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm">© 2026 Insurans.co — Insurance guide for Malaysia.</p>
-        <p class="text-xs">Disclaimer: This site provides general information only, not financial advice. Always consult a licensed insurance agent.</p>
+
+      <div class="border-t border-stone-800 mt-10 pt-8">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <a href="/" class="font-serif text-lg text-stone-300 hover:text-white transition-colors">
+              insurans<span class="text-hijau-400">.co</span>
+            </a>
+            <p class="text-xs text-stone-500 mt-1">Panduan insurans untuk rakyat Malaysia.</p>
+          </div>
+          <p class="text-xs text-stone-500 max-w-md">
+            Penafian: Laman ini menyediakan maklumat am sahaja, bukan nasihat kewangan.
+            Sila rujuk ejen insurans berlesen untuk nasihat khusus.
+          </p>
+        </div>
+        <p class="text-xs text-stone-600 mt-6">© 2026 Insurans.co</p>
       </div>
     </div>
   </footer>

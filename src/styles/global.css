@@ -5,29 +5,174 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   body {
-    @apply text-gray-800 antialiased;
+    @apply text-stone-800 bg-krim-50 font-sans;
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+
+  h4, h5, h6 {
+    @apply font-sans font-semibold tracking-tight;
+  }
+
+  /* Editorial link style */
+  article a {
+    @apply text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600 transition-colors;
+  }
+
+  /* Better focus styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-hijau-500;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-emas-200 text-stone-900;
   }
 }
 
 @layer components {
-  .container-narrow {
-    @apply max-w-4xl mx-auto px-4 sm:px-6;
+  /* Layout containers */
+  .container-article {
+    @apply max-w-3xl mx-auto px-5 sm:px-6;
   }
+
   .container-wide {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-5 sm:px-6;
   }
-  .btn-primary {
-    @apply inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors;
+
+  /* Editorial divider */
+  .divider {
+    @apply border-t border-stone-200 my-8;
   }
+
+  .divider-bold {
+    @apply border-t-2 border-stone-900 my-8;
+  }
+
+  /* Category label */
+  .label {
+    @apply text-xs font-sans font-bold uppercase tracking-widest text-hijau-700;
+  }
+
+  /* Card — minimal, editorial */
+  .card-editorial {
+    @apply bg-white border border-stone-200 p-5 sm:p-6;
+    @apply hover:border-stone-400 transition-colors;
+  }
+
+  /* Verdict badge */
+  .verdict {
+    @apply inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1;
+  }
+
+  .verdict-best {
+    @apply verdict bg-hijau-100 text-hijau-800;
+  }
+
+  .verdict-good {
+    @apply verdict bg-emas-100 text-emas-800;
+  }
+
+  /* Info box */
+  .info-box {
+    @apply bg-emas-50 border-l-4 border-emas-400 p-4 sm:p-5;
+  }
+
+  /* Table styles */
+  .table-editorial {
+    @apply w-full text-sm;
+  }
+
+  .table-editorial thead {
+    @apply border-b-2 border-stone-900;
+  }
+
+  .table-editorial th {
+    @apply text-left font-sans font-bold text-stone-900 py-3 pr-4;
+  }
+
+  .table-editorial td {
+    @apply py-3 pr-4 border-b border-stone-100;
+  }
+
+  .table-editorial tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  /* FAQ accordion */
+  .faq-item {
+    @apply border-b border-stone-200 py-4;
+  }
+
+  .faq-item summary {
+    @apply font-sans font-semibold text-stone-900 cursor-pointer list-none;
+    @apply hover:text-hijau-700 transition-colors;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: '+';
+    @apply inline-block w-6 font-mono text-stone-400 mr-2;
+  }
+
+  .faq-item[open] summary::before {
+    content: '−';
+  }
+
+  .faq-item p {
+    @apply mt-3 text-stone-600 leading-relaxed pl-8;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center font-sans font-semibold text-sm transition-all;
+  }
+
+  .btn-hijau {
+    @apply btn px-5 py-2.5 bg-hijau-700 text-white hover:bg-hijau-800;
+  }
+
   .btn-outline {
-    @apply inline-flex items-center px-6 py-3 border-2 border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors;
+    @apply btn px-5 py-2.5 border-2 border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white;
   }
-  .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow;
+
+  /* Prose for article content */
+  .prose-editorial {
+    @apply text-stone-700 leading-relaxed;
+  }
+
+  .prose-editorial p {
+    @apply mb-4;
+  }
+
+  .prose-editorial h2 {
+    @apply font-serif text-headline-md text-stone-900 mt-10 mb-4;
+  }
+
+  .prose-editorial h3 {
+    @apply font-serif text-headline-sm text-stone-900 mt-8 mb-3;
+  }
+
+  .prose-editorial ul, .prose-editorial ol {
+    @apply mb-4 pl-5 space-y-2;
+  }
+
+  .prose-editorial li {
+    @apply text-stone-700;
+  }
+
+  .prose-editorial strong {
+    @apply text-stone-900 font-semibold;
   }
 }

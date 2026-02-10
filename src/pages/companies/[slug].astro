@@ -11,22 +11,24 @@ export function getStaticPaths() {
 
 const { company } = Astro.props;
 
-const productNames: Record<string, string> = {
-  'car': 'Car Insurance',
-  'motorcycle': 'Motorcycle Insurance',
-  'health': 'Health Insurance / Medical Card',
-  'life': 'Life Insurance',
-  'travel': 'Travel Insurance',
-  'home': 'Home / Fire Insurance',
-  'personal-accident': 'Personal Accident Insurance',
+const productNamesBM: Record<string, string> = {
+  'car': 'Insurans Kereta',
+  'motorcycle': 'Insurans Motosikal',
+  'health': 'Insurans Kesihatan / Medical Card',
+  'life': 'Insurans Nyawa',
+  'travel': 'Insurans Travel',
+  'home': 'Insurans Rumah / Kebakaran',
+  'personal-accident': 'Insurans Kemalangan Diri',
 };
+
+const otherCompanies = companies.filter(c => c.slug !== company.slug).slice(0, 5);
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": company.fullName,
   "url": company.website,
-  "description": company.description,
+  "description": company.descriptionBM || company.description,
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": company.rating,
@@ -38,82 +40,92 @@ const schema = {
 ---
 
 <Base
-  title={`${company.name} Insurance Malaysia — Review & Products 2026`}
-  description={`${company.name} insurance review. Compare products, coverage, pricing, pros & cons. ${company.description}`}
+  title={`${company.name} — Review Insurans Malaysia 2026`}
+  description={`Review ${company.name} Malaysia. ${company.verdictBM} Rating: ${company.rating}/5. Produk, kelebihan, kekurangan, dan perbandingan.`}
   schema={schema}
 >
-  <section class="container-wide py-12">
-    <nav class="text-sm text-gray-500 mb-6">
-      <a href="/" class="hover:text-primary-600">Home</a>
-      <span class="mx-2">›</span>
-      <a href="/companies/" class="hover:text-primary-600">Companies</a>
-      <span class="mx-2">›</span>
-      <span class="text-gray-900">{company.name}</span>
-    </nav>
+  <!-- Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/companies/" class="hover:text-hijau-700 text-stone-500">Syarikat</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">{company.name}</span>
+      </nav>
 
-    <div class="grid lg:grid-cols-3 gap-10">
+      <div class="max-w-3xl">
+        <p class="label mb-3">Review Syarikat</p>
+        <h1 class="font-serif text-headline-lg text-stone-900 mb-2">
+          {company.name}
+        </h1>
+        <p class="text-sm text-stone-400 mb-4">
+          {company.fullName}
+          {company.parent && <span> · {company.parent}</span>}
+        </p>
+        <p class="text-lg text-stone-600 leading-relaxed">
+          {company.verdictBM}
+        </p>
+
+        <!-- Quick facts inline -->
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 text-sm text-stone-600">
+          <span class="font-semibold text-emas-600">★ {company.rating}/5</span>
+          <span>Est. {company.founded}</span>
+          <span>{company.headquarters}</span>
+          {company.takaful && (
+            <span class="font-medium text-hijau-700">Takaful tersedia</span>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <!-- Main Content -->
       <div class="lg:col-span-2">
-        <h1 class="text-4xl font-extrabold mb-2">{company.name} Insurance Malaysia</h1>
-        <p class="text-gray-500 mb-6">{company.fullName}</p>
+        <article class="prose-editorial">
 
-        <div class="flex items-center gap-4 mb-8">
-          <span class="text-2xl font-bold text-amber-600">★ {company.rating}</span>
-          <span class="text-gray-400">|</span>
-          <span class="text-sm text-gray-600">Est. {company.founded}</span>
-          <span class="text-gray-400">|</span>
-          <span class="text-sm text-gray-600">{company.headquarters}</span>
-          {company.takaful && (
-            <>
-              <span class="text-gray-400">|</span>
-              <span class="text-sm text-accent-700 font-medium">☪️ Takaful Available</span>
-            </>
-          )}
-        </div>
+          <h2>Tentang {company.name}</h2>
+          <p>{company.descriptionBM || company.description}</p>
 
-        <!-- Overview -->
-        <div class="prose max-w-none mb-10">
-          <h2 class="text-2xl font-bold mb-4">Overview</h2>
-          <p class="text-gray-700 leading-relaxed">{company.description}</p>
           {company.takaful && company.takafulEntity && (
-            <p class="text-gray-700">
-              {company.name} also offers Shariah-compliant takaful products through <strong>{company.takafulEntity}</strong>.
+            <p>
+              {company.name} juga menawarkan produk takaful (patuh Syariah) melalui
+              <strong>{company.takafulEntity}</strong>.
             </p>
           )}
-        </div>
 
-        <!-- Products -->
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold mb-4">Products Available</h2>
-          <div class="grid grid-cols-2 gap-3">
-            {company.products.map((product) => (
-              <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100">
-                <span class="text-accent-500 font-bold">✓</span>
-                <span class="text-gray-800 font-medium">{productNames[product] || product}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          {company.keyFact && (
+            <div class="info-box my-6">
+              <p class="text-sm text-stone-700">
+                <strong>Fakta menarik:</strong> {company.keyFact}
+              </p>
+            </div>
+          )}
+
+        </article>
 
         <!-- Pros & Cons -->
-        <div class="grid md:grid-cols-2 gap-6 mb-10">
-          <div class="bg-green-50 rounded-xl p-6">
-            <h3 class="font-bold text-green-800 mb-4">✅ Pros</h3>
+        <div class="grid sm:grid-cols-2 gap-4 my-8">
+          <div class="bg-hijau-50 border border-hijau-200 p-5">
+            <h3 class="font-semibold text-hijau-800 text-sm mb-3">Kelebihan</h3>
             <ul class="space-y-2">
-              {company.pros.map((pro) => (
-                <li class="text-sm text-green-700 flex items-start gap-2">
-                  <span class="mt-1">•</span>
+              {company.pros.map((pro: string) => (
+                <li class="text-sm text-hijau-700 flex items-start gap-2">
+                  <span class="text-hijau-500 mt-0.5 flex-shrink-0">+</span>
                   <span>{pro}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div class="bg-red-50 rounded-xl p-6">
-            <h3 class="font-bold text-red-800 mb-4">❌ Cons</h3>
+          <div class="bg-stone-50 border border-stone-200 p-5">
+            <h3 class="font-semibold text-stone-700 text-sm mb-3">Kekurangan</h3>
             <ul class="space-y-2">
-              {company.cons.map((con) => (
-                <li class="text-sm text-red-700 flex items-start gap-2">
-                  <span class="mt-1">•</span>
+              {company.cons.map((con: string) => (
+                <li class="text-sm text-stone-600 flex items-start gap-2">
+                  <span class="text-stone-400 mt-0.5 flex-shrink-0">−</span>
                   <span>{con}</span>
                 </li>
               ))}
@@ -121,68 +133,158 @@ const schema = {
           </div>
         </div>
 
+        <!-- Products -->
+        <article class="prose-editorial">
+          <h2>Produk yang ditawarkan</h2>
+        </article>
+
+        <div class="grid grid-cols-2 gap-3 my-6">
+          {company.products.map((product: string) => (
+            <div class="flex items-center gap-3 p-3 border border-stone-200 bg-white">
+              <span class="text-hijau-600 font-bold text-sm">✓</span>
+              <span class="text-sm text-stone-800">{productNamesBM[product] || product}</span>
+            </div>
+          ))}
+        </div>
+
+        {company.carPremiumRange && (
+          <div class="my-8">
+            <article class="prose-editorial">
+              <h2>Harga insurans kereta</h2>
+              <p>
+                Anggaran harga insurans kereta (comprehensive) di {company.name} untuk kereta popular:
+              </p>
+            </article>
+            <div class="bg-krim-50 border border-krim-200 p-5 my-4">
+              <p class="text-sm text-stone-700">
+                <strong>Anggaran premium (Myvi/Axia):</strong> {company.carPremiumRange}
+              </p>
+              <p class="text-xs text-stone-500 mt-2">
+                Harga bergantung pada NCD, umur kereta, dan add-ons. Dapatkan quotation tepat di
+                <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 underline">Bjak.my</a>
+                atau terus di
+                <a href={company.website} target="_blank" rel="noopener" class="text-hijau-700 underline">{company.name} Online</a>.
+              </p>
+            </div>
+          </div>
+        )}
+
+        <!-- Contact & Links -->
+        <article class="prose-editorial">
+          <h2>Maklumat hubungan</h2>
+        </article>
+
+        <div class="my-6 space-y-3">
+          <div class="flex items-start gap-3 text-sm">
+            <span class="text-stone-400 w-20 flex-shrink-0 font-medium">Website</span>
+            <a href={company.website} target="_blank" rel="noopener" class="text-hijau-700 underline hover:text-hijau-600 break-all">
+              {company.website.replace('https://', '')}
+            </a>
+          </div>
+          {company.claimLine && (
+            <div class="flex items-start gap-3 text-sm">
+              <span class="text-stone-400 w-20 flex-shrink-0 font-medium">Claim</span>
+              <span class="text-stone-900 font-semibold">{company.claimLine}</span>
+            </div>
+          )}
+          {company.digitalPlatform && (
+            <div class="flex items-start gap-3 text-sm">
+              <span class="text-stone-400 w-20 flex-shrink-0 font-medium">Platform</span>
+              <span class="text-stone-700">{company.digitalPlatform}</span>
+            </div>
+          )}
+        </div>
+
         <!-- CTA -->
-        <div class="bg-primary-50 rounded-xl p-6 mb-10">
-          <h3 class="font-bold text-primary-900 mb-2">Visit {company.name}</h3>
-          <p class="text-sm text-primary-700 mb-4">Get a quote or learn more about {company.name}'s insurance products.</p>
-          <a href={company.website} target="_blank" rel="noopener noreferrer" class="btn-primary text-sm">
-            Visit {company.name} Website →
+        <div class="border-2 border-stone-900 p-5 my-8">
+          <h3 class="font-serif text-lg text-stone-900 mb-2">Lawati {company.name}</h3>
+          <p class="text-sm text-stone-600 mb-4">
+            Dapatkan quotation atau maklumat lanjut terus dari {company.name}.
+          </p>
+          <a
+            href={company.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-hijau text-sm"
+          >
+            Pergi ke {company.name} →
           </a>
         </div>
       </div>
 
       <!-- Sidebar -->
-      <div class="lg:col-span-1">
-        <div class="sticky top-24 space-y-6">
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
           <!-- Quick Facts -->
-          <div class="card">
-            <h3 class="font-bold mb-4">Quick Facts</h3>
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-4">Ringkasan</h3>
             <dl class="space-y-3 text-sm">
               <div class="flex justify-between">
-                <dt class="text-gray-500">Rating</dt>
-                <dd class="font-semibold text-amber-600">★ {company.rating}/5</dd>
+                <dt class="text-stone-500">Rating</dt>
+                <dd class="font-semibold text-emas-600">★ {company.rating}/5</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Type</dt>
-                <dd class="font-medium capitalize">{company.type}</dd>
+                <dt class="text-stone-500">Jenis</dt>
+                <dd class="font-medium capitalize">{company.type === 'takaful' ? 'Takaful' : 'Konvensional'}</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Takaful</dt>
-                <dd class="font-medium">{company.takaful ? 'Yes' : 'No'}</dd>
+                <dt class="text-stone-500">Takaful</dt>
+                <dd class="font-medium">{company.takaful ? 'Ada' : 'Tiada'}</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Founded</dt>
+                <dt class="text-stone-500">Ditubuhkan</dt>
                 <dd class="font-medium">{company.founded}</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">HQ</dt>
+                <dt class="text-stone-500">Ibu pejabat</dt>
                 <dd class="font-medium">{company.headquarters}</dd>
               </div>
+              {company.parent && (
+                <div class="flex justify-between">
+                  <dt class="text-stone-500">Induk</dt>
+                  <dd class="font-medium text-right">{company.parent}</dd>
+                </div>
+              )}
               <div class="flex justify-between">
-                <dt class="text-gray-500">Products</dt>
-                <dd class="font-medium">{company.products.length}</dd>
+                <dt class="text-stone-500">Produk</dt>
+                <dd class="font-medium">{company.products.length} jenis</dd>
               </div>
             </dl>
           </div>
 
-          <!-- Related Companies -->
-          <div class="card">
-            <h3 class="font-bold mb-4">Other Companies</h3>
-            <ul class="space-y-2">
-              {companies.filter(c => c.slug !== company.slug).slice(0, 5).map((c) => (
-                <li>
-                  <a href={`/companies/${c.slug}/`} class="text-sm text-primary-600 hover:text-primary-800 font-medium">
-                    {c.name} →
+          <!-- Other Companies -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Syarikat lain</h3>
+            <ul class="space-y-2.5">
+              {otherCompanies.map((c) => (
+                <li class="flex items-baseline justify-between">
+                  <a href={`/companies/${c.slug}/`} class="text-sm text-hijau-700 hover:text-hijau-600 font-medium">
+                    {c.name}
                   </a>
+                  <span class="text-xs text-stone-500">★ {c.rating}</span>
                 </li>
               ))}
             </ul>
-            <a href="/companies/" class="block mt-3 text-xs text-gray-500 hover:text-primary-600">
-              View all companies →
+            <a href="/companies/" class="block mt-4 text-xs text-stone-500 hover:text-hijau-700 font-medium">
+              Lihat semua syarikat →
             </a>
           </div>
+
+          <!-- Related pages -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+            <ul class="space-y-2.5 text-sm">
+              {company.products.includes('car') && (
+                <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
+              )}
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+              {company.takaful && (
+                <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs Takaful</a></li>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
+      </aside>
     </div>
-  </section>
+  </div>
 </Base>

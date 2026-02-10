@@ -6,178 +6,627 @@ const carInsurers = companies.filter(c => c.products.includes('car'));
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Car Insurance Malaysia",
-  "description": "Compare car insurance in Malaysia from 20+ providers.",
+  "@type": "Article",
+  "headline": "Panduan Insurans Kereta Malaysia 2026",
+  "description": "Panduan lengkap insurans kereta Malaysia — harga sebenar, cara renew online, NCD, dan perbandingan syarikat.",
   "url": "https://insurans.co/car-insurance/",
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-02-01",
+  "inLanguage": "ms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  },
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://insurans.co/" },
-      { "@type": "ListItem", "position": 2, "name": "Car Insurance", "item": "https://insurans.co/car-insurance/" }
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Insurans Kereta", "item": "https://insurans.co/car-insurance/" }
     ]
   }
 };
 ---
 
 <Base
-  title="Car Insurance Malaysia 2026 — Compare & Save"
-  description="Compare car insurance in Malaysia. Find the cheapest rates from Etiqa, Allianz, Tokio Marine, Zurich & more. Comprehensive & third-party coverage compared."
+  title="Insurans Kereta Malaysia 2026 — Harga, Perbandingan & Panduan"
+  description="Panduan insurans kereta Malaysia 2026. Berapa harga sebenar untuk Myvi, Vios, City? Cara renew online, NCD, beza comprehensive vs third-party. Ditulis dalam BM."
   schema={schema}
 >
-  <section class="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16">
-    <div class="container-wide">
-      <nav class="text-sm text-primary-200 mb-6">
-        <a href="/" class="hover:text-white">Home</a>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
         <span class="mx-2">›</span>
-        <span class="text-white">Car Insurance</span>
+        <span class="text-stone-700">Insurans Kereta</span>
       </nav>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Car Insurance Malaysia</h1>
-      <p class="text-lg text-primary-100 max-w-2xl">
-        Compare car insurance from Malaysia's top providers. Find the best rates for comprehensive, 
-        third-party, and takaful motor coverage.
+      <p class="label mb-3">Panduan Lengkap</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Insurans Kereta Malaysia 2026
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Semua yang anda perlu tahu tentang insurans kereta di Malaysia — harga sebenar,
+        cara beli online, NCD, dan syarikat mana yang paling berbaloi.
       </p>
-    </div>
-  </section>
 
-  <!-- Quick Links -->
-  <section class="bg-white border-b border-gray-100">
-    <div class="container-wide py-4 flex flex-wrap gap-4 text-sm">
-      <a href="#providers" class="text-primary-600 hover:text-primary-800 font-medium">Providers</a>
-      <a href="#types" class="text-primary-600 hover:text-primary-800 font-medium">Coverage Types</a>
-      <a href="#how-it-works" class="text-primary-600 hover:text-primary-800 font-medium">How It Works</a>
-      <a href="#faq" class="text-primary-600 hover:text-primary-800 font-medium">FAQ</a>
-      <a href="/car-insurance/best/" class="text-primary-600 hover:text-primary-800 font-medium">Best Car Insurance 2026</a>
-    </div>
-  </section>
-
-  <!-- Coverage Types -->
-  <section id="types" class="container-wide py-12">
-    <h2 class="text-3xl font-bold mb-8">Types of Car Insurance in Malaysia</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="card">
-        <div class="text-3xl mb-3">🛡️</div>
-        <h3 class="text-lg font-bold mb-2">Comprehensive</h3>
-        <p class="text-sm text-gray-600 mb-3">
-          Full protection covering damage to your own car and third-party vehicles/property. 
-          Includes theft, fire, and natural disaster coverage.
-        </p>
-        <p class="text-xs text-primary-600 font-semibold">Most Popular Choice</p>
-      </div>
-      <div class="card">
-        <div class="text-3xl mb-3">🚗</div>
-        <h3 class="text-lg font-bold mb-2">Third-Party</h3>
-        <p class="text-sm text-gray-600 mb-3">
-          Minimum legal requirement in Malaysia. Covers damage to other people's vehicles and property only. 
-          Does NOT cover your own car.
-        </p>
-        <p class="text-xs text-gray-500 font-semibold">Cheapest Option</p>
-      </div>
-      <div class="card">
-        <div class="text-3xl mb-3">🔥</div>
-        <h3 class="text-lg font-bold mb-2">Third-Party, Fire & Theft</h3>
-        <p class="text-sm text-gray-600 mb-3">
-          Covers third-party liability plus protection against fire damage and vehicle theft. 
-          A middle-ground option between comprehensive and third-party.
-        </p>
-        <p class="text-xs text-gray-500 font-semibold">Mid-Range</p>
+      <!-- Quick jump links -->
+      <div class="flex flex-wrap gap-2 mt-6">
+        <a href="#harga" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Harga</a>
+        <a href="#jenis" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Jenis Coverage</a>
+        <a href="#ncd" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">NCD</a>
+        <a href="#renew" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Cara Renew</a>
+        <a href="#syarikat" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Syarikat</a>
+        <a href="#tips" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Tips Jimat</a>
       </div>
     </div>
   </section>
 
-  <!-- Providers -->
-  <section id="providers" class="bg-white py-12">
-    <div class="container-wide">
-      <h2 class="text-3xl font-bold mb-8">Car Insurance Providers in Malaysia</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {carInsurers.map((company) => (
-          <a href={`/companies/${company.slug}/`} class="card group">
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+
+          <!-- Intro -->
+          <p class="text-lg text-stone-700 leading-relaxed">
+            Insurans kereta adalah <strong>wajib</strong> di Malaysia. Tak boleh renew roadtax tanpa insurans yang sah.
+            Tapi berapa sebenarnya kos? Dan macam mana nak pilih yang betul?
+            Jom kita breakdown satu per satu.
+          </p>
+
+          <!-- Harga Section -->
+          <h2 id="harga">Berapa harga insurans kereta di Malaysia?</h2>
+
+          <p>
+            Harga bergantung pada beberapa faktor: <strong>nilai pasaran kereta</strong>, <strong>NCD anda</strong>,
+            <strong>jenis coverage</strong>, dan <strong>syarikat insurans</strong> yang dipilih.
+          </p>
+
+          <p>
+            Selepas <strong>liberalisasi tarif motor 2017</strong>, setiap syarikat boleh set harga premium masing-masing.
+            Maknanya harga boleh berbeza antara syarikat — sebab tu penting untuk bandingkan.
+          </p>
+
+        </article>
+
+        <!-- Price Table -->
+        <div class="overflow-x-auto my-8">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Kereta</th>
+                <th>Nilai Pasaran</th>
+                <th>Premium (0% NCD)</th>
+                <th>Premium (55% NCD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium text-stone-900">Perodua Axia 1.0</td>
+                <td>RM22K – RM28K</td>
+                <td>RM1,200 – RM1,600</td>
+                <td class="font-semibold text-hijau-700">RM550 – RM750</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Perodua Myvi 1.5</td>
+                <td>RM38K – RM48K</td>
+                <td>RM1,500 – RM2,200</td>
+                <td class="font-semibold text-hijau-700">RM700 – RM1,000</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Proton Saga 1.3</td>
+                <td>RM28K – RM38K</td>
+                <td>RM1,300 – RM1,800</td>
+                <td class="font-semibold text-hijau-700">RM600 – RM850</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Proton X50 1.5T</td>
+                <td>RM70K – RM90K</td>
+                <td>RM2,500 – RM3,500</td>
+                <td class="font-semibold text-hijau-700">RM1,200 – RM1,600</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Toyota Vios 1.5</td>
+                <td>RM55K – RM70K</td>
+                <td>RM2,000 – RM2,800</td>
+                <td class="font-semibold text-hijau-700">RM900 – RM1,400</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Honda City 1.5</td>
+                <td>RM60K – RM78K</td>
+                <td>RM2,200 – RM3,000</td>
+                <td class="font-semibold text-hijau-700">RM1,000 – RM1,500</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Honda Civic 1.5T</td>
+                <td>RM95K – RM120K</td>
+                <td>RM3,500 – RM5,000</td>
+                <td class="font-semibold text-hijau-700">RM1,800 – RM2,800</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Toyota Hilux 2.4</td>
+                <td>RM100K – RM130K</td>
+                <td>RM3,800 – RM5,500</td>
+                <td class="font-semibold text-hijau-700">RM1,800 – RM2,600</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Mazda CX-5 2.0</td>
+                <td>RM110K – RM140K</td>
+                <td>RM4,000 – RM5,800</td>
+                <td class="font-semibold text-hijau-700">RM1,900 – RM2,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Nota penting:</strong> Harga di atas adalah anggaran untuk polisi comprehensive, tahun 2026.
+            Harga sebenar bergantung pada umur kereta, lokasi, rekod pemanduan, dan add-ons yang dipilih.
+            Sentiasa dapatkan quotation dari 2-3 syarikat sebelum buat keputusan.
+          </p>
+        </div>
+
+        <article class="prose-editorial">
+
+          <!-- Jenis Coverage -->
+          <h2 id="jenis">Tiga jenis insurans kereta di Malaysia</h2>
+
+          <p>
+            Di Malaysia, ada tiga jenis coverage utama. Mana satu sesuai untuk anda bergantung pada
+            keadaan kereta dan bajet.
+          </p>
+
+        </article>
+
+        <!-- Coverage Types -->
+        <div class="space-y-4 my-8">
+          <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
-              <h3 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{company.name}</h3>
-              <span class="text-sm font-semibold text-amber-600">★ {company.rating}</span>
+              <h3 class="font-serif text-xl text-stone-900">1. Comprehensive (Komprehensif)</h3>
+              <span class="verdict-best">Paling Popular</span>
             </div>
-            <p class="text-sm text-gray-600 line-clamp-2 mb-3">{company.description}</p>
-            {company.takaful && (
-              <span class="text-xs text-accent-700 font-medium">☪️ Takaful available</span>
-            )}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+            <p class="text-sm text-stone-600 leading-relaxed mb-3">
+              Cover semua — kerosakan kereta sendiri, kereta orang lain, kecurian, kebakaran, dan bencana alam.
+              Kalau anda buat accident, kereta anda pun dilindungi. Ini pilihan <strong>90%+ pemilik kereta di Malaysia</strong>.
+            </p>
+            <p class="text-sm text-stone-500">
+              <strong>Sesuai untuk:</strong> Semua kereta yang masih bernilai. Terutama kereta baru atau kereta yang masih ada loan.
+            </p>
+          </div>
 
-  <!-- How Car Insurance Works -->
-  <section id="how-it-works" class="container-wide py-12">
-    <h2 class="text-3xl font-bold mb-8">How Car Insurance Works in Malaysia</h2>
-    <div class="prose max-w-none text-gray-700 space-y-4">
-      <p>
-        Car insurance (insurans kereta) is mandatory in Malaysia. Under the Road Transport Act 1987, 
-        every vehicle on the road must have at minimum third-party insurance coverage. Without it, 
-        you cannot renew your road tax.
-      </p>
-      <h3 class="text-xl font-bold text-gray-900 mt-6">Key Terms to Know</h3>
-      <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Sum Insured:</strong> The maximum amount the insurer will pay if your car is a total loss. Based on your car's market value.</li>
-        <li><strong>NCD (No Claim Discount):</strong> A discount of 25% to 55% on your premium for each claim-free year.</li>
-        <li><strong>Excess:</strong> The amount you must pay first before the insurance kicks in (usually RM400 for policies bought online).</li>
-        <li><strong>Named Driver:</strong> Additional drivers covered under your policy. Extra named drivers may increase your premium.</li>
-        <li><strong>Add-ons:</strong> Optional extras like windscreen coverage, special perils (flood), and towing.</li>
-      </ul>
-      <h3 class="text-xl font-bold text-gray-900 mt-6">NCD Scale in Malaysia</h3>
-    </div>
-    <div class="mt-4 overflow-x-auto">
-      <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-sm">
-        <thead class="bg-primary-50">
-          <tr>
-            <th class="px-4 py-3 text-left text-sm font-semibold text-primary-900">Year</th>
-            <th class="px-4 py-3 text-left text-sm font-semibold text-primary-900">NCD Discount</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100">
-          <tr><td class="px-4 py-3 text-sm">After 1 claim-free year</td><td class="px-4 py-3 text-sm font-semibold">25%</td></tr>
-          <tr><td class="px-4 py-3 text-sm">After 2 claim-free years</td><td class="px-4 py-3 text-sm font-semibold">30%</td></tr>
-          <tr><td class="px-4 py-3 text-sm">After 3 claim-free years</td><td class="px-4 py-3 text-sm font-semibold">38.33%</td></tr>
-          <tr><td class="px-4 py-3 text-sm">After 4 claim-free years</td><td class="px-4 py-3 text-sm font-semibold">45%</td></tr>
-          <tr><td class="px-4 py-3 text-sm">After 5+ claim-free years</td><td class="px-4 py-3 text-sm font-semibold text-accent-600">55%</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+          <div class="card-editorial">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="font-serif text-xl text-stone-900">2. Third-Party Only</h3>
+              <span class="verdict bg-stone-100 text-stone-600">Paling Murah</span>
+            </div>
+            <p class="text-sm text-stone-600 leading-relaxed mb-3">
+              Cuma cover kerosakan harta dan kecederaan <strong>orang lain</strong>. Kereta sendiri? Langsung tak dilindungi.
+              Kalau anda langgar tiang sendiri, kena tanggung sendiri. Ini adalah <strong>minimum yang diperlukan oleh undang-undang</strong>.
+            </p>
+            <p class="text-sm text-stone-500">
+              <strong>Sesuai untuk:</strong> Kereta lama yang nilai dah sangat rendah (bawah RM10,000), di mana premium comprehensive
+              tak berbaloi berbanding nilai kereta.
+            </p>
+          </div>
 
-  <!-- FAQ -->
-  <section id="faq" class="bg-white py-12">
-    <div class="container-narrow">
-      <h2 class="text-3xl font-bold text-center mb-8">Car Insurance FAQ</h2>
-      <div class="space-y-4">
-        <details class="card cursor-pointer" open>
-          <summary class="font-semibold">How much does car insurance cost in Malaysia?</summary>
-          <p class="text-gray-600 mt-3 text-sm">
-            Car insurance costs vary based on your car's market value, engine capacity, NCD, age, and coverage type. 
-            A Perodua Myvi typically costs RM800-1,500/year for comprehensive coverage, while a Honda Civic may cost RM2,000-3,500/year.
+          <div class="card-editorial">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="font-serif text-xl text-stone-900">3. Third-Party, Fire & Theft (TPFT)</h3>
+              <span class="verdict bg-emas-50 text-emas-700">Tengah-tengah</span>
+            </div>
+            <p class="text-sm text-stone-600 leading-relaxed mb-3">
+              Macam third-party, tapi tambah perlindungan untuk <strong>kecurian</strong> dan <strong>kebakaran</strong>.
+              Kerosakan accident kereta sendiri tetap tak dilindungi.
+            </p>
+            <p class="text-sm text-stone-500">
+              <strong>Sesuai untuk:</strong> Kereta yang nilainya sederhana dan park di kawasan berisiko tinggi kecurian.
+              Honestly, kebanyakan orang pilih comprehensive je.
+            </p>
+          </div>
+        </div>
+
+        <article class="prose-editorial">
+
+          <!-- NCD -->
+          <h2 id="ncd">NCD (No Claim Discount) — apa benda sebenarnya?</h2>
+
+          <p>
+            NCD adalah <strong>diskaun yang anda dapat sebab tak buat claim</strong>. Setiap tahun anda tak claim,
+            diskaun naik. Maksimum 55% selepas 5 tahun berturut-turut tanpa claim.
           </p>
-        </details>
-        <details class="card cursor-pointer">
-          <summary class="font-semibold">Can I buy car insurance online in Malaysia?</summary>
-          <p class="text-gray-600 mt-3 text-sm">
-            Yes! Most major insurers offer online purchasing. You can also use platforms like Bjak, MyEG Compare, 
-            PolicyStreet, or buy directly from insurer websites like Etiqa, Allianz, or Tokio Marine.
+
+          <p>
+            Ini benda yang <strong>paling ramai orang tak fully faham</strong> — dan ia boleh save
+            atau cost anda ribuan ringgit.
           </p>
-        </details>
-        <details class="card cursor-pointer">
-          <summary class="font-semibold">What happens if I don't renew my car insurance?</summary>
-          <p class="text-gray-600 mt-3 text-sm">
-            Driving without valid insurance is illegal in Malaysia. You cannot renew your road tax without insurance. 
-            If caught, you face fines up to RM1,000 and/or up to 3 months jail. Your NCD will also be reset to 0%.
+
+        </article>
+
+        <!-- NCD Table -->
+        <div class="overflow-x-auto my-8">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Tahun Tanpa Claim</th>
+                <th>NCD</th>
+                <th>Contoh: Premium asal RM2,000</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tahun pertama (baru dapat lesen)</td>
+                <td class="font-semibold">0%</td>
+                <td>Bayar penuh: <strong>RM2,000</strong></td>
+              </tr>
+              <tr>
+                <td>Selepas 1 tahun tanpa claim</td>
+                <td class="font-semibold">25%</td>
+                <td>Bayar: <strong>RM1,500</strong></td>
+              </tr>
+              <tr>
+                <td>Selepas 2 tahun</td>
+                <td class="font-semibold">30%</td>
+                <td>Bayar: <strong>RM1,400</strong></td>
+              </tr>
+              <tr>
+                <td>Selepas 3 tahun</td>
+                <td class="font-semibold">38.33%</td>
+                <td>Bayar: <strong>RM1,233</strong></td>
+              </tr>
+              <tr>
+                <td>Selepas 4 tahun</td>
+                <td class="font-semibold">45%</td>
+                <td>Bayar: <strong>RM1,100</strong></td>
+              </tr>
+              <tr>
+                <td>Selepas 5+ tahun</td>
+                <td class="font-semibold text-hijau-700">55%</td>
+                <td>Bayar: <strong class="text-hijau-700">RM900</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Hati-hati:</strong> Satu claim je, NCD anda reset ke 0%.
+            Katakan kereta anda calar sikit, kos repair RM500. Tapi kalau anda claim, dan NCD anda 55%,
+            anda mungkin akan bayar RM1,000+ lebih untuk premium tahun depan.
+            <strong>Kadang-kadang, bayar sendiri lagi jimat.</strong>
           </p>
-        </details>
-        <details class="card cursor-pointer">
-          <summary class="font-semibold">What is the difference between agreed value and market value?</summary>
-          <p class="text-gray-600 mt-3 text-sm">
-            Market value means the insurer pays based on your car's value at the time of loss (which depreciates). 
-            Agreed value means a fixed payout amount agreed at the start of the policy — it costs more but gives certainty.
+        </div>
+
+        <article class="prose-editorial">
+
+          <!-- Cara Renew -->
+          <h2 id="renew">Cara renew insurans kereta online</h2>
+
+          <p>
+            Sekarang dah tak perlu pergi pejabat insurans atau tunggu ejen call.
+            Boleh buat semua online dalam <strong>10-15 minit</strong>.
           </p>
-        </details>
+
+          <h3>Langkah-langkah:</h3>
+
+          <ol class="list-decimal pl-5 space-y-3 mb-6">
+            <li>
+              <strong>Semak NCD anda</strong> — Guna MySIKAP di website
+              <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a>
+              atau tanya ejen insurans anda. NCD ni penting sebab ia determine harga premium.
+            </li>
+            <li>
+              <strong>Dapatkan quotation dari beberapa syarikat</strong> — Guna aggregator macam:
+              <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong>Bjak.my</strong> — aggregator paling popular di Malaysia</li>
+                <li><strong>PolicyStreet</strong> — alternatif yang bagus</li>
+                <li><strong>Fincrew.my</strong> — platform baru tapi kompetitif</li>
+                <li>Atau terus pergi website syarikat (cth: etiqa.com.my, allianz.com.my)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Pilih coverage dan add-ons</strong> — Windscreen cover? Special perils (banjir)?
+              Breakdown assist? Pilih yang anda perlukan, jangan overbuy.
+            </li>
+            <li>
+              <strong>Bayar online</strong> — FPX (online banking), kad kredit/debit. E-cover note
+              terus masuk email. Simpan PDF tu.
+            </li>
+            <li>
+              <strong>Renew roadtax</strong> — Boleh buat di:
+              <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong>MyEG</strong> — hantar ke rumah</li>
+                <li><strong>Pos Malaysia</strong> — paling senang</li>
+                <li><strong>JPJ counter</strong> — kalau nak cepat</li>
+                <li>Kaunter di shopping mall tertentu</li>
+              </ul>
+            </li>
+          </ol>
+
+          <!-- Add-ons -->
+          <h2>Add-ons yang berbaloi (dan yang tak perlu)</h2>
+
+          <p>
+            Lepas liberalisasi tarif, syarikat insurans offer macam-macam add-ons.
+            Bukan semua perlu. Ini panduan:
+          </p>
+
+        </article>
+
+        <div class="space-y-3 my-8">
+          <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
+            <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
+            <div>
+              <p class="font-semibold text-sm text-stone-900">Windscreen cover — AMBIL</p>
+              <p class="text-sm text-stone-600">RM50-100 setahun. Tukar windscreen boleh kos RM300-800+. Berbaloi.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
+            <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
+            <div>
+              <p class="font-semibold text-sm text-stone-900">Special perils (banjir & ribut) — AMBIL kalau kawasan berisiko</p>
+              <p class="text-sm text-stone-600">RM30-80 setahun. Kalau duduk kawasan yang selalu banjir (Shah Alam, JB, Klang), ini wajib.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-emas-50 border border-emas-200">
+            <span class="text-emas-700 font-bold text-sm mt-0.5">~</span>
+            <div>
+              <p class="font-semibold text-sm text-stone-900">Breakdown towing — BERGANTUNG</p>
+              <p class="text-sm text-stone-600">Kalau kereta lama atau selalu drive jauh, ambil. Kereta baru biasa dah ada manufacturer warranty.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-stone-50 border border-stone-200">
+            <span class="text-stone-400 font-bold text-sm mt-0.5">✗</span>
+            <div>
+              <p class="font-semibold text-sm text-stone-900">NCD protector — BIASANYA TAK PERLU</p>
+              <p class="text-sm text-stone-600">Mahal (RM200-500+) dan syarat ketat. Lebih jimat simpan duit tu untuk emergency fund.</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="prose-editorial">
+
+          <h2 id="tips">Tips jimat insurans kereta</h2>
+
+          <ol class="list-decimal pl-5 space-y-3">
+            <li>
+              <strong>Jaga NCD anda.</strong> NCD 55% save hampir separuh harga premium.
+              Untuk kerosakan kecil (bawah RM1,000-2,000), pertimbangkan bayar sendiri daripada claim.
+            </li>
+            <li>
+              <strong>Bandingkan harga.</strong> Selepas liberalisasi, harga berbeza antara syarikat.
+              Guna Bjak atau PolicyStreet untuk bandingkan.
+            </li>
+            <li>
+              <strong>Jangan over-insure.</strong> Sum insured patut reflect nilai pasaran sebenar kereta, bukan harga baru.
+              Over-insure = bayar premium lebih untuk nothing.
+            </li>
+            <li>
+              <strong>Pilih add-ons dengan bijak.</strong> Windscreen dan special perils — ya.
+              NCD protector dan personal accident (kalau dah ada medical card) — mungkin tak perlu.
+            </li>
+            <li>
+              <strong>Renew awal.</strong> Sesetengah syarikat bagi diskaun kecil kalau renew sebelum tamat.
+              Plus, anda elak risiko lapse coverage.
+            </li>
+            <li>
+              <strong>Install dashcam.</strong> Bukan jimat premium secara langsung, tapi kalau accident,
+              rakaman boleh percepat proses claim dan buktikan anda tak salah.
+            </li>
+          </ol>
+
+          <!-- Syarikat section -->
+          <h2 id="syarikat">Syarikat insurans kereta terbaik di Malaysia</h2>
+
+          <p>
+            Ini ranking kami berdasarkan harga, kemudahan claim, dan pengalaman online.
+            Untuk insurans kereta specifically — bukan life atau health.
+          </p>
+
+        </article>
+
+        <!-- Insurer Rankings -->
+        <div class="space-y-4 my-8">
+          {carInsurers.map((company, i) => (
+            <a href={`/companies/${company.slug}/`} class="card-editorial group block">
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8">{i + 1}.</span>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-baseline flex-wrap gap-2 mb-1">
+                    <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
+                      {company.name}
+                    </h3>
+                    <span class="text-xs text-stone-500">★ {company.rating}/5</span>
+                    {company.takaful && (
+                      <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-stone-600 mb-2">{company.verdictBM}</p>
+                  <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
+                    {company.carPremiumRange && (
+                      <span>Premium: <strong class="text-stone-700">{company.carPremiumRange}</strong></span>
+                    )}
+                    {company.claimLine && <span>Claim: {company.claimLine}</span>}
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <article class="prose-editorial">
+          <!-- Istilah penting -->
+          <h2>Istilah penting yang anda patut tahu</h2>
+        </article>
+
+        <div class="my-8">
+          <dl class="space-y-4">
+            <div class="border-b border-stone-100 pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">Sum Insured (Jumlah Diinsuranskan)</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Jumlah maksimum yang syarikat insurans akan bayar kalau kereta anda total loss.
+                Biasanya berdasarkan nilai pasaran semasa kereta.
+              </dd>
+            </div>
+            <div class="border-b border-stone-100 pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">Excess (Lebihan)</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Jumlah pertama yang ANDA kena bayar sebelum insurans kick in.
+                Biasanya RM400 untuk polisi online. Ada juga excess RM0 tapi premium lebih mahal.
+              </dd>
+            </div>
+            <div class="border-b border-stone-100 pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">NCD (No Claim Discount)</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Diskaun 25%-55% yang anda dapat sebab tak buat claim. Reset ke 0% kalau claim.
+              </dd>
+            </div>
+            <div class="border-b border-stone-100 pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">Named Driver (Pemandu Dinamakan)</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Driver lain yang dilindungi bawah polisi anda. Kalau anda letak "any driver",
+                premium naik. Namakan driver tertentu je kalau boleh.
+              </dd>
+            </div>
+            <div class="border-b border-stone-100 pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">Agreed Value vs Market Value</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Market value = bayar ikut nilai kereta masa claim (depreciate setiap tahun).
+                Agreed value = jumlah tetap yang dipersetujui awal. Lebih mahal tapi lebih pasti.
+              </dd>
+            </div>
+            <div class="pb-4">
+              <dt class="font-semibold text-stone-900 text-sm">Betterment Charge</dt>
+              <dd class="text-sm text-stone-600 mt-1">
+                Kalau syarikat ganti part baru untuk kereta lama, mereka mungkin caj anda perbezaan
+                antara part baru dan part lama. Ini benda yang ramai tak expect masa claim.
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- FAQ -->
+        <article class="prose-editorial">
+          <h2>Soalan lazim insurans kereta</h2>
+        </article>
+
+        <div class="my-8">
+          <details class="faq-item" open>
+            <summary>Kereta masih ada loan, insurans wajib comprehensive ke?</summary>
+            <p>
+              Technically tak wajib oleh undang-undang, tapi bank/financier anda biasanya
+              <strong>require comprehensive coverage</strong> sebagai syarat loan.
+              Sampai habis bayar loan, anda kena maintain comprehensive.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Boleh ke tukar syarikat insurans masa renew?</summary>
+            <p>
+              Ya, 100% boleh. NCD ikut anda, bukan syarikat. Boleh pindah ke mana-mana
+              syarikat insurans berlesen dan NCD anda ikut sama.
+              Ini salah satu sebab kenapa anda patut bandingkan harga setiap tahun.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kalau accident bukan salah saya, claim insurance sendiri ke insurance orang tu?</summary>
+            <p>
+              Biasanya, anda buat <strong>knock-for-knock claim</strong> — masing-masing claim insurans sendiri.
+              Ini sistem yang digunakan di Malaysia untuk percepatkan proses. NCD anda akan affected,
+              tapi anda boleh appeal kemudian kalau polis report buktikan anda tak salah.
+              Simpan semua bukti — gambar, dashcam footage, police report number.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Apa jadi kalau insurans lapse (tamat dan tak renew)?</summary>
+            <p>
+              Dua masalah besar: (1) Anda memandu tanpa insurans — <strong>tak sah di sisi undang-undang</strong>.
+              Kalau kena tangkap, denda RM1,000 atau penjara 3 bulan.
+              (2) NCD anda mungkin reset ke 0% kalau lapse lebih dari setahun.
+              Jadi jangan tunggu last minute untuk renew.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kereta import/recon, insurans lagi mahal ke?</summary>
+            <p>
+              Ya, biasanya <strong>lebih mahal 10-30%</strong> berbanding kereta CBU/CKD yang sama.
+              Sebab spare parts kereta recon lebih mahal dan susah nak dapat. Syarikat insurans
+              ambil kira risiko ni dalam pengiraan premium.
+            </p>
+          </details>
+        </div>
+
       </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+          <!-- Quick summary card -->
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
+            <dl class="space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Wajib?</dt>
+                <dd class="font-semibold text-stone-900">Ya, minimum third-party</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Harga tipikal (Myvi)</dt>
+                <dd class="font-semibold text-stone-900">RM700 – RM1,000/tahun</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Diskaun NCD max</dt>
+                <dd class="font-semibold text-hijau-700">55%</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Paling popular</dt>
+                <dd class="font-semibold text-stone-900">Comprehensive</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Beli online di</dt>
+                <dd class="font-semibold text-stone-900">Bjak, PolicyStreet, direct</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Where to buy -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Di mana nak beli?</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Bjak.my</a>
+                <span class="text-stone-500"> — aggregator #1</span>
+              </li>
+              <li>
+                <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">PolicyStreet</a>
+                <span class="text-stone-500"> — alternatif popular</span>
+              </li>
+              <li>
+                <a href="https://fincrew.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Fincrew.my</a>
+                <span class="text-stone-500"> — platform baru</span>
+              </li>
+              <li>
+                <a href="https://etiqa.com.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Etiqa Online</a>
+                <span class="text-stone-500"> — beli direct</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim insurans</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs Takaful</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
     </div>
-  </section>
+  </div>
 </Base>

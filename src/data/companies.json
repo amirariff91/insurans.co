@@ -6,14 +6,30 @@
     "type": "conventional",
     "takaful": true,
     "takafulEntity": "Etiqa General Takaful Berhad",
+    "parent": "Maybank Group",
     "founded": 1963,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.etiqa.com.my",
+    "claimLine": "1-800-25-2582",
+    "digitalPlatform": "Etiqa MotorTakaful Online",
     "products": ["car", "motorcycle", "health", "life", "travel", "home", "personal-accident"],
     "description": "Etiqa is one of Malaysia's largest insurance and takaful providers, part of the Maybank Group. Known for competitive motor insurance pricing and a strong digital presence.",
-    "pros": ["Competitive car insurance rates", "Easy online renewal", "Part of Maybank Group", "Wide network of workshops", "E-hailing insurance available"],
-    "cons": ["Customer service can be slow during peak periods", "Claims process can take time"],
-    "rating": 4.2
+    "descriptionBM": "Salah satu syarikat insurans & takaful terbesar Malaysia, bawah Maybank Group. Popular sebab harga motor insurance yang kompetitif dan senang beli online.",
+    "verdictBM": "Pilihan ramai untuk insurans kereta — murah dan senang renew online.",
+    "pros": [
+      "Harga insurans kereta antara yang paling murah",
+      "Boleh beli dan renew terus online",
+      "Part of Maybank — tak risau syarikat tutup",
+      "Panel bengkel luas seluruh Malaysia",
+      "Ada pakej e-hailing untuk Grab driver"
+    ],
+    "cons": [
+      "Customer service boleh slow masa peak season",
+      "Proses claim kadang ambil masa lama"
+    ],
+    "rating": 4.2,
+    "carPremiumRange": "RM750 – RM1,500 (Myvi/Axia)",
+    "keyFact": "Syarikat insurans paling popular untuk motor di Malaysia. Lebih 3 juta polisi motor aktif."
   },
   {
     "slug": "allianz",
@@ -21,14 +37,29 @@
     "fullName": "Allianz General Insurance Company (Malaysia) Berhad",
     "type": "conventional",
     "takaful": false,
+    "parent": "Allianz Group (Jerman)",
     "founded": 1890,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.allianz.com.my",
+    "claimLine": "1-800-22-5542",
+    "digitalPlatform": "Allianz Online",
     "products": ["car", "motorcycle", "health", "life", "travel", "home", "personal-accident"],
-    "description": "Allianz Malaysia is part of the global Allianz Group, one of the world's largest insurance companies. Offers comprehensive coverage across all insurance categories.",
-    "pros": ["Global brand with strong financial backing", "Comprehensive coverage options", "Good medical card benefits", "Road warrior add-on for car insurance"],
-    "cons": ["Premiums can be higher than local providers", "Limited branch network compared to local insurers"],
-    "rating": 4.3
+    "description": "Allianz Malaysia is part of the global Allianz Group, one of the world's largest insurance companies. Good coverage options but premiums slightly higher than local players.",
+    "descriptionBM": "Syarikat insurans dari Jerman, antara yang terbesar di dunia. Coverage memang bagus tapi premium sikit mahal dari insurans tempatan.",
+    "verdictBM": "Coverage tiptop, tapi kena bayar lebih sikit. Sesuai kalau nak peace of mind.",
+    "pros": [
+      "Brand global — kewangan sangat kukuh",
+      "Coverage pilihan luas, boleh customize",
+      "Medical card benefits antara yang terbaik",
+      "Road Warrior add-on untuk kereta (towing, battery, dll)"
+    ],
+    "cons": [
+      "Premium lebih mahal dari Etiqa/Kurnia",
+      "Branch tak seluas syarikat tempatan"
+    ],
+    "rating": 4.3,
+    "carPremiumRange": "RM900 – RM1,800 (Myvi/Axia)",
+    "keyFact": "Allianz Group ada operasi di lebih 70 negara. Di Malaysia sejak 2001 (ambil alih Malaysian Assurance Alliance)."
   },
   {
     "slug": "tokio-marine",
@@ -36,14 +67,29 @@
     "fullName": "Tokio Marine Insurance (Malaysia) Berhad",
     "type": "conventional",
     "takaful": false,
+    "parent": "Tokio Marine Holdings (Jepun)",
     "founded": 1879,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.tokiomarine.com/my",
+    "claimLine": "03-2170 8282",
+    "digitalPlatform": "TMNF Online",
     "products": ["car", "motorcycle", "health", "travel", "home", "personal-accident"],
-    "description": "Tokio Marine is Japan's oldest insurance company with a strong presence in Malaysia. Known for reliable car insurance and efficient claims processing.",
-    "pros": ["Efficient claims processing", "Good workshop network", "Competitive pricing", "Strong financial stability"],
-    "cons": ["Less brand recognition among younger Malaysians", "Online portal could be more user-friendly"],
-    "rating": 4.1
+    "description": "Tokio Marine is Japan's oldest insurance company with a strong presence in Malaysia. Known for efficient claims processing — one of the fastest in the industry.",
+    "descriptionBM": "Syarikat insurans tertua Jepun, dah lama beroperasi di Malaysia. Terkenal sebab proses claim cepat — antara yang paling smooth dalam industri.",
+    "verdictBM": "Kalau claim cepat penting untuk anda, Tokio Marine antara yang terbaik.",
+    "pros": [
+      "Proses claim antara paling cepat di Malaysia",
+      "Panel bengkel yang bagus-bagus",
+      "Harga masih kompetitif walaupun brand Jepun",
+      "Kewangan stabil — rating tinggi"
+    ],
+    "cons": [
+      "Kurang popular di kalangan generasi muda",
+      "Portal online boleh improve lagi"
+    ],
+    "rating": 4.1,
+    "carPremiumRange": "RM800 – RM1,600 (Myvi/Axia)",
+    "keyFact": "Ditubuhkan tahun 1879 — lebih 140 tahun pengalaman. Di Malaysia sejak 1951."
   },
   {
     "slug": "aia",
@@ -52,14 +98,28 @@
     "type": "conventional",
     "takaful": true,
     "takafulEntity": "AIA PUBLIC Takaful Bhd",
+    "parent": "AIA Group (Hong Kong)",
     "founded": 1948,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.aia.com.my",
-    "products": ["car", "health", "life", "personal-accident"],
-    "description": "AIA is one of Asia's largest life insurance groups. In Malaysia, AIA is particularly known for health insurance and medical cards with extensive panel hospital coverage.",
-    "pros": ["Excellent medical card coverage", "Large panel hospital network", "Strong life insurance plans", "AIA Vitality wellness program"],
-    "cons": ["Car insurance is newer offering", "Premiums can be on the higher side"],
-    "rating": 4.4
+    "claimLine": "1-300-88-1899",
+    "digitalPlatform": "AIA+",
+    "products": ["health", "life", "personal-accident"],
+    "description": "AIA is one of Asia's largest life insurance groups. In Malaysia, AIA is THE name for health insurance and medical cards. Huge panel hospital network.",
+    "descriptionBM": "Antara syarikat insurans nyawa terbesar di Asia. Di Malaysia, AIA memang terkenal untuk medical card — panel hospital paling luas.",
+    "verdictBM": "Raja medical card. Kalau nak insurans kesihatan, AIA antara pilihan pertama.",
+    "pros": [
+      "Medical card coverage memang power",
+      "Panel hospital paling besar di Malaysia",
+      "Pelan insurans nyawa yang fleksibel",
+      "AIA Vitality — dapat rewards kalau jaga kesihatan"
+    ],
+    "cons": [
+      "Tak ada insurans kereta",
+      "Premium boleh jadi mahal untuk coverage tinggi"
+    ],
+    "rating": 4.4,
+    "keyFact": "AIA ada lebih 200 panel hospital di seluruh Malaysia. Medical card mereka antara yang paling senang nak claim."
   },
   {
     "slug": "great-eastern",
@@ -67,14 +127,28 @@
     "fullName": "Great Eastern Life Assurance (Malaysia) Berhad",
     "type": "conventional",
     "takaful": false,
+    "parent": "OCBC Group (Singapura)",
     "founded": 1908,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.greateasternlife.com/my",
-    "products": ["car", "health", "life", "personal-accident"],
-    "description": "Great Eastern is the oldest and most established life insurance company in Malaysia and Singapore. Known for reliable life and health insurance products.",
-    "pros": ["Established reputation since 1908", "Strong financial ratings", "Comprehensive life insurance", "Good e-Connect portal"],
-    "cons": ["Less competitive on motor insurance", "Can be conservative with claims"],
-    "rating": 4.2
+    "claimLine": "1-300-13-8338",
+    "digitalPlatform": "Great Eastern GO App",
+    "products": ["health", "life", "personal-accident"],
+    "description": "The oldest life insurance company in Malaysia and Singapore. Very established, very corporate. Known for reliable life insurance products but not the cheapest.",
+    "descriptionBM": "Syarikat insurans nyawa tertua di Malaysia dan Singapura. Sangat established — mak bapak kita mungkin dah pakai Great Eastern. Reliable tapi bukan yang paling murah.",
+    "verdictBM": "Brand legacy — dipercayai lebih 100 tahun. Kalau nak yang proven dan stabil.",
+    "pros": [
+      "Reputasi lebih 100 tahun",
+      "Rating kewangan sangat kukuh",
+      "Pelan insurans nyawa yang terbukti",
+      "App Great Eastern GO untuk manage polisi"
+    ],
+    "cons": [
+      "Tak ada insurans motor",
+      "Boleh jadi konservatif masa claim"
+    ],
+    "rating": 4.2,
+    "keyFact": "Ditubuhkan tahun 1908 — lebih tua dari Malaysia sendiri. Bawah OCBC Group."
   },
   {
     "slug": "zurich",
@@ -83,14 +157,29 @@
     "type": "conventional",
     "takaful": true,
     "takafulEntity": "Zurich General Takaful Malaysia Berhad",
+    "parent": "Zurich Insurance Group (Switzerland)",
     "founded": 1872,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.zurich.com.my",
+    "claimLine": "1-300-88-6222",
+    "digitalPlatform": "Zurich Online",
     "products": ["car", "motorcycle", "health", "life", "travel", "home"],
-    "description": "Zurich Malaysia (formerly MAA Takaful) offers both conventional insurance and takaful products. Part of the Swiss-based Zurich Insurance Group.",
-    "pros": ["Strong global backing", "Both conventional and takaful options", "Good online platform", "Competitive motor rates"],
-    "cons": ["Brand transition from MAA can cause confusion", "Customer service varies by branch"],
-    "rating": 4.0
+    "description": "Zurich Malaysia offers both conventional insurance and takaful products. They took over MAA Takaful a few years back. Swiss precision meets Malaysian market.",
+    "descriptionBM": "Zurich Malaysia ada dua-dua — insurans konvensional dan takaful. Dulu dikenali sebagai MAA Takaful. Syarikat Swiss yang dah adapt dengan market Malaysia.",
+    "verdictBM": "Pilihan yang solid kalau nak ada option insurans DAN takaful dari satu syarikat.",
+    "pros": [
+      "Ada insurans konvensional dan takaful",
+      "Sokongan kewangan dari Zurich Group Switzerland",
+      "Platform online yang okay",
+      "Harga motor insurance masih kompetitif"
+    ],
+    "cons": [
+      "Sesetengah orang masih confuse dengan rebranding dari MAA",
+      "Customer service bergantung pada branch"
+    ],
+    "rating": 4.0,
+    "carPremiumRange": "RM800 – RM1,600 (Myvi/Axia)",
+    "keyFact": "Zurich ambil alih MAA Takaful tahun 2016. Sekarang antara syarikat takaful terbesar di Malaysia."
   },
   {
     "slug": "prudential",
@@ -99,14 +188,28 @@
     "type": "conventional",
     "takaful": true,
     "takafulEntity": "Prudential BSN Takaful Berhad",
+    "parent": "Prudential plc (UK)",
     "founded": 1924,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.prudential.com.my",
+    "claimLine": "03-2771 0228",
+    "digitalPlatform": "Pulse by Prudential",
     "products": ["health", "life", "personal-accident"],
-    "description": "Prudential Malaysia is a leading life insurer known for comprehensive medical and life insurance products. Their PRUServe platform offers digital convenience.",
-    "pros": ["Excellent medical plans", "PRUServe digital platform", "Strong agent network", "BSN Takaful partnership"],
-    "cons": ["No motor insurance products", "Premiums can be higher"],
-    "rating": 4.3
+    "description": "Prudential Malaysia is a major life insurer. Their Pulse app is genuinely good — one of the better digital experiences in Malaysian insurance. Partnership with BSN for takaful.",
+    "descriptionBM": "Salah satu syarikat insurans nyawa utama di Malaysia. App Pulse memang best — antara digital experience terbaik dalam industri. Ada partnership dengan BSN untuk takaful.",
+    "verdictBM": "App Pulse dia memang smooth. Untuk life insurance, Prudential antara top choice.",
+    "pros": [
+      "App Pulse sangat user-friendly",
+      "Medical plan yang fleksibel",
+      "Network ejen yang besar",
+      "Partnership BSN Takaful — strong"
+    ],
+    "cons": [
+      "Takde produk insurans motor",
+      "Premium boleh mahal untuk coverage premium"
+    ],
+    "rating": 4.3,
+    "keyFact": "App Pulse by Prudential dah ada lebih 5 juta download di Malaysia. Boleh check coverage, claim, dan health assessment."
   },
   {
     "slug": "takaful-malaysia",
@@ -114,29 +217,59 @@
     "fullName": "Syarikat Takaful Malaysia Keluarga Berhad",
     "type": "takaful",
     "takaful": true,
+    "parent": "Takaful Malaysia (Bursa listed)",
     "founded": 1984,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.takaful-malaysia.com.my",
+    "claimLine": "1-800-88-252-385",
+    "digitalPlatform": "MyTakaful Online",
     "products": ["car", "motorcycle", "health", "life", "home", "personal-accident"],
-    "description": "Takaful Malaysia is the country's first and largest takaful operator. As a Shariah-compliant insurer, it's the go-to choice for Muslims seeking halal insurance coverage.",
-    "pros": ["Malaysia's oldest takaful operator", "Fully Shariah-compliant", "Competitive motor takaful rates", "Surplus sharing with participants"],
-    "cons": ["Online platform can be slow", "Branch experience varies"],
-    "rating": 4.1
+    "description": "Malaysia's first and oldest takaful operator. The original Shariah-compliant insurer in the country. If you specifically want takaful (not conventional insurance), this is the OG.",
+    "descriptionBM": "Pengendali takaful pertama dan tertua di Malaysia. Kalau anda memang nak takaful tulen, bukan insurans biasa, Takaful Malaysia adalah pilihan asal.",
+    "verdictBM": "OG takaful Malaysia. Untuk yang nak patuh Syariah 100%, ini pilihan utama.",
+    "pros": [
+      "Pengendali takaful pertama Malaysia — pengalaman sejak 1984",
+      "100% patuh Syariah",
+      "Harga takaful motor yang kompetitif",
+      "Lebihan (surplus) dikongsi dengan peserta"
+    ],
+    "cons": [
+      "Platform online boleh jadi slow",
+      "Pengalaman di branch bergantung lokasi"
+    ],
+    "rating": 4.1,
+    "carPremiumRange": "RM750 – RM1,500 (Myvi/Axia)",
+    "keyFact": "Ditubuhkan tahun 1984 — takaful pertama di Malaysia. Listed di Bursa Malaysia."
   },
   {
     "slug": "kurnia",
-    "name": "Kurnia",
-    "fullName": "Berjaya Sompo Insurance Berhad (formerly Kurnia Insurance)",
+    "name": "Berjaya Sompo",
+    "fullName": "Berjaya Sompo Insurance Berhad",
     "type": "conventional",
     "takaful": false,
+    "parent": "Berjaya Group + Sompo Holdings (Jepun)",
     "founded": 1979,
     "headquarters": "Kuala Lumpur",
-    "website": "https://www.kurnia.com",
+    "website": "https://www.berjayasompo.com.my",
+    "claimLine": "1-800-88-3911",
+    "digitalPlatform": "Berjaya Sompo Online",
     "products": ["car", "motorcycle", "travel", "home", "personal-accident"],
-    "description": "Kurnia (now part of Berjaya Sompo) is one of Malaysia's most recognized motor insurance brands. Known for affordable car insurance and extensive workshop network.",
-    "pros": ["Very competitive motor insurance pricing", "Extensive workshop panel", "Strong brand recognition", "Easy claims process"],
-    "cons": ["Now merged with Berjaya Sompo — brand transition", "Limited life/health products"],
-    "rating": 4.0
+    "description": "Formerly known as Kurnia Insurance — a name most Malaysians recognize for cheap car insurance. Now merged with Berjaya Sompo. Still one of the most affordable options for motor.",
+    "descriptionBM": "Dulu dikenali sebagai Kurnia Insurance — nama yang semua orang kenal untuk insurans kereta murah. Sekarang dah merge jadi Berjaya Sompo. Masih antara pilihan paling murah untuk motor.",
+    "verdictBM": "Nak murah? Berjaya Sompo (Kurnia lama) masih antara yang paling murah untuk insurans kereta.",
+    "pros": [
+      "Antara harga insurans kereta paling murah",
+      "Panel bengkel sangat luas",
+      "Brand recognition tinggi (dari zaman Kurnia)",
+      "Proses claim straightforward"
+    ],
+    "cons": [
+      "Rebranding dari Kurnia masih confuse sesetengah orang",
+      "Takde produk life/health insurance"
+    ],
+    "rating": 4.0,
+    "carPremiumRange": "RM700 – RM1,400 (Myvi/Axia)",
+    "keyFact": "Dulu Kurnia Insurance — salah satu nama paling iconic untuk insurans kereta di Malaysia. Merge dengan Berjaya Sompo tahun 2019."
   },
   {
     "slug": "msig",
@@ -144,13 +277,88 @@
     "fullName": "MSIG Insurance (Malaysia) Bhd",
     "type": "conventional",
     "takaful": false,
+    "parent": "MS&AD Insurance Group (Jepun)",
     "founded": 2001,
     "headquarters": "Kuala Lumpur",
     "website": "https://www.msig.com.my",
+    "claimLine": "1-800-88-6746",
+    "digitalPlatform": "MSIG Online",
     "products": ["car", "motorcycle", "travel", "home", "personal-accident"],
-    "description": "MSIG is part of the MS&AD Insurance Group, one of Japan's largest insurance groups. Offers a range of general insurance products in Malaysia.",
-    "pros": ["Good online purchase experience", "Competitive travel insurance", "Japanese precision in service", "TakeItEasy online platform"],
-    "cons": ["Less well-known brand", "Smaller workshop network than competitors"],
-    "rating": 4.0
+    "description": "MSIG is part of one of Japan's biggest insurance groups. Their travel insurance is particularly popular. Motor insurance pricing is middle-of-the-road.",
+    "descriptionBM": "Bawah salah satu kumpulan insurans terbesar Jepun. Travel insurance mereka memang popular. Untuk motor, harga tengah-tengah — tak murah sangat, tak mahal sangat.",
+    "verdictBM": "Solid untuk travel insurance. Motor insurance pun okay — middle ground.",
+    "pros": [
+      "Travel insurance antara yang terbaik di Malaysia",
+      "Boleh beli online dengan mudah",
+      "Ketepatan dan servis gaya Jepun",
+      "Platform TakeItEasy senang guna"
+    ],
+    "cons": [
+      "Brand kurang dikenali berbanding Etiqa/Allianz",
+      "Panel bengkel lebih kecil dari pesaing"
+    ],
+    "rating": 4.0,
+    "carPremiumRange": "RM850 – RM1,600 (Myvi/Axia)",
+    "keyFact": "Part of MS&AD Insurance Group — salah satu kumpulan insurans terbesar di Jepun dengan asset lebih USD 500 billion."
+  },
+  {
+    "slug": "rhi",
+    "name": "RHB Insurance",
+    "fullName": "RHB Insurance Berhad",
+    "type": "conventional",
+    "takaful": false,
+    "parent": "RHB Banking Group",
+    "founded": 1982,
+    "headquarters": "Kuala Lumpur",
+    "website": "https://rhbgroup.com/insurance",
+    "claimLine": "03-9206 8118",
+    "digitalPlatform": "RHB MyInsurance",
+    "products": ["car", "motorcycle", "home", "personal-accident", "travel"],
+    "description": "RHB Insurance is part of the RHB Banking Group. Decent option if you're already an RHB customer — can bundle with your bank account for slight discounts.",
+    "descriptionBM": "Bawah RHB Banking Group. Pilihan yang okay kalau anda memang customer RHB — boleh dapat sikit diskaun kalau bundle dengan akaun bank.",
+    "verdictBM": "Sesuai untuk customer RHB yang nak senang manage insurans sekali dengan banking.",
+    "pros": [
+      "Senang kalau dah ada akaun RHB",
+      "Harga motor insurance kompetitif",
+      "Boleh bayar premium bulanan melalui RHB"
+    ],
+    "cons": [
+      "Kurang pilihan produk berbanding syarikat besar",
+      "Online experience boleh improve"
+    ],
+    "rating": 3.8,
+    "carPremiumRange": "RM800 – RM1,500 (Myvi/Axia)",
+    "keyFact": "Satu-satunya bank Malaysia yang masih ada syarikat insurans am sendiri (kebanyakan dah jual)."
+  },
+  {
+    "slug": "lonpac",
+    "name": "Lonpac",
+    "fullName": "Lonpac Insurance Bhd",
+    "type": "conventional",
+    "takaful": false,
+    "parent": "LPI Capital Bhd (Public Bank Group)",
+    "founded": 1963,
+    "headquarters": "Kuala Lumpur",
+    "website": "https://www.lonpac.com",
+    "claimLine": "03-2262 8888",
+    "digitalPlatform": "Lonpac iBiz",
+    "products": ["car", "motorcycle", "home", "personal-accident", "travel"],
+    "description": "Lonpac is under the Public Bank umbrella (via LPI Capital). They tend to fly under the radar but are actually one of the most profitable general insurers in Malaysia.",
+    "descriptionBM": "Bawah umbrella Public Bank (melalui LPI Capital). Ramai tak kenal tapi sebenarnya antara syarikat insurans am paling untung di Malaysia. Solid tapi low profile.",
+    "verdictBM": "Under the radar tapi sangat solid dari segi kewangan. Pilihan yang safe.",
+    "pros": [
+      "Sangat kukuh dari segi kewangan",
+      "Bawah Public Bank Group — dipercayai",
+      "Harga motor insurance kompetitif",
+      "Track record profit yang konsisten"
+    ],
+    "cons": [
+      "Brand kurang dikenali rakyat biasa",
+      "Marketing kurang — susah nak jumpa info",
+      "Portal online agak basic"
+    ],
+    "rating": 3.9,
+    "carPremiumRange": "RM800 – RM1,500 (Myvi/Axia)",
+    "keyFact": "Bawah LPI Capital yang dimiliki Public Bank. Antara general insurer paling profitable di Malaysia tapi ramai tak tahu."
   }
 ]
