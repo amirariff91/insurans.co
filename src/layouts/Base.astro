@@ -65,6 +65,21 @@ const navLinks = [
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
+
+  <!-- Organization schema on every page -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co",
+    "description": "Panduan insurans Malaysia — harga sebenar, perbandingan syarikat, dan panduan dalam Bahasa Malaysia.",
+    "inLanguage": ["ms", "en"],
+    "knowsAbout": ["Insurance", "Takaful", "Car Insurance Malaysia", "Health Insurance Malaysia", "Insurans Kereta", "Insurans Kesihatan"],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Malaysia"
+    }
+  })} />
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
