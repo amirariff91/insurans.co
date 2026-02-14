@@ -1,8 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
+import carModels from '../../data/car-models.json';
 
 const carInsurers = companies.filter(c => c.products.includes('car'));
+
+// Group car models by brand
+const brandGroups: Record<string, typeof carModels> = {};
+carModels.forEach((car) => {
+  if (!brandGroups[car.brand]) brandGroups[car.brand] = [];
+  brandGroups[car.brand].push(car);
+});
+const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
 
 const schema = {
   "@context": "https://schema.org",
@@ -58,6 +67,7 @@ const schema = {
         <a href="#renew" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Cara Renew</a>
         <a href="#syarikat" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Syarikat</a>
         <a href="#tips" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Tips Jimat</a>
+        <a href="#semua-model" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Ikut Model</a>
       </div>
     </div>
   </section>
@@ -558,6 +568,47 @@ const schema = {
               ambil kira risiko ni dalam pengiraan premium.
             </p>
           </details>
+        </div>
+
+        <!-- Car Models by Brand -->
+        <article class="prose-editorial">
+          <h2 id="semua-model">Insurans mengikut model kereta</h2>
+          <p>
+            Nak tahu harga insurans untuk kereta spesifik anda?
+            Pilih model kereta di bawah untuk panduan lengkap — termasuk harga premium,
+            NCD savings, add-ons recommended, dan tips jimat.
+          </p>
+        </article>
+
+        <div class="my-8 space-y-6">
+          {brandOrder.filter(brand => brandGroups[brand]).map((brand) => (
+            <div>
+              <h3 class="font-serif text-headline-sm text-stone-900 mb-3">{brand}</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {brandGroups[brand].map((car) => (
+                  <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h4 class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700 transition-colors">
+                          {car.fullName}
+                        </h4>
+                        <p class="text-xs text-stone-500 mt-0.5">{car.engineCC} · {car.segment}</p>
+                      </div>
+                      <span class="text-xs font-semibold text-hijau-700 whitespace-nowrap">{car.premiumNCD55}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Nota:</strong> Harga di atas adalah anggaran premium comprehensive dengan NCD 55%.
+            Harga sebenar bergantung pada umur kereta, lokasi, dan syarikat insurans.
+            Klik pada model kereta untuk panduan penuh.
+          </p>
         </div>
 
       </div>

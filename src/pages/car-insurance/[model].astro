@@ -1,0 +1,497 @@
+---
+import Base from '../../layouts/Base.astro';
+import carModels from '../../data/car-models.json';
+import companies from '../../data/companies.json';
+
+export function getStaticPaths() {
+  return carModels.map((car) => ({
+    params: { model: car.slug },
+    props: { car },
+  }));
+}
+
+const { car } = Astro.props;
+
+const carInsurers = companies.filter(c => c.products.includes('car')).slice(0, 5);
+const relatedCars = car.relatedModels
+  .map((slug: string) => carModels.find((c) => c.slug === slug))
+  .filter(Boolean)
+  .slice(0, 4);
+
+// Group all cars by brand for "Kereta lain" sidebar
+const allBrands = [...new Set(carModels.map((c) => c.brand))];
+
+const ncdTable = [
+  { year: 'Tahun pertama (0 tahun tanpa claim)', pct: '0%', factor: 1 },
+  { year: 'Selepas 1 tahun tanpa claim', pct: '25%', factor: 0.75 },
+  { year: 'Selepas 2 tahun', pct: '30%', factor: 0.70 },
+  { year: 'Selepas 3 tahun', pct: '38.33%', factor: 0.6167 },
+  { year: 'Selepas 4 tahun', pct: '45%', factor: 0.55 },
+  { year: 'Selepas 5+ tahun', pct: '55%', factor: 0.45 },
+];
+
+// Compute average premium for NCD examples
+const avgPremium = Math.round((car.premiumNCD0Min + car.premiumNCD0Max) / 2);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": `Insurans Kereta ${car.fullName} 2026 — Harga & Tips`,
+  "description": `Panduan lengkap insurans ${car.fullName} di Malaysia. Harga premium RM${car.premiumNCD55Min.toLocaleString()} – RM${car.premiumNCD55Max.toLocaleString()} (NCD 55%). Tips jimat, add-ons recommended, dan perbandingan syarikat.`,
+  "url": `https://insurans.co/car-insurance/${car.slug}/`,
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-02-14",
+  "inLanguage": "ms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Insurans Kereta", "item": "https://insurans.co/car-insurance/" },
+      { "@type": "ListItem", "position": 3, "name": car.fullName, "item": `https://insurans.co/car-insurance/${car.slug}/` }
+    ]
+  }
+};
+---
+
+<Base
+  title={`Insurans Kereta ${car.fullName} 2026 — Harga & Tips`}
+  description={`Panduan insurans ${car.fullName} Malaysia 2026. Premium dari RM${car.premiumNCD55Min.toLocaleString()} (NCD 55%). Harga sebenar, add-ons recommended, tips jimat, dan perbandingan syarikat.`}
+  schema={schema}
+>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/car-insurance/" class="hover:text-hijau-700 text-stone-500">Insurans Kereta</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">{car.fullName}</span>
+      </nav>
+      <p class="label mb-3">Insurans Kereta Model</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Insurans {car.fullName} 2026
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        {car.description}
+      </p>
+
+      <!-- Quick jump links -->
+      <div class="flex flex-wrap gap-2 mt-6">
+        <a href="#harga" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Harga Premium</a>
+        <a href="#ncd" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">NCD</a>
+        <a href="#addons" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Add-Ons</a>
+        <a href="#tips" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Tips</a>
+        <a href="#risiko" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Profil Risiko</a>
+        <a href="#faq" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+
+        <article class="prose-editorial">
+          <p class="text-lg text-stone-700 leading-relaxed">
+            Nak tahu berapa kos insurans untuk <strong>{car.fullName}</strong> anda? Anda di tempat yang betul.
+            Kami breakdown semua — dari harga premium sebenar, NCD savings, add-ons yang berbaloi,
+            sampai tips untuk jimatkan kos insurans {car.model} anda.
+          </p>
+
+          <!-- Harga Section -->
+          <h2 id="harga">Berapa harga insurans {car.fullName}?</h2>
+          <p>
+            Harga insurans <strong>{car.fullName}</strong> bergantung pada nilai pasaran kereta,
+            NCD anda, jenis coverage, dan syarikat yang dipilih.
+            Untuk polisi <strong>comprehensive</strong> (yang paling popular), ini anggaran:
+          </p>
+        </article>
+
+        <!-- Premium Breakdown Table -->
+        <div class="overflow-x-auto my-8">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Maklumat</th>
+                <th>Butiran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium text-stone-900">Enjin</td>
+                <td>{car.engineCC}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Nilai Pasaran</td>
+                <td>{car.marketValueRange}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Premium (0% NCD)</td>
+                <td class="font-semibold text-stone-900">{car.premiumNCD0}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Premium (55% NCD)</td>
+                <td class="font-semibold text-hijau-700">{car.premiumNCD55}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Varian</td>
+                <td>{car.variants.join(', ')}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Segmen</td>
+                <td>{car.segment}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Tahun</td>
+                <td>{car.yearRange}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Nota penting:</strong> Harga di atas adalah anggaran untuk polisi comprehensive, tahun 2026.
+            Harga sebenar bergantung pada umur kereta, lokasi, rekod pemanduan, dan add-ons yang dipilih.
+            Sentiasa dapatkan quotation dari 2-3 syarikat sebelum buat keputusan.
+          </p>
+        </div>
+
+        <!-- NCD Section -->
+        <article class="prose-editorial">
+          <h2 id="ncd">Berapa anda boleh jimat dengan NCD?</h2>
+          <p>
+            NCD (No Claim Discount) boleh kurangkan premium {car.fullName} anda sehingga <strong>55%</strong>.
+            Setiap tahun tanpa claim, diskaun naik. Ini breakdown untuk {car.model}:
+          </p>
+        </article>
+
+        <div class="overflow-x-auto my-8">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Tempoh</th>
+                <th>NCD</th>
+                <th>Anggaran Premium {car.model}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ncdTable.map((row, i) => (
+                <tr>
+                  <td>{row.year}</td>
+                  <td class={`font-semibold ${i === ncdTable.length - 1 ? 'text-hijau-700' : ''}`}>{row.pct}</td>
+                  <td class={`font-semibold ${i === ncdTable.length - 1 ? 'text-hijau-700' : ''}`}>
+                    ~RM{Math.round(avgPremium * row.factor).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Tip:</strong> Satu claim je, NCD reset ke 0%. Untuk kerosakan kecil pada {car.model} anda,
+            kadang lebih jimat bayar sendiri daripada claim dan hilang NCD.
+            <a href="/guides/ncd-explained/" class="text-hijau-700 underline">Baca panduan lengkap NCD →</a>
+          </p>
+        </div>
+
+        <!-- Add-ons Section -->
+        <article class="prose-editorial">
+          <h2 id="addons">Add-ons yang recommended untuk {car.fullName}</h2>
+          <p>
+            Bukan semua add-on perlu. Tapi untuk {car.model}, ini yang kami cadangkan:
+          </p>
+        </article>
+
+        <div class="space-y-3 my-8">
+          {car.popularAddOns.map((addon: any) => (
+            <div class={`flex items-start gap-3 p-4 ${addon.recommended ? 'bg-hijau-50 border border-hijau-200' : 'bg-stone-50 border border-stone-200'}`}>
+              <span class={`font-bold text-sm mt-0.5 ${addon.recommended ? 'text-hijau-700' : 'text-stone-400'}`}>
+                {addon.recommended ? '✓' : '~'}
+              </span>
+              <div>
+                <p class="font-semibold text-sm text-stone-900">
+                  {addon.name} — {addon.recommended ? 'RECOMMENDED' : 'BERGANTUNG'}
+                </p>
+                <p class="text-sm text-stone-600">{addon.price} setahun untuk {car.model}.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Risk Profile -->
+        <article class="prose-editorial">
+          <h2 id="risiko">Profil risiko {car.fullName}</h2>
+          <p>
+            Setiap model kereta ada profil risiko yang berbeza. Ini yang insurer pertimbangkan
+            masa calculate premium {car.model} anda:
+          </p>
+        </article>
+
+        <div class="grid sm:grid-cols-2 gap-4 my-8">
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Risiko Kecurian</h3>
+            <p class="text-lg font-serif text-stone-900 mb-1">{car.riskProfile.theftRate}</p>
+          </div>
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Kos Repair</h3>
+            <p class="text-lg font-serif text-stone-900 mb-1">{car.riskProfile.repairCost.split('—')[0].trim()}</p>
+            <p class="text-xs text-stone-500">{car.riskProfile.repairCost}</p>
+          </div>
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Kekerapan Claim</h3>
+            <p class="text-lg font-serif text-stone-900 mb-1">{car.riskProfile.claimFrequency}</p>
+          </div>
+          <div class="card-editorial sm:col-span-2">
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Nota Penting</h3>
+            <p class="text-sm text-stone-600 leading-relaxed">{car.riskProfile.notes}</p>
+          </div>
+        </div>
+
+        <!-- Tips Section -->
+        <article class="prose-editorial">
+          <h2 id="tips">Tips jimat insurans {car.fullName}</h2>
+          <p>
+            Ini tips khusus untuk pemilik {car.model}. Setiap model ada cara tersendiri untuk jimatkan insurans.
+          </p>
+        </article>
+
+        <div class="space-y-3 my-8">
+          {car.tips.map((tip: string, i: number) => (
+            <div class="flex items-start gap-3 p-4 border border-stone-200 bg-white">
+              <span class="flex-shrink-0 font-serif text-lg text-stone-300">{i + 1}.</span>
+              <p class="text-sm text-stone-700 leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Syarikat Section -->
+        <article class="prose-editorial">
+          <h2>Syarikat insurans terbaik untuk {car.fullName}</h2>
+          <p>
+            Lepas liberalisasi tarif, setiap syarikat boleh offer harga berbeza untuk {car.model}.
+            Ini syarikat yang kami cadangkan untuk insurans kereta:
+          </p>
+        </article>
+
+        <div class="space-y-4 my-8">
+          {carInsurers.map((company, i) => (
+            <a href={`/companies/${company.slug}/`} class="card-editorial group block">
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8">{i + 1}.</span>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-baseline flex-wrap gap-2 mb-1">
+                    <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
+                      {company.name}
+                    </h3>
+                    <span class="text-xs text-stone-500">★ {company.rating}/5</span>
+                    {company.takaful && (
+                      <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-stone-600">{company.verdictBM}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="border-2 border-stone-900 p-5 my-8">
+          <h3 class="font-serif text-lg text-stone-900 mb-2">Dapatkan quotation terbaik</h3>
+          <p class="text-sm text-stone-600 mb-4">
+            Bandingkan harga insurans {car.fullName} dari pelbagai syarikat. Guna aggregator untuk jimat masa.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://bjak.my" target="_blank" rel="noopener noreferrer" class="btn-hijau text-sm">
+              Dapatkan Quote di Bjak →
+            </a>
+            <a href="https://policystreet.com" target="_blank" rel="noopener noreferrer" class="btn-outline text-sm">
+              Cuba PolicyStreet
+            </a>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <article class="prose-editorial">
+          <h2 id="faq">Soalan lazim — Insurans {car.fullName}</h2>
+        </article>
+
+        <div class="my-8">
+          <details class="faq-item" open>
+            <summary>Berapa harga insurans {car.model} sebulan?</summary>
+            <p>
+              Kalau kira bulanan, insurans {car.model} sekitar
+              <strong>RM{Math.round(car.premiumNCD55Min / 12)} – RM{Math.round(car.premiumNCD55Max / 12)}</strong> sebulan
+              (dengan NCD 55%). Tanpa NCD, sekitar
+              <strong>RM{Math.round(car.premiumNCD0Min / 12)} – RM{Math.round(car.premiumNCD0Max / 12)}</strong> sebulan.
+              Tapi ingat — insurans kereta biasanya bayar sekali gus untuk setahun.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>{car.model} patut ambil comprehensive atau third-party?</summary>
+            <p>
+              Kalau {car.model} anda masih bernilai (lebih RM15,000), <strong>comprehensive</strong> adalah pilihan terbaik.
+              Ia cover kerosakan kereta sendiri, kereta orang lain, kecurian, dan bencana alam.
+              Third-party hanya sesuai untuk kereta yang nilainya dah sangat rendah.
+              <a href="/car-insurance/" class="text-hijau-700 underline">Baca perbandingan jenis coverage →</a>
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Boleh ke saya tukar syarikat insurans untuk {car.model} saya?</summary>
+            <p>
+              Ya, 100% boleh. NCD ikut anda, bukan syarikat. Masa renew, anda bebas pilih mana-mana
+              syarikat insurans berlesen. Ini salah satu sebab kenapa anda patut bandingkan harga setiap tahun.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kenapa harga insurans {car.model} saya berbeza dari kawan?</summary>
+            <p>
+              Harga premium bergantung pada banyak faktor — <strong>umur kereta</strong> (kereta lama vs baru),
+              <strong>NCD</strong> (0% vs 55% beza besar), <strong>lokasi</strong> (KL/Selangor biasa lebih mahal),
+              <strong>add-ons</strong> yang dipilih, dan <strong>syarikat insurans</strong> yang dipilih.
+              Dua orang dengan {car.model} yang sama boleh dapat harga yang sangat berbeza.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Apa add-on wajib untuk {car.model}?</summary>
+            <p>
+              Minimum: <strong>windscreen cover</strong> (murah tapi sangat berguna) dan
+              <strong>special perils</strong> kalau duduk kawasan banjir.
+              {car.popularAddOns.some((a: any) => a.name.includes('ADAS'))
+                ? ` Untuk ${car.model} yang ada ADAS, ambil juga ADAS calibration cover sebab sensor mahal untuk repair.`
+                : ''}
+              <a href="/car-insurance/#addons" class="text-hijau-700 underline">Baca panduan add-ons lengkap →</a>
+            </p>
+          </details>
+        </div>
+
+        <!-- Related Cars -->
+        {relatedCars.length > 0 && (
+          <>
+            <article class="prose-editorial">
+              <h2>Model berkaitan</h2>
+              <p>Kalau anda sedang bandingkan kereta, ini model lain yang mungkin menarik:</p>
+            </article>
+
+            <div class="grid sm:grid-cols-2 gap-4 my-8">
+              {relatedCars.map((related: any) => (
+                <a href={`/car-insurance/${related.slug}/`} class="card-editorial group block">
+                  <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">
+                    {related.fullName}
+                  </h3>
+                  <p class="text-sm text-stone-500 mb-2">{related.segment} · {related.engineCC}</p>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-stone-500">NCD 55%:</span>
+                    <span class="font-semibold text-hijau-700">{related.premiumNCD55}</span>
+                  </div>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-stone-500">Nilai pasaran:</span>
+                    <span class="text-stone-700">{related.marketValueRange}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+          <!-- Quick Summary Card -->
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan {car.model}</h3>
+            <dl class="space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Enjin</dt>
+                <dd class="font-semibold text-stone-900">{car.engineCC}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Nilai Pasaran</dt>
+                <dd class="font-semibold text-stone-900">{car.marketValueRange}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Premium (NCD 0%)</dt>
+                <dd class="font-semibold text-stone-900">{car.premiumNCD0}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Premium (NCD 55%)</dt>
+                <dd class="font-semibold text-hijau-700">{car.premiumNCD55}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Risiko Kecurian</dt>
+                <dd class="font-semibold text-stone-900">{car.riskProfile.theftRate}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Kos Repair</dt>
+                <dd class="font-semibold text-stone-900">{car.riskProfile.repairCost.split('—')[0].trim()}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Where to buy -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Dapatkan quotation</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Bjak.my</a>
+                <span class="text-stone-500"> — aggregator #1</span>
+              </li>
+              <li>
+                <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">PolicyStreet</a>
+                <span class="text-stone-500"> — alternatif popular</span>
+              </li>
+              <li>
+                <a href="https://fincrew.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Fincrew.my</a>
+                <span class="text-stone-500"> — platform baru</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related pages -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta 2026</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim insurans</a></li>
+              <li><a href="/guides/renew-car-insurance/" class="text-hijau-700 hover:text-hijau-600">Cara renew insurans online</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+            </ul>
+          </div>
+
+          <!-- Other car models -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Kereta lain</h3>
+            <ul class="space-y-2 text-sm">
+              {relatedCars.map((related: any) => (
+                <li class="flex items-baseline justify-between">
+                  <a href={`/car-insurance/${related.slug}/`} class="text-hijau-700 hover:text-hijau-600 font-medium">
+                    {related.fullName}
+                  </a>
+                  <span class="text-xs text-stone-500">{related.premiumNCD55}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/car-insurance/#semua-model" class="block mt-4 text-xs text-stone-500 hover:text-hijau-700 font-medium">
+              Lihat semua model →
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
