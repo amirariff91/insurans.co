@@ -1,0 +1,544 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Kalkulator NCD Insurans Kereta Malaysia",
+  "description": "Kira NCD insurans kereta anda secara percuma. Semak berapa anda jimat dengan NCD 25%, 30%, 38%, 45% atau 55%. Termasuk kalkulator 'patut ke claim?'",
+  "url": "https://insurans.co/tools/ncd-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MYR" },
+  "inLanguage": "ms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://insurans.co/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Kalkulator NCD", "item": "https://insurans.co/tools/ncd-calculator/" }
+    ]
+  }
+};
+---
+
+<Base
+  title="Kalkulator NCD Insurans Kereta — Kira Diskaun & Jimat Premium"
+  description="Kira NCD insurans kereta anda dalam beberapa saat. Masukkan premium anda, pilih NCD, dan tengok berapa anda boleh jimat. Termasuk kalkulator 'patut ke claim?'"
+  schema={schema}
+>
+  <!-- Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/tools/" class="hover:text-hijau-700 text-stone-500">Tools</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">Kalkulator NCD</span>
+      </nav>
+      <p class="label mb-3">Free Tool</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Kalkulator NCD Insurans Kereta
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Masukkan premium asal anda, pilih NCD semasa — dan tengok berapa sebenarnya anda jimat.
+        Termasuk kalkulator <strong>"patut ke claim?"</strong> supaya anda tak rugi lepas accident kecil.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+
+      <!-- Main: Calculators -->
+      <div class="lg:col-span-2 space-y-10">
+
+        <!-- ── CALCULATOR 1: NCD Savings ── -->
+        <div class="bg-white border-2 border-stone-900 p-6 sm:p-8">
+          <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Kira Premium Selepas NCD</h2>
+          <p class="text-stone-500 text-sm mb-6">Berapa anda patut bayar tahun ni?</p>
+
+          <div class="space-y-5">
+            <!-- Premium input -->
+            <div>
+              <label for="base-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Premium Asal (sebelum NCD) — RM
+              </label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <input
+                  type="number"
+                  id="base-premium"
+                  placeholder="cth: 2000"
+                  min="100"
+                  max="50000"
+                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
+                />
+              </div>
+              <p class="text-xs text-stone-400 mt-1.5">Tengok dalam polisi lama anda. Ini jumlah SEBELUM NCD dipotong.</p>
+            </div>
+
+            <!-- NCD selector -->
+            <div>
+              <label class="block text-sm font-semibold text-stone-700 mb-2">NCD Semasa Anda</label>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="ncd-selector">
+                {[0, 25, 30, 38.33, 45, 55].map((ncd) => (
+                  <button
+                    data-ncd={ncd}
+                    class="ncd-btn py-3 px-1 border-2 border-stone-200 text-center text-sm font-bold text-stone-500 hover:border-hijau-500 hover:text-hijau-700 transition-colors"
+                  >
+                    {ncd}%
+                  </button>
+                ))}
+              </div>
+              <p class="text-xs text-stone-400 mt-1.5">
+                Tak tahu NCD anda? Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline">MyEG</a> atau tanya ejen insurans anda.
+              </p>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div id="ncd-result" class="hidden mt-6 p-5 bg-hijau-50 border border-hijau-200">
+            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+              <div>
+                <p class="text-sm text-stone-500">Premium yang anda bayar</p>
+                <p id="result-premium" class="font-serif text-4xl font-bold text-hijau-700 mt-0.5"></p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-stone-500">Jimat berbanding 0% NCD</p>
+                <p id="result-saving" class="font-serif text-2xl font-bold text-stone-900 mt-0.5"></p>
+              </div>
+            </div>
+            <div id="result-breakdown" class="border-t border-hijau-200 pt-4 space-y-2"></div>
+          </div>
+        </div>
+
+        <!-- ── CALCULATOR 2: Should I Claim? ── -->
+        <div class="bg-white border-2 border-stone-200 p-6 sm:p-8">
+          <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Patut Ke Claim?</h2>
+          <p class="text-stone-500 text-sm mb-6">Accident kecil? Kira sama ada worth it untuk claim atau bayar sendiri.</p>
+
+          <div class="space-y-5">
+            <!-- Current premium (after NCD) -->
+            <div>
+              <label for="current-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Premium Semasa Anda Bayar (selepas NCD) — RM
+              </label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <input
+                  type="number"
+                  id="current-premium"
+                  placeholder="cth: 900"
+                  min="100"
+                  max="50000"
+                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
+                />
+              </div>
+            </div>
+
+            <!-- Current NCD % for claim calc -->
+            <div>
+              <label for="current-ncd-pct" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                NCD Semasa (%)
+              </label>
+              <select
+                id="current-ncd-pct"
+                class="w-full px-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-base transition-colors bg-white"
+              >
+                <option value="">— Pilih NCD —</option>
+                <option value="55">55% (5+ tahun tanpa claim)</option>
+                <option value="45">45% (4 tahun tanpa claim)</option>
+                <option value="38.33">38.33% (3 tahun tanpa claim)</option>
+                <option value="30">30% (2 tahun tanpa claim)</option>
+                <option value="25">25% (1 tahun tanpa claim)</option>
+                <option value="0">0% (baru atau selepas claim)</option>
+              </select>
+            </div>
+
+            <!-- Repair cost -->
+            <div>
+              <label for="repair-cost" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Anggaran Kos Repair — RM
+              </label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <input
+                  type="number"
+                  id="repair-cost"
+                  placeholder="cth: 800"
+                  min="0"
+                  max="100000"
+                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
+                />
+              </div>
+            </div>
+
+            <!-- Excess -->
+            <div>
+              <label for="excess" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Excess Polisi Anda — RM
+                <span class="text-stone-400 font-normal">(biasanya RM400)</span>
+              </label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <input
+                  type="number"
+                  id="excess"
+                  value="400"
+                  min="0"
+                  max="5000"
+                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
+                />
+              </div>
+            </div>
+
+            <button
+              id="claim-calc-btn"
+              class="w-full py-3.5 bg-stone-900 text-white font-semibold text-sm hover:bg-stone-800 transition-colors"
+            >
+              Kira — Patut Claim Tak?
+            </button>
+          </div>
+
+          <!-- Claim Result -->
+          <div id="claim-result" class="hidden mt-6"></div>
+        </div>
+
+        <!-- ── NCD Table ── -->
+        <div class="prose-editorial">
+          <h2>Jadual NCD Malaysia 2026</h2>
+          <p>NCD (No Claim Discount) adalah diskaun yang anda dapat kerana tidak membuat tuntutan (claim) insurans. Setiap tahun tanpa claim, NCD anda naik — sehingga maksimum 55%.</p>
+        </div>
+
+        <div class="overflow-x-auto my-6">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Tahun Tanpa Claim</th>
+                <th>NCD</th>
+                <th>Contoh: Premium RM2,000</th>
+                <th>Anda bayar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Baru ada lesen / selepas claim</td>
+                <td class="font-semibold">0%</td>
+                <td>Tiada diskaun</td>
+                <td class="font-bold text-stone-900">RM2,000</td>
+              </tr>
+              <tr>
+                <td>1 tahun tanpa claim</td>
+                <td class="font-semibold">25%</td>
+                <td>Diskaun RM500</td>
+                <td class="font-bold text-hijau-700">RM1,500</td>
+              </tr>
+              <tr>
+                <td>2 tahun tanpa claim</td>
+                <td class="font-semibold">30%</td>
+                <td>Diskaun RM600</td>
+                <td class="font-bold text-hijau-700">RM1,400</td>
+              </tr>
+              <tr>
+                <td>3 tahun tanpa claim</td>
+                <td class="font-semibold">38.33%</td>
+                <td>Diskaun RM767</td>
+                <td class="font-bold text-hijau-700">RM1,233</td>
+              </tr>
+              <tr>
+                <td>4 tahun tanpa claim</td>
+                <td class="font-semibold">45%</td>
+                <td>Diskaun RM900</td>
+                <td class="font-bold text-hijau-700">RM1,100</td>
+              </tr>
+              <tr class="bg-hijau-50">
+                <td class="font-semibold">5+ tahun tanpa claim</td>
+                <td class="font-semibold text-hijau-700">55% (Max)</td>
+                <td>Diskaun RM1,100</td>
+                <td class="font-bold text-hijau-700 text-lg">RM900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Content -->
+        <article class="prose-editorial">
+          <h2>Apa yang berlaku kepada NCD kalau saya claim?</h2>
+          <p>
+            Kalau anda buat <strong>satu claim</strong> sahaja, NCD anda <strong>reset ke 0%</strong> — tidak kira berapa lama anda dah kumpul NCD tu.
+            Ini bermakna tahun depan, anda bayar premium penuh tanpa sebarang diskaun.
+          </p>
+          <p>
+            Atas sebab ini, ramai pemilik kereta memilih untuk <strong>bayar sendiri</strong> kos repair kecil — kerana jimat lebih dalam jangka masa panjang.
+          </p>
+
+          <h3>Contoh sebenar:</h3>
+          <p>
+            Kereta anda calar sikit. Kos repair: <strong>RM600</strong>. NCD anda: <strong>55%</strong>. Premium asal anda: <strong>RM2,000</strong>.
+          </p>
+          <ul>
+            <li>Kalau <strong>claim</strong>: Anda jimat RM600 repair — tapi tahun depan bayar RM2,000 (NCD reset), berbanding RM900 sekarang. Rugi <strong>RM1,100 extra</strong> setahun.</li>
+            <li>Kalau <strong>bayar sendiri</strong>: Keluar RM600 sekarang, tapi NCD kekal 55%. Jimat RM500+ setahun seterusnya.</li>
+          </ul>
+          <p>
+            Dalam kes ini, bayar sendiri lebih bijak — melainkan kos repair jauh lebih tinggi daripada NCD yang akan hilang.
+          </p>
+
+          <h2>Soalan lazim tentang NCD</h2>
+        </article>
+
+        <div class="my-6 space-y-0">
+          <details class="faq-item" open>
+            <summary>Boleh ke pindah NCD ke kereta lain?</summary>
+            <p>
+              Ya! NCD ikut <strong>pemilik</strong>, bukan kereta. Kalau anda jual kereta lama dan beli kereta baru,
+              NCD anda dibawa sekali. Anda boleh juga pindah NCD dari kereta lama ke nama orang lain
+              (cth: anak, suami/isteri) dengan syarat tertentu.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Kalau kereta kena langgar dan bukan salah saya, NCD kena reset juga?</summary>
+            <p>
+              Ini bergantung pada cara claim dibuat. Dalam sistem <strong>knock-for-knock</strong> Malaysia,
+              masing-masing claim insurans sendiri — jadi NCD anda mungkin terjejas.
+              Tapi kalau anda ada police report yang jelas buktikan anda tak bersalah,
+              boleh appeal untuk dapatkan NCD kembali. Dashcam footage sangat membantu.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Berapa lama NCD kekal kalau saya tak renew insurans?</summary>
+            <p>
+              NCD anda kekal selama <strong>90 hari</strong> selepas polisi tamat.
+              Kalau tak renew dalam tempoh tu, NCD akan dilupuskan dan anda kena mula semula dari 0%.
+              Jadi pastikan renew sebelum polisi tamat!
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Boleh ke ada NCD untuk insurans kereta lagi dari satu?</summary>
+            <p>
+              Ya, tapi NCD adalah <strong>satu per kereta</strong>. Kalau anda ada dua kereta, setiap kereta ada NCD tersendiri.
+              NCD kereta pertama tidak boleh digunakan untuk kereta kedua.
+            </p>
+          </details>
+        </div>
+
+        <!-- Related tools CTA -->
+        <div class="bg-stone-50 border border-stone-200 p-6">
+          <p class="text-sm font-semibold text-stone-700 mb-3">Langkah seterusnya</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <a href="/car-insurance/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
+              <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan Insurans Kereta →</p>
+              <p class="text-xs text-stone-500 mt-0.5">Harga, jenis coverage, cara renew</p>
+            </a>
+            <a href="/guides/ncd-explained/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
+              <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan NCD Lengkap →</p>
+              <p class="text-xs text-stone-500 mt-0.5">Semua yang anda perlu tahu tentang NCD</p>
+            </a>
+            <a href="/companies/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
+              <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Bandingkan Syarikat →</p>
+              <p class="text-xs text-stone-500 mt-0.5">Pilih syarikat insurans terbaik</p>
+            </a>
+            <a href="/guides/how-to-claim/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
+              <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Cara Buat Claim →</p>
+              <p class="text-xs text-stone-500 mt-0.5">Langkah-langkah buat tuntutan insurans</p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-3">Cara Guna</h3>
+            <ol class="space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2.5">
+                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">1</span>
+                <span>Masukkan <strong>premium asal</strong> dari polisi lama anda</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">2</span>
+                <span>Pilih <strong>NCD semasa</strong> anda</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">3</span>
+                <span>Tengok premium sebenar dan <strong>berapa anda jimat</strong></span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Nak tahu NCD anda?</h3>
+            <p class="text-sm text-stone-600 mb-3">Semak NCD secara online melalui:</p>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">MyEG.com.my</a>
+                <span class="text-stone-500"> — MySIKAP semak NCD</span>
+              </li>
+              <li class="text-stone-600">Atau tanya ejen / syarikat insurans anda terus</li>
+            </ul>
+          </div>
+
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Tip penting</h3>
+            <p class="text-sm text-stone-600">
+              Untuk kerosakan kecil di bawah <strong>RM1,000–2,000</strong>,
+              biasanya lebih jimat <strong>bayar sendiri</strong> daripada claim
+              — sebab NCD yang hilang akan cost lebih mahal dalam jangka panjang.
+            </p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</Base>
+
+<style>
+  .ncd-btn.active {
+    border-color: #16a34a;
+    background-color: #f0fdf4;
+    color: #15803d;
+  }
+</style>
+
+<script>
+  // ── NCD Calculator ──
+  const NCD_RATES = [
+    { label: '0%',     value: 0,     years: 'Baru / selepas claim' },
+    { label: '25%',    value: 25,    years: '1 tahun tanpa claim' },
+    { label: '30%',    value: 30,    years: '2 tahun tanpa claim' },
+    { label: '38.33%', value: 38.33, years: '3 tahun tanpa claim' },
+    { label: '45%',    value: 45,    years: '4 tahun tanpa claim' },
+    { label: '55%',    value: 55,    years: '5+ tahun tanpa claim' },
+  ];
+
+  let selectedNCD: number | null = null;
+
+  function fmt(n: number): string {
+    return 'RM' + n.toLocaleString('ms-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function calcPremium(base: number, ncd: number): number {
+    return base * (1 - ncd / 100);
+  }
+
+  function updateNCDResult() {
+    const baseInput = document.getElementById('base-premium') as HTMLInputElement;
+    const base = parseFloat(baseInput.value);
+    if (!base || base < 100 || selectedNCD === null) return;
+
+    const afterNCD = calcPremium(base, selectedNCD);
+    const saving = base - afterNCD;
+
+    const resultEl = document.getElementById('ncd-result')!;
+    resultEl.classList.remove('hidden');
+    document.getElementById('result-premium')!.textContent = fmt(Math.round(afterNCD));
+    document.getElementById('result-saving')!.textContent = fmt(Math.round(saving));
+
+    // Breakdown for all NCD levels
+    const breakdownEl = document.getElementById('result-breakdown')!;
+    breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-500 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
+    NCD_RATES.forEach(rate => {
+      const p = calcPremium(base, rate.value);
+      const s = base - p;
+      const isActive = rate.value === selectedNCD;
+      breakdownEl.innerHTML += `
+        <div class="flex justify-between items-center py-1.5 ${isActive ? 'font-bold text-hijau-700' : 'text-stone-600'} text-sm border-b border-hijau-100 last:border-0">
+          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-400">(${rate.years})</span></span>
+          <span>${fmt(Math.round(p))} ${s > 0 ? '<span class="text-xs text-stone-400">(jimat ' + fmt(Math.round(s)) + ')</span>' : ''}</span>
+        </div>`;
+    });
+  }
+
+  // NCD button selection
+  document.querySelectorAll('.ncd-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ncd-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedNCD = parseFloat((btn as HTMLElement).dataset.ncd ?? '0');
+      updateNCDResult();
+    });
+  });
+
+  document.getElementById('base-premium')?.addEventListener('input', updateNCDResult);
+
+  // ── Should I Claim? Calculator ──
+  document.getElementById('claim-calc-btn')?.addEventListener('click', () => {
+    const currentPremium = parseFloat((document.getElementById('current-premium') as HTMLInputElement).value);
+    const ncdPct = parseFloat((document.getElementById('current-ncd-pct') as HTMLSelectElement).value);
+    const repairCost = parseFloat((document.getElementById('repair-cost') as HTMLInputElement).value);
+    const excess = parseFloat((document.getElementById('excess') as HTMLInputElement).value) || 0;
+
+    const resultEl = document.getElementById('claim-result')!;
+
+    if (!currentPremium || isNaN(ncdPct) || !repairCost) {
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = '<p class="text-sm text-red-600 p-4 bg-red-50 border border-red-200">Sila isi semua maklumat di atas.</p>';
+      return;
+    }
+
+    // Base premium (before NCD)
+    const basePremium = currentPremium / (1 - ncdPct / 100);
+
+    // After claim: NCD resets to 0%
+    const premiumAfterClaim = basePremium; // 0% NCD = full base
+    const premiumExtraPerYear = premiumAfterClaim - currentPremium;
+
+    // Net repair payout (repair cost minus excess)
+    const netPayout = Math.max(0, repairCost - excess);
+
+    // How many years to recover? (premium extra vs net payout)
+    const yearsToRecover = premiumExtraPerYear > 0 ? netPayout / premiumExtraPerYear : 0;
+
+    // Verdict
+    const shouldClaim = netPayout > premiumExtraPerYear * 2; // worth it if savings > 2 years of extra premium
+
+    const verdictColor = shouldClaim ? 'hijau' : 'stone';
+    const verdictBg = shouldClaim ? 'bg-hijau-50 border-hijau-300' : 'bg-amber-50 border-amber-300';
+    const verdictText = shouldClaim ? 'text-hijau-800' : 'text-amber-800';
+    const verdictTitle = shouldClaim ? '✓ Patut Claim' : '⚠ Elak Claim — Bayar Sendiri Lebih Jimat';
+    const verdictDesc = shouldClaim
+      ? `Net payout claim anda (${fmt(Math.round(netPayout))}) melebihi premium tambahan yang anda kena bayar. Worth it untuk claim.`
+      : `Kalau claim, NCD anda reset ke 0% — premium naik ${fmt(Math.round(premiumExtraPerYear))} setahun. Bayar sendiri ${fmt(Math.round(repairCost))} lebih jimat dalam jangka panjang.`;
+
+    resultEl.classList.remove('hidden');
+    resultEl.innerHTML = `
+      <div class="p-5 border-2 ${verdictBg}">
+        <p class="font-bold text-lg ${verdictText} mb-2">${verdictTitle}</p>
+        <p class="text-sm ${verdictText} mb-4">${verdictDesc}</p>
+        <div class="space-y-2 text-sm border-t ${shouldClaim ? 'border-hijau-200' : 'border-amber-200'} pt-4">
+          <div class="flex justify-between">
+            <span class="text-stone-600">Kos repair</span>
+            <strong>${fmt(Math.round(repairCost))}</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-600">Tolak excess polisi</span>
+            <strong class="text-red-600">− ${fmt(Math.round(excess))}</strong>
+          </div>
+          <div class="flex justify-between border-t border-stone-200 pt-2">
+            <span class="text-stone-600">Net payout dari insurans</span>
+            <strong>${fmt(Math.round(netPayout))}</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-600">Premium tambahan setahun (NCD reset)</span>
+            <strong class="text-red-600">+ ${fmt(Math.round(premiumExtraPerYear))}</strong>
+          </div>
+          ${!shouldClaim ? `
+          <div class="flex justify-between border-t border-stone-200 pt-2">
+            <span class="text-stone-600 font-semibold">Kerugian bersih kalau claim</span>
+            <strong class="text-red-700">${fmt(Math.round(premiumExtraPerYear - netPayout))} (tahun pertama)</strong>
+          </div>` : ''}
+        </div>
+      </div>
+    `;
+  });
+</script>
