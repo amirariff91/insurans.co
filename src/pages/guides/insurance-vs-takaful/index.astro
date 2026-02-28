@@ -4,17 +4,72 @@ import Base from '../../../layouts/Base.astro';
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Insurans vs Takaful — Apa Beza Sebenar?",
+  "headline": "Beza Takaful dan Insurans Kereta — Panduan Lengkap 2026",
   "datePublished": "2026-01-28",
-  "dateModified": "2026-02-01",
+  "dateModified": "2026-02-28",
   "inLanguage": "ms",
-  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+  "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Takaful", "item": "https://insurans.co/takaful/" },
+      { "@type": "ListItem", "position": 3, "name": "Beza Takaful dan Insurans", "item": "https://insurans.co/guides/insurance-vs-takaful/" }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apa beza takaful dan insurans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Takaful adalah sistem perlindungan berasaskan prinsip saling bantu-membantu (ta'awun) yang patuh Syariah Islam. Insurans konvensional pula adalah kontrak jual beli di mana anda bayar premium dan syarikat tanggung risiko. Lebihan dana dalam takaful dikongsi semula kepada peserta, manakala dalam insurans konvensional keuntungan adalah milik syarikat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mana lebih baik takaful atau insurans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dari segi coverage dan proses claim, kedua-duanya hampir sama. Pilih takaful jika anda mahu produk yang patuh Syariah atau suka konsep surplus sharing. Pilih insurans konvensional jika harganya lebih murah untuk kereta anda atau syarikat yang anda mahu tiada arm takaful. Yang paling penting: bandingkan harga dan perkhidmatan, bukan sekadar label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Beza takaful dan insurans dari segi harga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Harga takaful dan insurans kereta adalah berbeza mengikut syarikat dan model kereta. Selepas liberalisasi tarif motor 2017, setiap syarikat boleh tetapkan harga sendiri — jadi ada masa takaful lebih murah, ada masa insurans konvensional lebih murah. Sentiasa bandingkan quotation dari kedua-dua jenis sebelum buat keputusan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Non-Muslim boleh ambil takaful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tidak kira agama. Ramai non-Muslim pilih takaful kerana konsep surplus sharing — ada potensi dapat semula sebahagian wang jika dana takaful ada lebihan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perbezaan takaful dan insurans dari segi claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proses claim takaful dan insurans konvensional adalah hampir identik — anda hubungi syarikat, submit dokumen, hantar kereta ke panel bengkel. Dari perspektif pengguna, pengalaman claim hampir tiada beza. Yang berbeza adalah konsep di belakang tabir."
+      }
+    }
+  ]
 };
 ---
 
 <Base
-  title="Insurans vs Takaful — Apa Beza Sebenar? Panduan 2026"
-  description="Beza insurans konvensional dan takaful di Malaysia. Konsep, cara berfungsi, kelebihan masing-masing, dan mana yang sesuai untuk anda."
+  title="Beza Takaful dan Insurans Kereta 2026 | Perbezaan Lengkap — Insurans.co"
+  description="Perbezaan takaful dan insurans kereta di Malaysia — konsep, harga, proses claim, dan mana yang lebih sesuai untuk anda. Panduan lengkap dalam Bahasa Malaysia."
   schema={schema}
 >
   <section class="bg-white border-b border-stone-200">
@@ -24,27 +79,54 @@ const schema = {
         <span class="mx-2">›</span>
         <a href="/takaful/" class="hover:text-hijau-700 text-stone-500">Takaful</a>
         <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans vs Takaful</span>
+        <span class="text-stone-700">Beza Takaful dan Insurans</span>
       </nav>
       <p class="label mb-3">Panduan</p>
-      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Insurans vs Takaful — Apa Beza Sebenar?</h1>
+      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Beza Takaful dan Insurans Kereta — Panduan Lengkap 2026</h1>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Dua-dua bagi perlindungan yang sama, tapi cara kerja berbeza.
-        Ni breakdown yang simple supaya anda boleh decide.
+        Takaful vs insurans — dua-dua bagi perlindungan yang sama, tapi cara kerja berbeza.
+        Panduan ini akan jelaskan perbezaan takaful dan insurans secara simple, supaya anda boleh buat keputusan yang tepat.
       </p>
+      <div class="flex flex-wrap gap-2 mt-6 text-sm text-stone-500">
+        <span>Dikemaskini: Feb 2026</span>
+        <span>·</span>
+        <span>Masa baca: ~8 minit</span>
+      </div>
     </div>
   </section>
 
   <div class="container-article py-10 sm:py-14">
     <article class="prose-editorial">
 
-      <h2>Dalam satu ayat</h2>
+      <h2>Ringkasan — Dalam dua ayat</h2>
       <p>
-        <strong>Insurans:</strong> Anda bayar premium, syarikat tanggung risiko, profit masuk syarikat.<br/>
-        <strong>Takaful:</strong> Anda sumbang ke dana bersama, risiko dikongsi, lebihan dana dikongsi balik.
+        <strong>Insurans konvensional:</strong> Anda bayar premium, syarikat tanggung risiko, dan keuntungan masuk syarikat.<br/>
+        <strong>Takaful:</strong> Anda dan peserta lain sumbang ke dana bersama, risiko dikongsi secara kolektif, dan lebihan dana dikongsi semula.
+      </p>
+      <p>
+        Dari segi <strong>perlindungan dan claim</strong>, kedua-duanya hampir identik. Yang berbeza adalah <em>konsep dan prinsip</em> di sebaliknya.
       </p>
 
-      <h2>Beza utama</h2>
+      <h2>Apa itu Takaful?</h2>
+      <p>
+        Takaful berasal dari perkataan Arab <em>kafala</em> yang bermaksud "menjamin sesama sendiri". Ini adalah sistem perlindungan kewangan yang berasaskan prinsip <strong>ta'awun</strong> (saling bantu-membantu) dan <strong>tabarru'</strong> (sumbangan ikhlas).
+      </p>
+      <p>
+        Dalam sistem takaful, setiap peserta menyumbang sejumlah wang ke dalam satu <strong>dana bersama (Tabarru' Fund)</strong>. Wang ini digunakan untuk membayar tuntutan (claim) mana-mana peserta yang mengalami kerugian. Syarikat takaful bertindak sebagai pengurus (operator) dana ini — bukan pemiliknya.
+      </p>
+      <p>
+        Ini berbeza dengan insurans konvensional di mana premium yang anda bayar menjadi <em>milik syarikat</em>, dan keuntungan syarikat bergantung pada jumlah premium yang dikutip berbanding tuntutan yang dibayar.
+      </p>
+
+      <h2>Apa itu Insurans Konvensional?</h2>
+      <p>
+        Insurans konvensional adalah kontrak antara anda dan syarikat insurans. Anda bersetuju membayar premium secara berkala, dan syarikat bersetuju untuk membayar ganti rugi sekiranya berlaku kerugian yang dilindungi.
+      </p>
+      <p>
+        Dalam kontrak ini, premium yang anda bayar adalah <strong>milik syarikat</strong> sebaik sahaja transaksi berlaku. Keuntungan syarikat bergantung pada pengurusan risiko — jika tuntutan yang dibayar lebih rendah dari premium yang dikutip, syarikat untung. Jika sebaliknya, syarikat rugi.
+      </p>
+
+      <h2>Perbezaan Takaful dan Insurans — Jadual Perbandingan</h2>
     </article>
 
     <div class="overflow-x-auto my-8">
@@ -57,75 +139,318 @@ const schema = {
           </tr>
         </thead>
         <tbody>
-          <tr><td class="font-medium">Konsep</td><td>Jual beli (kontrak)</td><td>Saling bantu-membantu (ta'awun)</td></tr>
-          <tr><td class="font-medium">Patuh Syariah?</td><td>Tidak semestinya</td><td>Ya — wajib patuh Syariah</td></tr>
-          <tr><td class="font-medium">Duit premium</td><td>Milik syarikat</td><td>Milik peserta (dalam dana)</td></tr>
-          <tr><td class="font-medium">Lebihan (surplus)</td><td>Profit syarikat</td><td>Dikongsi dengan peserta</td></tr>
-          <tr><td class="font-medium">Pelaburan</td><td>Boleh melabur apa saja</td><td>Hanya pelaburan patuh Syariah</td></tr>
-          <tr><td class="font-medium">Regulator</td><td>BNM</td><td>BNM + Majlis Penasihat Syariah</td></tr>
-          <tr><td class="font-medium">Harga</td><td>Kadang lebih murah</td><td>Kadang lebih murah — bergantung produk</td></tr>
-          <tr><td class="font-medium">Coverage</td><td>Sama</td><td>Sama</td></tr>
+          <tr>
+            <td class="font-medium">Konsep asas</td>
+            <td>Kontrak jual beli (al-muawadah)</td>
+            <td>Saling bantu-membantu (ta'awun)</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Patuh Syariah?</td>
+            <td>Tidak semestinya</td>
+            <td>Ya — wajib patuh Syariah Islam</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Status premium/caruman</td>
+            <td>Milik syarikat terus</td>
+            <td>Masuk dana peserta bersama</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Lebihan dana (surplus)</td>
+            <td>Keuntungan syarikat</td>
+            <td>Dikongsi dengan peserta</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Pelaburan dana</td>
+            <td>Boleh melabur apa saja</td>
+            <td>Hanya instrumen patuh Syariah</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Pengawal selia</td>
+            <td>BNM (Bank Negara Malaysia)</td>
+            <td>BNM + Majlis Penasihat Syariah</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Harga (premium)</td>
+            <td>Bergantung syarikat dan model kereta</td>
+            <td>Bergantung syarikat dan model kereta</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Liputan (coverage)</td>
+            <td>Comprehensive, third-party, TPFT</td>
+            <td>Sama — comprehensive, third-party, TPFT</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Proses claim</td>
+            <td>Panel bengkel, laporan polis, dokumen</td>
+            <td>Hampir sama — panel bengkel, laporan polis</td>
+          </tr>
+          <tr>
+            <td class="font-medium">Add-ons</td>
+            <td>Windscreen, special perils, dll</td>
+            <td>Sama — windscreen, banjir, dll</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <article class="prose-editorial">
-      <h2>Mana satu yang lebih baik?</h2>
+
+      <h2>Konsep Surplus Sharing dalam Takaful</h2>
       <p>
-        Honestly? Dari segi <strong>perlindungan, coverage sama je</strong>. Kereta anda dilindungi sama rata
-        sama ada guna insurans atau takaful. Yang berbeza adalah konsep di belakang tabir.
+        Salah satu beza utama takaful berbanding insurans konvensional adalah konsep <strong>surplus sharing</strong> atau perkongsian lebihan dana.
       </p>
       <p>
-        <strong>Pilih takaful kalau:</strong>
+        Di akhir tempoh polisi, jika dana takaful ada lebihan (iaitu tuntutan yang dibayar lebih rendah dari sumbangan yang dikutip), lebihan ini tidak masuk poket syarikat — sebaliknya, ia <strong>dikongsi kembali kepada peserta</strong> mengikut nisbah yang telah ditetapkan.
       </p>
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Anda nak produk yang patuh Syariah</li>
-        <li>Anda suka konsep surplus sharing — ada potensi dapat duit balik</li>
-        <li>Anda prefer pelaburan yang ethical/Syariah-compliant</li>
-      </ul>
       <p>
-        <strong>Insurans konvensional okay kalau:</strong>
+        Contoh: Jika dana takaful ada lebihan RM5 juta, dan nisbah perkongsian adalah 70% kepada peserta, bermakna RM3.5 juta dikongsi semula kepada semua peserta aktif mengikut caruman masing-masing.
       </p>
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Harga lebih murah untuk produk tertentu</li>
-        <li>Anda tak particular tentang Syariah-compliance</li>
-        <li>Syarikat tertentu yang anda nak takde takaful arm</li>
+      <p>
+        <strong>Penting untuk difahami:</strong> Surplus sharing ini adalah <em>tidak guaranteed</em>. Ada tahun yang dana takaful tidak ada lebihan — terutama jika berlaku banyak tuntutan besar (seperti banjir atau kemalangan besar). Jadi jangan jadikan ini faktor utama pilihan anda.
+      </p>
+
+      <h2>Mana Lebih Baik — Takaful atau Insurans?</h2>
+      <p>
+        Jawapan jujur: <strong>bergantung pada situasi anda</strong>. Tapi bukan semua faktor sama beratnya.
+      </p>
+
+      <h3>Pilih Takaful jika:</h3>
+      <ul>
+        <li><strong>Anda mahu produk yang patuh Syariah</strong> — Ini sebab paling kuat. Jika compliance Syariah adalah keutamaan anda, takaful adalah pilihan yang tepat.</li>
+        <li><strong>Anda suka konsep mutual aid</strong> — Idea bahawa anda dan peserta lain saling bantu-membantu adalah konsep yang menarik bagi ramai orang.</li>
+        <li><strong>Ada potensi surplus sharing</strong> — Walaupun tidak guaranteed, ada kemungkinan dapat sebahagian wang balik.</li>
+        <li><strong>Harga takaful lebih kompetitif</strong> untuk model kereta anda selepas bandingkan quotation.</li>
       </ul>
 
-      <h2>Syarikat yang ada kedua-dua</h2>
-      <p>Ramai syarikat besar offer kedua-dua — conventional AND takaful:</p>
-      <ul class="list-disc pl-5 space-y-2">
-        <li><a href="/companies/etiqa/">Etiqa</a> (Etiqa General + Etiqa General Takaful)</li>
-        <li><a href="/companies/zurich/">Zurich</a> (Zurich Insurance + Zurich Takaful)</li>
-        <li><a href="/companies/aia/">AIA</a> (AIA Bhd + AIA PUBLIC Takaful)</li>
-        <li><a href="/companies/prudential/">Prudential</a> (Prudential + Prudential BSN Takaful)</li>
+      <h3>Pilih Insurans Konvensional jika:</h3>
+      <ul>
+        <li><strong>Harga lebih murah</strong> — Selepas liberalisasi tarif 2017, setiap syarikat set harga sendiri. Kadang insurans konvensional jauh lebih murah untuk kereta anda.</li>
+        <li><strong>Syarikat pilihan anda tiada arm takaful</strong> — Beberapa syarikat hanya offer conventional.</li>
+        <li><strong>Compliance Syariah bukan keutamaan</strong> — Jika ini tak penting untuk anda, pilih yang harga dan servis terbaik.</li>
       </ul>
 
-      <h2>Soalan lazim</h2>
+      <div class="info-box my-6">
+        <p class="text-sm text-stone-700">
+          <strong>Tip Praktikal:</strong> Sebelum buat keputusan, dapatkan quotation untuk KEDUA-DUA takaful dan insurans konvensional untuk kereta anda. Bandingkan harga, coverage, dan syarikat. Guna platform seperti Bjak.my atau PolicyStreet yang show kedua-dua jenis sekaligus.
+        </p>
+      </div>
+
+      <h2>Beza Takaful dan Insurans dari Segi Harga</h2>
+      <p>
+        Ini soalan yang paling ramai tanya: <em>"Mana lebih murah — takaful atau insurans?"</em>
+      </p>
+      <p>
+        Jawapan mudah: <strong>tiada yang automatically lebih murah</strong>. Selepas Malaysia meliberalisasikan tarif motor pada 2017, setiap syarikat insurans dan takaful bebas menetapkan harga premium sendiri berdasarkan model kereta, rekod pemanduan, dan faktor risiko lain.
+      </p>
+      <p>
+        Ini bermakna untuk kereta yang sama, ada masa <strong>Etiqa Takaful lebih murah</strong> dari Etiqa Conventional — dan sebaliknya. Perbezaan harga boleh mencecah 10-20% bergantung pada syarikat dan model kereta.
+      </p>
+      <p>
+        Kesimpulan: <strong>Sentiasa bandingkan quotation</strong> dari pelbagai syarikat — takaful dan konvensional — sebelum renew atau beli polisi baru.
+      </p>
+
+      <h2>Syarikat yang Ada Kedua-dua — Takaful dan Konvensional</h2>
+      <p>Kebanyakan syarikat besar di Malaysia offer kedua-duanya. Ini memudahkan anda untuk bandingkan dari syarikat yang sama:</p>
     </article>
 
-    <div class="my-8">
+    <div class="overflow-x-auto my-8">
+      <table class="table-editorial">
+        <thead>
+          <tr>
+            <th>Syarikat Konvensional</th>
+            <th>Arm Takaful</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/companies/etiqa/" class="text-hijau-700 hover:text-hijau-600">Etiqa Insurance</a></td>
+            <td>Etiqa General Takaful</td>
+          </tr>
+          <tr>
+            <td><a href="/companies/zurich/" class="text-hijau-700 hover:text-hijau-600">Zurich Insurance</a></td>
+            <td>Zurich General Takaful</td>
+          </tr>
+          <tr>
+            <td><a href="/companies/aia/" class="text-hijau-700 hover:text-hijau-600">AIA Bhd</a></td>
+            <td>AIA PUBLIC Takaful</td>
+          </tr>
+          <tr>
+            <td><a href="/companies/prudential/" class="text-hijau-700 hover:text-hijau-600">Prudential Assurance</a></td>
+            <td>Prudential BSN Takaful</td>
+          </tr>
+          <tr>
+            <td>Allianz General</td>
+            <td>Tiada arm takaful</td>
+          </tr>
+          <tr>
+            <td>—</td>
+            <td>Takaful Malaysia (standalone takaful)</td>
+          </tr>
+          <tr>
+            <td>—</td>
+            <td>MCIS Takaful, Syarikat Takaful Malaysia</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <article class="prose-editorial">
+
+      <h2>Proses Claim — Sama Ke Berbeza?</h2>
+      <p>
+        Dari perspektif pengguna, proses claim takaful dan insurans konvensional adalah <strong>hampir identik</strong>:
+      </p>
+      <ol>
+        <li><strong>Hubungi syarikat</strong> dalam 24 jam selepas kejadian</li>
+        <li><strong>Buat laporan polis</strong> (wajib untuk kemalangan)</li>
+        <li><strong>Hantar kereta ke panel bengkel</strong> yang dilantik syarikat</li>
+        <li><strong>Submit dokumen</strong> yang diperlukan (IC, lesen, gambar kerosakan)</li>
+        <li><strong>Tunggu kelulusan</strong> dan repair dilaksanakan</li>
+      </ol>
+      <p>
+        Perbezaan mungkin wujud dalam <strong>masa pemprosesan</strong> dan <strong>kualiti servis</strong> — ini bergantung pada syarikat spesifik, bukan sama ada ia takaful atau konvensional.
+      </p>
+
+      <h2>NCD — Sama Untuk Takaful dan Insurans</h2>
+      <p>
+        NCD (No Claim Discount) berfungsi dengan cara yang <strong>sama untuk takaful dan insurans konvensional</strong>. Kadar NCD adalah standard di seluruh industri:
+      </p>
+      <ul>
+        <li>1 tahun tanpa claim: <strong>25% diskaun</strong></li>
+        <li>2 tahun: <strong>30%</strong></li>
+        <li>3 tahun: <strong>38.33%</strong></li>
+        <li>4 tahun: <strong>45%</strong></li>
+        <li>5+ tahun: <strong>55% (maksimum)</strong></li>
+      </ul>
+      <p>
+        NCD anda juga <strong>boleh dipindahkan</strong> antara syarikat — dari konvensional ke takaful, atau sebaliknya. Jadi anda bebas untuk tukar syarikat setiap tahun tanpa kehilangan NCD yang telah dikumpul.
+      </p>
+    </article>
+
+    <!-- NCD Calculator CTA -->
+    <div class="border-2 border-hijau-600 bg-hijau-50 p-6 my-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-1">
+          <h3 class="font-serif text-lg text-stone-900 mb-1">Kira NCD anda sekarang</h3>
+          <p class="text-sm text-stone-600">
+            Tak kira takaful atau insurans, NCD anda boleh jimat sehingga <strong>55%</strong> daripada premium.
+            Guna kalkulator kami untuk tahu berapa anda patut bayar — dan sama ada berbaloi untuk claim.
+          </p>
+        </div>
+        <a href="/tools/ncd-calculator/" class="flex-shrink-0 btn-hijau text-sm">
+          Kira NCD anda →
+        </a>
+      </div>
+    </div>
+
+    <article class="prose-editorial">
+
+      <h2>Tips Memilih Antara Takaful dan Insurans</h2>
+
+      <h3>1. Bandingkan harga dulu, label kemudian</h3>
+      <p>
+        Jangan assume takaful lebih mahal atau lebih murah. Dapatkan quotation dari kedua-dua jenis untuk kereta anda. Guna platform aggregator yang tunjukkan takaful dan konvensional sekaligus.
+      </p>
+
+      <h3>2. Semak panel bengkel</h3>
+      <p>
+        Tanya berapa banyak panel bengkel yang ada dalam rangkaian syarikat — dan sama ada ada panel berdekatan rumah atau tempat kerja anda. Ini penting masa claim.
+      </p>
+
+      <h3>3. Baca rekod pembayaran claim</h3>
+      <p>
+        Bank Negara Malaysia (BNM) publish statistik claim ratio setiap tahun. Syarikat dengan claim ratio yang tinggi biasanya lebih mudah lulus tuntutan.
+      </p>
+
+      <h3>4. Pertimbangkan pakej add-on</h3>
+      <p>
+        Bandingkan harga add-ons seperti windscreen cover, special perils (banjir), dan ADAS calibration. Kadang satu syarikat lebih murah untuk polisi asas tapi lebih mahal untuk add-ons.
+      </p>
+
+      <h3>5. Jangan terikat dengan brand yang sama</h3>
+      <p>
+        NCD anda adalah portable — boleh bawa ke mana-mana syarikat. Semak setiap tahun sama ada masih worth it untuk kekal dengan syarikat yang sama.
+      </p>
+
+    </article>
+
+    <!-- FAQ -->
+    <h2 class="font-serif text-headline-md text-stone-900 mt-10 mb-6">Soalan Lazim — Takaful vs Insurans</h2>
+
+    <div class="my-6">
       <details class="faq-item" open>
+        <summary>Apa beza takaful dan insurans?</summary>
+        <p>
+          Perbezaan utama takaful dan insurans adalah dari segi <strong>konsep dan pemilikan dana</strong>. Dalam insurans konvensional, premium yang anda bayar adalah milik syarikat. Dalam takaful, wang anda masuk ke dana bersama peserta — diurus oleh syarikat takaful sebagai operator. Lebihan dana dikongsi semula kepada peserta, bukan keuntungan syarikat. Dari segi coverage dan proses claim, keduanya hampir sama.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mana lebih baik takaful atau insurans?</summary>
+        <p>
+          Bergantung pada keutamaan anda. Jika patuh Syariah adalah penting, pilih takaful. Jika anda nak yang paling jimat, bandingkan quotation dari kedua-dua jenis untuk kereta spesifik anda — ada masa takaful lebih murah, ada masa insurans konvensional lebih murah. Dari segi perlindungan, kedua-duanya hampir sama.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Beza takaful dan insurans dari segi harga — mana lebih murah?</summary>
+        <p>
+          Tiada jawapan mutlak. Selepas liberalisasi tarif motor 2017, setiap syarikat boleh set harga sendiri. Untuk kereta yang sama, takaful dari Syarikat A mungkin lebih murah dari insurans konvensional Syarikat B — tapi lebih mahal dari Syarikat C. Sentiasa bandingkan quotation spesifik untuk kereta anda dari pelbagai syarikat.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Perbezaan takaful dan insurans dari segi claim — susah ke senang?</summary>
+        <p>
+          Proses claim adalah hampir sama — hubungi syarikat, buat laporan polis, hantar kereta ke panel bengkel. Pengalaman sebenar bergantung pada syarikat spesifik dan jenis kerosakan, bukan sama ada ia takaful atau insurans. Semak ulasan pengguna untuk syarikat yang anda pertimbangkan.
+        </p>
+      </details>
+
+      <details class="faq-item">
         <summary>Non-Muslim boleh beli takaful?</summary>
-        <p>Ya, 100% boleh. Takaful terbuka untuk semua orang, tak kira agama. Ramai non-Muslim pilih takaful sebab surplus sharing.</p>
+        <p>
+          Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tidak kira agama atau latar belakang. Ramai non-Muslim pilih takaful sebab konsep surplus sharing — ada potensi dapat sebahagian wang balik jika dana ada lebihan. Tiada syarat agama untuk mendaftar.
+        </p>
       </details>
+
       <details class="faq-item">
-        <summary>Claim process sama ke?</summary>
-        <p>Hampir sama. Panel bengkel, dokumen, proses — semuanya mirror insurans konvensional. Anda tak akan rasa beza dari segi proses.</p>
+        <summary>Boleh pindah NCD dari insurans konvensional ke takaful?</summary>
+        <p>
+          Ya, NCD anda adalah portable — boleh dibawa ke mana-mana syarikat sama ada takaful atau insurans konvensional. Kalau anda ada NCD 55% dengan syarikat konvensional dan nak tukar ke takaful tahun depan, NCD anda kekal 55%.
+        </p>
       </details>
+
       <details class="faq-item">
-        <summary>Surplus sharing tu berapa biasanya?</summary>
-        <p>Bergantung pada prestasi dana takaful tahun tersebut. Kalau surplus ada, biasanya 30%-70% dikongsi dengan peserta. Tapi bukan guaranteed — ada tahun yang tak ada surplus.</p>
+        <summary>Apa itu surplus sharing dalam takaful?</summary>
+        <p>
+          Surplus sharing adalah pengagihan lebihan dana takaful kepada peserta di akhir tempoh polisi. Jika tuntutan yang dibayar lebih rendah dari sumbangan yang dikutip, lebihan ini dibahagikan mengikut nisbah yang ditetapkan — contohnya 70% kepada peserta, 30% kepada syarikat. Tapi perlu diingat: ini tidak guaranteed. Ada tahun tiada surplus langsung.
+        </p>
       </details>
     </div>
 
+    <!-- Internal links -->
     <div class="border-t border-stone-200 pt-8 mt-8">
-      <p class="text-sm text-stone-500">Baca juga:</p>
-      <div class="flex flex-wrap gap-4 mt-2">
-        <a href="/takaful/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Panduan Takaful →</a>
-        <a href="/companies/takaful-malaysia/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Takaful Malaysia →</a>
-        <a href="/car-insurance/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Insurans Kereta →</a>
+      <p class="text-sm font-semibold text-stone-700 mb-4">Baca juga:</p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        <a href="/car-insurance/" class="block p-4 border border-stone-200 hover:border-hijau-400 transition-colors group">
+          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan Insurans Kereta Malaysia 2026 →</p>
+          <p class="text-xs text-stone-500 mt-0.5">Harga, jenis coverage, cara renew, model-by-model</p>
+        </a>
+        <a href="/tools/ncd-calculator/" class="block p-4 border border-stone-200 hover:border-hijau-400 transition-colors group">
+          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Kalkulator NCD — Kira Premium Anda →</p>
+          <p class="text-xs text-stone-500 mt-0.5">Berapa anda patut bayar? Patut ke claim?</p>
+        </a>
+        <a href="/takaful/" class="block p-4 border border-stone-200 hover:border-hijau-400 transition-colors group">
+          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan Takaful Malaysia →</p>
+          <p class="text-xs text-stone-500 mt-0.5">Semua yang anda perlu tahu tentang takaful</p>
+        </a>
+        <a href="/companies/" class="block p-4 border border-stone-200 hover:border-hijau-400 transition-colors group">
+          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Bandingkan Syarikat Insurans →</p>
+          <p class="text-xs text-stone-500 mt-0.5">Review dan rating 20+ syarikat</p>
+        </a>
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Base>

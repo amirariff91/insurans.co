@@ -36,7 +36,7 @@ const avgPremium = Math.round((car.premiumNCD0Min + car.premiumNCD0Max) / 2);
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": `Insurans Kereta ${car.fullName} 2026 — Harga & Tips`,
+  "headline": `Harga Insurans ${car.fullName} 2026 | Semak & Bandingkan`,
   "description": `Panduan lengkap insurans ${car.fullName} di Malaysia. Harga premium RM${car.premiumNCD55Min.toLocaleString()} – RM${car.premiumNCD55Max.toLocaleString()} (NCD 55%). Tips jimat, add-ons recommended, dan perbandingan syarikat.`,
   "url": `https://insurans.co/car-insurance/${car.slug}/`,
   "datePublished": "2026-02-01",
@@ -59,8 +59,8 @@ const schema = {
 ---
 
 <Base
-  title={`Insurans Kereta ${car.fullName} 2026 — Harga & Tips`}
-  description={`Panduan insurans ${car.fullName} Malaysia 2026. Premium dari RM${car.premiumNCD55Min.toLocaleString()} (NCD 55%). Harga sebenar, add-ons recommended, tips jimat, dan perbandingan syarikat.`}
+  title={`Harga Insurans ${car.fullName} 2026 | Semak & Bandingkan — Insurans.co`}
+  description={`Harga insurans ${car.fullName} 2026: RM${car.premiumNCD55Min.toLocaleString()}–RM${car.premiumNCD55Max.toLocaleString()} (NCD 55%) hingga RM${car.premiumNCD0Min.toLocaleString()}–RM${car.premiumNCD0Max.toLocaleString()} (tanpa NCD). Bandingkan coverage komprehensif, NCD, dan add-ons terbaik.`}
   schema={schema}
 >
   <!-- Breadcrumb + Header -->
@@ -75,7 +75,7 @@ const schema = {
       </nav>
       <p class="label mb-3">Insurans Kereta Model</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Insurans {car.fullName} 2026
+        Harga Insurans {car.fullName} 2026
       </h1>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         {car.description}
@@ -196,12 +196,27 @@ const schema = {
           </table>
         </div>
 
-        <div class="info-box mb-8">
+        <div class="info-box mb-6">
           <p class="text-sm text-stone-700">
             <strong>Tip:</strong> Satu claim je, NCD reset ke 0%. Untuk kerosakan kecil pada {car.model} anda,
             kadang lebih jimat bayar sendiri daripada claim dan hilang NCD.
             <a href="/guides/ncd-explained/" class="text-hijau-700 underline">Baca panduan lengkap NCD →</a>
           </p>
+        </div>
+
+        <!-- NCD Calculator CTA -->
+        <div class="border-2 border-hijau-600 bg-hijau-50 p-5 mb-8">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex-1">
+              <p class="font-semibold text-stone-900 mb-1">Kira NCD anda dengan kalkulator kami</p>
+              <p class="text-sm text-stone-600">
+                Masukkan premium {car.model} anda dan NCD semasa — tengok berapa anda patut bayar, dan sama ada berbaloi untuk claim lepas accident.
+              </p>
+            </div>
+            <a href="/tools/ncd-calculator/" class="flex-shrink-0 btn-hijau text-sm">
+              Kira NCD →
+            </a>
+          </div>
         </div>
 
         <!-- Add-ons Section -->
