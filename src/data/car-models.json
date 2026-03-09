@@ -692,6 +692,17 @@
     "brand": "Toyota",
     "model": "Corolla Cross",
     "fullName": "Toyota Corolla Cross",
+    "descriptionOverride": "Insurans Toyota Corolla Cross 2025 – Bandingkan harga insurans komprehensif vs TPO. Dapatkan sebut harga percuma untuk Corolla Cross anda.",
+    "faqSchemaItems": [
+      {
+        "question": "Berapa harga insurans Toyota Corolla Cross di Malaysia?",
+        "answer": "Harga insurans Toyota Corolla Cross bergantung pada NCD dan varian (hybrid atau non-hybrid). Dengan NCD 55%, anggaran premium komprehensif adalah RM2,000 – RM2,800 setahun. Tanpa NCD boleh mencecah RM4,200 – RM5,800. Varian hybrid biasanya 15-20% lebih tinggi dari non-hybrid."
+      },
+      {
+        "question": "Jenis insurans terbaik untuk Toyota Corolla Cross?",
+        "answer": "Insurans komprehensif adalah pilihan terbaik untuk Toyota Corolla Cross kerana nilai kereta yang tinggi (RM115,000 – RM155,000). Coverage komprehensif melindungi kerosakan kereta sendiri, kecurian, dan bencana alam termasuk banjir. Tambah add-on windscreen cover dan ADAS calibration cover untuk perlindungan lebih lengkap memandangkan Toyota Safety Sense standard pada semua varian."
+      }
+    ],
     "variants": ["1.8 G", "1.8 V", "1.8 V (Hybrid)"],
     "engineCC": "1.8L / 1.8L Hybrid",
     "yearRange": "2021 – kini",
@@ -1427,6 +1438,22 @@
     "brand": "Honda",
     "model": "Jazz / City Hatchback",
     "fullName": "Honda City Hatchback",
+    "titleOverride": "Insurans Kereta Honda Jazz Malaysia 2025 – Harga & Perbandingan | Insurans.co",
+    "descriptionOverride": "Semak harga insurans Honda Jazz terkini di Malaysia. Bandingkan insurans komprehensif, TPO dan TPFT. Dapatkan kadar terbaik untuk Honda Jazz anda.",
+    "faqSchemaItems": [
+      {
+        "question": "Berapa harga insurans Honda Jazz di Malaysia?",
+        "answer": "Harga insurans Honda Jazz (Honda City Hatchback) bergantung pada NCD dan tahun kereta. Dengan NCD 55%, anggaran premium komprehensif adalah RM1,000 – RM1,550 setahun. Tanpa NCD, boleh mencecah RM2,200 – RM3,300 setahun. Bandingkan quotation dari pelbagai syarikat kerana harga boleh berbeza."
+      },
+      {
+        "question": "Insurans komprehensif atau TPO lebih baik untuk Honda Jazz?",
+        "answer": "Jika Honda Jazz anda masih bernilai lebih RM30,000, insurans komprehensif adalah pilihan terbaik — ia cover kerosakan kereta sendiri, kecurian, dan bencana alam. TPO (third-party only) hanya sesuai untuk kereta Honda Jazz yang nilainya sudah sangat rendah, biasanya di bawah RM15,000."
+      },
+      {
+        "question": "Bolehkah saya ambil takaful motor untuk Honda Jazz?",
+        "answer": "Ya, boleh. Honda Jazz boleh dilindungi dengan takaful motor atau insurans konvensional — kedua-duanya menawarkan coverage yang sama (komprehensif, TPO, TPFT). Pilih takaful jika anda mahu produk yang patuh Syariah atau suka konsep surplus sharing. Bandingkan harga dari kedua-dua jenis sebelum buat keputusan."
+      }
+    ],
     "variants": ["1.5 S", "1.5 E", "1.5 V", "1.5 RS e:HEV"],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
     "yearRange": "2002 – kini (rebranded City Hatchback 2022+)",

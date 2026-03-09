@@ -11,4 +11,7 @@ export default defineConfig({
     preact(),
   ],
   output: 'static',
+  redirects: {
+    '/sitemap.xml': '/sitemap-index.xml',
+  },
 });
