@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import states from '../../data/states.json';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Panduan Insurans Kereta Mengikut Negeri di Malaysia",
+  "description": "Panduan insurans kereta mengikut negeri di Malaysia — risiko banjir, syarikat disyorkan, dan tips khusus untuk setiap negeri.",
+  "url": "https://insurans.co/negeri/",
+  "inLanguage": "ms",
+  "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Negeri", "item": "https://insurans.co/negeri/" }
+    ]
+  }
+};
+
+const riskColor: Record<string, string> = {
+  'Tinggi': 'bg-red-100 text-red-700',
+  'Sederhana': 'bg-yellow-100 text-yellow-700',
+  'Rendah': 'bg-green-100 text-green-700',
+};
+---
+
+<Base
+  title="Panduan Insurans Kereta Mengikut Negeri di Malaysia — Insurans.co"
+  description="Cari panduan insurans kereta mengikut negeri di Malaysia. Risiko banjir, syarikat disyorkan, dan tips khusus untuk Selangor, KL, Johor, Kelantan dan semua negeri."
+  schema={schema}
+>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">Negeri</span>
+      </nav>
+      <p class="label mb-3">Panduan Mengikut Lokasi</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Panduan Insurans Kereta Mengikut Negeri di Malaysia
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Setiap negeri ada risiko yang berbeza — banjir, kecurian, trafik padat. Pilih negeri anda
+        untuk panduan insurans yang lebih spesifik.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <!-- Risk Legend -->
+    <div class="flex flex-wrap gap-3 mb-8 text-sm">
+      <span class="text-stone-500">Risiko Banjir:</span>
+      <span class="bg-red-100 text-red-700 px-3 py-1 font-medium">Tinggi</span>
+      <span class="bg-yellow-100 text-yellow-700 px-3 py-1 font-medium">Sederhana</span>
+      <span class="bg-green-100 text-green-700 px-3 py-1 font-medium">Rendah</span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {states.map(state => (
+        <a
+          href={`/negeri/${state.slug}/`}
+          class="card-editorial group block"
+        >
+          <div class="flex items-start justify-between mb-2">
+            <h2 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors text-base">
+              {state.displayName}
+            </h2>
+            <span class={`text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
+              {state.floodRisk}
+            </span>
+          </div>
+          <p class="text-xs text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
+          <p class="text-xs text-stone-600 leading-relaxed line-clamp-2">{state.notes}</p>
+          <p class="text-xs text-hijau-700 font-medium mt-3 group-hover:underline">Lihat panduan →</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-12 border-t border-stone-200 pt-10">
+      <h2 class="font-serif text-2xl text-stone-900 mb-4">Kenapa lokasi penting untuk insurans kereta?</h2>
+      <p class="text-stone-600 leading-relaxed max-w-2xl mb-4">
+        Syarikat insurans mengambil kira lokasi anda masa calculate premium. Negeri dengan risiko banjir tinggi
+        seperti Kelantan, Terengganu, dan Selangor (kawasan Klang) perlu pertimbangkan <strong>special perils add-on</strong>
+        untuk lindungi kereta dari kerosakan banjir.
+      </p>
+      <p class="text-stone-600 leading-relaxed max-w-2xl">
+        Kawasan bandar besar seperti KL dan Selangor juga ada risiko kemalangan lebih tinggi kerana kepadatan trafik.
+        Pilih syarikat dengan panel bengkel yang luas di kawasan anda.
+      </p>
+    </div>
+  </div>
+</Base>

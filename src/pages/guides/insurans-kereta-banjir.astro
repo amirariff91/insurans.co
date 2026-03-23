@@ -1,0 +1,255 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const faqItems = [
+  {
+    q: "Adakah insurans kereta standard melindungi kerosakan akibat banjir?",
+    a: "Tidak. Insurans komprehensif standard TIDAK melindungi kerosakan banjir. Anda perlu tambah add-on 'Special Perils' atau 'Perils Khas' secara berasingan untuk mendapat perlindungan banjir."
+  },
+  {
+    q: "Berapa kos add-on special perils untuk banjir?",
+    a: "Kos add-on special perils biasanya antara RM25 hingga RM60 setahun, bergantung kepada nilai kereta dan syarikat insurans. Ini adalah kos yang sangat berpatutan berbanding kos membaiki kereta yang rosak akibat banjir yang boleh mencapai ribuan ringgit."
+  },
+  {
+    q: "Apa yang perlu dilakukan jika kereta dilanda banjir?",
+    a: "Jangan cuba hidupkan enjin kereta yang dilanda banjir — ini boleh merosakkan enjin secara teruk. Ambil gambar/video kerosakan segera. Hubungi syarikat insurans anda dalam masa 24 jam untuk membuat laporan tuntutan. Bawa kereta ke panel bengkel yang dilantik oleh syarikat insurans anda."
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?",
+      "description": "Panduan lengkap insurans kereta banjir — special perils, apa yang dilindungi, cara tambah coverage, kos, negeri berisiko tinggi, dan langkah tuntutan.",
+      "url": "https://insurans.co/guides/insurans-kereta-banjir/",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-03-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Insurans Kereta Banjir", "item": "https://insurans.co/guides/insurans-kereta-banjir/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": { "@type": "Answer", "text": item.a }
+      }))
+    }
+  ]
+};
+---
+
+<Base
+  title="Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi? — Insurans.co"
+  description="Adakah insurans kereta anda melindungi banjir? Panduan special perils — apa yang dilindungi, kos RM25–RM60, negeri berisiko tinggi, dan cara buat tuntutan."
+  schema={schema}
+>
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/guides/" class="hover:text-hijau-700 text-stone-500">Panduan</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">Insurans Kereta Banjir</span>
+      </nav>
+      <p class="label mb-3">Panduan Perlindungan</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Ramai pemilik kereta tidak tahu bahawa insurans komprehensif standard <strong>tidak</strong>
+        melindungi kerosakan akibat banjir. Ketahui cara nak pastikan kereta anda dilindungi sepenuhnya.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <article class="lg:col-span-2 prose-editorial">
+
+        <!-- Warning box -->
+        <div class="not-prose bg-red-50 border border-red-200 rounded-lg p-5 mb-8">
+          <p class="text-sm font-semibold text-red-800 mb-1">Peringatan Penting</p>
+          <p class="text-sm text-red-700 leading-relaxed">
+            Insurans komprehensif standard TIDAK melindungi kerosakan banjir. Anda perlu tambah
+            add-on <strong>Special Perils</strong> secara berasingan. Jika anda tinggal di kawasan
+            banjir dan tidak ada add-on ini, anda menanggung sepenuhnya kos kerosakan banjir.
+          </p>
+        </div>
+
+        <h2>Apa Itu Special Perils (Perils Khas)?</h2>
+        <p>
+          <em>Special Perils</em> atau <em>Perils Khas</em> adalah add-on tambahan kepada polisi
+          insurans kereta anda yang melindungi kerosakan akibat bencana alam dan kejadian luar biasa.
+          Ini termasuk:
+        </p>
+        <ul>
+          <li><strong>Banjir dan banjir kilat</strong> — termasuk air masuk ke dalam kereta</li>
+          <li><strong>Ribut dan angin kencang</strong> — pokok tumbang ke atas kereta</li>
+          <li><strong>Tanah runtuh dan runtuhan</strong></li>
+          <li><strong>Letupan gunung berapi</strong> (jarang berlaku di Malaysia)</li>
+          <li><strong>Gempa bumi</strong></li>
+        </ul>
+        <p>
+          Tanpa add-on ini, insurans kereta anda — walaupun polisi komprehensif penuh — tidak akan
+          membayar sebarang tuntutan berkaitan banjir.
+        </p>
+
+        <h2>Berapa Kos Special Perils?</h2>
+        <p>
+          Ini adalah salah satu add-on yang paling cost-effective yang anda boleh dapatkan:
+        </p>
+        <ul>
+          <li>Kos biasa: <strong>RM25 – RM60 setahun</strong></li>
+          <li>Bergantung kepada nilai kereta dan syarikat insurans</li>
+          <li>Biasanya dikira sebagai peratusan kecil daripada sum insured</li>
+        </ul>
+        <p>
+          Bandingkan dengan kos membaiki enjin kereta yang rosak akibat banjir — yang boleh mencapai
+          <strong>RM3,000 hingga RM15,000 atau lebih</strong>, bergantung kepada kerosakan. RM25–60
+          setahun adalah pelaburan yang sangat berbaloi.
+        </p>
+
+        <h2>Negeri Berisiko Tinggi — Wajib Ada Special Perils</h2>
+        <p>
+          Jika anda tinggal atau selalu memandu di negeri-negeri berikut, special perils adalah
+          <strong>wajib</strong>, bukan pilihan:
+        </p>
+        <ul>
+          <li><strong>Kelantan</strong> — antara negeri paling kerap dilanda banjir di Malaysia</li>
+          <li><strong>Terengganu</strong> — pesisiran Laut China Selatan, monsun timur laut</li>
+          <li><strong>Pahang</strong> — banjir sungai dan kawasan pedalaman</li>
+          <li><strong>Selangor</strong> — kawasan Klang, Shah Alam, Subang kerap banjir kilat</li>
+          <li><strong>Kedah</strong> — banjir musim tengkujuh</li>
+          <li><strong>Johor</strong> — banjir besar pernah berlaku di Johor Bahru</li>
+        </ul>
+        <p>
+          Lihat <a href="/negeri/" class="text-hijau-700 underline">panduan insurans mengikut negeri</a>
+          untuk maklumat risiko banjir bagi setiap negeri di Malaysia.
+        </p>
+
+        <h2>Cara Tambah Special Perils ke Polisi Anda</h2>
+        <p>
+          Tambah special perils adalah mudah:
+        </p>
+        <ol>
+          <li>
+            <strong>Semasa renew insurans:</strong> Ini masa paling mudah. Semasa renew, tandakan
+            pilihan "Special Perils" atau "Perils Khas" dalam senarai add-on.
+          </li>
+          <li>
+            <strong>Endorsement kepada polisi sedia ada:</strong> Jika polisi anda masih aktif,
+            hubungi syarikat insurans anda dan minta untuk tambah special perils melalui endorsement.
+            Premium tambahan akan dikira secara pro-rata.
+          </li>
+          <li>
+            <strong>Melalui aggregator:</strong> Platforms seperti Bjak.my atau PolicyStreet
+            membolehkan anda pilih add-on ini semasa membuat perbandingan harga.
+          </li>
+        </ol>
+
+        <h2>Apa Yang TIDAK Dilindungi</h2>
+        <p>
+          Walaupun ada special perils, ada had tertentu yang perlu anda tahu:
+        </p>
+        <ul>
+          <li>Kerosakan akibat anda cuba bawa kereta melalui air yang dalam dengan sengaja</li>
+          <li>Kehilangan barang peribadi di dalam kereta semasa banjir (perlukan add-on berbeza)</li>
+          <li>Kerosakan elektrikal jika anda cuba hidupkan enjin kereta yang dilanda banjir — jangan sekali-kali cuba start enjin kereta yang terendam air</li>
+        </ul>
+
+        <h2>Langkah Tuntutan Insurans Selepas Banjir</h2>
+        <ol>
+          <li>
+            <strong>JANGAN hidupkan enjin</strong> — ini boleh merosakkan enjin secara kekal dan
+            batalkan tuntutan insurans anda.
+          </li>
+          <li>
+            <strong>Ambil gambar dan video</strong> kerosakan secara menyeluruh sebelum mana-mana
+            kerja pembersihan dilakukan.
+          </li>
+          <li>
+            <strong>Hubungi syarikat insurans</strong> dalam masa 24 jam. Kebanyakan syarikat ada
+            hotline khas semasa bencana.
+          </li>
+          <li>
+            <strong>Buat laporan polis</strong> jika diperlukan oleh syarikat insurans anda.
+          </li>
+          <li>
+            <strong>Hantar ke panel bengkel</strong> yang dilantik oleh syarikat insurans anda.
+            Bengkel panel akan hubungi adjuster insurans untuk penilaian kerosakan.
+          </li>
+          <li>
+            <strong>Simpan semua resit</strong> berkaitan kos towing, penginapan sementara, dan
+            perbelanjaan lain yang mungkin boleh dituntut.
+          </li>
+        </ol>
+
+        <!-- FAQ Section -->
+        <h2>Soalan Lazim</h2>
+        {faqItems.map(item => (
+          <details class="not-prose border border-stone-200 rounded-lg mb-3 overflow-hidden">
+            <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-stone-50 font-medium text-stone-800 text-sm">
+              {item.q}
+              <span class="text-stone-400 ml-3 flex-shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-stone-600 leading-relaxed border-t border-stone-100 pt-3">
+              {item.a}
+            </div>
+          </details>
+        ))}
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+
+          <div class="rounded-lg border-2 border-red-200 bg-red-50 p-5">
+            <h3 class="font-semibold text-red-800 mb-2 text-sm">Perlu Special Perils?</h3>
+            <p class="text-xs text-red-700 mb-3 leading-relaxed">
+              Jika anda tinggal di Kelantan, Terengganu, Selangor, Pahang, atau Kedah —
+              tambah special perils sekarang. Hanya RM25–60 setahun.
+            </p>
+            <a href="https://bjak.my" target="_blank" rel="noopener"
+               class="block text-center text-xs bg-red-700 text-white px-4 py-2.5 rounded font-medium hover:bg-red-800 transition-colors">
+              Semak & Tambah di Bjak.my →
+            </a>
+          </div>
+
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan Berkaitan</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/negeri/" class="text-hijau-700 hover:underline">Risiko banjir mengikut negeri →</a></li>
+              <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/" class="text-hijau-700 hover:underline">Komprehensif vs Pihak Ketiga</a></li>
+              <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 hover:underline">10 cara jimat premium</a></li>
+              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:underline">Cara buat claim insurans</a></li>
+            </ul>
+          </div>
+
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Syarikat Disyorkan</h3>
+            <p class="text-xs text-stone-500 mb-3">Semua syarikat ini menawarkan special perils add-on:</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/companies/etiqa/" class="text-hijau-700 hover:underline">Etiqa →</a></li>
+              <li><a href="/companies/allianz/" class="text-hijau-700 hover:underline">Allianz →</a></li>
+              <li><a href="/companies/tokio-marine/" class="text-hijau-700 hover:underline">Tokio Marine →</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>

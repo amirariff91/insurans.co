@@ -1,0 +1,303 @@
+---
+import Base from '../../layouts/Base.astro';
+import states from '../../data/states.json';
+import companies from '../../data/companies.json';
+import carModels from '../../data/car-models.json';
+
+export function getStaticPaths() {
+  return states.map((state, i) => {
+    const relatedStates = states.filter((_, j) => j !== i).slice(0, 4);
+    return {
+      params: { state: state.slug },
+      props: { state, relatedStates },
+    };
+  });
+}
+
+const { state, relatedStates } = Astro.props;
+
+const recommendedSlugs = ['etiqa', 'allianz', 'tokio-marine'];
+const recommendedCompanies = companies.filter(c => recommendedSlugs.includes(c.slug));
+
+const popularCarObjects = state.popularCars
+  .map((slug: string) => carModels.find(c => c.slug === slug))
+  .filter(Boolean);
+
+const riskColor: Record<string, string> = {
+  'Tinggi': 'bg-red-100 text-red-700 border-red-200',
+  'Sederhana': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+  'Rendah': 'bg-green-100 text-green-700 border-green-200',
+};
+
+const faqItems = [
+  {
+    question: `Syarikat insurans mana yang terbaik untuk pemandu di ${state.displayName}?`,
+    answer: `Untuk pemandu di ${state.displayName}, Etiqa, Allianz, dan Tokio Marine adalah antara pilihan popular kerana panel bengkel yang luas dan proses claim yang baik. ${state.floodRisk === 'Tinggi' ? 'Pastikan syarikat yang anda pilih menawarkan special perils add-on untuk perlindungan banjir.' : 'Bandingkan quotation dari beberapa syarikat untuk mendapatkan harga terbaik.'}`,
+  },
+  {
+    question: `Adakah saya perlukan special perils untuk kereta di ${state.displayName}?`,
+    answer: state.floodRisk === 'Tinggi'
+      ? `Ya, sangat disyorkan! ${state.displayName} adalah antara kawasan berisiko tinggi banjir di Malaysia. Special perils add-on melindungi kereta anda dari kerosakan akibat banjir, taufan, dan bencana alam lain. Kos biasanya RM25–RM60 setahun sahaja.`
+      : state.floodRisk === 'Sederhana'
+      ? `Bergantung pada kawasan spesifik di ${state.displayName}. Kalau anda tinggal berhampiran sungai atau kawasan rendah, special perils add-on sangat disyorkan. Kos biasanya RM25–RM60 setahun.`
+      : `Risiko banjir di ${state.displayName} agak rendah, namun special perils masih bernilai diambil kerana harganya berpatutan (RM25–RM60/tahun) dan memberi perlindungan tambahan.`,
+  },
+  {
+    question: `Berapa premium insurans kereta di ${state.displayName}?`,
+    answer: `Premium insurans kereta di ${state.displayName} bergantung pada model kereta, nilai pasaran, NCD anda, dan syarikat yang dipilih. Untuk kereta popular seperti Perodua Myvi, premium comprehensive berkisar RM700–RM1,000 (dengan NCD 55%). Bandingkan quotation dari pelbagai syarikat di Bjak.my atau PolicyStreet untuk harga terkini.`,
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": `Insurans Kereta ${state.displayName} 2026 — Bandingkan & Jimat`,
+      "description": `Cari insurans kereta terbaik di ${state.displayName}. Panduan harga premium, risiko banjir, panel bengkel terbaik untuk pemandu ${state.displayName}.`,
+      "url": `https://insurans.co/negeri/${state.slug}/`,
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Negeri", "item": "https://insurans.co/negeri/" },
+        { "@type": "ListItem", "position": 3, "name": state.displayName, "item": `https://insurans.co/negeri/${state.slug}/` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    }
+  ]
+};
+---
+
+<Base
+  title={`Insurans Kereta ${state.displayName} 2026 — Bandingkan & Jimat | Insurans.co`}
+  description={`Cari insurans kereta terbaik di ${state.displayName}. Panduan harga premium, risiko banjir, panel bengkel terbaik untuk pemandu ${state.displayName}.`}
+  schema={schema}
+>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/negeri/" class="hover:text-hijau-700 text-stone-500">Negeri</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">{state.displayName}</span>
+      </nav>
+      <p class="label mb-3">Panduan Insurans Mengikut Negeri</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Insurans Kereta {state.displayName} 2026 — Bandingkan &amp; Jimat
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Panduan lengkap insurans kereta untuk pemandu di {state.displayName}. Risiko tempatan,
+        syarikat disyorkan, dan tips khusus untuk anda.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+
+        <!-- Info Card -->
+        <div class="bg-stone-50 border border-stone-200 p-6 mb-8">
+          <div class="flex flex-wrap gap-4 items-start">
+            <div class="flex-1 min-w-0">
+              <h2 class="font-serif text-xl text-stone-900 mb-1">{state.name}</h2>
+              <p class="text-sm text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
+              <p class="text-stone-600 text-sm leading-relaxed">{state.notes}</p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class={`inline-block px-3 py-1.5 text-sm font-semibold border ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600 border-stone-200'}`}>
+                Risiko Banjir: {state.floodRisk}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flood Warning -->
+        {state.floodRisk === 'Tinggi' && (
+          <div class="bg-red-50 border-l-4 border-red-500 p-5 mb-8">
+            <h3 class="font-semibold text-red-800 mb-2">Amaran: Kawasan Berisiko Banjir Tinggi</h3>
+            <p class="text-sm text-red-700 leading-relaxed">
+              {state.displayName} adalah antara kawasan berisiko banjir tertinggi di Malaysia.
+              <strong>Special perils add-on sangat disyorkan</strong> — ia melindungi kereta anda dari
+              kerosakan akibat banjir, ribut, dan bencana alam lain. Kos hanya RM25–RM60 setahun
+              tetapi boleh jimatkan anda puluhan ribu ringgit kos repair kalau banjir melanda.
+            </p>
+            <a href="/guides/insurans-kereta-banjir/" class="inline-block mt-3 text-sm font-medium text-red-700 underline">
+              Baca panduan insurans kereta banjir →
+            </a>
+          </div>
+        )}
+
+        <!-- Popular Cars -->
+        {popularCarObjects.length > 0 && (
+          <>
+            <article class="prose-editorial">
+              <h2>Kereta Popular di {state.displayName}</h2>
+              <p>
+                Kereta-kereta ini paling popular di {state.displayName}. Klik untuk lihat anggaran premium insurans:
+              </p>
+            </article>
+            <div class="grid sm:grid-cols-3 gap-4 my-8">
+              {popularCarObjects.map((car: any) => (
+                <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">
+                  <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">
+                    {car.fullName}
+                  </h3>
+                  <p class="text-xs text-stone-500 mb-2">{car.segment} · {car.engineCC}</p>
+                  <div class="text-sm">
+                    <span class="text-stone-500">NCD 55%: </span>
+                    <span class="font-semibold text-hijau-700">{car.premiumNCD55}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+
+        <!-- Recommended Companies -->
+        <article class="prose-editorial">
+          <h2>Syarikat Insurans Disyorkan untuk {state.displayName}</h2>
+          <p>
+            Syarikat-syarikat ini popular di {state.displayName} kerana panel bengkel yang luas
+            dan perkhidmatan yang baik:
+          </p>
+        </article>
+
+        <div class="space-y-4 my-8">
+          {recommendedCompanies.map((company, i) => (
+            <a href={`/companies/${company.slug}/`} class="card-editorial group block">
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8">{i + 1}.</span>
+                <div class="flex-1">
+                  <div class="flex items-baseline flex-wrap gap-2 mb-1">
+                    <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
+                      {company.name}
+                    </h3>
+                    <span class="text-xs text-stone-500">★ {company.rating}/5</span>
+                    {company.takaful && (
+                      <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-stone-600">{company.verdictBM}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- FAQ -->
+        <article class="prose-editorial">
+          <h2>Soalan Lazim — Insurans Kereta {state.displayName}</h2>
+        </article>
+
+        <div class="my-8">
+          {faqItems.map((faq, i) => (
+            <details class="faq-item" open={i === 0}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+          <!-- State Info -->
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-3">{state.displayName}</h3>
+            <dl class="space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Ibu Negeri</dt>
+                <dd class="font-semibold text-stone-900">{state.capital}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Risiko Banjir</dt>
+                <dd>
+                  <span class={`inline-block px-2 py-0.5 text-xs font-semibold ${
+                    state.floodRisk === 'Tinggi' ? 'bg-red-100 text-red-700' :
+                    state.floodRisk === 'Sederhana' ? 'bg-yellow-100 text-yellow-700' :
+                    'bg-green-100 text-green-700'
+                  }`}>{state.floodRisk}</dd>
+                </dd>
+              </div>
+              {state.floodRisk === 'Tinggi' && (
+                <div>
+                  <dt class="text-stone-500">Special Perils</dt>
+                  <dd class="font-semibold text-red-700">Sangat Disyorkan</dd>
+                </div>
+              )}
+            </dl>
+          </div>
+
+          <!-- CTA -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Dapatkan quotation</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Bjak.my</a>
+                <span class="text-stone-500"> — aggregator #1</span>
+              </li>
+              <li>
+                <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">PolicyStreet</a>
+                <span class="text-stone-500"> — alternatif popular</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related States -->
+          {relatedStates.length > 0 && (
+            <div class="card-editorial">
+              <h3 class="font-semibold text-sm text-stone-900 mb-3">Negeri lain</h3>
+              <ul class="space-y-2 text-sm">
+                {relatedStates.map((s: any) => (
+                  <li>
+                    <a href={`/negeri/${s.slug}/`} class="text-hijau-700 hover:text-hijau-600 font-medium">
+                      {s.displayName}
+                    </a>
+                    <span class={`text-xs ml-2 px-1.5 py-0.5 ${
+                      s.floodRisk === 'Tinggi' ? 'bg-red-100 text-red-600' :
+                      s.floodRisk === 'Sederhana' ? 'bg-yellow-100 text-yellow-600' :
+                      'bg-green-100 text-green-600'
+                    }`}>{s.floodRisk}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="/negeri/" class="block mt-4 text-xs text-stone-500 hover:text-hijau-700 font-medium">
+                Semua negeri →
+              </a>
+            </div>
+          )}
+
+          <!-- Related Reading -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:text-hijau-600">Insurans kereta banjir</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>

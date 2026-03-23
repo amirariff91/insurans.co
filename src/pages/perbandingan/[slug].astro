@@ -1,0 +1,272 @@
+---
+import Base from '../../layouts/Base.astro';
+import comparisons from '../../data/comparisons.json';
+import companies from '../../data/companies.json';
+
+export function getStaticPaths() {
+  return comparisons.map((comp, i) => {
+    const c1 = companies.find(c => c.slug === comp.company1);
+    const c2 = companies.find(c => c.slug === comp.company2);
+    const related = comparisons.filter((_, j) => j !== i).slice(0, 3);
+    return {
+      params: { slug: comp.slug },
+      props: { comp, c1, c2, related },
+    };
+  });
+}
+
+const { comp, c1, c2, related } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": `${c1?.name} vs ${c2?.name}: Perbandingan Insurans Kereta 2026`,
+      "description": `Nak tahu ${c1?.name} atau ${c2?.name} lebih baik? Bandingkan premium, coverage, kelebihan dan kelemahan di sini.`,
+      "url": `https://insurans.co/perbandingan/${comp.slug}/`,
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Perbandingan", "item": "https://insurans.co/perbandingan/" },
+        { "@type": "ListItem", "position": 3, "name": `${c1?.name} vs ${c2?.name}`, "item": `https://insurans.co/perbandingan/${comp.slug}/` }
+      ]
+    }
+  ]
+};
+---
+
+<Base
+  title={`${c1?.name} vs ${c2?.name} | Insurans Kereta — Insurans.co`}
+  description={`Nak tahu ${c1?.name} atau ${c2?.name} lebih baik? Bandingkan premium, coverage, kelebihan dan kelemahan di sini.`}
+  schema={schema}
+>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <a href="/perbandingan/" class="hover:text-hijau-700 text-stone-500">Perbandingan</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">{c1?.name} vs {c2?.name}</span>
+      </nav>
+      <p class="label mb-3">Perbandingan Head-to-Head</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        {c1?.name} vs {c2?.name}: Perbandingan Insurans Kereta 2026
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Nak tahu {c1?.name} atau {c2?.name} lebih sesuai untuk anda? Kami bandingkan kedua-duanya
+        secara jujur — premium, coverage, kelebihan, kelemahan, dan siapa yang menang dalam situasi berbeza.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+
+        <!-- Comparison Table -->
+        <article class="prose-editorial">
+          <h2>Perbandingan {c1?.name} vs {c2?.name}</h2>
+          <p>
+            Ini perbandingan ringkas antara {c1?.name} dan {c2?.name} berdasarkan data terkini 2026:
+          </p>
+        </article>
+
+        <div class="overflow-x-auto my-8">
+          <table class="table-editorial">
+            <thead>
+              <tr>
+                <th>Kriteria</th>
+                <th>{c1?.name}</th>
+                <th>{c2?.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium text-stone-900">Jenis</td>
+                <td>
+                  {c1?.type === 'takaful' ? 'Takaful' : 'Konvensional'}
+                  {c1?.takaful && c1?.type !== 'takaful' && <span class="text-xs text-emas-700 ml-1">(ada takaful)</span>}
+                </td>
+                <td>
+                  {c2?.type === 'takaful' ? 'Takaful' : 'Konvensional'}
+                  {c2?.takaful && c2?.type !== 'takaful' && <span class="text-xs text-emas-700 ml-1">(ada takaful)</span>}
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Ditubuhkan</td>
+                <td>{c1?.founded}</td>
+                <td>{c2?.founded}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Rating</td>
+                <td class="font-semibold">★ {c1?.rating}/5</td>
+                <td class="font-semibold">★ {c2?.rating}/5</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900">Harga Premium (anggaran)</td>
+                <td>{c1?.carPremiumRange ?? '—'}</td>
+                <td>{c2?.carPremiumRange ?? '—'}</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900 align-top">Kelebihan</td>
+                <td>
+                  <ul class="space-y-1 text-sm">
+                    {c1?.pros.slice(0, 3).map((pro: string) => (
+                      <li class="flex items-start gap-1.5">
+                        <span class="text-hijau-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>{pro}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td>
+                  <ul class="space-y-1 text-sm">
+                    {c2?.pros.slice(0, 3).map((pro: string) => (
+                      <li class="flex items-start gap-1.5">
+                        <span class="text-hijau-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>{pro}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium text-stone-900 align-top">Kelemahan</td>
+                <td>
+                  <ul class="space-y-1 text-sm">
+                    {c1?.cons.slice(0, 2).map((con: string) => (
+                      <li class="flex items-start gap-1.5">
+                        <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✗</span>
+                        <span>{con}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td>
+                  <ul class="space-y-1 text-sm">
+                    {c2?.cons.slice(0, 2).map((con: string) => (
+                      <li class="flex items-start gap-1.5">
+                        <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✗</span>
+                        <span>{con}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Verdict Section -->
+        <article class="prose-editorial">
+          <h2>Verdict: Bila pilih {c1?.name}, bila pilih {c2?.name}?</h2>
+        </article>
+
+        <div class="grid sm:grid-cols-2 gap-5 my-8">
+          <div class="bg-hijau-50 border border-hijau-200 p-5">
+            <h3 class="font-semibold text-stone-900 mb-3">Pilih {c1?.name} kalau...</h3>
+            <p class="text-sm text-stone-700 leading-relaxed">{c1?.verdictBM}</p>
+            <a href={`/companies/${c1?.slug}/`} class="inline-block mt-4 btn-hijau text-sm">
+              Baca lebih lanjut →
+            </a>
+          </div>
+          <div class="bg-stone-50 border border-stone-200 p-5">
+            <h3 class="font-semibold text-stone-900 mb-3">Pilih {c2?.name} kalau...</h3>
+            <p class="text-sm text-stone-700 leading-relaxed">{c2?.verdictBM}</p>
+            <a href={`/companies/${c2?.slug}/`} class="inline-block mt-4 btn-outline text-sm">
+              Baca lebih lanjut →
+            </a>
+          </div>
+        </div>
+
+        <div class="info-box mb-8">
+          <p class="text-sm text-stone-700">
+            <strong>Tip kami:</strong> Jangan buat keputusan hanya berdasarkan brand. Dapatkan quotation sebenar
+            dari kedua-dua syarikat di <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 underline">Bjak.my</a>
+            atau <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 underline">PolicyStreet</a>
+            dan bandingkan harga sebenar untuk kereta anda.
+          </p>
+        </div>
+
+        <!-- Lihat Juga -->
+        {related.length > 0 && (
+          <>
+            <article class="prose-editorial">
+              <h2>Lihat Juga — Perbandingan Lain</h2>
+            </article>
+            <div class="space-y-3 my-6">
+              {related.map((r: any) => {
+                const rc1 = companies.find((c: any) => c.slug === r.company1);
+                const rc2 = companies.find((c: any) => c.slug === r.company2);
+                return (
+                  <a href={`/perbandingan/${r.slug}/`} class="card-editorial group block">
+                    <span class="font-medium text-stone-900 group-hover:text-hijau-700 transition-colors">
+                      {rc1?.name ?? r.company1} vs {rc2?.name ?? r.company2}
+                    </span>
+                    <span class="text-xs text-hijau-700 ml-2">→</span>
+                  </a>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-20 space-y-6">
+          <!-- Quick Compare Card -->
+          <div class="bg-white border-2 border-stone-900 p-5">
+            <h3 class="font-serif text-lg text-stone-900 mb-4">Ringkasan Perbandingan</h3>
+            <div class="space-y-4 text-sm">
+              <div>
+                <p class="font-semibold text-stone-900 mb-1">{c1?.name}</p>
+                <p class="text-stone-500">{c1?.fullName}</p>
+                <p class="text-stone-600 mt-1">Rating: <strong>★ {c1?.rating}/5</strong></p>
+              </div>
+              <div class="border-t border-stone-100 pt-4">
+                <p class="font-semibold text-stone-900 mb-1">{c2?.name}</p>
+                <p class="text-stone-500">{c2?.fullName}</p>
+                <p class="text-stone-600 mt-1">Rating: <strong>★ {c2?.rating}/5</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Halaman Syarikat</h3>
+            <div class="space-y-2">
+              <a href={`/companies/${c1?.slug}/`} class="block btn-hijau text-sm text-center">
+                Info lengkap {c1?.name} →
+              </a>
+              <a href={`/companies/${c2?.slug}/`} class="block btn-outline text-sm text-center">
+                Info lengkap {c2?.name} →
+              </a>
+            </div>
+          </div>
+
+          <!-- Related -->
+          <div class="card-editorial">
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="/perbandingan/" class="text-hijau-700 hover:text-hijau-600">Semua perbandingan →</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>

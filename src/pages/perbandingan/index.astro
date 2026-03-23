@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import comparisons from '../../data/comparisons.json';
+import companies from '../../data/companies.json';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Perbandingan Syarikat Insurans Kereta Malaysia 2026",
+  "description": "Bandingkan syarikat insurans kereta Malaysia — Etiqa vs Allianz, Tokio Marine vs MSIG, dan banyak lagi. Semua dalam satu tempat.",
+  "url": "https://insurans.co/perbandingan/",
+  "inLanguage": "ms",
+  "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Perbandingan", "item": "https://insurans.co/perbandingan/" }
+    ]
+  }
+};
+
+function getCompanyName(slug: string) {
+  return companies.find(c => c.slug === slug)?.name ?? slug;
+}
+---
+
+<Base
+  title="Perbandingan Syarikat Insurans Kereta Malaysia 2026 — Insurans.co"
+  description="Bandingkan syarikat insurans kereta Malaysia — Etiqa vs Allianz, Tokio Marine vs MSIG, dan banyak lagi. Pilih yang terbaik untuk anda."
+  schema={schema}
+>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="container-wide py-10 sm:py-14">
+      <nav class="text-sm text-stone-400 mb-5">
+        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <span class="mx-2">›</span>
+        <span class="text-stone-700">Perbandingan</span>
+      </nav>
+      <p class="label mb-3">Perbandingan Insurans</p>
+      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+        Perbandingan Syarikat Insurans Kereta Malaysia 2026
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+        Tak pasti nak pilih syarikat mana? Kami bandingkan syarikat insurans kereta Malaysia secara head-to-head —
+        premium, coverage, pros &amp; cons, dan verdict kami.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {comparisons.map(comp => {
+        const c1 = companies.find(c => c.slug === comp.company1);
+        const c2 = companies.find(c => c.slug === comp.company2);
+        return (
+          <a
+            href={`/perbandingan/${comp.slug}/`}
+            class="card-editorial group block"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <span class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
+                {c1?.name ?? comp.company1}
+              </span>
+              <span class="text-stone-400 text-sm font-medium">vs</span>
+              <span class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
+                {c2?.name ?? comp.company2}
+              </span>
+            </div>
+            <div class="flex gap-2 text-xs text-stone-500">
+              {c1 && <span class="bg-stone-100 px-2 py-0.5">★ {c1.rating}</span>}
+              {c1?.takaful && <span class="bg-emas-50 text-emas-700 px-2 py-0.5">Takaful</span>}
+              <span class="text-stone-300">·</span>
+              {c2 && <span class="bg-stone-100 px-2 py-0.5">★ {c2.rating}</span>}
+              {c2?.takaful && <span class="bg-emas-50 text-emas-700 px-2 py-0.5">Takaful</span>}
+            </div>
+            <p class="text-xs text-hijau-700 font-medium mt-3 group-hover:underline">
+              Lihat perbandingan →
+            </p>
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="mt-12 border-t border-stone-200 pt-10">
+      <h2 class="font-serif text-2xl text-stone-900 mb-4">Cara memilih syarikat insurans yang betul</h2>
+      <p class="text-stone-600 leading-relaxed max-w-2xl">
+        Pilih syarikat insurans bukan sekadar tengok harga premium. Pertimbangkan kekuatan kewangan syarikat,
+        panel bengkel di kawasan anda, kelajuan proses claim, dan sama ada syarikat tu ada pilihan takaful.
+        Guna perbandingan di atas sebagai titik permulaan, kemudian dapatkan quotation sebenar dari
+        aggregator seperti <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 underline">Bjak.my</a> untuk harga terkini.
+      </p>
+    </div>
+  </div>
+</Base>

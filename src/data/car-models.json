@@ -4,7 +4,13 @@
     "brand": "Perodua",
     "model": "Axia",
     "fullName": "Perodua Axia",
-    "variants": ["1.0 E", "1.0 G", "1.0 GXtra", "1.0 SE", "1.0 AV"],
+    "variants": [
+      "1.0 E",
+      "1.0 G",
+      "1.0 GXtra",
+      "1.0 SE",
+      "1.0 AV"
+    ],
     "engineCC": "1.0L (998cc)",
     "yearRange": "2014 – kini",
     "segment": "Hatchback A",
@@ -18,10 +24,26 @@
     "premiumNCD55Min": 550,
     "premiumNCD55Max": 750,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM80", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM25 – RM50", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false },
-      { "name": "Key replacement", "price": "RM30 – RM50", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM25 – RM50",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM30 – RM50",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -36,14 +58,27 @@
       "Kalau guna Axia untuk e-hailing, pastikan declare — kalau tak, claim boleh ditolak."
     ],
     "description": "Perodua Axia adalah kereta paling murah di Malaysia dan antara yang paling laris. Insurans Axia agak murah kerana nilai pasaran rendah dan kos repair yang berpatutan.",
-    "relatedModels": ["perodua-myvi", "perodua-bezza", "proton-saga", "proton-iriz"]
+    "relatedModels": [
+      "perodua-myvi",
+      "perodua-bezza",
+      "proton-saga",
+      "proton-iriz"
+    ],
+    "roadtaxMin": 20,
+    "roadtaxMax": 20,
+    "roadtaxNote": "1.0L (998cc) — Roadtax RM20/tahun"
   },
   {
     "slug": "perodua-myvi",
     "brand": "Perodua",
     "model": "Myvi",
     "fullName": "Perodua Myvi",
-    "variants": ["1.3 G", "1.3 X", "1.5 H", "1.5 AV"],
+    "variants": [
+      "1.3 G",
+      "1.3 X",
+      "1.5 H",
+      "1.5 AV"
+    ],
     "engineCC": "1.3L / 1.5L",
     "yearRange": "2005 – kini (Gen 3: 2018+)",
     "segment": "Hatchback B",
@@ -57,10 +92,26 @@
     "premiumNCD55Min": 700,
     "premiumNCD55Max": 1000,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM90", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM30 – RM60", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false },
-      { "name": "NCD protector", "price": "RM200 – RM350", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM30 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      },
+      {
+        "name": "NCD protector",
+        "price": "RM200 – RM350",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -75,14 +126,26 @@
       "Bandingkan harga antara syarikat — Myvi ini model yang semua insurer compete untuk offer harga terbaik."
     ],
     "description": "Perodua Myvi adalah kereta paling ikonik di Malaysia. Dengan jumlah unit yang sangat banyak di jalan raya, insurans Myvi sangat kompetitif dan banyak pilihan.",
-    "relatedModels": ["perodua-axia", "perodua-ativa", "proton-iriz", "honda-jazz"]
+    "relatedModels": [
+      "perodua-axia",
+      "perodua-ativa",
+      "proton-iriz",
+      "honda-jazz"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.3L–1.5L — Roadtax RM70–RM110/tahun"
   },
   {
     "slug": "perodua-bezza",
     "brand": "Perodua",
     "model": "Bezza",
     "fullName": "Perodua Bezza",
-    "variants": ["1.0 G", "1.3 X", "1.3 AV"],
+    "variants": [
+      "1.0 G",
+      "1.3 X",
+      "1.3 AV"
+    ],
     "engineCC": "1.0L / 1.3L",
     "yearRange": "2016 – kini",
     "segment": "Sedan A",
@@ -96,9 +159,21 @@
     "premiumNCD55Min": 600,
     "premiumNCD55Max": 880,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM80", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM25 – RM55", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM25 – RM55",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -112,14 +187,26 @@
       "Parts murah, jadi untuk calar kecil, bayar sendiri mungkin lebih jimat dari claim."
     ],
     "description": "Perodua Bezza adalah sedan entry-level paling popular di Malaysia. Insurans murah kerana kos repair rendah dan nilai pasaran berpatutan.",
-    "relatedModels": ["perodua-axia", "perodua-myvi", "proton-saga", "proton-persona"]
+    "relatedModels": [
+      "perodua-axia",
+      "perodua-myvi",
+      "proton-saga",
+      "proton-persona"
+    ],
+    "roadtaxMin": 20,
+    "roadtaxMax": 70,
+    "roadtaxNote": "1.0L–1.3L — Roadtax RM20–RM70/tahun"
   },
   {
     "slug": "perodua-ativa",
     "brand": "Perodua",
     "model": "Ativa",
     "fullName": "Perodua Ativa",
-    "variants": ["1.0T X", "1.0T H", "1.0T AV"],
+    "variants": [
+      "1.0T X",
+      "1.0T H",
+      "1.0T AV"
+    ],
     "engineCC": "1.0L Turbo (996cc)",
     "yearRange": "2021 – kini",
     "segment": "SUV B",
@@ -133,10 +220,26 @@
     "premiumNCD55Min": 950,
     "premiumNCD55Max": 1350,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM70", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false },
-      { "name": "ADAS calibration cover", "price": "RM100 – RM200", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM100 – RM200",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah ke sederhana",
@@ -150,14 +253,26 @@
       "Ativa AV ada lebih banyak sensor — premium mungkin sedikit lebih mahal dari varian X."
     ],
     "description": "Perodua Ativa adalah SUV kompak turbo pertama Perodua. Premium sedikit lebih tinggi dari Myvi kerana enjin turbo dan sistem keselamatan ADAS.",
-    "relatedModels": ["perodua-myvi", "proton-x50", "honda-hrv", "toyota-raize"]
+    "relatedModels": [
+      "perodua-myvi",
+      "proton-x50",
+      "honda-hrv",
+      "toyota-raize"
+    ],
+    "roadtaxMin": 20,
+    "roadtaxMax": 20,
+    "roadtaxNote": "1.0L Turbo — Roadtax RM20/tahun"
   },
   {
     "slug": "perodua-alza",
     "brand": "Perodua",
     "model": "Alza",
     "fullName": "Perodua Alza",
-    "variants": ["1.5 X", "1.5 H", "1.5 AV"],
+    "variants": [
+      "1.5 X",
+      "1.5 H",
+      "1.5 AV"
+    ],
     "engineCC": "1.5L",
     "yearRange": "2009 – kini (Gen 2: 2022+)",
     "segment": "MPV B",
@@ -171,10 +286,26 @@
     "premiumNCD55Min": 850,
     "premiumNCD55Max": 1200,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM65", "recommended": true },
-      { "name": "Passenger liability", "price": "RM30 – RM60", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM65",
+        "recommended": true
+      },
+      {
+        "name": "Passenger liability",
+        "price": "RM30 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -188,14 +319,27 @@
       "Kalau kereta keluarga dan sering bawa anak-anak, comprehensive coverage adalah wajib."
     ],
     "description": "Perodua Alza adalah MPV keluarga paling laris di Malaysia. Premium berpatutan untuk MPV dan kos repair masih rendah.",
-    "relatedModels": ["perodua-myvi", "proton-exora", "toyota-veloz", "honda-brv"]
+    "relatedModels": [
+      "perodua-myvi",
+      "proton-exora",
+      "toyota-veloz",
+      "honda-brv"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "proton-saga",
     "brand": "Proton",
     "model": "Saga",
     "fullName": "Proton Saga",
-    "variants": ["1.3 Standard AT", "1.3 Standard MT", "1.3 Executive", "1.3 Premium"],
+    "variants": [
+      "1.3 Standard AT",
+      "1.3 Standard MT",
+      "1.3 Executive",
+      "1.3 Premium"
+    ],
     "engineCC": "1.3L (1332cc)",
     "yearRange": "1985 – kini (facelift 2022+)",
     "segment": "Sedan A",
@@ -209,9 +353,21 @@
     "premiumNCD55Min": 600,
     "premiumNCD55Max": 850,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM80", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM25 – RM55", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM25 – RM55",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -225,14 +381,26 @@
       "Saga baru (2022+) ada ADAS asas — boleh jadi faktor untuk diskaun premium."
     ],
     "description": "Proton Saga adalah sedan nasional kebanggaan Malaysia. Insurans sangat berpatutan kerana spare parts murah dan nilai pasaran rendah.",
-    "relatedModels": ["proton-persona", "proton-iriz", "perodua-bezza", "perodua-axia"]
+    "relatedModels": [
+      "proton-persona",
+      "proton-iriz",
+      "perodua-bezza",
+      "perodua-axia"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 70,
+    "roadtaxNote": "1.3L — Roadtax RM70/tahun"
   },
   {
     "slug": "proton-persona",
     "brand": "Proton",
     "model": "Persona",
     "fullName": "Proton Persona",
-    "variants": ["1.6 Standard", "1.6 Executive", "1.6 Premium"],
+    "variants": [
+      "1.6 Standard",
+      "1.6 Executive",
+      "1.6 Premium"
+    ],
     "engineCC": "1.6L (1587cc)",
     "yearRange": "2007 – kini (facelift 2022+)",
     "segment": "Sedan B",
@@ -246,9 +414,21 @@
     "premiumNCD55Min": 700,
     "premiumNCD55Max": 980,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM90", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM30 – RM60", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM30 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -262,14 +442,26 @@
       "Kalau drive harian dan banyak highway, comprehensive tetap pilihan terbaik."
     ],
     "description": "Proton Persona adalah sedan keluarga mid-range yang popular. Premium insurans sederhana dengan kos repair berpatutan.",
-    "relatedModels": ["proton-saga", "proton-iriz", "perodua-bezza", "toyota-vios"]
+    "relatedModels": [
+      "proton-saga",
+      "proton-iriz",
+      "perodua-bezza",
+      "toyota-vios"
+    ],
+    "roadtaxMin": 110,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.6L — Roadtax RM110/tahun"
   },
   {
     "slug": "proton-iriz",
     "brand": "Proton",
     "model": "Iriz",
     "fullName": "Proton Iriz",
-    "variants": ["1.3 Standard", "1.3 Executive", "1.6 Premium"],
+    "variants": [
+      "1.3 Standard",
+      "1.3 Executive",
+      "1.6 Premium"
+    ],
     "engineCC": "1.3L / 1.6L",
     "yearRange": "2014 – kini",
     "segment": "Hatchback B",
@@ -283,9 +475,21 @@
     "premiumNCD55Min": 650,
     "premiumNCD55Max": 900,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM50 – RM85", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM30 – RM55", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM20 – RM40", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM50 – RM85",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM30 – RM55",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM20 – RM40",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -299,14 +503,27 @@
       "Kalau nak hatchback murah untuk insurans, Iriz dan Axia antara yang paling jimat."
     ],
     "description": "Proton Iriz adalah hatchback selamat dengan 5 bintang ASEAN NCAP. Premium insurans berpatutan dan spare parts murah.",
-    "relatedModels": ["proton-saga", "perodua-myvi", "perodua-axia", "honda-jazz"]
+    "relatedModels": [
+      "proton-saga",
+      "perodua-myvi",
+      "perodua-axia",
+      "honda-jazz"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.3L–1.6L — Roadtax RM70–RM110/tahun"
   },
   {
     "slug": "proton-x50",
     "brand": "Proton",
     "model": "X50",
     "fullName": "Proton X50",
-    "variants": ["1.5T Standard", "1.5T Executive", "1.5T Premium", "1.5 TGDi Flagship"],
+    "variants": [
+      "1.5T Standard",
+      "1.5T Executive",
+      "1.5T Premium",
+      "1.5 TGDi Flagship"
+    ],
     "engineCC": "1.5L Turbo",
     "yearRange": "2020 – kini",
     "segment": "SUV B",
@@ -320,10 +537,26 @@
     "premiumNCD55Min": 1200,
     "premiumNCD55Max": 1800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM120", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM80", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM120 – RM250", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM50", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM120",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM120 – RM250",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM50",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -338,14 +571,27 @@
       "Bandingkan quotation — X50 ni model baru jadi harga antara insurer boleh berbeza banyak."
     ],
     "description": "Proton X50 adalah SUV kompak terlaris dengan teknologi dari Geely. Premium lebih tinggi dari Proton tradisional kerana enjin turbo dan sistem ADAS.",
-    "relatedModels": ["proton-x70", "perodua-ativa", "honda-hrv", "toyota-corolla-cross"]
+    "relatedModels": [
+      "proton-x70",
+      "perodua-ativa",
+      "honda-hrv",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L Turbo — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "proton-x70",
     "brand": "Proton",
     "model": "X70",
     "fullName": "Proton X70",
-    "variants": ["1.5 TGDi Standard", "1.5 TGDi Executive", "1.5 TGDi Premium", "1.5 TGDi Flagship"],
+    "variants": [
+      "1.5 TGDi Standard",
+      "1.5 TGDi Executive",
+      "1.5 TGDi Premium",
+      "1.5 TGDi Flagship"
+    ],
     "engineCC": "1.5L Turbo (TGDi)",
     "yearRange": "2018 – kini",
     "segment": "SUV C",
@@ -359,10 +605,26 @@
     "premiumNCD55Min": 1500,
     "premiumNCD55Max": 2300,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM300", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM50", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM300",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM50",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -377,14 +639,25 @@
       "Agreed value mungkin lebih baik dari market value untuk X70 kerana depreciation cepat."
     ],
     "description": "Proton X70 adalah SUV premium dari kerjasama Proton-Geely. Premium insurans setaraf SUV Jepun kerana kos repair yang tinggi.",
-    "relatedModels": ["proton-x50", "honda-crv", "mazda-cx5", "toyota-corolla-cross"]
+    "relatedModels": [
+      "proton-x50",
+      "honda-crv",
+      "mazda-cx5",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L Turbo — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "proton-exora",
     "brand": "Proton",
     "model": "Exora",
     "fullName": "Proton Exora",
-    "variants": ["1.6 Turbo Executive", "1.6 Turbo Premium"],
+    "variants": [
+      "1.6 Turbo Executive",
+      "1.6 Turbo Premium"
+    ],
     "engineCC": "1.6L Turbo (CFE)",
     "yearRange": "2009 – kini",
     "segment": "MPV C",
@@ -398,10 +671,26 @@
     "premiumNCD55Min": 800,
     "premiumNCD55Max": 1150,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM55 – RM90", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM30 – RM60", "recommended": true },
-      { "name": "Passenger liability", "price": "RM30 – RM55", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM55 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM30 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "Passenger liability",
+        "price": "RM30 – RM55",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -415,14 +704,27 @@
       "Model dah lama — pertimbangkan agreed value untuk protect nilai kereta."
     ],
     "description": "Proton Exora adalah MPV turbo termurah di Malaysia. Premium berpatutan untuk MPV 7 tempat duduk dengan enjin turbo.",
-    "relatedModels": ["perodua-alza", "proton-persona", "toyota-veloz", "honda-brv"]
+    "relatedModels": [
+      "perodua-alza",
+      "proton-persona",
+      "toyota-veloz",
+      "honda-brv"
+    ],
+    "roadtaxMin": 110,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.6L Turbo — Roadtax RM110/tahun"
   },
   {
     "slug": "honda-city",
     "brand": "Honda",
     "model": "City",
     "fullName": "Honda City",
-    "variants": ["1.5 S", "1.5 E", "1.5 V", "1.5 RS (e:HEV)"],
+    "variants": [
+      "1.5 S",
+      "1.5 E",
+      "1.5 V",
+      "1.5 RS (e:HEV)"
+    ],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
     "yearRange": "2001 – kini (Gen 7: 2020+)",
     "segment": "Sedan B",
@@ -436,10 +738,26 @@
     "premiumNCD55Min": 1000,
     "premiumNCD55Max": 1500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM120", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM75", "recommended": true },
-      { "name": "Key replacement", "price": "RM50 – RM80", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM120",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM75",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM50 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Tinggi — Honda antara brand paling dicuri di Malaysia",
@@ -454,14 +772,26 @@
       "Install steering lock tambahan untuk kurangkan risiko kecurian."
     ],
     "description": "Honda City adalah sedan B-segment pilihan ramai. Premium lebih tinggi dari kereta nasional kerana risiko kecurian dan kos spare parts Honda.",
-    "relatedModels": ["honda-civic", "honda-hrv", "toyota-vios", "mazda-2"]
+    "relatedModels": [
+      "honda-civic",
+      "honda-hrv",
+      "toyota-vios",
+      "mazda-2"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "honda-civic",
     "brand": "Honda",
     "model": "Civic",
     "fullName": "Honda Civic",
-    "variants": ["1.5 TC-P", "1.5 TC-P RS", "2.0 RS e:HEV"],
+    "variants": [
+      "1.5 TC-P",
+      "1.5 TC-P RS",
+      "2.0 RS e:HEV"
+    ],
     "engineCC": "1.5L Turbo / 2.0L e:HEV Hybrid",
     "yearRange": "1972 – kini (Gen 11: 2022+)",
     "segment": "Sedan C",
@@ -475,10 +805,26 @@
     "premiumNCD55Min": 1800,
     "premiumNCD55Max": 2800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM90 – RM160", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM100", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM300", "recommended": true },
-      { "name": "Key replacement", "price": "RM60 – RM100", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM90 – RM160",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM300",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM60 – RM100",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Tinggi — Honda Civic target utama pencuri kereta",
@@ -493,14 +839,27 @@
       "Windscreen Civic dah mahal — RM800+ untuk replace. Windscreen cover wajib."
     ],
     "description": "Honda Civic adalah sedan premium yang iconic tapi berisiko tinggi untuk kecurian. Premium lebih tinggi kerana risiko theft dan kos repair yang mahal.",
-    "relatedModels": ["honda-city", "toyota-corolla", "mazda-3", "hyundai-elantra"]
+    "relatedModels": [
+      "honda-city",
+      "toyota-corolla",
+      "mazda-3",
+      "hyundai-elantra"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
   },
   {
     "slug": "honda-hrv",
     "brand": "Honda",
     "model": "HR-V",
     "fullName": "Honda HR-V",
-    "variants": ["1.5 S", "1.5 E", "1.5 V", "1.5 RS e:HEV"],
+    "variants": [
+      "1.5 S",
+      "1.5 E",
+      "1.5 V",
+      "1.5 RS e:HEV"
+    ],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
     "yearRange": "2015 – kini (Gen 3: 2022+)",
     "segment": "SUV B",
@@ -514,10 +873,26 @@
     "premiumNCD55Min": 1500,
     "premiumNCD55Max": 2400,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM280", "recommended": true },
-      { "name": "Key replacement", "price": "RM60 – RM100", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM280",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM60 – RM100",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana ke tinggi",
@@ -532,14 +907,25 @@
       "Bandingkan dengan Proton X50 — HR-V premium jauh lebih mahal."
     ],
     "description": "Honda HR-V adalah SUV B-segment premium dengan kos insurans yang setimpal dengan harganya. Risiko kecurian dan kos repair mendorong premium lebih tinggi.",
-    "relatedModels": ["honda-city", "honda-civic", "proton-x50", "toyota-corolla-cross"]
+    "relatedModels": [
+      "honda-city",
+      "honda-civic",
+      "proton-x50",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "honda-brv",
     "brand": "Honda",
     "model": "BR-V",
     "fullName": "Honda BR-V",
-    "variants": ["1.5 E", "1.5 V"],
+    "variants": [
+      "1.5 E",
+      "1.5 V"
+    ],
     "engineCC": "1.5L",
     "yearRange": "2017 – kini (Gen 2: 2022+)",
     "segment": "MPV/SUV B",
@@ -553,10 +939,26 @@
     "premiumNCD55Min": 1300,
     "premiumNCD55Max": 1800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM120", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM45 – RM80", "recommended": true },
-      { "name": "Passenger liability", "price": "RM35 – RM65", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM50", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM120",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM45 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Passenger liability",
+        "price": "RM35 – RM65",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM50",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -570,14 +972,26 @@
       "Gen 2 (2022+) ada Honda Sensing — faktor dalam premium yang lebih tinggi."
     ],
     "description": "Honda BR-V adalah 7-seater yang bridges gap antara MPV dan SUV. Premium Honda standard dengan kos repair sederhana ke tinggi.",
-    "relatedModels": ["honda-hrv", "perodua-alza", "proton-exora", "toyota-veloz"]
+    "relatedModels": [
+      "honda-hrv",
+      "perodua-alza",
+      "proton-exora",
+      "toyota-veloz"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "toyota-vios",
     "brand": "Toyota",
     "model": "Vios",
     "fullName": "Toyota Vios",
-    "variants": ["1.5 J", "1.5 E", "1.5 G"],
+    "variants": [
+      "1.5 J",
+      "1.5 E",
+      "1.5 G"
+    ],
     "engineCC": "1.5L (2NR-FE)",
     "yearRange": "2003 – kini (Gen 4: 2023+)",
     "segment": "Sedan B",
@@ -591,10 +1005,26 @@
     "premiumNCD55Min": 900,
     "premiumNCD55Max": 1400,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM70", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false },
-      { "name": "Key replacement", "price": "RM50 – RM80", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM50 – RM80",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -609,14 +1039,26 @@
       "Vios popular untuk taxi/e-hailing — declare kalau guna untuk commercial."
     ],
     "description": "Toyota Vios adalah sedan B-segment yang reliable dan popular. Premium berpatutan dengan kos repair sederhana dan Toyota reliability.",
-    "relatedModels": ["toyota-yaris", "honda-city", "nissan-almera", "mazda-2"]
+    "relatedModels": [
+      "toyota-yaris",
+      "honda-city",
+      "nissan-almera",
+      "mazda-2"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "toyota-yaris",
     "brand": "Toyota",
     "model": "Yaris / Vios Hatchback",
     "fullName": "Toyota Yaris",
-    "variants": ["1.5 J", "1.5 E", "1.5 G"],
+    "variants": [
+      "1.5 J",
+      "1.5 E",
+      "1.5 G"
+    ],
     "engineCC": "1.5L",
     "yearRange": "2019 – kini",
     "segment": "Hatchback B",
@@ -630,9 +1072,21 @@
     "premiumNCD55Min": 900,
     "premiumNCD55Max": 1350,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM65", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM65",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah ke sederhana",
@@ -646,14 +1100,25 @@
       "Toyota parts mudah didapati — repair jarang delay lama."
     ],
     "description": "Toyota Yaris (Vios Hatchback) menawarkan premium insurans setara Vios dengan Toyota reliability.",
-    "relatedModels": ["toyota-vios", "perodua-myvi", "honda-city", "proton-iriz"]
+    "relatedModels": [
+      "toyota-vios",
+      "perodua-myvi",
+      "honda-city",
+      "proton-iriz"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "toyota-corolla",
     "brand": "Toyota",
     "model": "Corolla",
     "fullName": "Toyota Corolla",
-    "variants": ["1.8 G", "1.8 E (Hybrid)"],
+    "variants": [
+      "1.8 G",
+      "1.8 E (Hybrid)"
+    ],
     "engineCC": "1.8L / 1.8L Hybrid",
     "yearRange": "2019 – kini (Gen 12)",
     "segment": "Sedan C",
@@ -667,10 +1132,26 @@
     "premiumNCD55Min": 1800,
     "premiumNCD55Max": 2500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM130 – RM250", "recommended": true },
-      { "name": "Key replacement", "price": "RM60 – RM90", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM130 – RM250",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM60 – RM90",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -685,7 +1166,15 @@
       "Bandingkan dengan Civic — Corolla biasanya sedikit lebih murah untuk insurans."
     ],
     "description": "Toyota Corolla adalah sedan C-segment yang reliable dengan pilihan hybrid. Premium sederhana ke tinggi dengan Toyota Safety Sense standard.",
-    "relatedModels": ["toyota-vios", "honda-civic", "mazda-3", "toyota-corolla-cross"]
+    "relatedModels": [
+      "toyota-vios",
+      "honda-civic",
+      "mazda-3",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 162,
+    "roadtaxMax": 162,
+    "roadtaxNote": "1.8L — Roadtax ~RM162/tahun"
   },
   {
     "slug": "toyota-corolla-cross",
@@ -703,7 +1192,11 @@
         "answer": "Insurans komprehensif adalah pilihan terbaik untuk Toyota Corolla Cross kerana nilai kereta yang tinggi (RM115,000 – RM155,000). Coverage komprehensif melindungi kerosakan kereta sendiri, kecurian, dan bencana alam termasuk banjir. Tambah add-on windscreen cover dan ADAS calibration cover untuk perlindungan lebih lengkap memandangkan Toyota Safety Sense standard pada semua varian."
       }
     ],
-    "variants": ["1.8 G", "1.8 V", "1.8 V (Hybrid)"],
+    "variants": [
+      "1.8 G",
+      "1.8 V",
+      "1.8 V (Hybrid)"
+    ],
     "engineCC": "1.8L / 1.8L Hybrid",
     "yearRange": "2021 – kini",
     "segment": "SUV C",
@@ -717,10 +1210,26 @@
     "premiumNCD55Min": 2000,
     "premiumNCD55Max": 2800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM90 – RM150", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM55 – RM100", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM280", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM55", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM90 – RM150",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM55 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM280",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM55",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -735,14 +1244,27 @@
       "Resale value Toyota bagus — pastikan sum insured adequate."
     ],
     "description": "Toyota Corolla Cross adalah SUV crossover terlaris dengan pilihan hybrid. Premium tinggi kerana nilai kereta dan banyak sistem keselamatan.",
-    "relatedModels": ["toyota-corolla", "honda-hrv", "proton-x70", "mazda-cx5"]
+    "relatedModels": [
+      "toyota-corolla",
+      "honda-hrv",
+      "proton-x70",
+      "mazda-cx5"
+    ],
+    "roadtaxMin": 162,
+    "roadtaxMax": 162,
+    "roadtaxNote": "1.8L — Roadtax ~RM162/tahun"
   },
   {
     "slug": "toyota-hilux",
     "brand": "Toyota",
     "model": "Hilux",
     "fullName": "Toyota Hilux",
-    "variants": ["2.4 E MT", "2.4 E AT", "2.4 V", "2.8 Rogue"],
+    "variants": [
+      "2.4 E MT",
+      "2.4 E AT",
+      "2.4 V",
+      "2.8 Rogue"
+    ],
     "engineCC": "2.4L Diesel / 2.8L Diesel",
     "yearRange": "1968 – kini (Gen 8: 2015+)",
     "segment": "Pickup",
@@ -756,10 +1278,26 @@
     "premiumNCD55Min": 1800,
     "premiumNCD55Max": 2800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM40 – RM70", "recommended": true },
-      { "name": "Accessories cover (canopy, bull bar)", "price": "RM100 – RM250", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM40 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Accessories cover (canopy, bull bar)",
+        "price": "RM100 – RM250",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana ke tinggi — pickup truck popular untuk dicuri",
@@ -774,14 +1312,24 @@
       "Diesel engine repair lebih mahal dari petrol — budget lebih untuk premium."
     ],
     "description": "Toyota Hilux adalah pickup truck legenda Malaysia. Premium lebih tinggi kerana body besar, enjin diesel, dan risiko kecurian.",
-    "relatedModels": ["nissan-navara", "mitsubishi-triton", "toyota-corolla-cross", "toyota-vios"]
+    "relatedModels": [
+      "nissan-navara",
+      "mitsubishi-triton",
+      "toyota-corolla-cross",
+      "toyota-vios"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 70,
+    "roadtaxNote": "Diesel — Roadtax RM70/tahun (kadar diesel persendirian)"
   },
   {
     "slug": "toyota-veloz",
     "brand": "Toyota",
     "model": "Veloz",
     "fullName": "Toyota Veloz",
-    "variants": ["1.5 AT"],
+    "variants": [
+      "1.5 AT"
+    ],
     "engineCC": "1.5L",
     "yearRange": "2023 – kini",
     "segment": "MPV B",
@@ -795,10 +1343,26 @@
     "premiumNCD55Min": 1300,
     "premiumNCD55Max": 1700,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM120", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM75", "recommended": true },
-      { "name": "Passenger liability", "price": "RM35 – RM60", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM100 – RM200", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM120",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM75",
+        "recommended": true
+      },
+      {
+        "name": "Passenger liability",
+        "price": "RM35 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM100 – RM200",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -812,14 +1376,26 @@
       "7-seater bermakna selalu penuh — passenger liability recommended."
     ],
     "description": "Toyota Veloz adalah MPV 7-seater terbaru Toyota dengan safety features moden. Premium sederhana untuk segmen MPV.",
-    "relatedModels": ["perodua-alza", "honda-brv", "proton-exora", "toyota-vios"]
+    "relatedModels": [
+      "perodua-alza",
+      "honda-brv",
+      "proton-exora",
+      "toyota-vios"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "nissan-almera",
     "brand": "Nissan",
     "model": "Almera",
     "fullName": "Nissan Almera",
-    "variants": ["1.0 Turbo VL", "1.0 Turbo VLP", "1.0 Turbo VLT"],
+    "variants": [
+      "1.0 Turbo VL",
+      "1.0 Turbo VLP",
+      "1.0 Turbo VLT"
+    ],
     "engineCC": "1.0L Turbo",
     "yearRange": "2011 – kini (Gen 2: 2020+)",
     "segment": "Sedan B",
@@ -833,9 +1409,21 @@
     "premiumNCD55Min": 950,
     "premiumNCD55Max": 1350,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM65", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM65",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -849,14 +1437,25 @@
       "Enjin turbo 1.0L sangat jimat minyak — offset sedikit premium yang slightly higher."
     ],
     "description": "Nissan Almera turbo adalah sedan B-segment dengan enjin efisien. Premium setara Vios dengan kos repair berpatutan.",
-    "relatedModels": ["toyota-vios", "honda-city", "proton-persona", "mazda-2"]
+    "relatedModels": [
+      "toyota-vios",
+      "honda-city",
+      "proton-persona",
+      "mazda-2"
+    ],
+    "roadtaxMin": 20,
+    "roadtaxMax": 20,
+    "roadtaxNote": "1.0L Turbo — Roadtax RM20/tahun"
   },
   {
     "slug": "mazda-2",
     "brand": "Mazda",
     "model": "Mazda 2",
     "fullName": "Mazda 2",
-    "variants": ["1.5 Sedan", "1.5 Hatchback"],
+    "variants": [
+      "1.5 Sedan",
+      "1.5 Hatchback"
+    ],
     "engineCC": "1.5L SkyActiv-G",
     "yearRange": "2014 – kini",
     "segment": "Sedan/Hatchback B",
@@ -870,9 +1469,21 @@
     "premiumNCD55Min": 1000,
     "premiumNCD55Max": 1450,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM110", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM70", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM110",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -886,14 +1497,26 @@
       "SkyActiv engine reliable — kurang masalah mekanik bermakna NCD lebih mudah dijaga."
     ],
     "description": "Mazda 2 adalah sedan/hatchback premium dengan teknologi SkyActiv. Premium sedikit lebih tinggi kerana spare parts import.",
-    "relatedModels": ["mazda-3", "mazda-cx5", "honda-city", "toyota-vios"]
+    "relatedModels": [
+      "mazda-3",
+      "mazda-cx5",
+      "honda-city",
+      "toyota-vios"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "mazda-3",
     "brand": "Mazda",
     "model": "Mazda 3",
     "fullName": "Mazda 3",
-    "variants": ["1.5 Sedan", "2.0 Sedan", "2.0 Hatchback"],
+    "variants": [
+      "1.5 Sedan",
+      "2.0 Sedan",
+      "2.0 Hatchback"
+    ],
     "engineCC": "1.5L / 2.0L SkyActiv-G",
     "yearRange": "2003 – kini (Gen 4: 2019+)",
     "segment": "Sedan/Hatchback C",
@@ -907,10 +1530,26 @@
     "premiumNCD55Min": 1700,
     "premiumNCD55Max": 2500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM90 – RM150", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM130 – RM250", "recommended": true },
-      { "name": "Key replacement", "price": "RM60 – RM100", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM90 – RM150",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM130 – RM250",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM60 – RM100",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah ke sederhana",
@@ -925,14 +1564,27 @@
       "Mazda 3 hatchback lagi cantik tapi bumper belakang lagi mahal untuk repair."
     ],
     "description": "Mazda 3 adalah sedan premium dengan design ikonik tapi kos repair tinggi. Premium setaraf Civic kerana parts import dan body panel complex.",
-    "relatedModels": ["mazda-2", "mazda-cx5", "honda-civic", "toyota-corolla"]
+    "relatedModels": [
+      "mazda-2",
+      "mazda-cx5",
+      "honda-civic",
+      "toyota-corolla"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
   },
   {
     "slug": "mazda-cx5",
     "brand": "Mazda",
     "model": "CX-5",
     "fullName": "Mazda CX-5",
-    "variants": ["2.0 GL", "2.0 GLS", "2.5 GLS", "2.5 Turbo"],
+    "variants": [
+      "2.0 GL",
+      "2.0 GLS",
+      "2.5 GLS",
+      "2.5 Turbo"
+    ],
     "engineCC": "2.0L / 2.5L / 2.5L Turbo SkyActiv",
     "yearRange": "2012 – kini (Gen 2: 2017+)",
     "segment": "SUV C",
@@ -946,10 +1598,26 @@
     "premiumNCD55Min": 2000,
     "premiumNCD55Max": 3200,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM100 – RM160", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM60 – RM110", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM300", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM35 – RM60", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM100 – RM160",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM60 – RM110",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM300",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM35 – RM60",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah ke sederhana",
@@ -964,14 +1632,25 @@
       "Mazda Soul Red paint terkenal cantik tapi mahal untuk repair — warna lain mungkin sedikit lebih murah."
     ],
     "description": "Mazda CX-5 adalah SUV premium dengan handling terbaik dalam kelasnya. Premium tinggi kerana kos repair dan parts import.",
-    "relatedModels": ["mazda-3", "honda-crv", "toyota-corolla-cross", "proton-x70"]
+    "relatedModels": [
+      "mazda-3",
+      "honda-crv",
+      "toyota-corolla-cross",
+      "proton-x70"
+    ],
+    "roadtaxMin": 200,
+    "roadtaxMax": 388,
+    "roadtaxNote": "2.0L–2.5L — Roadtax RM200–RM388/tahun"
   },
   {
     "slug": "honda-crv",
     "brand": "Honda",
     "model": "CR-V",
     "fullName": "Honda CR-V",
-    "variants": ["1.5 TC-P 2WD", "1.5 TC-P AWD"],
+    "variants": [
+      "1.5 TC-P 2WD",
+      "1.5 TC-P AWD"
+    ],
     "engineCC": "1.5L Turbo",
     "yearRange": "1999 – kini (Gen 6: 2024+)",
     "segment": "SUV C",
@@ -985,10 +1664,26 @@
     "premiumNCD55Min": 2400,
     "premiumNCD55Max": 3400,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM100 – RM180", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM60 – RM110", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM180 – RM350", "recommended": true },
-      { "name": "Key replacement", "price": "RM70 – RM120", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM100 – RM180",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM60 – RM110",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM180 – RM350",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM70 – RM120",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Tinggi — Honda CR-V target kecurian",
@@ -1004,14 +1699,25 @@
       "Pertimbangkan GPS tracker — boleh bantu recover kereta kalau dicuri."
     ],
     "description": "Honda CR-V adalah SUV keluarga premium dengan risiko kecurian tinggi. Premium antara tertinggi dalam segmennya kerana theft risk dan kos repair.",
-    "relatedModels": ["honda-hrv", "mazda-cx5", "toyota-corolla-cross", "proton-x70"]
+    "relatedModels": [
+      "honda-hrv",
+      "mazda-cx5",
+      "toyota-corolla-cross",
+      "proton-x70"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L Turbo — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "mitsubishi-triton",
     "brand": "Mitsubishi",
     "model": "Triton",
     "fullName": "Mitsubishi Triton",
-    "variants": ["2.4 VGT AT", "2.4 VGT Adventure X"],
+    "variants": [
+      "2.4 VGT AT",
+      "2.4 VGT Adventure X"
+    ],
     "engineCC": "2.4L Diesel Turbo (MIVEC)",
     "yearRange": "2005 – kini (Gen 6: 2024+)",
     "segment": "Pickup",
@@ -1025,10 +1731,26 @@
     "premiumNCD55Min": 1700,
     "premiumNCD55Max": 2600,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM40 – RM70", "recommended": true },
-      { "name": "Accessories cover", "price": "RM100 – RM250", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM40 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Accessories cover",
+        "price": "RM100 – RM250",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -1043,14 +1765,25 @@
       "Gen 6 (2024+) ada ADAS — factor dalam premium."
     ],
     "description": "Mitsubishi Triton adalah pickup truck tangguh yang popular untuk kerja dan leisure. Premium tinggi kerana enjin diesel dan body besar.",
-    "relatedModels": ["toyota-hilux", "nissan-navara", "mitsubishi-xpander", "toyota-corolla-cross"]
+    "relatedModels": [
+      "toyota-hilux",
+      "nissan-navara",
+      "mitsubishi-xpander",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 70,
+    "roadtaxNote": "Diesel — Roadtax RM70/tahun"
   },
   {
     "slug": "mitsubishi-xpander",
     "brand": "Mitsubishi",
     "model": "Xpander",
     "fullName": "Mitsubishi Xpander",
-    "variants": ["1.5 MT", "1.5 AT"],
+    "variants": [
+      "1.5 MT",
+      "1.5 AT"
+    ],
     "engineCC": "1.5L MIVEC",
     "yearRange": "2020 – kini",
     "segment": "MPV B",
@@ -1064,10 +1797,26 @@
     "premiumNCD55Min": 1100,
     "premiumNCD55Max": 1550,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM65 – RM110", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM70", "recommended": true },
-      { "name": "Passenger liability", "price": "RM35 – RM60", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM65 – RM110",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Passenger liability",
+        "price": "RM35 – RM60",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1081,14 +1830,26 @@
       "Parts Mitsubishi okay tapi tak seluas Toyota — repair mungkin ambil sedikit lebih lama."
     ],
     "description": "Mitsubishi Xpander adalah MPV 7-seater bergaya dengan premium berpatutan. Kos repair sederhana untuk segmen MPV.",
-    "relatedModels": ["perodua-alza", "toyota-veloz", "honda-brv", "proton-exora"]
+    "relatedModels": [
+      "perodua-alza",
+      "toyota-veloz",
+      "honda-brv",
+      "proton-exora"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "nissan-navara",
     "brand": "Nissan",
     "model": "Navara",
     "fullName": "Nissan Navara",
-    "variants": ["2.5 V", "2.5 VL", "2.5 PRO-4X"],
+    "variants": [
+      "2.5 V",
+      "2.5 VL",
+      "2.5 PRO-4X"
+    ],
     "engineCC": "2.5L Diesel Turbo",
     "yearRange": "2015 – kini",
     "segment": "Pickup",
@@ -1102,10 +1863,26 @@
     "premiumNCD55Min": 1700,
     "premiumNCD55Max": 2600,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM140", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM90", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM40 – RM70", "recommended": true },
-      { "name": "Accessories cover", "price": "RM100 – RM250", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM90",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM40 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "Accessories cover",
+        "price": "RM100 – RM250",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana",
@@ -1119,14 +1896,26 @@
       "PRO-4X varian ada banyak off-road kit — pastikan semua dicover."
     ],
     "description": "Nissan Navara adalah pickup truck premium dengan suspension yang selesa. Premium setara pickup competitor dengan kos repair tinggi.",
-    "relatedModels": ["toyota-hilux", "mitsubishi-triton", "nissan-almera", "toyota-corolla-cross"]
+    "relatedModels": [
+      "toyota-hilux",
+      "mitsubishi-triton",
+      "nissan-almera",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 70,
+    "roadtaxNote": "2.5L Diesel — Roadtax RM70/tahun"
   },
   {
     "slug": "hyundai-tucson",
     "brand": "Hyundai",
     "model": "Tucson",
     "fullName": "Hyundai Tucson",
-    "variants": ["1.6 Turbo", "2.0 Executive", "2.0 Premium"],
+    "variants": [
+      "1.6 Turbo",
+      "2.0 Executive",
+      "2.0 Premium"
+    ],
     "engineCC": "1.6L Turbo / 2.0L",
     "yearRange": "2015 – kini (Gen 4: 2022+)",
     "segment": "SUV C",
@@ -1140,10 +1929,26 @@
     "premiumNCD55Min": 2000,
     "premiumNCD55Max": 2900,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM90 – RM150", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM55 – RM100", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM280", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM55", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM90 – RM150",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM55 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM280",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM55",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1158,14 +1963,25 @@
       "Warranty Hyundai 5 tahun — advantage tapi insurans still separate."
     ],
     "description": "Hyundai Tucson adalah SUV bergaya futuristik dengan premium setara pesaing Jepun. Kos repair tinggi kerana design complex dan parts import.",
-    "relatedModels": ["kia-sportage", "honda-crv", "mazda-cx5", "toyota-corolla-cross"]
+    "relatedModels": [
+      "kia-sportage",
+      "honda-crv",
+      "mazda-cx5",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 110,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.6L–2.0L — Roadtax RM110–RM200/tahun"
   },
   {
     "slug": "hyundai-elantra",
     "brand": "Hyundai",
     "model": "Elantra",
     "fullName": "Hyundai Elantra",
-    "variants": ["1.6 Executive", "1.6 Premium"],
+    "variants": [
+      "1.6 Executive",
+      "1.6 Premium"
+    ],
     "engineCC": "1.6L SmartStream",
     "yearRange": "2017 – kini (Gen 7: 2021+)",
     "segment": "Sedan C",
@@ -1179,10 +1995,26 @@
     "premiumNCD55Min": 1700,
     "premiumNCD55Max": 2300,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM80 – RM130", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM50 – RM85", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM130 – RM250", "recommended": true },
-      { "name": "Key replacement", "price": "RM50 – RM90", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM80 – RM130",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM50 – RM85",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM130 – RM250",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM50 – RM90",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1197,14 +2029,25 @@
       "Warranty 5 tahun bagus — tapi jangan lupa insurans tetap wajib."
     ],
     "description": "Hyundai Elantra adalah sedan C-segment bergaya futuristik. Premium sederhana ke tinggi kerana design unik dan parts import Korea.",
-    "relatedModels": ["hyundai-tucson", "honda-civic", "toyota-corolla", "mazda-3"]
+    "relatedModels": [
+      "hyundai-tucson",
+      "honda-civic",
+      "toyota-corolla",
+      "mazda-3"
+    ],
+    "roadtaxMin": 110,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.6L — Roadtax RM110/tahun"
   },
   {
     "slug": "kia-sportage",
     "brand": "Kia",
     "model": "Sportage",
     "fullName": "Kia Sportage",
-    "variants": ["2.0 EX", "2.0 GT-Line"],
+    "variants": [
+      "2.0 EX",
+      "2.0 GT-Line"
+    ],
     "engineCC": "2.0L SmartStream",
     "yearRange": "2022 – kini (Gen 5)",
     "segment": "SUV C",
@@ -1218,10 +2061,26 @@
     "premiumNCD55Min": 2100,
     "premiumNCD55Max": 2800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM90 – RM150", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM55 – RM100", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM150 – RM280", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM30 – RM55", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM90 – RM150",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM55 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM150 – RM280",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM30 – RM55",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1236,14 +2095,24 @@
       "Warranty Kia 5 tahun sangat kompetitif — leverage untuk peace of mind."
     ],
     "description": "Kia Sportage adalah SUV C-segment bergaya dengan teknologi terkini. Premium setara Tucson kerana platform sama dan kos repair tinggi.",
-    "relatedModels": ["hyundai-tucson", "honda-crv", "mazda-cx5", "toyota-corolla-cross"]
+    "relatedModels": [
+      "hyundai-tucson",
+      "honda-crv",
+      "mazda-cx5",
+      "toyota-corolla-cross"
+    ],
+    "roadtaxMin": 200,
+    "roadtaxMax": 200,
+    "roadtaxNote": "2.0L — Roadtax RM200/tahun"
   },
   {
     "slug": "suzuki-swift",
     "brand": "Suzuki",
     "model": "Swift",
     "fullName": "Suzuki Swift",
-    "variants": ["1.5 GLX"],
+    "variants": [
+      "1.5 GLX"
+    ],
     "engineCC": "1.5L",
     "yearRange": "2005 – kini",
     "segment": "Hatchback B",
@@ -1257,9 +2126,21 @@
     "premiumNCD55Min": 950,
     "premiumNCD55Max": 1250,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM65", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM65",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1273,14 +2154,27 @@
       "Parts Suzuki kadang lambat sampai — consider rental car coverage."
     ],
     "description": "Suzuki Swift adalah hatchback sporty yang fun to drive. Premium berpatutan tapi perlu perhatian pada ketersediaan spare parts.",
-    "relatedModels": ["perodua-myvi", "proton-iriz", "mazda-2", "honda-city"]
+    "relatedModels": [
+      "perodua-myvi",
+      "proton-iriz",
+      "mazda-2",
+      "honda-city"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "bmw-3-series",
     "brand": "BMW",
     "model": "3 Series",
     "fullName": "BMW 3 Series",
-    "variants": ["318i Sport", "320i Sport", "330i M Sport", "330e M Sport (PHEV)"],
+    "variants": [
+      "318i Sport",
+      "320i Sport",
+      "330i M Sport",
+      "330e M Sport (PHEV)"
+    ],
     "engineCC": "1.5L Turbo / 2.0L Turbo / 2.0L PHEV",
     "yearRange": "1975 – kini (G20: 2019+)",
     "segment": "Sedan D (Premium)",
@@ -1294,10 +2188,26 @@
     "premiumNCD55Min": 3200,
     "premiumNCD55Max": 5500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM150 – RM300", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM80 – RM150", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM250 – RM500", "recommended": true },
-      { "name": "Key replacement", "price": "RM100 – RM200", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM150 – RM300",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM80 – RM150",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM250 – RM500",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM100 – RM200",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Tinggi — kereta mewah target utama",
@@ -1313,14 +2223,26 @@
       "Install GPS tracker dan security tambahan — BMW target utama pencuri."
     ],
     "description": "BMW 3 Series adalah sedan premium dengan kos insurans yang tinggi. Premium jauh lebih mahal dari kereta biasa kerana spare parts import dan risiko kecurian.",
-    "relatedModels": ["mercedes-c-class", "bmw-x1", "mazda-3", "honda-civic"]
+    "relatedModels": [
+      "mercedes-c-class",
+      "bmw-x1",
+      "mazda-3",
+      "honda-civic"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
   },
   {
     "slug": "bmw-x1",
     "brand": "BMW",
     "model": "X1",
     "fullName": "BMW X1",
-    "variants": ["sDrive18i", "sDrive20i", "xDrive20i"],
+    "variants": [
+      "sDrive18i",
+      "sDrive20i",
+      "xDrive20i"
+    ],
     "engineCC": "1.5L Turbo / 2.0L Turbo",
     "yearRange": "2015 – kini (U11: 2023+)",
     "segment": "SUV C (Premium)",
@@ -1334,10 +2256,26 @@
     "premiumNCD55Min": 3400,
     "premiumNCD55Max": 4800,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM150 – RM280", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM80 – RM140", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM250 – RM450", "recommended": true },
-      { "name": "Key replacement", "price": "RM100 – RM180", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM150 – RM280",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM80 – RM140",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM250 – RM450",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM100 – RM180",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana ke tinggi",
@@ -1352,14 +2290,26 @@
       "Consider sama ada RM7,000-10,000/tahun untuk insurans sustainable untuk budget anda."
     ],
     "description": "BMW X1 adalah entry SUV premium BMW. Premium tinggi walaupun entry-level kerana kos repair BMW standard.",
-    "relatedModels": ["bmw-3-series", "mercedes-glb", "hyundai-tucson", "mazda-cx5"]
+    "relatedModels": [
+      "bmw-3-series",
+      "mercedes-glb",
+      "hyundai-tucson",
+      "mazda-cx5"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
   },
   {
     "slug": "mercedes-c-class",
     "brand": "Mercedes-Benz",
     "model": "C-Class",
     "fullName": "Mercedes-Benz C-Class",
-    "variants": ["C200 Avantgarde", "C300 AMG Line", "C350e (PHEV)"],
+    "variants": [
+      "C200 Avantgarde",
+      "C300 AMG Line",
+      "C350e (PHEV)"
+    ],
     "engineCC": "1.5L Turbo / 2.0L Turbo / 2.0L PHEV",
     "yearRange": "1982 – kini (W206: 2022+)",
     "segment": "Sedan D (Premium)",
@@ -1373,10 +2323,26 @@
     "premiumNCD55Min": 3600,
     "premiumNCD55Max": 6500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM180 – RM350", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM90 – RM170", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM300 – RM600", "recommended": true },
-      { "name": "Key replacement", "price": "RM120 – RM250", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM180 – RM350",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM90 – RM170",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM300 – RM600",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM120 – RM250",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Tinggi — Mercedes antara target utama pencuri",
@@ -1392,14 +2358,25 @@
       "Comprehensive wajib — tak ada orang waras beli Mercedes tanpa comprehensive coverage."
     ],
     "description": "Mercedes-Benz C-Class adalah sedan premium Jerman dengan kos insurans tertinggi dalam senarai. Parts import dan teknologi canggih memacu premium tinggi.",
-    "relatedModels": ["bmw-3-series", "mercedes-glb", "honda-civic", "mazda-3"]
+    "relatedModels": [
+      "bmw-3-series",
+      "mercedes-glb",
+      "honda-civic",
+      "mazda-3"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
   },
   {
     "slug": "mercedes-glb",
     "brand": "Mercedes-Benz",
     "model": "GLB",
     "fullName": "Mercedes-Benz GLB",
-    "variants": ["GLB200", "GLB250 4MATIC"],
+    "variants": [
+      "GLB200",
+      "GLB250 4MATIC"
+    ],
     "engineCC": "1.3L Turbo / 2.0L Turbo",
     "yearRange": "2020 – kini",
     "segment": "SUV C (Premium)",
@@ -1413,10 +2390,26 @@
     "premiumNCD55Min": 3800,
     "premiumNCD55Max": 5500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM180 – RM320", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM90 – RM160", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM280 – RM550", "recommended": true },
-      { "name": "Key replacement", "price": "RM120 – RM230", "recommended": true }
+      {
+        "name": "Windscreen cover",
+        "price": "RM180 – RM320",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM90 – RM160",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM280 – RM550",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM120 – RM230",
+        "recommended": true
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana ke tinggi",
@@ -1431,7 +2424,15 @@
       "Comprehensive coverage non-negotiable untuk mana-mana Mercedes."
     ],
     "description": "Mercedes-Benz GLB adalah 7-seater compact SUV premium. Premium sangat tinggi selaras dengan kos repair Mercedes.",
-    "relatedModels": ["mercedes-c-class", "bmw-x1", "hyundai-tucson", "kia-sportage"]
+    "relatedModels": [
+      "mercedes-c-class",
+      "bmw-x1",
+      "hyundai-tucson",
+      "kia-sportage"
+    ],
+    "roadtaxMin": 70,
+    "roadtaxMax": 200,
+    "roadtaxNote": "1.3L–2.0L — Roadtax RM70–RM200/tahun"
   },
   {
     "slug": "honda-jazz",
@@ -1454,7 +2455,12 @@
         "answer": "Ya, boleh. Honda Jazz boleh dilindungi dengan takaful motor atau insurans konvensional — kedua-duanya menawarkan coverage yang sama (komprehensif, TPO, TPFT). Pilih takaful jika anda mahu produk yang patuh Syariah atau suka konsep surplus sharing. Bandingkan harga dari kedua-dua jenis sebelum buat keputusan."
       }
     ],
-    "variants": ["1.5 S", "1.5 E", "1.5 V", "1.5 RS e:HEV"],
+    "variants": [
+      "1.5 S",
+      "1.5 E",
+      "1.5 V",
+      "1.5 RS e:HEV"
+    ],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
     "yearRange": "2002 – kini (rebranded City Hatchback 2022+)",
     "segment": "Hatchback B",
@@ -1468,10 +2474,26 @@
     "premiumNCD55Min": 1000,
     "premiumNCD55Max": 1550,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM70 – RM120", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM40 – RM75", "recommended": true },
-      { "name": "Key replacement", "price": "RM50 – RM80", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM70 – RM120",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM40 – RM75",
+        "recommended": true
+      },
+      {
+        "name": "Key replacement",
+        "price": "RM50 – RM80",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Sederhana ke tinggi — Honda brand berisiko",
@@ -1486,14 +2508,25 @@
       "Bandingkan harga — City Hatchback dan City sedan premium hampir sama."
     ],
     "description": "Honda City Hatchback (dulu Jazz) adalah hatchback versatile dengan premium Honda standard. Risiko kecurian dan kos parts mendorong premium lebih tinggi.",
-    "relatedModels": ["honda-city", "honda-hrv", "perodua-myvi", "toyota-yaris"]
+    "relatedModels": [
+      "honda-city",
+      "honda-hrv",
+      "perodua-myvi",
+      "toyota-yaris"
+    ],
+    "roadtaxMin": 90,
+    "roadtaxMax": 110,
+    "roadtaxNote": "1.5L — Roadtax RM90–RM110/tahun"
   },
   {
     "slug": "toyota-raize",
     "brand": "Toyota",
     "model": "Raize",
     "fullName": "Toyota Raize",
-    "variants": ["1.0T", "1.2 (NA)"],
+    "variants": [
+      "1.0T",
+      "1.2 (NA)"
+    ],
     "engineCC": "1.0L Turbo / 1.2L",
     "yearRange": "2023 – kini",
     "segment": "SUV A",
@@ -1507,10 +2540,26 @@
     "premiumNCD55Min": 1100,
     "premiumNCD55Max": 1500,
     "popularAddOns": [
-      { "name": "Windscreen cover", "price": "RM60 – RM100", "recommended": true },
-      { "name": "Special perils (banjir)", "price": "RM35 – RM70", "recommended": true },
-      { "name": "ADAS calibration cover", "price": "RM100 – RM200", "recommended": true },
-      { "name": "Breakdown towing", "price": "RM25 – RM45", "recommended": false }
+      {
+        "name": "Windscreen cover",
+        "price": "RM60 – RM100",
+        "recommended": true
+      },
+      {
+        "name": "Special perils (banjir)",
+        "price": "RM35 – RM70",
+        "recommended": true
+      },
+      {
+        "name": "ADAS calibration cover",
+        "price": "RM100 – RM200",
+        "recommended": true
+      },
+      {
+        "name": "Breakdown towing",
+        "price": "RM25 – RM45",
+        "recommended": false
+      }
     ],
     "riskProfile": {
       "theftRate": "Rendah",
@@ -1525,6 +2574,14 @@
       "1.0 Turbo vs 1.2 NA — perbezaan premium kecil tapi kos maintenance turbo lebih tinggi."
     ],
     "description": "Toyota Raize adalah compact SUV entry-level yang share platform dengan Perodua Ativa. Premium berpatutan dengan kos repair sederhana.",
-    "relatedModels": ["perodua-ativa", "proton-x50", "honda-hrv", "toyota-vios"]
+    "relatedModels": [
+      "perodua-ativa",
+      "proton-x50",
+      "honda-hrv",
+      "toyota-vios"
+    ],
+    "roadtaxMin": 20,
+    "roadtaxMax": 55,
+    "roadtaxNote": "1.0L–1.2L — Roadtax RM20–RM55/tahun"
   }
 ]

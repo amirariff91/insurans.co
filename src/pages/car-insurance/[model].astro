@@ -164,6 +164,32 @@ const schema = {
           </p>
         </div>
 
+        <!-- Kos Tahunan Anggaran -->
+        {car.roadtaxMin !== undefined && (
+          <div class="bg-stone-50 border border-stone-200 p-5 mb-8">
+            <h3 class="font-serif text-lg text-stone-900 mb-4">Kos Tahunan Anggaran — {car.fullName}</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between items-center py-2 border-b border-stone-200">
+                <span class="text-stone-600">Insurans (NCD 55%)</span>
+                <span class="font-semibold text-stone-900">RM{car.premiumNCD55Min.toLocaleString()} – RM{car.premiumNCD55Max.toLocaleString()}</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-stone-200">
+                <span class="text-stone-600">Roadtax</span>
+                <span class="font-semibold text-stone-900">
+                  {car.roadtaxMin === car.roadtaxMax
+                    ? `RM${car.roadtaxMin}`
+                    : `RM${car.roadtaxMin} – RM${car.roadtaxMax}`}
+                </span>
+              </div>
+              <div class="flex justify-between items-center py-2 bg-hijau-50 px-3 -mx-3">
+                <span class="font-semibold text-stone-900">Jumlah anggaran</span>
+                <span class="font-bold text-hijau-700">RM{(car.premiumNCD55Min + car.roadtaxMin).toLocaleString()} – RM{(car.premiumNCD55Max + car.roadtaxMax).toLocaleString()}</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500 mt-3">{car.roadtaxNote} · Anggaran polisi comprehensive + roadtax sahaja. Tidak termasuk add-ons.</p>
+          </div>
+        )}
+
         <!-- NCD Section -->
         <article class="prose-editorial">
           <h2 id="ncd">Berapa anda boleh jimat dengan NCD?</h2>
