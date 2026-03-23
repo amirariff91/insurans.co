@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
+import comparisons from '../../data/comparisons.json';
 
 export function getStaticPaths() {
   return companies.map((company) => ({
@@ -10,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { company } = Astro.props;
+const relatedComparisons = comparisons.filter(c => c.company1 === company.slug || c.company2 === company.slug).slice(0, 3);
 
 const productNamesBM: Record<string, string> = {
   'car': 'Insurans Kereta',
@@ -210,6 +212,22 @@ const schema = {
             Pergi ke {company.name} →
           </a>
         </div>
+
+        {relatedComparisons.length > 0 && (
+          <div class="mt-8 p-6 bg-stone-50 rounded-xl border border-stone-200">
+            <h3 class="font-semibold text-stone-800 mb-3">Bandingkan dengan Syarikat Lain</h3>
+            <ul class="space-y-2">
+              {relatedComparisons.map((c: any) => {
+                const rc1 = companies.find((co: any) => co.slug === c.company1);
+                const rc2 = companies.find((co: any) => co.slug === c.company2);
+                const title = `${rc1?.name ?? c.company1} vs ${rc2?.name ?? c.company2}`;
+                return (
+                  <li><a href={`/perbandingan/${c.slug}/`} class="text-hijau-700 hover:underline">{title}</a></li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </div>
 
       <!-- Sidebar -->
