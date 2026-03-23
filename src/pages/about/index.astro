@@ -1,0 +1,184 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Tentang Insurans.co",
+  "url": "https://insurans.co/about/",
+  "description": "Tentang Insurans.co — panduan insurans Malaysia yang ditulis untuk rakyat biasa, bukan untuk ejen.",
+  "inLanguage": "ms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co",
+    "sameAs": []
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Redaksi Insurans.co",
+    "url": "https://insurans.co/about/"
+  }
+};
+
+const editorialSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Pasukan Editorial Insurans.co",
+  "url": "https://insurans.co/about/",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  },
+  "knowsAbout": [
+    "Insurans Kereta Malaysia",
+    "Insurans Kesihatan Malaysia",
+    "Takaful Malaysia",
+    "Perancangan Kewangan Peribadi",
+    "Perlindungan Insurans",
+    "NCD Malaysia"
+  ],
+  "description": "Pasukan editorial Insurans.co menyediakan panduan insurans berasaskan penyelidikan untuk pembaca Malaysia."
+};
+---
+
+<Base
+  title="Tentang Kami"
+  description="Tentang Insurans.co — kami tulis panduan insurans untuk rakyat Malaysia biasa, bukan untuk ejen. Fakta sebenar, harga sebenar, dalam bahasa yang anda faham."
+  canonical="https://insurans.co/about/"
+  schema={[schema, editorialSchema]}
+>
+  <article class="bg-white border-b border-stone-200">
+    <!-- Header -->
+    <div class="border-b border-stone-200">
+      <div class="container-article py-10 sm:py-14">
+        <p class="label mb-4">Tentang Kami</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5">
+          Panduan insurans yang kita semua patut ada sejak dulu.
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+          Ditulis untuk rakyat Malaysia biasa — bukan ejen, bukan broker, bukan syarikat insurans.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial max-w-none">
+
+        <h2>Kenapa Insurans.co wujud?</h2>
+        <p>
+          Cuba cari maklumat insurans dalam Bahasa Malaysia yang jujur. Yang tak cuba jual apa-apa kepada anda. Yang terangkan harga sebenar, bukan angka "dari RM X" yang tak berguna.
+        </p>
+        <p>
+          Susah nak jumpa, kan?
+        </p>
+        <p>
+          Kebanyakan laman insurans di Malaysia ditulis oleh ejen atau syarikat insurans itu sendiri. Ada conflict of interest yang besar. Insurans.co bermula dari satu premis mudah: rakyat Malaysia layak dapat maklumat yang jujur tentang insurans — dalam bahasa sendiri, tanpa tekanan jualan.
+        </p>
+
+        <h2>Apa yang kami buat</h2>
+        <p>
+          Kami menyelidik, menulis, dan mengemaskini panduan insurans dalam Bahasa Malaysia. Ini termasuk:
+        </p>
+        <ul>
+          <li><strong>Perbandingan produk</strong> — insurans kereta, kesihatan, nyawa, takaful, dan lain-lain</li>
+          <li><strong>Ulasan syarikat</strong> — profil lebih 30 syarikat insurans aktif di Malaysia</li>
+          <li><strong>Alat pengiraan</strong> — seperti <a href="/tools/ncd-calculator/">Kalkulator NCD</a> yang dikira terus di pelayar anda</li>
+          <li><strong>Panduan praktikal</strong> — cara renew insurans, cara buat claim, apa itu NCD, dan banyak lagi</li>
+        </ul>
+
+        <h2>Bagaimana kami bekerja</h2>
+        <p>
+          Setiap artikel di Insurans.co ditulis berdasarkan penyelidikan — bukan ditulis semula daripada risalah syarikat insurans. Kami semak maklumat dengan sumber primer: laman rasmi syarikat, BNM, Piam, MTA, dan dokumen polisi sebenar.
+        </p>
+        <p>
+          Kami mengemaskini kandungan apabila harga berubah, produk baru dilancarkan, atau peraturan dikemaskini. Tarikh kemaskini dipaparkan pada setiap artikel.
+        </p>
+
+        <div class="divider" />
+
+        <!-- Author bio section -->
+        <div class="bg-stone-50 border border-stone-200 p-6 sm:p-8 not-prose">
+          <p class="label mb-4">Pasukan Editorial</p>
+          <h2 class="font-serif text-headline-sm text-stone-900 mb-4">Ditulis oleh manusia, untuk manusia.</h2>
+
+          <div class="space-y-6">
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 rounded-full bg-hijau-100 flex items-center justify-center flex-shrink-0">
+                <span class="font-serif text-hijau-700 text-lg font-bold">R</span>
+              </div>
+              <div>
+                <p class="font-sans font-semibold text-stone-900">Redaksi Insurans.co</p>
+                <p class="text-sm text-stone-500 mb-2">Pasukan penyelidik & penulis</p>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                  Pasukan kami terdiri daripada penulis yang tahu betapa peningnya nak faham insurans. Kami bukan pakar kewangan berlesen — kami rakyat Malaysia biasa yang dah habiskan banyak masa menyelidik supaya anda tak perlu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-stone-200">
+            <p class="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-3">Bidang kepakaran kandungan</p>
+            <div class="flex flex-wrap gap-2">
+              {['Insurans Kereta', 'Insurans Kesihatan', 'Takaful', 'Insurans Nyawa', 'NCD & Roadtax', 'Tuntutan Insurans'].map(tag => (
+                <span class="text-xs font-sans font-medium px-3 py-1 bg-white border border-stone-300 text-stone-700">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="divider" />
+
+        <h2>Prinsip editorial kami</h2>
+
+        <h3>Keobjektifan</h3>
+        <p>
+          Kami tidak dibayar oleh syarikat insurans untuk menulis ulasan positif. Kandungan editorial kami bebas daripada pengaruh pengiklan. Jika kami menyertakan pautan afiliasi, kami akan nyatakannya dengan jelas.
+        </p>
+
+        <h3>Ketepatan</h3>
+        <p>
+          Maklumat salah tentang insurans boleh membawa kesan yang serius. Kami menyemak fakta dengan berhati-hati dan menyertakan sumber apabila boleh. Jika anda jumpa ralat, hubungi kami — kami akan betulkan.
+        </p>
+
+        <h3>Kejelasan</h3>
+        <p>
+          Insurans ditulis dalam bahasa guaman yang sengaja dibuat susah. Kami terjemah balik kepada Bahasa Malaysia yang boleh difahami. Jika ada istilah teknikal, kami terangkan.
+        </p>
+
+        <h3>Kebebasan</h3>
+        <p>
+          Laman ini bebas untuk semua. Tiada paywall, tiada daftar wajib, tiada SMS berulang dari "ejen". Hanya maklumat yang anda perlukan.
+        </p>
+
+        <div class="divider" />
+
+        <h2>Penafian</h2>
+        <p>
+          Insurans.co bukan ejen insurans berlesen dan tidak menjual polisi insurans. Semua kandungan adalah untuk maklumat am sahaja dan bukan nasihat kewangan profesional. Untuk nasihat khusus berkaitan situasi anda, sila rujuk ejen insurans berlesen atau perunding kewangan berlesen.
+        </p>
+        <p>
+          Lihat juga: <a href="/terms/">Terma Penggunaan</a> dan <a href="/privacy/">Dasar Privasi</a>
+        </p>
+
+        <div class="divider" />
+
+        <h2>Hubungi kami</h2>
+        <p>
+          Ada soalan, cadangan, atau jumpa ralat? Kami suka dengar daripada pembaca.
+        </p>
+        <p>
+          <strong>Emel:</strong> <a href="mailto:hello@insurans.co">hello@insurans.co</a>
+        </p>
+        <p class="text-sm text-stone-500">
+          Kami cuba balas dalam masa 2-3 hari bekerja. Untuk soalan kecemasan berkaitan polisi insurans, sila hubungi syarikat insurans anda secara langsung.
+        </p>
+
+      </div>
+    </div>
+  </article>
+</Base>
