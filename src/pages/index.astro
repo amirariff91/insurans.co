@@ -1,8 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import companies from '../data/companies.json';
+import carModels from '../data/car-models.json';
+import comparisons from '../data/comparisons.json';
 
 const topMotorInsurers = companies.filter(c => c.products.includes('car')).slice(0, 6);
+const popularCars = carModels.filter(car => ['perodua-axia', 'perodua-myvi', 'proton-saga', 'toyota-vios', 'honda-city', 'honda-civic'].includes(car.slug));
+const companyCount = companies.length;
+const carModelCount = carModels.length;
+const comparisonCount = comparisons.length;
 
 const schema = {
   "@context": "https://schema.org",
@@ -63,103 +69,117 @@ const faqSchema = {
   description="Bandingkan harga insurans kereta Malaysia 2026 dari Etiqa, Allianz, Tokio Marine, MSIG dan lebih 10 syarikat. Semak anggaran premium, NCD, dan tips jimat insurans kereta anda."
   schema={schema}
 >
-  <!-- Masthead / Lead -->
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
-      <div class="max-w-3xl">
-        <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5">
-          Faham insurans tanpa pening kepala.
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl">
-          Kami tulis panduan insurans ni untuk rakyat Malaysia biasa — bukan ejen, bukan broker.
-          Harga sebenar, syarikat sebenar, dalam bahasa yang anda boleh faham.
-        </p>
+  <!-- Utility Masthead -->
+  <section class="border-b-2 border-stone-900 bg-krim-50">
+    <div class="container-wide py-12 sm:py-20">
+      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-end">
+        <div>
+          <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
+          <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5 max-w-4xl">
+            Berapa patut anda bayar untuk insurans kereta?
+          </h1>
+          <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl">
+            Anggaran harga dari {companyCount} syarikat dan {carModelCount} model kereta. Untuk rakyat Malaysia biasa — bukan ejen, bukan broker.
+          </p>
+          <p class="mt-4 text-sm text-stone-500 max-w-2xl">
+            Sumber: laman rasmi syarikat, BNM, PIAM, data pasaran semasa, dan rujukan produk insurans motor Malaysia.
+          </p>
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="/car-insurance/" class="btn-hijau justify-center">Semak harga ikut model →</a>
+            <a href="/tools/ncd-calculator/" class="btn-outline justify-center">Kira NCD anda</a>
+          </div>
+        </div>
+
+        <div class="bg-krim-100 border-2 border-stone-900 p-5 sm:p-6 shadow-[8px_8px_0_0_#1c1917]">
+          <p class="text-xs uppercase tracking-widest font-bold text-stone-500 mb-4">Anggaran popular, NCD 55%</p>
+          <div class="space-y-3 numeric">
+            {popularCars.slice(0, 4).map(car => (
+              <a href={`/car-insurance/${car.slug}/`} class="flex justify-between gap-4 border-b border-stone-300 pb-3 last:border-b-0 last:pb-0 group">
+                <span>
+                  <span class="block font-semibold text-stone-900 group-hover:text-hijau-700">{car.fullName}</span>
+                  <span class="block text-xs text-stone-500">{car.marketValueRange}</span>
+                </span>
+                <span class="font-serif text-lg text-hijau-800 whitespace-nowrap">{car.premiumNCD55}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Content Grid -->
-  <section class="container-wide py-10 sm:py-14">
-    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-      <!-- Main feature: Car Insurance -->
-      <a href="/car-insurance/" class="card-editorial group block">
-        <span class="label">Paling Popular</span>
-        <h2 class="font-serif text-headline-md text-stone-900 mt-3 mb-3 group-hover:text-hijau-700 transition-colors">
-          Insurans Kereta Malaysia 2026
+  <!-- Factual Trust Bar -->
+  <section class="bg-krim-100 border-b border-stone-200">
+    <div class="container-wide grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-stone-300 border-x-0 md:border-x border-stone-300">
+      <div class="py-4 pr-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Syarikat</p>
+        <p class="font-serif text-2xl text-stone-900">{companyCount}</p>
+      </div>
+      <div class="py-4 md:px-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Model kereta</p>
+        <p class="font-serif text-2xl text-stone-900">{carModelCount}</p>
+      </div>
+      <div class="py-4 pr-4 md:px-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Perbandingan</p>
+        <p class="font-serif text-2xl text-stone-900">{comparisonCount}</p>
+      </div>
+      <div class="py-4 md:pl-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Status</p>
+        <p class="font-serif text-xl text-stone-900">Bebas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Actions -->
+  <section class="container-wide py-10 sm:py-12">
+    <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-6 sm:gap-8">
+      <a href="/car-insurance/" class="card-editorial group block border-2 border-stone-900">
+        <h2 class="font-serif text-headline-md text-stone-900 mb-3 group-hover:text-hijau-700 transition-colors">
+          Harga insurans kereta popular 2026
         </h2>
-        <p class="text-stone-600 leading-relaxed mb-4">
-          Berapa sebenarnya kos insurans kereta anda? Kami breakdown harga untuk Myvi, Vios,
-          City, dan kereta popular lain — termasuk cara kira premium dan tips jimat.
+        <p class="text-stone-600 leading-relaxed mb-5">
+          Terus tengok range premium untuk Axia, Myvi, Saga, Vios, City dan model lain — termasuk NCD 0% vs 55%.
         </p>
-        <div class="bg-krim-50 border border-krim-200 p-4 mb-4">
-          <p class="text-sm font-semibold text-stone-700 mb-2">Anggaran harga 2026 (comprehensive, NCD 55%):</p>
-          <ul class="text-sm text-stone-600 space-y-1">
-            <li>Perodua Myvi 1.5 — <strong class="text-stone-900">RM700 – RM1,000</strong></li>
-            <li>Toyota Vios 1.5 — <strong class="text-stone-900">RM900 – RM1,400</strong></li>
-            <li>Honda City 1.5 — <strong class="text-stone-900">RM1,000 – RM1,500</strong></li>
-            <li>Honda Civic 1.5T — <strong class="text-stone-900">RM1,800 – RM2,800</strong></li>
-          </ul>
+        <div class="grid sm:grid-cols-2 gap-3 numeric">
+          {popularCars.slice(0, 4).map(car => (
+            <div class="bg-krim-100 border border-stone-200 p-4">
+              <p class="font-semibold text-stone-900">{car.fullName}</p>
+              <p class="text-xs text-stone-500 mt-1">NCD 55%</p>
+              <p class="font-serif text-xl text-hijau-800 mt-1">{car.premiumNCD55}</p>
+            </div>
+          ))}
         </div>
-        <span class="text-sm font-semibold text-hijau-700 group-hover:text-hijau-600">
-          Baca panduan penuh →
+        <span class="mt-5 inline-block text-sm font-semibold text-hijau-700 group-hover:text-hijau-600">
+          Bandingkan ikut model →
         </span>
       </a>
 
-      <!-- Side stack -->
-      <div class="space-y-6 sm:space-y-8">
-        <!-- NCD Calculator CTA — prominent -->
-        <a href="/tools/ncd-calculator/" class="card-editorial group block border-2 border-hijau-600 bg-hijau-50 hover:bg-hijau-100 transition-colors">
-          <span class="label bg-hijau-700 text-white px-2 py-0.5 text-xs font-semibold">Free Tool</span>
-          <h2 class="font-serif text-headline-sm text-stone-900 mt-3 mb-2 group-hover:text-hijau-700 transition-colors">
-            Kalkulator NCD Insurans Kereta
+      <div class="space-y-6">
+        <a href="/tools/ncd-calculator/" class="card-editorial group block border-2 border-hijau-700 bg-hijau-50 hover:bg-hijau-100 transition-colors">
+          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
+            Kalkulator NCD — kira berapa anda jimat
           </h2>
           <p class="text-stone-700 text-sm leading-relaxed mb-3">
-            Kira berapa premium anda patut bayar lepas NCD. Masukkan premium asal, pilih NCD — tengok berapa anda jimat. Termasuk kalkulator <strong>"patut ke claim?"</strong>
+            Masukkan premium asal, pilih NCD level. Termasuk kira-kira “patut ke claim?” sebelum NCD reset.
           </p>
-          <div class="flex items-center gap-2 text-sm font-semibold text-hijau-700 group-hover:text-hijau-600">
-            <span>Kira NCD anda sekarang →</span>
-          </div>
+          <span class="text-sm font-semibold text-hijau-700">Kira NCD sekarang →</span>
         </a>
 
-        <!-- NCD explainer -->
-        <div class="card-editorial">
-          <span class="label">Wajib Tahu</span>
-          <h2 class="font-serif text-headline-sm text-stone-900 mt-3 mb-3">
-            NCD — diskaun yang ramai tak fully guna
-          </h2>
-          <p class="text-stone-600 text-sm leading-relaxed mb-3">
-            No Claim Discount (NCD) boleh jimat anda sehingga <strong class="text-stone-900">55%</strong> daripada premium insurans kereta.
-            Tapi satu claim je, NCD reset ke 0%. Ini breakdown penuh:
-          </p>
-          <div class="overflow-x-auto">
-            <table class="table-editorial text-sm">
-              <thead>
-                <tr>
-                  <th>Tahun Tanpa Claim</th>
-                  <th>Diskaun NCD</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>1 tahun</td><td class="font-semibold">25%</td></tr>
-                <tr><td>2 tahun</td><td class="font-semibold">30%</td></tr>
-                <tr><td>3 tahun</td><td class="font-semibold">38.33%</td></tr>
-                <tr><td>4 tahun</td><td class="font-semibold">45%</td></tr>
-                <tr><td>5+ tahun</td><td class="font-semibold text-hijau-700">55%</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Takaful quick -->
-        <a href="/takaful/" class="card-editorial group block">
-          <span class="label">Takaful</span>
-          <h2 class="font-serif text-headline-sm text-stone-900 mt-3 mb-2 group-hover:text-hijau-700 transition-colors">
-            Beza Takaful dan Insurans — apa perbezaannya?
+        <a href="/perbandingan/" class="card-editorial group block">
+          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
+            Pilih antara dua syarikat?
           </h2>
           <p class="text-stone-600 text-sm leading-relaxed">
-            Sama-sama bagi perlindungan, tapi konsep berbeza. Takaful guna prinsip saling bantu-membantu
-            (ta'awun) dan lebihan dana dikongsi. Insurans konvensional — profit masuk syarikat.
+            {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga, rating dan claim line.
+          </p>
+        </a>
+
+        <a href="/takaful/" class="card-editorial group block">
+          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
+            Takaful atau insurans konvensional?
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Coverage lebih kurang sama. Beza utama: takaful patuh Syariah, lebihan dana boleh dikongsi.
           </p>
         </a>
       </div>
@@ -169,15 +189,18 @@ const faqSchema = {
   <div class="divider-bold container-wide"></div>
 
   <!-- Cara Renew — Practical Section -->
-  <section class="container-wide py-10 sm:py-12">
-    <h2 class="font-serif text-headline-md text-stone-900 mb-6">
-      Cara renew insurans kereta online
-    </h2>
-    <p class="text-stone-600 mb-8 max-w-2xl">
-      Tak perlu pergi pejabat insurans. Sekarang semua boleh buat online dalam 10 minit.
-    </p>
+  <section class="bg-hijau-50 border-y border-hijau-200 py-10 sm:py-12">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-[1fr_320px] gap-8">
+        <div>
+          <h2 class="font-serif text-headline-md text-stone-900 mb-4">
+            Nak renew insurans kereta online?
+          </h2>
+          <p class="text-stone-600 mb-8 max-w-2xl">
+            Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.
+          </p>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="relative pl-10">
         <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">1.</span>
         <h3 class="font-semibold text-stone-900 mb-1 text-sm">Semak NCD anda</h3>
@@ -207,10 +230,20 @@ const faqSchema = {
           Boleh renew di <strong>JPJ</strong>, <strong>MyEG</strong>, <strong>Pos Malaysia</strong>, atau kaunter di shopping mall.
         </p>
       </div>
+          </div>
+        </div>
+        <aside class="bg-krim-50 border-2 border-stone-900 p-5 h-fit">
+          <h3 class="font-serif text-headline-sm text-stone-900 mb-3">Terus ke platform</h3>
+          <div class="space-y-3">
+            <a href="https://www.bjak.my" target="_blank" rel="noopener" class="btn-outline w-full justify-center">Bjak.my</a>
+            <a href="https://www.policystreet.com" target="_blank" rel="noopener" class="btn-outline w-full justify-center">PolicyStreet</a>
+            <a href="/tools/ncd-calculator/" class="btn-hijau w-full justify-center">Kalkulator NCD</a>
+          </div>
+          <p class="mt-4 text-xs text-stone-500 leading-relaxed">Kami pautkan ke platform luar; pembelian polisi dibuat di laman mereka, bukan di Insurans.co.</p>
+        </aside>
+      </div>
     </div>
   </section>
-
-  <div class="divider container-wide"></div>
 
   <!-- Company Directory — Editorial Style -->
   <section class="container-wide py-10 sm:py-12">
@@ -269,61 +302,19 @@ const faqSchema = {
       Harga di bawah adalah untuk polisi <strong>comprehensive</strong> setahun.
     </p>
 
-    <div class="overflow-x-auto">
-      <table class="table-editorial">
-        <thead>
-          <tr>
-            <th>Kereta</th>
-            <th>Anggaran Harga Pasaran</th>
-            <th>Premium (NCD 0%)</th>
-            <th>Premium (NCD 55%)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="font-medium text-stone-900">Perodua Axia 1.0</td>
-            <td>RM22,000 – RM28,000</td>
-            <td>RM1,200 – RM1,600</td>
-            <td class="font-semibold text-hijau-700">RM550 – RM750</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Perodua Myvi 1.5</td>
-            <td>RM38,000 – RM48,000</td>
-            <td>RM1,500 – RM2,200</td>
-            <td class="font-semibold text-hijau-700">RM700 – RM1,000</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Proton Saga 1.3</td>
-            <td>RM28,000 – RM38,000</td>
-            <td>RM1,300 – RM1,800</td>
-            <td class="font-semibold text-hijau-700">RM600 – RM850</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Toyota Vios 1.5</td>
-            <td>RM55,000 – RM70,000</td>
-            <td>RM2,000 – RM2,800</td>
-            <td class="font-semibold text-hijau-700">RM900 – RM1,400</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Honda City 1.5</td>
-            <td>RM60,000 – RM78,000</td>
-            <td>RM2,200 – RM3,000</td>
-            <td class="font-semibold text-hijau-700">RM1,000 – RM1,500</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Honda Civic 1.5T</td>
-            <td>RM95,000 – RM120,000</td>
-            <td>RM3,500 – RM5,000</td>
-            <td class="font-semibold text-hijau-700">RM1,800 – RM2,800</td>
-          </tr>
-          <tr>
-            <td class="font-medium text-stone-900">Toyota Hilux 2.4</td>
-            <td>RM100,000 – RM130,000</td>
-            <td>RM3,800 – RM5,500</td>
-            <td class="font-semibold text-hijau-700">RM1,800 – RM2,600</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 numeric">
+      {popularCars.map(car => (
+        <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">
+          <p class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">{car.fullName}</p>
+          <p class="text-xs text-stone-500 mt-1">Harga pasaran: {car.marketValueRange}</p>
+          <div class="mt-4 pt-4 border-t border-stone-200">
+            <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">NCD 55%</p>
+            <p class="font-serif text-2xl text-hijau-800 mt-1">{car.premiumNCD55}</p>
+            <p class="text-sm text-stone-500 mt-1">NCD 0%: {car.premiumNCD0}</p>
+          </div>
+          <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Bandingkan syarikat →</span>
+        </a>
+      ))}
     </div>
 
     <div class="info-box mt-6">

@@ -64,7 +64,7 @@
 
   /* Card — minimal, editorial */
   .card-editorial {
-    @apply bg-white border border-stone-200 p-5 sm:p-6;
+    @apply bg-krim-50 border border-stone-200 p-5 sm:p-6;
     @apply hover:border-stone-400 transition-colors;
   }
 
@@ -101,6 +101,7 @@
 
   .table-editorial td {
     @apply py-3 pr-4 border-b border-stone-100;
+    font-variant-numeric: tabular-nums;
   }
 
   .table-editorial tbody tr:last-child td {
@@ -136,7 +137,8 @@
 
   /* Button styles */
   .btn {
-    @apply inline-flex items-center font-sans font-semibold text-sm transition-all;
+    @apply inline-flex items-center font-sans font-semibold text-sm;
+    transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
   }
 
   .btn-hijau {
@@ -175,4 +177,8 @@
   .prose-editorial strong {
     @apply text-stone-900 font-semibold;
   }
+}
+
+@layer utilities {
+  .numeric { font-variant-numeric: tabular-nums; }
 }

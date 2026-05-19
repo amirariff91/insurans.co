@@ -37,8 +37,8 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['"Source Sans 3"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
         'headline-xl': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
