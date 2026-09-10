@@ -1,7 +1,7 @@
 {
   "methodologyNote": "Semua `premiumByNCD` diterbitkan daripada medan sedia ada dalam `car-models.json` — `ncd0` dan `ncd55` diambil bulat-bulat daripada `premiumNCD0Min/Max` dan `premiumNCD55Min/Max` fail tersebut; tier perantaraan = `premiumNCD0 × (1 − NCD%)` dengan tangga NCD standard Malaysia (25% / 30% / 38.33% / 45%), dibundar ke RM10 terdekat. `premiumByRegion`: Lembah Klang = julat NCD55 asal; Pantai Timur = asas × 0.94 (≈6% lebih rendah); Borneo = asas × 0.96 (≈4% lebih rendah), dibundar ke RM10. Semua angka ialah anggaran polisi komprehensif 2026, bukan sebut harga.",
   "generated": "2026-09-10",
-  "status": "DRAFT — 20 models fact-checked for years/variants (premiums not assessed); remaining 19 need fact-check before publishing",
+  "status": "DRAFT — 23 models fact-checked (premiums not assessed); records with [semak] still unverified",
   "records": [
     {
       "slug": "perodua-axia",
@@ -2469,14 +2469,14 @@
       "modelYearNotes": [
         {
           "range": "2019–2021 (Gen 12 awal)",
-          "note": "Varian 1.8 G petrol dan 1.8 E Hybrid. Hybrid premium 15–20% lebih tinggi — pastikan sum insured ikut varian sebenar dalam geran."
+          "note": "2019–2022 (Gen 12, TNGA) — Varian 1.8 E dan 1.8 G petrol. Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Semak senarai sensor Toyota Safety Sense sebelum pilih ADAS calibration cover."
         },
         {
           "range": "2022–kini (facelift) [semak]",
-          "note": "Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Semak senarai sensor Toyota Safety Sense sebelum pilih ADAS calibration cover."
+          "note": "2023–kini (facelift + GR Sport)"
         }
       ],
-      "windscreenPrice": "RM700–RM1,400; semua varian ada Toyota Safety Sense — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
+      "windscreenPrice": "RM700–RM1,400; varian 1.8G & GR Sport ada Toyota Safety Sense — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -2697,11 +2697,11 @@
       "modelYearNotes": [
         {
           "range": "2011–2019 (Gen 1, 1.5 NA)",
-          "note": "Unit lama nilai rendah (bawah RM25,000 [semak]). Enjin 1.5 NA biasa — roadtax lebih tinggi dari Gen 2 turbo. Kira comprehensive vs third-party untuk unit paling lama."
+          "note": "2012–2019 (Gen 1 / N17, 1.5 NA)"
         },
         {
           "range": "2020–kini (Gen 2, 1.0 Turbo)",
-          "note": "Enjin 1.0 turbo baru — roadtax cuma RM20/tahun. Varian VLT paling mahal — pastikan sum insured ikut varian. Jaga servis CVT dan turbo ikut jadual."
+          "note": "2020–kini (Gen 2 / N18, 1.0 Turbo)"
         }
       ],
       "windscreenPrice": "RM450–RM800; cermin sedan standard — varian tinggi sahkan dengan panel sama ada sensor terlibat",
@@ -2755,7 +2755,9 @@
           "url": "https://www.nissan.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "mazda-2",
@@ -2921,10 +2923,10 @@
         },
         {
           "range": "2019–kini (Gen 4, 1.5/2.0 + i-Activsense)",
-          "note": "i-Activsense (ADAS) standard — cermin perlu calibration. Varian 2.0 Hatchback premium paling tinggi. Cat Soul Red mahal dibaiki — cat calar kecil pun boleh kos tinggi."
+          "note": "2019–kini (Gen 4, 1.5/2.0) — i-Activsense standard pada varian High Plus (2019–2024); 1.5 High Plus 2025+ juga ada. Cermin perlu calibration. Varian 2.0 Hatchback premium paling tinggi. Cat Soul Red mahal dibaiki — cat calar kecil pun boleh kos tinggi."
         }
       ],
-      "windscreenPrice": "RM700–RM1,400; Gen 4 ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM700–RM1,400; Gen 4 varian High Plus ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -3033,14 +3035,14 @@
       "modelYearNotes": [
         {
           "range": "2012–2016 (Gen 1)",
-          "note": "Unit used RM45,000–RM70,000 [semak]. Sum insured ikut harga pasaran semasa. Tiada i-Activsense penuh — kos cermin lebih rendah."
+          "note": "2013–2016 (Gen 1 / KE)"
         },
         {
           "range": "2017–kini (Gen 2, termasuk 2.5 Turbo)",
-          "note": "i-Activsense standard. Varian 2.5 Turbo premium 20–30% lebih tinggi dari 2.0 — kos repair dan sum insured jauh lebih tinggi."
+          "note": "2017–kini (Gen 2 / KF, termasuk 2.5 Turbo 2019+). i-Activsense standard pada varian GLS ke atas (base 2.0GL tiada) — cermin perlu calibration. Varian 2.5 Turbo premium 20–30% lebih tinggi dari 2.0 — kos repair dan sum insured jauh lebih tinggi."
         }
       ],
-      "windscreenPrice": "RM800–RM1,600; Gen 2 ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM800–RM1,600; Gen 2 varian GLS ke atas ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -3097,7 +3099,9 @@
           "url": "https://www.mazda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "honda-crv",
@@ -3144,7 +3148,7 @@
       "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM140,000–RM185,000 (1.5 TC-P 2WD vs AWD). Harga sebenar ikut varian, tahun (Gen 5 vs Gen 6) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
       "premiumReviewed": "2026-09-10",
       "claimFrequencyNote": "Claim CR-V sederhana tetapi bil antara tertinggi untuk SUV Jepun — body besar, enjin turbo dan Honda Sensing penuh. Claim cermin besar paling biasa; sekali accident depan, kos radar, lampu LED dan intercooler menaikkan bil dengan cepat.",
-      "theftRiskDetail": "Risiko kecurian tinggi — CR-V antara SUV paling dicuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; kunci stereng + tracker GPS sangat disarankan.",
+      "theftRiskDetail": "Risiko kecurian sederhana — CR-V bukan antara paling banyak dicuri (Hilux/Proton Wira lebih kerap). Comprehensive wajib; kunci stereng + tracker GPS disarankan untuk keyless.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM60–RM110/tahun adalah wajib — komponen turbo dan elektrik Honda mahal jika masuk air.",
       "modelYearNotes": [
         {
@@ -3153,10 +3157,10 @@
         },
         {
           "range": "2024–kini (Gen 6) [semak]",
-          "note": "Generasi baru harga RM140,000+ — sum insured ikut harga beli penuh. Sensor dan ciri bertambah, jadi ADAS calibration cover wajib."
+          "note": "2024–kini (Gen 6)"
         }
       ],
-      "windscreenPrice": "RM900–RM1,800; Honda Sensing penuh standard — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
+      "windscreenPrice": "RM900–RM1,800; Honda Sensing standard pada varian Turbo/E/V/TC-P & Gen 6 — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -3265,18 +3269,18 @@
       "modelYearNotes": [
         {
           "range": "2005–2018 (Gen 4–5) [semak]",
-          "note": "Unit lama nilai RM35,000–RM65,000 [semak]. Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat."
+          "note": "2005–2014 (Gen 4 / KB-KK-T) — Unit lama nilai RM35,000–RM65,000. Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat."
         },
         {
           "range": "2019–2023 (Gen 5 facelift, Adventure X)",
-          "note": "Declare semua aksesori (canopy, bull bar, sport bar) — yang tidak diisytihar tidak dilindungi masa claim."
+          "note": "2015–2023 (Gen 5 facelift 2019, VGT Adventure X)"
         },
         {
           "range": "2024–kini (Gen 6) [semak]",
           "note": "Generasi baru dengan ADAS — sum insured ikut harga beli penuh. Semak sama ada didaftar persendirian atau komersial kerana ia menjejaskan jenis polisi."
         }
       ],
-      "windscreenPrice": "RM600–RM1,200; cermin pickup besar — varian tinggi dengan ADAS perlu calibration, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM600–RM1,200; cermin pickup besar — varian tinggi (Adventure X / Gen 6 Premium & Athlete) dengan ADAS perlu calibration, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -3385,11 +3389,11 @@
       "modelYearNotes": [
         {
           "range": "2020–2022 (awal CBU/CKD)",
-          "note": "Unit awal import kemudian CKD. Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru."
+          "note": "2020–2023 (CKD sahaja) — Unit awal CKD Pekan dari launch. Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru."
         },
         {
           "range": "2023–kini (facelift) [semak]",
-          "note": "Rekaan dan ciri dikemas kini. Pastikan sum insured ikut varian MT vs AT sebenar dalam geran."
+          "note": "2024–kini (facelift) — Rekaan dan ciri dikemas kini. Pastikan sum insured ikut varian Base vs Plus sebenar dalam geran."
         }
       ],
       "windscreenPrice": "RM550–RM950; cermin MPV besar tetapi tiada ADAS penuh — gantian mudah di panel Mitsubishi",
@@ -3501,7 +3505,7 @@
       "modelYearNotes": [
         {
           "range": "2015–2020 (D23 awal)",
-          "note": "Suspensi coil spring belakang (selesa tetapi repair berbeza dari leaf spring). Unit lama nilai RM50,000–RM80,000 [semak] — kira comprehensive vs TPFT."
+          "note": "2015–2020 (D23 awal) — Suspensi multi-link belakang (selesa; Single Cab leaf spring). Unit lama nilai RM50,000–RM80,000 — kira comprehensive vs TPFT."
         },
         {
           "range": "2021–kini (facelift, PRO-4X)",
@@ -3565,7 +3569,9 @@
           "url": "https://www.nissan.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "hyundai-tucson",

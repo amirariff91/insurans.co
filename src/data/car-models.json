@@ -3705,7 +3705,117 @@
     ],
     "roadtaxMin": 20,
     "roadtaxMax": 20,
-    "roadtaxNote": "1.0L Turbo — Roadtax RM20/tahun"
+    "roadtaxNote": "1.0L Turbo — Roadtax RM20/tahun",
+    "premiumByNCD": {
+      "ncd0": [
+        2000,
+        2800
+      ],
+      "ncd25": [
+        1500,
+        2100
+      ],
+      "ncd30": [
+        1400,
+        1960
+      ],
+      "ncd38": [
+        1230,
+        1730
+      ],
+      "ncd45": [
+        1100,
+        1540
+      ],
+      "ncd55": [
+        950,
+        1350
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        950,
+        1350
+      ],
+      "pantaiTimur": [
+        890,
+        1270
+      ],
+      "borneo": [
+        910,
+        1300
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000 (1.0 Turbo VL hingga VLT). Harga sebenar ikut varian, tahun (Gen 1 vs Gen 2 2020+) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim Almera paling kerap ialah calar bumper bandar dan cermin depan. Claim besar jarang; enjin 1.0 turbo baru masih dalam pemerhatian jangka panjang tetapi setakat ini tiada corak claim luar biasa.",
+    "theftRiskDetail": "Risiko kecurian rendah — Almera bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
+    "floodRiskNote": "Ground clearance sedan yang rendah. Jika parkir di kawasan banjir kilat, special perils RM35–RM65/tahun adalah wajib — kos repair turbo banjir sangat mahal.",
+    "modelYearNotes": [
+      {
+        "range": "2011–2019 (Gen 1, 1.5 NA)",
+        "note": "2012–2019 (Gen 1 / N17, 1.5 NA)"
+      },
+      {
+        "range": "2020–kini (Gen 2, 1.0 Turbo)",
+        "note": "2020–kini (Gen 2 / N18, 1.0 Turbo)"
+      }
+    ],
+    "windscreenPrice": "RM450–RM800; cermin sedan standard — varian tinggi sahkan dengan panel sama ada sensor terlibat",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM60–RM100/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin depan kerap retak di highway; gantian RM450+ tanpa cover."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM35–RM65/tahun",
+        "verdict": "wajib jika di kawasan banjir",
+        "whyBM": "Enjin turbo banjir sangat mahal dibaiki."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM25–RM45/tahun",
+        "verdict": "berbaloi jika selalu long-distance",
+        "whyBM": "Dalam bandar boleh skip."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Almera 1.0 Turbo VL vs VLP vs VLT — beza premium?",
+        "a": "Beza kecil, ikut sum insured — VLT beberapa ribu lebih tinggi, jadi premium naik sekitar RM80–RM200/tahun. Enjin sama 1.0 turbo, jadi pilih ikut ciri keselesaan, bukan risau insurans."
+      },
+      {
+        "q": "Enjin turbo dan CVT Almera rosak — boleh claim?",
+        "a": "Tidak. Kerosakan mekanikal dan wear & tear (turbo, CVT, enjin) tidak dilindungi polisi motor — insurans hanya cover accident, kecurian, kebakaran dan bencana (jika ambil special perils). Servis turbo dan CVT ikut jadual; itu penyelenggaraan."
+      },
+      {
+        "q": "Roadtax Almera cuma RM20 — insurans pun murah?",
+        "a": "Roadtax murah kerana enjin 1.0L, tetapi premium insurans ikut sum insured (RM55,000–RM80,000) — setara Vios/City. Jumlah tahunan masih jimat kerana roadtax rendah."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Nissan — laman model rasmi",
+        "url": "https://www.nissan.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ],
+    "factChecked": "2026-09-10",
+    "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
+    "enriched": true
   },
   {
     "slug": "mazda-2",
@@ -3900,7 +4010,123 @@
     ],
     "roadtaxMin": 200,
     "roadtaxMax": 388,
-    "roadtaxNote": "2.0L–2.5L — Roadtax RM200–RM388/tahun"
+    "roadtaxNote": "2.0L–2.5L — Roadtax RM200–RM388/tahun",
+    "premiumByNCD": {
+      "ncd0": [
+        4200,
+        6500
+      ],
+      "ncd25": [
+        3150,
+        4880
+      ],
+      "ncd30": [
+        2940,
+        4550
+      ],
+      "ncd38": [
+        2590,
+        4010
+      ],
+      "ncd45": [
+        2310,
+        3580
+      ],
+      "ncd55": [
+        2000,
+        3200
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        2000,
+        3200
+      ],
+      "pantaiTimur": [
+        1880,
+        3010
+      ],
+      "borneo": [
+        1920,
+        3070
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM110,000–RM175,000 (2.0 GL hingga 2.5 Turbo). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim CX-5 jarang tetapi antara termahal dalam segmennya — SUV besar dengan panel complex dan parts import. Claim cermin besar dan bumper biasa; sekali accident, kos lampu LED dan sensor i-Activsense menaikkan bil dengan cepat.",
+    "theftRiskDetail": "Risiko kecurian rendah ke sederhana — nilai tinggi tetapi bukan sasaran utama. Comprehensive wajib; tracker GPS berbaloi untuk varian 2.5 Turbo.",
+    "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM60–RM110/tahun disarankan — parts import mahal jika masuk air.",
+    "modelYearNotes": [
+      {
+        "range": "2012–2016 (Gen 1)",
+        "note": "2013–2016 (Gen 1 / KE)"
+      },
+      {
+        "range": "2017–kini (Gen 2, termasuk 2.5 Turbo)",
+        "note": "2017–kini (Gen 2 / KF, termasuk 2.5 Turbo 2019+). i-Activsense standard pada varian GLS ke atas (base 2.0GL tiada) — cermin perlu calibration. Varian 2.5 Turbo premium 20–30% lebih tinggi dari 2.0 — kos repair dan sum insured jauh lebih tinggi."
+      }
+    ],
+    "windscreenPrice": "RM800–RM1,600; Gen 2 varian GLS ke atas ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM100–RM160/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin SUV besar; tanpa cover gantian RM800+."
+      },
+      {
+        "name": "ADAS calibration cover",
+        "priceBM": "RM150–RM300/tahun",
+        "verdict": "wajib",
+        "whyBM": "i-Activsense standard — calibration boleh cecah ratusan ringgit."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM60–RM110/tahun",
+        "verdict": "wajib",
+        "whyBM": "Parts elektrik import mahal jika masuk air."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM35–RM60/tahun",
+        "verdict": "berbaloi jika selalu outstation",
+        "whyBM": "Dalam bandar boleh skip."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "CX-5 2.0 vs 2.5 vs 2.5 Turbo — beza premium?",
+        "a": "Besar — 2.5 Turbo sum insured sekitar RM40,000–RM60,000 lebih tinggi dari 2.0 GL dengan kos repair jauh lebih mahal, jadi premium boleh beza RM500–RM1,000/tahun. Fikirkan kos insurans ini masa pilih varian."
+      },
+      {
+        "q": "CX-5 vs CR-V vs X70 — mana lagi murah insurans?",
+        "a": "X70 paling murah (jenama nasional), CX-5 dan CR-V seumpama — CR-V sedikit lebih tinggi kerana risiko kecurian Honda. Bezanya sekitar RM200–RM500/tahun pada NCD sama. Pilih ikut jenama dan ciri yang anda mahu."
+      },
+      {
+        "q": "Parts CX-5 import, repair 2–4 minggu — ada cover kereta sewa?",
+        "a": "Hanya jika anda ambil loss-of-use / rent car cover — polisi standard tidak bayar pengangkutan ganti semasa repair. Untuk CX-5 yang parts-nya import, add-on ini berbaloi jika kereta harian utama."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Mazda — laman model rasmi",
+        "url": "https://www.mazda.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ],
+    "factChecked": "2026-09-10",
+    "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
+    "enriched": true
   },
   {
     "slug": "honda-crv",
@@ -4164,7 +4390,123 @@
     ],
     "roadtaxMin": 70,
     "roadtaxMax": 70,
-    "roadtaxNote": "2.5L Diesel — Roadtax RM70/tahun"
+    "roadtaxNote": "2.5L Diesel — Roadtax RM70/tahun",
+    "premiumByNCD": {
+      "ncd0": [
+        3600,
+        5500
+      ],
+      "ncd25": [
+        2700,
+        4130
+      ],
+      "ncd30": [
+        2520,
+        3850
+      ],
+      "ncd38": [
+        2220,
+        3390
+      ],
+      "ncd45": [
+        1980,
+        3030
+      ],
+      "ncd55": [
+        1700,
+        2600
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        1700,
+        2600
+      ],
+      "pantaiTimur": [
+        1600,
+        2440
+      ],
+      "borneo": [
+        1630,
+        2500
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM155,000 (2.5 V hingga PRO-4X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Navara yang digunakan lasak.",
+    "theftRiskDetail": "Risiko kecurian sederhana — pickup berisiko tetapi Navara kurang disasarkan dari Hilux. Comprehensive wajib; tracker GPS disarankan jika parkir di kawasan terbuka.",
+    "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
+    "modelYearNotes": [
+      {
+        "range": "2015–2020 (D23 awal)",
+        "note": "2015–2020 (D23 awal) — Suspensi multi-link belakang (selesa; Single Cab leaf spring). Unit lama nilai RM50,000–RM80,000 — kira comprehensive vs TPFT."
+      },
+      {
+        "range": "2021–kini (facelift, PRO-4X)",
+        "note": "Varian PRO-4X paling mahal dengan kit off-road — declare semua kit dan pastikan sum insured ikut harga beli penuh."
+      }
+    ],
+    "windscreenPrice": "RM600–RM1,200; cermin pickup besar — varian PRO-4X dengan sensor perlu calibration, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM80–RM140/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin besar; retak akibat batu di jalan ladang biasa berlaku."
+      },
+      {
+        "name": "Accessories cover (kit PRO-4X, canopy)",
+        "priceBM": "RM100–RM250/tahun",
+        "verdict": "wajib jika ada aksesori",
+        "whyBM": "Kit off-road dan canopy mahal — tanpa declare dan cover, claim tidak bayar aksesori."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM50–RM90/tahun",
+        "verdict": "wajib",
+        "whyBM": "Enjin diesel banjir sangat mahal dibaiki."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM40–RM70/tahun",
+        "verdict": "wajib jika kerja luar bandar",
+        "whyBM": "Towing pickup dari lokasi jauh sangat mahal."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Navara 2.5 V vs VL vs PRO-4X — beza premium?",
+        "a": "Ketara — PRO-4X sum insured sekitar RM30,000–RM50,000 lebih tinggi dari V dengan kit off-road penuh, jadi premium beza RM300–RM600/tahun. Pastikan sum insured ikut varian sebenar dalam geran."
+      },
+      {
+        "q": "Kit off-road PRO-4X dan canopy — automatik dilindungi?",
+        "a": "Tidak. Aksesori yang tidak diisytihar tidak dibayar masa claim. Declare semua kit, tambah accessories cover, dan simpan resit sebagai bukti nilai."
+      },
+      {
+        "q": "Navara daftar komersial untuk kerja — polisi persendirian boleh?",
+        "a": "Tidak. Jika Navara digunakan untuk kerja/niaga, perlu polisi komersial. Guna polisi persendirian untuk kerja komersial boleh menyebabkan claim ditolak — declare penggunaan sebenar masa renew."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Nissan — laman model rasmi",
+        "url": "https://www.nissan.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ],
+    "factChecked": "2026-09-10",
+    "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
+    "enriched": true
   },
   {
     "slug": "hyundai-tucson",
