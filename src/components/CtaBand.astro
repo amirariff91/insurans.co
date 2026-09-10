@@ -16,12 +16,20 @@ interface Props {
   primary: PrimaryAction;
   outbound?: OutboundAction[];
   disclosure?: string;
+  trackingSection?: string;
 }
 
-const { heading, body, primary, outbound = [], disclosure } = Astro.props;
+const {
+  heading,
+  body,
+  primary,
+  outbound = [],
+  disclosure,
+  trackingSection = 'cta-band',
+} = Astro.props;
 ---
 
-<section class="border-2 border-stone-900 bg-krim-100 p-5 sm:p-6" data-section="cta-band">
+<section class="border-2 border-stone-900 bg-krim-100 p-5 sm:p-6" data-section={trackingSection}>
   <div class="lg:flex lg:items-start lg:justify-between lg:gap-10">
     <div class="max-w-2xl">
       <h2 class="font-serif text-headline-sm text-stone-900">{heading}</h2>

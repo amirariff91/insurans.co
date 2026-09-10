@@ -1,0 +1,174 @@
+---
+import carModels from '../data/car-models.json';
+
+const defaultSlug = 'perodua-axia';
+const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
+const brands = [...new Set(carModels.map((car) => car.brand))];
+const orderedBrands = [
+  ...brandOrder.filter((brand) => brands.includes(brand)),
+  ...brands.filter((brand) => !brandOrder.includes(brand)).sort((a, b) => a.localeCompare(b)),
+];
+
+const groupedModels = orderedBrands
+  .map((brand) => ({
+    brand,
+    models: carModels
+      .filter((car) => car.brand === brand)
+      .sort((a, b) => a.model.localeCompare(b.model)),
+  }))
+  .filter((group) => group.models.length > 0);
+
+const pickerModels = carModels.map((car) => ({
+  slug: car.slug,
+  fullName: car.fullName,
+  premium0: {
+    min: car.premiumNCD0Min,
+    max: car.premiumNCD0Max,
+  },
+  premium55: {
+    min: car.premiumNCD55Min,
+    max: car.premiumNCD55Max,
+  },
+  premiumReviewed: car.premiumReviewed,
+  sources: (car.sources ?? [])
+    .filter((source) => source.label && source.url)
+    .map((source) => ({ label: source.label, url: source.url })),
+}));
+---
+
+<div data-model-picker>
+  <label for="model-picker" class="label block">Model kereta</label>
+  <select
+    id="model-picker"
+    name="model"
+    hidden
+    class="mt-2 h-12 w-full border-2 border-stone-900 bg-white px-3 text-base font-semibold text-stone-900 focus-visible:outline-none"
+  >
+    {groupedModels.map((group) => (
+      <optgroup label={group.brand}>
+        {group.models.map((car) => (
+          <option value={car.slug} selected={car.slug === defaultSlug}>{car.fullName}</option>
+        ))}
+      </optgroup>
+    ))}
+  </select>
+
+  <noscript>
+    <nav aria-label="Pilihan model kereta" class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      <a href="/car-insurance/perodua-axia/" class="min-h-11 py-2 text-hijau-700 underline underline-offset-2">Axia</a>
+      <a href="/car-insurance/perodua-myvi/" class="min-h-11 py-2 text-hijau-700 underline underline-offset-2">Myvi</a>
+      <a href="/car-insurance/proton-saga/" class="min-h-11 py-2 text-hijau-700 underline underline-offset-2">Saga</a>
+      <a href="/car-insurance/toyota-vios/" class="min-h-11 py-2 text-hijau-700 underline underline-offset-2">Vios</a>
+      <a href="/car-insurance/" data-cta="hero_primary" class="min-h-11 py-2 font-semibold text-hijau-700 underline underline-offset-2">Semua model →</a>
+    </nav>
+  </noscript>
+</div>
+
+<script type="application/json" id="model-picker-data" is:inline set:html={JSON.stringify(pickerModels)}></script>
+
+<script>
+  import { monthly, rm } from '../lib/ncd';
+
+  interface PickerSource {
+    label: string;
+    url: string;
+  }
+
+  interface PickerModel {
+    slug: string;
+    fullName: string;
+    premium0: { min: number; max: number };
+    premium55: { min: number; max: number };
+    premiumReviewed?: string;
+    sources: PickerSource[];
+  }
+
+  const select = document.querySelector<HTMLSelectElement>('#model-picker');
+  const dataIsland = document.querySelector<HTMLScriptElement>('#model-picker-data');
+  const card = document.querySelector<HTMLElement>('[data-answer-card]');
+  const stamp = document.querySelector<HTMLElement>('[data-editorial-stamp]');
+
+  if (select && dataIsland && card && stamp) {
+    let models: PickerModel[] = [];
+
+    try {
+      const parsed = JSON.parse(dataIsland.textContent ?? '[]');
+      if (Array.isArray(parsed)) models = parsed as PickerModel[];
+    } catch {
+      models = [];
+    }
+
+    const modelsBySlug = new Map(models.map((model) => [model.slug, model]));
+    const selectedLabel = card.querySelector<HTMLElement>('[data-selected-label]');
+    const selectedRange = card.querySelector<HTMLElement>('[data-selected-range]');
+    const selectedMonthly = card.querySelector<HTMLElement>('[data-selected-monthly]');
+    const reference0 = card.querySelector<HTMLElement>('[data-reference-0]');
+    const calculatorLink = card.querySelector<HTMLAnchorElement>('[data-calculator-link]');
+    const reviewedLine = stamp.querySelector<HTMLElement>('[data-editorial-price-reviewed]');
+    const sourceLinks = stamp.querySelector<HTMLElement>('[data-editorial-source-links]');
+
+    const formatRange = (range: { min: number; max: number }): string => `${rm(range.min)} – ${rm(range.max)}`;
+    const formatDate = (value?: string): string => {
+      if (!value) return 'belum direkodkan';
+
+      const date = new Date(`${value}T00:00:00Z`);
+      if (Number.isNaN(date.getTime())) return value;
+
+      return new Intl.DateTimeFormat('ms-MY', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }).format(date);
+    };
+
+    const updateSources = (sources: PickerSource[]): void => {
+      if (!sourceLinks) return;
+      sourceLinks.replaceChildren();
+
+      if (sources.length === 0) {
+        sourceLinks.textContent = 'belum direkodkan';
+        return;
+      }
+
+      sources.forEach((source, index) => {
+        const item = document.createElement('span');
+        if (index > 0) item.append(document.createTextNode(' · '));
+
+        const link = document.createElement('a');
+        link.href = source.url;
+        link.className = 'inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600';
+        link.textContent = source.label;
+        item.append(link);
+        sourceLinks.append(item);
+      });
+    };
+
+    const update = (model: PickerModel): void => {
+      if (!selectedLabel || !selectedRange || !selectedMonthly || !reference0 || !calculatorLink) return;
+
+      const monthlyRange = monthly(model.premium55.min, model.premium55.max);
+      selectedLabel.textContent = `Pilihan · ${model.fullName}`;
+      selectedRange.textContent = formatRange(model.premium55);
+      selectedMonthly.textContent = `≈ ${formatRange(monthlyRange)} / bulan`;
+      reference0.textContent = formatRange(model.premium0);
+      calculatorLink.href = `/car-insurance/${model.slug}/`;
+      card.dataset.modelSlug = model.slug;
+      card.dataset.modelName = model.fullName;
+      card.dataset.baseMin = String(model.premium0.min);
+      card.dataset.baseMax = String(model.premium0.max);
+      card.dataset.referenceMin = String(model.premium55.min);
+      card.dataset.referenceMax = String(model.premium55.max);
+
+      if (reviewedLine) reviewedLine.textContent = `Semakan harga: ${formatDate(model.premiumReviewed)}`;
+      updateSources(model.sources);
+    };
+
+    select.addEventListener('change', () => {
+      const model = modelsBySlug.get(select.value);
+      if (model) update(model);
+    });
+
+    select.hidden = false;
+  }
+</script>

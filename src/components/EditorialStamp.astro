@@ -31,24 +31,27 @@ const sourceLinks = sources.filter((source) => source.label && (source.url || so
 ---
 
 <div data-editorial-stamp class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">
-  <p>Pasukan Editorial · Tarikh artikel: {formatDate(articleDate)}</p>
-  <p>Semakan harga: {formatDate(premiumReviewed)}</p>
-  <p>
-    Sumber harga:
-    {sourceLinks.length > 0 ? (
-      sourceLinks.map((source, index) => (
-        <span>
-          {index > 0 && <span aria-hidden="true"> · </span>}
-          <a
-            href={source.url || source.href}
-            class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600"
-          >
-            {source.label}
-          </a>
-        </span>
-      ))
-    ) : (
-      'belum direkodkan'
-    )}
+  <p data-editorial-article-date>Pasukan Editorial · Tarikh artikel: {formatDate(articleDate)}</p>
+  <p data-editorial-price-reviewed>Semakan harga: {formatDate(premiumReviewed)}</p>
+  <p data-editorial-sources>
+    <span>Sumber harga:</span>{' '}
+    <span data-editorial-source-links>
+      {sourceLinks.length > 0 ? (
+        sourceLinks.map((source, index) => (
+          <span>
+            {index > 0 && <span aria-hidden="true"> · </span>}
+            <a
+              href={source.url || source.href}
+              class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600"
+            >
+              {source.label}
+            </a>
+          </span>
+        ))
+      ) : (
+        'belum direkodkan'
+      )}
+    </span>
   </p>
 </div>
+

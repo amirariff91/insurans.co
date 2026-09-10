@@ -1,14 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
+import AnswerCard from '../components/AnswerCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import EditorialStamp from '../components/EditorialStamp.astro';
+import ModelPicker from '../components/ModelPicker.astro';
 import companies from '../data/companies.json';
 import carModels from '../data/car-models.json';
 import comparisons from '../data/comparisons.json';
 
 const topMotorInsurers = companies.filter(c => c.products.includes('car')).slice(0, 6);
 const popularCars = carModels.filter(car => ['perodua-axia', 'perodua-myvi', 'proton-saga', 'toyota-vios', 'honda-city', 'honda-civic'].includes(car.slug));
+const exampleModel = carModels.find((car) => car.slug === 'perodua-axia') ?? carModels[0];
 const companyCount = companies.length;
 const carModelCount = carModels.length;
 const comparisonCount = comparisons.length;
+
 
 const schema = {
   "@context": "https://schema.org",
@@ -67,64 +73,49 @@ const faqSchema = {
 >
   <!-- Utility Masthead -->
   <section class="border-b-2 border-stone-900 bg-krim-50">
-    <div class="container-wide py-12 sm:py-20">
-      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-end">
-        <div>
-          <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
-          <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5 max-w-4xl">
-            Harga Insurans Kereta Malaysia 2026
-          </h1>
-          <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mb-3">
-            Berapa patut anda bayar untuk insurans kereta?
-          </p>
-          <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl">
-            Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon, bukan ejen, bukan broker.
-          </p>
-          <p class="mt-4 text-sm text-stone-500 max-w-2xl">
-            Sumber: laman rasmi syarikat, BNM, PIAM, data pasaran semasa, dan rujukan produk insurans motor Malaysia.
-          </p>
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="/car-insurance/" data-cta="hero_primary" class="btn-hijau justify-center">Semak harga ikut model →</a>
-            <a href="/tools/ncd-calculator/" data-cta="hero_secondary" class="btn-outline justify-center">Kira NCD anda</a>
-          </div>
+    <div class="container-wide py-10 sm:py-16">
+      <div class="mx-auto max-w-3xl">
+        <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5 max-w-4xl">
+          Harga Insurans Kereta Malaysia 2026
+        </h1>
+        <p class="text-lg font-semibold leading-relaxed text-stone-800">
+          Bukan ejen. Bukan broker.
+        </p>
+        <p class="mt-4 text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mb-3">
+          Berapa patut anda bayar untuk insurans kereta?
+        </p>
+        <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl">
+          Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon, bukan ejen, bukan broker.
+        </p>
+
+        <div class="mt-7">
+          <ModelPicker />
         </div>
 
-        <div class="bg-krim-100 border-2 border-stone-900 p-5 sm:p-6 shadow-[8px_8px_0_0_#1c1917]">
-          <p class="text-xs uppercase tracking-widest font-bold text-stone-500 mb-4">Anggaran popular, NCD 55%</p>
-          <div class="space-y-3 numeric">
-            {popularCars.slice(0, 4).map(car => (
-              <a href={`/car-insurance/${car.slug}/`} class="flex justify-between gap-4 border-b border-stone-300 pb-3 last:border-b-0 last:pb-0 group">
-                <span>
-                  <span class="block font-semibold text-stone-900 group-hover:text-hijau-700">{car.fullName}</span>
-                  <span class="block text-xs text-stone-500">{car.marketValueRange}</span>
-                </span>
-                <span class="font-serif text-lg text-hijau-800 whitespace-nowrap">{car.premiumNCD55}</span>
-              </a>
-            ))}
-          </div>
+        <div class="mt-6">
+          <AnswerCard
+            slug={exampleModel.slug}
+            model={exampleModel.fullName}
+            year="2026"
+            premium0={{ min: exampleModel.premiumNCD0Min, max: exampleModel.premiumNCD0Max }}
+            premium55={{ min: exampleModel.premiumNCD55Min, max: exampleModel.premiumNCD55Max }}
+            compact
+          />
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Factual Trust Bar -->
-  <section class="bg-krim-100 border-b border-stone-200">
-    <div class="container-wide grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-stone-300 border-x-0 md:border-x border-stone-300">
-      <div class="py-4 pr-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Syarikat</p>
-        <p class="font-serif text-2xl text-stone-900">{companyCount}</p>
-      </div>
-      <div class="py-4 md:px-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Model kereta</p>
-        <p class="font-serif text-2xl text-stone-900">{carModelCount}</p>
-      </div>
-      <div class="py-4 pr-4 md:px-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Perbandingan</p>
-        <p class="font-serif text-2xl text-stone-900">{comparisonCount}</p>
-      </div>
-      <div class="py-4 md:pl-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Status</p>
-        <p class="font-serif text-xl text-stone-900">Bebas</p>
+        <div class="mt-4 mr-2">
+          <EditorialStamp
+            premiumReviewed={exampleModel.premiumReviewed}
+            sources={exampleModel.sources}
+          />
+        </div>
+        <a
+          href="/tools/ncd-calculator/"
+          data-cta="hero_secondary"
+          class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:text-hijau-600"
+        >
+          Tak pasti NCD? Kira NCD saya →
+        </a>
       </div>
     </div>
   </section>
@@ -191,65 +182,86 @@ const faqSchema = {
       </div>
     </div>
   </section>
+  <!-- Factual Trust Bar -->
+  <section class="bg-krim-100 border-b border-stone-200">
+    <div class="container-wide grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-stone-300 border-x-0 md:border-x border-stone-300">
+      <div class="py-4 pr-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Syarikat</p>
+        <p class="font-serif text-2xl text-stone-900">{companyCount}</p>
+      </div>
+      <div class="py-4 md:px-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Model kereta</p>
+        <p class="font-serif text-2xl text-stone-900">{carModelCount}</p>
+      </div>
+      <div class="py-4 pr-4 md:px-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Perbandingan</p>
+        <p class="font-serif text-2xl text-stone-900">{comparisonCount}</p>
+      </div>
+      <div class="py-4 md:pl-4">
+        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Status</p>
+        <p class="font-serif text-xl text-stone-900">Bebas</p>
+      </div>
+    </div>
+  </section>
 
   <div class="divider-bold container-wide"></div>
 
   <!-- Cara Renew — Practical Section -->
   <section data-section="renew" class="bg-hijau-50 border-y border-hijau-200 py-10 sm:py-12">
     <div class="container-wide">
-      <div class="grid lg:grid-cols-[1fr_320px] gap-8">
-        <div>
-          <h2 class="font-serif text-headline-md text-stone-900 mb-4">
-            Nak renew insurans kereta online?
-          </h2>
-          <p class="text-stone-600 mb-8 max-w-2xl">
-            Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.
-          </p>
+      <h2 class="font-serif text-headline-md text-stone-900 mb-4">
+        Nak renew insurans kereta online?
+      </h2>
+      <p class="text-stone-600 mb-8 max-w-2xl">
+        Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.
+      </p>
 
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="relative pl-10">
-        <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">1.</span>
-        <h3 class="font-semibold text-stone-900 mb-1 text-sm">Semak NCD anda</h3>
-        <p class="text-sm text-stone-600">
-          Pergi <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline">MyEG</a>
-          atau check dengan ejen. Penting sebab NCD affect harga premium.
-        </p>
-      </div>
-      <div class="relative pl-10">
-        <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">2.</span>
-        <h3 class="font-semibold text-stone-900 mb-1 text-sm">Dapatkan quotation</h3>
-        <p class="text-sm text-stone-600">
-          Guna aggregator macam <strong>Bjak.my</strong> atau <strong>PolicyStreet</strong> untuk bandingkan harga dari banyak syarikat sekaligus.
-        </p>
-      </div>
-      <div class="relative pl-10">
-        <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">3.</span>
-        <h3 class="font-semibold text-stone-900 mb-1 text-sm">Bayar & dapat e-cover note</h3>
-        <p class="text-sm text-stone-600">
-          Bayar online (FPX, kad kredit). E-cover note terus masuk email. Simpan PDF tu.
-        </p>
-      </div>
-      <div class="relative pl-10">
-        <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">4.</span>
-        <h3 class="font-semibold text-stone-900 mb-1 text-sm">Renew roadtax</h3>
-        <p class="text-sm text-stone-600">
-          Boleh renew di <strong>JPJ</strong>, <strong>MyEG</strong>, <strong>Pos Malaysia</strong>, atau kaunter di shopping mall.
-        </p>
-      </div>
-          </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="relative pl-10">
+          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">1.</span>
+          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Semak NCD anda</h3>
+          <p class="text-sm text-stone-600">
+            Pergi <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline">MyEG</a>
+            atau check dengan ejen. Penting sebab NCD affect harga premium.
+          </p>
         </div>
-        <aside class="bg-krim-50 border-2 border-stone-900 p-5 h-fit">
-          <h3 class="font-serif text-headline-sm text-stone-900 mb-3">Terus ke platform</h3>
-          <div class="space-y-3">
-            <a href="https://www.bjak.my" target="_blank" rel="sponsored noopener" class="btn-outline w-full justify-center">Bjak.my</a>
-            <a href="https://www.policystreet.com" target="_blank" rel="sponsored noopener" class="btn-outline w-full justify-center">PolicyStreet</a>
-            <a href="/tools/ncd-calculator/" class="btn-hijau w-full justify-center">Kalkulator NCD</a>
-          </div>
-          <p class="mt-4 text-xs text-stone-500 leading-relaxed">Kami pautkan ke platform luar; pembelian polisi dibuat di laman mereka, bukan di Insurans.co.</p>
-        </aside>
+        <div class="relative pl-10">
+          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">2.</span>
+          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Dapatkan quotation</h3>
+          <p class="text-sm text-stone-600">
+            Guna aggregator macam <strong>Bjak.my</strong> atau <strong>PolicyStreet</strong> untuk bandingkan harga dari banyak syarikat sekaligus.
+          </p>
+        </div>
+        <div class="relative pl-10">
+          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">3.</span>
+          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Bayar &amp; dapat e-cover note</h3>
+          <p class="text-sm text-stone-600">
+            Bayar online (FPX, kad kredit). E-cover note terus masuk email. Simpan PDF tu.
+          </p>
+        </div>
+        <div class="relative pl-10">
+          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">4.</span>
+          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Renew roadtax</h3>
+          <p class="text-sm text-stone-600">
+            Boleh renew di <strong>JPJ</strong>, <strong>MyEG</strong>, <strong>Pos Malaysia</strong>, atau kaunter di shopping mall.
+          </p>
+        </div>
       </div>
     </div>
   </section>
+
+  <div class="container-wide py-10 sm:py-12">
+    <CtaBand
+      trackingSection="renew"
+      heading="Dapatkan quotation · Laman luar"
+      primary={{ label: 'Kira NCD saya →', href: '/tools/ncd-calculator/' }}
+      outbound={[
+        { label: 'Bjak.my', href: 'https://www.bjak.my', relationship: 'paid' },
+        { label: 'PolicyStreet', href: 'https://www.policystreet.com', relationship: 'paid' },
+      ]}
+      disclosure="Kami pautkan ke platform luar; pembelian polisi dibuat di laman mereka, bukan di Insurans.co."
+    />
+  </div>
 
   <!-- Company Directory — Editorial Style -->
   <section class="container-wide py-10 sm:py-12">
