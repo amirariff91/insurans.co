@@ -29,7 +29,8 @@ Owner: Claude Fable 5.1 (this session). Reviewers: GLM 5.3 Flash (analytics/GSC)
 6. **Homepage title double-brands** (`… — Insurans.co | Insurans.co`, verified in dist). Fix: title guard.
 7. **Phantom SearchAction** to `/search?q=` (no route) and **broken card link** to `/travel-insurance/`. Fix: remove / repoint.
 8. **Article schema has no author** on ~20 pages; Person exists only on /about/. Fix: shared `withAuthor()` helper injects the editorial Person + publisher.
-9. **Secrets in `.claude/settings.local.json`** (Cloudflare + Coolify bearer tokens in allow-rules). Fixed: scrubbed and gitignored. **User action: rotate both tokens.**
+9. **Wrong insurer claim hotlines.** Nine of twelve stored claim lines did not appear on the insurers' official sites and one used the wrong access code (1-800 vs 1-300); they were about to become tap-to-call links. Fixed: all twelve verified against official pages on 2026-09-10, with source and verified date stored per company; `llms-full.txt` synced.
+10. **Secrets in `.claude/settings.local.json`** (Cloudflare + Coolify bearer tokens in allow-rules). Fixed: scrubbed and gitignored. **User action: rotate both tokens.**
 
 ## P1 — next (not in this run unless noted)
 
@@ -37,7 +38,7 @@ Owner: Claude Fable 5.1 (this session). Reviewers: GLM 5.3 Flash (analytics/GSC)
 - **Hub rewrites** (GLM §5): `/` target "insurans kereta" (6.5k, KD 0), `/car-insurance/` add H2 for "insurans kereta murah" (600, KD 0) + renew section, `/companies/` add claim-hotline table with `tel:` links; concrete title/H1/meta proposals in the GLM report.
 - **Model-page enrichment.** Nine enriched BM records (premium by NCD tier and region, year notes, add-on verdicts, 3 model-specific FAQs each) are drafted in the session scratchpad (`enriched-models.json`); items marked `[semak]` need owner fact-check before publishing. Extend to all 39.
 - **Named author + reviewer.** YMYL content needs at least one named author and one reviewer with credentials, `/penulis/` profile pages, `author`/`reviewedBy`/`sameAs` on every Article. The editorial-team Person added now is the honest interim, not the end state.
-- **RHB slug typo** `/companies/rhi/` → `rhb` with a 301; regenerate `llms.txt` from data rather than hand-editing.
+- **Slug mismatches** `/companies/rhi/` (RHB Insurance) and `/companies/kurnia/` (data says Berjaya Sompo) need renames with 301s; regenerate `llms.txt` from data rather than hand-editing.
 - **Render-blocking fonts** → Astro Fonts API (self-hosted). Largest lever on the 5.2 s LCP. Design track slice.
 - **Preact removal** (unused) and `astro check` in CI; content collections + zod for `src/data`.
 - **rel="sponsored"** on Bjak/PolicyStreet CTAs (done in A2) plus visible disclosure copy on every template that links out.
