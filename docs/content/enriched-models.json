@@ -1,7 +1,7 @@
 {
   "methodologyNote": "Semua `premiumByNCD` diterbitkan daripada medan sedia ada dalam `car-models.json` — `ncd0` dan `ncd55` diambil bulat-bulat daripada `premiumNCD0Min/Max` dan `premiumNCD55Min/Max` fail tersebut; tier perantaraan = `premiumNCD0 × (1 − NCD%)` dengan tangga NCD standard Malaysia (25% / 30% / 38.33% / 45%), dibundar ke RM10 terdekat. `premiumByRegion`: Lembah Klang = julat NCD55 asal; Pantai Timur = asas × 0.94 (≈6% lebih rendah); Borneo = asas × 0.96 (≈4% lebih rendah), dibundar ke RM10. Semua angka ialah anggaran polisi komprehensif 2026, bukan sebut harga.",
   "generated": "2026-09-10",
-  "status": "DRAFT — top-10 models fact-checked for years/variants (premiums not assessed); remaining 29 need fact-check before publishing",
+  "status": "DRAFT — 20 models fact-checked for years/variants (premiums not assessed); remaining 19 need fact-check before publishing",
   "records": [
     {
       "slug": "perodua-axia",
@@ -1224,14 +1224,20 @@
       "modelYearNotes": [
         {
           "range": "2009–2021 (Gen 1)",
-          "note": "Nilai pasaran rendah untuk unit awal (bawah RM25,000 [semak]). Kira third-party vs comprehensive — comprehensive masih selamat jika Alza masih kereta keluarga utama."
+          "note": {
+            "range": "2009–2021 (Gen 1)",
+            "note": "Nilai pasaran rendah untuk unit awal (bawah RM25,000). Kira third-party vs comprehensive — comprehensive masih selamat jika Alza masih kereta keluarga utama."
+          }
         },
         {
           "range": "2022–kini (Gen 2)",
-          "note": "Platform baru kongsi dengan Veloz. Varian AV ada ASA (ADAS) — pastikan sum insured ikut varian dan sahkan sama ada cermin ada sensor sebelum pilih windscreen cover."
+          "note": {
+            "range": "2022–kini (Gen 2)",
+            "note": "Platform baru kongsi dengan Veloz. ASA (ADAS) standard pada semua varian X/H/AV (kamera di cermin depan), bukan AV sahaja — pastikan sum insured ikut varian dan sahkan sama ada cermin ada sensor sebelum pilih windscreen cover."
+          }
         }
       ],
-      "windscreenPrice": "RM400–RM750; varian AV dengan sensor ASA — gantian cermin perlu calibration, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM400–RM750; semua varian Gen 2 ada kamera ASA di cermin — gantian cermin perlu calibration, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -1261,11 +1267,17 @@
       "modelFAQs": [
         {
           "q": "Alza 1.5 X vs H vs AV — beza premium insurans?",
-          "a": "Beza kecil, ikut sum insured — AV nilainya sekitar RM8,000–RM13,000 [semak] lebih tinggi dari X, jadi premium naik sekitar RM100–RM250/tahun. Pilih varian ikut keperluan keluarga, bukan risau pasal insurans."
+          "a": {
+            "q": "Alza 1.5 X vs H vs AV — beza premium insurans?",
+            "a": "Beza kecil, ikut sum insured — AV nilainya sekitar RM8,000–RM13,000 lebih tinggi dari X, jadi premium naik sekitar RM100–RM250/tahun. Pilih varian ikut keperluan keluarga, bukan risau pasal insurans."
+          }
         },
         {
           "q": "Alza Gen 2 AV ada ASA — cermin retak, insurans cover calibration sensor?",
-          "a": "Windscreen cover bayar gantian cermin, tetapi calibration kamera ASA tidak semestinya termasuk — ia boleh cecah beberapa ratus ringgit. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin. Claim cermin tidak usik NCD."
+          "a": {
+            "q": "Alza Gen 2 ada ASA — cermin retak, insurans cover calibration sensor?",
+            "a": "Windscreen cover bayar gantian cermin, tetapi calibration kamera ASA tidak semestinya termasuk — ia boleh cecah beberapa ratus ringgit. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin. Claim cermin tidak usik NCD."
+          }
         },
         {
           "q": "Alza selalu bawa 7 penumpang — perlu passenger liability cover?",
@@ -1288,7 +1300,9 @@
           "url": "https://www.perodua.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "proton-iriz",
@@ -1340,11 +1354,17 @@
       "modelYearNotes": [
         {
           "range": "2014–2019 (awal)",
-          "note": "Unit awal nilai bawah RM20,000 [semak]. Kira third-party vs comprehensive — comprehensive hanya berbaloi jika kereta masih dipandu harian jauh."
+          "note": {
+            "range": "2014–2019 (awal)",
+            "note": "Unit awal nilai bawah RM20,000. Kira third-party vs comprehensive — comprehensive hanya berbaloi jika kereta masih dipandu harian jauh."
+          }
         },
         {
           "range": "2019–kini (facelift) [semak]",
-          "note": "Kualiti binaan dan infotainment bertambah baik. Varian 1.6 Premium nilainya lebih tinggi — pastikan sum insured ikut varian, bukan harga Standard."
+          "note": {
+            "range": "2019–kini (facelift)",
+            "note": "Kualiti binaan dan infotainment bertambah baik. Varian 1.6 Premium nilainya lebih tinggi — pastikan sum insured ikut varian, bukan harga Standard."
+          }
         }
       ],
       "windscreenPrice": "RM350–RM650; cermin hatchback standard — tiada sensor ADAS, gantian mudah di mana-mana panel",
@@ -1398,7 +1418,9 @@
           "url": "https://www.proton.com",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "proton-x50",
@@ -1450,14 +1472,20 @@
       "modelYearNotes": [
         {
           "range": "2020–2023 (awal CKD)",
-          "note": "Varian Standard hingga Flagship. Enjin 1.5T dan 1.5 TGDi berbeza kos — Flagship dengan DCT dan sensor penuh premium paling tinggi. Parts Geely kadang lambat sampai."
+          "note": {
+            "range": "2020–2024 (prafacelift)",
+            "note": "Varian Standard hingga Flagship. Enjin 1.5T dan 1.5 TGDi berbeza kos — Flagship dengan DCT dan sensor penuh premium paling tinggi. Parts Geely kadang lambat sampai."
+          }
         },
         {
           "range": "2024–kini (facelift/RC) [semak]",
-          "note": "Jika beli unit baru, sum insured ikut harga beli penuh (RM90,000+). Semak senarai sensor ADAS sebelum pilih ADAS calibration cover."
+          "note": {
+            "range": "2025–kini (facelift)",
+            "note": "Facelift 24 Julai 2025 — reka bentuk baru (asas Geely Binyue L), enjin 1.5T 4-silinder, varian Executive/Premium/Flagship (Standard dimansuhkan). Jika beli unit baru, sum insured ikut harga beli penuh (RM90,000+). Semak senarai sensor ADAS sebelum pilih ADAS calibration cover."
+          }
         }
       ],
-      "windscreenPrice": "RM600–RM1,200; varian Premium/Flagship dengan kamera ADAS — gantian cermin perlu calibration, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM600–RM1,200; varian Flagship (2020–2024) dan Premium/Flagship (2025+, facelift) dengan kamera ADAS — gantian cermin perlu calibration, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -1468,7 +1496,12 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM120–RM250/tahun",
-          "verdict": "wajib untuk Premium/Flagship",
+          "verdict": {
+            "name": "ADAS calibration cover",
+            "priceBM": "RM120–RM250/tahun",
+            "verdict": "wajib untuk Flagship (2020–2024) dan Premium/Flagship (2025+)",
+            "whyBM": "Radar dan kamera X50 mahal — calibration selepas tukar cermin boleh cecah ratusan ringgit."
+          },
           "whyBM": "Radar dan kamera X50 mahal — calibration selepas tukar cermin boleh cecah ratusan ringgit."
         },
         {
@@ -1514,7 +1547,9 @@
           "url": "https://www.proton.com",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "proton-x70",
@@ -1566,11 +1601,17 @@
       "modelYearNotes": [
         {
           "range": "2018–2019 (1.8T CBU) [semak]",
-          "note": "Unit awal enjin 1.8T import — parts lagi mahal dan susah. Sum insured ikut harga pasaran semasa yang susut cepat."
+          "note": {
+            "range": "2018–2019 (1.8T CBU)",
+            "note": "Unit awal enjin 1.8T import — parts lagi mahal dan susah. Sum insured ikut harga pasaran semasa yang susut cepat."
+          }
         },
         {
           "range": "2020–kini (1.5 TGDi CKD)",
-          "note": "Enjin 1.5T tempatan, parts lebih mudah. Varian Flagship ada sensor penuh — ambil ADAS calibration cover dan pastikan sum insured ikut varian."
+          "note": {
+            "range": "2020–kini (CKD; 1.5 TGDi dari 2022)",
+            "note": "CKD bermula Feb 2020 masih dengan enjin 1.8T; enjin 1.5 TGDi mula ditawarkan pada kemas kini Jun 2022 (1.8T kekal pada varian tertinggi sehingga facelift Ogos 2024). Parts lebih mudah selepas CKD. Varian Flagship ada sensor penuh — ambil ADAS calibration cover dan pastikan sum insured ikut varian."
+          }
         }
       ],
       "windscreenPrice": "RM700–RM1,400; semua varian tinggi ada kamera/radar — gantian cermin wajib calibration, sahkan kos dengan panel bengkel",
@@ -1603,7 +1644,10 @@
       "modelFAQs": [
         {
           "q": "X70 1.8T lama vs 1.5 TGDi baru — beza insurans?",
-          "a": "Unit 1.8T (2018–2019) sum insured lebih rendah kerana susut nilai, jadi premium sedikit lebih murah — tetapi kos repair dan parts import lebih mahal dan lambat. Unit 1.5T CKD lebih mudah diuruskan masa claim. Bezanya sekitar RM100–RM300/tahun."
+          "a": {
+            "q": "X70 1.8T lama vs 1.5 TGDi baru — beza insurans?",
+            "a": "Unit 1.8T (2018–2024) sum insured lebih rendah kerana susut nilai, jadi premium sedikit lebih murah — tetapi kos repair dan parts import lebih mahal dan lambat. Unit 1.5T CKD (sejak Jun 2022) lebih mudah diuruskan masa claim. Bezanya sekitar RM100–RM300/tahun."
+          }
         },
         {
           "q": "X70 susut nilai cepat — market value atau agreed value?",
@@ -1630,7 +1674,9 @@
           "url": "https://www.proton.com",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "proton-exora",
@@ -1682,11 +1728,17 @@
       "modelYearNotes": [
         {
           "range": "2009–2016 (awal, CPS/CFE)",
-          "note": "Unit awal nilai rendah (bawah RM25,000 [semak]). Kira third-party vs comprehensive — enjin CFE perlukan servis betul, tetapi itu kos penyelenggaraan, bukan insurans."
+          "note": {
+            "range": "2009–2016 (awal, CPS/CFE)",
+            "note": "Unit awal nilai rendah (kebanyakan bawah RM20,000). Kira third-party vs comprehensive — enjin CFE perlukan servis betul, tetapi itu kos penyelenggaraan, bukan insurans."
+          }
         },
         {
           "range": "2017–kini (RC / Black Edition) [semak]",
-          "note": "Model lewat masih dijual hingga pengeluaran dihentikan [semak]. Varian Premium nilainya lebih tinggi — pastikan sum insured ikut varian sebenar."
+          "note": {
+            "range": "2017–2023 (Enhanced / RC / Black Edition)",
+            "note": "RC diperkenalkan Mei 2019, Black Edition Feb 2021; pengeluaran ditamatkan pada 18 Oktober 2023. Varian Premium nilainya lebih tinggi — pastikan sum insured ikut varian sebenar."
+          }
         }
       ],
       "windscreenPrice": "RM400–RM750; cermin MPV besar tetapi tiada sensor ADAS — gantian mudah di panel Proton",
@@ -1746,7 +1798,9 @@
           "url": "https://www.proton.com",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "honda-city",
@@ -1793,19 +1847,25 @@
       "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM95,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
       "premiumReviewed": "2026-09-10",
       "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
-      "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan kunci stereng tambahan jika parkir di kawasan terbuka.",
+      "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan kunci stereng tambahan jika parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM40–RM75/tahun sangat disarankan — komponen elektrik dan sensor Honda mahal jika masuk air.",
       "modelYearNotes": [
         {
           "range": "2014–2019 (Gen 6)",
-          "note": "Unit used RM35,000–RM55,000 [semak] — sum insured ikut harga pasaran semasa. Smart key mula standard pada varian tinggi."
+          "note": {
+            "range": "2014–2019 (Gen 6)",
+            "note": "Unit used kini RM24,000–RM40,000 — sum insured ikut harga pasaran semasa. Smart key mula standard pada varian tinggi."
+          }
         },
         {
           "range": "2020–kini (Gen 7, termasuk e:HEV)",
-          "note": "Varian RS e:HEV ialah hybrid — premium 15–20% lebih tinggi kerana kos bateri dan motor elektrik. Varian V/RS ada Honda Sensing — cermin perlu calibration."
+          "note": {
+            "range": "2020–kini (Gen 7, termasuk e:HEV)",
+            "note": "Varian RS e:HEV ialah hybrid — premium 15–20% lebih tinggi kerana kos bateri dan motor elektrik. Unit 2020–2023: Honda Sensing hanya pada RS e:HEV; selepas facelift 2023, Sensing standard semua varian — cermin perlu calibration."
+          }
         }
       ],
-      "windscreenPrice": "RM500–RM1,000; varian V/RS dengan Honda Sensing — gantian cermin perlu calibration kamera, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM500–RM1,000; unit 2020–2023: Honda Sensing pada RS e:HEV sahaja; selepas facelift 2023 semua varian ada Sensing — gantian cermin perlu calibration kamera, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -1843,7 +1903,10 @@
         },
         {
           "q": "Smart key City hilang sebiji — claim atau buat sendiri?",
-          "a": "Jika ada key replacement cover, claim — tidak usik NCD. Jika tiada cover, kunci ganti Honda (dengan programming) boleh cecah RM500–RM1,000 [semak], jadi add-on RM50–RM80/tahun itu berbaloi."
+          "a": {
+            "q": "Smart key City hilang sebiji — claim atau buat sendiri?",
+            "a": "Jika ada key replacement cover, claim — tidak usik NCD. Jika tiada cover, kunci ganti Honda (dengan programming) boleh cecah RM500–RM1,000, jadi add-on RM50–RM80/tahun itu berbaloi."
+          }
         }
       ],
       "sources": [
@@ -1862,7 +1925,9 @@
           "url": "https://www.honda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "honda-civic",
@@ -1909,12 +1974,15 @@
       "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM155,000 (1.5 TC-P hingga 2.0 RS e:HEV). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
       "premiumReviewed": "2026-09-10",
       "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — sedan segmen C dengan enjin turbo dan sensor penuh. Claim cermin dan bumper biasa; sekali accident depan, kos lampu LED, radar Honda Sensing dan intercooler turbo menaikkan bil dengan cepat.",
-      "theftRiskDetail": "Risiko kecurian tinggi — Civic antara sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; kunci stereng + tracker GPS sangat disarankan.",
+      "theftRiskDetail": "Risiko kecurian tinggi — Civic antara sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng + tracker GPS sangat disarankan.",
       "floodRiskNote": "Ground clearance sedan yang rendah dengan komponen turbo dan elektrik mahal. Special perils RM50–RM100/tahun adalah wajib — bukan pilihan — untuk Civic.",
       "modelYearNotes": [
         {
           "range": "2016–2021 (Gen 10, 1.5 TC-P)",
-          "note": "Unit used RM70,000–RM110,000 [semak]. Enjin 1.5 turbo L15B — sum insured ikut harga pasaran semasa, bukan harga beli baru."
+          "note": {
+            "range": "2016–2021 (Gen 10, 1.5 TC-P)",
+            "note": "Unit used RM55,000–RM85,000. Enjin 1.5 turbo L15B7 — sum insured ikut harga pasaran semasa, bukan harga beli baru."
+          }
         },
         {
           "range": "2022–kini (Gen 11, termasuk 2.0 e:HEV)",
@@ -1978,7 +2046,9 @@
           "url": "https://www.honda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "honda-hrv",
@@ -2025,12 +2095,15 @@
       "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM90,000–RM140,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun (Gen 2 vs Gen 3) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
       "premiumReviewed": "2026-09-10",
       "claimFrequencyNote": "Claim sederhana tetapi mahal — SUV segmen B dengan cermin besar dan sensor penuh. Claim cermin depan dan calar bumper parking paling biasa. Sekali accident, kos panel SUV dan sensor Honda Sensing menaikkan bil dengan cepat.",
-      "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; kunci stereng tambahan disarankan.",
+      "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng tambahan disarankan.",
       "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM50–RM90/tahun disarankan, terutamanya di Lembah Klang.",
       "modelYearNotes": [
         {
           "range": "2015–2021 (Gen 2)",
-          "note": "Unit used RM55,000–RM85,000 [semak]. Tiada Honda Sensing penuh — premium dan kos cermin lebih rendah dari Gen 3."
+          "note": {
+            "range": "2015–2021 (Gen 2)",
+            "note": "Unit used RM35,000–RM60,000. Tiada Honda Sensing penuh — premium dan kos cermin lebih rendah dari Gen 3."
+          }
         },
         {
           "range": "2022–kini (Gen 3, termasuk RS e:HEV)",
@@ -2071,7 +2144,10 @@
         },
         {
           "q": "HR-V Gen 2 lama vs Gen 3 baru — beza insurans?",
-          "a": "Ketara — Gen 2 used sum insured sekitar RM55,000–RM85,000 [semak] dengan premium NCD 55% sekitar RM900–RM1,400; Gen 3 baru RM115,000–RM140,000 dengan premium seperti dalam jadual. Jangan insure Gen 2 ikut harga baru — itu over-insure."
+          "a": {
+            "q": "HR-V Gen 2 lama vs Gen 3 baru — beza insurans?",
+            "a": "Ketara — Gen 2 used sum insured sekitar RM35,000–RM60,000 dengan premium NCD 55% sekitar RM900–RM1,400; Gen 3 baru RM115,000–RM140,000 dengan premium seperti dalam jadual. Jangan insure Gen 2 ikut harga baru — itu over-insure."
+          }
         },
         {
           "q": "Bateri hybrid RS e:HEV rosak — boleh claim?",
@@ -2094,7 +2170,9 @@
           "url": "https://www.honda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "honda-brv",
@@ -2146,14 +2224,20 @@
       "modelYearNotes": [
         {
           "range": "2017–2021 (Gen 1)",
-          "note": "Unit used RM45,000–RM65,000 [semak]. Tiada Honda Sensing — premium dan kos cermin lebih rendah."
+          "note": {
+            "range": "2017–2021 (Gen 1)",
+            "note": "Unit used RM30,000–RM50,000. Tiada Honda Sensing — premium dan kos cermin lebih rendah."
+          }
         },
         {
           "range": "2022–kini (Gen 2) [semak]",
-          "note": "Honda Sensing pada varian V. Pastikan sum insured ikut varian dan sahkan sama ada cermin perlu calibration."
+          "note": {
+            "range": "Tiada Gen 2 di Malaysia (jualan ditamatkan Mac 2023)",
+            "note": "Honda Malaysia tidak melancarkan BR-V Gen 2 (DG3) dan menamatkan model ini pada Mac 2023. Tiada varian BR-V Malaysia dengan Honda Sensing — cermin tiada sensor ADAS. Pastikan sum insured ikut varian sebenar (E atau V Gen 1)."
+          }
         }
       ],
-      "windscreenPrice": "RM600–RM1,100; varian V Gen 2 dengan Honda Sensing — gantian cermin perlu calibration, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM600–RM1,100; cermin 7-seater besar, tiada sensor ADAS pada mana-mana varian BR-V Malaysia — gantian mudah, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -2183,7 +2267,10 @@
       "modelFAQs": [
         {
           "q": "BR-V 1.5 E vs V — beza premium?",
-          "a": "Beza kecil, ikut sum insured — V beberapa ribu lebih tinggi dengan ciri tambahan, jadi premium naik sekitar RM80–RM200/tahun. Varian V Gen 2 ada Honda Sensing, jadi ambil ADAS calibration cover sekali."
+          "a": {
+            "q": "BR-V 1.5 E vs V — beza premium?",
+            "a": "Beza kecil, ikut sum insured — V beberapa ribu lebih tinggi dengan ciri tambahan, jadi premium naik sekitar RM80–RM200/tahun. Tiada varian BR-V Malaysia dengan Honda Sensing (Gen 2 tidak dilancarkan), jadi ADAS calibration cover tidak diperlukan."
+          }
         },
         {
           "q": "BR-V selalu bawa 7 orang — perlu passenger liability?",
@@ -2210,7 +2297,9 @@
           "url": "https://www.honda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "toyota-yaris",
@@ -2266,10 +2355,13 @@
         },
         {
           "range": "2022–kini (facelift, G dengan TSS) [semak]",
-          "note": "Varian G ada Toyota Safety Sense — sahkan sama ada cermin perlu calibration sebelum pilih windscreen dan ADAS cover."
+          "note": {
+            "range": "2020–kini (facelift, TSS pada E & G)",
+            "note": "Facelift Dis 2020 — Toyota Safety Sense (PCS + AEB, LDA) pada varian E dan G; varian J tiada TSS. Sahkan sama ada cermin perlu calibration sebelum pilih windscreen dan ADAS cover."
+          }
         }
       ],
-      "windscreenPrice": "RM450–RM800; varian G dengan Toyota Safety Sense — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
+      "windscreenPrice": "RM450–RM800; varian E/G dengan Toyota Safety Sense (J tiada TSS) — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
       "addOnsDetail": [
         {
           "name": "Windscreen cover",
@@ -2293,7 +2385,10 @@
       "modelFAQs": [
         {
           "q": "Yaris 1.5 J vs E vs G — beza premium?",
-          "a": "Beza kecil, ikut sum insured — G beberapa ribu lebih tinggi dengan Toyota Safety Sense, jadi premium naik sekitar RM80–RM200/tahun. Varian G perlukan perhatian pada calibration cermin."
+          "a": {
+            "q": "Yaris 1.5 J vs E vs G — beza premium?",
+            "a": "Beza kecil, ikut sum insured — G beberapa ribu lebih tinggi dengan Toyota Safety Sense, jadi premium naik sekitar RM80–RM200/tahun. Varian E dan G ada TSS (J tiada) — perhatikan calibration cermin untuk kedua-dua varian tersebut."
+          }
         },
         {
           "q": "Yaris vs Vios sedan — mana lagi murah insurans?",
@@ -2320,7 +2415,9 @@
           "url": "https://www.toyota.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai."
     },
     {
       "slug": "toyota-corolla",
