@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -85,7 +86,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">2. Houseowner / Householder Insurance</h3>
-              <span class="verdict-best">Recommended</span>
+              <VerdictBadge tone="best" label="Recommended" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Coverage yang lebih luas — cover struktur <strong>dan</strong> isi rumah. 

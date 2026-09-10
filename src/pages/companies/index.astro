@@ -55,7 +55,7 @@ const schema = {
 
   <section class="container-wide py-10 sm:py-14">
     <!-- Sort info -->
-    <p class="text-sm text-stone-500 mb-6">Disusun mengikut rating — tertinggi dahulu.</p>
+    <p class="text-sm text-stone-500 mb-6">Disusun mengikut skor editorial — tertinggi dahulu.</p>
 
     <h2 id="claim-hotline" class="font-serif text-headline-md text-stone-900 mb-3">Nombor claim hotline syarikat insurans</h2>
     <p class="text-stone-600 max-w-3xl mb-6">
@@ -93,14 +93,10 @@ const schema = {
 
     <!-- Company list -->
     <div class="space-y-4">
-      {rankedCompanies.map((company, i) => (
+      {rankedCompanies.map((company) => (
         <div class="card-editorial group block">
           <a href={`/companies/${company.slug}/`} class="block">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-              <!-- Rank -->
-              <div class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8 hidden sm:block">
-                {i + 1}.
-              </div>
 
               <!-- Content -->
               <div class="flex-1 min-w-0">
@@ -108,7 +104,7 @@ const schema = {
                   <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
                     {company.name}
                   </h2>
-                  <span class="text-xs text-stone-500">★ {company.rating}/5</span>
+                  <span class="text-xs text-stone-500">Skor editorial {company.rating}/5</span>
                   {company.type === 'takaful' ? (
                     <span class="text-xs font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
                   ) : company.takaful ? (

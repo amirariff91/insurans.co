@@ -25,27 +25,24 @@ const productNamesBM: Record<string, string> = {
 };
 
 const otherCompanies = companies.filter(c => c.slug !== company.slug).slice(0, 5);
+const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
+const companyOgImageAlt = `${companyOgName} — produk, kelebihan dan cara claim.`;
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": company.fullName,
   "url": company.website,
-  "description": company.descriptionBM || company.description,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": company.rating,
-    "bestRating": 5,
-    "worstRating": 1,
-    "ratingCount": 100,
-  }
+  "description": company.descriptionBM || company.description
 };
 ---
 
 <Base
   title={`${company.name} — Review Insurans Malaysia 2026`}
-  description={`Review ${company.name} Malaysia. ${company.verdictBM} Rating: ${company.rating}/5. Produk, kelebihan, kekurangan, dan perbandingan.`}
+  description={`Review ${company.name} Malaysia. ${company.verdictBM} Skor editorial: ${company.rating}/5. Produk, kelebihan, kekurangan, dan perbandingan.`}
   schema={schema}
+  ogImage={`/og/companies/${company.slug}.png`}
+  ogImageAlt={companyOgImageAlt}
 >
   <!-- Header -->
   <section class="bg-white border-b border-stone-200">
@@ -73,7 +70,10 @@ const schema = {
 
         <!-- Quick facts inline -->
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 text-sm text-stone-600">
-          <span class="font-semibold text-emas-600">★ {company.rating}/5</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="font-semibold text-emas-600">Skor editorial {company.rating}/5</span>
+            <a href="/about/#metodologi" class="text-xs text-hijau-700 hover:underline">Kaedah →</a>
+          </span>
           <span>Est. {company.founded}</span>
           <span>{company.headquarters}</span>
           {company.takaful && (
@@ -185,9 +185,15 @@ const schema = {
             </a>
           </div>
           {company.claimLine && (
-            <div class="flex items-start gap-3 text-sm">
-              <span class="text-stone-400 w-20 flex-shrink-0 font-medium">Claim</span>
-              <span class="text-stone-900 font-semibold">{company.claimLine}</span>
+            <div class="border border-stone-200 bg-krim-50 p-4 text-sm">
+              <p class="label mb-2">Nombor claim</p>
+              <a href={`tel:${company.claimLine.replace(/\s+/g, '')}`} class="font-semibold text-hijau-700 underline hover:text-hijau-600">
+                {company.claimLine}
+              </a>
+              <p class="text-stone-600 mt-1">{company.claimLineNote}</p>
+              <p class="text-stone-500 mt-2">
+                Disahkan {company.claimLineVerified} · <a href={company.claimLineSource} target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">sumber rasmi</a>
+              </p>
             </div>
           )}
           {company.digitalPlatform && (
@@ -239,8 +245,8 @@ const schema = {
             <h3 class="font-serif text-lg text-stone-900 mb-4">Ringkasan</h3>
             <dl class="space-y-3 text-sm">
               <div class="flex justify-between">
-                <dt class="text-stone-500">Rating</dt>
-                <dd class="font-semibold text-emas-600">★ {company.rating}/5</dd>
+                <dt class="text-stone-500">Skor editorial</dt>
+                <dd class="font-semibold text-emas-600">{company.rating}/5</dd>
               </div>
               <div class="flex justify-between">
                 <dt class="text-stone-500">Jenis</dt>
@@ -280,7 +286,7 @@ const schema = {
                   <a href={`/companies/${c.slug}/`} class="text-sm text-hijau-700 hover:text-hijau-600 font-medium">
                     {c.name}
                   </a>
-                  <span class="text-xs text-stone-500">★ {c.rating}</span>
+                  <span class="text-xs text-stone-500">Skor editorial {c.rating}/5</span>
                 </li>
               ))}
             </ul>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  tone: 'best' | 'good' | 'warn';
+  label: string;
+  rationale?: string;
+}
+
+const { tone, label, rationale } = Astro.props;
+---
+
+<span class="inline-flex flex-wrap items-baseline gap-x-2 gap-y-1">
+  <span class={`verdict-${tone}`}>{label}</span>
+  {rationale && <span class="text-sm text-stone-600">{rationale}</span>}
+</span>

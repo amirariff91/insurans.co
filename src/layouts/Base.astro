@@ -8,6 +8,7 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   lang?: string;
   schema?: object;
   ogType?: 'website' | 'article';
@@ -22,6 +23,7 @@ const {
   description,
   canonical = Astro.url.href,
   ogImage = '/og-default.png',
+  ogImageAlt,
   lang = 'ms',
   schema,
   ogType = 'website',
@@ -37,6 +39,7 @@ const fullTitle = trimmedTitle.toLowerCase().endsWith(siteName.toLowerCase())
   ? trimmedTitle
   : `${trimmedTitle} | ${siteName}`;
 const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://insurans.co').href;
+const hasOgImageDimensions = ogImage.startsWith('/og/') || ogImage === '/og-default.png';
 const robotsContent = noindex
   ? 'noindex, nofollow'
   : 'index, follow, max-snippet:-1, max-image-preview:large';
@@ -62,6 +65,9 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:image" content={absoluteOgImage} />
+  {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+  {hasOgImageDimensions && <meta property="og:image:width" content="1200" />}
+  {hasOgImageDimensions && <meta property="og:image:height" content="630" />}
   <meta property="og:locale" content="ms_MY" />
   {ogType === 'article' && publishedTime && (
     <meta property="article:published_time" content={publishedTime} />
@@ -75,6 +81,7 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={absoluteOgImage} />
+  {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
   <meta name="theme-color" content="#FAFAF7" />
 
   <!-- Favicon -->

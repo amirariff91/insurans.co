@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -91,7 +92,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">1. Term Life Insurance</h3>
-              <span class="verdict-best">Best Value</span>
+              <VerdictBadge tone="best" label="Best Value" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Coverage untuk tempoh tertentu (10, 20, 30 tahun). Kalau anda meninggal dalam tempoh tu, 

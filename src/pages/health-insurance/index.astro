@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -198,7 +199,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">Standalone Medical Card</h3>
-              <span class="verdict-best">Recommended</span>
+              <VerdictBadge tone="best" label="Recommended" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Bayar premium, dapat coverage. Simple. Tak ada investment component. 

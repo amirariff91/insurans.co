@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
 import companies from '../../data/companies.json';
 import carModels from '../../data/car-models.json';
 
@@ -198,7 +199,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">1. Comprehensive (Komprehensif)</h3>
-              <span class="verdict-best">Paling Popular</span>
+              <VerdictBadge tone="best" label="Paling Popular" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Cover semua — kerosakan kereta sendiri, kereta orang lain, kecurian, kebakaran, dan bencana alam.

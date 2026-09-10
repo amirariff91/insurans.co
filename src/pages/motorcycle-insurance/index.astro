@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -150,7 +151,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">Third-Party Only</h3>
-              <span class="verdict-best">Paling Popular</span>
+              <VerdictBadge tone="best" label="Paling Popular" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Cover kerosakan harta dan kecederaan <strong>orang lain</strong> je. Motor sendiri langsung tak dilindungi. 

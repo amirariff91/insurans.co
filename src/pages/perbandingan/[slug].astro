@@ -16,6 +16,7 @@ export function getStaticPaths() {
 }
 
 const { comp, c1, c2, related } = Astro.props;
+const comparisonOgImageAlt = `${c1?.name} vs ${c2?.name} — perbandingan harga, perlindungan dan claim.`;
 
 const schema = {
   "@context": "https://schema.org",
@@ -47,6 +48,8 @@ const schema = {
   description={`Nak tahu ${c1?.name} atau ${c2?.name} lebih baik? Bandingkan premium, coverage, kelebihan dan kelemahan di sini.`}
   schema={schema}
   ogType="article"
+  ogImage={`/og/perbandingan/${comp.slug}.png`}
+  ogImageAlt={comparisonOgImageAlt}
   publishedTime="2026-01-01"
   modifiedTime="2026-03-01"
 >
@@ -111,9 +114,9 @@ const schema = {
                 <td>{c2?.founded}</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Rating</td>
-                <td class="font-semibold">★ {c1?.rating}/5</td>
-                <td class="font-semibold">★ {c2?.rating}/5</td>
+                <td class="font-medium text-stone-900">Skor editorial</td>
+                <td class="font-semibold">{c1?.rating}/5</td>
+                <td class="font-semibold">{c2?.rating}/5</td>
               </tr>
               <tr>
                 <td class="font-medium text-stone-900">Harga Premium (anggaran)</td>
@@ -178,10 +181,10 @@ const schema = {
         </article>
 
         <div class="grid sm:grid-cols-2 gap-5 my-8">
-          <div class="bg-hijau-50 border border-hijau-200 p-5">
+          <div class="bg-stone-50 border border-stone-200 p-5">
             <h3 class="font-semibold text-stone-900 mb-3">Pilih {c1?.name} kalau...</h3>
             <p class="text-sm text-stone-700 leading-relaxed">{c1?.verdictBM}</p>
-            <a href={`/companies/${c1?.slug}/`} class="inline-block mt-4 btn-hijau text-sm">
+            <a href={`/companies/${c1?.slug}/`} class="inline-block mt-4 btn-outline text-sm">
               Baca lebih lanjut →
             </a>
           </div>
@@ -192,7 +195,6 @@ const schema = {
               Baca lebih lanjut →
             </a>
           </div>
-        </div>
 
         <div class="info-box mb-8">
           <p class="text-sm text-stone-700">
@@ -237,12 +239,12 @@ const schema = {
               <div>
                 <p class="font-semibold text-stone-900 mb-1">{c1?.name}</p>
                 <p class="text-stone-500">{c1?.fullName}</p>
-                <p class="text-stone-600 mt-1">Rating: <strong>★ {c1?.rating}/5</strong></p>
+                <p class="text-stone-600 mt-1">Skor editorial: <strong>{c1?.rating}/5</strong></p>
               </div>
               <div class="border-t border-stone-100 pt-4">
                 <p class="font-semibold text-stone-900 mb-1">{c2?.name}</p>
                 <p class="text-stone-500">{c2?.fullName}</p>
-                <p class="text-stone-600 mt-1">Rating: <strong>★ {c2?.rating}/5</strong></p>
+                <p class="text-stone-600 mt-1">Skor editorial: <strong>{c2?.rating}/5</strong></p>
               </div>
             </div>
           </div>
