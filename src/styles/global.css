@@ -1,3 +1,51 @@
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-500-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-600-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-400-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-500-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-600-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-700-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,17 +53,31 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 74px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 82px;
+    }
   }
 
   body {
     @apply text-stone-800 bg-krim-50 font-sans;
     font-feature-settings: 'kern' 1, 'liga' 1;
+    font-optical-sizing: auto;
   }
 
   h1, h2, h3 {
     @apply font-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-optical-sizing: auto;
+    /* SOFT axis applies only if a variable Fraunces is installed; static instances ignore it. */
+    font-variation-settings: "SOFT" 35;
   }
 
   h4, h5, h6 {
@@ -23,25 +85,46 @@
   }
 
   /* Editorial link style */
-  article a {
+  .prose-editorial a {
     @apply text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600 transition-colors;
   }
 
   /* Better focus styles */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-hijau-500;
+    @apply outline-2 outline-offset-2 outline-stone-900;
+    outline-style: solid;
+  }
+
+  button:focus-visible,
+  [role='button']:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    box-shadow: 0 0 0 2px #FAFAF7;
   }
 
   /* Selection color */
   ::selection {
     @apply bg-emas-200 text-stone-900;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html,
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 }
 
 @layer components {
   /* Layout containers */
   .container-article {
-    @apply max-w-3xl mx-auto px-5 sm:px-6;
+    @apply max-w-article mx-auto px-5 sm:px-6;
   }
 
   .container-wide {
@@ -74,16 +157,25 @@
   }
 
   .verdict-best {
-    @apply verdict bg-hijau-100 text-hijau-800;
+    @apply verdict bg-verdict-best-bg text-verdict-best-ink border border-verdict-best-border;
   }
 
   .verdict-good {
-    @apply verdict bg-emas-100 text-emas-800;
+    @apply verdict bg-verdict-good-bg text-verdict-good-ink border border-verdict-good-border;
+  }
+
+  .verdict-warn {
+    @apply verdict bg-verdict-warn-bg text-verdict-warn-ink border border-verdict-warn-border;
   }
 
   /* Info box */
   .info-box {
-    @apply bg-emas-50 border-l-4 border-emas-400 p-4 sm:p-5;
+    @apply bg-emas-50 border border-emas-800 p-4 sm:p-5;
+  }
+
+  .info-box > p:first-child > strong:first-child {
+    @apply block font-bold text-emas-800;
+    margin-bottom: 0.25rem;
   }
 
   /* Table styles */
@@ -137,16 +229,19 @@
 
   /* Button styles */
   .btn {
-    @apply inline-flex items-center font-sans font-semibold text-sm;
+    @apply inline-flex items-center font-sans font-semibold text-base leading-6;
+    min-height: 44px;
     transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
   }
 
   .btn-hijau {
     @apply btn px-5 py-2.5 bg-hijau-700 text-white hover:bg-hijau-800;
+    min-height: 48px;
   }
 
   .btn-outline {
     @apply btn px-5 py-2.5 border-2 border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white;
+    min-height: 44px;
   }
 
   /* Prose for article content */

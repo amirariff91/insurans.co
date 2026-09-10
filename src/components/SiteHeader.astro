@@ -1,0 +1,129 @@
+---
+const navLinks = [
+  { href: '/car-insurance/', label: 'Kereta' },
+  { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD' },
+  { href: '/perbandingan/', label: 'Bandingkan' },
+  { href: '/companies/', label: 'Syarikat' },
+  { href: '/takaful/', label: 'Takaful' },
+  { href: '/guides/renew-car-insurance/', label: 'Renew Online' },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
+---
+
+<header class="sticky top-0 z-50 border-b-2 border-stone-900 bg-krim-50">
+  <div class="container-wide">
+    <div class="flex h-14 items-center justify-between lg:h-16">
+      <a href="/" aria-label="Insurans.co — Utama" class="group flex min-h-11 items-center gap-2">
+        <svg
+          class="h-6 w-6 shrink-0"
+          width="24"
+          height="24"
+          viewBox="0 0 32 32"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect x="1" y="1" width="30" height="30" fill="#FAFAF7" stroke="#1c1917" stroke-width="2" stroke-linejoin="miter" vector-effect="non-scaling-stroke" />
+          <rect x="14" y="14" width="4" height="11" fill="#1c1917" />
+          <rect x="10" y="24" width="12" height="2" fill="#1c1917" />
+          <rect x="14" y="7" width="4" height="4" fill="#1e6243" />
+        </svg>
+        <span class="font-serif text-xl text-stone-900 transition-colors group-hover:text-hijau-700 sm:text-2xl">
+          insurans<span class="text-hijau-600">.co</span>
+        </span>
+      </a>
+
+      <nav aria-label="Navigasi utama" class="hidden items-center gap-1 lg:flex">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isCurrent(link.href) ? 'page' : undefined}
+            class="flex min-h-11 items-center px-2.5 py-2 text-sm font-semibold text-stone-700 transition-colors hover:text-hijau-700"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="inline-flex min-h-11 min-w-11 items-center justify-center text-stone-600 transition-colors hover:text-stone-900 lg:hidden"
+        aria-label="Buka menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true" focusable="false">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" hidden class="border-t border-stone-200 bg-krim-50 lg:hidden">
+    <nav aria-label="Navigasi utama mudah alih" class="container-wide py-3">
+      <ul class="space-y-1">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isCurrent(link.href) ? 'page' : undefined}
+              class="flex min-h-11 items-center px-3 py-2 text-sm font-medium text-stone-700 transition-colors hover:bg-hijau-50 hover:text-hijau-700"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <noscript>
+    <nav aria-label="Navigasi utama mudah alih" class="border-t border-stone-200 bg-krim-50 lg:hidden">
+      <ul class="container-wide space-y-1 py-3">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isCurrent(link.href) ? 'page' : undefined}
+              class="flex min-h-11 items-center px-3 py-2 text-sm font-medium text-stone-700 hover:bg-hijau-50 hover:text-hijau-700"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </noscript>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuButton instanceof HTMLButtonElement && mobileMenu instanceof HTMLElement) {
+    const setMenuState = (open: boolean) => {
+      mobileMenu.hidden = !open;
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    };
+
+    menuButton.addEventListener('click', () => {
+      setMenuState(Boolean(mobileMenu.hidden));
+    });
+
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) {
+        setMenuState(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !mobileMenu.hidden) {
+        setMenuState(false);
+        if (menuButton.offsetParent !== null) menuButton.focus();
+      }
+    });
+  }
+</script>
