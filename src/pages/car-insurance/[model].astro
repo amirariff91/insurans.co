@@ -70,6 +70,8 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
   ogType="article"
   publishedTime="2026-02-01"
   modifiedTime={articleDate}
+  ogImage={`/og/car-insurance/${model.slug}.png`}
+  ogImageAlt={`Insurans ${model.fullName}: NCD 55% ${rm(model.premiumNCD55Min)}–${rm(model.premiumNCD55Max)} setahun; tanpa NCD ${rm(model.premiumNCD0Min)}–${rm(model.premiumNCD0Max)}.`}
 >
   <Hero title={`Harga insurans ${model.fullName}`} eyebrow="Insurans Kereta Model">
     <Breadcrumbs
