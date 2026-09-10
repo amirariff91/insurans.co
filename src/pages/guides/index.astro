@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const guides = [
+  { href: '/guides/renew-car-insurance/', title: 'Cara renew insurans kereta online', blurb: 'Langkah demi langkah: semak NCD, banding quotation, bayar, renew roadtax.' },
+  { href: '/guides/ncd-explained/', title: 'NCD (No Claim Discount): panduan lengkap', blurb: 'Jadual NCD 25%–55%, bila reset, dan bila lebih jimat bayar sendiri.' },
+  { href: '/guides/how-to-claim/', title: 'Cara buat claim insurans kereta', blurb: 'Apa nak buat lepas accident, dokumen yang perlu, dan tempoh proses claim.' },
+  { href: '/guides/cara-turun-premium-insurans-kereta/', title: '10 cara turunkan premium insurans kereta', blurb: 'NCD, sum insured ikut nilai pasaran, add-on yang perlu saja, dan lain-lain.' },
+  { href: '/guides/insurans-komprehensif-vs-pihak-ketiga/', title: 'Komprehensif vs pihak ketiga', blurb: 'Apa yang dilindungi, berapa beza harga, dan bila third-party memadai.' },
+  { href: '/guides/insurans-kereta-banjir/', title: 'Insurans kereta dan banjir', blurb: 'Special perils: apa yang dilindungi, berapa kos, dan siapa patut ambil.' },
+  { href: '/guides/insurance-vs-takaful/', title: 'Beza takaful dan insurans', blurb: 'Perbezaan konsep, kos, dan cara pilih antara takaful dan insurans konvensional.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Panduan Insurans Kereta Malaysia",
+      "url": "https://insurans.co/guides/",
+      "description": "Panduan insurans kereta Malaysia dalam Bahasa Malaysia: renew online, NCD, cara claim, komprehensif vs pihak ketiga, banjir, dan takaful.",
+      "inLanguage": "ms"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" }
+      ]
+    }
+  ]
+};
+---
+
+<Base
+  title="Panduan Insurans Kereta Malaysia — Renew, NCD, Claim & Takaful"
+  description="Panduan insurans kereta Malaysia dalam Bahasa Malaysia: renew online, NCD, cara claim, komprehensif vs pihak ketiga, banjir, dan takaful."
+  schema={schema}
+>
+  <section class="border-b border-stone-200">
+    <div class="container-wide py-8 sm:py-12">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
+      <h1 class="max-w-2xl font-serif text-headline-mobile text-stone-900 sm:text-headline-lg">Panduan insurans kereta</h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-stone-700">Ditulis untuk rakyat Malaysia biasa — bukan ejen, bukan broker. Mulakan dengan renew dan NCD; itu dua perkara yang paling kerap ditanya.</p>
+    </div>
+  </section>
+
+  <section class="container-wide py-8 sm:py-12">
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {guides.map((g) => (
+        <li>
+          <article class="card-editorial h-full">
+            <h2 class="font-serif text-headline-sm text-stone-900"><a href={g.href} class="hover:text-hijau-700">{g.title}</a></h2>
+            <p class="mt-2 text-base leading-6 text-stone-700">{g.blurb}</p>
+            <a href={g.href} class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan →</a>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
