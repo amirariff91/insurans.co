@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+}
+
+const { title, eyebrow } = Astro.props;
+---
+
+<section class="border-b border-stone-200 bg-white">
+  <div class="container-wide py-8 sm:py-12">
+    <slot name="breadcrumbs" />
+
+    <div class="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
+      <div>
+        {eyebrow && <p class="label mb-3">{eyebrow}</p>}
+        <h1 class="max-w-2xl font-serif text-headline-mobile text-stone-900 sm:text-headline-lg">
+          {title}
+        </h1>
+        <slot name="description" />
+      </div>
+
+      <div class="mt-8 lg:mt-0">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
