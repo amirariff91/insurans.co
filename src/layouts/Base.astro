@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import { withAuthor } from '../lib/schema';
-
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 interface Props {
   title: string;
   description: string;
@@ -41,14 +42,6 @@ const robotsContent = noindex
   : 'index, follow, max-snippet:-1, max-image-preview:large';
 const resolvedSchema = schema ? withAuthor(schema) : undefined;
 
-const navLinks = [
-  { href: '/car-insurance/', label: 'Kereta', labelEn: 'Harga model' },
-  { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD', labelEn: 'Kira diskaun' },
-  { href: '/perbandingan/', label: 'Bandingkan', labelEn: 'Head-to-head' },
-  { href: '/companies/', label: 'Syarikat', labelEn: 'Claim line' },
-  { href: '/takaful/', label: 'Takaful', labelEn: 'Patuh Syariah' },
-  { href: '/guides/renew-car-insurance/', label: 'Renew Online', labelEn: 'Langkah renew' },
-];
 ---
 
 <!DOCTYPE html>
@@ -91,10 +84,8 @@ const navLinks = [
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,35&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link rel="preload" as="font" href="/fonts/fraunces-600-latin.woff2" type="font/woff2" crossorigin />
+  <link rel="preload" as="font" href="/fonts/source-sans-3-400-latin.woff2" type="font/woff2" crossorigin />
   {resolvedSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   )}
@@ -131,125 +122,23 @@ const navLinks = [
   <!-- End Google Tag Manager -->
 </head>
 <body class="min-h-screen flex flex-col" data-page-type={pageType}>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3LMP78G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <!-- Header -->
-  <header class="bg-krim-50/95 backdrop-blur border-b-2 border-stone-900 sticky top-0 z-50">
-    <div class="container-wide">
-      <div class="hidden md:flex justify-between border-b border-stone-200 py-1.5 text-[11px] uppercase tracking-widest text-stone-500">
-        <span>Malaysia insurance field guide</span>
-        <span>Bukan ejen. Bukan broker.</span>
-      </div>
-      <!-- Top bar -->
-      <div class="flex items-center justify-between h-14 sm:h-16">
-        <!-- Logo -->
-        <a href="/" class="flex items-baseline gap-1.5 group">
-          <span class="font-serif text-xl sm:text-2xl text-stone-900 group-hover:text-hijau-700 transition-colors">insurans</span>
-          <span class="font-serif text-xl sm:text-2xl text-hijau-600">.co</span>
-        </a>
+  <SiteHeader />
 
-        <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-1">
-          {navLinks.map(link => (
-            <a
-              href={link.href}
-              class="px-2.5 py-2 text-sm font-semibold text-stone-700 hover:text-hijau-700 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <!-- Mobile menu button -->
-        <button
-          id="mobile-menu-btn"
-          class="md:hidden p-2 -mr-2 text-stone-600 hover:text-stone-900"
-          aria-label="Menu"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-krim-50">
-      <nav class="container-wide py-3 space-y-1">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class="block py-2.5 px-3 text-sm font-medium text-stone-700 hover:text-hijau-700 hover:bg-hijau-50 rounded transition-colors"
-          >
-            {link.label}
-            <span class="text-stone-400 ml-1.5 text-xs">{link.labelEn}</span>
-          </a>
-        ))}
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="flex-1">
+  <main id="main-content" tabindex="-1" class="flex-1">
     <slot />
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-krim-100 border-t-2 border-stone-900 text-stone-600 mt-16 sm:mt-20">
-    <div class="container-wide py-10 sm:py-14">
-      <div class="grid md:grid-cols-[1.2fr_1fr] gap-8 sm:gap-12">
-        <div>
-          <a href="/" class="font-serif text-2xl text-stone-900 hover:text-hijau-700 transition-colors">insurans<span class="text-hijau-700">.co</span></a>
-          <p class="mt-3 max-w-md text-sm leading-relaxed">Panduan insurans untuk rakyat Malaysia biasa. Bukan ejen, bukan broker, dan tidak menjual polisi sendiri.</p>
-          <p class="mt-4 text-xs text-stone-500 leading-relaxed max-w-lg">Maklumat am sahaja, bukan nasihat kewangan. Rujuk ejen insurans berlesen untuk situasi khusus. Kedudukan dan review tidak dibayar oleh syarikat insurans.</p>
-        </div>
-        <div class="grid grid-cols-2 gap-6 text-sm">
-          <div>
-            <h3 class="font-sans font-bold text-stone-900 mb-3 uppercase tracking-widest text-xs">Mulakan</h3>
-            <ul class="space-y-2.5">
-              <li><a href="/car-insurance/" class="hover:text-hijau-700 transition-colors">Harga insurans kereta</a></li>
-              <li><a href="/tools/ncd-calculator/" class="hover:text-hijau-700 transition-colors">Kalkulator NCD</a></li>
-              <li><a href="/perbandingan/" class="hover:text-hijau-700 transition-colors">Perbandingan syarikat</a></li>
-              <li><a href="/companies/" class="hover:text-hijau-700 transition-colors">Direktori syarikat</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-sans font-bold text-stone-900 mb-3 uppercase tracking-widest text-xs">Rujukan</h3>
-            <ul class="space-y-2.5">
-              <li><a href="/guides/renew-car-insurance/" class="hover:text-hijau-700 transition-colors">Renew online</a></li>
-              <li><a href="/guides/how-to-claim/" class="hover:text-hijau-700 transition-colors">Cara claim</a></li>
-              <li><a href="/takaful/" class="hover:text-hijau-700 transition-colors">Takaful</a></li>
-              <li><a href="/about/" class="hover:text-hijau-700 transition-colors">Metodologi</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="mt-8 pt-6 border-t border-stone-300 flex flex-col sm:flex-row justify-between gap-3 text-xs text-stone-500">
-        <p>© 2026 Insurans.co</p>
-        <nav class="flex gap-4">
-          <a href="/privacy/" class="hover:text-stone-900 transition-colors">Dasar Privasi</a>
-          <a href="/terms/" class="hover:text-stone-900 transition-colors">Terma Penggunaan</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 
   <script>
     import { initGlobalTracking } from '../lib/track';
 
     initGlobalTracking();
-
-    const mobileMenuButton = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuButton?.addEventListener('click', () => {
-      const isExpanded = mobileMenu?.classList.toggle('hidden') === false;
-      mobileMenuButton.setAttribute('aria-expanded', String(isExpanded));
-    });
   </script>
 </body>
 </html>
