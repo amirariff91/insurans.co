@@ -17,3 +17,6 @@ npm-debug.log*
 # IDE
 .vscode/
 .idea/
+
+# local Claude settings (may contain personal allow-rules)
+.claude/settings.local.json
