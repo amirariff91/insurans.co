@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import states from '../../data/states.json';
 
 const schema = {
@@ -44,6 +45,7 @@ const riskColor: Record<string, string> = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Panduan Insurans Kereta Mengikut Negeri di Malaysia
       </h1>
+      <Byline />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Setiap negeri ada risiko yang berbeza — banjir, kecurian, trafik padat. Pilih negeri anda
         untuk panduan insurans yang lebih spesifik.

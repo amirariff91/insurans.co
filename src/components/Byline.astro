@@ -1,0 +1,25 @@
+---
+import { AUTHOR_SLUG } from '../lib/schema';
+
+interface Props {
+  dateModified?: string;
+  readMinutes?: number;
+}
+
+const { dateModified } = Astro.props;
+const authorHref = `/penulis/${AUTHOR_SLUG}/`;
+
+function formatDate(value: string): string {
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+
+  return new Intl.DateTimeFormat('ms-MY', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
+---
+
+<p class="text-sm leading-5 text-stone-600">Oleh <a href={authorHref} class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Amir Ariff</a> · Pengasas &amp; Editor{dateModified && <> · Dikemaskini {formatDate(dateModified)}</>} · Semakan pakar: belum</p>

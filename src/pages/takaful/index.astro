@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -44,6 +45,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Takaful Malaysia — Apa Beza Dengan Insurans?
       </h1>
+      <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Ramai orang beli takaful tapi tak faham apa beza sebenar dengan insurans konvensional. 
         Jom kita explain sekali — tak perlu jadi ustaz untuk faham benda ni.

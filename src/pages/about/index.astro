@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { EDITORIAL_AUTHOR } from '../../lib/schema';
 
 const schema = {
   "@context": "https://schema.org",
@@ -14,23 +15,12 @@ const schema = {
     "url": "https://insurans.co",
     "sameAs": []
   },
-  "author": {
-    "@type": "Person",
-    "name": "Redaksi Insurans.co",
-    "url": "https://insurans.co/about/"
-  }
+  "author": EDITORIAL_AUTHOR
 };
 
 const editorialSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Pasukan Editorial Insurans.co",
-  "url": "https://insurans.co/about/",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Insurans.co",
-    "url": "https://insurans.co"
-  },
+  ...EDITORIAL_AUTHOR,
   "knowsAbout": [
     "Insurans Kereta Malaysia",
     "Insurans Kesihatan Malaysia",
@@ -39,7 +29,7 @@ const editorialSchema = {
     "Perlindungan Insurans",
     "NCD Malaysia"
   ],
-  "description": "Pasukan editorial Insurans.co menyediakan panduan insurans berasaskan penyelidikan untuk pembaca Malaysia."
+  "description": "Amir Ariff menyediakan panduan insurans berasaskan penyelidikan untuk pembaca Malaysia."
 };
 ---
 
@@ -101,17 +91,17 @@ const editorialSchema = {
 
         <!-- Author bio section -->
         <div id="pasukan" class="bg-stone-50 border border-stone-200 p-6 sm:p-8 not-prose">
-          <p class="label mb-4">Pasukan Editorial</p>
+          <p class="label mb-4">Editor: Amir Ariff</p>
           <h2 class="font-serif text-headline-sm text-stone-900 mb-4">Ditulis oleh manusia, untuk manusia.</h2>
 
           <div class="space-y-6">
             <div class="flex gap-4 items-start">
               <div class="w-12 h-12 rounded-full bg-hijau-100 flex items-center justify-center flex-shrink-0">
-                <span class="font-serif text-hijau-700 text-lg font-bold">R</span>
+                <span class="font-serif text-hijau-700 text-lg font-bold">A</span>
               </div>
               <div>
-                <p class="font-sans font-semibold text-stone-900">Redaksi Insurans.co</p>
-                <p class="text-sm text-stone-500 mb-2">Pasukan penyelidik & penulis</p>
+                <p class="font-sans font-semibold text-stone-900"><a href="/penulis/amir-ariff/">Amir Ariff</a></p>
+                <p class="text-sm text-stone-500 mb-2">Pengasas &amp; Editor, Insurans.co</p>
                 <p class="text-sm text-stone-600 leading-relaxed">
                   Pasukan kami terdiri daripada penulis yang tahu betapa peningnya nak faham insurans. Kami bukan pakar kewangan berlesen — kami rakyat Malaysia biasa yang dah habiskan banyak masa menyelidik supaya anda tak perlu.
                 </p>

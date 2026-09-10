@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import states from '../../data/states.json';
 import companies from '../../data/companies.json';
 import carModels from '../../data/car-models.json';
@@ -103,6 +104,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Kereta {state.displayName} 2026 — Bandingkan &amp; Jimat
       </h1>
+      <Byline dateModified="2026-03-01" />
       <p class="text-sm text-stone-500 mb-4">Dikemaskini: Mac 2026</p>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Panduan lengkap insurans kereta untuk pemandu di {state.displayName}. Risiko tempatan,

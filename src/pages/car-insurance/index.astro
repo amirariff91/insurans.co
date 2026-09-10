@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import companies from '../../data/companies.json';
 import carModels from '../../data/car-models.json';
@@ -58,6 +59,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Panduan Insurans Kereta Malaysia: Harga, NCD & Cara Renew
       </h1>
+      <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Insurans kereta wajib di Malaysia — tanpa polisi sah, roadtax tak boleh renew. Premium comprehensive untuk Axia/Myvi sekitar RM550–RM1,000 setahun (NCD 55%) dan RM1,200–RM2,200 (NCD 0%); City/Vios RM900–RM1,500 dengan NCD penuh. Panduan ini tunjuk harga ikut model, jadual NCD 25–55%, beza comprehensive vs third-party, dan cara renew online.
       </p>

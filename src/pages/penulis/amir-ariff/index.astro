@@ -1,0 +1,74 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { AUTHOR_SLUG, EDITORIAL_AUTHOR } from '../../../lib/schema';
+
+const authorUrl = `https://insurans.co/penulis/${AUTHOR_SLUG}/`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "name": "Amir Ariff",
+  "url": authorUrl,
+  "inLanguage": "ms",
+  "mainEntity": EDITORIAL_AUTHOR
+};
+---
+
+<Base
+  title="Amir Ariff — Pengasas & Editor Insurans.co"
+  description="Profil Amir Ariff, pengasas dan editor Insurans.co yang menulis panduan insurans motor dan takaful dalam Bahasa Malaysia."
+  canonical={authorUrl}
+  schema={schema}
+  ogImageAlt="Amir Ariff — Pengasas & Editor Insurans.co"
+>
+  <article class="bg-white border-b border-stone-200">
+    <div class="border-b border-stone-200">
+      <div class="container-article py-10 sm:py-14">
+        <p class="label mb-4">Profil penulis</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900">Amir Ariff</h1>
+        <p class="mt-3 text-lg text-stone-600">Pengasas &amp; Editor, Insurans.co</p>
+      </div>
+    </div>
+
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial max-w-none">
+        <h2>Tentang Amir Ariff</h2>
+        <!-- DRAFT bio: owner to edit -->
+        <p>
+          Amir Ariff ialah pengasas dan editor Insurans.co, panduan insurans Malaysia yang mengutamakan Bahasa Malaysia. Beliau menulis panduan tentang insurans motor dan takaful, termasuk penerangan mengenai harga, perlindungan, NCD, pembaharuan dan tuntutan. Tujuannya ialah membantu pembaca biasa memahami istilah serta pilihan polisi sebelum mendapatkan maklumat lanjut daripada penyedia insurans atau takaful. Amir berpusat di Malaysia dan menggunakan pendekatan penerangan yang ringkas, perbandingan yang jelas serta rujukan yang boleh dibaca semula. Setiap panduan di laman ini adalah kandungan umum untuk membantu pembaca membuat semakan awal; terma dan perlindungan sebenar bergantung pada polisi serta keadaan individu. Amir bukan penasihat kewangan berlesen dan bukan ejen insurans atau takaful berlesen. Untuk keputusan yang khusus kepada situasi anda, sila rujuk syarikat insurans, pengendali takaful atau profesional berlesen yang sesuai.
+        </p>
+
+        <h2>Kaedah</h2>
+        <p>
+          Untuk melihat cara kandungan Insurans.co diselidik dan dikemaskini, baca <a href="/about/#metodologi">kaedah editorial kami</a>.
+        </p>
+
+        <h2>Semakan pakar</h2>
+        <p>Artikel belum disemak oleh penasihat kewangan berlesen; kami sedang mencari penyemak bertauliah.</p>
+
+        <h2 id="artikel">Artikel ditulis</h2>
+        <ul>
+          <li><a href="/car-insurance/">Panduan Insurans Kereta Malaysia</a></li>
+          <li><a href="/car-insurance/perodua-axia/">Harga insurans Perodua Axia</a></li>
+          <li><a href="/guides/cara-turun-premium-insurans-kereta/">10 Cara Turunkan Premium Insurans Kereta</a></li>
+          <li><a href="/guides/insurans-kereta-banjir/">Insurans Kereta Banjir di Malaysia</a></li>
+          <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/">Insurans Komprehensif vs Pihak Ketiga</a></li>
+          <li><a href="/guides/how-to-claim/">Cara Buat Claim Insurans Kereta</a></li>
+          <li><a href="/guides/insurance-vs-takaful/">Beza Takaful dan Insurans</a></li>
+          <li><a href="/guides/ncd-explained/">NCD (No Claim Discount)</a></li>
+          <li><a href="/guides/renew-car-insurance/">Cara Renew Insurans Kereta Online</a></li>
+          <li><a href="/health-insurance/">Insurans Kesihatan dan Medical Card</a></li>
+          <li><a href="/home-insurance/">Insurans Rumah dan Fire Insurance</a></li>
+          <li><a href="/life-insurance/">Insurans Nyawa Malaysia</a></li>
+          <li><a href="/motorcycle-insurance/">Insurans Motosikal Malaysia</a></li>
+          <li><a href="/negeri/">Panduan Insurans Kereta Mengikut Negeri</a></li>
+          <li><a href="/negeri/selangor/">Insurans Kereta Selangor</a></li>
+          <li><a href="/perbandingan/">Perbandingan Syarikat Insurans Kereta</a></li>
+          <li><a href="/perbandingan/etiqa-vs-allianz/">Etiqa vs Allianz</a></li>
+          <li><a href="/personal-accident/">Insurans Kemalangan Diri</a></li>
+          <li><a href="/takaful/">Panduan Takaful Malaysia</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</Base>

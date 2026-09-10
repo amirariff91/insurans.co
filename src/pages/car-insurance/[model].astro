@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import AnswerCard from '../../components/AnswerCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
@@ -74,6 +75,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
   ogImageAlt={`Insurans ${model.fullName}: NCD 55% ${rm(model.premiumNCD55Min)}–${rm(model.premiumNCD55Max)} setahun; tanpa NCD ${rm(model.premiumNCD0Min)}–${rm(model.premiumNCD0Max)}.`}
 >
   <Hero title={`Harga insurans ${model.fullName}`}>
+    <Byline slot="byline" dateModified={articleDate} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

@@ -1,8 +1,16 @@
+export const AUTHOR_SLUG = 'amir-ariff';
+
 export const EDITORIAL_AUTHOR = {
   "@type": "Person",
-  "@id": "https://insurans.co/about/#pasukan",
-  "name": "Pasukan Editorial Insurans.co",
-  "url": "https://insurans.co/about/"
+  "@id": "https://insurans.co/penulis/amir-ariff/#person",
+  "name": "Amir Ariff",
+  "jobTitle": "Pengasas & Editor",
+  "url": "https://insurans.co/penulis/amir-ariff/",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  }
 } as const;
 
 export const PUBLISHER = {

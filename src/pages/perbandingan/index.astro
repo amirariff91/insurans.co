@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import comparisons from '../../data/comparisons.json';
 import companies from '../../data/companies.json';
 
@@ -43,6 +44,7 @@ function getCompanyName(slug: string) {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Perbandingan Syarikat Insurans Kereta Malaysia 2026
       </h1>
+      <Byline />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Tak pasti nak pilih syarikat mana? Kami bandingkan syarikat insurans kereta Malaysia secara head-to-head —
         premium, coverage, pros &amp; cons, dan verdict kami.

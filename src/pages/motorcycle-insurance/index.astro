@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 
 const schema = {
@@ -45,6 +46,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Motosikal Malaysia 2026
       </h1>
+      <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Motor kapcai RM3,000 pun kena ada insurans. Roadtax tak boleh renew tanpa insurance yang sah. 
         Jom tengok berapa kos sebenar dan macam mana nak jimat.

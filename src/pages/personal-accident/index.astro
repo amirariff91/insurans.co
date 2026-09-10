@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -44,6 +45,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Kemalangan Diri (Personal Accident) 2026
       </h1>
+      <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         PA insurance — salah satu insurans paling murah tapi paling ramai tak ada. 
         RM100-300 setahun je boleh dapat coverage sehingga RM100,000 kalau accident.

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
 import comparisons from '../../data/comparisons.json';
 import companies from '../../data/companies.json';
 
@@ -67,6 +68,7 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         {c1?.name} vs {c2?.name}: Perbandingan Insurans Kereta 2026
       </h1>
+      <Byline dateModified="2026-03-01" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Nak tahu {c1?.name} atau {c2?.name} lebih sesuai untuk anda? Kami bandingkan kedua-duanya
         secara jujur — premium, coverage, kelebihan, kelemahan, dan siapa yang menang dalam situasi berbeza.
