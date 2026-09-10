@@ -30,8 +30,8 @@ const {
   compact = false,
   calculatorUrl = compact ? `/car-insurance/${slug}/` : `/tools/ncd-calculator/?model=${slug}&ncd=${selectedTier}`,
   quotationLinks = [
-    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'paid' },
-    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'paid' },
+    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'unknown' },
+    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'unknown' },
   ],
 } = Astro.props;
 
@@ -79,7 +79,7 @@ const initialLabel = compact ? `Contoh · ${model}` : initialTier === 55 ? 'NCD 
   )}
 
   {!compact && (
-    <p data-simulation hidden={initialTier === 55} class="mt-4 border-l-2 border-hijau-700 pl-3 text-base text-stone-800">
+    <p data-simulation hidden={initialTier === 55} class="mt-4 border border-stone-600 p-3 text-base text-stone-800">
       <span data-simulation-label>Simulasi NCD {initialTier}%</span>:
       <strong data-simulation-range class="numeric">{formatRange(initialRange)}</strong> / tahun
     </p>
@@ -99,7 +99,7 @@ const initialLabel = compact ? `Contoh · ${model}` : initialTier === 55 ? 'NCD 
       <h2 class="text-base font-semibold text-stone-900">Dapatkan quotation · Laman luar</h2>
       <div class="mt-3 flex flex-wrap gap-2">
         {quotationLinks.map((link) => {
-          const relationship = link.relationship ?? 'paid';
+          const relationship = link.relationship ?? 'unknown';
           const rel = relationship === 'paid' ? 'sponsored noopener' : 'noopener';
           return (
             <a

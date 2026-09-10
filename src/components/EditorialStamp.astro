@@ -27,16 +27,18 @@ function formatDate(value?: string): string {
   }).format(date);
 }
 
-const sourceLinks = sources.filter((source) => source.label && (source.url || source.href));
+const isRootUrl = (u?: string) => !!u && /^https?:\/\/[^/]+\/?$/.test(u);
+const priceSources = sources.filter((source) => source.label && (source.url || source.href) && !isRootUrl(source.url || source.href));
+const generalRefs = sources.filter((source) => source.label && isRootUrl(source.url || source.href));
 ---
 
 <div data-editorial-stamp class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">
   <p>Pasukan Editorial · Tarikh artikel: {formatDate(articleDate)}</p>
-  <p>Semakan harga: {formatDate(premiumReviewed)}</p>
+  <p>Anggaran premium dikira: {formatDate(premiumReviewed)} · Semakan harga oleh editor: belum direkodkan</p>
   <p>
     Sumber harga:
-    {sourceLinks.length > 0 ? (
-      sourceLinks.map((source, index) => (
+    {priceSources.length > 0 ? (
+      priceSources.map((source, index) => (
         <span>
           {index > 0 && <span aria-hidden="true"> · </span>}
           <a
@@ -51,4 +53,15 @@ const sourceLinks = sources.filter((source) => source.label && (source.url || so
       'belum direkodkan'
     )}
   </p>
+  {generalRefs.length > 0 && (
+    <p>
+      Rujukan umum:
+      {generalRefs.map((source, index) => (
+        <span>
+          {index > 0 && <span aria-hidden="true"> · </span>}
+          <a href={source.url || source.href} class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{source.label}</a>
+        </span>
+      ))}
+    </p>
+  )}
 </div>

@@ -206,6 +206,9 @@
   }
 
   .faq-item summary {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
     @apply font-sans font-semibold text-stone-900 cursor-pointer list-none;
     @apply hover:text-hijau-700 transition-colors;
   }

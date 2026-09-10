@@ -21,14 +21,14 @@ const {
 {mode === 'selector' ? (
   <fieldset id={id} data-ncd-selector hidden={initiallyHidden} class="mt-6">
     <legend class="mb-3 text-base font-semibold text-stone-900">Pilih NCD — contoh bermula 55%</legend>
-    <div class="grid grid-cols-3 gap-2 sm:grid-cols-6">
+    <div class="grid grid-cols-3 gap-2">
       {NCD_TIERS.map((tier) => {
         const isSelected = tier.value === selectedTier;
         return (
           <div class="contents">
             <label
               data-ncd-option
-              class={`flex min-h-12 cursor-pointer items-center justify-center gap-1 border-2 px-2 py-2 text-center text-sm font-semibold ${
+              class={`flex min-h-12 cursor-pointer flex-wrap items-center justify-center gap-1 border-2 px-2 py-2 text-center text-sm font-semibold ${
                 isSelected
                   ? 'border-hijau-700 bg-hijau-50 text-hijau-800'
                   : 'border-stone-600 bg-white text-stone-900 hover:border-hijau-700 hover:text-hijau-700'
@@ -45,7 +45,7 @@ const {
                 class="h-4 w-4 shrink-0 accent-hijau-700"
               />
               <span>{tier.label}</span>
-              <span data-ncd-marker class="text-xs font-bold">{isSelected ? 'Dipilih' : ''}</span>
+              <span data-ncd-marker class="sr-only">{isSelected ? 'Dipilih' : ''}</span>
             </label>
           </div>
         );
