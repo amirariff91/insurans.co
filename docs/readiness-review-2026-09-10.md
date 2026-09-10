@@ -70,3 +70,23 @@ Consent Mode v2: analytics granted by default for Malaysia (PDPA has no cookie-b
 
 ## Sources
 Worker reports and raw GSC/PSI JSON are in the session scratchpad; Ahrefs and GSC figures were pulled live on 2026-09-10.
+
+## Outcome (end of run, 2026-09-10 17:05)
+
+Branch `wip/laptop-2026-09-08`, 5db3a80 → HEAD. Build 107 pages, `astro check` clean, zero broken internal links, all 67 OG images present, no JSON-LD parse failures, no `[object Object]`/`NaN`/`undefined`, no Google Fonts requests, no `rel="sponsored"` (no record of a paid relationship exists).
+
+Shipped in this run:
+- Infra: real 404s, security headers incl. HSTS, `npm ci` Docker build, webmanifest MIME, brand assets.
+- Head/schema: absolute OG images with alt/size, `og:type` article, robots, editorial author Person on all Articles, Consent Mode v2 before GTM, title guard, skip link, menu ARIA.
+- Tracking: `src/lib/track.ts`, calculator/CTA/outbound/FAQ events, `docs/gtm-tags.md`.
+- Content: hub rewrites (home, /car-insurance/, /companies/ with verified claim-hotline table), /guides/ hub, 12 insurer hotlines corrected from official sites, all 39 model records enriched and fact-checked for years/variants (premiums derived from existing data; unverifiable figures removed).
+- Design ("Lembaran Semak", refine-and-extend): shell components, self-hosted fonts, logo mark, answer-first model page with one AnswerCard + NCD selector + honest EditorialStamp, calculator handoff via `?model=&ncd=`, homepage model picker with compact card, editorial-score labelling, aggregate-rating removal, neutral comparison cards, per-page OG cards, DESIGN.md/PRODUCT.md/sidecar committed.
+
+Deferred (follow-up run): `negeri` and `perbandingan` data enrichment (CompareTable, pair FAQs); content collections + zod; Tailwind 4; Preact removal; ClientRouter; slug renames (`rhi`→`rhb`, `kurnia`→`berjaya-sompo`) with 301s; named author/reviewer profiles; company/comparison OG cards visual polish; visual QA at 390/1280 (no browser on this machine).
+
+## Decisions the user still owns
+1. Bjak.my / PolicyStreet: is there a paid or affiliate relationship? If yes, set `relationship: 'paid'` in `AnswerCard.astro`/`CtaBand` usages and add visible disclosure; if no, the current `unknown` (rel=noopener) stands.
+2. Rotate the Cloudflare and Coolify tokens (scrubbed from local settings; the backup copy has been deleted).
+3. Create GA4 tags per `docs/gtm-tags.md`; run GTM Preview after deploy.
+4. Deploy, then in GSC: inspect a garbage URL (expect 404), request removal of `/404/`, request indexing on `/`, `/car-insurance/`, `/companies/`, `/guides/`.
+5. Appoint a named author and reviewer for the E-E-A-T upgrade.
