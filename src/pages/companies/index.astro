@@ -5,12 +5,13 @@ import companies from '../../data/companies.json';
 const conventional = companies.filter(c => c.type === 'conventional');
 const takafulOnly = companies.filter(c => c.type === 'takaful');
 const withTakaful = companies.filter(c => c.takaful);
+const rankedCompanies = [...companies].sort((a, b) => b.rating - a.rating);
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Senarai Syarikat Insurans Malaysia",
-  "description": "Direktori lengkap syarikat insurans dan takaful di Malaysia — review, rating, dan perbandingan.",
+  "description": "Senarai 12 syarikat insurans dan takaful Malaysia — rating, range premium kereta, dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich.",
   "url": "https://insurans.co/companies/",
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -23,8 +24,8 @@ const schema = {
 ---
 
 <Base
-  title="Syarikat Insurans Malaysia 2026 — Senarai & Review Lengkap"
-  description="Senarai lengkap syarikat insurans dan takaful di Malaysia. Review Etiqa, Allianz, AIA, Tokio Marine, Prudential dan lain-lain. Rating, produk, dan perbandingan."
+  title="Senarai Syarikat Insurans Malaysia 2026 — Rating, Harga & Nombor Claim"
+  description="Senarai 12 syarikat insurans dan takaful Malaysia — rating, range premium kereta, dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich."
   schema={schema}
 >
   <section class="bg-white border-b border-stone-200">
@@ -34,12 +35,12 @@ const schema = {
         <span class="mx-2">›</span>
         <span class="text-stone-700">Syarikat</span>
       </nav>
+      <p class="label mb-3">Direktori Syarikat 2026</p>
       <h1 class="font-serif text-headline-lg text-stone-900 mb-4">
-        Syarikat Insurans di Malaysia
+        Syarikat Insurans & Takaful di Malaysia: Senarai, Rating & Nombor Claim
       </h1>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Direktori syarikat insurans dan takaful yang beroperasi di Malaysia.
-        Setiap review ditulis berdasarkan pengalaman sebenar, bukan copy-paste dari website syarikat.
+        Senarai syarikat insurans dan takaful berlesen di Malaysia — 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Bandingkan rating, range premium kereta (Myvi/Axia), status takaful, dan nombor claim hotline setiap syarikat sebelum renew.
       </p>
 
       <div class="flex flex-wrap gap-4 mt-6 text-sm text-stone-600">
@@ -56,61 +57,111 @@ const schema = {
     <!-- Sort info -->
     <p class="text-sm text-stone-500 mb-6">Disusun mengikut rating — tertinggi dahulu.</p>
 
+    <h2 id="claim-hotline" class="font-serif text-headline-md text-stone-900 mb-3">Nombor claim hotline syarikat insurans</h2>
+    <p class="text-stone-600 max-w-3xl mb-6">
+      Nak buat claim, call terus hotline rasmi di bawah — bukan ejen. Semua nombor disalin dari laman rasmi syarikat. Klik nombor untuk call terus dari mobile.
+    </p>
+    <div class="overflow-x-auto mb-3">
+      <table class="table-editorial">
+        <caption class="sr-only">Nombor claim hotline syarikat insurans</caption>
+        <thead>
+          <tr>
+            <th scope="col">Syarikat</th>
+            <th scope="col">Nombor claim (klik untuk call)</th>
+            <th scope="col">Ada takaful?</th>
+            <th scope="col">Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rankedCompanies.map((company) => (
+            <tr>
+              <td>
+                <a href={`/companies/${company.slug}/`}>{company.name}</a>
+              </td>
+              <td>
+                <a href={`tel:${company.claimLine.replace(/\s+/g, '')}`}>{company.claimLine}</a>
+              </td>
+              <td>{company.takaful ? 'Ya' : 'Tidak'}</td>
+              <td>{company.claimLineNote}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-stone-500 mb-3">Disahkan 10 Sep 2026 dari laman rasmi</p>
+    <p class="text-sm text-stone-600 mb-10">Nak banding dua syarikat terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a> · <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> · <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
+
     <!-- Company list -->
     <div class="space-y-4">
-      {[...companies].sort((a, b) => b.rating - a.rating).map((company, i) => (
-        <a href={`/companies/${company.slug}/`} class="card-editorial group block">
-          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-            <!-- Rank -->
-            <div class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8 hidden sm:block">
-              {i + 1}.
+      {rankedCompanies.map((company, i) => (
+        <div class="card-editorial group block">
+          <a href={`/companies/${company.slug}/`} class="block">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <!-- Rank -->
+              <div class="flex-shrink-0 font-serif text-2xl text-stone-300 w-8 hidden sm:block">
+                {i + 1}.
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline flex-wrap gap-2 mb-1.5">
+                  <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
+                    {company.name}
+                  </h2>
+                  <span class="text-xs text-stone-500">★ {company.rating}/5</span>
+                  {company.type === 'takaful' ? (
+                    <span class="text-xs font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
+                  ) : company.takaful ? (
+                    <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Ada Takaful</span>
+                  ) : null}
+                </div>
+
+                <p class="text-xs text-stone-400 mb-2">
+                  {company.fullName}
+                  {company.parent && <span> · {company.parent}</span>}
+                </p>
+
+                <p class="text-sm text-stone-600 mb-3">{company.verdictBM}</p>
+
+                <!-- Products -->
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  {company.products.map((product: string) => (
+                    <span class="text-xs bg-stone-100 text-stone-600 px-2 py-0.5">
+                      {product === 'car' ? 'Kereta' :
+                       product === 'motorcycle' ? 'Motosikal' :
+                       product === 'health' ? 'Kesihatan' :
+                       product === 'life' ? 'Nyawa' :
+                       product === 'travel' ? 'Travel' :
+                       product === 'home' ? 'Rumah' :
+                       product === 'personal-accident' ? 'PA' : product}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Meta -->
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-500">
+                  <span>Est. {company.founded}</span>
+                  {company.carPremiumRange && <span>Kereta: {company.carPremiumRange}</span>}
+                  {company.claimLine && <span>Claim: {company.claimLine}</span>}
+                </div>
+              </div>
             </div>
+          </a>
 
-            <!-- Content -->
-            <div class="flex-1 min-w-0">
-              <div class="flex items-baseline flex-wrap gap-2 mb-1.5">
-                <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
-                  {company.name}
-                </h2>
-                <span class="text-xs text-stone-500">★ {company.rating}/5</span>
-                {company.type === 'takaful' ? (
-                  <span class="text-xs font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
-                ) : company.takaful ? (
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Ada Takaful</span>
-                ) : null}
-              </div>
-
-              <p class="text-xs text-stone-400 mb-2">
-                {company.fullName}
-                {company.parent && <span> · {company.parent}</span>}
-              </p>
-
-              <p class="text-sm text-stone-600 mb-3">{company.verdictBM}</p>
-
-              <!-- Products -->
-              <div class="flex flex-wrap gap-1.5 mb-3">
-                {company.products.map((product: string) => (
-                  <span class="text-xs bg-stone-100 text-stone-600 px-2 py-0.5">
-                    {product === 'car' ? 'Kereta' :
-                     product === 'motorcycle' ? 'Motosikal' :
-                     product === 'health' ? 'Kesihatan' :
-                     product === 'life' ? 'Nyawa' :
-                     product === 'travel' ? 'Travel' :
-                     product === 'home' ? 'Rumah' :
-                     product === 'personal-accident' ? 'PA' : product}
-                  </span>
-                ))}
-              </div>
-
-              <!-- Meta -->
-              <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-500">
-                <span>Est. {company.founded}</span>
-                {company.carPremiumRange && <span>Kereta: {company.carPremiumRange}</span>}
-                {company.claimLine && <span>Claim: {company.claimLine}</span>}
-              </div>
-            </div>
-          </div>
-        </a>
+          {(company.slug === 'prudential' || company.slug === 'aia' || company.slug === 'etiqa' || company.slug === 'zurich' || company.slug === 'allianz') && (
+            <ul class="mt-4 space-y-1 text-sm">
+              {(company.slug === 'prudential' || company.slug === 'aia') && (
+                <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA — bandingkan dua life insurer terbesar</a></li>
+              )}
+              {(company.slug === 'etiqa' || company.slug === 'zurich') && (
+                <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich — mana lagi murah untuk kereta?</a></li>
+              )}
+              {(company.slug === 'allianz' || company.slug === 'zurich') && (
+                <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich — dua brand global head-to-head</a></li>
+              )}
+            </ul>
+          )}
+        </div>
       ))}
     </div>
   </section>
