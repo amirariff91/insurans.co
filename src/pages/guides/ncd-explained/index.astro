@@ -3,14 +3,26 @@ import Base from '../../../layouts/Base.astro';
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "NCD (No Claim Discount) — Panduan Lengkap",
-  "description": "Apa itu NCD, macam mana ia berfungsi, dan cara maximize diskaun insurans kereta anda.",
-  "url": "https://insurans.co/guides/ncd-explained/",
-  "datePublished": "2026-01-20",
-  "dateModified": "2026-02-01",
-  "inLanguage": "ms",
-  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "NCD (No Claim Discount) — Panduan Lengkap",
+      "description": "Apa itu NCD, macam mana ia berfungsi, dan cara maximize diskaun insurans kereta anda.",
+      "url": "https://insurans.co/guides/ncd-explained/",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "NCD (No Claim Discount) — Panduan Lengkap", "item": "https://insurans.co/guides/ncd-explained/" }
+      ]
+    }
+  ]
 };
 ---
 
@@ -18,6 +30,9 @@ const schema = {
   title="NCD (No Claim Discount) — Panduan Lengkap 2026"
   description="Apa itu NCD, macam mana ia berfungsi, jadual NCD penuh (25%-55%), dan tips untuk maximize diskaun insurans kereta di Malaysia."
   schema={schema}
+  ogType="article"
+  publishedTime="2026-01-20"
+  modifiedTime="2026-02-01"
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
