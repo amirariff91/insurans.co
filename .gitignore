@@ -3,6 +3,8 @@ dist/
 
 # dependencies
 node_modules/
+# generated font cache
+scripts/.fonts/
 
 # logs
 npm-debug.log*

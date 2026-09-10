@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+.git
+.env*
+npm-debug.log*
+.agent-runs
+scripts/.fonts
+scripts/
+.DS_Store
+.vscode/
+.idea/
