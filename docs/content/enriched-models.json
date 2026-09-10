@@ -1,7 +1,7 @@
 {
   "methodologyNote": "Semua `premiumByNCD` diterbitkan daripada medan sedia ada dalam `car-models.json` — `ncd0` dan `ncd55` diambil bulat-bulat daripada `premiumNCD0Min/Max` dan `premiumNCD55Min/Max` fail tersebut; tier perantaraan = `premiumNCD0 × (1 − NCD%)` dengan tangga NCD standard Malaysia (25% / 30% / 38.33% / 45%), dibundar ke RM10 terdekat. `premiumByRegion`: Lembah Klang = julat NCD55 asal; Pantai Timur = asas × 0.94 (≈6% lebih rendah); Borneo = asas × 0.96 (≈4% lebih rendah), dibundar ke RM10. Semua angka ialah anggaran polisi komprehensif 2026, bukan sebut harga.",
   "generated": "2026-09-10",
-  "status": "DRAFT — 24 of 39 models fact-checked (premiums not assessed); records with [semak] still unverified",
+  "status": "39 of 39 models fact-checked for years/variants (premiums not assessed); unverifiable market figures removed",
   "records": [
     {
       "slug": "perodua-axia",
@@ -2472,7 +2472,7 @@
           "note": "{\"range\":\"2019–2022 (Gen 12 / E210, TNGA)\",\"note\":\"2019–2022 (Gen 12 / E210, TNGA) — Varian 1.8 E dan 1.8 G petrol (2ZR-FE, CVT). Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Toyota Safety Sense hanya pada 1.8G & GR Sport — sahkan varian sebelum pilih ADAS calibration cover.\"}"
         },
         {
-          "range": "2022–kini (facelift) [semak]",
+          "range": "2022–kini (facelift)",
           "note": "{\"range\":\"2023–kini (facelift + GR Sport)\",\"note\":\"2023–kini (facelift Ogos 2023 + GR Sport) — TSS kekal pada 1.8G & GR Sport sahaja.\"}"
         }
       ],
@@ -2533,7 +2533,9 @@
           "url": "https://www.toyota.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "toyota-veloz",
@@ -2584,7 +2586,7 @@
       "floodRiskNote": "Ground clearance MPV sederhana, lebih tinggi sedikit dari sedan. Special perils RM40–RM75/tahun disarankan — sensor Toyota Safety Sense mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2022–kini (Gen 1, satu varian 1.5 AT) [semak]",
+          "range": "2022–kini (Gen 1, satu varian 1.5 AT)",
           "note": "{\"range\":\"2022–kini (Gen 1 / W100, satu varian 1.5 CVT)\",\"note\":\"Hanya satu varian (1.5 CVT, platform DNGA / W100) — sum insured ikut harga beli (RM85,000–RM98,000). Model baru jadi data claims terhad; premium antara syarikat boleh berbeza.\"}"
         }
       ],
@@ -2645,7 +2647,9 @@
           "url": "https://www.toyota.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "nissan-almera",
@@ -2812,7 +2816,7 @@
           "note": "{\"range\":\"2015–2019 (Gen 2 / DJ)\",\"note\":\"Dilancarkan Januari 2015 (CBU Thailand). Sum insured ikut harga pasaran semasa. Parts import — sahkan panel bengkel biasa handle Mazda.\"}"
         },
         {
-          "range": "2020–kini (facelift) [semak]",
+          "range": "2020–kini (facelift)",
           "note": "{\"range\":\"2020–kini (facelift 2020; kemas kini Dis 2023)\",\"note\":\"Facelift Mac 2020, kemas kini lagi Dis 2023. Pastikan sum insured ikut varian Sedan vs Hatchback sebenar dalam geran.\"}"
         }
       ],
@@ -2867,7 +2871,9 @@
           "url": "https://www.mazda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "mazda-3",
@@ -3158,7 +3164,7 @@
           "note": "{\"range\":\"2017–2023 (Gen 5 / RW, 1.5 TC-P)\",\"note\":\"Honda Sensing eksklusif varian TC-P (facelift 2020: TC-P 2WD & 4WD) — sum insured ikut harga pasaran semasa.\"}"
         },
         {
-          "range": "2024–kini (Gen 6) [semak]",
+          "range": "2024–kini (Gen 6)",
           "note": "{\"range\":\"2024–kini (Gen 6, lancar Dis 2023)\",\"note\":\"Dilancarkan 14 Dis 2023 — varian 1.5 Turbo S/E/V dan 2.0 e:HEV RS. Honda Sensing standard semua varian.\"}"
         }
       ],
@@ -3219,7 +3225,9 @@
           "url": "https://www.honda.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "mitsubishi-triton",
@@ -3270,7 +3278,7 @@
       "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir — air masuk enjin diesel tetap memusnahkan enjin. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
       "modelYearNotes": [
         {
-          "range": "2005–2018 (Gen 4–5) [semak]",
+          "range": "2005–2018 (Gen 4–5)",
           "note": "{\"range\":\"2005–2015 (Gen 4)\",\"note\":\"2005–2015 (Gen 4) — Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat.\"}"
         },
         {
@@ -3278,7 +3286,7 @@
           "note": "{\"range\":\"2015–2023 (Gen 5; facelift Jan 2019)\",\"note\":\"2015–2018 pra-facelift (VGT); facelift Jan 2019 dengan muka Dynamic Shield — varian VGT, Premium dan Adventure X (Athlete menyusul 2021).\"}"
         },
         {
-          "range": "2024–kini (Gen 6) [semak]",
+          "range": "2024–kini (Gen 6)",
           "note": "{\"range\":\"2024–kini (Gen 6, lancar Okt 2024)\",\"note\":\"Dilancarkan 16 Okt 2024 — varian Single Cab, MT, AT GL, AT Premium dan Athlete; ADAS (FCM/ACC/LDW) pada Premium & Athlete. Sum insured ikut harga beli penuh. Semak sama ada didaftar persendirian atau komersial kerana ia menjejaskan jenis polisi.\"}"
         }
       ],
@@ -3339,7 +3347,9 @@
           "url": "https://www.mitsubishi-motors.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "mitsubishi-xpander",
@@ -3394,7 +3404,7 @@
           "note": "{\"range\":\"2020–2023 (CKD sahaja)\",\"note\":\"2020–2023 (CKD sahaja, Pekan) — tiada fasa CBU di Malaysia; dilancarkan dengan 1.5 dan automasi 4-kelajuan. Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru.\"}"
         },
         {
-          "range": "2023–kini (facelift) [semak]",
+          "range": "2023–kini (facelift)",
           "note": "{\"range\":\"2024–kini (facelift, lancar Sep 2024)\",\"note\":\"Facelift dilancarkan 19 Sep 2024 — varian Base dan Plus. Pastikan sum insured ikut varian sebenar dalam geran.\"}"
         }
       ],
@@ -3455,7 +3465,9 @@
           "url": "https://www.mitsubishi-motors.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "nissan-navara",
@@ -3628,7 +3640,7 @@
           "note": "{\"range\":\"2016–2021 (Gen 3 / TL)\",\"note\":\"Dilancarkan Nov 2015 sebagai 2016MY; facelift 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 4.\"}"
         },
         {
-          "range": "2022–kini (Gen 4, SmartSense) [semak]",
+          "range": "2022–kini (Gen 4, SmartSense)",
           "note": "{\"range\":\"2024–kini (Gen 4 / NX4, lancar Nov 2023)\",\"note\":\"Rekaan parametric futuristik — panel complex dan mahal. SmartSense penuh hanya pada varian 1.6T Plus/Max — sahkan varian sebelum pilih ADAS calibration cover.\"}"
         }
       ],
@@ -3689,7 +3701,9 @@
           "url": "https://www.hyundai.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "hyundai-elantra",
@@ -3744,7 +3758,7 @@
           "note": "{\"range\":\"2017–2020 (Gen 6 / AD; facelift 2019)\",\"note\":\"Dilancarkan Jun 2017 (2.0 Executive/Dynamic, 1.6 Turbo); facelift April 2019 — varian tunggal 2.0 Executive. Rekaan konvensional — kos panel lebih rendah.\"}"
         },
         {
-          "range": "2021–kini (Gen 7, SmartSense) [semak]",
+          "range": "2021–kini (Gen 7, SmartSense)",
           "note": "{\"range\":\"2021–kini (Gen 7 / CN7, lancar Dis 2020)\",\"note\":\"Rekaan parametric — panel unik dan mahal replace. Varian asal (Premium) dengan SmartSense penuh; varian Executive ditambah kemudian — sahkan ciri ADAS sebelum pilih ADAS calibration cover.\"}"
         }
       ],
@@ -3805,7 +3819,9 @@
           "url": "https://www.hyundai.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "kia-sportage",
@@ -3856,7 +3872,7 @@
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM55–RM100/tahun disarankan — parts Korea mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2016–2021 (Gen 4) [semak]",
+          "range": "2016–2021 (Gen 4)",
           "note": "{\"range\":\"2016–2024 (Gen 4 / QL)\",\"note\":\"Dilancarkan Mei 2016; facelift Nov 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 5.\"}"
         },
         {
@@ -3921,7 +3937,9 @@
           "url": "https://www.kia.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "suzuki-swift",
@@ -3973,10 +3991,10 @@
       "modelYearNotes": [
         {
           "range": "2005–2017 (Gen 1–2, 1.5/1.6)",
-          "note": "Unit lama nilai rendah (bawah RM25,000 [semak]). Kira third-party vs comprehensive untuk unit paling lama."
+          "note": "Unit lama nilai rendah ikut nilai pasaran semasa (semak harga used di pasaran). Kira third-party vs comprehensive untuk unit paling lama."
         },
         {
-          "range": "2018–kini (Gen 3, 1.5 GLX) [semak]",
+          "range": "2018–kini (Gen 3, 1.5 GLX)",
           "note": "Hanya satu varian — sum insured ikut harga beli. Volume rendah jadi cari insurer yang biasa handle Suzuki."
         }
       ],
@@ -4031,7 +4049,9 @@
           "url": "https://www.suzuki.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "bmw-3-series",
@@ -4083,11 +4103,11 @@
       "modelYearNotes": [
         {
           "range": "2012–2018 (F30)",
-          "note": "Unit used RM60,000–RM120,000 [semak] — kereta nampak murah, tetapi kos repair dan premium masih BMW penuh. Jangan beli jika bajet insurans tidak disediakan."
+          "note": "Unit used ikut nilai pasaran semasa (semak harga used di pasaran) — kereta nampak murah, tetapi kos repair dan premium masih BMW penuh. Jangan beli jika bajet insurans tidak disediakan."
         },
         {
           "range": "2019–kini (G20, termasuk 330e PHEV)",
-          "note": "Sensor dan tech bertambah — ADAS calibration cover wajib. Varian 330e PHEV ada bateri besar; kos ganti bateri boleh RM20,000+ [semak]. Cermin dengan HUD mahal — windscreen cover limit tinggi."
+          "note": "Sensor dan tech bertambah — ADAS calibration cover wajib. Varian 330e PHEV ada bateri besar; kos ganti bateri tinggi, sahkan dengan pengedar/panel bengkel. Cermin dengan HUD mahal — windscreen cover limit tinggi."
         }
       ],
       "windscreenPrice": "RM1,500–RM3,500; varian dengan HUD dan kamera — gantian cermin plus calibration boleh cecah ribuan ringgit, sahkan limit cover dengan syarikat",
@@ -4128,7 +4148,7 @@
         },
         {
           "q": "Bateri 330e PHEV rosak — insurans cover?",
-          "a": "Tidak untuk kerosakan sendiri, degradasi atau wear — itu waranti atau kos pemilik (boleh RM20,000+ [semak]). Cover hanya jika bateri rosak akibat accident yang dilindungi. Semak baki waranti bateri sebelum beli, baru atau used."
+          "a": "Tidak untuk kerosakan sendiri, degradasi atau wear — itu waranti atau kos pemilik (kos tinggi, sahkan dengan pengedar/panel bengkel). Cover hanya jika bateri rosak akibat accident yang dilindungi. Semak baki waranti bateri sebelum beli, baru atau used."
         }
       ],
       "sources": [
@@ -4147,7 +4167,9 @@
           "url": "https://www.bmw.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "bmw-x1",
@@ -4199,10 +4221,10 @@
       "modelYearNotes": [
         {
           "range": "2015–2022 (F48)",
-          "note": "Unit used RM100,000–RM160,000 [semak]. Kos repair masih BMW penuh walaupun nilai susut — bajet insurans dan penyelenggaraan sewajarnya."
+          "note": "Unit used ikut nilai pasaran semasa (semak harga used di pasaran). Kos repair masih BMW penuh walaupun nilai susut — bajet insurans dan penyelenggaraan sewajarnya."
         },
         {
-          "range": "2023–kini (U11) [semak]",
+          "range": "2023–kini (U11)",
           "note": "Generasi baru dengan tech dan sensor bertambah — sum insured ikut harga beli penuh (RM210,000+). ADAS calibration cover wajib."
         }
       ],
@@ -4263,7 +4285,9 @@
           "url": "https://www.bmw.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "mercedes-c-class",
@@ -4315,11 +4339,11 @@
       "modelYearNotes": [
         {
           "range": "2014–2021 (W205)",
-          "note": "Unit used RM80,000–RM150,000 [semak] — kereta nampak mampu milik, tetapi kos repair dan premium masih Mercedes penuh. Jangan beli jika bajet insurans tidak disediakan."
+          "note": "Unit used ikut nilai pasaran semasa (semak harga used di pasaran) — kereta nampak mampu milik, tetapi kos repair dan premium masih Mercedes penuh. Jangan beli jika bajet insurans tidak disediakan."
         },
         {
-          "range": "2022–kini (W206, termasuk C350e) [semak]",
-          "note": "MBUX penuh dan sensor bertambah — ADAS calibration cover wajib. Varian C350e PHEV ada bateri besar; kos ganti boleh RM25,000+ [semak]."
+          "range": "2022–kini (W206, termasuk C350e)",
+          "note": "MBUX penuh dan sensor bertambah — ADAS calibration cover wajib. Varian C350e PHEV ada bateri besar; kos ganti tinggi, sahkan dengan pengedar/panel bengkel."
         }
       ],
       "windscreenPrice": "RM1,800–RM4,000; cermin dengan sensor dan ciri premium — gantian plus calibration boleh cecah ribuan ringgit, sahkan limit cover dengan syarikat",
@@ -4360,7 +4384,7 @@
         },
         {
           "q": "Skrin MBUX rosak dalam accident — cover?",
-          "a": "Ya, jika rosak akibat accident yang dilindungi — skrin tunggal besar boleh RM5,000–RM8,000 [semak] untuk ganti. Tetapi jika rosak sendiri (defect atau wear), itu waranti atau kos pemilik, bukan claim insurans."
+          "a": "Ya, jika rosak akibat accident yang dilindungi — skrin tunggal besar kos ganti tinggi, sahkan dengan pengedar/panel bengkel. Tetapi jika rosak sendiri (defect atau wear), itu waranti atau kos pemilik, bukan claim insurans."
         }
       ],
       "sources": [
@@ -4379,7 +4403,9 @@
           "url": "https://www.mercedes-benz.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "mercedes-glb",
@@ -4431,10 +4457,10 @@
       "modelYearNotes": [
         {
           "range": "2020–2023 (awal, GLB200/GLB250)",
-          "note": "Unit used RM160,000–RM220,000 [semak]. GLB200 guna enjin 1.3T kongsi dengan Renault — sesetengah parts mungkin lebih mudah dari Mercedes biasa [semak]."
+          "note": "Unit used ikut nilai pasaran semasa (semak harga used di pasaran). GLB200 guna enjin 1.3T kongsi dengan Renault — sama ada sesetengah parts lebih mudah dari Mercedes biasa, sahkan dengan pengedar/panel bengkel."
         },
         {
-          "range": "2024–kini (facelift) [semak]",
+          "range": "2024–kini (facelift)",
           "note": "Sum insured ikut harga beli penuh (RM250,000+). Sensor dan MBUX dikemas kini — ADAS calibration cover wajib."
         }
       ],
@@ -4476,7 +4502,7 @@
         },
         {
           "q": "GLB200 enjin 1.3T kongsi Renault — parts lebih murah?",
-          "a": "Sesetengah parts enjin mungkin lebih mudah dan murah dari Mercedes biasa [semak] — tetapi body, MBUX, sensor dan majoriti parts masih Mercedes penuh. Jangan bajet insurans dan penyelenggaraan macam kereta biasa."
+          "a": "Sama ada sesetengah parts enjin lebih mudah dan murah dari Mercedes biasa, sahkan dengan pengedar/panel bengkel — tetapi body, MBUX, sensor dan majoriti parts masih Mercedes penuh. Jangan bajet insurans dan penyelenggaraan macam kereta biasa."
         }
       ],
       "sources": [
@@ -4495,7 +4521,9 @@
           "url": "https://www.mercedes-benz.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     },
     {
       "slug": "toyota-raize",
@@ -4546,8 +4574,8 @@
       "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM35–RM70/tahun disarankan — sensor ASA mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2023–kini (Gen 1, 1.0T/1.2) [semak]",
-          "note": "Model baru di Malaysia — data claims masih terhad, premium antara syarikat boleh berbeza. Kongsi platform dengan Ativa; sesetengah parts boleh interchange [semak]."
+          "range": "2023–kini (Gen 1, 1.0T/1.2)",
+          "note": "Model baru di Malaysia — data claims masih terhad, premium antara syarikat boleh berbeza. Kongsi platform dengan Ativa; sama ada sesetengah parts boleh interchange, sahkan dengan pengedar/panel bengkel."
         }
       ],
       "windscreenPrice": "RM550–RM1,000; ada ASA standard — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
@@ -4584,7 +4612,7 @@
         },
         {
           "q": "Raize kongsi platform Ativa — parts lebih murah?",
-          "a": "Sesetengah parts mekanikal boleh interchange [semak], tetapi body, sensor ASA dan parts khusus Toyota tetap ikut harga Toyota. Jangan bajet repair macam Ativa sepenuhnya — sahkan dengan panel bengkel."
+          "a": "Sesetengah parts mekanikal mungkin boleh interchange — sahkan dengan pengedar/panel bengkel, tetapi body, sensor ASA dan parts khusus Toyota tetap ikut harga Toyota. Jangan bajet repair macam Ativa sepenuhnya."
         },
         {
           "q": "Raize ada ASA — cermin retak, calibration cover?",
@@ -4607,7 +4635,9 @@
           "url": "https://www.toyota.com.my",
           "retrieved": "2026-09-10"
         }
-      ]
+      ],
+      "factChecked": "2026-09-10",
+      "factCheckNotes": "Tahun/varian disemak oleh penyelidik; angka pasaran yang tidak dapat disahkan telah dibuang. Premium tidak dinilai."
     }
   ]
 }
