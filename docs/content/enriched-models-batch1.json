@@ -1,0 +1,1044 @@
+[
+  {
+    "slug": "perodua-myvi",
+    "premiumByNCD": {
+      "ncd0": [
+        1500,
+        2200
+      ],
+      "ncd25": [
+        1130,
+        1650
+      ],
+      "ncd30": [
+        1050,
+        1540
+      ],
+      "ncd38": [
+        930,
+        1360
+      ],
+      "ncd45": [
+        830,
+        1210
+      ],
+      "ncd55": [
+        700,
+        1000
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        700,
+        1000
+      ],
+      "pantaiTimur": [
+        660,
+        940
+      ],
+      "borneo": [
+        670,
+        960
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM38,000–RM58,000. Harga sebenar ikut umur kereta, varian (1.3 vs 1.5 AV), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Myvi ialah kereta paling banyak di jalan raya, jadi claim kemalangan bandar (bumper, fender, cermin sisi) paling kerap — bukan kerana kereta bermasalah, tetapi kerana jumlah unit. Claim cermin depan akibat batu di lebuh raya juga biasa.",
+    "theftRiskDetail": "Risiko kecurian sederhana. Myvi bukan sasaran utama pecah masuk seperti Honda, tetapi unit yang banyak bermakna kes kecurian masih dilaporkan — kunci stereng atau immobiliser standard sudah memadai untuk kebanyakan pemilik.",
+    "floodRiskNote": "Ground clearance Myvi rendah seperti hatchback biasa. Jika parkir di kawasan banjir kilat (Klang, Shah Alam, Kota Bharu), special perils RM30–RM60/tahun adalah wajib — kos repair enjin banjir boleh cecah RM3,000–RM15,000.",
+    "modelYearNotes": [
+      {
+        "range": "2005–2010 (Gen 1)",
+        "note": "Nilai pasaran rendah. Jika bawah RM12,000 dan kereta jarang jalan jauh, kira third-party vs comprehensive — comprehensive masih selamat jika tiada simpanan repair."
+      },
+      {
+        "range": "2011–2017 (Gen 2 / Lagi Best)",
+        "note": "Unit paling banyak atas jalan. Sum insured ikut harga pasaran semasa, bukan harga beli dulu. Parts sangat murah — calar kecil lebih jimat bayar cash daripada claim dan hilang NCD."
+      },
+      {
+        "range": "2018–kini (Gen 3)",
+        "note": "Varian 1.5 AV ada ASA 2.0 (ADAS). Pastikan sum insured ikut harga beli semasa dan sahkan sama ada cermin ada sensor sebelum pilih windscreen cover."
+      }
+    ],
+    "windscreenPrice": "RM350–RM700; varian 1.5 AV dengan sensor ASA — gantian cermin perlu calibration, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM50–RM90/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin Myvi kerap retak akibat batu di highway; gantian RM350+ tanpa cover."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM30–RM60/tahun",
+        "verdict": "wajib jika di kawasan banjir",
+        "whyBM": "Myvi rendah dan banyak parkir di kawasan perumahan banjir kilat."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM20–RM40/tahun",
+        "verdict": "berbaloi jika selalu long-distance",
+        "whyBM": "Dalam bandar boleh skip; di highway luar bandar towing mahal."
+      },
+      {
+        "name": "NCD protector",
+        "priceBM": "RM200–RM350/tahun",
+        "verdict": "berbaloi jika NCD 45–55%",
+        "whyBM": "NCD 55% jimat RM800–RM1,200/tahun — sekali claim kecil tanpa protector, rugi besar."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Myvi 1.5 AV ada ASA — cermin retak, insurans cover calibration sensor?",
+        "a": "Windscreen cover bayar gantian cermin, tetapi calibration sensor ASA (kamera di cermin) tidak semestinya termasuk — ia boleh cecah beberapa ratus ringgit. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin, atau ambil ADAS calibration cover jika syarikat tawarkan. Claim cermin tidak usik NCD."
+      },
+      {
+        "q": "Myvi buat Grab/e-hailing — polisi biasa cover?",
+        "a": "Tidak. Polisi persendirian standard tidak cover e-hailing. Kena declare dan ambil endorsement e-hailing — jika tidak declare, claim boleh ditolak walaupun accident kecil semasa tidak bawa penumpang, kerana rekod e-hailing dikesan."
+      },
+      {
+        "q": "Myvi lama pre-2018 — masih perlu comprehensive?",
+        "a": "Jika nilai masih atas RM15,000, ya. Tukar ke third-party hanya bila nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri — bumper + lampu Myvi pun sudah RM1,500–RM2,000."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Perodua — laman model rasmi",
+        "url": "https://www.perodua.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "proton-persona",
+    "premiumByNCD": {
+      "ncd0": [
+        1500,
+        2100
+      ],
+      "ncd25": [
+        1130,
+        1580
+      ],
+      "ncd30": [
+        1050,
+        1470
+      ],
+      "ncd38": [
+        930,
+        1300
+      ],
+      "ncd45": [
+        830,
+        1160
+      ],
+      "ncd55": [
+        700,
+        980
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        700,
+        980
+      ],
+      "pantaiTimur": [
+        660,
+        920
+      ],
+      "borneo": [
+        670,
+        940
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM35,000–RM52,000. Harga sebenar ikut tahun (BH awal vs facelift), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim Persona paling kerap ialah perlanggaran belakang dan calar parking — sedan keluarga yang banyak dipandu harian di bandar. Claim gearbox atau enjin jarang; isu CVT adalah kos penyelenggaraan, bukan claim insurans.",
+    "theftRiskDetail": "Risiko kecurian rendah — Persona bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
+    "floodRiskNote": "Ground clearance sedan yang rendah. Jika parkir di kawasan banjir kilat atau balik kampung ke Pantai Timur setiap monsun, special perils RM30–RM60/tahun adalah wajib.",
+    "modelYearNotes": [
+      {
+        "range": "2007–2015 (Persona lama / SV)",
+        "note": "Nilai pasaran rendah (bawah RM15,000 untuk unit awal). Kira third-party vs comprehensive — comprehensive hanya berbaloi jika kereta masih dipandu harian jauh."
+      },
+      {
+        "range": "2016–2019 (Persona BH awal)",
+        "note": "Enjin 1.6 VVT + CVT. Sum insured ikut harga pasaran semasa. Semak rekod servis CVT sebelum beli used — rosak CVT bukan claim insurans."
+      },
+      {
+        "range": "2019–kini (facelift) [semak]",
+        "note": "Kualiti binaan dan ciri keselamatan bertambah baik. Varian Premium ada ciri tambahan — pastikan sum insured ikut varian, bukan harga Standard."
+      }
+    ],
+    "windscreenPrice": "RM350–RM700; varian Premium dengan sensor — sahkan dengan panel bengkel sama ada calibration diperlukan",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM50–RM90/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin depan Persona besar; gantian tanpa cover RM350+."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM30–RM60/tahun",
+        "verdict": "wajib jika di kawasan banjir",
+        "whyBM": "Sedan rendah; repair enjin banjir boleh cecah RM15,000."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM20–RM40/tahun",
+        "verdict": "berbaloi jika selalu balik kampung jauh",
+        "whyBM": "Persona 1.6 banyak jalan highway; towing luar bandar mahal."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Persona 1.6 Standard vs Premium — beza premium insurans?",
+        "a": "Beza kecil, ikut sum insured — Premium nilainya RM4,000–RM6,000 lebih tinggi, jadi premium naik sekitar RM100–RM200/tahun. Pilih varian ikut keperluan keluarga, bukan risau pasal insurans."
+      },
+      {
+        "q": "Gearbox CVT Persona rosak — boleh claim insurans?",
+        "a": "Tidak. Kerosakan mekanikal dan wear & tear (CVT, enjin, wear parts) tidak dilindungi polisi motor — insurans hanya cover accident, kecurian, kebakaran dan bencana (jika ambil special perils). Bajet servis CVT ikut jadual; itu penyelenggaraan, bukan claim."
+      },
+      {
+        "q": "Persona buat e-hailing sepenuh masa — apa kena buat?",
+        "a": "Declare penggunaan e-hailing dan ambil endorsement e-hailing. Polisi persendirian standard tidak cover bawa penumpang berbayar. Persona 1.6 popular untuk e-hailing eksekutif, jadi jangan renew senyap-senyap tanpa declare — claim boleh ditolak."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Proton — laman model rasmi",
+        "url": "https://www.proton.com",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "honda-jazz",
+    "premiumByNCD": {
+      "ncd0": [
+        2200,
+        3300
+      ],
+      "ncd25": [
+        1650,
+        2480
+      ],
+      "ncd30": [
+        1540,
+        2310
+      ],
+      "ncd38": [
+        1360,
+        2040
+      ],
+      "ncd45": [
+        1210,
+        1820
+      ],
+      "ncd55": [
+        1000,
+        1550
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        1000,
+        1550
+      ],
+      "pantaiTimur": [
+        940,
+        1460
+      ],
+      "borneo": [
+        960,
+        1490
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback baru, termasuk varian RS e:HEV). Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
+    "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan tracker GPS atau immobiliser tambahan jika parkir di kawasan terbuka.",
+    "floodRiskNote": "Ground clearance hatchback yang rendah. Special perils RM40–RM75/tahun sangat disarankan — komponen elektrik dan sensor Honda mahal jika masuk air.",
+    "modelYearNotes": [
+      {
+        "range": "2014–2021 (Jazz GK)",
+        "note": "Generasi Jazz terakhir sebelum rebrand. Unit used RM45,000–RM65,000 [semak] — sum insured ikut harga pasaran semasa, bukan harga beli baru dulu."
+      },
+      {
+        "range": "2022–kini (City Hatchback GN)",
+        "note": "Jazz dijenamakan semula sebagai City Hatchback. Varian RS e:HEV ialah hybrid — premium 15–20% lebih tinggi kerana kos bateri dan motor elektrik. Pastikan sum insured ikut harga beli (RM80,000+)."
+      }
+    ],
+    "windscreenPrice": "RM500–RM1,000; varian V/RS dengan Honda Sensing — gantian cermin perlu calibration kamera, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM70–RM120/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin Honda besar dan mahal; varian ber-Honda Sensing perlu calibration tambahan."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM40–RM75/tahun",
+        "verdict": "wajib",
+        "whyBM": "Sensor dan elektrik Honda mahal jika masuk air banjir."
+      },
+      {
+        "name": "Key replacement",
+        "priceBM": "RM50–RM80/tahun",
+        "verdict": "berbaloi",
+        "whyBM": "Smart key Honda mahal diganti — sekali hilang tanpa cover, keluar poket sendiri."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM25–RM45/tahun",
+        "verdict": "berbaloi jika selalu long-distance",
+        "whyBM": "Dalam bandar boleh skip."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Jazz GK lama vs City Hatchback baru — beza insurans?",
+        "a": "Besar — Jazz GK used sum insured sekitar RM45,000–RM65,000 [semak], premium NCD 55% sekitar RM700–RM1,000; City Hatchback baru RM80,000–RM98,000 dengan premium seperti dalam jadual. Jangan insure Jazz lama ikut harga baru — itu over-insure, claim tetap bayar ikut nilai pasaran."
+      },
+      {
+        "q": "Varian RS e:HEV hybrid — bateri rosak boleh claim?",
+        "a": "Tidak untuk kerosakan sendiri atau wear. Bateri hybrid hanya dilindungi jika rosak akibat accident yang diinsurankan (contoh pelanggaran). Kegagalan bateri selepas waranti adalah kos pemilik — semak tempoh waranti bateri sebelum beli used."
+      },
+      {
+        "q": "Smart key Honda hilang sebiji — claim atau buat sendiri?",
+        "a": "Jika ada key replacement cover, claim — tidak usik NCD. Jika tiada cover, kunci ganti Honda (dengan programming) boleh cecah RM500–RM1,000 [semak], jadi add-on RM50–RM80/tahun itu berbaloi untuk kebanyakan pemilik."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Honda — laman model rasmi",
+        "url": "https://www.honda.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "toyota-corolla-cross",
+    "premiumByNCD": {
+      "ncd0": [
+        4200,
+        5800
+      ],
+      "ncd25": [
+        3150,
+        4350
+      ],
+      "ncd30": [
+        2940,
+        4060
+      ],
+      "ncd38": [
+        2590,
+        3580
+      ],
+      "ncd45": [
+        2310,
+        3190
+      ],
+      "ncd55": [
+        2000,
+        2800
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        2000,
+        2800
+      ],
+      "pantaiTimur": [
+        1880,
+        2630
+      ],
+      "borneo": [
+        1920,
+        2690
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM155,000 (varian petrol vs Hybrid). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim jarang tetapi mahal — SUV crossover dengan banyak sensor. Claim paling biasa ialah cermin depan besar dan calar bumper parking. Sekali accident depan, kos sensor Toyota Safety Sense menaikkan bil repair dengan cepat.",
+    "theftRiskDetail": "Risiko kecurian sederhana. Bukan sasaran utama seperti Hilux, tetapi nilai tinggi bermakna comprehensive wajib dan kereta elok dipasang dashcam + parkir berkunci.",
+    "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir — ECU dan sensor bawah masih terdedah. Special perils RM55–RM100/tahun disarankan, terutamanya di Lembah Klang.",
+    "modelYearNotes": [
+      {
+        "range": "2021–2024 (awal)",
+        "note": "Varian 1.8 G, 1.8 V dan Hybrid. Hybrid premium 15–20% lebih tinggi — pastikan sum insured ikut varian sebenar dalam geran."
+      },
+      {
+        "range": "2025–kini (facelift) [semak]",
+        "note": "Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Semak senarai sensor Toyota Safety Sense sebelum pilih ADAS calibration cover."
+      }
+    ],
+    "windscreenPrice": "RM800–RM1,500; semua varian ada Toyota Safety Sense — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM90–RM150/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin SUV besar dan mahal; tanpa cover gantian RM800+."
+      },
+      {
+        "name": "ADAS calibration cover",
+        "priceBM": "RM150–RM280/tahun",
+        "verdict": "wajib",
+        "whyBM": "Toyota Safety Sense standard — calibration kamera/radar selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM55–RM100/tahun",
+        "verdict": "wajib",
+        "whyBM": "Sensor dan ECU mahal jika masuk air."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM30–RM55/tahun",
+        "verdict": "berbaloi jika selalu outstation",
+        "whyBM": "Dalam bandar boleh skip."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Corolla Cross Hybrid vs petrol biasa — beza premium?",
+        "a": "Hybrid 15–20% lebih tinggi kerana sum insured lebih mahal serta kos bateri dan motor elektrik. Contoh kasar: jika petrol NCD 55% sekitar RM2,000–RM2,400, Hybrid sekitar RM2,400–RM2,800. Bezanya ikut quotation syarikat — bandingkan 2–3 sebelum renew."
+      },
+      {
+        "q": "Tukar cermin Corolla Cross — kenapa bengkel caj calibration?",
+        "a": "Kamera Toyota Safety Sense duduk di cermin depan. Setiap kali cermin ditukar atau bumper depan dibuka, sistem perlu calibration semula supaya brek kecemasan dan lane assist tepat — kosnya ratusan ringgit dan tidak semestinya termasuk dalam windscreen cover. Ambil ADAS calibration cover jika kerap jalan jauh."
+      },
+      {
+        "q": "Bateri hybrid rosak sendiri — insurans cover?",
+        "a": "Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika bateri rosak akibat accident yang dilindungi. Semak waranti bateri hybrid (bertahun-tahun dari Toyota) dan jangan jadikan insurans sebagai ganti waranti."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Toyota — laman model rasmi",
+        "url": "https://www.toyota.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "toyota-hilux",
+    "premiumByNCD": {
+      "ncd0": [
+        3800,
+        5800
+      ],
+      "ncd25": [
+        2850,
+        4350
+      ],
+      "ncd30": [
+        2660,
+        4060
+      ],
+      "ncd38": [
+        2340,
+        3580
+      ],
+      "ncd45": [
+        2090,
+        3190
+      ],
+      "ncd55": [
+        1800,
+        2800
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        1800,
+        2800
+      ],
+      "pantaiTimur": [
+        1690,
+        2630
+      ],
+      "borneo": [
+        1730,
+        2690
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM165,000 (2.4 E hingga 2.8 Rogue). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Hilux yang memang digunakan lasak.",
+    "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — pickup popular untuk dicuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berkunci sangat disarankan, terutamanya varian Rogue.",
+    "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir — air masuk snorkel/enjin diesel tetap memusnahkan enjin. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
+    "modelYearNotes": [
+      {
+        "range": "2005–2015 (Vigo/KUN) [semak]",
+        "note": "Unit lama nilai RM40,000–RM70,000 [semak]. Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat."
+      },
+      {
+        "range": "2015–2020 (Gen 8 awal)",
+        "note": "Varian 2.4 dan 2.8. Declare semua aksesori (canopy, bull bar, sport bar) — yang tidak diisytihar tidak dilindungi masa claim."
+      },
+      {
+        "range": "2020–kini (facelift)",
+        "note": "Varian Rogue paling mahal — sum insured ikut harga beli penuh. Semak sama ada Hilux didaftar persendirian atau komersial kerana ia menjejaskan jenis polisi."
+      }
+    ],
+    "windscreenPrice": "RM600–RM1,200; cermin pickup besar — varian tinggi dengan sensor hujan/lane assist perlu calibration, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM80–RM140/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin besar; retak akibat batu semasa konvoi atau jalan ladang biasa berlaku."
+      },
+      {
+        "name": "Accessories cover (canopy, bull bar)",
+        "priceBM": "RM100–RM250/tahun",
+        "verdict": "wajib jika ada aksesori",
+        "whyBM": "Canopy + bull bar boleh cecah RM5,000–RM10,000 — tanpa declare dan cover, claim tidak bayar aksesori."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM50–RM90/tahun",
+        "verdict": "wajib",
+        "whyBM": "Hilux selalu meredah air; enjin diesel banjir sangat mahal dibaiki."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM40–RM70/tahun",
+        "verdict": "wajib jika kerja luar bandar",
+        "whyBM": "Towing pickup dari ladang atau tapak bina jauh sangat mahal."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Canopy dan bull bar Hilux — automatik dilindungi?",
+        "a": "Tidak. Aksesori tidak termasuk dalam sum insured standard — kena declare nilai aksesori dan ambil accessories cover (RM100–RM250/tahun). Simpan resit pemasangan; masa claim, adjuster hanya bayar apa yang diisytihar dalam polisi."
+      },
+      {
+        "q": "Hilux 2.4 vs 2.8 Rogue — beza premium dan roadtax?",
+        "a": "Roadtax sama — diesel persendirian sekitar RM70/tahun ikut rekod sedia ada. Premium pula ikut sum insured: Rogue (RM150,000+) boleh RM500–RM800/tahun lebih mahal dari 2.4 E. Beza enjin bukan faktor utama — beza nilai kereta yang tentukan premium."
+      },
+      {
+        "q": "Hilux guna untuk kerja tapak bina / angkat barang niaga — polisi biasa cover?",
+        "a": "Hanya jika didaftar dan diinsurankan ikut penggunaan sebenar. Jika Hilux didaftarkan persendirian tetapi digunakan untuk niaga atau disewa, claim boleh dipertikai. Declare penggunaan komersial dan ambil polisi yang betul — mahal sikit, tetapi claim selamat."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Toyota — laman model rasmi",
+        "url": "https://www.toyota.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "perodua-ativa",
+    "premiumByNCD": {
+      "ncd0": [
+        2000,
+        2800
+      ],
+      "ncd25": [
+        1500,
+        2100
+      ],
+      "ncd30": [
+        1400,
+        1960
+      ],
+      "ncd38": [
+        1230,
+        1730
+      ],
+      "ncd45": [
+        1100,
+        1540
+      ],
+      "ncd55": [
+        950,
+        1350
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        950,
+        1350
+      ],
+      "pantaiTimur": [
+        890,
+        1270
+      ],
+      "borneo": [
+        910,
+        1300
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM75,000. Harga sebenar ikut varian (X vs AV dengan ASA 3.0), umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim sederhana — SUV yang banyak dipandu keluarga muda. Claim paling biasa ialah calar bumper dan cermin. Claim sensor ADAS (bumper depan dengan radar ASA) jarang tetapi mahal bila berlaku.",
+    "theftRiskDetail": "Risiko kecurian rendah ke sederhana. Bukan sasaran utama pencuri; immobiliser standard dan parkir biasa sudah memadai.",
+    "floodRiskNote": "Ground clearance 200mm — paling tinggi dalam segmen kompak — membantu dalam air cetek dan banjir kilat ringan. Tetapi masih sedan-ubah-SUV: special perils RM35–RM70/tahun disarankan jika parkir di kawasan banjir.",
+    "modelYearNotes": [
+      {
+        "range": "2021–2022 (awal)",
+        "note": "Unit terawal; ada yang hampir habis waranti pengeluar. Semak harga pasaran semasa untuk sum insured — jangan ikut harga beli 2021."
+      },
+      {
+        "range": "2023–kini",
+        "note": "Varian AV dengan ASA 3.0 penuh sensor. Pastikan windscreen cover dan ADAS calibration cover sepadan dengan sensor kereta anda."
+      }
+    ],
+    "windscreenPrice": "RM500–RM900; varian H/AV dengan kamera ASA di cermin — gantian perlu calibration, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM60–RM100/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin SUV dengan kamera ASA; gantian + calibration mahal tanpa cover."
+      },
+      {
+        "name": "ADAS calibration cover",
+        "priceBM": "RM100–RM200/tahun",
+        "verdict": "wajib untuk varian H/AV",
+        "whyBM": "ASA 3.0 bergantung pada kamera dan radar — calibration selepas repair depan boleh cecah ratusan ringgit."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM35–RM70/tahun",
+        "verdict": "berbaloi",
+        "whyBM": "Clearance 200mm membantu, tetapi elektronik turbo + sensor tetap sensitif air."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM25–RM45/tahun",
+        "verdict": "berbaloi jika out of warranty",
+        "whyBM": "Enjin turbo luar waranti mahal dibaiki di tepi jalan — towing ke bengkel panel lebih selamat."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Enjin turbo Ativa rosak — boleh claim insurans?",
+        "a": "Tidak. Kegagalan turbo, wear enjin dan kerosakan mekanikal adalah penyelenggaraan — insurans hanya cover accident, kecurian, kebakaran dan bencana berdaftar. Servis ikut jadual dan jaga minyak enjin; itu pelaburan sebenar untuk enjin turbo."
+      },
+      {
+        "q": "Ativa AV ada ASA 3.0 — apa kena tahu masa renew insurans?",
+        "a": "Dua perkara: ambil windscreen cover yang cukup kerana cermin ada kamera ASA, dan tanya tentang ADAS calibration cover — setiap kali cermin ditukar atau bumper depan dibaiki, sensor perlu calibration. Tanpa cover, kos itu keluar poket sendiri."
+      },
+      {
+        "q": "Kenapa premium Ativa mahal sikit dari Myvi?",
+        "a": "Tiga sebab: sum insured lebih tinggi (RM55,000–RM75,000 vs RM38,000–RM58,000), enjin turbo lebih mahal dibaiki, dan sensor ADAS menaikkan kos claim. Bezanya sekitar RM250–RM350/tahun pada NCD 55% — setimpal dengan saiz dan ciri SUV."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Perodua — laman model rasmi",
+        "url": "https://www.perodua.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "proton-saga",
+    "premiumByNCD": {
+      "ncd0": [
+        1300,
+        1800
+      ],
+      "ncd25": [
+        980,
+        1350
+      ],
+      "ncd30": [
+        910,
+        1260
+      ],
+      "ncd38": [
+        800,
+        1110
+      ],
+      "ncd45": [
+        720,
+        990
+      ],
+      "ncd55": [
+        600,
+        850
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        600,
+        850
+      ],
+      "pantaiTimur": [
+        560,
+        800
+      ],
+      "borneo": [
+        580,
+        820
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM28,000–RM42,000. Harga sebenar ikut tahun (VVT awal vs MC2), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim sederhana — kebanyakannya calar parking dan perlanggaran belakang ringan. Parts Saga antara paling murah di Malaysia, jadi banyak kerosakan kecil diselesaikan cash tanpa claim untuk jaga NCD.",
+    "theftRiskDetail": "Risiko kecurian rendah — Saga bukan sasaran pencuri. Immobiliser standard sudah memadai; tidak perlu belanja tracker.",
+    "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM25–RM55/tahun sangat murah untuk Saga — ambil sahaja jika parkir di mana-mana kawasan banjir kilat.",
+    "modelYearNotes": [
+      {
+        "range": "2016–2019 (Saga VVT awal)",
+        "note": "Nilai pasaran sekitar RM20,000–RM28,000 [semak]. Comprehensive masih berbaloi untuk kereta pandu harian; pertimbang TPFT jika kereta jarang jalan."
+      },
+      {
+        "range": "2019–2022 (MC1)",
+        "note": "Facelift dengan ciri keselamatan tambahan. Sum insured ikut harga pasaran semasa; windscreen cover RM50–RM80."
+      },
+      {
+        "range": "2022–kini (MC2)",
+        "note": "Model terkini dengan kualiti jauh lebih baik. Pastikan sum insured ikut harga beli (RM35,000+). Varian Premium ada ciri tambahan — insure ikut varian."
+      }
+    ],
+    "windscreenPrice": "RM300–RM600; cermin standard tanpa sensor — antara paling murah dalam segmen",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM50–RM80/tahun",
+        "verdict": "wajib",
+        "whyBM": "Murah tetapi kerap digunakan — batu highway retakkan cermin Saga sama seperti kereta lain."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM25–RM55/tahun",
+        "verdict": "wajib",
+        "whyBM": "Paling murah dalam segmen — tiada alasan skip jika kawasan anda pernah banjir."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM20–RM40/tahun",
+        "verdict": "skip jika bandar",
+        "whyBM": "Saga bandar jarang tersadai jauh; ambil jika selalu balik kampung jauh."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Saga Standard MT vs Premium — beza premium?",
+        "a": "Kecil — ikut beza sum insured sekitar RM5,000–RM8,000, premium naik lebih kurang RM50–RM150/tahun. Pilih varian ikut keselesaan (Premium ada ciri lebih), bukan risau pasal insurans."
+      },
+      {
+        "q": "Saga lama nilai bawah RM12,000 — comprehensive atau third-party?",
+        "a": "Kira betul-betul: comprehensive Saga lama sekitar RM600–RM850 (NCD 55%) vs third-party sekitar RM300–RM400 [semak]. Jika kereta masih dipandu harian dan anda tiada simpanan repair RM2,000+, comprehensive masih selamat. Tukar ke third-party hanya bila anda sanggup tanggung total loss sendiri."
+      },
+      {
+        "q": "Saga buat Grab di bandar universiti — perlu declare?",
+        "a": "Ya — sama seperti semua model. Polisi persendirian tidak cover e-hailing. Saga popular untuk Grab bajet, jadi declare dan ambil endorsement e-hailing sebelum mula bawa penumpang."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Proton — laman model rasmi",
+        "url": "https://www.proton.com",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "perodua-bezza",
+    "premiumByNCD": {
+      "ncd0": [
+        1300,
+        1900
+      ],
+      "ncd25": [
+        980,
+        1430
+      ],
+      "ncd30": [
+        910,
+        1330
+      ],
+      "ncd38": [
+        800,
+        1170
+      ],
+      "ncd45": [
+        720,
+        1050
+      ],
+      "ncd55": [
+        600,
+        880
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        600,
+        880
+      ],
+      "pantaiTimur": [
+        560,
+        830
+      ],
+      "borneo": [
+        580,
+        840
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM30,000–RM48,000. Harga sebenar ikut varian (1.0 vs 1.3 AV), tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim rendah ke sederhana — pemandu Bezza biasanya berhemah dan parts kongsi platform Axia (murah). Claim paling biasa ialah perlanggaran belakang di bandar dan calar bumper boot yang panjang.",
+    "theftRiskDetail": "Risiko kecurian rendah — Bezza bukan sasaran utama. Immobiliser standard sudah memadai.",
+    "floodRiskNote": "Sedan rendah seperti Axia. Special perils RM25–RM55/tahun adalah wajib jika parkir di kawasan banjir kilat — enjin banjir boleh cecah RM15,000, jauh lebih mahal dari premium tambahannya.",
+    "modelYearNotes": [
+      {
+        "range": "2016–2019 (awal)",
+        "note": "Unit terawal nilai sekitar RM22,000–RM30,000 [semak]. Jika nilai bawah RM15,000 dan jarang jalan jauh, kira third-party vs comprehensive."
+      },
+      {
+        "range": "2020–kini (facelift)",
+        "note": "Facelift dengan ASA pada varian AV. Varian 1.3 AV ada ciri keselamatan tambahan — pastikan sum insured dan windscreen cover sepadan."
+      }
+    ],
+    "windscreenPrice": "RM300–RM600; varian AV dengan ASA — sahkan sama ada cermin ada sensor sebelum pilih cover",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM50–RM80/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin Bezza kerap retak akibat batu; gantian RM300+ tanpa cover."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM25–RM55/tahun",
+        "verdict": "wajib jika di kawasan banjir",
+        "whyBM": "Bezza rendah; kos enjin banjir boleh cecah RM15,000."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM20–RM40/tahun",
+        "verdict": "berbaloi jika buat e-hailing jauh",
+        "whyBM": "Bezza e-hailing yang selalu jalan malam dan jauh elok ada towing; kereta keluarga bandar boleh skip."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Bezza 1.0 vs 1.3 — beza premium besar?",
+        "a": "Tidak besar — beza sum insured sekitar RM4,000–RM6,000, premium naik lebih kurang RM50–RM150/tahun. Pilih 1.3 jika selalu penuh penumpang atau jalan highway; pilih 1.0 jika nak jimat minyak dan roadtax (RM20 vs RM70)."
+      },
+      {
+        "q": "Bezza buat Grab sepenuh masa — insurans macam mana?",
+        "a": "Bezza ialah antara kereta Grab paling popular — declare penggunaan e-hailing dan ambil endorsement. Tanpa declare, claim boleh ditolak. Kos endorsement jauh lebih murah dari satu claim yang ditolak."
+      },
+      {
+        "q": "Bumper belakang Bezza kemek kena sondol — claim atau cash?",
+        "a": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (nilai RM400–RM600/tahun ke atas), bayar cash lebih jimat — sekali claim, NCD reset ke 0% dan premium naik RM600+ tahun depan."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Perodua — laman model rasmi",
+        "url": "https://www.perodua.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "slug": "toyota-vios",
+    "premiumByNCD": {
+      "ncd0": [
+        2000,
+        2800
+      ],
+      "ncd25": [
+        1500,
+        2100
+      ],
+      "ncd30": [
+        1400,
+        1960
+      ],
+      "ncd38": [
+        1230,
+        1730
+      ],
+      "ncd45": [
+        1100,
+        1540
+      ],
+      "ncd55": [
+        900,
+        1400
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        900,
+        1400
+      ],
+      "pantaiTimur": [
+        850,
+        1320
+      ],
+      "borneo": [
+        860,
+        1340
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000. Harga sebenar ikut generasi (NCP150 vs AC100 DNGA baru), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim sederhana — Vios dipandu ramai termasuk pemandu muda dan e-hailing, jadi claim bumper dan cermin biasa. Reliability Toyota bermakna claim mekanikal hampir tiada; purata kos claim terkawal kerana parts mudah didapati.",
+    "theftRiskDetail": "Risiko kecurian sederhana. Sedan Toyota popular — bukan sasaran utama seperti Hilux, tetapi unit banyak. Comprehensive wajib; pertimbangkan immobiliser tambahan jika parkir terbuka setiap malam.",
+    "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM35–RM70/tahun disarankan — Vios banyak parkir di perumahan bandar yang kerap banjir kilat.",
+    "modelYearNotes": [
+      {
+        "range": "2013–2022 (NCP150)",
+        "note": "Generasi ketiga yang paling banyak atas jalan. Unit used RM40,000–RM60,000 [semak] — sum insured ikut harga pasaran semasa, bukan harga beli baru."
+      },
+      {
+        "range": "2023–kini (AC100 / DNGA)",
+        "note": "Generasi baru platform DNGA. Varian G ada Toyota Safety Sense — pastikan sum insured ikut harga beli (RM80,000+) dan ambil kira ADAS calibration cover."
+      }
+    ],
+    "windscreenPrice": "RM500–RM900; varian G 2023+ dengan kamera Toyota Safety Sense — gantian cermin perlu calibration, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM60–RM100/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin Vios kerap retak di highway; varian G dengan sensor perlu calibration tambahan."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM35–RM70/tahun",
+        "verdict": "wajib jika di kawasan banjir",
+        "whyBM": "Sedan rendah; elektronik dan sensor mahal jika masuk air."
+      },
+      {
+        "name": "Breakdown towing",
+        "priceBM": "RM25–RM45/tahun",
+        "verdict": "skip jika kereta baru",
+        "whyBM": "Reliability Toyota + waranti pengeluar bermakna towing jarang diperlukan untuk unit baru; ambil jika selalu outstation jauh."
+      },
+      {
+        "name": "Key replacement",
+        "priceBM": "RM50–RM80/tahun",
+        "verdict": "berbaloi",
+        "whyBM": "Smart key Toyota mahal diganti dan diprogram."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Vios G 2023+ ada Toyota Safety Sense — ada diskaun insurans?",
+        "a": "Sesetengah syarikat memberi diskaun kecil untuk ciri keselamatan aktif — tanya ejen masa minta quotation. Tetapi perkara lebih penting ialah ambil windscreen dan ADAS calibration cover yang cukup, kerana calibration kamera selepas tukar cermin boleh cecah ratusan ringgit."
+      },
+      {
+        "q": "Vios buat teksi/e-hailing — polisi biasa cover?",
+        "a": "Tidak. Vios antara model e-hailing paling biasa — declare penggunaan dan ambil endorsement e-hailing. Tanpa declare, claim boleh ditolak walaupun accident berlaku semasa tidak bawa penumpang."
+      },
+      {
+        "q": "Vios baru AC100 (2023+) vs NCP150 lama — beza sum insured?",
+        "a": "Besar — NCP150 used sekitar RM40,000–RM60,000 [semak] manakala AC100 baru RM80,000+. Insure ikut nilai sebenar kereta anda: over-insure membazir premium, under-insure kena penalti average clause masa claim besar."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Toyota — laman model rasmi",
+        "url": "https://www.toyota.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ]
+  }
+]
