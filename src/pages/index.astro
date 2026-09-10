@@ -25,34 +25,18 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Wajib ke beli insurans kereta di Malaysia?",
+      "name": "Boleh ke renew insurans kereta online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ya, wajib. Minimum kena ada third-party insurance. Tanpa insurans, anda tak boleh renew roadtax. Kalau kena tangkap memandu tanpa insurans, denda sehingga RM1,000 atau penjara 3 bulan."
+        "text": "Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan Kalkulator NCD, lepas tu bandingkan quotation di Bjak.my, PolicyStreet, atau terus di website syarikat macam etiqa.com.my. Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh: cara renew insurans kereta online."
       }
     },
     {
       "@type": "Question",
-      "name": "Berapa harga insurans kereta di Malaysia?",
+      "name": "Apa jadi kalau NCD reset sebab claim?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bergantung pada jenis kereta, NCD, dan jenis coverage. Contoh: Perodua Myvi 1.5 (2020) dengan NCD 55% — anggaran RM700-1,000 setahun untuk comprehensive. Honda City 1.5 — anggaran RM1,000-1,500 setahun."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa beza insurans dan takaful?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Takaful adalah alternatif insurans yang patuh Syariah. Konsep utama: peserta saling bantu-membantu (ta'awun). Lebihan dana dikongsi semula kepada peserta. Insurans konvensional — keuntungan milik syarikat."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Macam mana nak renew insurans kereta online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boleh renew melalui Bjak.my, PolicyStreet, atau terus di website syarikat insurans (cth: etiqa.com.my). Lepas bayar, anda dapat e-cover note. Kemudian renew roadtax di JPJ, MyEG, atau Pos Malaysia."
+        "text": "NCD anda reset ke 0% lepas satu claim. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+. Sebab tu untuk calar kecil bawah RM1,000–RM2,000, ramai pilih bayar sendiri. Jangan agak-agak — kira dulu dengan Kalkulator NCD: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak."
       }
     }
   ]
@@ -60,8 +44,8 @@ const faqSchema = {
 ---
 
 <Base
-  title="Insurans Kereta Malaysia 2026 | Bandingkan Harga & Jimat — Insurans.co"
-  description="Bandingkan harga insurans kereta Malaysia 2026 dari Etiqa, Allianz, Tokio Marine, MSIG dan lebih 10 syarikat. Semak anggaran premium, NCD, dan tips jimat insurans kereta anda."
+  title="Harga Insurans Kereta Malaysia 2026 — Kalkulator & Perbandingan | Insurans.co"
+  description="Ketahui harga insurans kereta di Malaysia untuk 39 model — Axia, Myvi, Saga, Vios. Kalkulator NCD, anggaran premium 12 syarikat, dan cara renew online."
   schema={schema}
   pageType="home"
 >
@@ -72,10 +56,13 @@ const faqSchema = {
         <div>
           <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
           <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5 max-w-4xl">
-            Berapa patut anda bayar untuk insurans kereta?
+            Harga Insurans Kereta Malaysia 2026
           </h1>
+          <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mb-3">
+            Berapa patut anda bayar untuk insurans kereta?
+          </p>
           <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl">
-            Anggaran harga dari {companyCount} syarikat dan {carModelCount} model kereta. Untuk rakyat Malaysia biasa — bukan ejen, bukan broker.
+            Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon, bukan ejen, bukan broker.
           </p>
           <p class="mt-4 text-sm text-stone-500 max-w-2xl">
             Sumber: laman rasmi syarikat, BNM, PIAM, data pasaran semasa, dan rujukan produk insurans motor Malaysia.
@@ -161,14 +148,21 @@ const faqSchema = {
           <span class="text-sm font-semibold text-hijau-700">Kira NCD sekarang →</span>
         </a>
 
-        <a href="/perbandingan/" data-cta="card_compare" class="card-editorial group block">
-          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
-            Pilih antara dua syarikat?
-          </h2>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga, rating dan claim line.
-          </p>
-        </a>
+        <div class="card-editorial">
+          <a href="/perbandingan/" data-cta="card_compare" class="group block">
+            <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
+              Pilih antara dua syarikat?
+            </h2>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga, rating dan claim line.
+            </p>
+          </a>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA — mana medical card lagi power?</a></li>
+            <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich — insurans kereta mana lagi murah?</a></li>
+            <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich — coverage premium, mana berbaloi?</a></li>
+          </ul>
+        </div>
 
         <a href="/takaful/" data-cta="card_takaful" class="card-editorial group block">
           <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
@@ -353,20 +347,18 @@ const faqSchema = {
       <details class="faq-item">
         <summary>Boleh ke renew insurans kereta online?</summary>
         <p>
-          Boleh, dan sebenarnya lagi senang dari pergi pejabat. Platform popular:
-          <strong>Bjak.my</strong> (aggregator — bandingkan banyak syarikat),
-          <strong>PolicyStreet</strong>,
-          atau terus di website syarikat macam <strong>etiqa.com.my</strong>.
-          Bayar online, dapat e-cover note terus. Lepas tu renew roadtax di MyEG atau Pos Malaysia.
+          Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>, lepas tu bandingkan quotation di Bjak.my, PolicyStreet, atau terus di website syarikat macam etiqa.com.my.
+          Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
+          <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.
         </p>
       </details>
 
       <details class="faq-item">
         <summary>Apa jadi kalau NCD reset sebab claim?</summary>
         <p>
-          NCD anda akan reset ke <strong>0%</strong> selepas buat claim. Bermakna premium tahun depan naik
-          mendadak. Sebab tu ramai orang pilih bayar sendiri untuk kerosakan kecil (bawah RM1,000-2,000)
-          daripada claim dan hilang NCD 55%. Kena buat kira-kira — berbaloi ke claim tu?
+          NCD anda reset ke <strong>0%</strong> lepas satu claim. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+.
+          Sebab tu untuk calar kecil bawah RM1,000–RM2,000, ramai pilih bayar sendiri. Jangan agak-agak — kira dulu dengan
+          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak.
         </p>
       </details>
 
