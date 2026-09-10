@@ -13,6 +13,7 @@ interface Props {
   noindex?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
+  pageType?: string;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   noindex = false,
   publishedTime,
   modifiedTime,
+  pageType = 'page',
 } = Astro.props;
 
 const siteName = 'Insurans.co';
@@ -128,7 +130,7 @@ const navLinks = [
   </script>
   <!-- End Google Tag Manager -->
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" data-page-type={pageType}>
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3LMP78G"
@@ -237,6 +239,10 @@ const navLinks = [
   </footer>
 
   <script>
+    import { initGlobalTracking } from '../lib/track';
+
+    initGlobalTracking();
+
     const mobileMenuButton = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
