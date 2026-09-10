@@ -3942,7 +3942,123 @@
     ],
     "roadtaxMin": 90,
     "roadtaxMax": 200,
-    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun"
+    "roadtaxNote": "1.5L–2.0L — Roadtax RM90–RM200/tahun",
+    "premiumByNCD": {
+      "ncd0": [
+        3600,
+        5200
+      ],
+      "ncd25": [
+        2700,
+        3900
+      ],
+      "ncd30": [
+        2520,
+        3640
+      ],
+      "ncd38": [
+        2220,
+        3210
+      ],
+      "ncd45": [
+        1980,
+        2860
+      ],
+      "ncd55": [
+        1700,
+        2500
+      ]
+    },
+    "premiumByRegion": {
+      "lembahKlang": [
+        1700,
+        2500
+      ],
+      "pantaiTimur": [
+        1600,
+        2350
+      ],
+      "borneo": [
+        1630,
+        2400
+      ]
+    },
+    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM145,000 (1.5 Sedan hingga 2.0 Hatchback). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
+    "premiumReviewed": "2026-09-10",
+    "claimFrequencyNote": "Claim Mazda 3 jarang tetapi mahal — body panel complex dan parts import dari Jepun. Claim cermin dan bumper biasa; sekali accident, kos lampu LED dan panel Kodo design menaikkan bil dengan cepat.",
+    "theftRiskDetail": "Risiko kecurian rendah ke sederhana — bukan sasaran utama pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS berbaloi jika parkir di kawasan terbuka.",
+    "floodRiskNote": "Ground clearance sedan yang rendah dengan komponen elektrik mahal. Special perils RM50–RM90/tahun disarankan — parts import mahal jika masuk air.",
+    "modelYearNotes": [
+      {
+        "range": "2014–2018 (Gen 3)",
+        "note": "{\"range\":\"2014–2019 (Gen 3 / BM)\",\"note\":\"Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru.\"}"
+      },
+      {
+        "range": "2019–kini (Gen 4, 1.5/2.0 + i-Activsense)",
+        "note": "{\"range\":\"2019–kini (Gen 4 / BP, 1.5/2.0 + i-Activsense)\",\"note\":\"2019–kini (Gen 4 / BP, 1.5/2.0) — i-Activsense standard pada varian High Plus (2.0 High Plus 2019–2024; 1.5 High Plus dilancarkan semula Nov 2025). Cermin perlu calibration. Cat Soul Red mahal dibaiki — cat calar kecil pun boleh kos tinggi.\"}"
+      }
+    ],
+    "windscreenPrice": "RM700–RM1,400; Gen 4 varian High Plus ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
+    "addOnsDetail": [
+      {
+        "name": "Windscreen cover",
+        "priceBM": "RM90–RM150/tahun",
+        "verdict": "wajib",
+        "whyBM": "Cermin premium besar; tanpa cover gantian RM700+."
+      },
+      {
+        "name": "ADAS calibration cover",
+        "priceBM": "RM130–RM250/tahun",
+        "verdict": "wajib untuk Gen 4",
+        "whyBM": "i-Activsense standard — calibration boleh cecah ratusan ringgit."
+      },
+      {
+        "name": "Special perils (banjir)",
+        "priceBM": "RM50–RM90/tahun",
+        "verdict": "wajib",
+        "whyBM": "Parts elektrik import mahal jika masuk air."
+      },
+      {
+        "name": "Key replacement",
+        "priceBM": "RM60–RM100/tahun",
+        "verdict": "berbaloi",
+        "whyBM": "Smart key Mazda mahal diganti dengan programming."
+      }
+    ],
+    "modelFAQs": [
+      {
+        "q": "Mazda 3 1.5 vs 2.0 vs Hatchback — beza premium?",
+        "a": "{\"q\":\"Mazda 3 1.5 vs 2.0 vs Hatchback — beza premium?\",\"a\":\"Ketara — 2.0 sum insured lebih tinggi dari 1.5, jadi premium beza ikut quotation syarikat. Hatchback 2.0 paling mahal. Pilih ikut kuasa yang anda mahu.\"}"
+      },
+      {
+        "q": "Cat Soul Red Mazda mahal dibaiki — insurans cover?",
+        "a": "Ya, jika calar atau kemek akibat accident yang dilindungi — termasuk kos cat semula panel. Tetapi touch-up calar kecil lebih jimat bayar cash daripada claim dan hilang NCD, kerana cat premium Mazda memang mahal."
+      },
+      {
+        "q": "Parts Mazda lambat sampai — kereta tersadai lama, siapa tanggung?",
+        "a": "Polisi standard tidak bayar kereta sewa semasa menunggu parts — kecuali anda ambil loss-of-use / rent car cover. Untuk Mazda yang parts-nya import, add-on ini berbaloi jika kereta harian utama."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PIAM — panduan insurans motor",
+        "url": "https://www.piam.org.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "BNM — liberalisasi tarif motor 2017",
+        "url": "https://www.bnm.gov.my",
+        "retrieved": "2026-09-10"
+      },
+      {
+        "label": "Mazda — laman model rasmi",
+        "url": "https://www.mazda.com.my",
+        "retrieved": "2026-09-10"
+      }
+    ],
+    "factChecked": "2026-09-10",
+    "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
+    "enriched": true
   },
   {
     "slug": "mazda-cx5",
