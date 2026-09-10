@@ -72,12 +72,10 @@ async function main() {
         throw new Error(`Missing ${field} for enriched slug: ${record.slug}`);
       }
 
+      // docs/content/enriched-models.json is the source of truth for enrichment fields:
+      // update them when the draft changes (fact-check corrections), never touch other keys.
       const value = stripSemakMarkers(record[field]);
-      if (Object.hasOwn(model, field)) {
-        if (!sameValue(model[field], value)) {
-          throw new Error(`Refusing to overwrite ${field} for car model: ${record.slug}`);
-        }
-      } else {
+      if (!Object.hasOwn(model, field) || !sameValue(model[field], value)) {
         model[field] = value;
       }
     }
