@@ -33,6 +33,9 @@ const pickerModels = carModels.map((car) => ({
   sources: (car.sources ?? [])
     .filter((source) => source.label && source.url && !/^https?:\/\/[^/]+\/?$/.test(source.url))
     .map((source) => ({ label: source.label, url: source.url })),
+  refs: (car.sources ?? [])
+    .filter((source) => source.label && source.url && /^https?:\/\/[^/]+\/?$/.test(source.url))
+    .map((source) => ({ label: source.label, url: source.url })),
 }));
 ---
 
@@ -42,7 +45,8 @@ const pickerModels = carModels.map((car) => ({
     id="model-picker"
     name="model"
     hidden
-    class="mt-2 h-12 w-full border-2 border-stone-900 bg-white px-3 text-base font-semibold text-stone-900 focus-visible:outline-none"
+    autocomplete="off"
+    class="mt-2 h-12 w-full border-2 border-stone-900 bg-white px-3 text-base font-semibold text-stone-900"
   >
     {groupedModels.map((group) => (
       <optgroup label={group.brand}>
@@ -81,6 +85,7 @@ const pickerModels = carModels.map((car) => ({
     premium55: { min: number; max: number };
     premiumReviewed?: string;
     sources: PickerSource[];
+    refs: PickerSource[];
   }
 
   const select = document.querySelector<HTMLSelectElement>('#model-picker');
@@ -106,6 +111,7 @@ const pickerModels = carModels.map((car) => ({
     const calculatorLink = card.querySelector<HTMLAnchorElement>('[data-calculator-link]');
     const reviewedLine = stamp.querySelector<HTMLElement>('[data-editorial-price-reviewed]');
     const sourceLinks = stamp.querySelector<HTMLElement>('[data-editorial-source-links]');
+    const generalRefs = stamp.querySelector<HTMLElement>('[data-editorial-general-refs]');
 
     const formatRange = (range: { min: number; max: number }): string => `${rm(range.min)} – ${rm(range.max)}`;
     const formatDate = (value?: string): string => {
@@ -122,26 +128,31 @@ const pickerModels = carModels.map((car) => ({
       }).format(date);
     };
 
-    const updateSources = (sources: PickerSource[]): void => {
-      if (!sourceLinks) return;
-      sourceLinks.replaceChildren();
-
+    const renderLinks = (container: HTMLElement, sources: PickerSource[], prefix: string, empty: string): void => {
+      container.replaceChildren();
+      if (prefix) container.append(document.createTextNode(prefix));
       if (sources.length === 0) {
-        sourceLinks.textContent = 'belum direkodkan';
+        container.append(document.createTextNode(empty));
         return;
       }
-
       sources.forEach((source, index) => {
         const item = document.createElement('span');
         if (index > 0) item.append(document.createTextNode(' · '));
-
         const link = document.createElement('a');
         link.href = source.url;
         link.className = 'inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600';
         link.textContent = source.label;
         item.append(link);
-        sourceLinks.append(item);
+        container.append(item);
       });
+    };
+
+    const updateSources = (sources: PickerSource[], refs: PickerSource[]): void => {
+      if (sourceLinks) renderLinks(sourceLinks, sources, '', 'belum direkodkan');
+      if (generalRefs) {
+        generalRefs.hidden = refs.length === 0;
+        renderLinks(generalRefs, refs, 'Rujukan umum: ', '');
+      }
     };
 
     const update = (model: PickerModel): void => {
@@ -161,13 +172,17 @@ const pickerModels = carModels.map((car) => ({
       card.dataset.referenceMax = String(model.premium55.max);
 
       if (reviewedLine) reviewedLine.textContent = `Anggaran premium dikira: ${formatDate(model.premiumReviewed)} · Semakan harga oleh editor: belum direkodkan`;
-      updateSources(model.sources);
+      updateSources(model.sources, model.refs ?? []);
     };
 
     select.addEventListener('change', () => {
       const model = modelsBySlug.get(select.value);
       if (model) update(model);
     });
+
+    // Re-sync if the browser restored a previous selection (back navigation / reload).
+    const restored = modelsBySlug.get(select.value);
+    if (restored && select.value !== card.dataset.modelSlug) update(restored);
 
     select.hidden = false;
   }
