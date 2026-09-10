@@ -63,6 +63,7 @@ const faqSchema = {
   title="Insurans Kereta Malaysia 2026 | Bandingkan Harga & Jimat — Insurans.co"
   description="Bandingkan harga insurans kereta Malaysia 2026 dari Etiqa, Allianz, Tokio Marine, MSIG dan lebih 10 syarikat. Semak anggaran premium, NCD, dan tips jimat insurans kereta anda."
   schema={schema}
+  pageType="home"
 >
   <!-- Utility Masthead -->
   <section class="border-b-2 border-stone-900 bg-krim-50">
@@ -80,8 +81,8 @@ const faqSchema = {
             Sumber: laman rasmi syarikat, BNM, PIAM, data pasaran semasa, dan rujukan produk insurans motor Malaysia.
           </p>
           <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="/car-insurance/" class="btn-hijau justify-center">Semak harga ikut model →</a>
-            <a href="/tools/ncd-calculator/" class="btn-outline justify-center">Kira NCD anda</a>
+            <a href="/car-insurance/" data-cta="hero_primary" class="btn-hijau justify-center">Semak harga ikut model →</a>
+            <a href="/tools/ncd-calculator/" data-cta="hero_secondary" class="btn-outline justify-center">Kira NCD anda</a>
           </div>
         </div>
 
@@ -128,7 +129,7 @@ const faqSchema = {
   <!-- Main Actions -->
   <section class="container-wide py-10 sm:py-12">
     <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-6 sm:gap-8">
-      <a href="/car-insurance/" class="card-editorial group block border-2 border-stone-900">
+      <a href="/car-insurance/" data-cta="card_car" class="card-editorial group block border-2 border-stone-900">
         <h2 class="font-serif text-headline-md text-stone-900 mb-3 group-hover:text-hijau-700 transition-colors">
           Harga insurans kereta popular 2026
         </h2>
@@ -150,7 +151,7 @@ const faqSchema = {
       </a>
 
       <div class="space-y-6">
-        <a href="/tools/ncd-calculator/" class="card-editorial group block border-2 border-hijau-700 bg-hijau-50 hover:bg-hijau-100 transition-colors">
+        <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="card-editorial group block border-2 border-hijau-700 bg-hijau-50 hover:bg-hijau-100 transition-colors">
           <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
             Kalkulator NCD — kira berapa anda jimat
           </h2>
@@ -160,7 +161,7 @@ const faqSchema = {
           <span class="text-sm font-semibold text-hijau-700">Kira NCD sekarang →</span>
         </a>
 
-        <a href="/perbandingan/" class="card-editorial group block">
+        <a href="/perbandingan/" data-cta="card_compare" class="card-editorial group block">
           <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
             Pilih antara dua syarikat?
           </h2>
@@ -169,7 +170,7 @@ const faqSchema = {
           </p>
         </a>
 
-        <a href="/takaful/" class="card-editorial group block">
+        <a href="/takaful/" data-cta="card_takaful" class="card-editorial group block">
           <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
             Takaful atau insurans konvensional?
           </h2>
@@ -184,7 +185,7 @@ const faqSchema = {
   <div class="divider-bold container-wide"></div>
 
   <!-- Cara Renew — Practical Section -->
-  <section class="bg-hijau-50 border-y border-hijau-200 py-10 sm:py-12">
+  <section data-section="renew" class="bg-hijau-50 border-y border-hijau-200 py-10 sm:py-12">
     <div class="container-wide">
       <div class="grid lg:grid-cols-[1fr_320px] gap-8">
         <div>

@@ -31,6 +31,7 @@ const schema = {
   title="Kalkulator NCD Insurans Kereta — Kira Diskaun & Jimat Premium"
   description="Kira NCD insurans kereta anda dalam beberapa saat. Masukkan premium anda, pilih NCD, dan tengok berapa anda boleh jimat. Termasuk kalkulator 'patut ke claim?'"
   schema={schema}
+  pageType="tool"
 >
   <!-- Header -->
   <section class="bg-white border-b border-stone-200">
@@ -425,6 +426,7 @@ const schema = {
 </style>
 
 <script>
+  import { track } from '../../../lib/track';
   // ── NCD Calculator ──
   const NCD_RATES = [
     { label: '0%',     value: 0,     years: 'Baru / selepas claim' },
@@ -471,6 +473,12 @@ const schema = {
           <span>${fmt(Math.round(p))} ${s > 0 ? '<span class="text-xs text-stone-400">(jimat ' + fmt(Math.round(s)) + ')</span>' : ''}</span>
         </div>`;
     });
+    track('ncd_calculate', {
+      base_premium: base,
+      ncd_pct: selectedNCD,
+      premium_after: afterNCD,
+      saving,
+    });
   }
 
   // NCD button selection
@@ -483,7 +491,12 @@ const schema = {
     });
   });
 
-  document.getElementById('base-premium')?.addEventListener('input', updateNCDResult);
+  let ncdInputDebounce: number | undefined;
+
+  document.getElementById('base-premium')?.addEventListener('input', () => {
+    window.clearTimeout(ncdInputDebounce);
+    ncdInputDebounce = window.setTimeout(updateNCDResult, 500);
+  });
 
   // ── Should I Claim? Calculator ──
   document.getElementById('claim-calc-btn')?.addEventListener('click', () => {
@@ -515,6 +528,12 @@ const schema = {
 
     // Verdict
     const shouldClaim = netPayout > premiumExtraPerYear * 2; // worth it if savings > 2 years of extra premium
+    track('ncd_claim_check', {
+      repair_cost: repairCost,
+      excess,
+      ncd_pct: ncdPct,
+      should_claim: shouldClaim,
+    });
 
     const verdictColor = shouldClaim ? 'hijau' : 'stone';
     const verdictBg = shouldClaim ? 'bg-hijau-50 border-hijau-300' : 'bg-amber-50 border-amber-300';
