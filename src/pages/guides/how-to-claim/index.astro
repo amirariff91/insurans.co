@@ -3,12 +3,24 @@ import Base from '../../../layouts/Base.astro';
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cara Buat Claim Insurans Kereta di Malaysia",
-  "datePublished": "2026-01-25",
-  "dateModified": "2026-02-01",
-  "inLanguage": "ms",
-  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Cara Buat Claim Insurans Kereta di Malaysia",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Cara Buat Claim Insurans Kereta di Malaysia", "item": "https://insurans.co/guides/how-to-claim/" }
+      ]
+    }
+  ]
 };
 ---
 
@@ -16,6 +28,9 @@ const schema = {
   title="Cara Buat Claim Insurans Kereta Malaysia — Panduan Step by Step"
   description="Panduan lengkap cara buat claim insurans kereta di Malaysia. Apa nak buat lepas accident, dokumen apa perlu, berapa lama proses claim."
   schema={schema}
+  ogType="article"
+  publishedTime="2026-01-25"
+  modifiedTime="2026-02-01"
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">

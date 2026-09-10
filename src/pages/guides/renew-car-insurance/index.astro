@@ -3,12 +3,24 @@ import Base from '../../../layouts/Base.astro';
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cara Renew Insurans Kereta Online di Malaysia",
-  "datePublished": "2026-01-22",
-  "dateModified": "2026-02-01",
-  "inLanguage": "ms",
-  "publisher": { "@type": "Organization", "name": "Insurans.co" }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Cara Renew Insurans Kereta Online di Malaysia",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-01",
+      "inLanguage": "ms",
+      "publisher": { "@type": "Organization", "name": "Insurans.co" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Cara Renew Insurans Kereta Online di Malaysia", "item": "https://insurans.co/guides/renew-car-insurance/" }
+      ]
+    }
+  ]
 };
 ---
 
@@ -16,6 +28,9 @@ const schema = {
   title="Cara Renew Insurans Kereta Online Malaysia 2026"
   description="Panduan step-by-step renew insurans kereta online Malaysia. Guna Bjak, PolicyStreet, atau direct. Bayar FPX, dapat cover note terus."
   schema={schema}
+  ogType="article"
+  publishedTime="2026-01-22"
+  modifiedTime="2026-02-01"
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
