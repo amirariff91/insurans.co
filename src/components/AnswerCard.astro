@@ -30,8 +30,8 @@ const {
   compact = false,
   calculatorUrl = compact ? `/car-insurance/${slug}/` : `/tools/ncd-calculator/?model=${slug}&ncd=${selectedTier}`,
   quotationLinks = [
-    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'unknown' },
-    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'unknown' },
+    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'unpaid' },
+    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'unpaid' },
   ],
 } = Astro.props;
 
@@ -116,7 +116,7 @@ const initialLabel = compact ? `Contoh · ${model} · NCD 55%` : initialTier ===
           );
         })}
       </div>
-      <p class="mt-3 text-sm leading-5 text-stone-600">Quotation/pembelian dibuat di laman mereka, bukan di sini.</p>
+      <p class="mt-3 text-sm leading-5 text-stone-600">Tiada hubungan berbayar atau affiliate. Quotation/pembelian dibuat di laman mereka, bukan di sini.</p>
     </div>
   )}
 
