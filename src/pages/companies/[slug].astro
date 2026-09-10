@@ -190,10 +190,12 @@ const schema = {
               <a href={`tel:${company.claimLine.replace(/\s+/g, '')}`} class="font-semibold text-hijau-700 underline hover:text-hijau-600">
                 {company.claimLine}
               </a>
-              <p class="text-stone-600 mt-1">{company.claimLineNote}</p>
+              {company.claimLineNote && <p class="text-stone-600 mt-1">{company.claimLineNote}</p>}
+              {company.claimLineVerified && company.claimLineSource && (
               <p class="text-stone-500 mt-2">
                 Disahkan {company.claimLineVerified} · <a href={company.claimLineSource} target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">sumber rasmi</a>
               </p>
+              )}
             </div>
           )}
           {company.digitalPlatform && (
