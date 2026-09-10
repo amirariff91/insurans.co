@@ -1,11 +1,13 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import carModels from '../../../data/car-models.json';
+import { NCD_TIERS } from '../../../lib/ncd';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Kalkulator NCD Insurans Kereta Malaysia",
-  "description": "Kira NCD insurans kereta anda secara percuma. Semak berapa anda jimat dengan NCD 25%, 30%, 38%, 45% atau 55%. Termasuk kalkulator 'patut ke claim?'",
+  "description": "Kira NCD insurans kereta anda secara percuma. Semak berapa anda jimat dengan NCD 25%, 30%, 38.33%, 45% atau 55%. Termasuk kalkulator 'patut ke claim?'",
   "url": "https://insurans.co/tools/ncd-calculator/",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "All",
@@ -25,6 +27,17 @@ const schema = {
     ]
   }
 };
+
+const modelReferences = Object.fromEntries(
+  carModels.map((car) => [
+    car.slug,
+    {
+      fullName: car.fullName,
+      premiumNCD0Min: car.premiumNCD0Min,
+      premiumNCD0Max: car.premiumNCD0Max,
+    },
+  ]),
+);
 ---
 
 <Base
@@ -89,12 +102,13 @@ const schema = {
             <div>
               <label class="block text-sm font-semibold text-stone-700 mb-2">NCD Semasa Anda</label>
               <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="ncd-selector">
-                {[0, 25, 30, 38.33, 45, 55].map((ncd) => (
+                {NCD_TIERS.map((tier) => (
                   <button
-                    data-ncd={ncd}
+                    type="button"
+                    data-ncd={tier.value}
                     class="ncd-btn py-3 px-1 border-2 border-stone-200 text-center text-sm font-bold text-stone-500 hover:border-hijau-500 hover:text-hijau-700 transition-colors"
                   >
-                    {ncd}%
+                    {tier.label}
                   </button>
                 ))}
               </div>
@@ -118,7 +132,15 @@ const schema = {
             </div>
             <div id="result-breakdown" class="border-t border-hijau-200 pt-4 space-y-2"></div>
           </div>
+          <p id="model-reference" hidden class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
+            <span class="font-semibold text-stone-900">Julat rujukan</span>
+            <span id="model-reference-name"></span>:
+            <span id="model-reference-range" class="numeric"></span> (NCD 0%)
+          </p>
+          <p id="handoff-note" hidden class="mt-3 border border-emas-800 bg-emas-50 p-3 text-sm leading-5 text-stone-800"></p>
         </div>
+        <script id="model-reference-data" type="application/json" set:html={JSON.stringify(modelReferences)}></script>
+
 
         <!-- ── CALCULATOR 2: Should I Claim? ── -->
         <div class="bg-white border-2 border-stone-200 p-6 sm:p-8">
@@ -153,13 +175,9 @@ const schema = {
                 id="current-ncd-pct"
                 class="w-full px-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-base transition-colors bg-white"
               >
-                <option value="">— Pilih NCD —</option>
-                <option value="55">55% (5+ tahun tanpa claim)</option>
-                <option value="45">45% (4 tahun tanpa claim)</option>
-                <option value="38.33">38.33% (3 tahun tanpa claim)</option>
-                <option value="30">30% (2 tahun tanpa claim)</option>
-                <option value="25">25% (1 tahun tanpa claim)</option>
-                <option value="0">0% (baru atau selepas claim)</option>
+                {[...NCD_TIERS].reverse().map((tier) => (
+                  <option value={tier.value}>{tier.label} ({tier.years})</option>
+                ))}
               </select>
             </div>
 
@@ -426,51 +444,38 @@ const schema = {
 </style>
 
 <script>
+  import { basePremiumFromCurrent, isNcdTier, NCD_TIERS, rm, simulate } from '../../../lib/ncd';
   import { track } from '../../../lib/track';
-  // ── NCD Calculator ──
-  const NCD_RATES = [
-    { label: '0%',     value: 0,     years: 'Baru / selepas claim' },
-    { label: '25%',    value: 25,    years: '1 tahun tanpa claim' },
-    { label: '30%',    value: 30,    years: '2 tahun tanpa claim' },
-    { label: '38.33%', value: 38.33, years: '3 tahun tanpa claim' },
-    { label: '45%',    value: 45,    years: '4 tahun tanpa claim' },
-    { label: '55%',    value: 55,    years: '5+ tahun tanpa claim' },
-  ];
 
   let selectedNCD: number | null = null;
 
-  function fmt(n: number): string {
-    return 'RM' + n.toLocaleString('ms-MY', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-  }
-
-  function calcPremium(base: number, ncd: number): number {
-    return base * (1 - ncd / 100);
-  }
-
-  function updateNCDResult() {
-    const baseInput = document.getElementById('base-premium') as HTMLInputElement;
-    const base = parseFloat(baseInput.value);
+  function updateNCDResult(): void {
+    const baseInput = document.getElementById('base-premium') as HTMLInputElement | null;
+    const base = baseInput ? parseFloat(baseInput.value) : Number.NaN;
     if (!base || base < 100 || selectedNCD === null) return;
 
-    const afterNCD = calcPremium(base, selectedNCD);
+    const afterNCD = simulate(base, base, selectedNCD).min;
     const saving = base - afterNCD;
 
-    const resultEl = document.getElementById('ncd-result')!;
-    resultEl.classList.remove('hidden');
-    document.getElementById('result-premium')!.textContent = fmt(Math.round(afterNCD));
-    document.getElementById('result-saving')!.textContent = fmt(Math.round(saving));
+    const resultEl = document.getElementById('ncd-result');
+    const resultPremiumEl = document.getElementById('result-premium');
+    const resultSavingEl = document.getElementById('result-saving');
+    const breakdownEl = document.getElementById('result-breakdown');
+    if (!resultEl || !resultPremiumEl || !resultSavingEl || !breakdownEl) return;
 
-    // Breakdown for all NCD levels
-    const breakdownEl = document.getElementById('result-breakdown')!;
+    resultEl.classList.remove('hidden');
+    resultPremiumEl.textContent = rm(afterNCD);
+    resultSavingEl.textContent = rm(saving);
+
     breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-500 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
-    NCD_RATES.forEach(rate => {
-      const p = calcPremium(base, rate.value);
-      const s = base - p;
+    NCD_TIERS.forEach((rate) => {
+      const premium = simulate(base, base, rate.value).min;
+      const tierSaving = base - premium;
       const isActive = rate.value === selectedNCD;
       breakdownEl.innerHTML += `
         <div class="flex justify-between items-center py-1.5 ${isActive ? 'font-bold text-hijau-700' : 'text-stone-600'} text-sm border-b border-hijau-100 last:border-0">
           <span>${rate.label} NCD <span class="text-xs font-normal text-stone-400">(${rate.years})</span></span>
-          <span>${fmt(Math.round(p))} ${s > 0 ? '<span class="text-xs text-stone-400">(jimat ' + fmt(Math.round(s)) + ')</span>' : ''}</span>
+          <span>${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-400">(jimat ' + rm(tierSaving) + ')</span>' : ''}</span>
         </div>`;
     });
     track('ncd_calculate', {
@@ -481,12 +486,18 @@ const schema = {
     });
   }
 
-  // NCD button selection
-  document.querySelectorAll('.ncd-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.ncd-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedNCD = parseFloat((btn as HTMLElement).dataset.ncd ?? '0');
+  function selectNCD(value: number): void {
+    document.querySelectorAll<HTMLElement>('.ncd-btn').forEach((button) => {
+      button.classList.toggle('active', Number(button.dataset.ncd) === value);
+    });
+    selectedNCD = value;
+  }
+
+  document.querySelectorAll<HTMLElement>('.ncd-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const value = Number(button.dataset.ncd);
+      if (!isNcdTier(value)) return;
+      selectNCD(value);
       updateNCDResult();
     });
   });
@@ -497,6 +508,41 @@ const schema = {
     window.clearTimeout(ncdInputDebounce);
     ncdInputDebounce = window.setTimeout(updateNCDResult, 500);
   });
+
+  const modelReferenceData = document.getElementById('model-reference-data');
+  const modelReferences = modelReferenceData
+    ? JSON.parse(modelReferenceData.textContent || '{}') as Record<string, { fullName: string; premiumNCD0Min: number; premiumNCD0Max: number }>
+    : {};
+  const params = new URLSearchParams(window.location.search);
+  const invalidParams: string[] = [];
+  const modelParam = params.get('model');
+  const modelReference = modelParam ? modelReferences[modelParam] : undefined;
+  if (params.has('model') && !modelReference) invalidParams.push('model');
+
+  if (params.has('ncd')) {
+    const ncdParam = params.get('ncd');
+    const parsedTier = ncdParam && ncdParam.trim() !== '' ? Number(ncdParam) : Number.NaN;
+    if (isNcdTier(parsedTier)) {
+      selectNCD(parsedTier);
+    } else {
+      invalidParams.push('NCD');
+    }
+  }
+
+  const referenceEl = document.getElementById('model-reference');
+  const referenceNameEl = document.getElementById('model-reference-name');
+  const referenceRangeEl = document.getElementById('model-reference-range');
+  if (modelReference && referenceEl && referenceNameEl && referenceRangeEl) {
+    referenceNameEl.textContent = modelReference.fullName;
+    referenceRangeEl.textContent = `${rm(modelReference.premiumNCD0Min)} – ${rm(modelReference.premiumNCD0Max)}`;
+    referenceEl.hidden = false;
+  }
+
+  const handoffNote = document.getElementById('handoff-note');
+  if (invalidParams.length > 0 && handoffNote) {
+    handoffNote.textContent = `Parameter ${invalidParams.join(' dan ')} tidak sah dan diabaikan.`;
+    handoffNote.hidden = false;
+  }
 
   // ── Should I Claim? Calculator ──
   document.getElementById('claim-calc-btn')?.addEventListener('click', () => {
@@ -514,7 +560,7 @@ const schema = {
     }
 
     // Base premium (before NCD)
-    const basePremium = currentPremium / (1 - ncdPct / 100);
+    const basePremium = basePremiumFromCurrent(currentPremium, ncdPct);
 
     // After claim: NCD resets to 0%
     const premiumAfterClaim = basePremium; // 0% NCD = full base
@@ -540,8 +586,8 @@ const schema = {
     const verdictText = shouldClaim ? 'text-hijau-800' : 'text-amber-800';
     const verdictTitle = shouldClaim ? '✓ Patut Claim' : '⚠ Elak Claim — Bayar Sendiri Lebih Jimat';
     const verdictDesc = shouldClaim
-      ? `Net payout claim anda (${fmt(Math.round(netPayout))}) melebihi premium tambahan yang anda kena bayar. Worth it untuk claim.`
-      : `Kalau claim, NCD anda reset ke 0% — premium naik ${fmt(Math.round(premiumExtraPerYear))} setahun. Bayar sendiri ${fmt(Math.round(repairCost))} lebih jimat dalam jangka panjang.`;
+      ? `Net payout claim anda (${rm(Math.round(netPayout))}) melebihi premium tambahan yang anda kena bayar. Worth it untuk claim.`
+      : `Kalau claim, NCD anda reset ke 0% — premium naik ${rm(Math.round(premiumExtraPerYear))} setahun. Bayar sendiri ${rm(Math.round(repairCost))} lebih jimat dalam jangka panjang.`;
 
     resultEl.classList.remove('hidden');
     resultEl.innerHTML = `
@@ -551,24 +597,24 @@ const schema = {
         <div class="space-y-2 text-sm border-t ${shouldClaim ? 'border-hijau-200' : 'border-amber-200'} pt-4">
           <div class="flex justify-between">
             <span class="text-stone-600">Kos repair</span>
-            <strong>${fmt(Math.round(repairCost))}</strong>
+            <strong>${rm(Math.round(repairCost))}</strong>
           </div>
           <div class="flex justify-between">
             <span class="text-stone-600">Tolak excess polisi</span>
-            <strong class="text-red-600">− ${fmt(Math.round(excess))}</strong>
+            <strong class="text-red-600">− ${rm(Math.round(excess))}</strong>
           </div>
           <div class="flex justify-between border-t border-stone-200 pt-2">
             <span class="text-stone-600">Net payout dari insurans</span>
-            <strong>${fmt(Math.round(netPayout))}</strong>
+            <strong>${rm(Math.round(netPayout))}</strong>
           </div>
           <div class="flex justify-between">
             <span class="text-stone-600">Premium tambahan setahun (NCD reset)</span>
-            <strong class="text-red-600">+ ${fmt(Math.round(premiumExtraPerYear))}</strong>
+            <strong class="text-red-600">+ ${rm(Math.round(premiumExtraPerYear))}</strong>
           </div>
           ${!shouldClaim ? `
           <div class="flex justify-between border-t border-stone-200 pt-2">
             <span class="text-stone-600 font-semibold">Kerugian bersih kalau claim</span>
-            <strong class="text-red-700">${fmt(Math.round(premiumExtraPerYear - netPayout))} (tahun pertama)</strong>
+            <strong class="text-red-700">${rm(Math.round(premiumExtraPerYear - netPayout))} (tahun pertama)</strong>
           </div>` : ''}
         </div>
       </div>

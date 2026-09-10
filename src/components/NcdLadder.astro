@@ -1,0 +1,89 @@
+---
+import { NCD_TIERS, type NcdTier } from '../lib/ncd';
+
+interface Props {
+  mode: 'selector' | 'diagram';
+  id?: string;
+  name?: string;
+  selectedTier?: NcdTier;
+  initiallyHidden?: boolean;
+}
+
+const {
+  mode,
+  id = mode === 'selector' ? 'ncd-selector' : 'ncd-ladder',
+  name = 'ncd-tier',
+  selectedTier = 55,
+  initiallyHidden = false,
+} = Astro.props;
+---
+
+{mode === 'selector' ? (
+  <fieldset id={id} data-ncd-selector hidden={initiallyHidden} class="mt-6">
+    <legend class="mb-3 text-base font-semibold text-stone-900">Pilih NCD — contoh bermula 55%</legend>
+    <div class="grid grid-cols-3 gap-2 sm:grid-cols-6">
+      {NCD_TIERS.map((tier) => {
+        const isSelected = tier.value === selectedTier;
+        return (
+          <div class="contents">
+            <label
+              data-ncd-option
+              class={`flex min-h-12 cursor-pointer items-center justify-center gap-1 border-2 px-2 py-2 text-center text-sm font-semibold ${
+                isSelected
+                  ? 'border-hijau-700 bg-hijau-50 text-hijau-800'
+                  : 'border-stone-600 bg-white text-stone-900 hover:border-hijau-700 hover:text-hijau-700'
+              }`}
+              for={`${id}-${tier.value}`}
+            >
+              <input
+                id={`${id}-${tier.value}`}
+                name={name}
+                type="radio"
+                value={tier.value}
+                data-ncd-tier={tier.value}
+                checked={isSelected}
+                class="h-4 w-4 shrink-0 accent-hijau-700"
+              />
+              <span>{tier.label}</span>
+              <span data-ncd-marker class="text-xs font-bold">{isSelected ? 'Dipilih' : ''}</span>
+            </label>
+          </div>
+        );
+      })}
+    </div>
+    <p class="mt-3 text-sm text-stone-600">NCD ialah diskaun tanpa tuntutan pada premium asas.</p>
+  </fieldset>
+) : (
+  <div id={id} class="mt-6" data-ncd-diagram>
+    <div class="mb-2 grid grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)_auto] gap-3 px-3 text-xs font-bold uppercase tracking-wide text-stone-600">
+      <span>Tahun tanpa tuntutan</span>
+      <span>NCD</span>
+      <span>Baki asas</span>
+      <span class="sr-only">Status</span>
+    </div>
+    <ol aria-label="Tangga NCD daripada 0% hingga 55%" class="space-y-2">
+      {NCD_TIERS.map((tier) => {
+        const isSelected = tier.value === selectedTier;
+        const stepWidth = 100 - tier.value;
+        return (
+          <li class={`grid min-h-12 grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)_auto] items-center gap-3 border-2 px-3 py-2 ${isSelected ? 'border-hijau-700 bg-hijau-50' : 'border-stone-300 bg-white'}`}>
+            <span class="font-semibold text-stone-900">{tier.yearsShort}</span>
+            <strong class={`numeric ${isSelected ? 'text-hijau-800' : 'text-stone-900'}`}>{tier.label}</strong>
+            <span class="flex min-w-0 items-center gap-2">
+              <span class="h-2 min-w-0 flex-1 bg-stone-200" aria-hidden="true">
+                <span class="block h-full bg-hijau-700" style={`width: ${stepWidth}%`} aria-hidden="true"></span>
+              </span>
+              <strong class="numeric shrink-0 text-sm text-stone-700">{tier.remaining}</strong>
+            </span>
+            {isSelected ? <span class="text-xs font-bold text-hijau-800">Dipilih</span> : <span aria-hidden="true"></span>}
+          </li>
+        );
+      })}
+    </ol>
+    <div class="mt-2 grid grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)_auto] gap-3 px-3 text-xs text-stone-600">
+      <span></span>
+      <span></span>
+      <span class="col-span-2">Baki premium asas selepas NCD</span>
+    </div>
+  </div>
+)}

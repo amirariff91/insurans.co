@@ -1,0 +1,204 @@
+---
+import NcdLadder from './NcdLadder.astro';
+import { monthly, rm, simulate, type NcdTier, type PriceRange } from '../lib/ncd';
+
+interface QuotationLink {
+  label: string;
+  href: string;
+  relationship?: 'paid' | 'unpaid' | 'unknown';
+}
+
+interface Props {
+  slug: string;
+  model: string;
+  year: string | number;
+  premium0: PriceRange;
+  premium55: PriceRange;
+  selectedTier?: NcdTier;
+  calculatorUrl?: string;
+  quotationLinks?: QuotationLink[];
+  compact?: boolean;
+}
+
+const {
+  slug,
+  model,
+  year,
+  premium0,
+  premium55,
+  selectedTier = 55,
+  compact = false,
+  calculatorUrl = compact ? `/car-insurance/${slug}/` : `/tools/ncd-calculator/?model=${slug}&ncd=${selectedTier}`,
+  quotationLinks = [
+    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'paid' },
+    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'paid' },
+  ],
+} = Astro.props;
+
+const initialTier = compact ? 55 : selectedTier;
+const initialRange = initialTier === 55 ? premium55 : simulate(premium0.min, premium0.max, initialTier);
+const initialMonthly = monthly(initialRange.min, initialRange.max);
+const formatRange = (range: PriceRange) => `${rm(range.min)} – ${rm(range.max)}`;
+const initialLabel = compact ? `Contoh · ${model}` : initialTier === 55 ? 'NCD 55% · contoh' : `NCD ${initialTier}% · simulasi`;
+---
+
+<article
+  data-answer-card
+  data-model-slug={slug}
+  data-model-name={model}
+  data-base-min={premium0.min}
+  data-base-max={premium0.max}
+  data-reference-min={premium55.min}
+  data-reference-max={premium55.max}
+  class="answer-card mr-2 bg-krim-100 p-4 text-stone-900 shadow-hard sm:p-6"
+>
+  <p class="label">Anggaran komprehensif · {year}</p>
+  <p data-selected-label class="mt-4 text-base font-semibold text-stone-800">{initialLabel}</p>
+  <p class="numeric mt-1 font-serif text-price text-hijau-800 sm:text-4xl">
+    <span data-selected-range>{formatRange(initialRange)}</span> <span class="font-sans text-base font-semibold text-stone-700">/ tahun</span>
+  </p>
+  <p data-selected-monthly class="numeric mt-2 text-lg font-semibold text-stone-800">
+    ≈ {formatRange(initialMonthly)} / bulan
+  </p>
+  <p class="mt-1 text-sm leading-5 text-stone-600">Setara tahunan ÷ 12; bukan pelan ansuran.</p>
+
+  <div class="mt-5 border-t border-stone-300 pt-4" aria-label="Julat rujukan harga">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-base">
+      <span class="text-stone-700">Tanpa NCD (0%)</span>
+      <strong data-reference-0 class="numeric text-stone-900">{formatRange(premium0)}</strong>
+    </div>
+    <div class="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-base">
+      <span class="text-stone-700">NCD 55% (rujukan)</span>
+      <strong data-reference-55 class="numeric text-hijau-800">{formatRange(premium55)}</strong>
+    </div>
+    <p class="mt-2 text-sm text-stone-600">Julat rujukan, bukan quotation.</p>
+  </div>
+
+  {!compact && (
+    <NcdLadder mode="selector" id={`answer-ncd-${slug}`} selectedTier={initialTier} initiallyHidden={true} />
+  )}
+
+  {!compact && (
+    <p data-simulation hidden={initialTier === 55} class="mt-4 border-l-2 border-hijau-700 pl-3 text-base text-stone-800">
+      <span data-simulation-label>Simulasi NCD {initialTier}%</span>:
+      <strong data-simulation-range class="numeric">{formatRange(initialRange)}</strong> / tahun
+    </p>
+  )}
+
+  <a
+    data-calculator-link
+    data-cta="ncd-calculator"
+    href={calculatorUrl}
+    class="btn-hijau mt-6 w-full justify-center"
+  >
+    {compact ? 'Semak harga model ini →' : 'Kira NCD saya →'}
+  </a>
+
+  {!compact && quotationLinks.length > 0 && (
+    <div class="mt-6 border-t border-stone-300 pt-5" data-section="quotation">
+      <h2 class="text-base font-semibold text-stone-900">Dapatkan quotation · Laman luar</h2>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {quotationLinks.map((link) => {
+          const relationship = link.relationship ?? 'paid';
+          const rel = relationship === 'paid' ? 'sponsored noopener' : 'noopener';
+          return (
+            <a
+              href={link.href}
+              target="_blank"
+              rel={rel}
+              data-relationship={relationship}
+              class="btn-outline"
+            >
+              {link.label} <span aria-hidden="true">↗</span><span class="sr-only"> (buka tab baharu)</span>
+            </a>
+          );
+        })}
+      </div>
+      <p class="mt-3 text-sm leading-5 text-stone-600">Quotation/pembelian dibuat di laman mereka, bukan di sini.</p>
+    </div>
+  )}
+
+  <p class="mt-5 text-sm leading-5 text-stone-600">
+    Anggaran editorial · <a href="/about/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Kaedah &amp; sumber →</a>
+  </p>
+  {!compact && <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>}
+</article>
+
+{!compact && (
+  <script>
+    import { monthly, rm, simulate } from '../lib/ncd';
+
+    const formatRange = (range: { min: number; max: number }): string => `${rm(range.min)} – ${rm(range.max)}`;
+    const selectedClasses = ['border-hijau-700', 'bg-hijau-50', 'text-hijau-800'];
+    const unselectedClasses = ['border-stone-600', 'bg-white', 'text-stone-900'];
+
+    document.querySelectorAll<HTMLElement>('[data-answer-card]').forEach((card) => {
+      const selector = card.querySelector<HTMLFieldSetElement>('[data-ncd-selector]');
+      if (!selector) return;
+
+      const controls = Array.from(selector.querySelectorAll<HTMLInputElement>('[data-ncd-tier]'));
+      const selectedLabel = card.querySelector<HTMLElement>('[data-selected-label]');
+      const selectedRange = card.querySelector<HTMLElement>('[data-selected-range]');
+      const selectedMonthly = card.querySelector<HTMLElement>('[data-selected-monthly]');
+      const simulation = card.querySelector<HTMLElement>('[data-simulation]');
+      const simulationLabel = card.querySelector<HTMLElement>('[data-simulation-label]');
+      const simulationRange = card.querySelector<HTMLElement>('[data-simulation-range]');
+      const calculatorLink = card.querySelector<HTMLAnchorElement>('[data-calculator-link]');
+      const announcement = card.querySelector<HTMLElement>('[data-ncd-announcement]');
+      const baseMin = Number(card.dataset.baseMin);
+      const baseMax = Number(card.dataset.baseMax);
+      const reference55Min = Number(card.dataset.referenceMin);
+      const reference55Max = Number(card.dataset.referenceMax);
+      const slug = card.dataset.modelSlug ?? '';
+
+      if (!selectedLabel || !selectedRange || !selectedMonthly || !simulation || !simulationLabel || !simulationRange || !calculatorLink || !announcement) return;
+
+      const setOptionState = (control: HTMLInputElement): void => {
+        const option = control.closest<HTMLElement>('[data-ncd-option]');
+        if (!option) return;
+        const isSelected = control.checked;
+        selectedClasses.forEach((className) => option.classList.toggle(className, isSelected));
+        unselectedClasses.forEach((className) => option.classList.toggle(className, !isSelected));
+        const marker = option.querySelector<HTMLElement>('[data-ncd-marker]');
+        if (marker) marker.textContent = isSelected ? 'Dipilih' : '';
+      };
+
+      const update = (control: HTMLInputElement): void => {
+        const tier = Number(control.value);
+        const isReference = tier === 55;
+        const range = isReference
+          ? { min: reference55Min, max: reference55Max }
+          : simulate(baseMin, baseMax, tier);
+        const monthlyRange = monthly(range.min, range.max);
+
+        controls.forEach(setOptionState);
+        selectedLabel.textContent = isReference ? 'NCD 55% · contoh' : `NCD ${tier}% · simulasi`;
+        selectedRange.textContent = formatRange(range);
+        selectedMonthly.textContent = `≈ ${formatRange(monthlyRange)} / bulan`;
+        simulation.hidden = isReference;
+        simulationLabel.textContent = `Simulasi NCD ${tier}%`;
+        simulationRange.textContent = formatRange(range);
+
+        const url = new URL(calculatorLink.getAttribute('href') || '/tools/ncd-calculator/', window.location.href);
+        url.searchParams.set('model', slug);
+        url.searchParams.set('ncd', String(tier));
+        calculatorLink.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+
+        announcement.textContent = `NCD ${tier}% dipilih. Anggaran tahunan ${formatRange(range)}.`;
+      };
+
+      controls.forEach((control) => control.addEventListener('change', () => update(control)));
+      selector.hidden = false;
+    });
+  </script>
+)}
+
+<style>
+  .answer-card [data-selected-range],
+  .answer-card [data-selected-monthly],
+  .answer-card [data-reference-0],
+  .answer-card [data-reference-55],
+  .answer-card [data-simulation-range] {
+    font-variant-numeric: tabular-nums;
+  }
+</style>
