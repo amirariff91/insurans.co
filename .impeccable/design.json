@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "title": "Design System: Insurans.co",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "hard",
+        "value": "8px 8px 0 0 #1c1917",
+        "purpose": "Principal answer sheet; one per surface."
+      },
+      {
+        "name": "none",
+        "value": "none",
+        "purpose": "Default for other surfaces."
+      }
+    ],
+    "motion": [
+      {
+        "name": "duration-instant",
+        "value": "0ms",
+        "purpose": "Numeric updates, menu disclosure and details."
+      },
+      {
+        "name": "duration-feedback",
+        "value": "150ms",
+        "purpose": "Colour and border feedback only."
+      },
+      {
+        "name": "ease-feedback",
+        "value": "ease-out",
+        "purpose": "Feedback transition easing."
+      },
+      {
+        "name": "reduced-motion-duration",
+        "value": "0ms",
+        "purpose": "All transitions under prefers-reduced-motion: reduce."
+      },
+      {
+        "name": "reduced-motion-scroll",
+        "value": "auto",
+        "purpose": "Scroll behavior under prefers-reduced-motion: reduce."
+      }
+    ],
+    "focus": {
+      "selector": ":focus-visible",
+      "outline": "2px solid #1c1917",
+      "outlineOffset": "2px",
+      "filledControlSeparation": "0 0 0 2px #FAFAF7",
+      "scrollClearance": "actual sticky header height + 16px"
+    },
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ],
+    "targetSizes": {
+      "standaloneMinWidth": "44px",
+      "standaloneMinHeight": "44px",
+      "primaryControlMinHeight": "48px",
+      "interTargetGap": "8px"
+    }
+  }
+}
