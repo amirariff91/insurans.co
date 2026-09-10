@@ -148,7 +148,7 @@ const pickerModels = carModels.map((car) => ({
       if (!selectedLabel || !selectedRange || !selectedMonthly || !reference0 || !calculatorLink) return;
 
       const monthlyRange = monthly(model.premium55.min, model.premium55.max);
-      selectedLabel.textContent = `Pilihan · ${model.fullName}`;
+      selectedLabel.textContent = `Pilihan · ${model.fullName} · NCD 55%`;
       selectedRange.textContent = formatRange(model.premium55);
       selectedMonthly.textContent = `≈ ${formatRange(monthlyRange)} / bulan`;
       reference0.textContent = formatRange(model.premium0);

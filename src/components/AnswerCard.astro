@@ -39,7 +39,7 @@ const initialTier = compact ? 55 : selectedTier;
 const initialRange = initialTier === 55 ? premium55 : simulate(premium0.min, premium0.max, initialTier);
 const initialMonthly = monthly(initialRange.min, initialRange.max);
 const formatRange = (range: PriceRange) => `${rm(range.min)} – ${rm(range.max)}`;
-const initialLabel = compact ? `Contoh · ${model}` : initialTier === 55 ? 'NCD 55% · contoh' : `NCD ${initialTier}% · simulasi`;
+const initialLabel = compact ? `Contoh · ${model} · NCD 55%` : initialTier === 55 ? 'NCD 55% · contoh' : `NCD ${initialTier}% · simulasi`;
 ---
 
 <article
@@ -50,7 +50,7 @@ const initialLabel = compact ? `Contoh · ${model}` : initialTier === 55 ? 'NCD 
   data-base-max={premium0.max}
   data-reference-min={premium55.min}
   data-reference-max={premium55.max}
-  class="answer-card mr-2 bg-krim-100 p-4 text-stone-900 shadow-hard sm:p-6"
+  class="answer-card mr-2 border-2 border-stone-900 bg-krim-100 p-4 text-stone-900 shadow-hard sm:p-6"
 >
   <p class="label">Anggaran komprehensif · {year}</p>
   <p data-selected-label class="mt-4 text-base font-semibold text-stone-800">{initialLabel}</p>

@@ -31,10 +31,10 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Wajib ke beli insurans kereta?",
+      "name": "Third-party je cukup ke, atau kena ambil comprehensive?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ya, wajib. Minimum kena ada third-party insurance. Tanpa insurans, anda tak boleh renew roadtax. Kalau kena tangkap memandu tanpa insurans, denda sehingga RM1,000 atau penjara 3 bulan."
+        "text": "Third-party cuma cover kerosakan kereta orang lain. Kereta sendiri langsung tak dilindungi. Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil comprehensive. Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000."
       }
     },
     {
@@ -58,7 +58,15 @@ const faqSchema = {
       "name": "Insurans dan takaful — sama ke beza?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Takaful adalah alternatif insurans yang patuh Syariah. Konsep utama: peserta saling bantu-membantu (ta'awun). Lebihan dana dikongsi semula kepada peserta. Insurans konvensional — keuntungan milik syarikat."
+        "text": "Beza dari segi konsep. Takaful guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah. Lebihan dana dikongsi balik kepada peserta. Insurans konvensional — premium masuk syarikat, untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je. Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apa tu \"agreed value\" dan \"market value\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Market value — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun, so payout mungkin kurang dari yang dijangka). Agreed value — anda dan syarikat setuju satu jumlah tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss. Untuk kereta baru atau kereta mahal, agreed value lagi selamat."
       }
     }
   ]
@@ -75,18 +83,11 @@ const faqSchema = {
   <section class="border-b-2 border-stone-900 bg-krim-50">
     <div class="container-wide py-10 sm:py-16">
       <div class="mx-auto max-w-3xl">
-        <p class="label mb-4">Panduan Insurans Malaysia 2026</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-5 max-w-4xl">
+        <h1 class="font-serif text-headline-mobile lg:text-headline-lg text-stone-900 mb-5">
           Harga Insurans Kereta Malaysia 2026
         </h1>
         <p class="text-lg font-semibold leading-relaxed text-stone-800">
           Bukan ejen. Bukan broker.
-        </p>
-        <p class="mt-4 text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl mb-3">
-          Berapa patut anda bayar untuk insurans kereta?
-        </p>
-        <p class="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-2xl">
-          Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon, bukan ejen, bukan broker.
         </p>
 
         <div class="mt-7">
@@ -103,7 +104,7 @@ const faqSchema = {
             compact
           />
         </div>
-        <div class="mt-4 mr-2">
+        <div class="mt-3 mr-2">
           <EditorialStamp
             premiumReviewed={exampleModel.premiumReviewed}
             sources={exampleModel.sources}
@@ -116,6 +117,9 @@ const faqSchema = {
         >
           Tak pasti NCD? Kira NCD saya →
         </a>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-700">
+          Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
+        </p>
       </div>
     </div>
   </section>
@@ -182,26 +186,8 @@ const faqSchema = {
       </div>
     </div>
   </section>
-  <!-- Factual Trust Bar -->
-  <section class="bg-krim-100 border-b border-stone-200">
-    <div class="container-wide grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-stone-300 border-x-0 md:border-x border-stone-300">
-      <div class="py-4 pr-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Syarikat</p>
-        <p class="font-serif text-2xl text-stone-900">{companyCount}</p>
-      </div>
-      <div class="py-4 md:px-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Model kereta</p>
-        <p class="font-serif text-2xl text-stone-900">{carModelCount}</p>
-      </div>
-      <div class="py-4 pr-4 md:px-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Perbandingan</p>
-        <p class="font-serif text-2xl text-stone-900">{comparisonCount}</p>
-      </div>
-      <div class="py-4 md:pl-4">
-        <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">Status</p>
-        <p class="font-serif text-xl text-stone-900">Bebas</p>
-      </div>
-    </div>
+  <section class="container-wide py-4">
+    <p class="text-base leading-6 text-stone-700">{carModelCount} model · {companyCount} syarikat · {comparisonCount} perbandingan · bebas daripada ejen dan broker.</p>
   </section>
 
   <div class="divider-bold container-wide"></div>
@@ -267,8 +253,8 @@ const faqSchema = {
   <section class="container-wide py-10 sm:py-12">
     <div class="flex items-baseline justify-between mb-8">
       <div>
-        <h2 class="font-serif text-headline-md text-stone-900 mb-2">Syarikat Insurans Motor Popular</h2>
-        <p class="text-stone-500 text-sm">Ranking berdasarkan populariti, harga, dan pengalaman claim.</p>
+        <h2 class="font-serif text-headline-md text-stone-900 mb-2">Syarikat insurans motor</h2>
+        <p class="text-stone-600 text-sm">Senarai, bukan ranking — profil dan skor editorial di setiap halaman.</p>
       </div>
       <a href="/companies/" class="hidden sm:inline text-sm font-semibold text-hijau-700 hover:text-hijau-600">
         Semua syarikat →
@@ -277,17 +263,14 @@ const faqSchema = {
 
     <div class="space-y-4">
       {topMotorInsurers.map((company, i) => (
-        <a href={`/companies/${company.slug}/`} class="card-editorial group flex flex-col sm:flex-row sm:items-start gap-4 block">
-          <div class="flex-shrink-0 w-8 font-serif text-2xl text-stone-300">
-            {i + 1}.
-          </div>
+        <article class="card-editorial flex flex-col sm:flex-row sm:items-start gap-4">
           <div class="flex-1 min-w-0">
             <div class="flex items-baseline gap-3 mb-1.5">
-              <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
-                {company.name}
+              <h3 class="font-semibold text-stone-900">
+                <a href={`/companies/${company.slug}/`} class="hover:text-hijau-700 transition-colors">{company.name}</a>
               </h3>
               {company.takaful && (
-                <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5 rounded">Takaful</span>
+                <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
               )}
             </div>
             <p class="text-sm text-stone-600 mb-2">{company.verdictBM}</p>
@@ -295,11 +278,11 @@ const faqSchema = {
               {company.carPremiumRange && (
                 <span>Kereta: <strong class="text-stone-700">{company.carPremiumRange}</strong></span>
               )}
-              <span>★ {company.rating}/5</span>
+              <span>Skor editorial {company.rating}/5</span>
               {company.claimLine && <span>Claim: {company.claimLine}</span>}
             </div>
           </div>
-        </a>
+        </article>
       ))}
     </div>
 
@@ -413,7 +396,7 @@ const faqSchema = {
   </section>
 
   <!-- Type Categories -->
-  <section class="bg-white border-t border-stone-200 py-10 sm:py-12">
+  <section class="bg-krim-50 border-t-2 border-stone-900 py-10 sm:py-12">
     <div class="container-wide">
       <h2 class="font-serif text-headline-md text-stone-900 mb-6">Jenis-jenis insurans lain</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
