@@ -1,0 +1,282 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ci from '../../data/critical-illness.json';
+import verticalFaqs from '../../data/vertical-faqs.json';
+
+const records = ci.records;
+const typeOrder = ['standalone', 'rider', 'takaful', 'scheme'];
+const typeLabels: Record<string, string> = {
+  standalone: 'Standalone',
+  rider: 'Rider',
+  takaful: 'Takaful',
+  scheme: 'Skim',
+};
+const typeDescriptions: Record<string, string> = {
+  standalone: 'Perlindungan penyakit kritikal yang berdiri sendiri.',
+  rider: 'Manfaat penyakit kritikal yang dilekatkan pada polisi asas.',
+  takaful: 'Perlindungan penyakit kritikal berasaskan sijil takaful.',
+  scheme: 'Skim bantuan dengan syarat kelayakan dan manfaat tersendiri.',
+};
+const recordGroups = typeOrder
+  .map((type) => ({
+    type,
+    label: typeLabels[type],
+    description: typeDescriptions[type],
+    records: records.filter((record) => record.type === type),
+  }))
+  .filter((group) => group.records.length > 0);
+const faqs = verticalFaqs['critical-illness'];
+const description = `Panduan insurans penyakit kritikal dan critical illness insurance Malaysia: bandingkan ${records.length} rekod, standard 36 BNM, early stage, rider, takaful, mySalam.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Insurans Penyakit Kritikal Malaysia — Panduan dan Perbandingan',
+  description,
+  url: 'https://insurans.co/critical-illness/',
+  datePublished: ci.asAt,
+  dateModified: ci.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Penyakit Kritikal', item: 'https://insurans.co/critical-illness/' },
+    ],
+  },
+};
+---
+
+<Base
+  title="Insurans penyakit kritikal Malaysia — Insurans.co"
+  description={description}
+  canonical="https://insurans.co/critical-illness/"
+  schema={schema}
+  ogType="article"
+  publishedTime={ci.asAt}
+  modifiedTime={ci.asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Insurans Penyakit Kritikal' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Penyakit Kritikal Malaysia</h1>
+      <Byline dateModified={ci.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Panduan critical illness insurance Malaysia untuk memahami maksud perlindungan, membandingkan struktur pelan dan
+        membaca syarat sebenar daripada sumber rasmi. Tiada anggaran premium direka.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Insurans penyakit kritikal membayar manfaat wang sekaligus apabila diagnosis memenuhi definisi dalam polisi atau
+            sijil. Wang itu bukan penggantian bil medical card semata-mata; ia boleh membantu menggantikan pendapatan,
+            menampung kos rawatan dan menjaga perbelanjaan isi rumah ketika pemegang polisi tidak dapat bekerja. Jumlah,
+            definisi dan syarat tuntutan tetap bergantung pada produk.
+          </p>
+
+          <h2 id="apa-itu">Apa itu insurans penyakit kritikal?</h2>
+          <p>
+            Critical illness insurance Malaysia biasanya menggunakan definisi penyakit dan tahap yang terperinci dalam
+            wording. Diagnosis doktor sahaja tidak semestinya mencukupi jika tidak memenuhi definisi polisi atau survival
+            period. Sesetengah polisi menetapkan tempoh survival selepas diagnosis, lazimnya sekitar 7–30 hari; semak
+            tempoh sebenar sebelum membeli.
+          </p>
+
+          <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+          <p>
+            Mulakan dengan senarai kondisi dan tahap yang dilindungi, bukan angka besar pada tajuk produk. Kemudian semak
+            struktur payout, survival period, pengecualian, syarat pembaharuan dan sama ada manfaat itu accelerated atau
+            bayaran berasingan. Renewal yang dijamin bukan harga dijamin; COI atau caruman tidak dijamin sentiasa kekal.
+          </p>
+          <p>
+            Start dengan senarai 36 — standard severe-stage yang diseragamkan BNM untuk polisi baharu atau diperbaharui
+            berkuat kuasa 1 April 2016. Itu lantai, bukan siling: produk boleh menambah expansion sendiri. Dalam data ini,
+            ada rekod yang menyatakan 42 kondisi dan satu rekod yang menyatakan 180 kondisi; angka tersebut ialah kiraan atau
+            expansion per produk, bukan standard 36. Komposisi dan definisi boleh berbeza sedikit antara penginsurans atau
+            sijil.
+          </p>
+
+          <h2 id="early-stage">Early stage critical illness vs late stage</h2>
+          <p>
+            Standard 36 merujuk keadaan severe-stage; contohnya, kanser tahap tertentu tidak sama dengan kanser sangat awal.
+            Early-stage benefit boleh membayar lebih awal secara separa atau accelerated dan mengurangkan baki sum assured,
+            manakala manfaat peringkat akhir bergantung pada baki dan definisi produk. Bandingkan peratus payout, bilangan
+            tuntutan, tempoh antara tuntutan dan umur perlindungan dalam PDS.
+          </p>
+
+          <h2 id="rider-standalone">Rider vs standalone vs term</h2>
+          <p>
+            Rider menempel pada polisi asas dan payout boleh mengurangkan sum assured polisi atau rider tersebut. Contohnya,
+            Prudential Crisis Cover Benefit direkodkan sebagai rider atas pelan asas, manakala Great Eastern SMART Early
+            Payout CriticalCare mesti dilekatkan dengan IL Critical Illness Benefit Rider. Standalone dibeli sebagai
+            perlindungan tersendiri; Etiqa Critical Care Plus direkodkan dalam kategori ini. Term pula menerangkan tempoh
+            atau struktur polisi asas — semak sama ada manfaat CI dibundel, menjadi rider atau perlu dibeli berasingan.
+          </p>
+
+          <h2 id="takaful">Takaful penyakit kritikal</h2>
+          <p>
+            Takaful penyakit kritikal mempunyai tujuan perlindungan yang sama, tetapi berasaskan sijil dan struktur takaful.
+            Dalam data ini, Etiqa Critical Care Takaful ialah rekod kategori takaful dengan 39 kondisi yang dinyatakan,
+            pembelian melalui EPF i-Lindung dan syarat sendiri. Bandingkan definisi kondisi, manfaat, pengecualian dan caruman
+            dalam sijil takaful; jangan anggap label takaful menjadikan semua terma sama.
+          </p>
+
+          <h2 id="socso">SOCSO claim for critical illness: sama dengan CI swasta?</h2>
+          <p>
+            Tidak sama. PERKESO atau SOCSO menilai skim berasaskan pekerjaan dan keilatan mengikut syarat caruman serta
+            penilaian perubatan, bukan senarai 36 penyakit kritikal dengan bayaran sekaligus. Faedahnya boleh berbentuk
+            pencen atau bayaran berkala dan manfaat lain yang ditetapkan skim. CI swasta atau takaful pula membayar lump sum
+            jika diagnosis memenuhi definisi polisi. mySalam ialah skim berasingan untuk penerima yang layak; rekod data ini
+            menyatakan RM8,000 tunai one-off untuk penyakit kritikal serta manfaat pendapatan hospital mengikut had skim.
+            Semak kelayakan, hospital dan saluran tuntutan masing-masing.
+          </p>
+
+          <h2 id="senarai">Senarai penyakit kritikal standard</h2>
+          <p>
+            Baca nama BM dan English bagi semua 36 kondisi di
+            <a href="/critical-illness/senarai-penyakit-kritikal/">senarai penyakit kritikal</a>. Halaman rujukan itu turut
+            menerangkan standardisasi BNM dan kenapa wording setiap penginsurans atau sijil masih perlu disemak.
+          </p>
+        </article>
+
+        <div class="mt-8 space-y-10 sm:mt-10">
+          {recordGroups.map((group) => (
+            <section id={group.type}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h2 class="font-serif text-headline-md text-stone-900">{group.label}</h2>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.records.length} rekod</span>
+              </div>
+
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.records.map((record) => {
+                  const earlyStageLabel =
+                    record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : undefined;
+                  return (
+                    <a href={`/critical-illness/${record.slug}/`} class="card-editorial group block">
+                      <div class="flex items-start justify-between gap-3">
+                        <div>
+                          <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h3>
+                          <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
+                        </div>
+                        <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                      </div>
+                      {(record.conditionsCovered || earlyStageLabel) && (
+                        <dl class="mt-5 space-y-2 text-sm">
+                          {record.conditionsCovered && (
+                            <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
+                              <dt class="text-stone-600">Kondisi direkodkan</dt>
+                              <dd class="font-semibold text-hijau-800">{record.conditionsCovered}</dd>
+                            </div>
+                          )}
+                          {earlyStageLabel && (
+                            <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                              <dt class="text-stone-600">Early stage</dt>
+                              <dd class="font-semibold text-stone-900">{earlyStageLabel}</dd>
+                            </div>
+                          )}
+                        </dl>
+                      )}
+                      {record.payoutStructure && (
+                        <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.payoutStructure}</p>
+                      )}
+                      {record.standoutFeature && (
+                        <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.standoutFeature}</p>
+                      )}
+                      <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim insurans penyakit kritikal</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{records.length} pelan dan skim</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Kategori</dt>
+                <dd class="font-semibold text-stone-900">Standalone, rider, takaful, skim</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Standard rujukan</dt>
+                <dd class="font-semibold text-stone-900">36 kondisi severe-stage</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{ci.asAt}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Harga premium</dt>
+                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/critical-illness/senarai-penyakit-kritikal/" class="text-hijau-700 hover:text-hijau-600">Senarai 36 penyakit kritikal</a></li>
+              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Panduan takaful</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

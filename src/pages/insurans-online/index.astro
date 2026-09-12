@@ -1,0 +1,227 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import platforms from '../../data/platforms.json';
+import verticalFaqs from '../../data/vertical-faqs.json';
+
+const productLabels: Record<string, string> = {
+  life: 'Insurans hayat / term',
+  'critical-illness': 'Penyakit kritikal',
+  health: 'Kesihatan / medical card',
+  travel: 'Travel insurance / takaful',
+  car: 'Insurans kereta',
+  motorcycle: 'Insurans motosikal',
+  'personal-accident': 'Kemalangan diri',
+  roadtax: 'Renew roadtax',
+};
+
+const modelGroups = [
+  {
+    key: 'insurer-langsung',
+    label: 'Insurer-langsung — beli terus tanpa ejen',
+    description: 'Beli terus daripada penginsurans atau takaful melalui saluran digital mereka.',
+    records: platforms.records.filter((platform) => platform.model.startsWith('insurer-langsung')),
+  },
+  {
+    key: 'aggregator',
+    label: 'Aggregator — banding beberapa penginsurans',
+    description: 'Lihat pilihan daripada beberapa penginsurans dalam satu platform.',
+    records: platforms.records.filter((platform) => platform.model === 'aggregator'),
+  },
+  {
+    key: 'marketplace',
+    label: 'Marketplace — beli dalam platform besar',
+    description: 'Akses produk penyedia melalui platform pihak ketiga yang turut menawarkan urusan lain.',
+    records: platforms.records.filter((platform) => platform.model === 'marketplace'),
+  },
+].filter((group) => group.records.length > 0);
+
+const faqs = verticalFaqs['insurans-online'];
+const schemaDescription = 'Compare insurance Malaysia & buy insurance online Malaysia — semak aggregator, marketplace, insurer-langsung dan cara renew insurance online.';
+const canonicalUrl = 'https://insurans.co/insurans-online/';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Compare Insurance Malaysia — Beli Insurance Online',
+  description: schemaDescription,
+  url: canonicalUrl,
+  datePublished: platforms.asAt,
+  dateModified: platforms.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Online', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title="Compare Insurance Malaysia — Beli Online | Insurans.co"
+  description={schemaDescription}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={platforms.asAt}
+  modifiedTime={platforms.asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Insurans Online' },
+        ]}
+      />
+      <p class="label mb-3">Panduan platform</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">
+        Compare Insurance Malaysia &amp; Beli Insurance Online
+      </h1>
+      <Byline dateModified={platforms.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Semakan bebas untuk insurance online Malaysia: kenali model platform, produk yang disenaraikan dan caveat sebelum
+        membandingkan quotation atau renew insurance online.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Ada tiga model.
+            <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
+            i-Lindung via EPF di fwd.com.my; tiada produk travel berasingan disemak 12 Sep 2026) dan Kaotim, jenama takaful
+            digital milik Takaful Malaysia (MediKad, Car/Motor, Legasi hibah dari RM30/bulan; semua takaful, tiada travel).
+            <strong>Aggregator:</strong> banding banyak insurer dalam satu laman — Bjak (motor popular, 10+ penginsurans, NCD
+            auto-check, ansuran) dan PolicyStreet (diluluskan BNM, keahlian Drive+ dengan rebate roadtax dan ansuran tanpa
+            faedah, bayar via Atome). <strong>Marketplace:</strong> beli dalam platform besar — Shopee Insurance (Allianz
+            Travel + Zurich Travel Takaful, motor takaful, PA; ansur SPayLater 3–12 bulan; Shopee hanya ejen SeaMoney, bukan
+            insurer) dan MyEG (ejen JPJ rasmi untuk roadtax + saman + insurans motor; ada yuran servis dan courier, bukan
+            travel provider). Flow biasa: banding, bayar FPX/kad, terima e-policy, renew roadtax. Caveat penting: JPJ
+            menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk renew roadtax dan tiada integrasi MySikap — status 2026 tak
+            jelas, rujuk MyJPJ. Kami bukan ejen, bukan broker, tiada affiliate — sahkan PDS dan quotation di laman rasmi
+            sebelum bayar.
+          </p>
+        </article>
+
+        <div class="info-box mt-8 sm:mt-10">
+          <p>
+            <strong>Flow:</strong> banding → bayar FPX/kad → e-policy → renew roadtax. Insurans.co bukan ejen, broker atau
+            affiliate; pautan platform ialah rujukan untuk semakan sendiri, bukan ranking.
+          </p>
+        </div>
+
+        <div class="mt-10 space-y-10 sm:mt-14">
+          {modelGroups.map((group) => (
+            <section id={group.key}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h2 class="font-serif text-headline-md text-stone-900">{group.label}</h2>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.records.length} platform</span>
+              </div>
+
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.records.map((platform) => (
+                  <a href={`/insurans-online/${platform.slug}/`} class="card-editorial group block">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{platform.name}</h3>
+                        <p class="mt-1 text-xs leading-5 text-stone-500">{platform.digitalPlatform}</p>
+                      </div>
+                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                        {platform.model.startsWith('insurer-langsung') ? 'Insurer-langsung' : platform.model}
+                      </span>
+                    </div>
+                    <p class="mt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
+                    <div class="mt-4 border-t border-stone-200 pt-3">
+                      <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Produk / urusan</p>
+                      <p class="mt-1 text-sm leading-5 text-stone-600">
+                        {platform.products.map((product) => productLabels[product] ?? product).join(' · ')}
+                      </p>
+                    </div>
+                    <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
+                      <span class="font-semibold text-stone-900">Perhatian:</span> {platform.caveat}
+                    </p>
+                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Baca semakan {platform.name} →</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim insurans online Malaysia</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Bilangan platform</dt>
+                <dd class="font-semibold text-stone-900">{platforms.records.length} platform</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Model</dt>
+                <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator, marketplace</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{platforms.asAt}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Harga quotation</dt>
+                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="card-editorial">
+            <h2 class="font-semibold text-sm text-stone-900">Nota kebebasan editorial</h2>
+            <p class="mt-3 text-sm leading-5 text-stone-600">
+              Kami bukan ejen, bukan broker dan tiada affiliate. Setiap platform diliputi sebagai saluran untuk disemak,
+              bukan sebagai pilihan terbaik atau ranking.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
