@@ -9,9 +9,19 @@ interface Props {
   articleDate?: string;
   premiumReviewed?: string;
   sources?: Source[];
+  sourcesLabel?: string;
+  reviewedLabel?: string;
+  showReviewed?: boolean;
 }
 
-const { articleDate, premiumReviewed, sources = [] } = Astro.props;
+const {
+  articleDate,
+  premiumReviewed,
+  sources = [],
+  sourcesLabel = 'Sumber harga',
+  reviewedLabel = 'Anggaran premium dikira',
+  showReviewed = true,
+} = Astro.props;
 
 function formatDate(value?: string): string {
   if (!value) return 'belum direkodkan';
@@ -36,9 +46,11 @@ const linkClass = 'inline-flex min-h-11 items-center text-hijau-700 underline de
 
 <div data-editorial-stamp class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">
   <p data-editorial-article-date>Oleh Amir Ariff (Editor) · Tarikh artikel: {formatDate(articleDate)}</p>
-  <p data-editorial-price-reviewed>Anggaran premium dikira: {formatDate(premiumReviewed)} · Semakan harga oleh editor: belum direkodkan</p>
+  {showReviewed && (
+    <p data-editorial-price-reviewed>{reviewedLabel}: {formatDate(premiumReviewed)} · Semakan harga oleh editor: belum direkodkan</p>
+  )}
   <p data-editorial-sources>
-    <span>Sumber harga:</span>{' '}
+    <span>{sourcesLabel}:</span>{' '}
     <span data-editorial-source-links>
       {priceSources.length > 0 ? (
         priceSources.map((source, index) => (

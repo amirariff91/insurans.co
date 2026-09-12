@@ -1,0 +1,248 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import medicalCards from '../../data/medical-cards.json';
+
+type MedicalCard = (typeof medicalCards.records)[number];
+
+const cards = medicalCards.records;
+const typeLabels: Record<string, string> = {
+  standalone: 'Standalone',
+  rider: 'Rider',
+  takaful: 'Takaful',
+};
+
+export function getStaticPaths() {
+  return medicalCards.records.map((card) => ({
+    params: { slug: card.slug },
+    props: { card },
+  }));
+}
+
+const { card } = Astro.props as { card: MedicalCard };
+const canonicalUrl = `https://insurans.co/medical-cards/${card.slug}/`;
+const typeLabel = typeLabels[card.type] ?? card.type;
+const relatedCards = cards.filter((candidate) => candidate.slug !== card.slug).slice(0, 4);
+const sourceLinks = card.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const specItems = [
+  { label: 'Had tahunan', value: card.annualLimit },
+  { label: 'Room & board', value: card.roomBoard },
+  { label: 'Had seumur hidup', value: card.lifetimeLimit },
+  { label: 'Co-insurance', value: card.coInsurance },
+  { label: 'Pilihan deductible', value: card.deductibleOptions?.join(' · ') },
+  { label: 'Hospital panel', value: card.panelSize },
+  { label: 'Tempoh menunggu', value: card.waitingPeriods?.join(' · ') },
+  { label: 'Ciri utama', value: card.standoutFeature },
+].filter((item) => item.value);
+
+const faqs = [
+  {
+    q: `Plan ${card.planName} ini jenis apa?`,
+    a:
+      card.type === 'standalone'
+        ? 'Standalone ialah medical card yang berdiri sendiri, tanpa perlu dilampirkan pada pelan asas lain.'
+        : card.type === 'rider'
+          ? 'Rider ialah perlindungan perubatan yang dilampirkan pada pelan asas seperti yang dinyatakan dalam dokumen produk.'
+          : 'Takaful ialah perlindungan perubatan berasaskan takaful; semak sijil dan PDS untuk syarat lengkap.',
+  },
+  {
+    q: `Apa beza had tahunan dan had seumur hidup untuk ${card.planName}?`,
+    a: `Had tahunan ialah jumlah maksimum tuntutan dalam satu tahun perlindungan. Rekod plan ini menyatakan had tahunan ${card.annualLimit}. Had seumur hidup pula ialah jumlah maksimum sepanjang tempoh polisi atau sijil${card.lifetimeLimit ? `; rekod ini menyatakan ${card.lifetimeLimit}.` : '.'}`,
+  },
+  {
+    q: `Bagaimana co-payment atau deductible untuk ${card.planName}?`,
+    a: `Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan ini untuk jumlah yang terpakai${card.coInsurance ? `; rekod ini menyatakan ${card.coInsurance}.` : card.deductibleOptions?.length ? `; pilihan deductible yang direkodkan ialah ${card.deductibleOptions.join(' dan ')}.` : '.'}`,
+  },
+  {
+    q: `Berapa tempoh menunggu untuk ${card.planName}?`,
+    a: card.waitingPeriods?.length
+      ? `Rekod plan ini menyatakan ${card.waitingPeriods.join(' dan ')}. Secara umum, tempoh 30 hari biasanya merujuk penyakit umum dan 120 hari kepada specified illnesses; sahkan takrif dalam PDS.`
+      : 'Secara umum, tempoh menunggu yang biasa dirujuk ialah 30 hari untuk penyakit umum dan 120 hari untuk specified illnesses. Sahkan tempoh sebenar dalam PDS plan ini.',
+  },
+  {
+    q: `Bagaimana panel dan kemudahan cashless untuk ${card.planName}?`,
+    a: card.panelSize
+      ? `Rekod ini menyatakan ${card.panelSize}. Kemudahan cashless bergantung pada hospital panel dan Guarantee Letter; semak senarai panel serta proses kemasukan dengan insurer.`
+      : 'Kemudahan panel dan cashless bergantung pada insurer, hospital panel dan Guarantee Letter. Semak senarai panel serta proses kemasukan sebelum memilih plan.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `${card.planName} — Medical Card Malaysia`,
+  description: `Semakan data ${card.planName} oleh ${card.insurer}: had tahunan ${card.annualLimit}, room & board ${card.roomBoard}, ciri utama dan sumber rasmi.`,
+  url: canonicalUrl,
+  datePublished: card.asAt,
+  dateModified: card.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Medical Card', item: 'https://insurans.co/medical-cards/' },
+      { '@type': 'ListItem', position: 3, name: card.planName, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={`${card.planName} — Medical Card Malaysia`}
+  description={schema.description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={card.asAt}
+  modifiedTime={card.asAt}
+>
+  <Hero title={`Medical card ${card.planName}`}>
+    <Byline slot="byline" dateModified={card.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Medical Card', href: '/medical-cards/' },
+        { label: card.planName },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Data ringkas {card.planName} oleh {card.insurer}, berdasarkan sumber rasmi yang dibaca pada {card.asAt}.
+      Tiada anggaran premium dalam halaman ini.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p class="label">Medical card</p>
+          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{card.planName}</h2>
+          <p class="mt-1 text-sm leading-5 text-stone-600">{card.insurer}</p>
+        </div>
+        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
+          {typeLabel}
+        </span>
+      </div>
+
+      <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Apa yang anda dapat</h2>
+      <dl class="mt-4 space-y-3 text-sm">
+        {specItems.map((spec) => (
+          <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
+            <dt class="text-stone-500">{spec.label}</dt>
+            <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={card.asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg text-stone-700">
+          Halaman ini merumuskan manfaat yang dinyatakan dalam sumber rasmi {card.planName}. Bandingkan had,
+          bilik dan papan, kos yang perlu ditanggung sendiri, tempoh menunggu serta proses panel sebelum membeli.
+        </p>
+        <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+        <p>
+          Had tahunan yang tinggi bukan satu-satunya ukuran. Semak juga had seumur hidup jika dinyatakan,
+          co-payment atau deductible, room &amp; board, tempoh menunggu, hospital panel dan kemudahan cashless.
+          Syarat sebenar tertakluk pada polisi atau sijil dan PDS terkini.
+        </p>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — {card.planName}</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {relatedCards.length > 0 && (
+        <section id="related">
+          <div class="prose-editorial">
+            <h2>Pelan berkaitan</h2>
+            <p>Bandingkan beberapa medical card lain daripada set data yang sama:</p>
+          </div>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            {relatedCards.map((related) => (
+              <article class="card-editorial">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 class="font-semibold text-stone-900">
+                      <a href={`/medical-cards/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+                        {related.planName}
+                      </a>
+                    </h3>
+                    <p class="mt-1 text-sm text-stone-600">{related.insurer}</p>
+                  </div>
+                  <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                    {typeLabels[related.type] ?? related.type}
+                  </span>
+                </div>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                    <dt class="text-stone-600">Had tahunan</dt>
+                    <dd class="font-semibold text-hijau-800">{related.annualLimit}</dd>
+                  </div>
+                  <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                    <dt class="text-stone-600">Room &amp; board</dt>
+                    <dd class="font-semibold text-stone-900">{related.roomBoard}</dd>
+                  </div>
+                </dl>
+                <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{related.standoutFeature}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <CtaBand
+        heading={`Semak semua pilihan medical card`}
+        body="Gunakan halaman hub untuk membandingkan pelan berdasarkan data manfaat dan sumber rasmi."
+        primary={{ label: 'Lihat semua medical card →', href: '/medical-cards/' }}
+        disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
+      />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
