@@ -1,0 +1,189 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Renew Roadtax & Insurans Tanpa Panik Setiap Tahun';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Renew insurans dan roadtax setiap tahun tanpa kelam-kabut: turutan NCD, sum insured, roadtax dan fail PDF. Ritual tahunan perancangan kewangan keluarga.',
+);
+const h1 = 'Renew Roadtax & Insurans Tanpa Panik Setiap Tahun';
+const canonicalUrl = 'https://insurans.co/literasi-kewangan/renew-tanpa-panik/';
+const sources = [
+  { label: 'JPJ — panduan LKM', url: 'https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf' },
+  { label: 'MyEG', url: 'https://www.myeg.com.my/' },
+];
+
+const faqs = [
+  {
+    q: 'Bila patut mula renew?',
+    a: '2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau polisi lapse, anda tak boleh drive legally dan NCD boleh terjejas. Peringatan kalendar + folder PDF tahunan jadikan ini automatik.',
+  },
+  {
+    q: 'Renew guna MyEG atau Bjak?',
+    a: 'Dua fungsi berbeza: Bjak atau PolicyStreet untuk banding quotation insurans; MyEG ejen JPJ rasmi untuk roadtax (tambah saman dan insurans dalam satu platform, dengan yuran servis). Untuk roadtax, guna saluran rasmi (MyJPJ atau MyEG) — JPJ menyatakan (2024) Bjak tiada kebenaran rasmi untuk roadtax.',
+  },
+  {
+    q: 'Sum insured ikut apa sebenarnya?',
+    a: 'Nilai pasaran semasa kereta — bukan harga beli, bukan baki loan. Terlalu tinggi = premium membazir; terlalu rendah = claim dikurangkan (under-insurance). Semak angka auto-detect aggregator dengan harga pasaran semasa sebelum bayar.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Literasi Kewangan', item: 'https://insurans.co/literasi-kewangan/' },
+      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title={h1}>
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Literasi Kewangan', href: '/literasi-kewangan/' },
+        { label: h1 },
+      ]}
+    />
+    <Byline slot="byline" dateModified={asAt} />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Mula 2–4 minggu sebelum tamat dan ikut satu turutan: semak NCD, nilai pasaran, quotation dan add-on, kemudian bayar,
+      simpan e-cover note dan renew roadtax.
+    </p>
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">NCD → nilai → quote → PDF</h2>
+      <p class="mt-3 text-sm leading-6 text-stone-700">
+        Buat langkah satu demi satu 2–4 minggu awal. E-cover note, roadtax dan resit masuk satu folder supaya renew tahun depan
+        tidak bermula dari kosong.
+      </p>
+    </div>
+    <div class="mt-4 mr-2">
+      <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <article class="prose-editorial">
+      <p class="text-lg leading-7 text-stone-700">
+        Ritual renew yang tenang bermula <strong>2–4 minggu sebelum tarikh tamat</strong>: semak NCD, semak sum insured,
+        bandingkan 2–3 quotation, bayar, simpan e-cover note, kemudian renew roadtax dan failkan semua PDF.
+      </p>
+      <p class="border-l-4 border-hijau-700 bg-hijau-50 px-4 py-3 text-sm leading-6 text-stone-700">
+        <strong>Kami bukan ejen, bukan broker — maklumat am sahaja.</strong> Aggregator hanya rujukan pasaran; semak saluran
+        rasmi dan dokumen polisi sebelum bayar.
+      </p>
+
+      <h2 id="panik">Kenapa jadi panik (dan cara matikannya)</h2>
+      <p>
+        Panik renew datang dari satu punca: buat semuanya minggu terakhir, serentak. Ubatnya ritual berturutan — mula 2–4
+        minggu awal, ikut susunan yang betul. Jangan langkau langkah 1.
+      </p>
+
+      <h2 id="ncd">Langkah 1: Semak NCD anda (jangan langkau)</h2>
+      <p>
+        NCD (No Claim Discount) tentukan harga premium — 0% hingga 55% ikut rekod tanpa claim. Semak di MyEG atau tanya
+        syarikat insurans semasa, screenshot angkanya. NCD salah = quotation salah = bayar lebih atau polisi bermasalah. Kalau
+        baru accident, kira dulu “patut ke claim?” — ada kalkulator untuk itu sebelum anda reset NCD bertahun-tahun.
+      </p>
+
+      <h2 id="sum-insured">Langkah 2: Semak sum insured (nilai pasaran, bukan harga beli)</h2>
+      <p>
+        Sum insured patut ikut <strong>nilai pasaran semasa</strong>, bukan harga anda beli dulu. Terlalu tinggi = bayar premium
+        lebih untuk nilai yang insurer takkan bayar penuh (mereka bayar ikut pasaran masa claim). Terlalu rendah = under-insured,
+        claim dikurangkan. Sistem aggregator biasa auto-detect, tapi semak sendiri — kereta 5 tahun nilainya jauh beza dari
+        geran asal.
+      </p>
+
+      <h2 id="quotation">Langkah 3: Banding 2–3 quotation + add-on perlu saja</h2>
+      <p>
+        Banding di aggregator (Bjak.my, PolicyStreet) untuk rujukan harga — itu rujukan pasaran, bukan ranking editorial
+        sesiapa. Lepas tu add-on perlu saja: cermin (kereta selalu highway), banjir atau special perils (kawasan rendah — baca
+        panduan banjir kami), tolak yang tak perlu. Nota integriti: JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk
+        renew roadtax dan tiada integrasi MySikap — untuk roadtax guna saluran rasmi (MyJPJ atau MyEG).
+      </p>
+
+      <h2 id="bayar">Langkah 4: Bayar → e-cover note → roadtax → fail PDF</h2>
+      <ol>
+        <li>Bayar online (FPX atau kad; sesetengah terima ansuran).</li>
+        <li>E-cover note masuk email — <strong>simpan PDF terus</strong>, ini bukti insurans sah.</li>
+        <li>Renew roadtax: MyEG (ada yuran servis RM2.50 + SST 8% + pos kurier), Pos Malaysia, JPJ atau MyJPJ untuk kes khas.</li>
+        <li>Buat folder “Renew 2027”: PDF polisi + e-cover note + resit roadtax + screenshot NCD. Set peringatan kalendar 3 minggu sebelum tamat tahun depan. Jumlah belanja tahun ini = premium (selepas NCD) + roadtax — dua angka, satu folder.</li>
+      </ol>
+      <p>
+        Ritual ini ambil 15 minit kalau dibuat awal, 15 hari tekanan kalau dibuat lewat. Tahun depan, folder PDF anda akan
+        berterima kasih kepada diri anda hari ini.
+      </p>
+    </article>
+
+    <nav class="mt-8 border-t border-stone-200 pt-6" aria-label="Bacaan berkaitan">
+      <p class="text-sm text-stone-500">Baca juga:</p>
+      <ul class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+        <li><a href="/tools/ncd-calculator/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Semak NCD + kira claim-vs-bayar</a></li>
+        <li><a href="/guides/renew-car-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan renew langkah demi langkah</a></li>
+        <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Jadual NCD 25%–55%</a></li>
+        <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">10 cara turunkan premium</a></li>
+        <li><a href="/insurans-online/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Bjak vs PolicyStreet vs MyEG</a></li>
+      </ul>
+    </nav>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim renew roadtax dan insurans</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

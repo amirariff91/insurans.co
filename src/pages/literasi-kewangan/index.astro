@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Byline from '../../components/Byline.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Literasi Kewangan Malaysia: Panduan Praktikal';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Siri literasi kewangan Malaysia tentang bajet perlindungan, EPF, deductible, penyakit kritikal, travel insurance dan renew tanpa panik.',
+);
+const canonicalUrl = 'https://insurans.co/literasi-kewangan/';
+
+const articles = [
+  {
+    title: 'Gaji RM3,000: Bajet Perlindungan Ikut Gaji Anda',
+    angle: 'Tetapkan siling caruman daripada gaji dan komitmen sebenar, bukan daripada brosur.',
+    href: '/literasi-kewangan/gaji-dan-perlindungan/',
+  },
+  {
+    title: 'EPF, Simpanan & Insurans: Mana Dulu?',
+    angle: 'Susun penampan tunai, skim sedia ada dan top-up supaya tidak membayar dua kali.',
+    href: '/literasi-kewangan/epf-simpanan-insurans/',
+  },
+  {
+    title: 'Deductible & Co-Insurance: Maksud Sebenar Dalam BM',
+    angle: 'Faham jumlah yang keluar dari poket sebelum dan selepas insurer membayar claim.',
+    href: '/literasi-kewangan/deductible-co-insurance/',
+  },
+  {
+    title: '36 Penyakit Kritikal BNM: Apa Yang Standard Cover?',
+    angle: 'Bezakan standard severe-stage BNM daripada rider, standalone dan manfaat early-stage.',
+    href: '/literasi-kewangan/36-penyakit-kritikal-bnm/',
+  },
+  {
+    title: 'Travel Insurance: Bila Perlu, Bila Membazir?',
+    angle: 'Pilih ikut risiko bil perubatan, evakuasi, visa dan aktiviti — bukan ikut jarak sahaja.',
+    href: '/literasi-kewangan/travel-bila-perlu/',
+  },
+  {
+    title: 'Renew Roadtax & Insurans Tanpa Panik Setiap Tahun',
+    angle: 'Ikut ritual NCD, nilai pasaran, quotation, e-cover note, roadtax dan fail PDF.',
+    href: '/literasi-kewangan/renew-tanpa-panik/',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Apa maksud literasi kewangan dalam konteks perlindungan?',
+    a: 'Literasi kewangan bermaksud faham aliran tunai, risiko, manfaat dan syarat sebelum membuat keputusan. Untuk perlindungan, anda perlu tahu apa yang sudah dilindungi, apa jurang yang tinggal dan berapa komitmen yang mampu dibayar secara konsisten.',
+  },
+  {
+    q: 'Perlu beli semua jenis insurans serentak?',
+    a: 'Tidak. Mulakan dengan risiko yang boleh menggugat simpanan atau pendapatan, kemudian semak cover majikan, skim sedia ada dan simpanan anda. Pilih perlindungan yang muat dalam bajet; polisi yang lapse kerana terlalu berat tidak membantu.',
+  },
+  {
+    q: 'Bagaimana nak mula belajar tentang kewangan?',
+    a: 'Mulakan dengan tiga angka: gaji bersih, perbelanjaan asas dan komitmen hutang. Selepas itu, bina penampan tunai, audit perlindungan sedia ada dan baca wording atau PDS sebelum membandingkan pilihan baharu.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Literasi Kewangan', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title="Literasi Kewangan Malaysia: Panduan Praktikal">
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Literasi Kewangan' },
+      ]}
+    />
+    <Byline slot="byline" dateModified={asAt} />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Siri bacaan ringkas untuk buat keputusan kewangan dengan lebih tenang — faham bajet, risiko, syarat dan susunan
+      perlindungan sebelum bercakap dengan mana-mana penyedia.
+    </p>
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Mula dengan angka sendiri</h2>
+      <p class="mt-3 text-sm leading-6 text-stone-700">
+        Kira gaji bersih, keperluan asas, hutang dan cover sedia ada dahulu. Baru tentukan siling perlindungan yang boleh
+        dibayar konsisten — bukan ikut apa yang nampak menarik dalam brosur.
+      </p>
+    </div>
+    <div class="mt-4 mr-2">
+      <EditorialStamp articleDate={asAt} sources={[{ label: 'Bank Negara Malaysia', url: 'https://www.bnm.gov.my/' }]} sourcesLabel="Rujukan" showReviewed={false} />
+    </div>
+  </Hero>
+
+  <div class="container-wide py-8 sm:py-12">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Literasi kewangan bukan tentang menghafal semua produk. Ia tentang tahu apa yang anda mampu bayar, risiko mana
+            yang boleh menghapuskan simpanan dan syarat apa yang perlu dibaca sebelum membuat keputusan. Enam artikel di
+            bawah bermula dengan bajet harian, kemudian bergerak kepada simpanan, medical card, penyakit kritikal, travel
+            dan rutin renew kereta.
+          </p>
+          <p class="border-l-4 border-hijau-700 bg-hijau-50 px-4 py-3 text-sm leading-6 text-stone-700">
+            <strong>Kami bukan ejen, bukan broker — maklumat am sahaja.</strong> Semak PDS, wording dan sumber rasmi sebelum
+            bertindak.
+          </p>
+          <h2 id="siri">Enam bacaan, enam keputusan kecil</h2>
+        </article>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          {articles.map((article) => (
+            <a href={article.href} class="card-editorial group block">
+              <h3 class="font-serif text-headline-sm text-stone-900 group-hover:text-hijau-700">{article.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-stone-600">{article.angle}</p>
+              <span class="mt-5 inline-block text-sm font-semibold text-hijau-700">Baca artikel →</span>
+            </a>
+          ))}
+        </div>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim literasi kewangan</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Cara guna siri ini</h2>
+            <ol class="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-stone-700">
+              <li>Mulakan dengan artikel yang sepadan dengan keputusan anda sekarang.</li>
+              <li>Catat angka, had dan syarat yang disebut dalam dokumen sebenar.</li>
+              <li>Bandingkan jurang selepas audit — bukan sebelum.</li>
+            </ol>
+          </div>
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Nota penting</h2>
+            <p class="mt-3 text-sm leading-6 text-stone-600">
+              Angka contoh dalam siri ini menerangkan cara berfikir, bukan sebut harga atau janji manfaat. Terma produk dan
+              skim boleh berubah; rujuk sumber rasmi sebelum membuat tuntutan atau pembelian.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

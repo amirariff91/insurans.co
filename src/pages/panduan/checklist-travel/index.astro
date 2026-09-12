@@ -1,0 +1,221 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Travel Insurance: Checklist 8 Perkara Sebelum Fly';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Checklist 8 perkara sebelum fly: single vs annual, had perubatan, evakuasi, delay, COVID, tier kawasan, sukan lasak dan dokumen claim.',
+);
+const canonicalUrl = 'https://insurans.co/panduan/checklist-travel/';
+
+const checklistItems = [
+  {
+    title: 'Single trip atau annual trip?',
+    question: '"Saya fly berapa kali setahun? Plan ini single, annual, atau dua-dua?"',
+    why: 'Kalau fly sekali setahun, single trip memadai; yang kerap fly (kerja + percutian) biasanya lebih jimat dengan annual. Dalam data kami, Etiqa TripCare 360 dan Allianz ialah single; Zurich Z-Travel (International dan Takaful), Tune Protect AirAsia dan Generali SmartTraveller Enhanced ada single dan annual. Kira: kalau 3+ trip setahun, bandingkan harga annual vs 3× single sebelum decide.',
+  },
+  {
+    title: 'Had perubatan overseas — berapa?',
+    question: '"Had perubatan di luar negara berapa? Satu harga untuk siapa?"',
+    why: 'Bil hospital luar negara (terutama USA/Eropah/Jepun) boleh cecah ratusan ribu — had kecil habis dalam sehari. Contoh sebenar: Zurich Z-Travel Lite Basic RM100,000, VIP/Silver RM300,000, Gold RM500,000, Diamond unlimited; Generali SmartTraveller Enhanced sehingga RM350,000 seorang (Plan 2 bawah 65 tahun; RM250,000 Plan 1; RM125,000–RM175,000 warga emas); Tune Protect Plus cover perubatan & hospitalisasi COVID sehingga RM100,000. Etiqa pula jual satu harga untuk 2 dewasa + 10 kanak-kanak. Padankan had dengan destinasi — USA tanpa had yang besar ialah risiko.',
+  },
+  {
+    title: 'Evakuasi perubatan & repatriasi — hotline 24 jam apa?',
+    question: '"Nombor hotline 24-jam apa? Evakuasi mesti diatur melalui siapa? Dari mana ke mana dilindungi?"',
+    why: 'Evakuasi tanpa susunan yang betul boleh ditolak bayar. Contoh paling tegas: MSIG Travel SafeGuard mewajibkan evakuasi & repatriasi diselaraskan melalui hotline 24-jam (+603-2166 3080) — dan polisi tidak membayar evakuasi dari Malaysia ke destinasi asing. Sebaliknya Generali bagi emergency medical evacuation & repatriation unlimited setiap kejadian, dan Etiqa sediakan kemasukan hospital cashless overseas melalui Guarantee Letter. Simpan nombor hotline dalam telefon sebelum fly — bukan dalam beg yang hilang.',
+  },
+  {
+    title: 'Trip cancellation & travel delay — threshold dari jam ke berapa?',
+    question: '"Delay dari jam ke berapa baru dibayar? Cancellation ada dalam plan ini?"',
+    why: 'Setiap plan mula bayar pada jam berbeza. Contoh sebenar: Etiqa auto-payout bila penerbangan lewat 2 jam atau lebih; Zurich Z-Travel bayar delay dari 6 jam. Nota penting: trip cancellation ada dalam kebanyakan plan, tetapi TIADA dalam Zurich Z-Travel Lite — kalau cancellation penting untuk anda (tiket mahal, hotel non-refundable), jangan ambil Lite. Baca threshold jam dalam PDS, bukan dalam iklan.',
+  },
+  {
+    title: 'Liputan COVID — standard, add-on, atau tiada?',
+    question: '"COVID termasuk standard, kena tambah add-on, atau langsung tiada?"',
+    why: 'Status COVID berbeza setiap plan dalam data kami — Zurich Travel Takaful: ya; Allianz: ya (pelancong divaksin penuh sahaja); Tune Protect Plus: ya, Lite: tiada; Zurich Z-Travel International: add-on; Generali: add-on Pandemic Cover (perjalanan luar negara sahaja); Etiqa TripCare 360: add-on. Syarat claim pun berbeza: Allianz perlukan diagnosis doktor + laporan makmal untuk tuntutan COVID. Kalau destinasi masih perlukan bukti liputan COVID, pastikan ia bertulis dalam sijil anda.',
+  },
+  {
+    title: 'Tier kawasan — destinasi saya jatuh dalam tier mana?',
+    question: '"Negara saya pergi termasuk dalam tier/area mana? Domestik dilindungi?"',
+    why: 'Salah pilih tier = tiada perlindungan langsung. Contoh sebenar: Zurich Z-Travel International ada Area 1 (Asia & Oceania terpilih), Area 2 (Worldwide kecuali Kanada/Mongolia/Nepal/Tibet/USA), Area 3 (Worldwide); Zurich Travel Takaful ada tier domestik (≥50km dari rumah), Southeast Asia, Asia, Asia/Eropah/Afrika/Amerika Selatan/Oceania, Worldwide; Allianz ada Domestik, Asia, Worldwide (kecuali negara disekat/zon perang). Untuk dalam Malaysia: Zurich Takaful domestik bermula ≥50km dari rumah — balik kampung 30km tidak dikira. Pilih tier yang benar-benar meliputi setiap negara transit, bukan negara akhir sahaja.',
+  },
+  {
+    title: 'Sukan lasak — aktiviti saya dilindungi?',
+    question: '"Scuba, winter sports, hiking, bungee — yang mana termasuk, yang mana kena add-on atau dikecualikan?"',
+    why: 'Ramai assume semua aktiviti dilindungi — selalunya tidak. Contoh: Zurich Z-Travel menyatakan perlindungan sukan amatur termasuk scuba, winter sports dan bungee jump. Kalau plan anda tidak menyebut aktiviti itu, assume ia dikecualikan dan tanya bertulis. Generali ada varian domestik (SmartTraveller Easy) yang berasingan daripada Enhanced — pastikan varian yang anda beli sepadan dengan trip anda.',
+  },
+  {
+    title: 'Dokumen claim — apa nak simpan dari hari pertama?',
+    question: '"Senarai dokumen claim plan ini apa? Had masa hantar?"',
+    why: 'Claim gagal selalunya sebab dokumen, bukan sebab plan. Simpan dari hari pertama: resit asal perubatan/hotel/penerbangan, laporan polis (kecurian/kehilangan), diagnosis doktor + laporan makmal (untuk claim COVID seperti yang Allianz perlukan), boarding pass dan notis delay bertulis dari syarikat penerbangan (untuk claim delay/cancellation). Nota liputan: Allianz coverage bermula dari rumah/tempat kerja dan tamat 24 jam selepas ketibaan balik Malaysia — kejadian di luar tetingkap itu tidak dilindungi. Ambil gambar semua dokumen dan simpan salinan cloud.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Perlu ke travel insurance untuk trip domestik?',
+    a: 'Bergantung jarak dan plan. Contoh: Zurich Travel Takaful ada tier domestik bermula ≥50km dari rumah — trip dekat bawah jarak itu tidak dilindungi. Untuk domestik jauh (flight + hotel prepaid), cancellation/delay cover masih berbaloi; untuk balik kampung naik kereta sejam, biasanya membazir.',
+  },
+  {
+    q: 'Annual trip jimat ke berbanding single?',
+    a: 'Kira ikut kekerapan: kalau anda fly 3 kali atau lebih setahun, bandingkan harga satu annual (contoh varian annual Zurich, Tune Protect, Generali) dengan jumlah 3× single. Yang fly sekali setahun — single sudah memadai.',
+  },
+  {
+    q: 'Flight delay 2–3 jam boleh claim?',
+    a: 'Ikut plan: Etiqa auto-payout dari lewat 2 jam; Zurich dari 6 jam. Simpan boarding pass dan notis delay bertulis syarikat penerbangan — tanpa bukti bertulis, claim delay sukar diluluskan walau melepasi threshold.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Panduan', item: 'https://insurans.co/panduan/' },
+      { '@type': 'ListItem', position: 3, name: 'Checklist Travel Insurance', item: canonicalUrl },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Panduan', href: '/panduan/' },
+          { label: 'Checklist Travel Insurance' },
+        ]}
+      />
+      <p class="label mb-3">Checklist print-friendly</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Checklist Travel Insurance Sebelum Fly — 8 Perkara Wajib Semak</h1>
+      <Byline dateModified={asAt} />
+      <p class="mt-4 max-w-3xl text-lg leading-7 text-stone-600">
+        Jangan beli travel insurance di kaunter airport sambil beratur. Semak 8 perkara ini sehari sebelum bayar — semuanya daripada ciri sebenar plan yang kami rekodkan di <a href="/travel-insurance/">/travel-insurance/</a>. Kami bukan ejen, bukan broker; kami tak jual plan dan tak ambil komisen.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-article print-content py-10 sm:py-14">
+    <article class="prose-editorial">
+      <ol class="list-none space-y-8 pl-0">
+        {checklistItems.map((item, index) => (
+          <li class="checklist-item border-b border-stone-200 pb-8">
+            <h2 class="mt-0 flex gap-2 text-headline-sm">
+              <span class="shrink-0 font-sans text-base text-stone-500">{index + 1}.</span>
+              <span aria-hidden="true" class="shrink-0 font-sans text-stone-700">☐</span>
+              <span>{item.title}</span>
+            </h2>
+            <p><strong>Apa nak tanya:</strong> {item.question}</p>
+            <p><strong>Kenapa:</strong> {item.why}</p>
+          </li>
+        ))}
+      </ol>
+
+      <p class="info-box mt-8 text-sm leading-6 text-stone-700">
+        <strong>Cara guna checklist ini (print-friendly)</strong>
+        Print satu salinan setiap traveller. Tanda ☐ bila jawapan dah disahkan dalam PDS/sijil — bukan dalam brosur.
+      </p>
+    </article>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim travel insurance</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-10 border-t border-stone-200 pt-8 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Baca juga</h2>
+      </div>
+      <ul class="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+        <li><a href="/travel-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Bandingan travel insurance</a></li>
+        <li><a href="/health-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan insurans kesihatan</a></li>
+        <li><a href="/insurans-online/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Insurans online</a></li>
+        <li><a href="/guides/how-to-claim/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Cara buat claim</a></li>
+        <li><a href="/guides/insurance-vs-takaful/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Beza insurans dan takaful</a></li>
+      </ul>
+    </section>
+
+    <section class="mt-10 border-2 border-stone-900 bg-white p-5 sm:mt-14 sm:p-6">
+      <p class="label">Langkah seterusnya</p>
+      <p class="mt-2 text-lg leading-7 text-stone-700">
+        Dah tanda 8? Bandingkan plan sebenar ikut had perubatan, tier kawasan dan status COVID dalam <a href="/travel-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">bandingan travel insurance kami →</a>
+      </p>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>
+
+<style>
+  @media print {
+    :global(body) {
+      background: #fff;
+    }
+
+    :global(header),
+    :global(footer),
+    :global(nav) {
+      display: none;
+    }
+
+    .print-content {
+      max-width: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .checklist-item,
+    .faq-item {
+      break-inside: avoid;
+    }
+  }
+</style>

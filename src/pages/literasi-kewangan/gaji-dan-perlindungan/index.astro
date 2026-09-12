@@ -1,0 +1,203 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Gaji RM3,000: Bajet Perlindungan Ikut Gaji Anda';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Gaji RM3,000 nak ambil perlindungan tapi takut over-commit? Panduan perancangan kewangan ini tunjuk cara tetapkan siling dari gaji, bukan dari ejen.',
+);
+const h1 = 'Gaji RM3,000: Berapa Sebenarnya Untuk Perlindungan?';
+const canonicalUrl = 'https://insurans.co/literasi-kewangan/gaji-dan-perlindungan/';
+const sources = [{ label: 'LHDN', url: 'https://www.hasil.gov.my/' }];
+
+const faqs = [
+  {
+    q: 'Gaji RM3,000, satu plan saja — ambil yang mana?',
+    a: 'Tiada jawapan universal, tapi logiknya: lindungi risiko yang boleh hapuskan simpanan dulu — biasanya kos hospital. Kalau ada anak atau ibu bapa bergantung pada gaji anda, timbang perlindungan nyawa asas. Kira siling dulu, baru pilih.',
+  },
+  {
+    q: '50/30/20 tak realistik, sewa saja dah 50%. Macam mana?',
+    a: 'Formula tu kompas, bukan undang-undang. Kalau keperluan dah 70%, maknanya ruang perlindungan hampir tiada — fokus dana kecemasan kecil dan skim sedia ada seperti PERKESO atau cover majikan dulu. Jangan paksa komitmen bulanan baru.',
+  },
+  {
+    q: 'Ejen kata “naikkan bajet sikit, ini untuk masa depan”. Betul ke?',
+    a: 'Masa depan penting, tapi lapse lagi buruk — polisi yang berhenti tengah jalan sebab tak mampu bayar beri perlindungan sifar dan hanguskan caruman lepas. Ambil yang mampu bayar 10 tahun tanpa semput, bukan yang ngam-ngam tahun ini.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Literasi Kewangan', item: 'https://insurans.co/literasi-kewangan/' },
+      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title={h1}>
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Literasi Kewangan', href: '/literasi-kewangan/' },
+        { label: h1 },
+      ]}
+    />
+    <Byline slot="byline" dateModified={asAt} />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Untuk gaji RM3,000, mula dengan siling caruman yang datang daripada gaji bersih dan komitmen sebenar — bukan
+      daripada plan yang dibentangkan kepada anda.
+    </p>
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Siling kasar: RM300–600 sebulan</h2>
+      <p class="mt-3 text-sm leading-6 text-stone-700">
+        Itu rangka kasar untuk semua caruman perlindungan, bukan peraturan BNM. Kira semula selepas menolak keperluan,
+        hutang, simpanan dan cover sedia ada.
+      </p>
+    </div>
+    <div class="mt-4 mr-2">
+      <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <article class="prose-editorial">
+      <p class="text-lg leading-7 text-stone-700">
+        Untuk gaji RM3,000, jumlah semua caruman perlindungan seperti medical, nyawa atau critical illness (CI) dan PA
+        patut muat dalam lingkungan <strong>RM300–600 sebulan</strong>, bergantung pada komitmen lain. Ini rangka kasar,
+        bukan peraturan BNM — sesuaikan dengan hutang dan tanggungan anda.
+      </p>
+      <p class="border-l-4 border-hijau-700 bg-hijau-50 px-4 py-3 text-sm leading-6 text-stone-700">
+        <strong>Kami bukan ejen, bukan broker — maklumat am sahaja.</strong> Artikel ini tak jual apa-apa — cuma bagi rangka
+        supaya anda ada angka sendiri sebelum bercakap dengan sesiapa.
+      </p>
+
+      <h2 id="siling">Masalah sebenar bukan produk, tapi siling</h2>
+      <p>
+        Ramai orang bukan tak nak perlindungan — mereka takut komited pada jumlah yang gaji tak mampu tampung. Ejen tunjuk
+        plan, nombor nampak munasabah masa present, tapi enam bulan kemudian terasa sempit. Jadi peraturan pertama:
+        <strong>siling datang dari gaji anda, bukan dari brosur sesiapa.</strong>
+      </p>
+
+      <h2 id="503020">50/30/20 versi Malaysia: mana duduknya perlindungan</h2>
+      <p>
+        Formula 50/30/20 asal: 50% keperluan (rumah, makan, transport, bil), 30% kehendak, 20% simpanan &amp; perlindungan.
+        Versi Malaysia, realitinya:
+      </p>
+      <ul>
+        <li>
+          <strong>50% keperluan</strong> — untuk gaji RM3,000, ini RM1,500. Sewa bilik atau rumah, makan, minyak atau tol,
+          bil telefon. Kalau bahagian ini dah cecah 60–70%, jangan tambah komitmen perlindungan dulu — baiki belanja asas
+          dulu.
+        </li>
+        <li>
+          <strong>20% simpanan &amp; perlindungan (RM600)</strong> — ini kongsi dua: dana kecemasan atau simpanan dan
+          sebarang caruman perlindungan. Perlindungan duduk dalam 20% ini, bukan atasnya.
+        </li>
+        <li>
+          <strong>30% kehendak (RM900)</strong> — hiburan, makan luar, shopping. Kalau perlindungan tak muat dalam 20%,
+          potong dari sini — bukan dari duit makan.
+        </li>
+      </ul>
+
+      <h3 id="kira-siling">Cara kira siling anda dalam 5 minit</h3>
+      <ol>
+        <li>Tulis gaji bersih (selepas EPF/SOCSO): contoh RM3,000.</li>
+        <li>Tolak keperluan tetap sebenar (bukan anggaran): contoh RM1,700.</li>
+        <li>Tolak ansuran hutang: contoh RM500.</li>
+        <li>Baki = ruang untuk simpanan + perlindungan. Kalau baki RM800, jangan ambil komitmen perlindungan lebih RM400–500 — separuh lagi untuk simpanan.</li>
+        <li>Senaraikan caruman sedia ada (termasuk yang potong EPF melalui i-Lindung — itu pun duit anda).</li>
+      </ol>
+      <p>
+        Kalau baki negatif, jawapannya bukan “cari plan murah” — jawapannya “belum masa tambah komitmen”. Dana kecemasan
+        dulu; susunan asas simpanan dan perlindungan diterangkan dalam <a href="/literasi-kewangan/epf-simpanan-insurans/">artikel EPF, simpanan dan insurans</a>.
+      </p>
+
+      <h2 id="keutamaan">Keutamaan bila bajet sempit</h2>
+      <p>
+        Bila RM300–600 saja ada, susun ikut kesan bencana terbesar: (1) medical card asas supaya satu kemasukan hospital
+        swasta tak hapuskan simpanan, (2) perlindungan nyawa atau CI asas kalau ada tanggungan, (3) top-up kemudian bila gaji
+        naik. Jangan buat tiga-tiga serentak kalau bajet tak lepas — satu yang konsisten lebih baik daripada tiga yang lapse.
+      </p>
+      <p>
+        Dan semak pelepasan cukai bila kira kos bersih: gabungan caruman EPF (≤RM4,000) + insurans nyawa atau takaful
+        (≤RM3,000) = RM7,000; premium pendidikan atau perubatan RM4,000 (YA2025) — sumber hasil.gov.my. Ini tak mengurangkan
+        caruman, tapi mengurangkan kos bersih kalau anda pembayar cukai.
+      </p>
+      <p>
+        Tulis satu angka siling atas kertas sebelum jumpa sesiapa. Kalau cadangan melebihi siling, jawapannya “tak muat bajet
+        saya” — itu keputusan kewangan, bukan penolakan emosi.
+      </p>
+    </article>
+
+    <nav class="mt-8 border-t border-stone-200 pt-6" aria-label="Bacaan berkaitan">
+      <p class="text-sm text-stone-500">Baca juga:</p>
+      <ul class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+        <li><a href="/health-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan insurans kesihatan</a></li>
+        <li><a href="/medical-cards/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Bandingkan medical card</a></li>
+        <li><a href="/life-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Kiraan jurang coverage nyawa</a></li>
+        <li><a href="/critical-illness/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Faham CI asas</a></li>
+        <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Disiplin “perlu saja” untuk motor</a></li>
+      </ul>
+    </nav>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim bajet perlindungan</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
