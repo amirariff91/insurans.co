@@ -334,6 +334,7 @@ const schema = {
   const gapEl = document.getElementById('result-gap');
   const breakdownEl = document.getElementById('result-breakdown');
   const interpretationEl = document.getElementById('result-interpretation');
+  const errorEl = document.getElementById('handoff-note');
 
   function readNumber(field: CoverageField | null): number {
     if (!field || field.value.trim() === '') return Number.NaN;
@@ -346,9 +347,13 @@ const schema = {
   }
 
   function showMessage(message: string): void {
-    if (!(resultEl instanceof HTMLElement)) return;
-    resultEl.classList.remove('hidden');
-    resultEl.innerHTML = `<p class="border border-red-200 bg-red-50 p-4 text-sm text-red-700">${message}</p>`;
+    // Use the dedicated alert element; never replace the result container's
+    // innerHTML (that would detach #result-gap/#result-breakdown refs).
+    if (resultEl instanceof HTMLElement) resultEl.classList.add('hidden');
+    if (errorEl instanceof HTMLElement) {
+      errorEl.textContent = message;
+      errorEl.hidden = false;
+    }
   }
 
   function calculateFromForm(): void {
@@ -375,6 +380,7 @@ const schema = {
     }
 
     const result = calculateCoverage(values);
+    if (errorEl instanceof HTMLElement) errorEl.hidden = true;
     resultEl.classList.remove('hidden');
     gapEl.textContent = rm(result.gap);
     breakdownEl.innerHTML = `
