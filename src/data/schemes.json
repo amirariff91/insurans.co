@@ -1,0 +1,79 @@
+{
+  "methodologyNote": "Fakta skim dan saluran diambil daripada portal rasmi, kenyataan kerajaan serta halaman pengendali yang dibaca pada 2026-09-12. null = tidak dinyatakan dalam sumber yang dibaca. Status yang belum disahkan di portal ditanda dengan jelas; semak portal rasmi sebelum membuat tuntutan atau pembelian.",
+  "asAt": "2026-09-12",
+  "records": [
+    {
+      "slug": "i-lindung",
+      "name": "i-Lindung (KWSP/EPF)",
+      "type": "epf-channel",
+      "whatItIs": "Saluran beli-diri dalam app KWSP i-Akaun di bawah Pelan Perlindungan Ahli (PPA) untuk membeli insurans hayat/term dan penyakit kritikal (konvensional + takaful) daripada pengendali panel menggunakan simpanan KWSP — saluran, bukan produk. Fasa 2 (Feb 2024) benarkan perlindungan untuk ahli keluarga. Pada 2026, KWSP sedang kaji pengeluaran Akaun Sejahtera untuk pelan asas MHIT (belum aktif). Catatan: 'i-Lindung PERKESO' bukan produk berasingan — ia konfluen antara i-Lindung KWSP dan skim PERKESO pekerjaan sendiri; caruman SPS tidak boleh dibayar melalui akaun KWSP.",
+      "whoEligible": "Ahli KWSP (warganegara) berdaftar i-Akaun dengan baki mencukupi dalam Akaun Sejahtera (dahulunya Akaun 2); umur ikut had kemasukan produk panel; ≥55 tahun layak jika ada sekurang-kurangnya RM100 dalam Akaun 55/Akaun Emas; Akaun 1 (Persaraan) tidak terjejas",
+      "coversWhat": "Hayat/term (kematian + TPD, ada tambahan kemalangan sehingga 200-300% ikut produk), penyakit kritikal (contoh 42-43 kondisi produk Prudential/Etiqa), takaful setara — polisi tempoh 1 tahun, boleh diperluas kepada pasangan/anak dalam fasa 2; perlindungan perubatan (MHIT) masih dalam kajian, belum tersedia",
+      "cost": "Potongan tahunan terus dari baki Akaun Sejahtera ikut produk/umur — contoh disahkan: serendah RM12/tahun (Etiqa Term) dan RM16/tahun (Etiqa Critical Care); sum covered RM10,000-RM200,000; tiada pemeriksaan perubatan; layak pelepasan cukai",
+      "howToAccess": "App KWSP i-Akaun → seksyen i-Lindung → pilih produk panel (Prudential/PruBSN, Etiqa; FWD disahkan di tahap tajuk/meta) → lengkap di portal pengendali → benarkan potongan Akaun Sejahtera; dokumen polisi via emel/portal. Senarai penuh dalam app KWSP i-Akaun",
+      "operators": ["Prudential/PruBSN", "Etiqa", "FWD — disahkan di tahap tajuk/meta", "Senarai penuh dalam app KWSP i-Akaun"],
+      "sources": ["https://www.prudential.com.my/en/products/epf-i-lindung/", "https://www.prudential.com.my/en/knowledge-corner/understanding-insurance/i-lindung-life-insurance-epf/", "https://www.etiqa.com/newsroom/etiqa-enhances-its-i-lindung-plans-to-include-protection-for-families/", "https://www.thestar.com.my/news/nation/2026/03/13/epf-set-to-expand-i-lindung-for-life-insurance", "https://www.astroawani.com/berita-bisnes/belanjawan-2026-rm60-juta-tangani-inflasi-perubatan-perluas-perlindungan-insurans-rakyat-542308", "https://www.sinarharian.com.my/article/697597/berita/nasional/rm44-2-juta-akaun-sejahtera-dicarum-bagi-program-i-lindung-hingga-september"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "mysalam",
+      "name": "mySalam (Dana Amanah Perlindungan B40)",
+      "type": "gov-scheme",
+      "whatItIs": "Skim takaful PERCUMA kerajaan (inisiatif MOF, diuruskan Great Eastern) untuk penerima STR: manfaat penyakit kritikal RM8,000 sekali seumur hidup (50 penyakit, 12 kumpulan) + elaun hospitalisasi RM50/hari maksimum 14 hari setahun (RM700) di hospital kerajaan/universiti/angkatan tentera panel. Diteruskan untuk 2026 melalui Belanjawan 2026 walaupun dana asal RM2 bilion Great Eastern semakin berkurangan.",
+      "whoEligible": "Penerima Sumbangan Tunai Rahmah (STR) automatik ikut data LHDN — berkahwin/OKU umur 18-65 tahun, bujang 21-65 tahun (umur dikira 1 Januari); pasangan penerima STR turut dilindungi; tiada pendaftaran, notifikasi via SMS",
+      "coversWhat": "RM8,000 tunai one-off seumur hidup bila didiagnos salah satu daripada 50 penyakit kritikal (5 kategori baharu berkuat kuasa 1 Jan 2025: Reumatoid, Kulit Kronik, Darah, Mental, Jarang Jumpa); RM50/hari hospitalisasi (mesti bermalam), maks 14 hari/RM700 setahun, boleh diulang setiap tahun perlindungan; manfaat tambahan dilaporkan sehingga RM30,000 untuk peranti perubatan (jawapan parlimen MOF, Nov 2025 — belum disahkan di portal)",
+      "cost": "Percuma — tiada caruman; dibiayai dana amanah kerajaan (sumbangan asal RM2 bilion Great Eastern Holdings, 2019)",
+      "howToAccess": "Semak kelayakan + akses akaun di mysalam.com.my dengan No. MyKad; tuntutan dimuat naik di portal (MyKad + Borang CI Kenyataan Doktor untuk penyakit kritikal, atau nota discaj untuk hospitalisasi); proses ~10 hari bekerja; tarikh tutup tuntutan 2026: 30 Jun 2027; talian 1-300-88-8938",
+      "sources": ["https://www.mysalam.com.my/mys/info/?url=ci", "https://www.mysalam.com.my/mys/info/?url=hb", "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan", "https://www.mysalam.com.my/mys/info/?url=faq_tuntutan", "https://www.astroawani.com/berita-bisnes/belanjawan-2026-rm60-juta-tangani-inflasi-perubatan-perluas-perlindungan-insurans-rakyat-542308", "https://www.thevibes.com/articles/uncategorized/116151/putrajaya-extends-mysalam-until-2026-as-original-rm2-billion-fund-diminishes"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "perlindungan-tenang",
+      "name": "Perlindungan Tenang",
+      "type": "bnm-initiative",
+      "whatItIs": "Inisiatif BNM (sejak 2017) untuk produk mikroinsurans/mikrotakaful mampu milik dan mudah difahami — hayat/peribadi, kemalangan peribadi, kebakaran, motor — dengan caruman beberapa ringgit sebulan, boleh diperbaharui setiap tahun, tuntutan diluluskan dalam 5 hari bekerja; pengecualian duti setem dilanjutkan hingga 2028 dalam Belanjawan 2026.",
+      "whoEligible": "Terbuka umum; sasaran B40/komuniti kurang terliput; produk mudah dibeli tanpa pemeriksaan perubatan menyeluruh (syarat ikut produk)",
+      "coversWhat": "Produk mikro: nyawa/hayat, kemalangan peribadi (cth MSIG Mini PA), kebakaran, motor + takaful keluarga (cth HLM Takaful Tenang & Tenang 75, MikroSayang, Sakinah Plus, AIA i-Starter, Allianz Kasih Hayat/A-Z Protect, Tokio Marine TenangCare, Chubb Protector Guard, HLA Stackable) — payout sekaligus kepada waris untuk perlindungan hayat",
+      "cost": "Caruman dari beberapa ringgit sebulan (contoh produk PTV 3.0 berpremium ≥RM50 setahun layak baucar); harga ikut produk dan umur",
+      "howToAccess": "Belian dalam talian di mycoverage.my, di agensi/cawangan penginsurans panel, cawangan bank terpilih dan pengendali telefon mudah alih; senarai produk rasmi di mycoverage.my; laman BNM: bnm.gov.my/perlindungan-tenang",
+      "sources": ["https://www.bnm.gov.my/perlindungan-tenang", "https://www.mycoverage.my/en/perlindungan_tenang3.0/", "https://mof.gov.my/portal/en/news/press-release/perlindungan-tenang-voucher-3-0-offers-affordable-insurance-and-takaful-protection-for-str-recipients", "https://www.astroawani.com/berita-bisnes/belanjawan-2026-rm60-juta-tangani-inflasi-perubatan-perluas-perlindungan-insurans-rakyat-542308"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "baucar-perlindungan-tenang",
+      "name": "Baucar Perlindungan Tenang (PTV 3.0)",
+      "type": "gov-scheme",
+      "whatItIs": "Baucar kerajaan RM30 untuk menampung sebahagian premium produk Tenang; PTV 1.0 = RM50 (2021), PTV 2.0 = RM75 (2022), PTV 3.0 = RM30 berkuat kuasa 1 Sep 2025 (RM60 juta, Belanjawan 2025, 2 juta penerima STR asas pertama-datang-awal-dapat); tetingkap PTV 3.0 sehingga baucar habis ditebus atau 31 Dis 2025 — kelanjutan 2026 tidak disahkan (bendera).",
+      "whoEligible": "Penerima Sumbangan Tunai Rahmah (STR) yang layak (2 juta penerima; semak nombor MyKad di myptv.my); boleh diklaim walaupun pernah klaim PTV RM50/RM75 dahulu, asalkan penerima STR 2025",
+      "coversWhat": "Diskaun RM30 ke atas premium/sumbangan tahunan produk Perlindungan Tenang yang layak (premium sekurang-kurangnya RM50 setahun) — produk baharu atau pembaharuan, dari panel penginsurans/pengendali takaful PTV 3.0",
+      "cost": "Baucar RM30 ditanggung kerajaan; baki premium ditanggung pembeli",
+      "howToAccess": "Semak kelayakan di www.myptv.my (masukkan MyKad, dapat nombor baucar) → tebus semasa membeli di www.mycoverage.my (atas talian) atau kaunter/ejen panel penginsurans/pengendali takaful",
+      "sources": ["https://mof.gov.my/portal/en/news/press-release/perlindungan-tenang-voucher-3-0-offers-affordable-insurance-and-takaful-protection-for-str-recipients", "https://www.mycoverage.my/en/perlindungan_tenang3.0/", "https://www.myptv.my"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "skim-keilatan",
+      "name": "Skim Keilatan (PERKESO/SOCSO Invalidity Scheme)",
+      "type": "socso",
+      "whatItIs": "Skim berkanun PERKESO di bawah Akta KWAP 1969: perlindungan 24 jam untuk pekerja terhadap keilatan atau kematian akibat SEBARANG punca bukan pekerjaan; berasaskan pekerjaan (bukan senarai penyakit) — keadaan morbid kekal yang mengekang kebolehan mencari nafkah sekurang-kurangnya 1/3 pendapatan biasa, disahkan Jemaah Doktor.",
+      "whoEligible": "Pekerja berdaftar PERKESO dengan rekod caruman mencukupi (caruman penuh/separa); umur di bawah 60 tahun semasa notis keilatan diterima",
+      "coversWhat": "Pencen ilat bulanan (bukan bayaran sekaligus; pertukaran kepada pencen penakat untuk waris), geran ilat, Elaun Layanan Sentiasa RM500/bulan untuk yang tak mampu mengurus diri, pemulihan jasmani/vokasional dan dialisis di fasiliti panel — tiada lump-sum CI, tiada konsep early-stage",
+      "cost": "Caruman berkanun pekerja+majikan (dipotong gaji); bukan produk belian",
+      "howToAccess": "Automatik untuk pekerja berdaftar — semak status caruman di portal PERKESO/perkhidmatan; tuntutan keilatan via Borang Notis Keilatan + laporan doktor di cawangan PERKESO (rujuk perkeso.gov.my)",
+      "sources": ["https://www.perkeso.gov.my/perkhidmatan-kami/perlindungan/skim-keilatan.html", "https://www.perkeso.gov.my/en/?view=article&id=56:invalidity-scheme&catid=30"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "sps-pekerjaan-sendiri",
+      "name": "Skim Perlindungan Sosial Pekerjaan Sendiri (SPS / Lindung Kendiri)",
+      "type": "socso",
+      "whatItIs": "Skim PERKESO di bawah Akta Keselamatan Sosial Pekerjaan Sendiri 2017 (Akta 789) untuk pekerja gig/tidak formal: perlindungan bencana pekerjaan (kemalangan semasa bekerja + penyakit pekerjaan). Berbeza daripada i-Lindung KWSP; caruman SPS dibayar terus ke PERKESO, bukan melalui akaun KWSP.",
+      "whoEligible": "Orang bekerja sendiri: pemandu e-hailing, p-hailing, peniaga online, freelancer, petani, penjaja, nelayan, artis dsb.; pendaftaran sukarela/berkanun ikut kategori (pembayar cukai pendapatan OBS wajib daftar)",
+      "coversWhat": "Kemalangan semasa bertugas dan penyakit pekerjaan: faedah perubatan, hilang upaya sementara/kekal, faedah pengurusan mayat (RM3,000 efektif pertengahan 2024), pendidikan anak — BUKAN perlindungan hayat/CI/medical swasta",
+      "cost": "Caruman sendiri — Pelan 1 RM13.10 sebulan (RM157.20 setahun) dengan subsidi padanan kerajaan (SPS Madani/Padanan Caruman)",
+      "howToAccess": "Daftar + carum di portal/app PERKESO (Portal Prihatin), saluran bank/e-perkhidmatan PERKESO; rujuk perkeso.gov.my → Perlindungan → Pekerjaan Sendiri",
+      "sources": ["https://www.perkeso.gov.my/perkhidmatan-kami/perlindungan/pekerjaan-sendiri.html", "https://www.perkeso.gov.my/images/belanjawan2024/lanjutan/padanancaruman/200224%20-%20FAQ%20SKSPS%20SPS%20Madani%20dan%20SPS%20Padanan%20Caruman%20copy.pdf", "https://www.malaysia.gov.my/my/categories/kewangan-percukaian/insurans-dan-perlindungan/kwsp-i-lindung"],
+      "asAt": "2026-09-12"
+    }
+  ]
+}

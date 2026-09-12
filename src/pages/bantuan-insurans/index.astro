@@ -1,0 +1,239 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Byline from '../../components/Byline.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import schemes from '../../data/schemes.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Bantuan Insurans 2026: mySalam, i-Lindung & Tenang';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Panduan bantuan insurans 2026: mySalam RM8,000, i-Lindung KWSP, baucar Perlindungan Tenang RM30 dan PERKESO. Semak kelayakan dan tuntutan.',
+);
+const canonicalUrl = 'https://insurans.co/bantuan-insurans/';
+const sourceLinks = Array.from(new Set(schemes.records.flatMap((record) => record.sources))).map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const pillars = [
+  {
+    title: 'mySalam — skim percuma untuk penerima STR',
+    description: 'RM8,000 sekali seumur hidup untuk 50 penyakit kritikal, tambah RM50 sehari apabila bermalam di hospital panel kerajaan.',
+    href: '/bantuan-insurans/mysalam/',
+    label: 'Baca panduan mySalam →',
+  },
+  {
+    title: 'i-Lindung — beli insurans guna KWSP sendiri',
+    description: 'Saluran dalam aplikasi KWSP i-Akaun untuk membeli pelan hayat dan penyakit kritikal daripada pengendali panel.',
+    href: '/i-lindung/',
+    label: 'Baca panduan i-Lindung →',
+  },
+  {
+    title: 'Perlindungan Tenang + baucar PTV',
+    description: 'Produk mikroinsurans dan mikrotakaful murah. PTV 3.0 bernilai RM30 untuk penerima STR; pusingan 2026 belum diumumkan.',
+    href: '/bantuan-insurans/perlindungan-tenang/',
+    label: 'Baca panduan Tenang →',
+  },
+  {
+    title: 'PERKESO — gantian pendapatan berkaitan pekerjaan',
+    description: 'Skim Keilatan memberi pencen bulanan; SPS/Lindung Kendiri melindungi orang bekerja sendiri daripada bencana pekerjaan.',
+    href: '/bantuan-insurans/perkeso/',
+    label: 'Baca panduan PERKESO →',
+  },
+];
+const faqs = [
+  {
+    q: 'Saya penerima STR — automatik dapat apa?',
+    a: 'Kelayakan mySalam automatik ikut data LHDN dan tiada pendaftaran. Baucar PTV pula perlu disemak sendiri di myptv.my dan ditebus semasa membeli produk Tenang yang layak.',
+  },
+  {
+    q: 'i-Lindung guna duit siapa?',
+    a: 'Duit KWSP sendiri — potongan tahunan dari Akaun Sejahtera. Akaun 1 (Persaraan) tidak terjejas. Ini bukan bantuan percuma.',
+  },
+  {
+    q: 'mySalam sama dengan medical card?',
+    a: 'Tidak. mySalam bayar wang tunai sekaligus dan elaun harian; medical card bayar bil hospital swasta. Dua benda berbeza dan boleh melengkapi.',
+  },
+  {
+    q: 'PERKESO cover penyakit kritikal?',
+    a: 'Tidak seperti polisi swasta. Skim Keilatan menilai keupayaan mencari nafkah dan membayar pencen bulanan, bukan senarai penyakit dengan bayaran sekaligus.',
+  },
+  {
+    q: 'Perlu ejen untuk skim ini?',
+    a: 'Tidak. mySalam melalui portal rasmi, i-Lindung dalam aplikasi KWSP, PTV melalui myptv.my atau mycoverage.my, dan PERKESO melalui portal PERKESO. Kami bukan ejen atau broker — semak sendiri di portal rasmi.',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Bantuan Insurans', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title="Bantuan Insurans & Skim Perlindungan 2026">
+    <Byline slot="byline" dateModified={asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Bantuan Insurans' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Ada empat lapisan perlindungan yang dibiayai atau disalurkan kerajaan — dan masing-masing buat kerja berbeza. Halaman ini bantu anda bezakan mySalam, i-Lindung, Perlindungan Tenang dan PERKESO. Bukan ejen, bukan broker.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Empat lapisan, empat fungsi</h2>
+      <ul class="mt-4 space-y-3 text-sm leading-5 text-stone-700">
+        <li><strong>mySalam:</strong> wang tunai penyakit kritikal percuma untuk penerima STR.</li>
+        <li><strong>i-Lindung:</strong> pembelian insurans sendiri menggunakan Akaun Sejahtera.</li>
+        <li><strong>Tenang:</strong> produk mikro murah dengan baucar kerajaan apabila pusingan dibuka.</li>
+        <li><strong>PERKESO:</strong> gantian pendapatan dan faedah berkaitan pekerjaan.</li>
+      </ul>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-wide py-8 sm:py-12">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Ada empat lapisan perlindungan yang dibiayai atau disalurkan kerajaan — dan masing-masing buat kerja berbeza. mySalam bagi wang tunai penyakit kritikal percuma kepada penerima STR. i-Lindung pula saluran beli insurans sendiri guna duit KWSP. Perlindungan Tenang ialah produk mikro murah dengan baucar kerajaan. PERKESO pula ganti pendapatan bila tak boleh kerja. Halaman ini terangkan mana satu untuk siapa, supaya tak tertukar.
+          </p>
+
+          <h2 id="tonggak">Empat tonggak — pilih ikut keadaan anda</h2>
+        </article>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          {pillars.map((pillar) => (
+            <a href={pillar.href} class="card-editorial group block">
+              <h3 class="font-serif text-headline-sm text-stone-900 group-hover:text-hijau-700">{pillar.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-stone-600">{pillar.description}</p>
+              <span class="mt-5 inline-block text-sm font-semibold text-hijau-700">{pillar.label}</span>
+            </a>
+          ))}
+        </div>
+
+        <article class="prose-editorial mt-10 sm:mt-14">
+          <h2 id="stacking">Public vs private stacking — macam mana lapisan ini susun?</h2>
+          <p>
+            Jawapan pendek: setiap lapisan bayar untuk benda berbeza, jadi ia melengkapi — bukan mengganti.
+          </p>
+          <ul>
+            <li><strong>PERKESO = gantian pendapatan pekerjaan.</strong> Dicetuskan oleh keilatan atau bencana kerja. Bayarannya pencen bulanan, bukan wang sekaligus.</li>
+            <li><strong>mySalam = wang tunai B40/STR percuma.</strong> Dicetuskan oleh diagnosis 50 penyakit kritikal atau kemasukan hospital. Sekaligus RM8,000 dan elaun harian. Tiada caruman.</li>
+            <li><strong>i-Lindung = beli sendiri guna KWSP.</strong> Dicetuskan oleh kematian, TPD atau diagnosis mengikut produk panel. Bayar sendiri dari Akaun Sejahtera.</li>
+            <li><strong>Swasta = pilihan sendiri.</strong> <a href="/critical-illness/">Insurans penyakit kritikal</a>, <a href="/medical-cards/">medical card</a>, <a href="/life-insurance/">insurans hayat</a> atau <a href="/insurans-online/">beli dalam talian</a> dengan jumlah perlindungan yang anda pilih dan bayar menggunakan duit poket.</li>
+          </ul>
+          <p>
+            Contoh susunan: pekerja bergaji yang juga penerima STR boleh dilindungi PERKESO melalui majikan, layak mySalam secara automatik, dan masih tambah pelan i-Lindung atau swasta kalau mahu jumlah lebih besar. Semak definisi dan pengecualian setiap lapisan — diagnosis doktor sahaja belum tentu cukup kalau tak penuhi definisi skim atau polisi.
+          </p>
+
+          <h2 id="mula">Mana nak mula?</h2>
+          <ul>
+            <li>Penerima STR → semak mySalam dulu (percuma, automatik).</li>
+            <li>Ahli KWSP ada baki Akaun Sejahtera → tengok i-Lindung.</li>
+            <li>Nak produk murah asas → tengok Perlindungan Tenang dan semak baucar di myptv.my.</li>
+            <li>Bekerja sendiri atau gig → daftar SPS PERKESO.</li>
+            <li>Nak faham beza penyakit kritikal swasta dengan skim kerajaan → baca <a href="/critical-illness/">panduan penyakit kritikal</a> dan <a href="/critical-illness/senarai-penyakit-kritikal/">senarai 36 penyakit standard BNM</a>.</li>
+          </ul>
+        </article>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim bantuan insurans</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Jangan campur fungsi</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Pencetus</dt>
+                <dd class="font-semibold text-stone-900">Diagnosis, hospital, pekerjaan atau pembelian sendiri</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Bentuk bayaran</dt>
+                <dd class="font-semibold text-stone-900">Lump sum, elaun harian atau pencen bulanan</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Status</dt>
+                <dd class="font-semibold text-hijau-700">Semak portal rasmi setiap skim</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Nota penting</h2>
+            <p class="mt-3 text-sm leading-6 text-stone-600">Kami bukan ejen dan tidak menjual polisi. Syarat skim, definisi penyakit, hospital panel dan tarikh tuntutan boleh berubah; rujuk sumber rasmi sebelum bertindak.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <p class="mt-10 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemaskini 2026-09-12 — semak portal rasmi untuk status terkini</p>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

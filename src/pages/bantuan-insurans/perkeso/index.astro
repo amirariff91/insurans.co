@@ -1,0 +1,182 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import schemes from '../../../data/schemes.json';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const invalidity = schemes.records.find((record) => record.slug === 'skim-keilatan')!;
+const selfEmployed = schemes.records.find((record) => record.slug === 'sps-pekerjaan-sendiri')!;
+const asAt = '2026-09-12';
+const pageTitle = 'PERKESO 2026: Skim Keilatan & Lindung Kendiri';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'PERKESO 2026: Skim Keilatan dengan pencen bulanan dan ELS RM500, serta SPS Lindung Kendiri RM13.10 sebulan. Fahami beza dengan mySalam dan insurans swasta.',
+);
+const canonicalUrl = 'https://insurans.co/bantuan-insurans/perkeso/';
+const sourceLinks = Array.from(new Set([...invalidity.sources, ...selfEmployed.sources])).map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const faqs = [
+  {
+    q: 'Skim Keilatan bayar berapa?',
+    a: 'Pencen bulanan, bukan sekaligus, mengikut formula caruman. Elaun Layanan Sentiasa RM500 sebulan boleh ditambah jika layak. Ia berbeza daripada bayaran one-off RM8,000 mySalam.',
+  },
+  {
+    q: 'Berapa caruman SPS Lindung Kendiri?',
+    a: 'Pelan 1 ialah RM13.10 sebulan atau RM157.20 setahun, dengan subsidi padanan kerajaan untuk yang layak.',
+  },
+  {
+    q: 'SPS cover penyakit kritikal?',
+    a: 'Tidak. SPS melindungi bencana pekerjaan sahaja. Penyakit kritikal bukan pekerjaan mungkin dilindungi mySalam jika layak STR atau polisi swasta mengikut terma masing-masing.',
+  },
+  {
+    q: 'Boleh bayar SPS guna KWSP?',
+    a: 'Tidak. Caruman SPS dibayar terus kepada PERKESO. i-Lindung KWSP ialah saluran lain dan menggunakan Akaun Sejahtera untuk membeli produk panel.',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Bantuan Insurans', item: 'https://insurans.co/bantuan-insurans/' },
+      { '@type': 'ListItem', position: 3, name: 'PERKESO', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title="PERKESO — Skim Keilatan & Perlindungan Pekerjaan Sendiri">
+    <Byline slot="byline" dateModified={asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Bantuan Insurans', href: '/bantuan-insurans/' },
+        { label: 'PERKESO' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      PERKESO bukan insurans penyakit kritikal dan bukan medical card. Ia sistem berkanun gantian pendapatan berkaitan pekerjaan: Skim Keilatan bayar pencen bulanan, manakala SPS/Lindung Kendiri melindungi orang bekerja sendiri daripada bencana pekerjaan dengan caruman Pelan 1 RM13.10 sebulan.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Dua skim berbeza</p>
+      <dl class="mt-4 space-y-3 text-sm">
+        <div>
+          <dt class="text-stone-500">Skim Keilatan</dt>
+          <dd class="font-semibold text-stone-900">Pencen bulanan apabila keupayaan mencari nafkah terjejas</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">SPS / Lindung Kendiri</dt>
+          <dd class="font-semibold text-stone-900">Bencana pekerjaan untuk orang bekerja sendiri</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">Caruman SPS Pelan 1</dt>
+          <dd class="font-semibold text-hijau-700">RM13.10 sebulan · RM157.20 setahun</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg leading-7 text-stone-700">
+          PERKESO bukan insurans penyakit kritikal dan bukan medical card. Ia sistem berkanun gantian pendapatan berkaitan pekerjaan: Skim Keilatan bayar pencen bulanan apabila pekerja hilang keupayaan kekal mencari nafkah akibat sebarang punca bukan pekerjaan; SPS/Lindung Kendiri melindungi orang bekerja sendiri daripada bencana pekerjaan dengan caruman Pelan 1 RM13.10 sebulan (RM157.20 setahun).
+        </p>
+
+        <h2 id="keilatan">Skim Keilatan — pencen bulanan, bukan sekaligus</h2>
+        <ul>
+          <li>Perlindungan 24 jam untuk sebarang punca bukan pekerjaan.</li>
+          <li>“Keilatan” bermaksud keadaan morbid kekal yang menyebabkan pekerja tidak mampu mencari sekurang-kurangnya satu pertiga pendapatan biasa; keadaan ini disahkan Jemaah Doktor.</li>
+          <li>Syarat termasuk pekerja berdaftar dengan rekod caruman mencukupi dan berumur bawah 60 tahun semasa notis diterima.</li>
+          <li>Faedah termasuk pencen ilat bulanan, yang boleh bertukar kepada pencen penakat untuk waris, geran ilat, Elaun Layanan Sentiasa RM500 sebulan bagi yang tidak mampu mengurus diri, pemulihan dan dialisis di fasiliti panel.</li>
+          <li>Tiada senarai penyakit dan tiada konsep early-stage atau bayaran sekaligus seperti polisi penyakit kritikal swasta.</li>
+        </ul>
+
+        <h2 id="sps">SPS / Lindung Kendiri — untuk gig dan bekerja sendiri</h2>
+        <ul>
+          <li>Skim di bawah Akta 789 (2017) untuk e-hailing, p-hailing, peniaga dalam talian, freelancer, petani, penjaja, nelayan, artis dan pekerjaan sendiri yang seumpamanya.</li>
+          <li>Melindungi kemalangan semasa bertugas dan penyakit pekerjaan — bukan hayat, bukan penyakit kritikal dan bukan bil hospital swasta.</li>
+          <li>Faedah termasuk rawatan, hilang upaya sementara atau kekal, faedah pengurusan mayat dan pendidikan anak.</li>
+          <li><strong>Caruman sendiri — Pelan 1 RM13.10 sebulan (RM157.20 setahun) dengan subsidi padanan kerajaan (SPS Madani/Padanan Caruman).</strong></li>
+          <li>Daftar dan carum melalui portal atau aplikasi PERKESO (Portal Prihatin) — bukan melalui KWSP.</li>
+        </ul>
+
+        <h2 id="akses">Cara akses dan pautan</h2>
+        <p>
+          Semak status caruman dan buat tuntutan di cawangan atau <a href="https://www.perkeso.gov.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">portal rasmi PERKESO</a>. Untuk tuntutan keilatan, rujuk Borang Notis Keilatan dan laporan doktor yang diperlukan. Maklumat pendaftaran SPS ada pada halaman <a href="https://www.perkeso.gov.my/perkhidmatan-kami/perlindungan/pekerjaan-sendiri.html" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">PERKESO pekerjaan sendiri</a>.
+        </p>
+        <p>
+          i-Saraan ialah trek caruman persaraan sukarela KWSP yang berasingan. Untuk perlindungan penyakit yang dibayar sekaligus, bandingkan dengan <a href="/critical-illness/">penyakit kritikal swasta</a> atau <a href="/life-insurance/">insurans hayat</a>. Jangan campurkan SPS dengan i-Lindung KWSP.
+        </p>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — PERKESO</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <p class="text-sm leading-5 text-stone-600">Kami bukan ejen atau broker; gunakan saluran rasmi PERKESO untuk urusan skim.</p>
+      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemaskini 2026-09-12 — semak portal rasmi untuk status terkini</p>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
