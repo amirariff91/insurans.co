@@ -6,6 +6,7 @@ import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import medicalCards from '../../data/medical-cards.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 type MedicalCard = (typeof medicalCards.records)[number];
 
@@ -74,11 +75,15 @@ const faqs = [
   },
 ];
 
+const title = buildTitle(`${card.planName} — Medical Card`);
+const description = buildDescription(
+  `Semakan data ${card.planName} oleh ${card.insurer}: had tahunan ${card.annualLimit ?? 'tidak dinyatakan'}, room & board ${card.roomBoard ?? 'tidak dinyatakan'}, ciri utama dan sumber rasmi.`,
+);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: `${card.planName} — Medical Card Malaysia`,
-  description: `Semakan data ${card.planName} oleh ${card.insurer}: had tahunan ${card.annualLimit}, room & board ${card.roomBoard}, ciri utama dan sumber rasmi.`,
+  headline: `${card.planName} — Medical Card`,
+  description,
   url: canonicalUrl,
   datePublished: card.asAt,
   dateModified: card.asAt,
@@ -100,8 +105,8 @@ const schema = {
 ---
 
 <Base
-  title={`${card.planName} — Medical Card Malaysia`}
-  description={schema.description}
+  title={title}
+  description={description}
   canonical={canonicalUrl}
   schema={schema}
   ogType="article"

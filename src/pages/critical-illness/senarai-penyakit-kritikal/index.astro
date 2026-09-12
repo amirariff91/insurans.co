@@ -6,13 +6,17 @@ import CtaBand from '../../../components/CtaBand.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
 import conditions from '../../../data/critical-illness-conditions.json';
+import { buildDescription, buildTitle } from '../../../lib/seo';
 
 const canonicalUrl = 'https://insurans.co/critical-illness/senarai-penyakit-kritikal/';
 const sourceLinks = conditions.sources.map((url) => ({
   label: new URL(url).hostname.replace(/^www\./, ''),
   url,
 }));
-const description = 'Senarai penyakit kritikal Malaysia dalam critical illness list standard 36 BNM, dengan nama BM dan English, nota SOCSO claim serta beza ikut insurer.';
+const pageTitle = 'Senarai Penyakit Kritikal Malaysia: 36 Critical Illness List';
+const description = buildDescription(
+  'Senarai penyakit kritikal Malaysia dalam critical illness list standard 36 BNM, dengan nama BM dan English, nota SOCSO claim serta beza ikut insurer.',
+);
 const faqs = [
   {
     q: 'Berapa penyakit dalam senarai critical illness ini?',
@@ -31,7 +35,7 @@ const faqs = [
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Senarai Penyakit Kritikal Malaysia — 36 Critical Illness List',
+  headline: pageTitle,
   description,
   url: canonicalUrl,
   datePublished: conditions.asAt,
@@ -54,7 +58,7 @@ const schema = {
 ---
 
 <Base
-  title="Senarai penyakit kritikal — Insurans.co"
+  title={buildTitle(pageTitle)}
   description={description}
   canonical={canonicalUrl}
   schema={schema}

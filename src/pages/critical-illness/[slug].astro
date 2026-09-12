@@ -6,6 +6,7 @@ import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import ci from '../../data/critical-illness.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 type CriticalIllnessRecord = (typeof ci.records)[number];
 
@@ -42,17 +43,10 @@ const specItems = [
   { label: 'Ciri utama', value: record.standoutFeature },
 ].filter((item) => item.value !== null && item.value !== undefined && item.value !== '');
 
-const titleCandidate = `Insurans penyakit kritikal: ${record.planName}`;
-const titleMaxWithoutSite = 60 - ' | Insurans.co'.length;
-const title =
-  titleCandidate.length <= titleMaxWithoutSite
-    ? titleCandidate
-    : `${titleCandidate.slice(0, titleMaxWithoutSite - 1).trimEnd()}…`;
-const descriptionCandidate = `Insurans penyakit kritikal ${record.planName} di Malaysia: bandingkan jenis pelan, kondisi, early stage, struktur bayaran dan sumber rasmi sebelum memilih.`;
-const description =
-  descriptionCandidate.length <= 150
-    ? descriptionCandidate
-    : `${descriptionCandidate.slice(0, 147).trimEnd()}...`;
+const title = buildTitle(`${record.planName} — Penyakit Kritikal`);
+const description = buildDescription(
+  `Insurans penyakit kritikal ${record.planName} di Malaysia: bandingkan jenis pelan, kondisi, early stage, struktur bayaran dan sumber rasmi sebelum memilih.`,
+);
 
 const typeFaqAnswer =
   record.type === 'standalone'
@@ -74,6 +68,16 @@ const earlyStageFaqAnswer =
 const payoutFaqAnswer = record.payoutStructure
   ? `Rekod ini menyatakan: ${record.payoutStructure}. Sesetengah polisi juga menetapkan survival period, iaitu tempoh pemegang polisi perlu hidup selepas diagnosis sebelum tuntutan dibayar; tempoh sebenar untuk ${record.planName} mesti disahkan dalam wording polisi atau sijil.`
   : `Struktur bayaran untuk ${record.planName} tidak dinyatakan dalam sumber yang dibaca. Secara umum, CI swasta membayar sekaligus selepas diagnosis yang memenuhi definisi polisi dan survival period (jika ada). Semak tempoh dan syarat sebenar dalam wording polisi atau sijil.`;
+const finalFaq =
+  record.type === 'scheme'
+    ? {
+        q: `Adakah ${record.planName} percuma dan siapa layak?`,
+        a: `${record.standoutFeature ?? 'Status percuma dan syarat kelayakan perlu disahkan dalam portal rasmi'}. Manfaat yang direkodkan: ${record.payoutStructure ?? 'rujuk portal rasmi'}. Semak kelayakan dan status manfaat semasa di portal rasmi.`,
+      }
+    : {
+        q: `Adakah COI atau caruman ${record.planName} dijamin semasa renewal?`,
+        a: 'Renewal yang dijamin tidak semestinya bermaksud harga dijamin. COI atau caruman boleh berubah mengikut terma produk dan notis penginsurans atau pengendali takaful. Semak PDS, surat pembaharuan dan terma sijil sebelum membuat keputusan.',
+      };
 const faqs = [
   {
     q: `${record.planName} ini jenis insurans penyakit kritikal apa?`,
@@ -91,16 +95,13 @@ const faqs = [
     q: `Bagaimana payout dan survival period untuk ${record.planName}?`,
     a: payoutFaqAnswer,
   },
-  {
-    q: `Adakah COI atau caruman ${record.planName} dijamin semasa renewal?`,
-    a: 'Renewal yang dijamin tidak semestinya bermaksud harga dijamin. COI atau caruman boleh berubah mengikut terma produk dan notis penginsurans atau pengendali takaful. Semak PDS, surat pembaharuan dan terma sijil sebelum membuat keputusan.',
-  },
+  finalFaq,
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: `${record.planName} — Insurans Penyakit Kritikal Malaysia`,
+  headline: `${record.planName} — Penyakit Kritikal`,
   description,
   url: canonicalUrl,
   datePublished: record.asAt,

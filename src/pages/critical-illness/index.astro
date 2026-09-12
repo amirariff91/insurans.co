@@ -4,6 +4,7 @@ import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ci from '../../data/critical-illness.json';
 import verticalFaqs from '../../data/vertical-faqs.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 const records = ci.records;
 const typeOrder = ['standalone', 'rider', 'takaful', 'scheme'];
@@ -28,12 +29,15 @@ const recordGroups = typeOrder
   }))
   .filter((group) => group.records.length > 0);
 const faqs = verticalFaqs['critical-illness'];
-const description = `Panduan insurans penyakit kritikal dan critical illness insurance Malaysia: bandingkan ${records.length} rekod, standard 36 BNM, early stage, rider, takaful, mySalam.`;
+const pageTitle = 'Insurans Penyakit Kritikal Malaysia — Panduan dan Perbandingan';
+const description = buildDescription(
+  `Panduan insurans penyakit kritikal dan critical illness insurance Malaysia: bandingkan ${records.length} rekod, standard 36 BNM, early stage, rider, takaful, mySalam.`,
+);
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Insurans Penyakit Kritikal Malaysia — Panduan dan Perbandingan',
+  headline: pageTitle,
   description,
   url: 'https://insurans.co/critical-illness/',
   datePublished: ci.asAt,
@@ -55,7 +59,7 @@ const schema = {
 ---
 
 <Base
-  title="Insurans penyakit kritikal Malaysia — Insurans.co"
+  title={buildTitle(pageTitle)}
   description={description}
   canonical="https://insurans.co/critical-illness/"
   schema={schema}

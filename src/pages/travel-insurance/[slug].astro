@@ -6,6 +6,7 @@ import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import travel from '../../data/travel-insurance.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 type TravelPlan = (typeof travel.records)[number];
 
@@ -45,7 +46,10 @@ const specItems = [
   { label: 'Region', value: plan.regionTiers?.join(' · ') },
   { label: 'Ciri utama', value: plan.standoutFeature },
 ].filter((item) => item.value);
-const description = `${plan.planName} (${plan.insurer}): semak had perubatan${plan.medicalCoverLimit ? ` ${plan.medicalCoverLimit}` : ''}, COVID, pembatalan trip, region dan ciri — dari sumber rasmi. Insurans travel Malaysia, tiada harga direka.`.slice(0, 155);
+const title = buildTitle(`${plan.planName} — Travel Insurance`);
+const description = buildDescription(
+  `${plan.planName} (${plan.insurer}): semak had perubatan${plan.medicalCoverLimit ? ` ${plan.medicalCoverLimit}` : ''}, COVID, pembatalan trip, region dan ciri — dari sumber rasmi. Insurans travel Malaysia, tiada harga direka.`,
+);
 const medicalLimitSummary = plan.medicalCoverLimit
   ? `Had perubatan yang direkodkan ialah ${plan.medicalCoverLimit}.`
   : 'Had perubatan tidak dinyatakan secara awam dalam rekod ini.';
@@ -82,7 +86,7 @@ const faqs = [
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: `Travel Insurance Malaysia — ${plan.planName}`,
+  headline: `${plan.planName} — Travel Insurance`,
   description,
   url: canonicalUrl,
   datePublished: plan.asAt,
@@ -105,7 +109,7 @@ const schema = {
 ---
 
 <Base
-  title={`${plan.planName} — Travel Insurance Malaysia | Insurans.co`}
+  title={title}
   description={description}
   canonical={canonicalUrl}
   schema={schema}

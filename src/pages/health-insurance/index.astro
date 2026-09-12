@@ -1,13 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
-import VerdictBadge from '../../components/VerdictBadge.astro';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
+const pageTitle = 'Insurans Kesihatan & Medical Card: Panduan Asas';
+const description = buildDescription(
+  'Panduan asas insurans kesihatan dan medical card di Malaysia: fahami jenis pelan, had tahunan, tempoh menunggu, panel hospital dan perkara yang perlu disemak sebelum mendapatkan sebut harga.',
+);
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Panduan Insurans Kesihatan Malaysia 2026 — Medical Card & Had Perubatan",
-  "description": "Panduan lengkap insurans kesihatan dan medical card di Malaysia. Harga, coverage, hospital panel, dan cara pilih plan yang sesuai.",
+  "headline": pageTitle,
+  "description": description,
   "url": "https://insurans.co/health-insurance/",
   "datePublished": "2026-02-01",
   "dateModified": "2026-09-12",
@@ -28,8 +32,8 @@ const schema = {
 ---
 
 <Base
-  title="Insurans Kesihatan Malaysia 2026 — Medical Card & Had Perubatan"
-  description="Panduan insurans kesihatan Malaysia 2026. Bandingkan medical card, harga premium, hospital panel, dan coverage. Dalam BM untuk rakyat Malaysia."
+  title={buildTitle(pageTitle)}
+  description={description}
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
@@ -44,12 +48,12 @@ const schema = {
       </nav>
       <p class="label mb-3">Panduan Lengkap</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Insurans Kesihatan & Medical Card Malaysia 2026
+        {pageTitle}
       </h1>
       <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Medical card ni bukan luxury — ia necessity. Satu malam di hospital swasta boleh kos RM5,000+.
-        Jom kita breakdown apa yang perlu tahu sebelum beli.
+        Medical card boleh membantu mengurus kos rawatan yang dilindungi mengikut polisi. Fahami perbezaan plan, had
+        dan syarat sebelum membuat perbandingan.
       </p>
 
       <div class="flex flex-wrap gap-2 mt-6">
@@ -78,54 +82,15 @@ const schema = {
           <h2 id="kenapa">Kenapa anda perlukan medical card?</h2>
 
           <p>
-            Ini bukan soal "kalau sakit." Ini soal <strong>"bila sakit."</strong> 
-            Statistik BNM kata 1 dalam 4 rakyat Malaysia akan kena critical illness sebelum umur 60. 
-            Dan kos rawatan makin naik setiap tahun — medical inflation di Malaysia sekitar <strong>10-15% setahun</strong>.
+            Risiko penyakit kritikal dan kemasukan hospital meningkat dengan umur. Kos perubatan swasta naik setiap tahun
+            (BNM merekodkan inflasi kos perubatan swasta 12.6% pada 2023).
           </p>
-
-          <p>Kos hospital swasta di Malaysia (anggaran 2026):</p>
+          <p>
+            Kos rawatan hospital swasta boleh tinggi dan berbeza ikut prosedur, hospital dan bilik — sebab itu had
+            tahunan medical card penting.
+          </p>
         </article>
 
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Prosedur</th>
-                <th>Kos Anggaran</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">Appendix surgery</td>
-                <td>RM8,000 – RM15,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Angioplasty (jantung)</td>
-                <td>RM20,000 – RM40,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Bypass surgery</td>
-                <td>RM50,000 – RM80,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Cancer treatment (chemo, 6 cycles)</td>
-                <td>RM30,000 – RM100,000+</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Normal delivery (hospital swasta)</td>
-                <td>RM5,000 – RM10,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">C-section</td>
-                <td>RM10,000 – RM18,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Satu malam ward biasa</td>
-                <td>RM300 – RM800</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
         <div class="info-box mb-8">
           <p class="text-sm text-stone-700">
@@ -136,58 +101,13 @@ const schema = {
         </div>
 
         <article class="prose-editorial">
-          <h2 id="harga">Berapa harga medical card di Malaysia?</h2>
-
+          <h2 id="harga">Bagaimana premium medical card ditetapkan?</h2>
           <p>
-            Harga bergantung pada <strong>umur</strong>, <strong>annual limit</strong>, dan <strong>jenis bilik</strong> 
-            yang anda pilih. Lagi muda beli, lagi murah. Ini anggaran untuk orang yang sihat tanpa pre-existing condition:
+            Premium bergantung pada umur, had tahunan, jenis bilik dan kesihatan, dan ditetapkan oleh setiap insurer.
+            Kami tidak menganggarkan premium — bandingkan ciri plan sebenar dalam <a href="/medical-cards/" class="text-hijau-700 underline">direktori medical card</a> dan dapatkan sebut harga daripada insurer.
           </p>
         </article>
 
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Umur</th>
-                <th>Basic (RM100K limit)</th>
-                <th>Mid-range (RM500K limit)</th>
-                <th>Premium (RM1M+ limit)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">18-25 tahun</td>
-                <td>RM80 – RM150/bulan</td>
-                <td>RM150 – RM250/bulan</td>
-                <td class="font-semibold text-hijau-700">RM250 – RM500/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">26-35 tahun</td>
-                <td>RM100 – RM200/bulan</td>
-                <td>RM200 – RM350/bulan</td>
-                <td class="font-semibold text-hijau-700">RM350 – RM700/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">36-45 tahun</td>
-                <td>RM150 – RM300/bulan</td>
-                <td>RM300 – RM500/bulan</td>
-                <td class="font-semibold text-hijau-700">RM500 – RM1,000/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">46-55 tahun</td>
-                <td>RM250 – RM500/bulan</td>
-                <td>RM500 – RM800/bulan</td>
-                <td class="font-semibold text-hijau-700">RM800 – RM1,500/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">56-65 tahun</td>
-                <td>RM400 – RM800/bulan</td>
-                <td>RM800 – RM1,500/bulan</td>
-                <td class="font-semibold text-hijau-700">RM1,500 – RM3,000/bulan</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
         <article class="prose-editorial">
           <h2 id="jenis">Jenis plan insurans kesihatan</h2>
@@ -201,15 +121,15 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">Standalone Medical Card</h3>
-              <VerdictBadge tone="best" label="Recommended" />
+              <span class="verdict bg-stone-100 text-stone-600">Struktur mudah</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Bayar premium, dapat coverage. Simple. Tak ada investment component. 
-              Premium tetap ikut jadual umur — anda tahu exactly berapa kena bayar setiap tahun.
-              Contoh dan perbandingan nama plan ada dalam <a href="/medical-cards/" class="text-hijau-700 underline">direktori medical card</a>, dengan butiran daripada sumber rasmi.
+              Bayar premium, dapat coverage. Simple. Tak ada komponen pelaburan.
+              Premium dan terma ditetapkan oleh insurer. Contoh dan perbandingan nama plan ada dalam
+              <a href="/medical-cards/" class="text-hijau-700 underline">direktori medical card</a>, dengan butiran daripada sumber rasmi.
             </p>
             <p class="text-sm text-stone-500">
-              <strong>Sesuai untuk:</strong> Semua orang. Kalau nak medical card je tanpa investment, ini pilihan terbaik.
+              <strong>Sesuai jika:</strong> anda mahu perlindungan perubatan sahaja tanpa komponen pelaburan. Trade-off: tiada nilai tunai.
             </p>
           </div>
 
@@ -219,9 +139,9 @@ const schema = {
               <span class="verdict bg-emas-50 text-emas-700">Hati-hati</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Premium anda masuk investment fund, dan sebahagian bayar kos medical rider. 
-              Masalah: kalau fund perform tak bagus, premium boleh naik atau coverage boleh lapse. 
-              Ramai yang kena "top-up" bila dah 50-60 tahun sebab fund dah habis.
+              Premium anda masuk investment fund, dan sebahagian bayar kos medical rider.
+              Nilai dana, kos insurans dan terma plan boleh mempengaruhi premium atau kelangsungan coverage.
+              Fahami senario ini dalam PDS.
             </p>
             <p class="text-sm text-stone-500">
               <strong>Sesuai untuk:</strong> Kalau anda memang nak insurance + investment sekali. 
@@ -267,30 +187,25 @@ const schema = {
 
           <ol class="list-decimal pl-5 space-y-3">
             <li>
-              <strong>Beli muda, beli awal.</strong> Premium naik setiap 5 tahun. 
-              Beli masa umur 25 jauh lebih murah dari beli masa umur 40. Plus, lagi muda = kurang chance 
-              ada pre-existing condition yang boleh kena exclude.
+              <strong>Semak masa membeli.</strong> Umur dan kesihatan mempengaruhi premium serta penerimaan; bandingkan
+              terma dan syarat plan sebenar dalam PDS.
             </li>
             <li>
-              <strong>Pilih standalone, bukan ILP.</strong> Kecuali anda memang faham dan nak investment-linked. 
-              Standalone medical card lebih straightforward — anda tahu exactly apa yang anda bayar.
+              <strong>Standalone vs ILP:</strong> standalone lebih mudah difahami (tiada komponen unit/pelaburan); ILP gabung pelaburan + kos insurans (COI boleh naik). Faham trade-off sebelum pilih — ini bukan cadangan produk.
             </li>
             <li>
               <strong>Check hospital panel.</strong> Tak guna medical card power tapi hospital biasa anda pergi 
               tak dalam panel. Check list hospital panel sebelum beli.
             </li>
             <li>
-              <strong>Annual limit minimum RM500,000.</strong> RM100K kedengaran banyak, tapi satu surgery jantung 
-              boleh habiskan. Ambil minimum RM500K — lagi bagus RM1 juta.
+              <strong>Had tahunan:</strong> pertimbangkan kos hospital swasta di kawasan anda dan bajet; had lebih tinggi = premium lebih tinggi. Bandingkan had plan sebenar di direktori medical card.
             </li>
             <li>
-              <strong>Faham waiting period.</strong> Kebanyakan medical card ada waiting period 30-120 hari 
-              untuk sakit biasa, dan 12 bulan untuk specific illness (cancer, heart disease). 
-              Maknanya kalau beli hari ni dan esok kena diagnose, tak cover.
+              <strong>Faham waiting period.</strong> 30–120 hari untuk penyakit mengikut wording; pre-existing mungkin ada tempoh lebih panjang — semak PDS.
+              Maknanya tempoh menunggu sebenar perlu disahkan sebelum membuat tuntutan.
             </li>
             <li>
-              <strong>Tax relief.</strong> Premium insurans kesihatan boleh claim tax relief sehingga 
-              <strong>RM3,000 setahun</strong> di bawah LHDN. Jangan lupa claim.
+              <strong>Tax relief.</strong> Premium insurans kesihatan layak untuk pelepasan cukai LHDN (insurans perubatan dalam kategori pendidikan &amp; perubatan — had RM4,000 mulai YA2025; insurans nyawa/takaful keluarga berasingan, bergabung dengan KWSP sehingga RM7,000). Semak had semasa di hasil.gov.my.
             </li>
           </ol>
         </article>
@@ -322,8 +237,8 @@ const schema = {
             <summary>Pre-existing condition boleh cover ke?</summary>
             <p>
               Kebanyakan insurer <strong>tak cover pre-existing condition</strong> — atau at least exclude 
-              untuk tempoh tertentu (biasanya 3-5 tahun). Ada sesetengah plan yang offer coverage lepas 
-              waiting period, tapi premium lebih tinggi. Sebab tu penting beli awal, sebelum ada masalah kesihatan.
+              untuk tempoh tertentu. Ada sesetengah plan yang menawarkan coverage selepas
+              tempoh menunggu, tetapi syarat dan premium berbeza. Semak PDS sebelum membuat keputusan.
             </p>
           </details>
 
@@ -331,8 +246,8 @@ const schema = {
             <summary>Maternity cover ada ke dalam medical card?</summary>
             <p>
               Kebanyakan medical card standard <strong>tak cover maternity</strong>. Kalau nak maternity coverage, 
-              kena cari plan yang specifically include maternity benefit — dan biasanya ada waiting period 
-              10-12 bulan. Contoh plan yang ada: Etiqa Mama's Care, AIA Maternity Benefit rider.
+              kena cari plan yang specifically include maternity benefit — dan biasanya ada tempoh menunggu tertentu.
+              Contoh plan yang ada: Etiqa Mama's Care, AIA Maternity Benefit rider.
             </p>
           </details>
 
@@ -348,10 +263,9 @@ const schema = {
           <details class="faq-item">
             <summary>Kalau dah ada medical card, perlu ke beli critical illness cover juga?</summary>
             <p>
-              <strong>Ya, sangat recommended.</strong> Medical card cover kos hospital. 
-              Critical illness cover bagi anda lump sum cash — RM100K, RM200K, RM500K — yang anda boleh guna 
-              untuk apa-apa. Bayar loan, ganti income yang hilang, tukar diet dan lifestyle. 
-              Dua-dua serve purpose yang berbeza.
+              Medical card membayar kos hospital yang dilindungi, manakala critical illness biasanya memberi bayaran
+              sekaligus mengikut definisi polisi. Keperluan berbeza; bandingkan manfaat dan syarat setiap perlindungan
+              dalam dokumen produk.
             </p>
           </details>
         </div>
@@ -364,23 +278,23 @@ const schema = {
             <dl class="space-y-3 text-sm">
               <div>
                 <dt class="text-stone-500">Wajib?</dt>
-                <dd class="font-semibold text-stone-900">Tak wajib, tapi sangat perlu</dd>
+                <dd class="font-semibold text-stone-900">Tidak wajib; pertimbangkan keperluan dan bajet.</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Harga tipikal (umur 30)</dt>
-                <dd class="font-semibold text-stone-900">RM150 – RM400/bulan</dd>
+                <dt class="text-stone-500">Premium</dt>
+                <dd class="font-semibold text-stone-900">Dapatkan quotation daripada insurer</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Minimum annual limit</dt>
-                <dd class="font-semibold text-hijau-700">RM500,000</dd>
+                <dt class="text-stone-500">Had tahunan</dt>
+                <dd class="font-semibold text-hijau-700">Bandingkan had sebenar</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Waiting period</dt>
-                <dd class="font-semibold text-stone-900">30 hari – 12 bulan</dd>
+                <dt class="text-stone-500">Tempoh menunggu</dt>
+                <dd class="font-semibold text-stone-900">Semak PDS plan</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Tax relief</dt>
-                <dd class="font-semibold text-hijau-700">Sehingga RM3,000/tahun</dd>
+                <dt class="text-stone-500">Pelepasan cukai</dt>
+                <dd class="font-semibold text-hijau-700">Semak had semasa di hasil.gov.my</dd>
               </div>
             </dl>
           </div>

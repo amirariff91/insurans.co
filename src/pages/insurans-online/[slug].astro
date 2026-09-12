@@ -93,7 +93,7 @@ const seo = pageMeta[platform.slug] ?? {
 const canonicalUrl = `https://insurans.co/insurans-online/${platform.slug}/`;
 const modelLabel = modelLabels[platform.model] ?? platform.model;
 const modelDescription = modelDescriptions[platform.model] ?? 'saluran untuk mendapatkan produk insurans atau takaful.';
-const platformRoot = platformRoots[platform.slug];
+const platformRoot = platformRoots[platform.slug] ?? 'https://insurans.co/insurans-online/';
 const parentCompanySlug = platform.parentCompany;
 const parentCompany = parentCompanySlug
   ? companies.find((company) => company.slug === parentCompanySlug)
@@ -231,7 +231,8 @@ const schema = {
             <p>
               <strong>Ringkasan:</strong> Kaotim ialah platform takaful digital milik Takaful Malaysia — direct channel,
               bukan aggregator, bukan ejen. MediKad ialah kad perubatan takaful standalone dalam platform tu: quote, apply,
-              e-certificate dan e-medical card semua online tanpa ejen. Positioning dia jelas — takaful bajet untuk yang selesa urus sendiri.
+              e-certificate dan e-medical card semua online tanpa ejen. Model ini berasaskan urusan takaful bajet secara kendiri;
+              terma perlu disemak dalam dokumen produk.
             </p>
             <h3>Apa yang disahkan</h3>
             <p>
@@ -241,18 +242,15 @@ const schema = {
               MediBooster; room &amp; board RM100/RM150/RM200 sehari, tiada lifetime limit. Untuk terma penuh dan pengecualian,
               buka PDS dalam browser sebelum beli.
             </p>
-            <h3>Siapa sesuai?</h3>
+            <h3>Pertimbangan utama</h3>
             <p>
-              Muda dan sihat, nak medical takaful asas tanpa komponen investment, selesa tanpa ejen dan servis via portal/app.
-              Sinyal komuniti (Reddit r/MalaysianPF, Lowyat — anecdotal, bukan data): murah berbanding bundle IL ber-ejen untuk
-              umur muda, kemudahan tanpa ejen dipuji.
+              Model tanpa ejen; bajet takaful asas. Pertimbangkan: premium naik ikut umur, pre-existing kena declare, GP rutin
+              tak dilindungi. Semak PDS MediKad semasa.
             </p>
             <h3>Caveat kena hadam</h3>
             <p>
-              Premium naik ikut age band (standard medical, tapi bajet 20-an bukan harga 40-an); pre-existing tetap kena declare;
-              rawatan GP rutin tidak dilindungi — medical card bayar inpatient/day surgery dan outpatient tersenarai saja.
-              Tiada tindakan regulator ditemui atas produk ni. Kami bukan ejen — semak PDS MediKad
-              semasa dan banding dengan myMedik, OneMedical dan SmartMedic sebelum decide.
+              Premium naik ikut age band; pre-existing tetap kena declare; rawatan GP rutin tidak dilindungi — medical card bayar
+              inpatient/day surgery dan outpatient tersenarai saja. Semak PDS MediKad semasa untuk terma dan pengecualian.
             </p>
           </>
         )}
@@ -263,7 +261,7 @@ const schema = {
             <p>
               <strong>Ringkasan:</strong> FWD Malaysia ialah insurer-langsung — FWD Insurance Berhad (konvensional) dan FWD
               Takaful Berhad (takaful keluarga). Funnel "Buy Online" di fwd.com.my jual terus tanpa ejen, e-polisi via emel.
-              Untuk yang alah dengan cold call ejen, ni antara saluran paling bersih.
+              Saluran beli-online langsung; barisan produk online lebih sempit daripada saluran ejen — semak senarai produk semasa.
             </p>
             <h3>Apa boleh beli online?</h3>
             <p>
@@ -273,20 +271,19 @@ const schema = {
             </p>
             <h3 id="fwd-travel-insurance">FWD travel insurance: tiada produk retail berasingan</h3>
             <p>
-              FWD tiada produk travel retail berasingan di fwd.com.my berdasarkan dua semakan bebas. FWDAssist yang ada tu
-              program bantuan untuk pemegang polisi medical, bukan travel plan jual berasingan. Jadi untuk travel, lupakan FWD;
-              tengok Etiqa TripCare 360, Zurich Z-Travel, Allianz, Generali atau MSIG.
+              FWD tiada produk travel retail berasingan di fwd.com.my berdasarkan dua semakan bebas. FWDAssist ialah program bantuan
+              untuk pemegang polisi medical, bukan travel plan jual berasingan. Semak saluran rasmi dan dokumen produk travel
+              yang tersedia sebelum memilih.
             </p>
             <h3>Caveat utama</h3>
             <p>
-              Barisan online lebih sempit dari saluran ejen. Standard untuk direct channel — produk kompleks (ILP dengan rider
-              bersarang, kes underwriting rumit) biasanya kekal di ejen. Kalau kes anda straightforward — muda, sihat, nak term/CI/medical
-              asas — funnel online memadai. Kalau ada sejarah perubatan, bajet besar atau nak struktur hibah kompleks, expect kena
-              borak dengan manusia juga.
+              Barisan online lebih sempit daripada saluran ejen. Standard untuk direct channel — produk kompleks (ILP dengan rider
+              bersarang, kes underwriting rumit) biasanya kekal di ejen. Semak senarai produk semasa dan saluran yang tersedia
+              berdasarkan keperluan anda.
             </p>
             <p>
-              Kami tiada hubungan berbayar dengan FWD. Banding PDS (had, waiting, exclusion, COI tidak dijamin) dengan Etiqa,
-              Prudential dan Great Eastern sebelum bayar — harga online nampak kemas, tapi terma yang tentukan nilai.
+              Kami tiada hubungan berbayar dengan FWD. Semak PDS FWD (had, waiting, exclusion, COI tidak dijamin) dan quotation
+              semasa sebelum bayar — terma menentukan perlindungan sebenar.
             </p>
           </>
         )}
@@ -297,15 +294,14 @@ const schema = {
             <p>
               <strong>Ringkasan:</strong> Shopee Insurance bukan penginsurans — ia marketplace dalam app Shopee/ShopeePay yang
               dikendalikan entiti agensi SeaMoney. Shopee jadi ejen digital; risiko ditanggung Allianz, Zurich dan rakan lain.
-              Faham benda ni, barulah deal dia masuk akal.
+              Model ini bermaksud platform menjadi saluran pembelian, manakala risiko ditanggung oleh penyedia.
             </p>
             <h3>Apa disahkan jual di situ?</h3>
             <p>
               Pusat Bantuan Shopee artikel 145752 + ShopeePay menyenaraikan Allianz Travel Insurance (konvensional) dan Zurich
               Travel Takaful (single dan annual antarabangsa), takaful motor (contoh Takaful IKHLAS), personal accident dan wallet
-              protection. Standout sebenar: checkout dalam app yang dah ada, e-polisi dalam "My Policies", dan bayaran boleh ansur
-              SPayLater 3–12 bulan (berstruktur patuh Syariah untuk takaful). Untuk traveller yang nak beli last-minute sambil
-              checkout barang, friction dia rendah.
+              protection. SPayLater 3–12 bulan (berstruktur patuh Syariah untuk takaful) ialah pilihan bayaran yang dipaparkan
+              dalam marketplace. Semak syarat ansuran dan terma penyedia dalam app.
             </p>
             <h3>Caveat — tiga benda</h3>
             <p>
@@ -314,11 +310,11 @@ const schema = {
               prorata 40%–100% ikut tempoh berkuat kuasa — bukan refund penuh. Tiga, harga pemasaran "RM3/hari domestik,
               RM15.99/hari antarabangsa" dari landing page JS <strong>belum disahkan</strong> — jangan quote; check dalam app.
             </p>
-            <h3>Sesuai untuk siapa?</h3>
+            <h3>Pertimbangan</h3>
             <p>
-              Pembeli travel single/annual yang selesa self-service dan nak ansuran. Tak sesuai kalau nak nasihat struktur cover atau
-              kes claim kompleks — marketplace tak ganti ejen atau penasihat. Kami bukan ejen dan tiada affiliate dengan Shopee —
-              banding had perubatan, status COVID (add-on vs standard) dan threshold delay dengan laman insurer sebelum bayar.
+              Model ini menggunakan self-service dan pilihan ansuran. Marketplace tidak menggantikan ejen atau penasihat untuk
+              struktur cover atau kes claim kompleks. Kami bukan ejen dan tiada affiliate dengan Shopee — semak had perubatan,
+              status COVID (add-on vs standard) dan threshold delay dalam PDS atau laman insurer sebelum bayar.
             </p>
           </>
         )}

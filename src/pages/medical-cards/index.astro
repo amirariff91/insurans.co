@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import medicalCards from '../../data/medical-cards.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 const cards = medicalCards.records;
 const typeOrder = ['standalone', 'rider', 'takaful'];
@@ -52,11 +53,14 @@ const faqs = [
   },
 ];
 
+const description = buildDescription(
+  'Bandingkan medical card di Malaysia berdasarkan jenis pelan, had tahunan, room & board, co-payment, tempoh menunggu dan ciri utama daripada sumber rasmi.',
+);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Medical Card Malaysia 2026 — Bandingkan Pelan dan Manfaat',
-  description: 'Bandingkan medical card di Malaysia berdasarkan jenis pelan, had tahunan, room & board, co-payment, tempoh menunggu dan ciri utama daripada sumber rasmi.',
+  description,
   url: 'https://insurans.co/medical-cards/',
   datePublished: medicalCards.asAt,
   dateModified: medicalCards.asAt,
@@ -77,8 +81,8 @@ const schema = {
 ---
 
 <Base
-  title="Medical Card Malaysia 2026 — Bandingkan Pelan dan Manfaat"
-  description={schema.description}
+  title={buildTitle('Medical Card Malaysia 2026')}
+  description={description}
   canonical="https://insurans.co/medical-cards/"
   schema={schema}
   ogType="article"

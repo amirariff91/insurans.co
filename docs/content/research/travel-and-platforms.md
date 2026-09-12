@@ -269,6 +269,8 @@ Suggested row:
 - **FWD travel insurance**: not found on fwd.com.my (2 checks); treat as absent unless owner session finds otherwise.
 - **PolicyStreet travel products**: unverified.
 - **Bjak road tax status in 2026**: JPJ statement is from May 2024; bjak.my/en/roadtax appears live per search but was not directly read → caveat editorially as "JPJ menyatakan (2024)…", not as current prohibition.
+**UPDATE 2026-09-12 (owner-verified, commit follow-up):** Kaotim tiers RM50k/75k/100k + MediBooster RM550k/825k/1.1m (medikad.kaotim.my + PDS 19/07/2024); Tune COVID RM100k; Generali RM350k medical + unlimited evac; MyEG RM2.50 + 8% SST (help.myeg.com.my).
+
 - Chubb Travel Insurance plans (a major MY travel insurer) surfaced only as a "what to compare" source; per-plan facts not gathered — candidate for a follow-up pass.
 
 ---

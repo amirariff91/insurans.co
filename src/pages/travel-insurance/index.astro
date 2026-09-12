@@ -4,6 +4,7 @@ import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import travel from '../../data/travel-insurance.json';
 import verticalFaqs from '../../data/vertical-faqs.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
 const plans = travel.records;
 const faqs = verticalFaqs['travel-insurance'];
@@ -19,12 +20,14 @@ function formatTripType(value: string): string {
     .join(' / ');
 }
 
-const description =
-  'Travel insurance Malaysia dan insurans perjalanan: semak medical, COVID, evakuasi, pembatalan trip, region serta ciri rasmi. Tiada harga direka.';
+const pageTitle = 'Travel Insurance Malaysia 2026 — Bandingkan Pelan';
+const description = buildDescription(
+  'Travel insurance Malaysia dan insurans perjalanan: semak medical, COVID, evakuasi, pembatalan trip, region serta ciri rasmi. Tiada harga direka.',
+);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Travel Insurance Malaysia 2026 — Bandingkan Pelan',
+  headline: pageTitle,
   description,
   url: 'https://insurans.co/travel-insurance/',
   datePublished: travel.asAt,
@@ -46,7 +49,7 @@ const schema = {
 ---
 
 <Base
-  title="Insurans Travel Malaysia — Banding Pelan | Insurans.co"
+  title={buildTitle(pageTitle)}
   description={description}
   canonical="https://insurans.co/travel-insurance/"
   schema={schema}
@@ -130,12 +133,7 @@ const schema = {
 
           <h3>Kelayakan, claim dan takaful</h3>
           <p>
-            Had umur dan tempoh maksimum bukan seragam. Semak kelayakan dewasa (sesetengah wording sekitar 18–70
-            tahun), single atau annual, serta had seperti 30 hari domestik dan 180 hari antarabangsa apabila dinyatakan
-            dalam PDS — angka ini bukan had universal. Simpan e-policy, resit, laporan dan bukti delay, lalu semak claim
-            window serta saluran 24 jam plan anda. Takaful dan insurans konvensional mempunyai struktur akad berbeza;
-            jangan anggap takaful automatik lebih murah atau lebih mahal kerana data ini tidak menyediakan harga atau
-            sumbangan untuk perbandingan.
+            Syarat umur dan tempoh maksimum perjalanan berbeza ikut plan dan wording — semak PDS plan yang dipilih.
           </p>
         </article>
 

@@ -206,6 +206,8 @@ Name checks: "Etiqa Medical Essential" and "Elite Takaful Medical" — **not fou
 ```
 
 ⚠️ **KAOTIM row:** direct reads of `medikad.kaotim.my` (JS-only shell) and the PDS PDF (TLS cert failure) failed. Tier figures came from search renderings of the official `kaotim.my` domain + the PDS URL, corroborated by RinggitPlus; verify by opening the PDS in a browser before publishing. **Allianz row:** official page returned HTTP 403; snippets claim "up to RM3 million, no lifetime limit, no-cap R&B days" — treat as unverified, fill after a manual fetch.
+**UPDATE 2026-09-12 (owner-verified, commit follow-up):** Kaotim tiers RM50k/75k/100k + MediBooster RM550k/825k/1.1m (medikad.kaotim.my + PDS 19/07/2024); Tune COVID RM100k; Generali RM350k medical + unlimited evac; MyEG RM2.50 + 8% SST (help.myeg.com.my).
+
 
 ---
 
