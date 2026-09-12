@@ -1,0 +1,78 @@
+{
+  "methodologyNote": "Saluran online untuk banding/beli/renew insurans di Malaysia. Fakta dibaca 2026-09-12 daripada laman rasmi platform + liputan media bebas. insurans.co tiada hubungan berbayar atau affiliate dengan mana-mana platform. Kaotim ialah jenama digital milik Takaful Malaysia (rujuk syarikat: takaful-malaysia).",
+  "asAt": "2026-09-12",
+  "records": [
+    {
+      "slug": "fwd",
+      "name": "FWD",
+      "model": "insurer-langsung",
+      "digitalPlatform": "FWD Buy Online (fwd.com.my)",
+      "parentCompany": null,
+      "products": ["life", "critical-illness", "health"],
+      "keyFact": "Insurans & takaful beli terus online tanpa ejen (term/CI/medical + FWD i-Lindung via EPF); tiada produk travel berasingan ditemui pada fwd.com.my (disemak 12 Sep 2026).",
+      "caveat": "Barisan produk online lebih sempit berbanding saluran ejen.",
+      "sources": ["https://www.fwd.com.my/buy-online/", "https://www.imoney.my/articles/fwd-takaful-fwd-protect-direct-takaful-online"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "shopee",
+      "name": "Shopee Insurance",
+      "model": "marketplace",
+      "digitalPlatform": "App Shopee & ShopeePay (tab Insurance)",
+      "parentCompany": null,
+      "products": ["travel", "car", "motorcycle", "personal-accident"],
+      "keyFact": "Marketplace dalam Shopee/ShopeePay (dikendalikan ejen SeaMoney): travel insurance Allianz + Zurich Travel Takaful (single & annual), motor takaful Takaful IKHLAS, PA & wallet protection; bayar boleh ansur SPayLater 3-12 bulan.",
+      "caveat": "Shopee bukan penginsurans — hanya ejen digital. COVID pada plan Allianz hanya untuk divaksin penuh; harga pemasaran 'RM3/hari' belum disahkan (laman JS).",
+      "sources": ["https://help.shopee.com.my/portal/4/article/145752", "https://shopeepay.com.my/en/insurance", "https://fintechnews.my/47657/islamic-fintech/shopee-takaful-motor-insurance/"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "bjak",
+      "name": "Bjak",
+      "model": "aggregator",
+      "digitalPlatform": "bjak.my",
+      "parentCompany": null,
+      "products": ["car", "motorcycle", "travel", "roadtax"],
+      "keyFact": "Aggregator motor popular: banding 10+ penginsurans, NCD auto-check, ansuran premium, servis roadtax 'percuma' sebagai pilihan.",
+      "caveat": "JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk renew roadtax & tiada integrasi MySikap; rujuk MyJPJ untuk saluran rasmi. Status 2026 dispute tidak jelas dalam sumber.",
+      "sources": ["https://bjak.my/en", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "policystreet",
+      "name": "PolicyStreet",
+      "model": "aggregator",
+      "digitalPlatform": "policystreet.com.my",
+      "parentCompany": null,
+      "products": ["car", "motorcycle", "personal-accident", "roadtax"],
+      "keyFact": "Aggregator diluluskan BNM dengan keahlian Drive+ (rebate roadtax, ansuran tanpa faedah, cashback renew); boleh bayar melalui Atome BNPL.",
+      "caveat": "Ketersediaan produk travel di laman konsumen belum disahkan.",
+      "sources": ["https://policystreet.com.my/compare-car-insurance", "https://fintechnews.my/59602/insurtech-malaysia/policystreet-series-c-blueorchard/"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "myeg",
+      "name": "MyEG",
+      "model": "marketplace",
+      "digitalPlatform": "myeg.com.my",
+      "parentCompany": null,
+      "products": ["car", "motorcycle", "roadtax"],
+      "keyFact": "Ejen JPJ rasmi: renew roadtax + settle saman + beli insurans motor dalam satu platform.",
+      "caveat": "Ada yuran servis (dilaporkan ~RM2.75) & pos kurier untuk stiker fizikal. Bukan penginsurans, bukan penyedia travel.",
+      "sources": ["https://www.myeg.com.my/services/jpj", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "kaotim",
+      "name": "Kaotim",
+      "model": "insurer-langsung (takaful digital)",
+      "digitalPlatform": "kaotim.my + app Kaotim",
+      "parentCompany": "takaful-malaysia",
+      "products": ["car", "motorcycle", "health", "life"],
+      "keyFact": "Platform takaful digital milik Takaful Malaysia: MediKad (medical card, had tahunan dilaporkan sehingga RM1.1m dengan MediBooster), Car/Motor (diskaun 10% + PA RM15,000 percuma), Legasi hibah dari RM30/bulan. Semua takaful, tiada produk travel.",
+      "caveat": "Butiran tier MediKad belum disahkan dari PDS langsung (laman JS); ulasan komuniti nota premium naik ikut umur & GP rutin tidak dilindungi.",
+      "sources": ["https://kaotim.my/", "https://www.takaful-malaysia.com.my/en/news/takaful-malaysia-unveils-kaotim-a-new-digital-platform-offering-an-affordable-medical-card-for-malaysians/"],
+      "asAt": "2026-09-12"
+    }
+  ]
+}
