@@ -85,7 +85,11 @@ export function getStaticPaths() {
 }
 
 const { platform } = Astro.props as { platform: Platform };
-const seo = pageMeta[platform.slug];
+const seo = pageMeta[platform.slug] ?? {
+  title: `${platform.name} — banding & beli insurans online | Insurans.co`,
+  description: `${platform.name}: ${platform.keyFact}`.slice(0, 155),
+  h1: platform.name,
+};
 const canonicalUrl = `https://insurans.co/insurans-online/${platform.slug}/`;
 const modelLabel = modelLabels[platform.model] ?? platform.model;
 const modelDescription = modelDescriptions[platform.model] ?? 'saluran untuk mendapatkan produk insurans atau takaful.';
@@ -218,7 +222,7 @@ const schema = {
 
         <h2 id="caveat">Perhatian / caveat</h2>
         <div class="info-box">
-          <p><strong>Semak sebelum bayar</strong>{platform.caveat}</p>
+          <p><strong>Semak sebelum bayar:</strong>{' '}{platform.caveat}</p>
         </div>
 
         {platform.slug === 'kaotim' && (
@@ -232,11 +236,10 @@ const schema = {
             <h3>Apa yang disahkan</h3>
             <p>
               Model direct-to-consumer, perlindungan takaful penuh bawah Takaful Malaysia, dan pemasaran rasmi
-              "dari RM38 sebulan" (meta description medikad.kaotim.my) disahkan. Tier yang dilaporkan dari carian laman rasmi
-              dan PDS: Standard RM50,000, Pro RM75,000, Max RM100,000 setahun, sehingga lebih kurang RM1.1 juta dengan rider
-              MediBooster, dengan room &amp; board dilaporkan RM100/RM150/RM200 sehari — semua ni kami label
-              <strong>dilaporkan, belum disahkan PDS</strong> sebab capaian langsung ke laman dan PDF PDS gagal (JS shell, TLS cert).
-              Jangan treat sebagai fakta muktamad; buka PDS dalam browser sebelum beli.
+              "dari RM38 sebulan" (laman rasmi medikad.kaotim.my). Tier (laman rasmi + PDS MediKad 19/07/2024):
+              Standard RM50,000, Pro RM75,000, Max RM100,000 annual limit, naik ke RM550,000 / RM825,000 / RM1.1 juta dengan rider
+              MediBooster; room &amp; board RM100/RM150/RM200 sehari, tiada lifetime limit. Untuk terma penuh dan pengecualian,
+              buka PDS dalam browser sebelum beli.
             </p>
             <h3>Siapa sesuai?</h3>
             <p>
@@ -247,8 +250,8 @@ const schema = {
             <h3>Caveat kena hadam</h3>
             <p>
               Premium naik ikut age band (standard medical, tapi bajet 20-an bukan harga 40-an); pre-existing tetap kena declare;
-              rawatan GP rutin tidak dilindungi — medical card bayar inpatient/day surgery dan outpatient tersenarai saja; butiran
-              tier/booster belum disahkan. Tiada tindakan regulator ditemui atas produk ni. Kami bukan ejen — semak PDS MediKad
+              rawatan GP rutin tidak dilindungi — medical card bayar inpatient/day surgery dan outpatient tersenarai saja.
+              Tiada tindakan regulator ditemui atas produk ni. Kami bukan ejen — semak PDS MediKad
               semasa dan banding dengan myMedik, OneMedical dan SmartMedic sebelum decide.
             </p>
           </>

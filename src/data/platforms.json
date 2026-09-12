@@ -58,7 +58,7 @@
       "parentCompany": null,
       "products": ["car", "motorcycle", "roadtax"],
       "keyFact": "Ejen JPJ rasmi: renew roadtax + settle saman + beli insurans motor dalam satu platform.",
-      "caveat": "Ada yuran servis (dilaporkan ~RM2.75) & pos kurier untuk stiker fizikal. Bukan penginsurans, bukan penyedia travel.",
+      "caveat": "Ada yuran servis MyEG RM2.50 + SST 8% (sumber: helpdesk MyEG) & pos kurier untuk stiker fizikal. Bukan penginsurans, bukan penyedia travel.",
       "sources": ["https://www.myeg.com.my/services/jpj", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/"],
       "asAt": "2026-09-12"
     },
@@ -69,8 +69,8 @@
       "digitalPlatform": "kaotim.my + app Kaotim",
       "parentCompany": "takaful-malaysia",
       "products": ["car", "motorcycle", "health", "life"],
-      "keyFact": "Platform takaful digital milik Takaful Malaysia: MediKad (medical card, had tahunan dilaporkan sehingga RM1.1m dengan MediBooster), Car/Motor (diskaun 10% + PA RM15,000 percuma), Legasi hibah dari RM30/bulan. Semua takaful, tiada produk travel.",
-      "caveat": "Butiran tier MediKad belum disahkan dari PDS langsung (laman JS); ulasan komuniti nota premium naik ikut umur & GP rutin tidak dilindungi.",
+      "keyFact": "Platform takaful digital milik Takaful Malaysia: MediKad (medical card, annual limit RM50k/RM75k/RM100k, naik ke RM550k-RM1.1m dengan rider MediBooster), Car/Motor (diskaun 10% + PA RM15,000 percuma), Legasi hibah dari RM30/bulan. Semua takaful, tiada produk travel.",
+      "caveat": "Ulasan komuniti nota premium naik ikut umur & GP rutin tidak dilindungi; rujuk PDS MediKad untuk terma penuh.",
       "sources": ["https://kaotim.my/", "https://www.takaful-malaysia.com.my/en/news/takaful-malaysia-unveils-kaotim-a-new-digital-platform-offering-an-affordable-medical-card-for-malaysians/"],
       "asAt": "2026-09-12"
     }

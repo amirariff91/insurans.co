@@ -72,8 +72,8 @@ const earlyStageFaqAnswer =
       ? `Rekod ini menyatakan early-stage tidak dilindungi. Standard 36 merujuk keadaan severe-stage; jangan anggap diagnosis awal dilindungi tanpa manfaat dan definisi yang dinyatakan dalam PDS.`
       : `Sumber yang dibaca tidak menyatakan sama ada early-stage dilindungi untuk rekod ini. Standard 36 merujuk keadaan severe-stage; semak manfaat early-stage dan definisi setiap kondisi dalam PDS.`;
 const payoutFaqAnswer = record.payoutStructure
-  ? `Rekod ini menyatakan: ${record.payoutStructure}. Sesetengah polisi juga menetapkan survival period, iaitu tempoh pemegang polisi perlu hidup selepas diagnosis, lazimnya sekitar 7–30 hari; tempoh sebenar untuk ${record.planName} mesti disahkan dalam wording polisi atau sijil.`
-  : `Struktur bayaran untuk ${record.planName} tidak dinyatakan dalam sumber yang dibaca. Secara umum, CI swasta membayar sekaligus selepas diagnosis yang memenuhi definisi polisi dan survival period, jika ada; tempoh yang lazim dirujuk ialah sekitar 7–30 hari. Semak wording sebenar.`;
+  ? `Rekod ini menyatakan: ${record.payoutStructure}. Sesetengah polisi juga menetapkan survival period, iaitu tempoh pemegang polisi perlu hidup selepas diagnosis sebelum tuntutan dibayar; tempoh sebenar untuk ${record.planName} mesti disahkan dalam wording polisi atau sijil.`
+  : `Struktur bayaran untuk ${record.planName} tidak dinyatakan dalam sumber yang dibaca. Secara umum, CI swasta membayar sekaligus selepas diagnosis yang memenuhi definisi polisi dan survival period (jika ada). Semak tempoh dan syarat sebenar dalam wording polisi atau sijil.`;
 const faqs = [
   {
     q: `${record.planName} ini jenis insurans penyakit kritikal apa?`,

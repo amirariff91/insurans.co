@@ -45,8 +45,7 @@ const specItems = [
   { label: 'Region', value: plan.regionTiers?.join(' · ') },
   { label: 'Ciri utama', value: plan.standoutFeature },
 ].filter((item) => item.value);
-const description =
-  'Travel insurance Malaysia dan insurans perjalanan: semak medical, COVID, evakuasi, pembatalan trip, region serta ciri rasmi. Tiada harga direka.';
+const description = `${plan.planName} (${plan.insurer}): semak had perubatan${plan.medicalCoverLimit ? ` ${plan.medicalCoverLimit}` : ''}, COVID, pembatalan trip, region dan ciri — dari sumber rasmi. Insurans travel Malaysia, tiada harga direka.`.slice(0, 155);
 const medicalLimitSummary = plan.medicalCoverLimit
   ? `Had perubatan yang direkodkan ialah ${plan.medicalCoverLimit}.`
   : 'Had perubatan tidak dinyatakan secara awam dalam rekod ini.';
@@ -106,7 +105,7 @@ const schema = {
 ---
 
 <Base
-  title={`Insurans Travel Malaysia — ${plan.insurer.split(' ')[0]} | Insurans.co`}
+  title={`${plan.planName} — Travel Insurance Malaysia | Insurans.co`}
   description={description}
   canonical={canonicalUrl}
   schema={schema}

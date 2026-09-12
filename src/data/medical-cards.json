@@ -151,14 +151,14 @@
       "insurer": "Syarikat Takaful Malaysia Keluarga Berhad (platform Kaotim)",
       "planName": "Kaotim MediKad",
       "type": "takaful",
-      "annualLimit": "RM50,000 (Standard) / RM75,000 (Pro) / RM100,000 (Max); dilaporkan sehingga RM1.1 juta dengan MediBooster — belum disahkan dari PDS langsung",
-      "roomBoard": "Dilaporkan RM100 / RM150 / RM200 sehari — belum disahkan dari PDS langsung",
-      "lifetimeLimit": "Dilaporkan tiada lifetime limit — belum disahkan dari PDS langsung",
+      "annualLimit": "RM50,000 (Standard) / RM75,000 (Pro) / RM100,000 (Max); dengan rider MediBooster: RM550,000 / RM825,000 / RM1,100,000",
+      "roomBoard": "RM100 / RM150 / RM200 sehari (tanpa had hari)",
+      "lifetimeLimit": "No lifetime limit",
       "coInsurance": null,
       "deductibleOptions": null,
       "panelSize": null,
       "waitingPeriods": null,
-      "standoutFeature": "100% digital tanpa ejen; harga rasmi dilaporkan dari RM38 sebulan (meta medikad.kaotim.my); peserta 6-69 tahun, perlindungan sehingga 85 tahun",
+      "standoutFeature": "100% digital tanpa ejen; dilaporkan dari RM38 sebulan; peserta 6-69 tahun, perlindungan sehingga 85 tahun",
       "sources": ["https://medikad.kaotim.my/", "https://api.kaotim.my/uploads/PDS-MediKad-EN-19072024.pdf", "https://ringgitplus.com/en/blog/insurance/takaful-malaysia-launches-digital-platform-kaotim-and-medical-coverage-plan-kaotim-medikad.html"],
       "asAt": "2026-09-12"
     }
