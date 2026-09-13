@@ -1,0 +1,420 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import rates from '../../../data/roadtax-motorcycle.json';
+
+const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax-motosikal/';
+const description =
+  'Kira kadar roadtax JPJ untuk motosikal persendirian mengikut cc dan wilayah. Kadar awam JPJ, bukan premium insurans. Bukan ejen, bukan broker.';
+const intro =
+  'Masukkan cc motosikal dan wilayah — tengok roadtax JPJ setahun. Ini roadtax sahaja, bukan premium insurans. Nombor ikut jadual JPJ awam; motosikal 150cc ke bawah ialah "kadar sedia ada".';
+
+const chips = [
+  { label: 'Honda EX5 (110cc)', cc: 110 },
+  { label: 'Yamaha LC135 (135cc)', cc: 135 },
+  { label: 'Yamaha Y15 (150cc)', cc: 150 },
+  { label: 'Kawasaki Ninja (250cc)', cc: 250 },
+  { label: 'Superbike (1000cc)', cc: 1000 },
+];
+
+const faqs = [
+  {
+    q: 'Berapa roadtax motosikal 150cc ke bawah (contoh EX5, LC135, Y15)?',
+    a: 'Bagi motosikal 150cc dan ke bawah, garis panduan JPJ yang dirujuk menulis "dikekalkan pada kadar sedia ada" tanpa menyatakan angka. Nilai RM2 sering dilaporkan di laman pihak ketiga, tetapi ia tidak dinyatakan dalam PDF rasmi yang kami baca. Sebab itu kalkulator ini tidak memaparkan angka rekaan untuk band ini — semak JPJ atau MyEG untuk pengesahan.',
+  },
+  {
+    q: 'Berapa roadtax motosikal 250cc dan 1000cc?',
+    a: 'Ikut jadual JPJ untuk Semenanjung: 201–250cc = RM50 dan melebihi 800cc (termasuk 1000cc) = RM350. Di Sabah & Sarawak: 201–250cc = RM12 dan melebihi 800cc = RM42. Band lain: 151–200cc RM30/RM9, 251–500cc RM180/RM30, 501–800cc RM250/RM40.',
+  },
+  {
+    q: 'Kenapa kadar Semenanjung berbeza daripada Sabah & Sarawak?',
+    a: 'Jadual kadar LKM JPJ memang berbeza mengikut wilayah, dan kadar motosikal Sabah serta Sarawak jauh lebih rendah daripada Semenanjung. Pilih wilayah pendaftaran motosikal anda untuk menggunakan jadual yang sepadan.',
+  },
+  {
+    q: 'Roadtax dan insurans motosikal — berapa jumlah semua?',
+    a: 'Kalkulator ini hanya mengira roadtax. Premium insurans motosikal tiada jadual awam mengikut cc; ia bergantung pada faktor seperti NCD, cc, umur dan lokasi, dan hanya boleh disahkan melalui quotation sebenar. Jangan campurkan jadual roadtax dengan jadual premium.',
+  },
+  {
+    q: 'Langkawi, Pangkor dan Labuan bagaimana?',
+    a: 'Bagi motosikal >150cc, Pulau Pangkor dan Langkawi dikenakan 50% kadar Semenanjung, manakala Labuan 50% kadar Sabah. Bahagian 150cc ke bawah kekal "kadar sedia ada". Kalkulator ini memaparkan jadual Semenanjung dan Sabah/Sarawak; semak JPJ untuk kadar wilayah bebas cukai.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Kalkulator Roadtax Motosikal',
+  description,
+  url: canonicalUrl,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'All',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'MYR' },
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://insurans.co/tools/' },
+      { '@type': 'ListItem', position: 3, name: 'Kalkulator Roadtax Motosikal', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title="Kalkulator Roadtax Motosikal"
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  pageType="tool"
+>
+  <Hero title="Kalkulator Roadtax Motosikal 2026">
+    <Byline slot="byline" dateModified={rates.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Tools', href: '/tools/' },
+        { label: 'Kalkulator Roadtax Motosikal' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">{intro}</p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Alat percuma</p>
+      <p class="mt-2 font-serif text-headline-sm text-stone-900">Kadar JPJ, bukan teka-teki</p>
+      <p class="mt-2 text-sm leading-5 text-stone-600">Kiraan untuk motosikal persendirian menggunakan jadual kadar awam JPJ.</p>
+    </div>
+  </Hero>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <section id="calculator" aria-labelledby="calculator-heading" class="border-2 border-stone-900 bg-white p-6 sm:p-8">
+          <p class="label">Kalkulator percuma</p>
+          <h2 id="calculator-heading" class="mt-2 font-serif text-headline-md text-stone-900">Kira roadtax motosikal anda</h2>
+          <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan kapasiti enjin dalam geran/VOC dan pilih wilayah pendaftaran.</p>
+
+          <form id="motor-roadtax-form" class="mt-6 space-y-5">
+            <div>
+              <label for="engine-cc" class="mb-1.5 block text-sm font-semibold text-stone-700">Kapasiti enjin (cc)</label>
+              <input
+                type="number"
+                id="engine-cc"
+                name="cc"
+                inputmode="numeric"
+                min="1"
+                step="1"
+                required
+                placeholder="cth: 150"
+                aria-describedby="engine-cc-help"
+                class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
+              />
+              <p id="engine-cc-help" class="mt-1.5 text-xs text-stone-400">Tengok dalam geran/VOC motosikal anda.</p>
+            </div>
+
+            <fieldset>
+              <legend class="mb-2 block text-sm font-semibold text-stone-700">Wilayah</legend>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="region" value="semenanjung" checked required class="h-4 w-4 accent-hijau-700" />
+                  <span>Semenanjung</span>
+                </label>
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="region" value="sabahSarawak" class="h-4 w-4 accent-hijau-700" />
+                  <span>Sabah &amp; Sarawak</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="w-full bg-stone-900 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800">
+              Kira Roadtax Motosikal
+            </button>
+          </form>
+
+          <div class="mt-5">
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">Contoh pantas</p>
+            <div class="flex flex-wrap gap-2">
+              {chips.map((chip) => (
+                <button
+                  type="button"
+                  class="motor-chip border border-stone-300 px-3 py-1.5 text-sm text-stone-700 transition-colors hover:border-hijau-500 hover:text-hijau-700"
+                  data-cc={chip.cc}
+                >
+                  {chip.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div
+            id="motor-result"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            class="mt-6 hidden border border-hijau-200 bg-hijau-50 p-5"
+          >
+            <p id="motor-error" hidden role="alert" class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+            <p id="motor-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
+            <p id="motor-breakdown" class="mt-4 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></p>
+          </div>
+
+          <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
+            Roadtax sahaja — premium insurans motosikal tiada jadual awam mengikut cc.
+            <a href="/motorcycle-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Panduan insurans motosikal →</a>
+          </p>
+        </section>
+
+        <article class="prose-editorial mt-10">
+          <h2>Macam mana kami kira?</h2>
+          <p>Kami pilih band cc mengikut wilayah, kemudian paparkan kadar tetap JPJ untuk band itu. Tiada formula per-cc; setiap band ialah kadar rata.</p>
+          <ul>
+            <li>Motosikal <strong>150cc dan ke bawah</strong>: JPJ menulis <em>"kadar sedia ada"</em> tanpa angka — kami tidak menggantikannya dengan nombor rekaan.</li>
+            <li>Melebihi 150cc: kadar tetap mengikut band (lihat jadual pada <a href="/motorcycle-insurance/#roadtax">panduan insurans motosikal</a>).</li>
+          </ul>
+
+          <h3>Caveat penting</h3>
+          <ul>
+            <li>{rates.displayNotes.kadarSediaAda}</li>
+            <li>{rates.displayNotes.dutyFree}</li>
+            <li>{rates.displayNotes.ev}</li>
+            <li>{rates.displayNotes.premium}</li>
+          </ul>
+
+          <div class="info-box mt-8">
+            <p class="mb-0 text-sm leading-5 text-stone-700">
+              <strong>Disclaimer:</strong> Anggaran ikut jadual kadar LKM JPJ awam (disemak {rates.asAt}). Roadtax sahaja — bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
+            </p>
+            <div class="mt-3 text-sm leading-5 text-stone-700">
+              <strong>Sumber:</strong>
+              <ul class="mt-1 list-disc pl-5">
+                {rates.sources.map((source) => (
+                  <li><a href={source} target="_blank" rel="noopener" class="break-all text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{source}</a></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim kalkulator roadtax motosikal</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Cara guna</h2>
+            <ol class="mt-4 space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">1</span>
+                <span>Semak kapasiti enjin dalam <strong>geran/VOC</strong>.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">2</span>
+                <span>Pilih <strong>wilayah</strong> pendaftaran.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">3</span>
+                <span>Tekan <strong>Kira Roadtax Motosikal</strong> atau guna contoh pantas.</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Nota penting</h2>
+            <p class="mt-2 text-sm leading-5 text-stone-600">Angka ini semakan awal berdasarkan jadual kadar awam JPJ. Untuk bayaran dan pengesahan, rujuk JPJ atau MyEG. Premium insurans dapatkan quotation berasingan.</p>
+          </div>
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/motorcycle-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans motosikal</a></li>
+              <li><a href="/tools/kalkulator-roadtax/" class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax kereta</a></li>
+              <li><a href="/personal-accident/" class="text-hijau-700 hover:text-hijau-600">Insurans kemalangan diri</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
+
+<script>
+  import { calcMotorcycleRoadtax, type MotorcycleRegion } from '../../../lib/roadtax-motor';
+  import { track } from '../../../lib/track';
+
+  const regionLabels: Record<MotorcycleRegion, string> = {
+    semenanjung: 'Semenanjung',
+    sabahSarawak: 'Sabah & Sarawak',
+  };
+
+  function getElement(id: string): HTMLElement | null {
+    const element = document.getElementById(id);
+    return element instanceof HTMLElement ? element : null;
+  }
+
+  function getInput(id: string): HTMLInputElement | null {
+    const element = document.getElementById(id);
+    return element instanceof HTMLInputElement ? element : null;
+  }
+
+  function getCheckedRadio(name: string): HTMLInputElement | null {
+    const element = document.querySelector(`input[name="${name}"]:checked`);
+    return element instanceof HTMLInputElement ? element : null;
+  }
+
+  function isRegion(value: string): value is MotorcycleRegion {
+    return value === 'semenanjung' || value === 'sabahSarawak';
+  }
+
+  function formatCc(value: number): string {
+    return value.toLocaleString('ms-MY');
+  }
+
+  function formatRate(value: number): string {
+    return `RM ${value.toLocaleString('ms-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+
+  function showMessage(message: string): void {
+    const resultEl = getElement('motor-result');
+    const errorEl = getElement('motor-error');
+    const valueEl = getElement('motor-value');
+    const breakdownEl = getElement('motor-breakdown');
+    if (!resultEl || !errorEl || !valueEl || !breakdownEl) return;
+
+    resultEl.classList.remove('hidden');
+    errorEl.hidden = false;
+    errorEl.textContent = message;
+    valueEl.hidden = true;
+    breakdownEl.hidden = true;
+    valueEl.textContent = '';
+    breakdownEl.textContent = '';
+  }
+
+  function calculate(cc: number, region: MotorcycleRegion): void {
+    const resultEl = getElement('motor-result');
+    const errorEl = getElement('motor-error');
+    const valueEl = getElement('motor-value');
+    const breakdownEl = getElement('motor-breakdown');
+    if (!resultEl || !errorEl || !valueEl || !breakdownEl) return;
+
+    if (!Number.isFinite(cc) || cc <= 0) {
+      showMessage('Sila isi kapasiti enjin yang sah dan pilih wilayah.');
+      return;
+    }
+
+    try {
+      const result = calcMotorcycleRoadtax(region, cc);
+      resultEl.classList.remove('hidden');
+      errorEl.hidden = true;
+      valueEl.hidden = false;
+      breakdownEl.hidden = false;
+
+      if (result.kadarSediaAda) {
+        valueEl.textContent = 'Kadar sedia ada';
+        breakdownEl.textContent = `Motosikal ${formatCc(cc)}cc (${regionLabels[region]}): JPJ menulis "kadar sedia ada" tanpa menyatakan angka dalam garis panduan yang dirujuk. Nilai RM2 sering dilaporkan tetapi tidak disahkan dalam PDF rasmi — semak JPJ/MyEG.`;
+      } else if (result.rate !== null) {
+        const maxCc = result.band.maxCc === 99999 ? '∞' : formatCc(result.band.maxCc);
+        valueEl.textContent = `Roadtax setahun: ${formatRate(result.rate)}`;
+        breakdownEl.textContent = `Motosikal ${formatCc(cc)}cc · ${regionLabels[region]} · band ${formatCc(result.band.minCc)}–${maxCc}cc · kadar tetap ${formatRate(result.rate)}`;
+      }
+
+      track('motor_roadtax_calculate', {
+        region,
+        cc,
+        rate: result.rate,
+        kadar_sedia_ada: result.kadarSediaAda,
+        band_min_cc: result.band.minCc,
+        band_max_cc: result.band.maxCc,
+      });
+    } catch {
+      showMessage('Kapasiti enjin ini tidak sepadan dengan band kadar JPJ. Semak angka dalam geran/VOC.');
+    }
+  }
+
+  function calculateFromForm(): void {
+    const engineInput = getInput('engine-cc');
+    const regionInput = getCheckedRadio('region');
+    const cc = engineInput ? Number(engineInput.value) : Number.NaN;
+    if (!regionInput || !isRegion(regionInput.value)) {
+      showMessage('Sila pilih wilayah.');
+      return;
+    }
+    calculate(cc, regionInput.value);
+  }
+
+  const form = document.getElementById('motor-roadtax-form');
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      calculateFromForm();
+    });
+  }
+
+  const chipButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.motor-chip'));
+  for (const button of chipButtons) {
+    button.addEventListener('click', () => {
+      const cc = Number(button.dataset.cc);
+      const engineInput = getInput('engine-cc');
+      if (engineInput && Number.isFinite(cc)) engineInput.value = String(cc);
+      const regionInput = getCheckedRadio('region');
+      const region = regionInput && isRegion(regionInput.value) ? regionInput.value : 'semenanjung';
+      calculate(cc, region);
+    });
+  }
+
+  function applyUrlParams(): void {
+    const params = new URLSearchParams(window.location.search);
+    const engineInput = getInput('engine-cc');
+    const ccParam = params.get('cc');
+    const regionParam = params.get('region');
+
+    if (regionParam && isRegion(regionParam)) {
+      const radios = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="region"]'));
+      const match = radios.find((candidate) => candidate.value === regionParam);
+      if (match) match.checked = true;
+    }
+
+    if (ccParam !== null && ccParam.trim() !== '') {
+      const cc = Number(ccParam);
+      if (Number.isFinite(cc) && cc > 0) {
+        if (engineInput) engineInput.value = String(cc);
+        const regionInput = getCheckedRadio('region');
+        const region = regionInput && isRegion(regionInput.value) ? regionInput.value : 'semenanjung';
+        calculate(cc, region);
+      }
+    }
+  }
+
+  applyUrlParams();
+</script>

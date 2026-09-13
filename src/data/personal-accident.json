@@ -1,0 +1,68 @@
+{
+  "methodologyNote": "Setiap baris diambil daripada PDS, brosur atau laman produk rasmi penginsurans (dibaca 2026-09-12). premiumPublished hanya memaparkan harga atau contoh angka yang diterbitkan oleh sumber; null = tidak diterbitkan atau tidak dapat disahkan dalam sumber yang dibaca. Tiada harga dianggar, dikira semula atau dipuratakan. Lihat sources[] setiap baris.",
+  "asAt": "2026-09-12",
+  "records": [
+    {
+      "slug": "etiqa-buddy-pa-weekend-warrior",
+      "insurer": "Etiqa General Insurance Berhad",
+      "planName": "Buddy PA Insurance – Weekend Warrior",
+      "type": "personal-accident",
+      "coversWhat": "Kematian & hilang upaya kekal akibat kemalangan, compassionate care, perbelanjaan pemulihan/gaya hidup, jururawat pemulihan 60 hari, elaun hospital 30 hari, perubatan wad & luar wad, ambulans, pembedahan membina semula muka/gigi + kulit RM10,000",
+      "plansAndBenefits": "Basic/Good/Better/varian tertinggi: mati & PPD dewasa RM50,000/100,000/200,000/250,000 (kanak-kanak RM40,000-70,000); hospital cash RM100-250/hari; nursing RM100-400/hari",
+      "entryAge": null,
+      "premiumPublished": "Contoh PDS (Better, dewasa, SI RM200k): basic RM403.99 - diskaun online 25% = RM303 + SST 8% RM24.24 + setem RM10 = RM337.24/tahun",
+      "figureVerified": true,
+      "sources": [
+        "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Weekend_Warrior_Insurance.pdf",
+        "https://www.etiqa.com.my/personal-accident"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "tune-protect-pa-easy",
+      "insurer": "Tune Insurance Malaysia Berhad",
+      "planName": "Tune Protect PA Easy",
+      "type": "personal-accident",
+      "coversWhat": "Kematian akibat kemalangan & PPD, perbelanjaan perubatan kemalangan, elaun hospital, kosmetik, khairat (bereavement)",
+      "plansAndBenefits": "AD & PPD sehingga RM50,000; perubatan RM2,000 setiap kemalangan; hospital RM50/hari (max 120 hari, RM6,000); kosmetik RM1,000; khairat RM2,000",
+      "entryAge": "18-70 tahun (penduduk Malaysia / permit kerja sah)",
+      "premiumPublished": "RM36.00 setahun (harga rata diterbitkan); boleh beli online",
+      "figureVerified": true,
+      "sources": [
+        "https://www.tuneprotect.com/my/products/pa-easy/"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "tune-protect-pa-shield",
+      "insurer": "Tune Insurance Malaysia Berhad",
+      "planName": "PA Shield",
+      "type": "personal-accident",
+      "coversWhat": "AD & PPD, renewal bonus +10%/tahun max 150%, perubatan (termasuk denggi/malaria/JE/Zika/HFMD), kemasukan hospital tanpa tunai, pendapatan hospital 180 hari, elaun mingguan (opsyen, 104 minggu), ragut RM1,000, liabiliti peribadi sehingga RM1,000,000, dana sokongan ibu bapa, khairat RM5,000, repatriasi RM5,000",
+      "plansAndBenefits": "Pelan 1-5 AD/PPD RM100,000/200,000/300,000/500,000/1,000,000; perubatan RM5,000-12,000; hospital RM75-250/hari",
+      "entryAge": null,
+      "premiumPublished": "RM188/308/408/668/1,238 setahun (Kelas 1&2 tanpa manfaat mingguan; excl SST 8% + setem RM10)",
+      "figureVerified": true,
+      "sources": [
+        "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/Tune_Protect_PA_Shield_Brochure.pdf",
+        "https://www.tuneprotect.com/my/products/pa-shield/"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "allianz-personal-accident",
+      "insurer": "Allianz General Insurance",
+      "planName": "Allianz Personal Accident",
+      "type": "personal-accident",
+      "coversWhat": null,
+      "plansAndBenefits": null,
+      "entryAge": null,
+      "premiumPublished": null,
+      "figureVerified": false,
+      "sources": [
+        "https://www.allianz.com.my/personal/life-health-and-savings/personal-accident/personal-accident.html"
+      ],
+      "asAt": "2026-09-12"
+    }
+  ]
+}

@@ -1,340 +1,401 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
-import VerdictBadge from '../../components/VerdictBadge.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import motorcycleInsurance from '../../data/motorcycle-insurance.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Panduan Insurans Motosikal Malaysia 2026",
-  "description": "Panduan lengkap insurans motosikal Malaysia. Harga, jenis coverage, cara renew online, dan tips jimat. Untuk kapcai sampai superbike.",
-  "url": "https://insurans.co/motorcycle-insurance/",
-  "datePublished": "2026-02-01",
-  "dateModified": "2026-02-10",
-  "inLanguage": "ms",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Insurans.co",
-    "url": "https://insurans.co"
+const records = motorcycleInsurance.records;
+const asAt = motorcycleInsurance.asAt;
+const jpjSource = 'https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf';
+const roadtaxCalculatorUrl = '/tools/kalkulator-roadtax-motosikal/';
+const typeOrder = ['third-party', 'comprehensive', 'comprehensive-takaful'];
+const typeLabels: Record<string, string> = {
+  'third-party': 'Third party',
+  comprehensive: 'Comprehensive',
+  'comprehensive-takaful': 'Comprehensive / takaful',
+};
+const typeDescriptions: Record<string, string> = {
+  'third-party': 'Liabiliti kepada pihak ketiga; motosikal sendiri tidak termasuk dalam cover asas.',
+  comprehensive: 'Perlindungan motosikal sendiri dan liabiliti pihak ketiga, tertakluk pada wording polisi.',
+  'comprehensive-takaful': 'Struktur perlindungan berasaskan sijil takaful; semak manfaat dan pengecualian setiap produk.',
+};
+const recordGroups = typeOrder
+  .map((type) => ({
+    type,
+    label: typeLabels[type],
+    description: typeDescriptions[type],
+    records: records.filter((record) => record.type === type),
+  }))
+  .filter((group) => group.records.length > 0);
+const sourceLinks = [
+  { label: 'JPJ — Garis Panduan LKM', url: jpjSource },
+  ...records.flatMap((record) =>
+    record.sources.map((url) => ({
+      label: new URL(url).hostname.replace(/^www\./, ''),
+      url,
+    })),
+  ),
+].filter((source, index, sources) => sources.findIndex((candidate) => candidate.url === source.url) === index);
+const outboundLinks = records.map((record) => ({
+  label: record.insurer.replace(' Insurance Berhad', '').replace(' Insurance (Malaysia) Bhd', ''),
+  href: record.sources[0],
+  relationship: 'unpaid' as const,
+}));
+const sompoExample = records.find((record) => record.slug === 'berjaya-sompo-motorcycle');
+const pageTitle = 'Insurans Motosikal Malaysia 2026';
+const title = buildTitle(pageTitle, { max: 59 });
+const description = buildDescription(
+  'Panduan insurans motosikal Malaysia: kadar roadtax JPJ ikut cc, beza third party, comprehensive dan takaful, contoh premium yang disahkan serta cara renew.',
+);
+const canonicalUrl = 'https://insurans.co/motorcycle-insurance/';
+const faqs = [
+  {
+    q: 'Bagaimana renew insurans motosikal online?',
+    a: 'Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis cover, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.',
   },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
-      { "@type": "ListItem", "position": 2, "name": "Insurans Motosikal", "item": "https://insurans.co/motorcycle-insurance/" }
-    ]
-  }
+  {
+    q: 'Apa beza third party dengan comprehensive untuk motosikal?',
+    a: 'Third party melindungi liabiliti kepada pihak lain dan tidak melindungi motosikal sendiri dalam cover asas. Comprehensive turut merangkumi kerosakan atau kehilangan motosikal sendiri mengikut wording, selain liabiliti pihak ketiga. Sesetengah produk turut menyediakan TPFT atau add-on; semak PDS dan quotation sebenar.',
+  },
+  {
+    q: 'Berapa jumlah roadtax dan insurans untuk Y15 atau motosikal 150cc?',
+    a: 'Untuk ≤150cc, jadual JPJ yang dirujuk menulis “kadar sedia ada” tanpa menyatakan semula angka. Premium insurans pula tiada jadual awam mengikut cc yang boleh kami sahkan; ia bergantung pada faktor seperti NCD, cc, umur dan lokasi. Jadi jumlah untuk Y15 atau motosikal 150cc perlu datang daripada quotation sebenar, bukan angka rekaan.',
+  },
+  {
+    q: 'Bagaimana NCD motosikal mempengaruhi premium?',
+    a: 'NCD ialah salah satu faktor rating yang dinyatakan dalam PDS Kurnia. PDS Berjaya Sompo yang kami baca menggunakan NCD 25% dalam satu contoh Honda Airblade, tetapi contoh tunggal itu bukan jadual kelayakan universal. Sahkan NCD yang terpakai pada polisi anda dalam quotation atau rekod insurer.',
+  },
+  {
+    q: 'Adakah add-on pembonceng atau pillion diperlukan?',
+    a: 'Jangan anggap semua polisi memberi skop pembonceng yang sama. PDS Kurnia menyatakan add-on penumpang atau pillion, manakala rekod Berjaya Sompo menyenaraikan liabiliti pillion sebagai add-on. Semak wording, had dan keadaan pemakaian sebelum menambahkannya.',
+  },
+  {
+    q: 'Bagaimana cari insurans motosikal murah dengan cara yang jujur?',
+    a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: '2026-02-01',
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Motosikal', item: canonicalUrl },
+    ],
+  },
 };
 ---
 
 <Base
-  title="Insurans Motosikal Malaysia 2026 — Harga, Jenis & Panduan Lengkap"
-  description="Panduan insurans motosikal Malaysia 2026. Berapa harga untuk kapcai, Y15, LC135, dan superbike? Cara renew online, beza coverage, tips jimat. Dalam BM."
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
-  modifiedTime="2026-02-10"
+  modifiedTime={asAt}
 >
-  <section class="bg-white border-b border-stone-200">
+  <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Motosikal</span>
-      </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Insurans Motosikal Malaysia 2026
-      </h1>
-      <Byline dateModified={schema.dateModified} />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Motor kapcai RM3,000 pun kena ada insurans. Roadtax tak boleh renew tanpa insurance yang sah. 
-        Jom tengok berapa kos sebenar dan macam mana nak jimat.
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Insurans Motosikal' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Motosikal Malaysia 2026</h1>
+      <Byline dateModified={asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Rujukan neutral, bukan ejen: semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang benar-benar
+        diterbitkan dan pautan quotation rasmi. Tiada jadual premium motosikal mengikut cc direka.
       </p>
+      <div class="mt-4 max-w-2xl">
+        <EditorialStamp articleDate={asAt} sources={sourceLinks} sourcesLabel="Sumber" showReviewed={false} />
+      </div>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
-    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
         <article class="prose-editorial">
-
-          <p class="text-lg text-stone-700 leading-relaxed">
-            Malaysia ada lebih <strong>15 juta motosikal berdaftar</strong> — paling tinggi per kapita di dunia. 
-            Tapi ramai rider yang just beli third-party basic dan tak faham apa sebenarnya yang di-cover. 
-            Lagi penting — ramai yang overpay untuk coverage yang tak perlu.
+          <h2 id="apa-itu">Insurans motosikal (bukan ejen)</h2>
+          <p class="text-lg leading-7 text-stone-700">
+            Insurans motosikal melindungi risiko yang dinyatakan dalam polisi; minimum yang diperlukan untuk kegunaan
+            jalan raya ialah perlindungan liabiliti pihak ketiga yang sah. Insurans.co bukan ejen atau broker. Halaman ini
+            memisahkan angka yang ada sumber daripada premium yang hanya boleh diketahui melalui quotation.
+          </p>
+          <p>
+            {records.length} rekod produk di bawah datang daripada sumber rasmi yang dikenal pasti. Klik kad untuk melihat ringkasan
+            dan sumber setiap rekod. Jika sumber yang dibaca belum cukup untuk mengesahkan manfaat atau harga, kami tandakan
+            perkara itu dan tidak mengisinya dengan anggaran.
           </p>
 
-          <h2>Berapa harga insurans motosikal?</h2>
-
+          <h2 id="roadtax">Kadar roadtax motosikal JPJ ikut cc</h2>
           <p>
-            Harga insurans motor bergantung pada <strong>cc enjin</strong> dan <strong>jenis coverage</strong>. 
-            Untuk motor bawah 250cc, harga masih regulated (tak macam kereta yang dah liberalisasi). 
-            Maknanya harga lebih kurang sama antara syarikat.
+            Jadual berikut ialah kadar Lesen Kenderaan Motor untuk motosikal persendirian mengikut kapasiti enjin. Angka
+            berbeza mengikut wilayah; semak dokumen JPJ sebelum membayar.
           </p>
         </article>
 
-        <div class="overflow-x-auto my-8">
+        <div class="my-6 overflow-x-auto">
           <table class="table-editorial">
             <thead>
               <tr>
-                <th>Motor</th>
-                <th>CC</th>
-                <th>Third-Party</th>
-                <th>Comprehensive</th>
+                <th scope="col">Kapasiti enjin</th>
+                <th scope="col">Semenanjung</th>
+                <th scope="col">Sabah / Sarawak</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium text-stone-900">Honda EX5 / Wave</td>
-                <td>110cc</td>
-                <td class="font-semibold text-hijau-700">RM65 – RM75</td>
-                <td>RM150 – RM250</td>
+                <td class="font-medium text-stone-900">≤150cc</td>
+                <td>Kadar sedia ada</td>
+                <td>Kadar sedia ada</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Yamaha LC135</td>
-                <td>135cc</td>
-                <td class="font-semibold text-hijau-700">RM65 – RM80</td>
-                <td>RM200 – RM350</td>
+                <td class="font-medium text-stone-900">151–200cc</td>
+                <td>RM30</td>
+                <td>RM9</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Yamaha Y15ZR / Y16ZR</td>
-                <td>150-155cc</td>
-                <td class="font-semibold text-hijau-700">RM70 – RM85</td>
-                <td>RM250 – RM400</td>
+                <td class="font-medium text-stone-900">201–250cc</td>
+                <td>RM50</td>
+                <td>RM12</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Honda RS-X / ADV 150</td>
-                <td>150cc</td>
-                <td class="font-semibold text-hijau-700">RM70 – RM85</td>
-                <td>RM250 – RM400</td>
+                <td class="font-medium text-stone-900">251–500cc</td>
+                <td>RM180</td>
+                <td>RM30</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Yamaha NMax / Honda PCX</td>
-                <td>155cc</td>
-                <td class="font-semibold text-hijau-700">RM70 – RM90</td>
-                <td>RM300 – RM450</td>
+                <td class="font-medium text-stone-900">501–800cc</td>
+                <td>RM250</td>
+                <td>RM40</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Kawasaki Ninja 250</td>
-                <td>250cc</td>
-                <td>RM85 – RM100</td>
-                <td>RM500 – RM800</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Yamaha MT-07 / Honda CB650R</td>
-                <td>650-689cc</td>
-                <td>RM150 – RM200</td>
-                <td>RM1,200 – RM2,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Kawasaki Z900 / Yamaha MT-09</td>
-                <td>900cc+</td>
-                <td>RM200 – RM300</td>
-                <td>RM2,000 – RM4,000</td>
+                <td class="font-medium text-stone-900">&gt;800cc</td>
+                <td>RM350</td>
+                <td>RM42</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="info-box mb-8">
-          <p class="text-sm text-stone-700">
-            <strong>Nota:</strong> Harga comprehensive bergantung pada nilai pasaran motor, umur, NCD, 
-            dan kawasan. Harga third-party untuk motor bawah 250cc masih standard — 
-            tak banyak beza antara syarikat.
+        <div class="info-box">
+          <p class="text-sm leading-6 text-stone-700">
+            <strong>Nota kadar ≤150cc:</strong> JPJ menulis “kadar sedia ada” dalam jadual yang dirujuk. Kami tidak
+            menukar frasa itu kepada angka yang tidak dinyatakan semula dalam sumber. Pangkor dan Langkawi menggunakan
+            pelarasan tersendiri bagi julat tertentu, manakala Labuan menggunakan 50% kadar Sabah; rujuk
+            <a href={jpjSource}>Garis Panduan Pengiraan LKM JPJ</a> untuk konteks penuh.
+          </p>
+          <p class="mt-3 text-sm leading-6 text-stone-700">
+            <a href={roadtaxCalculatorUrl} class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+              Buka kalkulator roadtax motosikal →
+            </a>
+            <span class="block text-stone-600">Kalkulator khusus motosikal menggunakan jadual ini; premium insurans tetap perlu quotation.</span>
           </p>
         </div>
 
         <article class="prose-editorial">
-          <h2>Jenis coverage motosikal</h2>
-        </article>
-
-        <div class="space-y-4 my-8">
-          <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
-              <h3 class="font-serif text-xl text-stone-900">Third-Party Only</h3>
-              <VerdictBadge tone="best" label="Paling Popular" />
-            </div>
-            <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Cover kerosakan harta dan kecederaan <strong>orang lain</strong> je. Motor sendiri langsung tak dilindungi. 
-              Tapi untuk kapcai yang nilai RM2,000-5,000, ini dah cukup. 
-              Premium cuma <strong>RM65-85 setahun</strong> untuk motor bawah 200cc.
-            </p>
-            <p class="text-sm text-stone-500">
-              <strong>Sesuai untuk:</strong> Semua kapcai dan motor harian yang nilainya rendah. 
-              Ini pilihan 80%+ rider Malaysia.
-            </p>
-          </div>
-
-          <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
-              <h3 class="font-serif text-xl text-stone-900">Comprehensive</h3>
-              <span class="verdict bg-emas-50 text-emas-700">Untuk Motor Mahal</span>
-            </div>
-            <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Cover motor sendiri juga — accident, kecurian, kebakaran, bencana alam. 
-              Worth it untuk motor baru atau motor yang nilainya tinggi (NMax, superbike).
-            </p>
-            <p class="text-sm text-stone-500">
-              <strong>Sesuai untuk:</strong> Motor yang masih ada loan, motor harga RM10K ke atas, 
-              atau superbike yang kos repair tinggi.
-            </p>
-          </div>
-        </div>
-
-        <article class="prose-editorial">
-          <h2>Cara renew insurans motosikal online</h2>
-
+          <h2 id="harga">Berapa harga insurans motosikal sebenarnya?</h2>
           <p>
-            Paling senang — mungkin even lebih mudah dari renew kereta:
+            Tiada jadual premium motosikal mengikut cc yang dapat disahkan daripada sumber primer yang dibaca. PDS Kurnia
+            menyenaraikan faktor rating seperti cc, NCD, umur dan lokasi tanpa menerbitkan jadual; perlindungan
+            comprehensive pula bergantung pada risiko dan jumlah diinsuranskan. Jangan tukar jadual roadtax kepada jadual
+            premium.
           </p>
-
-          <ol class="list-decimal pl-5 space-y-3">
-            <li>
-              <strong>Pergi Bjak.my atau PolicyStreet</strong> — masukkan nombor plate dan IC. 
-              Dalam 2-3 minit, anda dapat quotation dari beberapa syarikat.
-            </li>
-            <li>
-              <strong>Pilih plan</strong> — Third-party atau comprehensive. 
-              Untuk kapcai, third-party dah cukup biasanya.
-            </li>
-            <li>
-              <strong>Bayar online</strong> — FPX atau kad. E-cover note terus masuk email.
-            </li>
-            <li>
-              <strong>Renew roadtax</strong> — Boleh buat serentak di Bjak/MyEG. 
-              Atau pergi Pos Malaysia atau JPJ.
-            </li>
-          </ol>
-
-          <h2>Tips jimat insurans motosikal</h2>
-
-          <ol class="list-decimal pl-5 space-y-3">
-            <li>
-              <strong>Kapcai? Third-party cukup.</strong> Motor EX5 nilai RM2,000. 
-              Bayar RM300 comprehensive untuk cover motor RM2,000? Tak berbaloi. 
-              Third-party RM65-75 je.
-            </li>
-            <li>
-              <strong>Motor baru/mahal? Ambil comprehensive.</strong> Y15ZR baru RM10K+, 
-              NMax RM12K+. Kalau kena curi, at least ada perlindungan.
-            </li>
-            <li>
-              <strong>Jaga NCD.</strong> Sama macam kereta — NCD sehingga 25% untuk motor 
-              (lebih rendah dari kereta sebab accident rate motor lebih tinggi).
-            </li>
-            <li>
-              <strong>Bandingkan online.</strong> Walaupun harga third-party lebih kurang sama, 
-              add-ons dan comprehensive rate boleh berbeza.
-            </li>
-          </ol>
         </article>
 
-        <div class="info-box my-8">
-          <p class="text-sm text-stone-700">
-            <strong>Penting untuk rider:</strong> Insurans motor cuma cover kerosakan harta. 
-            Kalau anda cedera dalam accident, medical cost kena tanggung sendiri 
-            (kecuali ada <a href="/personal-accident/" class="text-hijau-700 underline">insurans kemalangan diri</a> atau 
-            <a href="/health-insurance/" class="text-hijau-700 underline">medical card</a>). 
-            Rider patut serius consider personal accident insurance — 
-            sebab risiko injury bagi rider memang lebih tinggi.
+        <div class="my-6 border-2 border-stone-900 bg-white p-5 sm:p-6">
+          <p class="label">Satu contoh yang diterbitkan</p>
+          <h3 class="mt-2 font-serif text-headline-sm text-stone-900">Berjaya Sompo · contoh PDS</h3>
+          <p class="mt-4 font-serif text-3xl text-hijau-800">{sompoExample?.workedExample}</p>
+          <p class="mt-3 text-sm leading-6 text-stone-600">
+            Ini contoh untuk pemboleh ubah yang dinyatakan, bukan jadual harga atau quotation untuk semua motosikal.
+            Semak jumlah akhir dengan penyedia; pautan quotation rasmi diletakkan di bawah.
           </p>
         </div>
 
         <article class="prose-editorial">
-          <h2>Soalan lazim insurans motosikal</h2>
+          <h2 id="jenis">Third party vs comprehensive vs takaful</h2>
+        </article>
+        <div class="my-6 grid gap-4 sm:grid-cols-3">
+          <div class="card-editorial">
+            <h3 class="font-serif text-headline-sm text-stone-900">Third party</h3>
+            <p class="mt-3 text-sm leading-6 text-stone-600">
+              Fokus pada liabiliti kepada pihak lain. Kerosakan atau kehilangan motosikal sendiri tidak termasuk dalam
+              cover asas.
+            </p>
+          </div>
+          <div class="card-editorial">
+            <h3 class="font-serif text-headline-sm text-stone-900">Comprehensive</h3>
+            <p class="mt-3 text-sm leading-6 text-stone-600">
+              Boleh melindungi motosikal sendiri serta liabiliti pihak ketiga, tertakluk pada sum insured, excess,
+              pengecualian dan wording polisi.
+            </p>
+          </div>
+          <div class="card-editorial">
+            <h3 class="font-serif text-headline-sm text-stone-900">Takaful</h3>
+            <p class="mt-3 text-sm leading-6 text-stone-600">
+              Menggunakan struktur sijil takaful. Bandingkan skop manfaat, pengecualian, caruman dan proses tuntutan
+              dalam sijil atau PDS, bukan berdasarkan label sahaja.
+            </p>
+          </div>
+        </div>
+
+        <article class="prose-editorial">
+          <h2 id="produk">Senarai produk</h2>
+          <p>
+            Produk dikelompokkan mengikut jenis rekod. Setiap kad membawa ke halaman butiran; status figure verified
+            menunjukkan sama ada angka atau manfaat boleh diringkaskan daripada sumber yang dibaca.
+          </p>
         </article>
 
-        <div class="my-8">
-          <details class="faq-item" open>
-            <summary>Motor kena curi, boleh claim kalau third-party je?</summary>
-            <p>
-              <strong>Tak boleh.</strong> Third-party tak cover kecurian. Hanya comprehensive yang cover. 
-              Kalau motor anda selalu park kat area berisiko tinggi (flat, parking terbuka), 
-              consider comprehensive — terutama kalau motor bernilai RM8K ke atas.
-            </p>
-          </details>
+        <div class="mt-6 space-y-10">
+          {recordGroups.map((group) => (
+            <section id={group.type}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h3 class="font-serif text-headline-md text-stone-900">{group.label}</h3>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.records.length} rekod</span>
+              </div>
 
-          <details class="faq-item">
-            <summary>NCD motosikal berapa percent?</summary>
-            <p>
-              NCD motor lebih rendah dari kereta. Maksimum <strong>25%</strong> selepas 5 tahun tanpa claim 
-              (kereta boleh sampai 55%). Ini sebab kadar accident motor lebih tinggi secara statistik.
-            </p>
-          </details>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.records.map((record) => (
+                  <a href={`/motorcycle-insurance/${record.slug}/`} class="card-editorial group block">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
+                        <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
+                      </div>
+                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                        {group.label}
+                      </span>
+                    </div>
+                    {record.figureVerified ? (
+                      <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.coversWhat}</p>
+                    ) : (
+                      <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
+                        Manfaat dan premium belum disahkan daripada sumber primer yang dibaca.
+                      </p>
+                    )}
+                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
 
-          <details class="faq-item">
-            <summary>Motor lama tak ada geran, boleh beli insurans?</summary>
-            <p>
-              Kalau motor masih berdaftar dengan JPJ dan ada geran (walaupun photocopy), boleh. 
-              Kalau registration dah lapse bertahun-tahun, kena go through proses re-registration 
-              di JPJ dulu. Ini mungkin involve inspection dan bayar arrears.
-            </p>
-          </details>
+        <article class="prose-editorial">
+          <h2 id="renew">Cara renew</h2>
+          <p>
+            Renew secara tertib supaya cover dan roadtax tidak terputus. Saluran dan maklumat yang diminta boleh berbeza
+            antara penyedia.
+          </p>
+          <ol class="list-decimal space-y-3 pl-5">
+            <li>Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan NCD yang hendak disahkan.</li>
+            <li>Dapatkan quotation daripada penyedia; pilih jenis cover dan add-on hanya selepas membaca skopnya.</li>
+            <li>Semak nama pemilik, nombor pendaftaran, tempoh, jumlah diinsuranskan, excess dan pengecualian pada dokumen.</li>
+            <li>Simpan e-policy atau cover note yang sah, kemudian uruskan roadtax melalui saluran JPJ yang berkenaan.</li>
+          </ol>
+          <p>
+            Pautan penyedia di bawah ialah pautan luar tanpa hubungan berbayar. Insurans.co tidak mengeluarkan quotation,
+            menerima bayaran atau bertindak sebagai ejen.
+          </p>
+        </article>
 
-          <details class="faq-item">
-            <summary>Pillion rider (pembonceng) dilindungi ke?</summary>
-            <p>
-              Untuk third-party — <strong>ya</strong>, kecederaan pembonceng dilindungi 
-              di bawah personal accident benefit yang wajib. Tapi limitnya rendah. 
-              Kalau anda selalu bawa pembonceng, pastikan ada 
-              <a href="/personal-accident/" class="text-hijau-700 underline">insurans kemalangan diri</a> yang proper.
-            </p>
-          </details>
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>FAQ insurans motosikal</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
 
-          <details class="faq-item">
-            <summary>Superbike susah nak dapat insurans ke?</summary>
-            <p>
-              Motor atas 250cc memang <strong>lebih susah dan lebih mahal</strong>. 
-              Sesetengah syarikat tak offer comprehensive untuk superbike langsung. 
-              Pilihan terhad — biasanya Allianz, Etiqa, dan Zurich yang still offer. 
-              Premium boleh cecah RM2,000-4,000 setahun untuk comprehensive. 
-              Guna Bjak untuk check availability.
-            </p>
-          </details>
+        <div class="mt-10 sm:mt-14">
+          <CtaBand
+            heading="Semak quotation dengan penyedia"
+            body="Premium motosikal tidak boleh dikira daripada jadual cc awam. Gunakan pautan rasmi di bawah untuk semakan quotation dan terma terkini."
+            primary={{ label: 'Kira roadtax motosikal →', href: roadtaxCalculatorUrl }}
+            outbound={outboundLinks}
+            disclosure="Pautan luar ini adalah rujukan tanpa hubungan berbayar atau affiliate. Insurans.co bukan ejen; quotation dan pembelian dibuat di laman penyedia."
+          />
         </div>
       </div>
 
       <aside class="lg:col-span-1">
-        <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h3 class="font-serif text-headline-sm text-stone-900">Ringkasan</h3>
+            <dl class="mt-4 space-y-3 text-sm">
               <div>
-                <dt class="text-stone-500">Wajib?</dt>
-                <dd class="font-semibold text-stone-900">Ya, minimum third-party</dd>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{records.length} produk</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Harga kapcai (third-party)</dt>
-                <dd class="font-semibold text-hijau-700">RM65 – RM85/tahun</dd>
+                <dt class="text-stone-500">Jadual roadtax</dt>
+                <dd class="font-semibold text-stone-900">JPJ ikut cc dan wilayah</dd>
               </div>
               <div>
-                <dt class="text-stone-500">NCD maksimum</dt>
-                <dd class="font-semibold text-stone-900">25%</dd>
+                <dt class="text-stone-500">Premium motosikal</dt>
+                <dd class="font-semibold text-stone-900">Perlu quotation</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Paling popular</dt>
-                <dd class="font-semibold text-stone-900">Third-party</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Renew online di</dt>
-                <dd class="font-semibold text-stone-900">Bjak, PolicyStreet, MyEG</dd>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{asAt}</dd>
               </div>
             </dl>
           </div>
-
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
-            <ul class="space-y-2.5 text-sm">
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kereta — panduan lengkap</a></li>
-              <li><a href="/personal-accident/" class="text-hijau-700 hover:text-hijau-600">Insurans Kemalangan Diri</a></li>
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
-              <li><a href="/guides/renew-car-insurance/" class="text-hijau-700 hover:text-hijau-600">Cara renew insurans online</a></li>
-              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Takaful — insurans patuh Syariah</a></li>
+            <h3 class="font-semibold text-sm text-stone-900">Baca juga</h3>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/personal-accident/" class="text-hijau-700 hover:text-hijau-600">Insurans kemalangan diri</a></li>
+              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs takaful</a></li>
+              <li><a href={roadtaxCalculatorUrl} class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax motosikal</a></li>
             </ul>
           </div>
         </div>
       </aside>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
 </Base>
