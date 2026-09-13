@@ -1,0 +1,193 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import schemes from '../../../data/schemes.json';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const scheme = schemes.records.find((record) => record.slug === 'perlindungan-tenang')!;
+const voucher = schemes.records.find((record) => record.slug === 'baucar-perlindungan-tenang')!;
+const asAt = '2026-09-12';
+const pageTitle = 'Perlindungan Tenang 2026: Produk & Baucar RM30';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Perlindungan Tenang ialah insurans mikro BNM dari beberapa ringgit sebulan. Ketahui PTV 3.0 RM30, cara semak myptv.my dan tebus di mycoverage.my.',
+);
+const canonicalUrl = 'https://insurans.co/bantuan-insurans/perlindungan-tenang/';
+const sourceLinks = Array.from(new Set([...scheme.sources, ...voucher.sources])).map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const faqs = [
+  {
+    q: 'Apa itu Perlindungan Tenang?',
+    a: 'Inisiatif BNM untuk insurans dan takaful mikro yang murah — caruman dari beberapa ringgit sebulan, tuntutan dalam lima hari bekerja dengan dokumen lengkap, dan senarai produk di mycoverage.my.',
+  },
+  {
+    q: 'Berapa nilai baucar Perlindungan Tenang terkini?',
+    a: 'PTV 3.0 bernilai RM30 dan berkuat kuasa 1 September 2025. RM75 ialah angka PTV 2.0 pada 2022 yang sudah lama.',
+  },
+  {
+    q: 'Siapa layak baucar PTV?',
+    a: 'Penerima STR yang layak. PTV 3.0 menyediakan baucar untuk dua juta penerima secara siapa cepat dia dapat; semak di myptv.my.',
+  },
+  {
+    q: 'Bagaimana tebus baucar?',
+    a: 'Dapatkan nombor baucar di myptv.my, kemudian tebus di mycoverage.my atau kaunter panel semasa membeli produk Tenang yang layak. Premium tahunan mestilah sekurang-kurangnya RM50.',
+  },
+  {
+    q: 'Ada baucar Perlindungan Tenang 2026?',
+    a: 'Belum diumumkan setakat 2026-09-12. Semak myptv.my untuk status terkini; tetingkap PTV 3.0 berakhir pada 31 Disember 2025 atau apabila baucar habis ditebus.',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Bantuan Insurans', item: 'https://insurans.co/bantuan-insurans/' },
+      { '@type': 'ListItem', position: 3, name: 'Perlindungan Tenang', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title="Perlindungan Tenang & Baucar PTV — Insurans Mikro Mampu Milik">
+    <Byline slot="byline" dateModified={asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Bantuan Insurans', href: '/bantuan-insurans/' },
+        { label: 'Perlindungan Tenang' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Perlindungan Tenang ialah inisiatif Bank Negara sejak 2017 untuk produk mikroinsurans dan mikrotakaful yang murah dan mudah difahami. Baucar Perlindungan Tenang (PTV) 3.0 bernilai RM30 untuk penerima STR; pusingan 2026 belum diumumkan.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Insurans mikro, bukan skim percuma</h2>
+      <dl class="mt-4 space-y-3 text-sm">
+        <div>
+          <dt class="text-stone-500">Inisiatif</dt>
+          <dd class="font-semibold text-stone-900">BNM sejak 2017</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">PTV 3.0</dt>
+          <dd class="font-semibold text-hijau-700">RM30 mulai 1 September 2025</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">PTV 2026</dt>
+          <dd class="font-semibold text-stone-900">Belum diumumkan setakat {asAt}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg leading-7 text-stone-700">
+          Perlindungan Tenang ialah inisiatif Bank Negara sejak 2017 untuk produk mikroinsurans dan mikrotakaful yang murah dan mudah difahami — hayat, kemalangan diri, kebakaran dan motor. Caruman bermula daripada beberapa ringgit sebulan, diperbaharui setiap tahun, dan tuntutan boleh dibayar dalam lima hari bekerja dengan dokumen lengkap.
+        </p>
+        <p>
+          Ini ialah produk yang anda beli, bukan manfaat percuma automatik. Baucar Perlindungan Tenang (PTV) 3.0 bernilai RM30 berkuat kuasa 1 September 2025 untuk penerima STR. Pengecualian duti setem bagi produk Tenang dilanjutkan hingga 2028.
+        </p>
+
+        <h2 id="produk">Produk Tenang — apa yang ada?</h2>
+        <p>
+          Produk mikro hayat, kemalangan diri dan keluarga daripada panel penginsurans serta pengendali takaful termasuk AIA i-Starter; Allianz PerlindunganKu, Allianz4All, A-Z Protect dan Kasih Hayat; Chubb Protector Guard; GBR Qaseh Setia dan Qaseh Bakti Plus; Great Eastern Takaful MikroSayang; HLA Stackable; HLM Takaful Tenang dan Tenang 75; MSIG Mini PA; PruBSN Sakinah Plus; serta Tokio Marine TenangCare.
+        </p>
+        <p>
+          Manfaat hayat biasanya membayar sekaligus kepada waris. Senarai rasmi dan belian dalam talian ada di <a href="https://www.mycoverage.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">mycoverage.my</a>, atau melalui kaunter/cawangan panel, bank terpilih dan pengendali mudah alih. Harga, pengecualian dan syarat berbeza mengikut produk.
+        </p>
+
+        <h2 id="baucar">Baucar PTV 3.0 — RM30 (bukan RM75 lagi)</h2>
+        <ul>
+          <li>PTV 1.0 = RM50 (2021). PTV 2.0 = RM75 (2022 — angka lama). PTV 3.0 = RM30, berkuat kuasa 1 September 2025, dengan peruntukan RM60 juta dan sasaran dua juta penerima STR secara siapa cepat dia dapat.</li>
+          <li>Baucar menampung sebahagian premium produk Tenang yang layak. Premium mestilah sekurang-kurangnya RM50 setahun; ia boleh digunakan untuk produk baharu atau pembaharuan.</li>
+          <li>Tetingkap PTV 3.0 tutup pada 31 Disember 2025 atau apabila baucar habis ditebus, mana-mana lebih awal.</li>
+          <li>Pusingan 2026 belum diumumkan setakat {asAt} — semak <a href="https://www.myptv.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">myptv.my</a>.</li>
+          <li>Baucar PTV 3.0 boleh ditebus walaupun pernah menuntut PTV RM50 atau RM75 dahulu, selagi syarat penerima STR dipenuhi.</li>
+        </ul>
+
+        <h2 id="tebus">Cara semak dan tebus</h2>
+        <ol>
+          <li>Semak kelayakan di <a href="https://www.myptv.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">myptv.my</a> menggunakan nombor MyKad dan dapatkan nombor baucar.</li>
+          <li>Tebus semasa membeli di <a href="https://www.mycoverage.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">mycoverage.my</a> atau kaunter panel.</li>
+          <li>Bayar baki premium sendiri selepas baucar menanggung RM30.</li>
+        </ol>
+
+        <h2 id="banding">Tenang vs mySalam vs i-Lindung</h2>
+        <p>
+          Tenang ialah produk komersial murah yang anda beli, dengan baucar sebagai diskaun jika pusingan tersedia. mySalam percuma secara automatik untuk penerima STR. i-Lindung pula membeli insurans menggunakan KWSP sendiri. Ketiga-tiganya boleh wujud serentak, tetapi pencetus manfaat, kos dan syaratnya berbeza. Untuk bandingan penyakit kritikal penuh, lihat <a href="/critical-illness/">panduan penyakit kritikal</a>; untuk pembelian dalam talian umum, lihat <a href="/insurans-online/">insurans online</a>.
+        </p>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — Perlindungan Tenang</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <p class="text-sm leading-5 text-stone-600">Kami bukan ejen atau broker dan tidak menjual produk Tenang.</p>
+      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemaskini 2026-09-12 — semak portal rasmi untuk status terkini</p>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

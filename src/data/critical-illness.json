@@ -1,0 +1,90 @@
+{
+  "methodologyNote": "Fakta pelan diambil daripada PDS/laman rasmi penginsurans (dibaca 2026-09-12). null = tidak dinyatakan dalam sumber yang dibaca. Definisi 36 penyakit kritikal diseragamkan oleh BNM berkuat kuasa 1 April 2016. Tiada harga premium direka; sahkan di laman penginsurans.",
+  "asAt": "2026-09-12",
+  "records": [
+    {
+      "slug": "aia-a-life-beyond-critical-care",
+      "insurer": "AIA Malaysia",
+      "planName": "A-Life Beyond Critical Care",
+      "type": "standalone",
+      "conditionsCovered": "180 (65 peringkat awal, 40 pertengahan, 75 lanjut)",
+      "earlyStageCovered": "yes",
+      "payoutStructure": "Bayaran sekaligus 100% perlindungan apabila didiagnos penyakit kritikal peringkat awal, pertengahan atau lanjut",
+      "standoutFeature": "Perlindungan sehingga umur 80; bonus tunai tahunan AIA Vitality sehingga 20% premium; Personal Medical Case Management dengan Teladoc Health",
+      "sources": ["https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "prudential-crisis-cover-benefit",
+      "insurer": "Prudential Assurance Malaysia Berhad",
+      "planName": "Crisis Cover Benefit",
+      "type": "rider",
+      "conditionsCovered": "36",
+      "earlyStageCovered": null,
+      "payoutStructure": "Bayaran pendahuluan (accelerated) daripada perlindungan pelan asas yang dilekatkan, apabila didiagnos salah satu daripada 36 penyakit kritikal",
+      "standoutFeature": "Boleh dilekatkan pada PRUCash; secara rasmi diterangkan sebagai rider insurans (add-on)",
+      "sources": ["https://www.prudential.com.my/en/products/riders/crisis-cover-benefit/"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "great-eastern-smart-early-payout-criticalcare",
+      "insurer": "Great Eastern Life Assurance (Malaysia) Berhad",
+      "planName": "SMART Early Payout CriticalCare",
+      "type": "rider",
+      "conditionsCovered": null,
+      "earlyStageCovered": "yes",
+      "payoutStructure": "Accelerated: bayar pada diagnosis awal; faedah mengurangkan sum assured rider IL Critical Illness, yang seterusnya mempercepat pelan asas investment-linked",
+      "standoutFeature": "Dipasarkan sebagai pelan pertama di Malaysia yang bayar di peringkat awal; tuntutan berbilang merentas penyakit & tahap tanpa tempoh menunggu antara tuntutan; mesti dilekatkan dengan IL Critical Illness Benefit Rider",
+      "sources": ["https://www.greateasternlife.com/my/en/personal-insurance/our-products/health-insurance/smart-early-payout-criticalcare.html"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "etiqa-critical-care-plus",
+      "insurer": "Etiqa Insurance & Takaful (kumpulan Maybank)",
+      "planName": "Etiqa Critical Care Plus Insurance",
+      "type": "standalone",
+      "conditionsCovered": "42",
+      "earlyStageCovered": "yes",
+      "payoutStructure": null,
+      "standoutFeature": "Daftar online via EPF i-Lindung dengan pengeluaran terus Akaun EPF; early cash payout; cancer care benefit; elaun tunai penyakit berjangkit; tanpa pemeriksaan perubatan",
+      "sources": ["https://www.etiqa.com.my/health/critical-care-plus-insurance"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "etiqa-critical-care-takaful",
+      "insurer": "Etiqa Family Takaful Berhad",
+      "planName": "Etiqa Critical Care Takaful",
+      "type": "takaful",
+      "conditionsCovered": "39",
+      "earlyStageCovered": null,
+      "payoutStructure": null,
+      "standoutFeature": "Sum covered RM50,000 dari serendah RM30 setahun; tanpa pemeriksaan perubatan (3 soalan kesihatan); beli online via EPF i-Lindung; dilesenkan di bawah IFSA 2013",
+      "sources": ["https://www.etiqa.com.my/pdfs/en/takaful/Flyer_Etiqa_Critical_Care_Takaful.pdf"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "zurich-early-care-critical-illness",
+      "insurer": "Zurich Life Insurance Malaysia Berhad",
+      "planName": "Early Care Critical Illness",
+      "type": "rider",
+      "conditionsCovered": null,
+      "earlyStageCovered": "yes",
+      "payoutStructure": "Peringkat awal: 50% sum assured rider (mengurangkan sum assured); peringkat akhir: 100% baki; tambah 12% faedah pemulihan sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu; tidak untuk angioplasti)",
+      "standoutFeature": "Peringkat awal dilindungi sehingga umur 85, peringkat akhir sehingga umur 100; rider unit-deducting pada pelan investment-linked premium tetap",
+      "sources": ["https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "mysalam",
+      "insurer": "Kerajaan Malaysia (kerjasama Great Eastern Holdings)",
+      "planName": "mySalam",
+      "type": "scheme",
+      "conditionsCovered": "50 (12 kumpulan; 5 kategori baharu — Reumatoid, Kulit Kronik, Darah, Mental, Jarang Jumpa — berkuat kuasa 1 Jan 2025)",
+      "earlyStageCovered": null,
+      "payoutStructure": "RM8,000 tunai one-off seumur hidup untuk penyakit kritikal; RM50/hari elaun hospital (mesti bermalam), maksimum 14 hari setahun (RM700 setahun)",
+      "standoutFeature": "Skim percuma untuk penerima STR (kelayakan automatik ikut data LHDN, umur 18-65/21-65 pada 1 Jan); diteruskan untuk 2026; rawatan hospital kerajaan/universiti/tentera; diuruskan Great Eastern di bawah inisiatif MOF",
+      "sources": ["https://www.mysalam.com.my/mys/info/?url=ci", "https://www.mysalam.com.my/mys/info/?url=hb", "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan", "https://www.mof.gov.my/portal/arkib/media/2019/feb/sm260219_Laman_Web_MySalam.pdf"],
+      "asAt": "2026-09-12"
+    }
+  ]
+}

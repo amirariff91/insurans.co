@@ -1,0 +1,209 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import schemes from '../../../data/schemes.json';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const scheme = schemes.records.find((record) => record.slug === 'mysalam')!;
+const asAt = '2026-09-12';
+const pageTitle = 'mySalam 2026: Kelayakan, 50 Penyakit & Tuntutan';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'mySalam 2026 diteruskan: semak kelayakan STR, 50 penyakit kritikal RM8,000, elaun hospital RM50 sehari, cara tuntutan dan tarikh tutup 30 Jun 2027.',
+);
+const canonicalUrl = 'https://insurans.co/bantuan-insurans/mysalam/';
+const sourceLinks = scheme.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const faqs = [
+  {
+    q: 'Apa itu mySalam?',
+    a: 'Skim takaful percuma kerajaan untuk penerima STR — RM8,000 untuk 50 penyakit kritikal dan RM50 sehari elaun hospital. Diuruskan Great Eastern dan diteruskan untuk 2026.',
+  },
+  {
+    q: 'Siapa layak mySalam 2026?',
+    a: 'Penerima STR automatik mengikut data LHDN. Berkahwin atau OKU berumur 18–65 tahun, manakala bujang 21–65 tahun pada 1 Januari. Tiada pendaftaran; notifikasi melalui SMS.',
+  },
+  {
+    q: 'Bagaimana cara tuntutan mySalam?',
+    a: 'Muat naik dokumen di portal rasmi — salinan MyKad dan borang doktor untuk penyakit kritikal, atau nota discaj untuk hospital. Proses sekitar 10 hari bekerja; tuntutan 2026 tutup 30 Jun 2027.',
+  },
+  {
+    q: 'Berapa penyakit dilindungi mySalam 2026?',
+    a: '50 penyakit kritikal dalam 12 kumpulan, termasuk lima kategori baharu sejak 1 Januari 2025. Angka ini menggantikan skop 36 penyakit pada pelancaran 2019.',
+  },
+  {
+    q: 'Di mana semak mySalam?',
+    a: 'Di portal rasmi mysalam.com.my menggunakan nombor MyKad untuk semakan kelayakan dan rekod tuntutan. Talian bantuan: 1-300-88-8938.',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Bantuan Insurans', item: 'https://insurans.co/bantuan-insurans/' },
+      { '@type': 'ListItem', position: 3, name: 'mySalam', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title="mySalam 2026 — Kelayakan, Manfaat & Cara Tuntutan">
+    <Byline slot="byline" dateModified={asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Bantuan Insurans', href: '/bantuan-insurans/' },
+        { label: 'mySalam' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      mySalam diteruskan untuk 2026. Penerima Sumbangan Tunai Rahmah (STR) layak automatik: RM8,000 tunai sekali seumur hidup apabila disahkan salah satu daripada 50 penyakit kritikal, tambah RM50 sehari untuk kemasukan hospital panel. Tiada pendaftaran dan tiada caruman.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Manfaat utama</p>
+      <dl class="mt-4 space-y-3 text-sm">
+        <div>
+          <dt class="text-stone-500">Penyakit kritikal</dt>
+          <dd class="font-semibold text-stone-900">RM8,000 one-off seumur hidup · 50 penyakit</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">Hospitalisasi</dt>
+          <dd class="font-semibold text-stone-900">RM50 sehari · maksimum 14 hari setahun</dd>
+        </div>
+        <div>
+          <dt class="text-stone-500">Kos</dt>
+          <dd class="font-semibold text-hijau-700">Percuma untuk penerima yang layak</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg leading-7 text-stone-700">
+          mySalam diteruskan untuk 2026. Penerima Sumbangan Tunai Rahmah (STR) layak automatik: RM8,000 tunai sekali seumur hidup bila disahkan salah satu 50 penyakit kritikal, tambah RM50 sehari (maksimum 14 hari atau RM700 setahun) untuk kemasukan hospital panel. Tiada pendaftaran, tiada caruman. Semak kelayakan dan buat tuntutan di <a href="https://www.mysalam.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">portal rasmi mysalam.com.my</a>.
+        </p>
+
+        <h2 id="apa-itu">Apa itu mySalam?</h2>
+        <p>
+          mySalam ialah skim takaful percuma kerajaan, inisiatif Kementerian Kewangan dan diuruskan Great Eastern, untuk penerima STR. Dana asal RM2 bilion daripada Great Eastern Holdings (2019) semakin berkurangan, tetapi Belanjawan 2026 mengesahkan skim diteruskan — lebih RM1.2 bilion tuntutan telah dibayar kepada 1.7 juta penerima.
+        </p>
+        <p>
+          Manfaat tambahan dilaporkan sehingga RM30,000 untuk peranti perubatan (jawapan parlimen MOF, Nov 2025 — belum disahkan di portal). Jangan anggap manfaat yang dilaporkan itu tersedia tanpa menyemak terma dan halaman rasmi skim.
+        </p>
+
+        <h2 id="kelayakan">Kelayakan 2026</h2>
+        <ul>
+          <li>Penerima STR automatik mengikut data LHDN. Tiada borang pendaftaran.</li>
+          <li>Umur dikira pada 1 Januari: berkahwin atau OKU 18–65 tahun; bujang 21–65 tahun.</li>
+          <li>Pasangan penerima STR turut dilindungi.</li>
+          <li>Penerima dimaklumkan melalui SMS apabila layak.</li>
+          <li>Semakan dan akses akaun dibuat di <a href="https://www.mysalam.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">portal rasmi mysalam.com.my</a> dengan nombor MyKad. Kami tidak menyediakan alat semakan.</li>
+        </ul>
+
+        <h2 id="manfaat">Manfaat — 50 penyakit + RM8,000 + RM50 sehari</h2>
+        <ul>
+          <li><strong>Penyakit kritikal: RM8,000 sekali seumur hidup.</strong> Dibayar sekali sahaja apabila diagnosis memenuhi definisi salah satu daripada 50 penyakit kritikal dalam 12 kumpulan. Bukan 36 lagi — lima kategori baharu berkuat kuasa 1 Januari 2025: reumatoid, kulit kronik, darah, mental dan penyakit jarang jumpa.</li>
+          <li><strong>Hospitalisasi: RM50 sehari, maksimum 14 hari setahun (RM700).</strong> Syaratnya mesti bermalam di hospital panel kerajaan, universiti atau angkatan tentera sahaja. Manfaat ini boleh dituntut semula setiap tahun perlindungan.</li>
+          <li>Pengecualian standard terpakai, termasuk mencederakan diri, peperangan, jenayah, alkohol atau dadah, dan kehamilan. Baca halaman rasmi sebelum membuat tuntutan.</li>
+        </ul>
+
+        <h2 id="semak">Cara semak (portal rasmi sahaja)</h2>
+        <ol>
+          <li>Layari <a href="https://www.mysalam.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">portal rasmi mysalam.com.my</a>.</li>
+          <li>Gunakan fungsi semakan dengan nombor MyKad.</li>
+          <li>Akses akaun untuk melihat status kelayakan dan sejarah tuntutan.</li>
+          <li>Jika ada masalah akses, hubungi talian mySalam 1-300-88-8938.</li>
+        </ol>
+        <p>
+          Kami tidak menyediakan borang semakan atau perkhidmatan tuntutan. Portal rasmi ialah saluran untuk semakan dan urusan akaun anda.
+        </p>
+
+        <h2 id="tuntutan">Cara tuntutan + tarikh tutup</h2>
+        <ul>
+          <li><strong>Tuntutan penyakit kritikal:</strong> muat naik melalui portal — salinan MyKad dan Borang Kenyataan Doktor. Terdapat 12 jenis borang mengikut kumpulan penyakit dan borang perlu dilengkapkan pakar yang merawat.</li>
+          <li><strong>Tuntutan hospitalisasi:</strong> salinan MyKad dan nota discaj.</li>
+          <li>Pemprosesan sekitar 10 hari bekerja dengan dokumen lengkap.</li>
+          <li><strong>Tuntutan untuk tahun 2026 tutup 30 Jun 2027.</strong> Simpan semua dokumen rawatan.</li>
+        </ul>
+
+        <h2 id="2019">Beza mySalam sekarang vs 2019</h2>
+        <ul>
+          <li>2019: 36 penyakit dan kelayakan berasaskan Bantuan. Sekarang: 50 penyakit dalam 12 kumpulan dan kelayakan berasaskan STR automatik.</li>
+          <li>Jumlah bayaran tidak berubah: RM8,000 + RM50 × 14 hari.</li>
+          <li>Untuk faham perbandingan dengan produk swasta, baca <a href="/critical-illness/">panduan penyakit kritikal</a>. Untuk bil hospital swasta, lihat <a href="/medical-cards/">medical card</a>; ia benda yang berbeza daripada elaun hospital mySalam.</li>
+        </ul>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — mySalam</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <p class="text-sm leading-5 text-stone-600">Kami bukan ejen atau broker dan tidak menyediakan alat semakan atau perkhidmatan tuntutan.</p>
+      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemaskini 2026-09-12 — semak portal rasmi untuk status terkini</p>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

@@ -1,0 +1,211 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Byline from '../../../components/Byline.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Deductible & Co-Insurance: Maksud Sebenar Dalam BM';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  '“Bayar dulu RM500, kongsi 5%” — apa maksudnya masa claim? Penjelasan deductible & co-insurance dengan contoh bil hospital, ikut peraturan BNM 2024.',
+);
+const h1 = 'Deductible & Co-Insurance Dalam Bahasa Manusia';
+const canonicalUrl = 'https://insurans.co/literasi-kewangan/deductible-co-insurance/';
+const sources = [{ label: 'BNM', url: 'https://www.bnm.gov.my/-/mhit-req-en' }];
+
+const faqs = [
+  {
+    q: 'Deductible bayar tiap kali masuk hospital ke, atau sekali setahun?',
+    a: 'Ikut polisi — ada “per disability” (setiap kes atau penyakit, contoh deductible RM300 SmartMedic Shield), ada “per rider/certificate year” (sekali setahun, contoh A-Plus Health360). Dua makna berbeza, kesan besar pada kos — semak frasa tepat dalam PDS.',
+  },
+  {
+    q: 'Co-insurance 5% — ada had maksimum tak?',
+    a: 'Selalunya ada cap (contoh “dihadkan atas RM500”). Tanpa cap, 5% dari bil RM100,000 = RM5,000. Sentiasa tanya dua-dua: peratus dan cap. Kalau tiada cap bertulis, anggap risiko terbuka.',
+  },
+  {
+    q: 'Betul ke plan co-payment lagi murah?',
+    a: 'Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah sebab anda kongsi risiko. Tapi murah pada caruman, mahal masa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Literasi Kewangan', item: 'https://insurans.co/literasi-kewangan/' },
+      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <Hero title={h1}>
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Literasi Kewangan', href: '/literasi-kewangan/' },
+        { label: h1 },
+      ]}
+    />
+    <Byline slot="byline" dateModified={asAt} />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Deductible ialah jumlah yang anda bayar dahulu; co-insurance ialah peratus daripada baki yang anda kongsi. Dua-dua
+      menentukan jumlah tunai yang perlu tersedia ketika claim.
+    </p>
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Jawapan ringkas</p>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Bil RM10,000 → RM975 keluar poket</h2>
+      <p class="mt-3 text-sm leading-6 text-stone-700">
+        Dengan deductible RM500 dan co-insurance 5% atas baki RM9,500, anda bayar RM500 + RM475. Insurer membayar RM9,025.
+      </p>
+    </div>
+    <div class="mt-4 mr-2">
+      <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <article class="prose-editorial">
+      <p class="text-lg leading-7 text-stone-700">
+        <strong>Deductible</strong> ialah jumlah anda bayar dulu setiap kali claim. <strong>Co-insurance atau co-payment</strong>
+        pula ialah peratus anda kongsi daripada baki. Jadi “bayar dulu, lepas tu kongsi” menentukan jumlah sebenar yang keluar
+        dari poket — bukan angka premium bulanan sahaja.
+      </p>
+      <p class="border-l-4 border-hijau-700 bg-hijau-50 px-4 py-3 text-sm leading-6 text-stone-700">
+        <strong>Kami bukan ejen, bukan broker — maklumat am sahaja.</strong> Baca PDS dan wording polisi sebelum membuat
+        keputusan; contoh di sini menerangkan cara kira, bukan sebut harga.
+      </p>
+
+      <h2 id="maksud">Dua perkataan, satu idea: anda kongsi bil</h2>
+      <ul>
+        <li>
+          <strong>Deductible (deduktibel)</strong> — jumlah anda bayar dulu setiap kali claim. Bil RM10,000, deductible RM500
+          → insurer kira baki RM9,500.
+        </li>
+        <li>
+          <strong>Co-insurance / co-payment / co-takaful</strong> — peratus anda kongsi dari baki. Baki RM9,500 × 5% = RM475
+          anda bayar lagi.
+        </li>
+      </ul>
+      <p>
+        Jumlah keluar poket: RM500 + RM475 = <strong>RM975</strong>. Insurer bayar RM9,025. Itu saja — “bayar dulu, lepas tu
+        kongsi”.
+      </p>
+
+      <h2 id="contoh">Contoh penuh dengan angka dari plan sebenar</h2>
+      <p>
+        Ambil struktur sebenar (bukan rekaan): A-Plus Health360 ada opsyen deductible RM500, RM1,000 atau RM3,000 per rider
+        year dengan co-insurance 5% dihadkan atas RM500. Contoh bil RM20,000 dengan deductible RM1,000:
+      </p>
+      <ol>
+        <li>Tolak deductible: RM20,000 − RM1,000 = RM19,000.</li>
+        <li>Co-insurance 5% atas baki = RM950 — tapi dihadkan (cap) RM500, jadi anda bayar RM500 saja.</li>
+        <li>Keluar poket: RM1,000 + RM500 = <strong>RM1,500</strong>. Cap itu penting — tanpanya anda bayar RM950.</li>
+      </ol>
+      <p>
+        Contoh lain: Takaful Malaysia myMedik guna Co-Takaful 5% atau 10% dihadkan atas RM500 atau RM1,000 per certificate
+        year — dan dikecualikan kalau dirawat di hospital kerajaan. Sentiasa baca dua angka: <strong>peratus dan cap</strong>.
+      </p>
+
+      <h2 id="bnm">Kenapa wujud? Peraturan BNM 1 September 2024</h2>
+      <p>
+        Fakta awam BNM (6 Jul 2024): mulai <strong>1 September 2024 semua pengendali insurans atau takaful mesti tawarkan
+        produk dengan opsyen co-payment</strong>. Produk co-payment dilaporkan 19%–68% lebih murah. Logiknya telus: anda janji
+        kongsi bil → caruman lebih rendah. Co-payment juga dikecualikan untuk kecemasan, follow-up kanser atau dialisis, dan
+        rawatan hospital kerajaan. Jadi deductible tinggi bukan “plan murah tipu” — ia pilihan sah: bayar kurang tiap bulan,
+        bayar lebih masa claim.
+      </p>
+
+      <h3 id="bilik">Perangkap sebenar: naik taraf bilik</h3>
+      <p>
+        Punca claim “kurang dari jangka” paling biasa: pilih bilik melebihi kelayakan (contoh kelayakan RM250 sehari, ambil
+        RM400). Anda bayar perbezaan bilik, dan sesetengah polisi kenakan co-insurance atas baki bil (contoh GREAT MedCare:
+        perbezaan + 20% co-insurance atas bil lain). Tanya sebelum warded: “bilik ini dalam kelayakan saya?”
+      </p>
+
+      <h2 id="pilih">Cara pilih deductible anda</h2>
+      <ul>
+        <li>
+          Aliran tunai ketat, simpanan nipis → deductible rendah (RM300–500), sebab anda tak mampu keluar RM5,000 tiba-tiba.
+          Contoh: varian deductible RM300 wujud (Great Eastern SmartMedic Shield).
+        </li>
+        <li>
+          Simpanan kukuh, nak caruman rendah → deductible tinggi (RM5,000–10,000 — contoh Tokio Marine Medic Plus direka
+          sebagai top-up dengan deductible RM10,000) berfungsi sebagai cover kedua atas polisi majikan.
+        </li>
+        <li>
+          Peraturan ibu jari: deductible maksimum = jumlah anda boleh bayar esok pagi tanpa korek dana kecemasan sampai kosong.
+        </li>
+      </ul>
+      <p>
+        Buka PDS, cari dua baris: “deductible” dan “co-insurance atau co-payment” — kalau ejen tak boleh tunjuk dua ayat itu
+        bertulis, jangan sign dulu.
+      </p>
+    </article>
+
+    <nav class="mt-8 border-t border-stone-200 pt-6" aria-label="Bacaan berkaitan">
+      <p class="text-sm text-stone-500">Baca juga:</p>
+      <ul class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+        <li><a href="/medical-cards/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Banding deductible sebenar setiap plan</a></li>
+        <li><a href="/health-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan medical card penuh</a></li>
+        <li><a href="/guides/insurance-vs-takaful/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Co-takaful dalam konteks takaful</a></li>
+        <li><a href="/insurans-online/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Beli plan deductible-tinggi terus online</a></li>
+        <li><a href="/life-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Bezakan medical dan CI lump sum</a></li>
+      </ul>
+    </nav>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim deductible dan co-insurance</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

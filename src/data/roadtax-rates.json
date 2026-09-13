@@ -1,0 +1,73 @@
+{
+  "methodologyNote": "Jadual kadar Lesen Kenderaan Motor (LKM/roadtax) JPJ untuk kereta persendirian, dari Garis Panduan Pengiraan LKM rasmi JPJ (pindaan selepas Bajet 2009; kadar tidak berubah sejak itu). Dibaca terus dari PDF rasmi JPJ 2026-09-12. Formula setiap band: kadar = base + perCc × (cc − (minCc − 1)); perCc 0 = kadar rata. Jangan bundarkan ke RM penuh (nilai sen wujud). maxCc 99999 = tanpa had. Hanya kereta PERSENDIRIAN (saloon = sedan/hatchback/coupe/wagon/convertible; nonSaloon = MPV/SUV/pickup). Bukan syarikat, bukan EV, bukan motosikal.",
+  "asAt": "2026-09-12",
+  "sources": [
+    "https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf"
+  ],
+  "formula": "rate = base + perCc * (cc - (minCc - 1))",
+  "rates": {
+    "semenanjung": {
+      "saloon": [
+        { "minCc": 0, "maxCc": 1000, "base": 20, "perCc": 0 },
+        { "minCc": 1001, "maxCc": 1200, "base": 55, "perCc": 0 },
+        { "minCc": 1201, "maxCc": 1400, "base": 70, "perCc": 0 },
+        { "minCc": 1401, "maxCc": 1600, "base": 90, "perCc": 0 },
+        { "minCc": 1601, "maxCc": 1800, "base": 200, "perCc": 0.4 },
+        { "minCc": 1801, "maxCc": 2000, "base": 280, "perCc": 0.5 },
+        { "minCc": 2001, "maxCc": 2500, "base": 380, "perCc": 1.0 },
+        { "minCc": 2501, "maxCc": 3000, "base": 880, "perCc": 2.5 },
+        { "minCc": 3001, "maxCc": 99999, "base": 2130, "perCc": 4.5 }
+      ],
+      "nonSaloon": [
+        { "minCc": 0, "maxCc": 1000, "base": 20, "perCc": 0 },
+        { "minCc": 1001, "maxCc": 1200, "base": 85, "perCc": 0 },
+        { "minCc": 1201, "maxCc": 1400, "base": 100, "perCc": 0 },
+        { "minCc": 1401, "maxCc": 1600, "base": 120, "perCc": 0 },
+        { "minCc": 1601, "maxCc": 1800, "base": 300, "perCc": 0.3 },
+        { "minCc": 1801, "maxCc": 2000, "base": 360, "perCc": 0.4 },
+        { "minCc": 2001, "maxCc": 2500, "base": 440, "perCc": 0.8 },
+        { "minCc": 2501, "maxCc": 3000, "base": 840, "perCc": 1.6 },
+        { "minCc": 3001, "maxCc": 99999, "base": 1640, "perCc": 1.6 }
+      ]
+    },
+    "sabahSarawak": {
+      "saloon": [
+        { "minCc": 0, "maxCc": 1000, "base": 20, "perCc": 0 },
+        { "minCc": 1001, "maxCc": 1200, "base": 44, "perCc": 0 },
+        { "minCc": 1201, "maxCc": 1400, "base": 56, "perCc": 0 },
+        { "minCc": 1401, "maxCc": 1600, "base": 72, "perCc": 0 },
+        { "minCc": 1601, "maxCc": 1800, "base": 160, "perCc": 0.32 },
+        { "minCc": 1801, "maxCc": 2000, "base": 224, "perCc": 0.25 },
+        { "minCc": 2001, "maxCc": 2500, "base": 274, "perCc": 0.5 },
+        { "minCc": 2501, "maxCc": 3000, "base": 524, "perCc": 1.0 },
+        { "minCc": 3001, "maxCc": 99999, "base": 1024, "perCc": 1.35 }
+      ],
+      "nonSaloon": [
+        { "minCc": 0, "maxCc": 1000, "base": 20, "perCc": 0 },
+        { "minCc": 1001, "maxCc": 1200, "base": 42.5, "perCc": 0 },
+        { "minCc": 1201, "maxCc": 1400, "base": 50, "perCc": 0 },
+        { "minCc": 1401, "maxCc": 1600, "base": 60, "perCc": 0 },
+        { "minCc": 1601, "maxCc": 1800, "base": 165, "perCc": 0.17 },
+        { "minCc": 1801, "maxCc": 2000, "base": 199, "perCc": 0.22 },
+        { "minCc": 2001, "maxCc": 2500, "base": 243, "perCc": 0.44 },
+        { "minCc": 2501, "maxCc": 3000, "base": 463, "perCc": 0.88 },
+        { "minCc": 3001, "maxCc": 99999, "base": 903, "perCc": 1.2 }
+      ]
+    }
+  },
+  "testCases": [
+    { "region": "semenanjung", "body": "saloon", "cc": 1498, "expect": 90 },
+    { "region": "semenanjung", "body": "saloon", "cc": 2354, "expect": 734 },
+    { "region": "semenanjung", "body": "nonSaloon", "cc": 2398, "expect": 758.4 },
+    { "region": "sabahSarawak", "body": "saloon", "cc": 1498, "expect": 72 },
+    { "region": "sabahSarawak", "body": "saloon", "cc": 2354, "expect": 451 },
+    { "region": "sabahSarawak", "body": "nonSaloon", "cc": 1799, "expect": 198.83 }
+  ],
+  "displayNotes": {
+    "dutyFree": "Langkawi, Pangkor & Labuan: ≤1,000cc rata RM20; >1,000cc = 50% kadar biasa wilayah berkenaan (Langkawi/Pangkor ikut Semenanjung, Labuan ikut Sabah). Semak portal JPJ.",
+    "company": "Kenderaan didaftar atas nama syarikat (saloon) dikenakan kadar lebih tinggi; kalkulator ini untuk kereta persendirian sahaja.",
+    "ev": "Kenderaan elektrik (EV): struktur baharu berasaskan kW berkuat kuasa 1 Jan 2026 — tidak termasuk dalam kalkulator ini; rujuk jadual rasmi MOT/JPJ.",
+    "motorcycle": "Motosikal menggunakan jadual berasingan — tidak termasuk dalam kalkulator kereta ini.",
+    ">3000cc": "Kadar per-cc >3,000cc saloon Semenanjung = RM4.50 ikut jadual JPJ rasmi (sesetengah laman pihak ketiga tersilap catat RM4.00)."
+  }
+}

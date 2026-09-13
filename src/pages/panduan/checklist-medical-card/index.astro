@@ -1,0 +1,222 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Medical Card: Checklist 8 Perkara Sebelum Anda Sign';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Checklist 8 perkara sebelum ambil medical card: had tahunan, bilik, deductible, co-insurance, waiting period, panel, renewal dan rider.',
+);
+const canonicalUrl = 'https://insurans.co/panduan/checklist-medical-card/';
+
+const checklistItems = [
+  {
+    title: 'Had tahunan (annual limit) — berapa, dan cukup ke untuk hospital swasta di bandar saya?',
+    question: '"Annual limit plan ini berapa? Refresh setiap tahun macam mana?"',
+    why: 'Had tahunan habis setiap tahun polisi dan reset tahun depan. Julat sebenar dalam data kami luas — contoh: Etiqa OneMedical RM50,000 / RM100,000 / RM150,000; Takaful Malaysia myMedik RM150,000–RM500,000 (RM900,000–RM1,500,000 dengan rider MedikBooster); Prudential PRUMillion Med 2.0 RM2,000,000; AIA A-Plus Health360 RM3,000,000; Great Eastern SmartMedic Shield RM1,000,000–RM4,000,000 ikut tier. Pilih ikut kos hospital di bandar rawatan biasa anda (Lembah Klang/Johor/Penang kos swasta lebih tinggi), bukan ikut nombor terbesar.',
+  },
+  {
+    title: 'Ada had seumur hidup (lifetime limit) atau tiada?',
+    question: '"Selain annual limit, ada lifetime limit? Apa jadi kalau lifetime limit habis?"',
+    why: 'Annual limit refresh setiap tahun; lifetime limit habis bermakna polisi tamat dan kena beli baru. Dalam data kami, kebanyakan plan direkodkan "No lifetime limit" / "No limit" (contoh: SmartMedic Shield, GREAT MedCare, OneMedical "unlimited lifetime", PRUMillion Med 2.0 "tiada lifetime limit", myMedik, IKHLAS Medik, Tokio Medic Plus). Kalau ada siling seumur hidup, pastikan ia bertulis dalam PDS — jangan percaya cakap mulut.',
+  },
+  {
+    title: 'Bilik & penginapan (room & board) — berapa RM sehari?',
+    question: '"Kelayakan bilik saya berapa RM sehari? Ada had hari?"',
+    why: 'Bilik melebihi kelayakan ialah punca claim "kurang dari jangka" paling biasa — anda bayar perbezaan, dan sesetengah polisi kenakan co-insurance atas baki bil (contoh GREAT MedCare: bayar perbezaan + co-insurance 20% atas bil lain). Contoh sebenar: SmartMedic Shield RM150 / RM250 / RM400 sehari; AIA Health360 RM300 sehari (naik taraf AIA Vitality: RM450 Gold, RM600 Platinum); OneMedical RM160 / RM280 / RM360 sehari tanpa had hari; GREAT MedCare RM200–RM500 sehari (maksimum 180 hari); myMedik RM150–RM500 sehari (7 tier, tanpa had hari). Sebelum warded, tanya: "bilik ini dalam kelayakan saya?"',
+  },
+  {
+    title: 'Deductible — berapa saya bayar dulu setiap kali claim?',
+    question: '"Deductible berapa — per disability atau per year? Bahagian mana ia terpakai?"',
+    why: 'Deductible ialah jumlah anda bayar dulu sebelum insurer kira baki. Frasa berbeza, kesan besar: "per disability" bermakna setiap kes/penyakit (contoh deductible RM300 SmartMedic Shield varian -D; RM500 per disability PRUMillion Med 2.0); "per rider/certificate/policy year" bermakna sekali setahun (contoh AIA RM500 / RM1,000 / RM3,000 per rider year; i-MedicalCard Elite RM500 / RM1,000 per certificate year; IKHLAS Medik RM500 / RM10,000 per certificate year). Contoh deductible tinggi: GREAT MedCare RM2,000–RM20,000 (dengan diskaun premium 10%–50%+); Tokio Marine Medic Plus RM10,000 / RM15,000 per disability (RM5,000 kalau dirawat di hospital kerajaan) — plan ini memang direka sebagai cover sekunder/top-up. Peraturan ibu jari: deductible maksimum = jumlah anda boleh bayar esok pagi tanpa kosongkan dana kecemasan.',
+  },
+  {
+    title: 'Co-insurance / co-payment / co-takaful — berapa %, dan ada cap?',
+    question: '"Lepas deductible, berapa % saya kongsi? Ada had maksimum (cap)? Dikecualikan bila?"',
+    why: 'Mulai 1 September 2024, semua pengendali insurans/takaful mesti tawarkan sekurang-kurangnya satu pilihan co-payment — jadi soalan ini wajib ditanya pada mana-mana plan baharu. Contoh sebenar: AIA Health360 co-insurance 5% untuk in-patient, dihadkan (cap) atas RM500; myMedik co-takaful 5% atau 10%, dihadkan atas RM500/RM1,000 per certificate year, dikecualikan jika dirawat di hospital kerajaan Malaysia; GREAT MedCare co-payment tetap RM500 (dikecualikan untuk kecemasan, follow-up kanser/dialisis, hospital kerajaan). Sentiasa tanya dua-dua: peratus DAN cap. Tanpa cap bertulis, anggap risiko terbuka.',
+  },
+  {
+    title: 'Waiting period — 30 hari / 120 hari, saya faham?',
+    question: '"Berapa hari waiting untuk sakit umum, penyakit tertentu, dan kemalangan? Pre-existing macam mana?"',
+    why: 'Standard industri ialah 30 hari untuk sakit umum dan 120 hari untuk specified illnesses (contoh hipertensi, diabetes) — direkodkan dalam data kami untuk SmartMedic Shield, GREAT MedCare, PRUMillion Med 2.0 dan myMedik; hospitalisasi akibat kemalangan biasanya serta-merta (contoh PDS Prudential). Pre-existing biasanya dikecualikan; sesetengah plan cover semula selepas 12 bulan jika dideclare (contoh Tokio Medic Plus). Jangan ambil plan dan terus expect boleh claim minggu depan.',
+  },
+  {
+    title: 'Hospital panel — yang dekat rumah saya, cashless ke pay-and-claim?',
+    question: '"Hospital mana panel plan ini? Cashless automatik atau kena pra-kelulusan (Guarantee Letter)?"',
+    why: 'Fasiliti cashless hanya berguna di hospital panel terpilih dan tertakluk pada pengesahan pra-kemasukan — senarai panel berubah, jadi semak locator rasmi sebelum beli. Contoh: AIA merekodkan 150+ panel providers dan 70+ SMART Panel Hospitals (setakat Jun 2026). Plan digital pula guna e-medical card + Guarantee Letter dalam app (contoh i-MedicalCard Elite via app Etiqa+, myMedik e-medical card + e-certificate serta-merta). Kalau hospital kegemaran anda bukan panel, anda bayar dulu dan claim kemudian — tanya siap-siap.',
+  },
+  {
+    title: 'Renewal dijamin? Caj (COI) dijamin? Rider atau standalone?',
+    question: '"Renewal dijamin sampai umur berapa? COI/caruman dijamin atau boleh naik? Plan ini rider yang tumpang polisi asas, atau standalone?"',
+    why: 'Semua PDS terkini dalam data kami menyatakan renewal dijamin TETAPI harga tidak dijamin — contoh SmartMedic Shield ("renewal dijamin tetapi COI tidak dijamin") dan PRUMillion Med 2.0 ("COI tidak dijaminkan dan mungkin naik", unjuran inflasi medikal 7%–10% dalam PDS). Contoh umur renewal: GREAT MedCare dijamin sehingga 85 tahun; i-MedicalCard Elite renewal automatik sehingga 85 tahun; Tokio Medic Plus renewal sehingga umur 100. Rider (contoh A-Plus Health360, SmartMedic Shield, PRUMillion Med 2.0) melekat pada polisi life/ILP — tanya apa jadi pada medical rider kalau polisi asas lapse. Standalone (contoh GREAT MedCare, OneMedical, Tokio Medic Plus) ialah polisi perubatan sahaja. Takaful (contoh i-MedicalCard Elite, myMedik, IKHLAS Medik, Kaotim MediKad) pula ikut struktur sijil takaful — bezakan dengan insurans konvensional sebelum pilih.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Annual limit besar semestinya lebih baik?',
+    a: 'Tidak semestinya. Had tahunan yang tinggi bukan satu-satunya ukuran — semak juga had seumur hidup, co-payment/deductible, room & board, tempoh menunggu, hospital panel dan kemudahan cashless. Syarat sebenar tertakluk pada polisi/sijil dan PDS terkini.',
+  },
+  {
+    q: 'Macam mana co-payment atau deductible plan yang saya tengok?',
+    a: 'Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan tersebut untuk jumlah yang terpakai — contoh dalam data kami: AIA 5% dihadkan atas RM500, myMedik co-takaful 5%/10% dihadkan atas RM500/RM1,000, GREAT MedCare co-payment tetap RM500.',
+  },
+  {
+    q: 'Rider atau standalone — mana sesuai untuk saya?',
+    a: 'Rider tumpang pada polisi life/ILP (mudah satu tempat, tapi nasib rider terikat pada polisi asas); standalone ialah polisi perubatan sahaja (contoh GREAT MedCare, OneMedical). Takaful pula pilihan patuh-Syariah (contoh myMedik, IKHLAS Medik). Pilih ikut struktur yang anda faham dan mampu kekalkan — dan semak syarat pembaharuan dalam PDS.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Panduan', item: 'https://insurans.co/panduan/' },
+      { '@type': 'ListItem', position: 3, name: 'Checklist Medical Card', item: canonicalUrl },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Panduan', href: '/panduan/' },
+          { label: 'Checklist Medical Card' },
+        ]}
+      />
+      <p class="label mb-3">Checklist print-friendly</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
+      <Byline dateModified={asAt} />
+      <p class="mt-4 max-w-3xl text-lg leading-7 text-stone-600">
+        Print halaman ini. Tanya 8 soalan di bawah pada mana-mana ejen atau dalam PDS (Product Disclosure Sheet) — kalau jawapannya tak jelas bertulis, jangan sign dulu. Kami bukan ejen, bukan broker; kami tak jual polisi dan tak tahu premium anda. Nombor-nombor di bawah adalah contoh sebenar daripada data PDS/brosur yang kami rekodkan di <a href="/medical-cards/">/medical-cards/</a>, bukan cadangan produk.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-article print-content py-10 sm:py-14">
+    <article class="prose-editorial">
+      <ol class="list-none space-y-8 pl-0">
+        {checklistItems.map((item, index) => (
+          <li class="checklist-item border-b border-stone-200 pb-8">
+            <h2 class="mt-0 flex gap-2 text-headline-sm">
+              <span class="shrink-0 font-sans text-base text-stone-500">{index + 1}.</span>
+              <span aria-hidden="true" class="shrink-0 font-sans text-stone-700">☐</span>
+              <span>{item.title}</span>
+            </h2>
+            <p><strong>Apa nak tanya:</strong> {item.question}</p>
+            <p><strong>Kenapa:</strong> {item.why}</p>
+          </li>
+        ))}
+      </ol>
+
+      <p class="info-box mt-8 text-sm leading-6 text-stone-700">
+        <strong>Cara guna checklist ini (print-friendly)</strong>
+        Tanda ☐ setiap item bila jawapan bertulis (PDS/brosur) dah di tangan. Simpan PDF PDS — jangan percaya brosur saja.
+      </p>
+    </article>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim medical card</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-10 border-t border-stone-200 pt-8 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Baca juga</h2>
+      </div>
+      <ul class="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+        <li><a href="/medical-cards/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Bandingan medical card</a></li>
+        <li><a href="/health-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan insurans kesihatan</a></li>
+        <li><a href="/guides/insurance-vs-takaful/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Beza insurans dan takaful</a></li>
+        <li><a href="/tools/kalkulator-coverage-nyawa/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Kalkulator coverage nyawa</a></li>
+        <li><a href="/life-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan insurans hayat</a></li>
+        <li><a href="/critical-illness/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Panduan penyakit kritikal</a></li>
+      </ul>
+    </section>
+
+    <section class="mt-10 border-2 border-stone-900 bg-white p-5 sm:mt-14 sm:p-6">
+      <p class="label">Langkah seterusnya</p>
+      <p class="mt-2 text-lg leading-7 text-stone-700">
+        Dah tanda 8? Bandingkan plan sebenar ikut had, bilik dan deductible dalam <a href="/medical-cards/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">bandingan medical card kami →</a>
+      </p>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>
+
+<style>
+  @media print {
+    :global(body) {
+      background: #fff;
+    }
+
+    :global(header),
+    :global(footer),
+    :global(nav) {
+      display: none;
+    }
+
+    .print-content {
+      max-width: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .checklist-item,
+    .faq-item {
+      break-inside: avoid;
+    }
+  }
+</style>

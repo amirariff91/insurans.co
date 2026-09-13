@@ -6,9 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "assets:brand": "node scripts/generate-brand-assets.mjs",
-    "assets:og": "node scripts/generate-og.mjs",
-    "data:merge-enriched": "node scripts/merge-enriched-models.mjs",
+    "assets:brand": "bun scripts/generate-brand-assets.mjs",
+    "assets:og": "bun scripts/generate-og.mjs",
+    "data:merge-enriched": "bun scripts/merge-enriched-models.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

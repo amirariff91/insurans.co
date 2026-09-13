@@ -1,0 +1,262 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import travel from '../../data/travel-insurance.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+type TravelPlan = (typeof travel.records)[number];
+
+const plans = travel.records;
+const tripTypeLabels: Record<string, string> = {
+  single: 'Single',
+  annual: 'Annual',
+};
+
+function formatTripType(value: string): string {
+  return value
+    .split('|')
+    .map((type) => tripTypeLabels[type] ?? type)
+    .join(' / ');
+}
+
+export function getStaticPaths() {
+  return travel.records.map((plan) => ({
+    params: { slug: plan.slug },
+    props: { plan },
+  }));
+}
+
+const { plan } = Astro.props as { plan: TravelPlan };
+const canonicalUrl = `https://insurans.co/travel-insurance/${plan.slug}/`;
+const tripTypeLabel = formatTripType(plan.tripType);
+const relatedPlans = plans.filter((candidate) => candidate.slug !== plan.slug).slice(0, 4);
+const sourceLinks = plan.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const specItems = [
+  { label: 'Jenis perjalanan', value: tripTypeLabel },
+  { label: 'Had perlindungan perubatan', value: plan.medicalCoverLimit },
+  { label: 'Perlindungan COVID-19', value: plan.covidCovered },
+  { label: 'Pembatalan trip', value: plan.tripCancellation },
+  { label: 'Region', value: plan.regionTiers?.join(' · ') },
+  { label: 'Ciri utama', value: plan.standoutFeature },
+].filter((item) => item.value);
+const title = buildTitle(`${plan.planName} — Travel Insurance`);
+const description = buildDescription(
+  `${plan.planName} (${plan.insurer}): semak had perubatan${plan.medicalCoverLimit ? ` ${plan.medicalCoverLimit}` : ''}, COVID, pembatalan trip, region dan ciri — dari sumber rasmi. Insurans travel Malaysia, tiada harga direka.`,
+);
+const medicalLimitSummary = plan.medicalCoverLimit
+  ? `Had perubatan yang direkodkan ialah ${plan.medicalCoverLimit}.`
+  : 'Had perubatan tidak dinyatakan secara awam dalam rekod ini.';
+const regionSummary = plan.regionTiers?.length
+  ? `Region yang disenaraikan ialah ${plan.regionTiers.join(', ')}.`
+  : 'Region tidak dinyatakan secara awam dalam rekod ini.';
+const covidSummary = plan.covidCovered
+  ? `Rekod ini menyatakan status COVID-19 sebagai “${plan.covidCovered}”.`
+  : 'Status COVID-19 tidak dinyatakan secara awam dalam rekod ini.';
+
+const faqs = [
+  {
+    q: `${plan.planName} sesuai untuk perjalanan single atau annual?`,
+    a: `Rekod ini menyenaraikan jenis perjalanan ${tripTypeLabel}. ${medicalLimitSummary} ${regionSummary} Semak tempoh perjalanan dan region yang dipilih dalam quotation atau PDS sebelum membeli.`,
+  },
+  {
+    q: `COVID-19 untuk ${plan.planName} ialah cover standard atau add-on?`,
+    a: `${covidSummary} Status COVID-19 perlu disemak satu per satu: ada plan yang meletakkannya sebagai add-on berbayar, manakala plan lain memasukkannya dengan syarat tertentu. Jangan anggap semua travel insurance automatik melindungi COVID-19.`,
+  },
+  {
+    q: `Apa beza evakuasi dan repatriasi untuk ${plan.planName}?`,
+    a: 'Evakuasi membawa insured ke hospital terdekat yang mampu merawat; repatriasi membawa insured pulang ke Malaysia selepas stabil. Kedua-duanya boleh mempunyai sub-cap berasingan walaupun angka besar digabungkan, manakala repatriasi jenazah ialah faedah yang berbeza. Semak wording plan ini.',
+  },
+  {
+    q: `Perlu pre-approval dan hotline 24 jam untuk evakuasi ${plan.planName}?`,
+    a: 'Untuk kecemasan dan evakuasi, hubungi hotline bantuan insurer 24 jam sebelum mengatur pengangkutan apabila keadaan mengizinkan dan ikut arahan atau pre-approval mereka. Mengatur sendiri, contohnya menyewa helikopter tanpa penyelarasan, boleh menyebabkan tuntutan ditolak. Nombor dan proses khusus mesti disahkan dalam polisi.',
+  },
+  {
+    q: `Adakah ${plan.planName} melindungi pembatalan trip?`,
+    a: `Rekod ini menyatakan pembatalan trip: ${plan.tripCancellation}. Trip cancellation kerana sebab yang dilindungi berbeza daripada membatalkan polisi tahunan sendiri; polisi tahunan mungkin dikira secara prorata, seperti contoh Zurich Travel Takaful. Semak sebab yang dilindungi, tempoh tuntutan dan pengecualian dalam PDS.`,
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `${plan.planName} — Travel Insurance`,
+  description,
+  url: canonicalUrl,
+  datePublished: plan.asAt,
+  dateModified: plan.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Travel Insurance', item: 'https://insurans.co/travel-insurance/' },
+      { '@type': 'ListItem', position: 3, name: plan.planName, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={plan.asAt}
+  modifiedTime={plan.asAt}
+>
+  <Hero title={`Travel insurance ${plan.planName}`}>
+    <Byline slot="byline" dateModified={plan.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Travel Insurance', href: '/travel-insurance/' },
+        { label: plan.planName },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Data ringkas {plan.planName} oleh {plan.insurer}, berdasarkan sumber rasmi yang dibaca pada {plan.asAt}.
+      Tiada harga atau had yang tidak dinyatakan dalam rekod ini direka.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p class="label">Travel insurance</p>
+          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{plan.planName}</h2>
+          <p class="mt-1 text-sm leading-5 text-stone-600">{plan.insurer}</p>
+        </div>
+        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
+          {tripTypeLabel}
+        </span>
+      </div>
+
+      <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Apa yang anda dapat</h2>
+      <dl class="mt-4 space-y-3 text-sm">
+        {specItems.map((spec) => (
+          <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
+            <dt class="text-stone-500">{spec.label}</dt>
+            <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={plan.asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg text-stone-700">
+          Halaman ini merumuskan manfaat yang dinyatakan dalam sumber rasmi {plan.planName}. Bandingkan had
+          perubatan, pembatalan trip, evakuasi dan repatriasi, bagasi, COVID-19 serta region sebelum membeli.
+        </p>
+        <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+        <p>
+          Semak sama ada perlindungan perubatan mencukupi untuk destinasi, bagaimana evakuasi dan repatriasi
+          diselaraskan, serta syarat trip cancellation, delay dan bagasi. Untuk perjalanan Schengen, sijil perlu
+          menunjukkan sekurang-kurangnya €30,000 untuk perubatan dan repatriasi. Syarat sebenar tetap tertakluk pada
+          polisi, sijil dan PDS plan ini.
+        </p>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — {plan.planName}</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {relatedPlans.length > 0 && (
+        <section id="related">
+          <div class="prose-editorial">
+            <h2>Pelan berkaitan</h2>
+            <p>Bandingkan beberapa travel insurance lain daripada set data yang sama:</p>
+          </div>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            {relatedPlans.map((related) => (
+              <article class="card-editorial">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 class="font-semibold text-stone-900">
+                      <a href={`/travel-insurance/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+                        {related.planName}
+                      </a>
+                    </h3>
+                    <p class="mt-1 text-sm text-stone-600">{related.insurer}</p>
+                  </div>
+                  <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                    {formatTripType(related.tripType)}
+                  </span>
+                </div>
+                <dl class="mt-4 space-y-2 text-sm">
+                  {related.medicalCoverLimit && (
+                    <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                      <dt class="text-stone-600">Had perubatan</dt>
+                      <dd class="font-semibold text-hijau-800">{related.medicalCoverLimit}</dd>
+                    </div>
+                  )}
+                  {related.covidCovered && (
+                    <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                      <dt class="text-stone-600">COVID-19</dt>
+                      <dd class="font-semibold text-stone-900">{related.covidCovered}</dd>
+                    </div>
+                  )}
+                </dl>
+                <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{related.standoutFeature}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <CtaBand
+        heading="Semak semua pilihan travel insurance"
+        body="Gunakan halaman hub untuk membandingkan pelan berdasarkan manfaat, syarat dan sumber rasmi."
+        primary={{ label: 'Lihat semua travel insurance →', href: '/travel-insurance/' }}
+        disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
+      />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

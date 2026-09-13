@@ -1,0 +1,144 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+const asAt = '2026-09-12';
+const pageTitle = 'Panduan Insurans Malaysia: Checklist & Guide Print-Friendly';
+const title = buildTitle(pageTitle);
+const description = buildDescription(
+  'Koleksi panduan insurans Malaysia yang boleh print: checklist medical card, renew insurans dan roadtax, serta checklist travel insurance. Bukan ejen.',
+);
+const canonicalUrl = 'https://insurans.co/panduan/';
+
+const guides = [
+  {
+    href: '/panduan/checklist-medical-card/',
+    title: 'Checklist Pilih Medical Card',
+    description: '8 perkara untuk semak: had tahunan, bilik, deductible, co-payment, waiting period, panel, renewal dan struktur plan.',
+  },
+  {
+    href: '/panduan/renew-insurans-roadtax/',
+    title: 'Renew Insurans + Roadtax Online',
+    description: 'Panduan 7 langkah daripada semak NCD dan quotation hingga simpan e-cover note, renew roadtax dan set peringatan.',
+  },
+  {
+    href: '/panduan/checklist-travel/',
+    title: 'Checklist Travel Insurance',
+    description: '8 perkara sebelum fly: jenis trip, had perubatan, evakuasi, delay, COVID, tier kawasan, sukan dan dokumen claim.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Apa yang ada dalam koleksi panduan ini?',
+    a: 'Tiga halaman print-friendly: checklist pilih medical card, panduan renew insurans dan roadtax, serta checklist travel insurance. Setiap halaman memaparkan kandungan penuh tanpa borang gated.',
+  },
+  {
+    q: 'Boleh saya print atau Save-as-PDF?',
+    a: 'Boleh. Setiap panduan dipaparkan penuh di halaman dan boleh dicetak atau disimpan sebagai PDF untuk semakan anda sendiri.',
+  },
+  {
+    q: 'Adakah Insurans.co ejen atau broker?',
+    a: 'Tidak. Kami bukan ejen, bukan broker dan tidak menjual polisi atau plan. Semak PDS, sijil dan sumber rasmi sebelum membuat keputusan.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: asAt,
+  dateModified: asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Panduan', item: canonicalUrl },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={asAt}
+  modifiedTime={asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
+      <p class="label mb-3">Lead-magnet</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Panduan Insurans untuk Print</h1>
+      <Byline dateModified={asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Tiga panduan ringkas dalam Bahasa Malaysia untuk anda semak, print atau Save-as-PDF. Kami bukan ejen, bukan broker — pilih dan semak sendiri berdasarkan PDS atau sijil.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <article class="prose-editorial">
+      <p class="text-lg leading-7 text-stone-700">
+        Mulakan dengan halaman yang sepadan dengan urusan anda. Kandungan dipaparkan penuh di sini — tiada borang email dan tiada email-gating.
+      </p>
+      <h2 id="pilih-panduan">Pilih panduan anda</h2>
+    </article>
+
+    <ul class="mt-6 grid gap-4 md:grid-cols-3">
+      {guides.map((guide) => (
+        <li>
+          <article class="card-editorial h-full">
+            <h3 class="font-serif text-headline-sm text-stone-900">
+              <a href={guide.href} class="hover:text-hijau-700">{guide.title}</a>
+            </h3>
+            <p class="mt-3 text-base leading-6 text-stone-700">{guide.description}</p>
+            <a href={guide.href} class="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan →</a>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <section id="faq" class="mt-10 sm:mt-14">
+      <div class="prose-editorial">
+        <h2>Soalan lazim panduan print</h2>
+      </div>
+      <div class="mt-5">
+        {faqs.map((faq, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>

@@ -1,0 +1,186 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import EditorialStamp from '../../../components/EditorialStamp.astro';
+import Hero from '../../../components/Hero.astro';
+import conditions from '../../../data/critical-illness-conditions.json';
+import { buildDescription, buildTitle } from '../../../lib/seo';
+
+const canonicalUrl = 'https://insurans.co/critical-illness/senarai-penyakit-kritikal/';
+const sourceLinks = conditions.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const pageTitle = 'Senarai Penyakit Kritikal Malaysia: 36 Critical Illness List';
+const description = buildDescription(
+  'Senarai penyakit kritikal Malaysia dalam critical illness list standard 36 BNM, dengan nama BM dan English, nota SOCSO claim serta beza ikut insurer.',
+);
+const faqs = [
+  {
+    q: 'Berapa penyakit dalam senarai critical illness ini?',
+    a: `Senarai rujukan ini mengandungi ${conditions.count} penyakit kritikal peringkat teruk. Ia ialah standard rujukan 36 kondisi, bukan janji bahawa setiap produk mempunyai definisi atau expansion yang sama.`,
+  },
+  {
+    q: 'Siapa yang menyeragamkan senarai penyakit kritikal ini?',
+    a: `${conditions.standardisedBy}. Standardisasi ini menetapkan rangka kerja definisi, tetapi wording dan syarat tuntutan masih perlu disemak dalam polisi atau sijil setiap produk.`,
+  },
+  {
+    q: 'Kenapa senarai penyakit kritikal boleh berbeza ikut insurer?',
+    a: 'Standard 36 ialah rangka kerja severe-stage. Penginsurans atau pengendali takaful boleh menambah kondisi, tahap atau susunan definisi dalam produk masing-masing, dan sesetengah sijil boleh mempunyai komposisi yang sedikit berbeza. Bandingkan wording, bukan nombor pada tajuk sahaja.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: conditions.asAt,
+  dateModified: conditions.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Penyakit Kritikal', item: 'https://insurans.co/critical-illness/' },
+      { '@type': 'ListItem', position: 3, name: 'Senarai Penyakit Kritikal', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={buildTitle(pageTitle)}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={conditions.asAt}
+  modifiedTime={conditions.asAt}
+>
+  <Hero title="Senarai Penyakit Kritikal Malaysia: 36 Critical Illness List">
+    <Byline slot="byline" dateModified={conditions.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Insurans Penyakit Kritikal', href: '/critical-illness/' },
+        { label: 'Senarai Penyakit Kritikal' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Rujukan nama BM dan English bagi {conditions.count} penyakit kritikal standard severe-stage. Senarai ini membantu anda
+      membaca definisi polisi; kelayakan tuntutan tetap tertakluk pada wording dan sijil produk.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Rujukan standard</p>
+      <p class="mt-2 font-serif text-headline-sm text-stone-900">{conditions.count} penyakit kritikal</p>
+      <p class="mt-2 text-sm leading-5 text-stone-600">{conditions.standardisedBy}</p>
+      <p class="mt-4 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">
+        Data dikemas kini {conditions.asAt}. Produk boleh menambah atau menyusun definisi sendiri.
+      </p>
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={conditions.asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg text-stone-700">
+          Critical illness list ini ialah rujukan nama, bukan pengganti PDS. Satu diagnosis hanya layak jika memenuhi definisi
+          dan tahap yang ditetapkan dalam polisi atau sijil, termasuk apa-apa survival period dan pengecualian yang terpakai.
+        </p>
+        <h2 id="standard">Senarai 36 penyakit kritikal standard BNM</h2>
+        <p>{conditions.note}</p>
+        <p>
+          Senarai ini merujuk penyakit peringkat teruk. Produk boleh memperluas manfaat kepada early stage atau menambah
+          kondisi lain, jadi jumlah pada brosur penginsurans tidak semestinya sama dengan senarai standard ini.
+        </p>
+
+        <ol class="mt-6 grid list-none gap-3 pl-0 sm:grid-cols-2">
+          {conditions.conditions.map((condition, index) => (
+            <li class="flex items-start gap-3 border border-stone-200 bg-white p-4">
+              <span class="shrink-0 font-serif text-lg text-stone-600">{index + 1}.</span>
+              <span>
+                <strong class="block text-stone-900">{condition.bm}</strong>
+                <span class="mt-1 block text-sm leading-5 text-stone-600">{condition.en}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        <h2 id="socso">SOCSO claim for critical illness: adakah senarai ini terpakai?</h2>
+        <p>
+          Tidak semestinya. Senarai ini menerangkan definisi rujukan bagi manfaat penyakit kritikal swasta atau takaful, bukan
+          senarai kelayakan automatik PERKESO atau SOCSO. Skim PERKESO menilai keilatan dan syarat pekerjaan atau caruman
+          mengikut skim, manakala CI swasta membayar jika diagnosis memenuhi definisi polisi. Semak saluran tuntutan dan
+          dokumen yang diminta oleh skim atau penginsurans masing-masing.
+        </p>
+
+        <h2 id="ikut-insurer">Kenapa senarai boleh berbeza ikut insurer?</h2>
+        <p>
+          Standardisasi tidak menjadikan semua produk serupa. Penginsurans dan pengendali takaful boleh menambah early stage,
+          tahap pertengahan, kondisi tambahan atau manfaat tersendiri. Ada juga perbezaan istilah dan komposisi antara polisi
+          atau sijil. Bandingkan definisi penuh, survival period, pengecualian, struktur bayaran dan syarat tuntutan dalam PDS
+          terkini sebelum membuat pilihan.
+        </p>
+        <p>
+          Untuk melihat produk yang menggunakan data perbandingan ini, kembali ke
+          <a href="/critical-illness/">panduan insurans penyakit kritikal</a> dan tapis mengikut standalone, rider, takaful atau
+          skim.
+        </p>
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim senarai penyakit kritikal</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <CtaBand
+        heading="Bandingkan perlindungan penyakit kritikal"
+        body="Kembali ke hub untuk melihat rekod pelan, rider, takaful dan skim berdasarkan data sumber rasmi."
+        primary={{ label: 'Kembali ke insurans penyakit kritikal →', href: '/critical-illness/' }}
+        disclosure="Tiada hubungan berbayar atau affiliate. Semak PDS dan sijil terkini dengan penyedia sebelum membuat keputusan."
+      />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

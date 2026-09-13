@@ -1,0 +1,359 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import companies from '../../data/companies.json';
+import platforms from '../../data/platforms.json';
+
+type Platform = (typeof platforms.records)[number];
+
+const platformRoots: Record<string, string> = {
+  fwd: 'https://www.fwd.com.my/',
+  shopee: 'https://shopee.com.my/',
+  bjak: 'https://bjak.my/',
+  policystreet: 'https://policystreet.com.my/',
+  myeg: 'https://www.myeg.com.my/',
+  kaotim: 'https://kaotim.my/',
+};
+
+const modelLabels: Record<string, string> = {
+  'insurer-langsung': 'Insurer-langsung',
+  aggregator: 'Aggregator',
+  marketplace: 'Marketplace',
+  'insurer-langsung (takaful digital)': 'Takaful digital',
+};
+
+const modelDescriptions: Record<string, string> = {
+  'insurer-langsung': 'beli terus daripada penginsurans atau takaful tanpa ejen.',
+  aggregator: 'bandingkan beberapa penginsurans dalam satu laman.',
+  marketplace: 'beli produk daripada penyedia melalui platform pihak ketiga.',
+  'insurer-langsung (takaful digital)': 'saluran takaful digital terus milik pengendali takaful tanpa aggregator.',
+};
+
+const productLabels: Record<string, string> = {
+  life: 'Insurans hayat / term',
+  'critical-illness': 'Penyakit kritikal',
+  health: 'Kesihatan / medical card',
+  travel: 'Travel insurance / takaful',
+  car: 'Insurans kereta',
+  motorcycle: 'Insurans motosikal',
+  'personal-accident': 'Kemalangan diri',
+  roadtax: 'Renew roadtax',
+};
+
+const pageMeta: Record<string, { title: string; description: string; h1: string }> = {
+  kaotim: {
+    title: 'Kaotim Medical Card Review — Insurans.co',
+    description: 'Kaotim medical card review BM: semak MediKad, takaful digital, manfaat dilaporkan, caveat PDS dan perkara penting sebelum beli online.',
+    h1: 'Kaotim Medical Card Review: MediKad',
+  },
+  fwd: {
+    title: 'FWD Takaful & FWD Insurance — Insurans.co',
+    description: 'FWD takaful dan FWD insurance online tanpa ejen: semak term, penyakit kritikal, medical serta kenapa FWD travel insurance tiada di saluran retail.',
+    h1: 'FWD: Beli Insurans & Takaful Online Tanpa Ejen',
+  },
+  shopee: {
+    title: 'Shopee Insurance Review — Insurans.co',
+    description: 'Shopee Insurance review BM: faham model marketplace SeaMoney, Allianz dan Zurich, produk travel, ansuran SPayLater serta caveat COVID sebelum beli.',
+    h1: 'Shopee Insurance: Apa Deal Sebenarnya?',
+  },
+  bjak: {
+    title: 'Bjak Insurance Online — Insurans.co',
+    description: 'Bjak insurance online: semak aggregator motor, NCD, ansuran dan roadtax, termasuk caveat JPJ tentang kebenaran renew serta rujukan MyJPJ.',
+    h1: 'Bjak: Insurance Online & Renew Roadtax',
+  },
+  policystreet: {
+    title: 'PolicyStreet Insurance Online — Insurans.co',
+    description: 'PolicyStreet insurance online: semak aggregator, Drive+, roadtax, ansuran Atome dan status produk travel sebelum mendapatkan quotation rasmi.',
+    h1: 'PolicyStreet: Insurance Online & Roadtax',
+  },
+  myeg: {
+    title: 'MyEG Insurance & Roadtax Online — Insurans.co',
+    description: 'MyEG insurance online: semak pembelian insurans motor, renew roadtax, yuran servis dan courier, serta beza MyEG dengan penginsurans.',
+    h1: 'MyEG: Insurance & Roadtax Online',
+  },
+};
+
+export function getStaticPaths() {
+  return platforms.records.map((platform) => ({
+    params: { slug: platform.slug },
+    props: { platform },
+  }));
+}
+
+const { platform } = Astro.props as { platform: Platform };
+const seo = pageMeta[platform.slug] ?? {
+  title: `${platform.name} — banding & beli insurans online | Insurans.co`,
+  description: `${platform.name}: ${platform.keyFact}`.slice(0, 155),
+  h1: platform.name,
+};
+const canonicalUrl = `https://insurans.co/insurans-online/${platform.slug}/`;
+const modelLabel = modelLabels[platform.model] ?? platform.model;
+const modelDescription = modelDescriptions[platform.model] ?? 'saluran untuk mendapatkan produk insurans atau takaful.';
+const platformRoot = platformRoots[platform.slug] ?? 'https://insurans.co/insurans-online/';
+const parentCompanySlug = platform.parentCompany;
+const parentCompany = parentCompanySlug
+  ? companies.find((company) => company.slug === parentCompanySlug)
+  : undefined;
+const productList = platform.products.map((product) => productLabels[product] ?? product).join(', ');
+const sourceLinks = platform.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+
+const baseFaqs = [
+  {
+    q: `${platform.name} ini penginsurans atau platform?`,
+    a: `${platform.name} menggunakan model ${modelLabel.toLowerCase()}: ${modelDescription} Saluran digitalnya ialah ${platform.digitalPlatform}.`,
+  },
+  {
+    q: `Apa boleh dibuat di ${platform.name}?`,
+    a: `Rekod ini menyenaraikan ${productList}. Senarai dan terma sebenar boleh berubah, jadi semak quotation serta PDS atau dokumen sijil di saluran rasmi sebelum membayar.`,
+  },
+  {
+    q: `Apa caveat penting untuk ${platform.name}?`,
+    a: platform.caveat,
+  },
+];
+const faqs = parentCompany
+  ? [
+      ...baseFaqs,
+      {
+        q: `Siapa syarikat induk ${platform.name}?`,
+        a: `${platform.name} ialah platform milik ${parentCompany.name}. Pautan ke rekod syarikat itu disediakan untuk rujukan, bukan pengesyoran.`,
+      },
+    ]
+  : baseFaqs;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: seo.h1,
+  description: seo.description,
+  url: canonicalUrl,
+  datePublished: platform.asAt,
+  dateModified: platform.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Online', item: 'https://insurans.co/insurans-online/' },
+      { '@type': 'ListItem', position: 3, name: platform.name, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={seo.title}
+  description={seo.description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={platform.asAt}
+  modifiedTime={platform.asAt}
+>
+  <Hero title={seo.h1}>
+    <Byline slot="byline" dateModified={platform.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Insurans Online', href: '/insurans-online/' },
+        { label: platform.name },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      Semakan bebas {platform.name} berdasarkan maklumat platform dan sumber yang dibaca pada {platform.asAt}.
+      Tiada ranking, jualan atau anggaran premium di halaman ini.
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p class="label">Platform online</p>
+          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{platform.name}</h2>
+          <p class="mt-1 text-sm leading-5 text-stone-600">{platform.digitalPlatform}</p>
+        </div>
+        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
+          {modelLabel}
+        </span>
+      </div>
+      <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
+      {parentCompany && parentCompanySlug && (
+        <p class="mt-3 text-sm leading-5 text-stone-600">
+          Syarikat induk:{' '}
+          <a href={`/companies/${parentCompanySlug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+            {parentCompany.name}
+          </a>
+        </p>
+      )}
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp
+        articleDate={platform.asAt}
+        sources={sourceLinks}
+        sourcesLabel="Sumber"
+        showReviewed={false}
+      />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        <p class="text-lg text-stone-700">{platform.keyFact}</p>
+
+        <h2 id="produk">Apa boleh buat di sini?</h2>
+        <p>Produk atau urusan yang direkodkan untuk saluran ini:</p>
+        <ul>
+          {platform.products.map((product) => <li>{productLabels[product] ?? product}</li>)}
+        </ul>
+
+        <h2 id="caveat">Perhatian / caveat</h2>
+        <div class="info-box">
+          <p><strong>Semak sebelum bayar:</strong>{' '}{platform.caveat}</p>
+        </div>
+
+        {platform.slug === 'kaotim' && (
+          <>
+            <h2 id="kaotim-review">Kaotim MediKad: ulasan ringkas</h2>
+            <p>
+              <strong>Ringkasan:</strong> Kaotim ialah platform takaful digital milik Takaful Malaysia — direct channel,
+              bukan aggregator, bukan ejen. MediKad ialah kad perubatan takaful standalone dalam platform tu: quote, apply,
+              e-certificate dan e-medical card semua online tanpa ejen. Model ini berasaskan urusan takaful bajet secara kendiri;
+              terma perlu disemak dalam dokumen produk.
+            </p>
+            <h3>Apa yang disahkan</h3>
+            <p>
+              Model direct-to-consumer, perlindungan takaful penuh bawah Takaful Malaysia, dan pemasaran rasmi
+              "dari RM38 sebulan" (laman rasmi medikad.kaotim.my). Tier (laman rasmi + PDS MediKad 19/07/2024):
+              Standard RM50,000, Pro RM75,000, Max RM100,000 annual limit, naik ke RM550,000 / RM825,000 / RM1.1 juta dengan rider
+              MediBooster; room &amp; board RM100/RM150/RM200 sehari, tiada lifetime limit. Untuk terma penuh dan pengecualian,
+              buka PDS dalam browser sebelum beli.
+            </p>
+            <h3>Pertimbangan utama</h3>
+            <p>
+              Model tanpa ejen; bajet takaful asas. Pertimbangkan: premium naik ikut umur, pre-existing kena declare, GP rutin
+              tak dilindungi. Semak PDS MediKad semasa.
+            </p>
+            <h3>Caveat kena hadam</h3>
+            <p>
+              Premium naik ikut age band; pre-existing tetap kena declare; rawatan GP rutin tidak dilindungi — medical card bayar
+              inpatient/day surgery dan outpatient tersenarai saja. Semak PDS MediKad semasa untuk terma dan pengecualian.
+            </p>
+          </>
+        )}
+
+        {platform.slug === 'fwd' && (
+          <>
+            <h2 id="fwd-review">FWD: beli insurans &amp; takaful online tanpa ejen</h2>
+            <p>
+              <strong>Ringkasan:</strong> FWD Malaysia ialah insurer-langsung — FWD Insurance Berhad (konvensional) dan FWD
+              Takaful Berhad (takaful keluarga). Funnel "Buy Online" di fwd.com.my jual terus tanpa ejen, e-polisi via emel.
+              Saluran beli-online langsung; barisan produk online lebih sempit daripada saluran ejen — semak senarai produk semasa.
+            </p>
+            <h3>Apa boleh beli online?</h3>
+            <p>
+              Dari data kami (disemak 12 Sep 2026): life/term (i-FlexCover), critical illness (i-Protect), medical card (i-Med),
+              termasuk FWD i-Lindung yang boleh dibayar via EPF. Nota teknikal: laman Buy Online tu JS-gated — pengesahan kami
+              setakat title/meta plus liputan iMoney, jadi sahkan senarai produk semasa dalam laman sebelum publish atau beli.
+            </p>
+            <h3 id="fwd-travel-insurance">FWD travel insurance: tiada produk retail berasingan</h3>
+            <p>
+              FWD tiada produk travel retail berasingan di fwd.com.my berdasarkan dua semakan bebas. FWDAssist ialah program bantuan
+              untuk pemegang polisi medical, bukan travel plan jual berasingan. Semak saluran rasmi dan dokumen produk travel
+              yang tersedia sebelum memilih.
+            </p>
+            <h3>Caveat utama</h3>
+            <p>
+              Barisan online lebih sempit daripada saluran ejen. Standard untuk direct channel — produk kompleks (ILP dengan rider
+              bersarang, kes underwriting rumit) biasanya kekal di ejen. Semak senarai produk semasa dan saluran yang tersedia
+              berdasarkan keperluan anda.
+            </p>
+            <p>
+              Kami tiada hubungan berbayar dengan FWD. Semak PDS FWD (had, waiting, exclusion, COI tidak dijamin) dan quotation
+              semasa sebelum bayar — terma menentukan perlindungan sebenar.
+            </p>
+          </>
+        )}
+
+        {platform.slug === 'shopee' && (
+          <>
+            <h2 id="shopee-review">Shopee Insurance: apa deal sebenarnya?</h2>
+            <p>
+              <strong>Ringkasan:</strong> Shopee Insurance bukan penginsurans — ia marketplace dalam app Shopee/ShopeePay yang
+              dikendalikan entiti agensi SeaMoney. Shopee jadi ejen digital; risiko ditanggung Allianz, Zurich dan rakan lain.
+              Model ini bermaksud platform menjadi saluran pembelian, manakala risiko ditanggung oleh penyedia.
+            </p>
+            <h3>Apa disahkan jual di situ?</h3>
+            <p>
+              Pusat Bantuan Shopee artikel 145752 + ShopeePay menyenaraikan Allianz Travel Insurance (konvensional) dan Zurich
+              Travel Takaful (single dan annual antarabangsa), takaful motor (contoh Takaful IKHLAS), personal accident dan wallet
+              protection. SPayLater 3–12 bulan (berstruktur patuh Syariah untuk takaful) ialah pilihan bayaran yang dipaparkan
+              dalam marketplace. Semak syarat ansuran dan terma penyedia dalam app.
+            </p>
+            <h3>Caveat — tiga benda</h3>
+            <p>
+              Satu, COVID pada plan Allianz hanya untuk pelancong divaksin penuh, dan claim COVID perlu diagnosis doktor + laporan
+              makmal. Dua, Zurich Travel Takaful domestik hanya aktif 50km atau lebih dari rumah; pembatalan polisi tahunan dikira
+              prorata 40%–100% ikut tempoh berkuat kuasa — bukan refund penuh. Tiga, harga pemasaran "RM3/hari domestik,
+              RM15.99/hari antarabangsa" dari landing page JS <strong>belum disahkan</strong> — jangan quote; check dalam app.
+            </p>
+            <h3>Pertimbangan</h3>
+            <p>
+              Model ini menggunakan self-service dan pilihan ansuran. Marketplace tidak menggantikan ejen atau penasihat untuk
+              struktur cover atau kes claim kompleks. Kami bukan ejen dan tiada affiliate dengan Shopee — semak had perubatan,
+              status COVID (add-on vs standard) dan threshold delay dalam PDS atau laman insurer sebelum bayar.
+            </p>
+          </>
+        )}
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — {platform.name}</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <CtaBand
+        heading={`Laman rasmi ${platform.name}`}
+        body="Pautan ini membuka laman atau saluran rasmi platform untuk semakan lanjut; ia bukan ranking atau pengesyoran."
+        primary={{ label: 'Kembali ke hub insurans online →', href: '/insurans-online/' }}
+        outbound={[{ label: platform.name, href: platformRoot, relationship: 'unpaid' }]}
+        disclosure="Insurans.co bukan ejen atau broker dan tiada hubungan berbayar atau affiliate. Sahkan quotation, PDS dan syarat terkini di laman penyedia sebelum membuat keputusan."
+      />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

@@ -1,0 +1,81 @@
+{
+  "note": "Kandungan FAQ BM bagi hub vertikal, berasaskan src/data/*.json + docs/content/research/*.md. String sahaja (tiada objek bersarang). Dibaca/disahkan 2026-09-12.",
+  "critical-illness": [
+    {
+      "q": "Senarai 36 penyakit kritikal — apa dia dan siapa tetapkan?",
+      "a": "Set 36 penyakit peringkat teruk (severe-stage) yang definisinya diseragamkan oleh Bank Negara Malaysia untuk polisi baharu/diperbaharui berkuat kuasa 1 April 2016. Contoh: strok, kanser (tahap tertentu — kanser sangat awal tidak dilindungi ikut wording standard), serangan jantung, bypass koronari, kegagalan buah pinggang, koma dan seumpamanya — senarai penuh verbatim dari PDF rasmi AIA ada dalam data kami. Nota penting: komposisi tepat boleh berbeza sikit ikut penginsurans/sijil — contoh appendix Hong Leong MSIG Takaful gantikan item tertentu dengan Full-blown AIDS dan SLE dengan komplikasi buah pinggang teruk. Nombor besar macam 180 (contoh AIA) tu expansion per produk, bukan standard 36."
+    },
+    {
+      "q": "Early stage vs late stage critical illness — apa beza payout?",
+      "a": "Standard 36 tu severe-stage — bar tinggi, contoh kanser mesti tahap tertentu. Early-stage benefit bayar awal tapi jumlah separa (accelerated) dan kurangkan sum assured, baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care): carcinoma-in-situ bayar 50% rider sum assured, campur faedah pemulihan 12% sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian bayar 100% daripada baki 50%. Early stage di situ dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula cover 180 kondisi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekaligus 100% bila didiagnos mana-mana tahap, perlindungan hingga umur 80."
+    },
+    {
+      "q": "Takaful penyakit kritikal — sama ke dengan insurans biasa?",
+      "a": "Tujuan payout sama — wang sekaligus bila didiagnos — tapi akad berbeza: tabarru' (derma bersama), wakalah (agensi), bebas riba/gharar/maisir, dengan potensi perkongsian lebihan/muhibah; pampasan kematian boleh diserah sebagai hibah mutlak ikut IFSA 2013. Nota: mekanik akad ni dari explainer sekunder, bukan BNM. Produk takaful yang disahkan: Etiqa Critical Care Takaful cover 39 kondisi, sum covered RM50,000 dari serendah RM30 setahun, tanpa pemeriksaan perubatan (3 soalan kesihatan), beli online via EPF i-Lindung, dilesenkan bawah IFSA 2013."
+    },
+    {
+      "q": "SOCSO/PERKESO vs CI swasta — SOCSO dah cover kan?",
+      "a": "Tak sama. Skim Keilatan PERKESO berasaskan pekerjaan (occupation-based), bukan senarai penyakit: hilang upaya kekal hingga tak mampu jana sekurang-kurangnya 1/3 pendapatan biasa, disahkan Lembaga Perubatan; faedah berbentuk pencen/elaun bulanan, elaun penjagaan sentiasa dan dialisis di fasiliti panel — untuk pekerja dengan rekod caruman cukup. Tiada bayaran sekaligus CI, tiada konsep early-stage. CI swasta/takaful bayar lump sum bila didiagnos ikut definisi polisi. mySalam pula skim percuma B40 (kerajaan dengan Great Eastern Holdings): RM8,000 tunai one-off untuk penyakit kritikal dan RM50/hari pendapatan hospital, maksimum 14 hari setahun (RM700 setahun), rawatan di hospital kerajaan — dibiayai sumbangan RM2 bilion Great Eastern ke dana amanah mySalam."
+    },
+    {
+      "q": "Rider vs standalone critical illness — mana sesuai?",
+      "a": "Rider menempel pada polisi asas dan payout-nya accelerated — tolak dari sum assured polisi asas. Contoh disahkan: Prudential Crisis Cover Benefit ialah rider (add-on) atas pelan asas macam PRUCash, bayar pendahuluan dari coverage pelan asas bila didiagnos salah satu 36 CI; Great Eastern SMART Early Payout CriticalCare ialah rider unit-deduction atas pelan investment-linked premium tetap, mesti dilekatkan dengan IL Critical Illness Benefit Rider, dan faedah mengurangkan sum assured rider itu dulu. Standalone dibeli sendiri, tak usik polisi lain — contoh Etiqa Critical Care Plus (42 kondisi, early cash payout, cancer care benefit, elaun tunai penyakit berjangkit, tanpa pemeriksaan perubatan). Rider jimat kalau dah ada polisi asas; standalone bersih kalau nak cover berdiri sendiri."
+    },
+    {
+      "q": "Boleh beli critical illness guna duit EPF (i-Lindung)?",
+      "a": "Boleh untuk produk yang tersenarai. Yang disahkan dalam data kami: Etiqa Critical Care Plus Insurance (42 kondisi) daftar online via EPF i-Lindung dengan pengeluaran terus Akaun EPF; Etiqa Critical Care Takaful (39 kondisi) pun beli online via i-Lindung; FWD ada FWD i-Lindung (term/CI/medical) dalam funnel Buy Online. i-Lindung ni saluran, bukan produk — terma, had umur dan jumlah cover ikut produk masing-masing. Semak dalam app KWSP/i-Lindung produk mana aktif masa anda apply."
+    }
+  ],
+  "travel-insurance": [
+    {
+      "q": "Travel insurance Malaysia — perlu ke kalau pergi dekat-dekat je?",
+      "a": "Bergantung risiko trip, bukan jarak semata. Yang travel plan bayar: bil perubatan overseas, evakuasi/repatriasi, pembatalan/curtailment trip, dan delay/bagasi. Contoh dari data: Zurich Z-Travel ada tier Lite Basic RM100,000 hingga Diamond unlimited untuk perubatan, dengan evakuasi RM1 juta (Lite) atau unlimited (plan penuh); Etiqa TripCare 360 ada rebat 25% beli online, auto-payout delay 2 jam ke atas, dan satu harga untuk 2 dewasa + 10 kanak-kanak dengan cashless admission overseas via Guarantee Letter. Kalau trip domestik pun, check ambang jarak — Zurich Travel Takaful domestik hanya aktif kalau perjalanan 50km atau lebih dari rumah (pergi-balik kerja tak kira)."
+    },
+    {
+      "q": "Travel insurance cover COVID tak sekarang?",
+      "a": "Kena check satu-satu, sebab polisi lain-lain — add-on vs standard. Dari data kami (dibaca 12 Sep 2026): Zurich Z-Travel dan Etiqa TripCare 360 letak COVID sebagai add-on berbayar; Generali SmartTraveller Enhanced ada rider Pandemic Cover untuk overseas sahaja; Allianz (saluran Shopee) cover COVID built-in tapi untuk pelancong divaksin penuh sahaja, dan claim COVID perlu diagnosis doktor + laporan makmal; Tune Protect AirAsia Plus cover COVID tapi Lite tidak. MSIG Travel SafeGuard status COVID tak disahkan. Jangan assume semua plan auto-cover COVID."
+    },
+    {
+      "q": "Schengen visa nak travel insurance macam mana?",
+      "a": "Ini syarat visa, bukan pilihan: minimum €30,000 (lebih kurang RM150k) untuk perubatan + repatriasi, sah di semua negara Schengen, cover sepanjang tempoh visa — sijil polisi kena tunjuk masa mohon visa. Jadi bila banding plan untuk Eropah, pastikan medical limit melepasi €30,000 dan region tier cover Worldwide atau sekurang-kurangnya Eropah (contoh Zurich ada Area 1/2/3 — Area 2 kecualikan Kanada/Mongolia/Nepal/Tibet/USA). Simpan Guarantee Letter dan nombor hotline 24-jam dalam phone dan salinan fizikal."
+    },
+    {
+      "q": "Evakuasi vs repatriasi — bukan benda sama ke?",
+      "a": "Dua faedah berbeza. Evakuasi: bawa anda ke hospital terdekat yang mampu rawat; repatriasi: bawa balik Malaysia selepas stabil; repatriasi jenazah faedah berasingan. Angka besar macam RM1 juta selalunya gabungan — semak sub-cap setiap satu. Peraturan paling penting: hampir semua polisi Malaysia wajibkan evakuasi diselaraskan melalui hotline bantuan 24-jam insurer — susun sendiri (contoh sewa helikopter) boleh buat claim ditolak. MSIG wording yang kami baca wajibkan selaras via hotline +603-2166 3080 dan polisi tidak bayar evakuasi dari Malaysia ke destinasi asing."
+    },
+    {
+      "q": "Beli travel insurance online — Shopee, Etiqa, Zurich, mana beza?",
+      "a": "Tiga model berbeza. Shopee Insurance ialah marketplace (ejen SeaMoney) — jual Allianz Travel dan Zurich Travel Takaful (single dan annual) dalam app, boleh ansur SPayLater 3–12 bulan; Shopee sendiri bukan penginsurans. Etiqa TripCare 360 beli terus dari Etiqa dengan rebat online 25% dan auto-payout delay dari 2 jam (tiada bayaran kalau delay diumum 12 jam awal). Zurich Z-Travel Lite dijual online sahaja, bayar delay dari 6 jam, dan plan penuh cover sukan amatur termasuk scuba, winter sports dan bungee jump. Bandingkan threshold delay, had perubatan, dan sama ada COVID add-on atau standard."
+    },
+    {
+      "q": "Trip batal atau polisi tahunan nak cancel — dapat refund?",
+      "a": "Dua benda berbeza. Trip cancellation (trip tak jadi atau potong pendek) — ya, kebanyakan plan cover: Etiqa TripCare 360, Zurich Z-Travel penuh (Lite tiada), Zurich Travel Takaful, Allianz dan Generali semua ya; Tune Protect Plus ya kalau hospitalised akibat COVID. Polisi tahunan yang anda batalkan sendiri — bukan refund penuh: Zurich Travel Takaful kira prorata, in-force 2 bulan ke bawah caj 40% kontribusi, lebih 6 bulan caj 100%. Pengecualian kurang diketahui: TripCare 360 kecualikan perjalanan Haji; Zurich kecualikan zon perang/negara disekat."
+    }
+  ],
+  "insurans-online": [
+    {
+      "q": "Macam mana cara banding dan beli insurans online di Malaysia?",
+      "a": "Flow biasa: semak keperluan dan bajet dulu, banding di aggregator atau laman insurer, bayar online (FPX/kad), terima e-policy/e-cover note, kemudian renew roadtax kalau motor. Bukan semua benda ada online — contoh barisan produk online FWD lebih sempit dari saluran ejen, dan ketersediaan travel di PolicyStreet belum disahkan. Kami di insurans.co tak jual polisi dan tiada affiliate — link quote tu jalan keluar, bukan ranking editorial. Sentiasa sahkan quotation dan PDS di laman penginsurans sebelum bayar."
+    },
+    {
+      "q": "Bjak vs PolicyStreet — dua-dua aggregator, apa beza?",
+      "a": "Dua-dua aggregator, bukan penginsurans. Bjak (bjak.my): popular untuk motor — banding 10+ penginsurans, NCD auto-check, ansuran premium, servis roadtax percuma sebagai pilihan. PolicyStreet (policystreet.com.my): aggregator diluluskan BNM dengan keahlian Drive+ (rebate roadtax, ansuran tanpa faedah, cashback renew) dan boleh bayar via Atome BNPL. Caveat load-bearing untuk Bjak: JPJ menyatakan pada Mei 2024 bahawa Bjak tiada kebenaran rasmi untuk renew roadtax dan tiada integrasi MySikap — status pertikaian 2026 tak jelas dalam sumber, jadi rujuk MyJPJ untuk saluran rasmi."
+    },
+    {
+      "q": "Shopee insurance — apa deal sebenarnya?",
+      "a": "Shopee Insurance ialah marketplace dalam app Shopee/ShopeePay, dikendalikan ejen SeaMoney — Shopee sendiri bukan penginsurans. Yang disahkan jual di situ: Allianz Travel Insurance dan Zurich Travel Takaful (single dan annual), takaful motor (contoh Takaful IKHLAS), personal accident dan wallet protection; bayaran boleh ansur SPayLater 3–12 bulan. Caveat: COVID pada plan Allianz hanya untuk divaksin penuh; harga pemasaran RM3/hari (domestik) dan RM15.99/hari (antarabangsa) dari landing page JS belum disahkan — check dalam app sebelum quote."
+    },
+    {
+      "q": "Renew insurans motor dan roadtax online — guna MyEG atau Bjak?",
+      "a": "MyEG (myeg.com.my) ialah ejen JPJ rasmi: renew roadtax, settle saman dan beli insurans motor dalam satu platform — ada yuran servis MyEG RM2.50 + SST 8% (sumber: helpdesk MyEG) dan caj pos kurier untuk stiker fizikal. Bjak tawarkan servis roadtax percuma sebagai pilihan, tapi JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi dan tiada integrasi MySikap — guna MyJPJ untuk saluran rasmi. MyEG bukan penginsurans dan bukan penyedia travel. Untuk travel, guna saluran insurer atau marketplace macam Shopee."
+    },
+    {
+      "q": "FWD beli online tanpa ejen — apa boleh beli, apa tak ada?",
+      "a": "FWD (fwd.com.my Buy Online) ialah insurer-langsung — insurans dan takaful beli terus tanpa ejen: term/life (i-FlexCover), critical illness (i-Protect), medical card (i-Med), termasuk FWD i-Lindung via EPF. e-Polisi via emel. Dua semakan bebas tak jumpa produk travel retail berasingan di fwd.com.my (disemak 12 Sep 2026) — FWDAssist hanya program bantuan untuk pemegang polisi medical. Caveat: barisan online lebih sempit dari saluran ejen. Kalau nak travel, cari di Etiqa, Zurich, Allianz, Generali, MSIG atau Tune Protect."
+    },
+    {
+      "q": "Kaotim — aggregator ke? Boleh beli apa di situ?",
+      "a": "Kaotim (kaotim.my + app) bukan aggregator — ia jenama takaful digital milik Takaful Malaysia (direct channel). Yang disahkan: Kaotim MediKad (kad perubatan takaful, annual limit RM50k/RM75k/RM100k, naik ke RM550k–RM1.1 juta dengan rider MediBooster — rujuk PDS MediKad), Kaotim Car/Motor (diskaun 10% + PA RM15,000 percuma), Kaotim Legasi hibah dari RM30/bulan dengan kelulusan segera tanpa pemeriksaan perubatan. Semua takaful, tiada produk travel. Caveat: ulasan komuniti nota premium naik ikut umur dan GP rutin tidak dilindungi."
+    }
+  ]
+}

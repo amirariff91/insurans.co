@@ -1,0 +1,247 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import travel from '../../data/travel-insurance.json';
+import verticalFaqs from '../../data/vertical-faqs.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+const plans = travel.records;
+const faqs = verticalFaqs['travel-insurance'];
+const tripTypeLabels: Record<string, string> = {
+  single: 'Single',
+  annual: 'Annual',
+};
+
+function formatTripType(value: string): string {
+  return value
+    .split('|')
+    .map((type) => tripTypeLabels[type] ?? type)
+    .join(' / ');
+}
+
+const pageTitle = 'Travel Insurance Malaysia 2026 — Bandingkan Pelan';
+const description = buildDescription(
+  'Travel insurance Malaysia dan insurans perjalanan: semak medical, COVID, evakuasi, pembatalan trip, region serta ciri rasmi. Tiada harga direka.',
+);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: 'https://insurans.co/travel-insurance/',
+  datePublished: travel.asAt,
+  dateModified: travel.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Travel Insurance', item: 'https://insurans.co/travel-insurance/' },
+    ],
+  },
+};
+---
+
+<Base
+  title={buildTitle(pageTitle)}
+  description={description}
+  canonical="https://insurans.co/travel-insurance/"
+  schema={schema}
+  ogType="article"
+  publishedTime={travel.asAt}
+  modifiedTime={travel.asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Travel Insurance' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Travel Insurance Malaysia 2026</h1>
+      <Byline dateModified={travel.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Bandingkan insurans perjalanan berdasarkan manfaat yang dinyatakan dalam sumber rasmi. Tiada harga premium,
+        had atau syarat yang tidak dinyatakan dalam data ini direka; semak quotation dan PDS terkini dengan penyedia.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Travel insurance Malaysia bukan sekadar cover bil perubatan. Bandingkan juga trip inconvenience seperti
+            pembatalan atau curtailment, flight delay dan bagasi, serta faedah evakuasi dan repatriasi. Jika anda
+            menganggap rawatan untuk pelancong sentiasa percuma di luar negara, semak semula: caj, akses hospital dan
+            bantuan kecemasan bergantung pada destinasi, provider dan polisi.
+          </p>
+          <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+          <p>
+            Mulakan dengan destinasi dan jenis perjalanan — single atau annual — kemudian semak had perubatan,
+            pengecualian, claim window dan proses bantuan. Had besar bukan satu-satunya ukuran; sub-cap evakuasi,
+            syarat pembatalan, threshold delay, bagasi dan status COVID-19 boleh mengubah nilai sebenar plan.
+            Jika mencari best travel insurance Malaysia atau travel insurance online, bandingkan fakta ini dan jangan pilih berdasarkan harga sahaja; takaful travel insurance juga perlu dibandingkan pada manfaat, pengecualian dan proses tuntutan.
+          </p>
+
+          <h3>Evakuasi vs repatriasi</h3>
+          <p>
+            Evakuasi membawa anda ke hospital terdekat yang mampu merawat, manakala repatriasi membawa anda pulang ke
+            Malaysia selepas stabil. Kedua-duanya faedah berlainan dan boleh mempunyai sub-cap sendiri — angka besar
+            seperti “RM1 juta” selalunya gabungan, bukan had setiap faedah.
+          </p>
+
+          <h3>Pre-approval melalui hotline 24 jam</h3>
+          <p>
+            Untuk kecemasan dan evakuasi, hubungi hotline bantuan insurer 24 jam untuk arahan serta pre-approval apabila
+            keadaan mengizinkan. Jangan susun sendiri pengangkutan seperti helikopter tanpa penyelarasan; wording MSIG
+            yang kami semak mewajibkan koordinasi melalui hotline dan tidak membayar evakuasi dari Malaysia ke destinasi
+            asing.
+          </p>
+
+          <h3>Schengen dan had perubatan</h3>
+          <p>
+            Visa Schengen memerlukan minimum €30,000 untuk perubatan dan repatriasi, sah di semua negara Schengen
+            sepanjang tempoh visa. Pastikan sijil travel insurance menyatakan kawasan dan tempoh yang betul; simpan
+            Guarantee Letter serta nombor hotline 24 jam.
+          </p>
+
+          <h3>COVID-19: add-on atau standard?</h3>
+          <p>
+            Jangan anggap semua plan automatik cover COVID-19. Zurich Z-Travel, Etiqa TripCare 360 dan Generali
+            SmartTraveller Enhanced meletakkan perlindungan ini sebagai add-on atau rider; Allianz melalui Shopee
+            menyatakannya built-in dengan syarat pelancong divaksin penuh serta diagnosis doktor dan laporan makmal;
+            Tune Protect pula membezakan Plus dan Lite.
+          </p>
+
+          <h3>Delay, domestik dan polisi annual</h3>
+          <p>
+            Threshold delay berbeza: Etiqa TripCare 360 mempunyai auto-payout dari 2 jam, manakala Zurich Z-Travel
+            membayar delay dari 6 jam. Untuk domestik, Zurich Travel Takaful hanya aktif apabila perjalanan sekurang-
+            kurangnya 50km dari rumah. Pembatalan trip juga berbeza daripada membatalkan polisi annual sendiri; Zurich
+            Travel Takaful mengira pembatalan polisi secara prorata mengikut tempoh berkuat kuasa.
+          </p>
+
+          <h3>Kelayakan, claim dan takaful</h3>
+          <p>
+            Syarat umur dan tempoh maksimum perjalanan berbeza ikut plan dan wording — semak PDS plan yang dipilih.
+          </p>
+        </article>
+
+        <div class="mt-8 space-y-10 sm:mt-10">
+          <section id="plans">
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <div>
+                <h2 class="font-serif text-headline-md text-stone-900">Pelan travel insurance</h2>
+                <p class="mt-1 text-sm text-stone-600">Ringkasan manfaat yang dinyatakan dalam rekod rasmi.</p>
+              </div>
+              <span class="text-sm text-stone-500">{plans.length} pelan</span>
+            </div>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              {plans.map((plan) => (
+                <a href={`/travel-insurance/${plan.slug}/`} class="card-editorial group block">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{plan.planName}</h3>
+                      <p class="mt-1 text-xs leading-5 text-stone-500">{plan.insurer}</p>
+                    </div>
+                    <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                      {formatTripType(plan.tripType)}
+                    </span>
+                  </div>
+                  <dl class="mt-5 space-y-2 text-sm">
+                    {plan.medicalCoverLimit && (
+                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
+                        <dt class="text-stone-600">Had perubatan</dt>
+                        <dd class="font-semibold text-hijau-800">{plan.medicalCoverLimit}</dd>
+                      </div>
+                    )}
+                    {plan.covidCovered && (
+                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                        <dt class="text-stone-600">COVID-19</dt>
+                        <dd class="font-semibold text-stone-900">{plan.covidCovered}</dd>
+                      </div>
+                    )}
+                  </dl>
+                  <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{plan.standoutFeature}</p>
+                  <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section id="faq" class="mt-10 sm:mt-14">
+            <div class="prose-editorial">
+              <h2>Soalan lazim travel insurance Malaysia</h2>
+            </div>
+            <div class="mt-5">
+              {faqs.map((faq, index) => (
+                <details class="faq-item" open={index === 0}>
+                  <summary>{faq.q}</summary>
+                  <p>{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{plans.length} pelan</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Jenis perjalanan</dt>
+                <dd class="font-semibold text-stone-900">Single dan annual</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{travel.asAt}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Harga premium</dt>
+                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="card-editorial">
+            <h2 class="font-semibold text-sm text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs takaful</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Direktori syarikat insurans</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

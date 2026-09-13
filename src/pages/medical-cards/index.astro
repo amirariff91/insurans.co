@@ -1,0 +1,229 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import medicalCards from '../../data/medical-cards.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+const cards = medicalCards.records;
+const typeOrder = ['standalone', 'rider', 'takaful'];
+const typeLabels: Record<string, string> = {
+  standalone: 'Standalone',
+  rider: 'Rider perubatan',
+  takaful: 'Takaful',
+};
+const typeDescriptions: Record<string, string> = {
+  standalone: 'Pelan medical card yang berdiri sendiri.',
+  rider: 'Perlindungan perubatan yang dilampirkan pada pelan asas.',
+  takaful: 'Pelan perlindungan perubatan berasaskan takaful.',
+};
+const cardGroups = typeOrder
+  .map((type) => ({
+    type,
+    label: typeLabels[type],
+    description: typeDescriptions[type],
+    cards: cards.filter((card) => card.type === type),
+  }))
+  .filter((group) => group.cards.length > 0);
+
+const faqs = [
+  {
+    q: "Medical card murah di Malaysia — apa yang sebenarnya murah tu?",
+    a: "Biasanya murah sebab tiga benda: annual limit rendah, deductible/co-payment tinggi, atau plan top-up. Contoh dari data kami: Tokio Marine Medic Plus direka sebagai cover sekunder dengan deductible RM10,000/RM15,000 (RM5,000 kalau di hospital kerajaan); GREAT MedCare bagi pilihan deductible RM2,000–RM20,000 dengan diskaun premium 10%–50%+. Kaotim MediKad pula dipasarkan dari RM38/sebulan dengan tier asas RM50k–RM100k annual limit (naik ke RM550k–RM1.1 juta dengan rider MediBooster — rujuk PDS MediKad). So bila nampak murah, check dulu: limit tahunan berapa, deductible berapa, dan standalone atau top-up.",
+  },
+  {
+    q: "Best medical card Malaysia — yang mana patut saya ambil?",
+    a: "Kami tak crown satu plan sebagai best, sebab keperluan dan bajet lain-lain. Cara banding yang betul: tengok annual limit vs lifetime limit, room & board, co-payment/deductible, dan renewal terms. Sebagai rujukan dari PDS/brosur: Great Eastern SmartMedic Shield RM1 juta–RM4 juta (no lifetime limit), Prudential PRUMillion Med 2.0 RM2 juta (tiada lifetime limit), Etiqa OneMedical RM50k/RM100k/RM150k (unlimited lifetime), Takaful Malaysia myMedik RM150k–RM500k (RM900k–RM1.5 juta dengan MedikBooster). Pilih ikut bajet dan risiko anda, bukan ikut nombor paling besar.",
+  },
+  {
+    q: "Waiting period medical card — berapa lama kena tunggu sebelum boleh claim?",
+    a: "Standard industri dari PDS yang kami baca: 30 hari untuk sakit umum, 120 hari untuk specified illnesses (contoh hipertensi, diabetes — disahkan dalam PDS Prudential, SmartMedic, myMedik dan brosur Tokio Marine), dan kemalangan dilindungi serta-merta. Pre-existing biasanya dikecualikan; pengecualian yang kami sahkan: Tokio Medic Plus cover semula selepas 12 bulan kalau pre-existing tu dideclare. Untuk OneMedical, i-MedicalCard Elite, IKHLAS Medik dan Kaotim MediKad, waiting period tak dinyatakan dalam flyer/laman yang dibaca — kena semak PDS/sijil sebelum beli.",
+  },
+  {
+    q: "Kaotim MediKad review — okay ke?",
+    a: "Kaotim ialah platform takaful digital milik Takaful Malaysia — bukan aggregator, bukan ejen. MediKad ialah kad perubatan takaful standalone, fully digital (quote, apply, e-certificate dan e-medical card online). Tier: Standard RM50,000 / Pro RM75,000 / Max RM100,000 annual limit; dengan rider MediBooster naik ke RM550,000 / RM825,000 / RM1.1 juta (rujuk PDS MediKad 19/07/2024). Room & board RM100/RM150/RM200 sehari, tiada lifetime limit. Sesuai untuk yang nak takaful bajet tanpa ejen. Caveat dari thread komuniti (anecdotal): premium naik ikut age band, pre-existing kena declare juga, dan rawatan GP rutin tak covered. Semak PDS MediKad terkini sebelum decide.",
+  },
+  {
+    q: "Medical card untuk baby dan family — umur berapa boleh masuk?",
+    a: "Ikut plan, lain-lain. Yang kami sahkan dari flyer/PDS: Etiqa OneMedical terima anak dari umur 14 hari dan ada diskaun pakej keluarga 5%; Tokio Marine Medic Plus kemasukan 30 hari–65 tahun dengan renewal sehingga umur 100; Takaful Malaysia myMedik penyertaan 6–69 tahun (anak dari 6 tahun) dengan perlindungan sehingga 85 ANB; Etiqa i-MedicalCard Elite renewal automatik sehingga 85 tahun. Kalau nak satu polisi cover satu family, bandingkan had tahunan per person vs per family, dan room & board — contoh OneMedical RM160/RM280/RM360 sehari tanpa had hari.",
+  },
+  {
+    q: "Medical card cover outpatient (klinik/GP) tak?",
+    a: "Rawatan GP rutin macam demam dan check-up biasa tidak dilindungi — medical card bayar bila masuk hospital (inpatient) atau day surgery, plus outpatient tersenarai macam kanser dan dialisis. Pengecualian terhad yang kami sahkan: AIA A-Plus Health360 ada Health Wallet (primary care RM50/lawatan x3, screening/vaksin RM1,000 setiap 2 tahun, no-claim bonus RM2,500/tahun sehingga 10 kali); IKHLAS Medik cover physio/akupunktur/bekam outpatient RM1,500–RM3,000 dan kanser/dialisis outpatient RM500,000 seumur hidup di atas annual limit; Etiqa OneMedical ada cash benefit RM2,000 untuk penyakit berjangkit. Selain item tersenarai ni, jangan assume klinik luar covered.",
+  },
+];
+
+const description = buildDescription(
+  'Bandingkan medical card di Malaysia berdasarkan jenis pelan, had tahunan, room & board, co-payment, tempoh menunggu dan ciri utama daripada sumber rasmi.',
+);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Medical Card Malaysia 2026 — Bandingkan Pelan dan Manfaat',
+  description,
+  url: 'https://insurans.co/medical-cards/',
+  datePublished: medicalCards.asAt,
+  dateModified: medicalCards.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Medical Card', item: 'https://insurans.co/medical-cards/' },
+    ],
+  },
+};
+---
+
+<Base
+  title={buildTitle('Medical Card Malaysia 2026')}
+  description={description}
+  canonical="https://insurans.co/medical-cards/"
+  schema={schema}
+  ogType="article"
+  publishedTime={medicalCards.asAt}
+  modifiedTime={medicalCards.asAt}
+>
+  <section class="border-b border-stone-200 bg-white">
+    <div class="container-wide py-10 sm:py-14">
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Medical Card' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Medical Card Malaysia 2026</h1>
+      <Byline dateModified={medicalCards.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Bandingkan pilihan medical card berdasarkan data manfaat yang dinyatakan dalam PDS atau brosur rasmi.
+        Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <article class="prose-editorial">
+          <p class="text-lg leading-7 text-stone-700">
+            Setiap rekod memaparkan had tahunan, room &amp; board, pilihan kos sendiri, tempoh menunggu dan ciri utama
+            apabila medan itu dinyatakan dalam sumber. Klik pelan untuk melihat sumber rasmi dan ringkasan penuh.
+          </p>
+          <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+          <p>
+            Mulakan dengan had tahunan yang sesuai, kemudian semak room &amp; board, had seumur hidup, co-payment atau
+            deductible, tempoh menunggu, hospital panel dan kemudahan cashless. Jangan bandingkan premium sahaja;
+            baca pengecualian, syarat pembaharuan dan PDS setiap pelan.
+          </p>
+        </article>
+
+        <div class="mt-8 space-y-10 sm:mt-10">
+          {cardGroups.map((group) => (
+            <section id={group.type}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h2 class="font-serif text-headline-md text-stone-900">{group.label}</h2>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.cards.length} pelan</span>
+              </div>
+
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.cards.map((card) => (
+                  <a href={`/medical-cards/${card.slug}/`} class="card-editorial group block">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{card.planName}</h3>
+                        <p class="mt-1 text-xs leading-5 text-stone-500">{card.insurer}</p>
+                      </div>
+                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                    </div>
+                    <dl class="mt-5 space-y-2 text-sm">
+                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
+                        <dt class="text-stone-600">Had tahunan</dt>
+                        <dd class="font-semibold text-hijau-800">{card.annualLimit}</dd>
+                      </div>
+                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                        <dt class="text-stone-600">Room &amp; board</dt>
+                        <dd class="font-semibold text-stone-900">{card.roomBoard}</dd>
+                      </div>
+                    </dl>
+                    <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{card.standoutFeature}</p>
+                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim medical card</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{cards.length} pelan</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Kategori</dt>
+                <dd class="font-semibold text-stone-900">Standalone, rider, takaful</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{medicalCards.asAt}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Harga premium</dt>
+                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="card-editorial">
+            <h2 class="font-semibold text-sm text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs takaful</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Direktori syarikat insurans</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
