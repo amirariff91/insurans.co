@@ -11,6 +11,15 @@
     "minPremium": 60,
     "stamp": 10
   },
+  "calculatorNote": "Kalkulator premium kebakaran (houseowner/householder) menggunakan kadar tariff × jumlah diinsuranskan, floor pada minimum premium RM60, campur setem RM10. Hanya kadar tariff awam atau input pengguna memandu kiraan — tiada anggaran premium insurer. Kadar fire-only asas bank tidak diterbitkan (quote-gated) dan tidak dikira di sini.",
+  "calculatorTestCases": [
+    { "propertyType": "landed", "constructionClass": "1A", "buildingSumInsured": 200000, "contentsSumInsured": 0, "expectHouseowner": 180, "expectHouseholder": 0, "expectTotal": 190 },
+    { "propertyType": "flat", "constructionClass": "1A", "buildingSumInsured": 150000, "contentsSumInsured": 50000, "expectHouseowner": 139.5, "expectHouseholder": 169, "expectTotal": 318.5 },
+    { "propertyType": "landed", "constructionClass": "1A", "buildingSumInsured": 50000, "contentsSumInsured": 0, "expectHouseowner": 45, "expectHouseholder": 0, "expectTotal": 70 },
+    { "propertyType": "landed", "constructionClass": "1B", "buildingSumInsured": 200000, "contentsSumInsured": 0, "expectHouseowner": 452, "expectHouseholder": 0, "expectTotal": 462 },
+    { "propertyType": "flat", "constructionClass": "1B", "buildingSumInsured": 100000, "contentsSumInsured": 20000, "expectHouseowner": 243, "expectHouseholder": 104, "expectTotal": 357 },
+    { "propertyType": "landed", "constructionClass": "1A", "buildingSumInsured": 0, "contentsSumInsured": 30000, "expectHouseowner": 0, "expectHouseholder": 101.4, "expectTotal": 111.4 }
+  ],
   "records": [
     {
       "slug": "berjaya-sompo-houseowner-householder",

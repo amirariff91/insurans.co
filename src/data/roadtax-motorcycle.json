@@ -1,0 +1,45 @@
+{
+  "methodologyNote": "Jadual kadar Lesen Kenderaan Motor (LKM/roadtax) JPJ untuk MOTOSIKAL persendirian (kod AA), dibaca terus dari PDF rasmi JPJ 'Garis Panduan Pengiraan LKM (pindaan selepas Bajet 2009)' pada 2026-09-13. Motosikal 150cc dan ke bawah: JPJ menulis 'dikekalkan pada kadar sedia ada' tanpa menyatakan angka dalam garis panduan ini — kami TIDAK menggantikannya dengan nombor yang tidak dinyatakan (rate: null). Kadar melebihi 150cc adalah tetap (flat) mengikut band. Sabah dan Sarawak berkongsi jadual yang sama dalam garis panduan ini. Labuan = 50% kadar Sabah; Pulau Pangkor & Langkawi = 50% kadar Semenanjung (bagi >150cc sahaja) — rujuk JPJ. Bukan premium insurans.",
+  "asAt": "2026-09-13",
+  "sources": [
+    "https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf"
+  ],
+  "rates": {
+    "semenanjung": [
+      { "minCc": 0, "maxCc": 150, "rate": null },
+      { "minCc": 151, "maxCc": 200, "rate": 30 },
+      { "minCc": 201, "maxCc": 250, "rate": 50 },
+      { "minCc": 251, "maxCc": 500, "rate": 180 },
+      { "minCc": 501, "maxCc": 800, "rate": 250 },
+      { "minCc": 801, "maxCc": 99999, "rate": 350 }
+    ],
+    "sabahSarawak": [
+      { "minCc": 0, "maxCc": 150, "rate": null },
+      { "minCc": 151, "maxCc": 200, "rate": 9 },
+      { "minCc": 201, "maxCc": 250, "rate": 12 },
+      { "minCc": 251, "maxCc": 500, "rate": 30 },
+      { "minCc": 501, "maxCc": 800, "rate": 40 },
+      { "minCc": 801, "maxCc": 99999, "rate": 42 }
+    ]
+  },
+  "testCases": [
+    { "region": "semenanjung", "cc": 110, "expect": null },
+    { "region": "semenanjung", "cc": 150, "expect": null },
+    { "region": "semenanjung", "cc": 155, "expect": 30 },
+    { "region": "semenanjung", "cc": 250, "expect": 50 },
+    { "region": "semenanjung", "cc": 400, "expect": 180 },
+    { "region": "semenanjung", "cc": 650, "expect": 250 },
+    { "region": "semenanjung", "cc": 1000, "expect": 350 },
+    { "region": "sabahSarawak", "cc": 135, "expect": null },
+    { "region": "sabahSarawak", "cc": 200, "expect": 9 },
+    { "region": "sabahSarawak", "cc": 250, "expect": 12 },
+    { "region": "sabahSarawak", "cc": 500, "expect": 30 },
+    { "region": "sabahSarawak", "cc": 900, "expect": 42 }
+  ],
+  "displayNotes": {
+    "kadarSediaAda": "Motosikal 150cc dan ke bawah: JPJ menulis 'kadar sedia ada' tanpa angka dalam garis panduan ini. Nilai RM2 sering dilaporkan tetapi TIDAK dinyatakan dalam PDF rasmi yang dirujuk — semak JPJ atau MyEG untuk pengesahan.",
+    "dutyFree": "Pulau Pangkor & Langkawi: >150cc = 50% kadar Semenanjung. Labuan: >150cc = 50% kadar Sabah. Bahagian 150cc ke bawah kekal 'kadar sedia ada'.",
+    "ev": "Motosikal elektrik (ZEV) menggunakan struktur berasaskan kuasa (watt) yang berkuat kuasa 1 April 2026 — tidak termasuk dalam kalkulator ini; rujuk pekeliling ZEV JPJ.",
+    "premium": "Ini roadtax sahaja. Premium insurans motosikal tiada jadual awam mengikut cc dan bergantung pada NCD, cc, umur dan lokasi — dapatkan quotation daripada penyedia."
+  }
+}

@@ -1,0 +1,419 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import home from '../../../data/home-insurance.json';
+import { buildTitle } from '../../../lib/seo';
+
+const tariff = home.tariff;
+const canonicalUrl = 'https://insurans.co/tools/kalkulator-insurans-rumah/';
+const description =
+  'Kira anggaran premium insurans rumah (houseowner/householder) dari kadar tariff kebakaran × jumlah diinsuranskan. Kadar awam, bukan quotation insurer.';
+const intro =
+  'Masukkan jumlah diinsuranskan (kos pembinaan semula) untuk melihat anggaran premium houseowner dan householder ikut kadar tariff kebakaran. Ini kiraan dari kadar awam, bukan quotation. Bukan ejen, bukan broker.';
+
+const rateSources = [
+  'https://www.berjayasompo.com.my/product/houseowner-householder',
+  'https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf',
+  'https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf',
+];
+
+const faqs = [
+  {
+    q: 'Kalkulator ini kira apa sebenarnya?',
+    a: `Ia mengira premium houseowner (bangunan) dan householder (isi rumah) menggunakan kadar tariff kebakaran × jumlah diinsuranskan, kemudian floor pada minimum premium RM${tariff.minPremium} dan campur setem RM${tariff.stamp}. Kadar 1A: houseowner ${tariff.ho_landed_1A}% landed / ${tariff.ho_flat_1A}% flat; householder ${tariff.hh_1A}%. Ia bukan quotation daripada insurer.`,
+  },
+  {
+    q: 'Jumlah diinsuranskan patut guna harga rumah atau kos pembinaan?',
+    a: 'Gunakan kos pembinaan semula bangunan, bukan harga pasaran atau harga tanah. Tanah tidak terbakar, jadi ia tidak diinsuranskan. PIAM menyediakan Building Cost Calculator (bcc.piam.org.my) sebagai rujukan anggaran kos pembinaan semula.',
+  },
+  {
+    q: 'Fire insurance yang bank belikan sama tak dengan kiraan ini?',
+    a: 'Belum tentu. Kadar polisi fire-only asas yang diaturkan bank tidak diterbitkan secara awam (quote-gated), jadi kalkulator ini tidak mengiranya. Kiraan di sini ialah houseowner/householder ikut kadar tariff yang boleh disahkan. Pakej bank tertentu (contoh pakej 2 tahun) juga menggunakan struktur harga berbeza.',
+  },
+  {
+    q: 'Kenapa ada minimum premium RM60?',
+    a: `Tariff menetapkan minimum premium RM${tariff.minPremium} bagi polisi. Jika kadar × jumlah diinsuranskan lebih rendah daripada RM${tariff.minPremium}, premium bersih dinaikkan ke RM${tariff.minPremium} sebelum setem RM${tariff.stamp} ditambah.`,
+  },
+  {
+    q: 'Adakah angka ini muktamad?',
+    a: 'Tidak. Ia anggaran dari kadar tariff awam. Bank Negara sedang meliberalisasikan tariff kebakaran, jadi harga bukan tariff atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Kalkulator Insurans Rumah (Kebakaran)',
+  description,
+  url: canonicalUrl,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'All',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'MYR' },
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://insurans.co/tools/' },
+      { '@type': 'ListItem', position: 3, name: 'Kalkulator Insurans Rumah', item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={buildTitle('Kalkulator Insurans Rumah')}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  pageType="tool"
+>
+  <Hero title="Kalkulator Insurans Rumah 2026">
+    <Byline slot="byline" dateModified={home.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Tools', href: '/tools/' },
+        { label: 'Kalkulator Insurans Rumah' },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">{intro}</p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <p class="label">Alat percuma</p>
+      <p class="mt-2 font-serif text-headline-sm text-stone-900">Kadar tariff, bukan quotation</p>
+      <p class="mt-2 text-sm leading-5 text-stone-600">Kiraan houseowner/householder menggunakan kadar tariff kebakaran awam.</p>
+    </div>
+  </Hero>
+
+  <div class="container-wide py-10 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <section id="calculator" aria-labelledby="calculator-heading" class="border-2 border-stone-900 bg-white p-6 sm:p-8">
+          <p class="label">Kalkulator percuma</p>
+          <h2 id="calculator-heading" class="mt-2 font-serif text-headline-md text-stone-900">Kira premium insurans rumah</h2>
+          <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan kos pembinaan semula bangunan dan/atau nilai isi rumah. Bukan harga pasaran atau harga tanah.</p>
+
+          <form id="fire-form" class="mt-6 space-y-5">
+            <fieldset>
+              <legend class="mb-2 block text-sm font-semibold text-stone-700">Jenis kediaman</legend>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="propertyType" value="landed" checked required class="h-4 w-4 accent-hijau-700" />
+                  <span>Landed (teres/semi-D/banglo)</span>
+                </label>
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="propertyType" value="flat" class="h-4 w-4 accent-hijau-700" />
+                  <span>Flat/apartment/condo</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="mb-2 block text-sm font-semibold text-stone-700">Kelas pembinaan</legend>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="constructionClass" value="1A" checked required class="h-4 w-4 accent-hijau-700" />
+                  <span>1A (dinding bata, bumbung tidak mudah terbakar)</span>
+                </label>
+                <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
+                  <input type="radio" name="constructionClass" value="1B" class="h-4 w-4 accent-hijau-700" />
+                  <span>1B (sebahagian bata)</span>
+                </label>
+              </div>
+              <p class="mt-2 text-xs text-stone-400">Kebanyakan rumah moden ialah 1A. Semak jika tidak pasti.</p>
+            </fieldset>
+
+            <div>
+              <label for="building-si" class="mb-1.5 block text-sm font-semibold text-stone-700">Jumlah diinsuranskan bangunan (RM)</label>
+              <input
+                type="number"
+                id="building-si"
+                name="buildingSumInsured"
+                inputmode="numeric"
+                min="0"
+                step="1000"
+                placeholder="cth: 200000"
+                aria-describedby="building-si-help"
+                class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
+              />
+              <p id="building-si-help" class="mt-1.5 text-xs text-stone-400">Kos pembinaan semula, bukan harga rumah. Biar kosong jika hanya insurans isi rumah.</p>
+            </div>
+
+            <div>
+              <label for="contents-si" class="mb-1.5 block text-sm font-semibold text-stone-700">Jumlah diinsuranskan isi rumah (RM) — pilihan</label>
+              <input
+                type="number"
+                id="contents-si"
+                name="contentsSumInsured"
+                inputmode="numeric"
+                min="0"
+                step="1000"
+                placeholder="cth: 50000"
+                aria-describedby="contents-si-help"
+                class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
+              />
+              <p id="contents-si-help" class="mt-1.5 text-xs text-stone-400">Perabot, elektrik, pakaian dan barang peribadi (householder).</p>
+            </div>
+
+            <button type="submit" class="w-full bg-stone-900 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800">
+              Kira Premium Saya
+            </button>
+          </form>
+
+          <div
+            id="fire-result"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            class="mt-6 hidden border border-hijau-200 bg-hijau-50 p-5"
+          >
+            <p id="fire-error" hidden role="alert" class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+            <p id="fire-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
+            <div id="fire-breakdown" class="mt-4 space-y-1.5 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></div>
+          </div>
+
+          <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
+            Perlu anggaran kos pembinaan semula? Rujuk
+            <a href="https://bcc.piam.org.my/" target="_blank" rel="noopener" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">PIAM Building Cost Calculator ↗</a>
+            (rujukan berasingan, bukan sebahagian alat ini).
+          </p>
+        </section>
+
+        <article class="prose-editorial mt-10">
+          <h2>Macam mana kami kira?</h2>
+          <p>Premium = kadar tariff × jumlah diinsuranskan, untuk setiap bahagian yang anda isi:</p>
+          <ul>
+            <li>Houseowner (bangunan): {tariff.ho_landed_1A}% (1A landed) / {tariff.ho_flat_1A}% (1A flat) / {tariff.ho_landed_1B}% (1B landed) / {tariff.ho_flat_1B}% (1B flat).</li>
+            <li>Householder (isi rumah): {tariff.hh_1A}% (1A) / {tariff.hh_1B}% (1B).</li>
+            <li>Premium bersih di-floor pada minimum RM{tariff.minPremium}, kemudian setem RM{tariff.stamp} ditambah.</li>
+          </ul>
+
+          <h3>Caveat penting</h3>
+          <ul>
+            <li>Jumlah diinsuranskan mesti kos pembinaan semula, bukan harga pasaran atau tanah. Kurang insurans mencetuskan <em>average clause</em>.</li>
+            <li>Kadar polisi fire-only asas bank tidak diterbitkan (quote-gated) dan tidak dikira di sini; sesetengah pakej bank menggunakan struktur berbeza.</li>
+            <li>Bank Negara sedang meliberalisasikan tariff kebakaran — harga bukan tariff atau deviasi mungkin berlaku.</li>
+            <li>Add-on (banjir/special perils, kecurian penuh, liabiliti tambahan) menambah premium dan tidak termasuk dalam kiraan asas ini.</li>
+          </ul>
+
+          <div class="info-box mt-8">
+            <p class="mb-0 text-sm leading-5 text-stone-700">
+              <strong>Disclaimer:</strong> Anggaran dari kadar tariff kebakaran awam (disemak {home.asAt}). Bukan quotation insurer. Kami bukan ejen, bukan broker.
+            </p>
+            <div class="mt-3 text-sm leading-5 text-stone-700">
+              <strong>Sumber kadar:</strong>
+              <ul class="mt-1 list-disc pl-5">
+                {rateSources.map((source) => (
+                  <li><a href={source} target="_blank" rel="noopener" class="break-all text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{source}</a></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim kalkulator insurans rumah</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Cara guna</h2>
+            <ol class="mt-4 space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">1</span>
+                <span>Pilih jenis kediaman dan kelas pembinaan.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">2</span>
+                <span>Isi <strong>kos pembinaan semula</strong> bangunan dan/atau nilai isi rumah.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">3</span>
+                <span>Tekan <strong>Kira Premium Saya</strong>.</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/home-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans rumah</a></li>
+              <li><a href="/home-insurance/#senarai-produk" class="text-hijau-700 hover:text-hijau-600">Senarai produk houseowner/householder</a></li>
+              <li><a href="/tools/kalkulator-roadtax/" class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax kereta</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>
+
+<script>
+  import { calcFirePremium, type ConstructionClass, type PropertyType } from '../../../lib/home-insurance-fire';
+  import { track } from '../../../lib/track';
+
+  function getElement(id: string): HTMLElement | null {
+    const element = document.getElementById(id);
+    return element instanceof HTMLElement ? element : null;
+  }
+
+  function getInput(id: string): HTMLInputElement | null {
+    const element = document.getElementById(id);
+    return element instanceof HTMLInputElement ? element : null;
+  }
+
+  function getCheckedRadio(name: string): HTMLInputElement | null {
+    const element = document.querySelector(`input[name="${name}"]:checked`);
+    return element instanceof HTMLInputElement ? element : null;
+  }
+
+  function isPropertyType(value: string): value is PropertyType {
+    return value === 'landed' || value === 'flat';
+  }
+
+  function isConstructionClass(value: string): value is ConstructionClass {
+    return value === '1A' || value === '1B';
+  }
+
+  function formatRM(value: number): string {
+    return `RM ${value.toLocaleString('ms-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+
+  function formatRate(value: number): string {
+    return `${value.toFixed(3)}%`;
+  }
+
+  function showMessage(message: string): void {
+    const resultEl = getElement('fire-result');
+    const errorEl = getElement('fire-error');
+    const valueEl = getElement('fire-value');
+    const breakdownEl = getElement('fire-breakdown');
+    if (!resultEl || !errorEl || !valueEl || !breakdownEl) return;
+
+    resultEl.classList.remove('hidden');
+    errorEl.hidden = false;
+    errorEl.textContent = message;
+    valueEl.hidden = true;
+    breakdownEl.hidden = true;
+    valueEl.textContent = '';
+    breakdownEl.textContent = '';
+  }
+
+  function calculateFromForm(): void {
+    const resultEl = getElement('fire-result');
+    const errorEl = getElement('fire-error');
+    const valueEl = getElement('fire-value');
+    const breakdownEl = getElement('fire-breakdown');
+    if (!resultEl || !errorEl || !valueEl || !breakdownEl) return;
+
+    const propertyInput = getCheckedRadio('propertyType');
+    const classInput = getCheckedRadio('constructionClass');
+    const buildingInput = getInput('building-si');
+    const contentsInput = getInput('contents-si');
+
+    if (
+      !propertyInput || !classInput ||
+      !isPropertyType(propertyInput.value) || !isConstructionClass(classInput.value)
+    ) {
+      showMessage('Sila pilih jenis kediaman dan kelas pembinaan.');
+      return;
+    }
+
+    const buildingSI = buildingInput && buildingInput.value.trim() !== '' ? Number(buildingInput.value) : 0;
+    const contentsSI = contentsInput && contentsInput.value.trim() !== '' ? Number(contentsInput.value) : 0;
+
+    if (!Number.isFinite(buildingSI) || !Number.isFinite(contentsSI) || buildingSI < 0 || contentsSI < 0) {
+      showMessage('Masukkan jumlah diinsuranskan yang sah (nombor tidak negatif).');
+      return;
+    }
+
+    try {
+      const result = calcFirePremium({
+        propertyType: propertyInput.value,
+        constructionClass: classInput.value,
+        buildingSumInsured: buildingSI,
+        contentsSumInsured: contentsSI,
+      });
+
+      resultEl.classList.remove('hidden');
+      errorEl.hidden = true;
+      valueEl.hidden = false;
+      breakdownEl.hidden = false;
+      valueEl.textContent = `Anggaran setahun: ${formatRM(result.total)}`;
+
+      const rows: string[] = [];
+      if (buildingSI > 0) {
+        rows.push(`Houseowner: ${formatRM(buildingSI)} × ${formatRate(result.houseownerRate)} = ${formatRM(result.houseownerPremium)}`);
+      }
+      if (contentsSI > 0) {
+        rows.push(`Householder: ${formatRM(contentsSI)} × ${formatRate(result.householderRate)} = ${formatRM(result.householderPremium)}`);
+      }
+      rows.push(`Premium kasar: ${formatRM(result.grossPremium)}`);
+      if (result.minApplied) {
+        rows.push(`Minimum premium dikenakan: ${formatRM(result.netPremium)}`);
+      }
+      rows.push(`Setem: ${formatRM(result.stamp)}`);
+      rows.push(`Jumlah anggaran: ${formatRM(result.total)}`);
+
+      breakdownEl.innerHTML = '';
+      for (const row of rows) {
+        const p = document.createElement('p');
+        p.textContent = row;
+        breakdownEl.appendChild(p);
+      }
+
+      track('fire_premium_calculate', {
+        property_type: propertyInput.value,
+        construction_class: classInput.value,
+        building_si: buildingSI,
+        contents_si: contentsSI,
+        total: result.total,
+        min_applied: result.minApplied,
+      });
+    } catch {
+      showMessage('Masukkan sekurang-kurangnya satu jumlah diinsuranskan (bangunan atau isi rumah).');
+    }
+  }
+
+  const form = document.getElementById('fire-form');
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      calculateFromForm();
+    });
+  }
+</script>
