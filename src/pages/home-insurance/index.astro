@@ -1,331 +1,396 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
-import VerdictBadge from '../../components/VerdictBadge.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import homeInsurance from '../../data/home-insurance.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Panduan Insurans Rumah Malaysia 2026 — Fire Insurance & Houseowner",
-  "description": "Panduan lengkap insurans rumah / fire insurance Malaysia. Wajib ke? Berapa harga? Apa yang di-cover? Beza fire insurance dan houseowner insurance.",
-  "url": "https://insurans.co/home-insurance/",
-  "datePublished": "2026-02-01",
-  "dateModified": "2026-02-10",
-  "inLanguage": "ms",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Insurans.co",
-    "url": "https://insurans.co"
+const records = homeInsurance.records;
+const tariff = homeInsurance.tariff;
+const typeOrder = [
+  'houseowner-householder',
+  'houseowner-householder-takaful',
+  'houseowner-comprehensive',
+  'modular-houseowner-householder',
+];
+const typeLabels: Record<string, string> = {
+  'houseowner-householder': 'Houseowner / Householder',
+  'houseowner-householder-takaful': 'Houseowner / Householder takaful',
+  'houseowner-comprehensive': 'Houseowner komprehensif',
+  'modular-houseowner-householder': 'Modular house cover',
+};
+const typeDescriptions: Record<string, string> = {
+  'houseowner-householder': 'Perlindungan bangunan dan/atau isi rumah dengan kadar yang direkodkan daripada sumber rasmi.',
+  'houseowner-householder-takaful': 'Perlindungan bangunan dan isi rumah berasaskan takaful.',
+  'houseowner-comprehensive': 'Pakej houseowner dengan struktur dan tempoh produk tersendiri.',
+  'modular-houseowner-householder': 'Produk modular; butiran kadar dan manfaat perlu disahkan dalam PDS.',
+};
+const recordGroups = typeOrder
+  .map((type) => ({
+    type,
+    label: typeLabels[type],
+    description: typeDescriptions[type],
+    records: records.filter((record) => record.type === type),
+  }))
+  .filter((group) => group.records.length > 0);
+
+const formatRate = (rate: number) => `${rate.toFixed(3)}%`;
+const premiumFor = (sumInsured: number, rate: number) => sumInsured * (rate / 100);
+const workedSumInsured = 100000;
+const workedExample = {
+  landed: premiumFor(workedSumInsured, tariff.ho_landed_1A),
+  flat: premiumFor(workedSumInsured, tariff.ho_flat_1A),
+  contents: premiumFor(workedSumInsured, tariff.hh_1A),
+};
+const sourceLinks = records.flatMap((record) =>
+  record.sources.map((url) => ({
+    label: new URL(url).hostname.replace(/^www\./, ''),
+    url,
+  })),
+);
+
+const faqs = [
+  {
+    q: 'LPPSA perlu insurans rumah atau takaful?',
+    a: 'Untuk pembiayaan LPPSA, semak surat tawaran dan syarat pembiayaan kerana perlindungan yang diperlukan boleh berupa insurans atau takaful yang ditetapkan. Perlindungan pembiayaan tidak semestinya melindungi semua isi rumah; semak skop polisi atau sijil serta keperluan LPPSA yang semasa.',
   },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
-      { "@type": "ListItem", "position": 2, "name": "Insurans Rumah", "item": "https://insurans.co/home-insurance/" }
-    ]
-  }
+  {
+    q: 'Apa beza MRTT dan MLTT dengan insurans rumah?',
+    a: 'MRTT dan MLTT ialah perlindungan berkaitan pinjaman yang membantu menyelesaikan baki pembiayaan apabila peristiwa yang dilindungi berlaku. Insurans rumah pula melindungi bangunan, isi rumah atau risiko harta mengikut polisi. Satu tidak menggantikan yang lain; semak manfaat dan pemilik perlindungan dalam dokumen anda.',
+  },
+  {
+    q: 'Lepas habis bayar loan, insurans rumah masih perlu ke?',
+    a: 'Selepas pinjaman selesai, keperluan bank terhadap fire insurance mungkin berakhir, tetapi risiko kepada bangunan dan isi rumah masih ada. Teruskan hanya selepas menyemak skop yang diperlukan, jumlah diinsuranskan, pengecualian dan kos pembaharuan; bank bukan lagi pihak yang menetapkan perlindungan anda.',
+  },
+  {
+    q: 'Banjir covered dalam insurans rumah?',
+    a: 'Jangan anggap banjir dilindungi oleh fire-only asas. Dalam rekod houseowner atau householder yang kadar atau manfaatnya disahkan, banjir dinyatakan untuk sesetengah produk, tetapi wording, pengecualian dan syarat tuntutan tetap berbeza. Semak PDS atau polisi sebelum menganggap banjir covered.',
+  },
+  {
+    q: 'Berapa harga insurans rumah untuk jumlah diinsuranskan RM100,000?',
+    a: `Sebagai ilustrasi kadar tariff 1A: RM100,000 × ${formatRate(tariff.ho_landed_1A)} untuk houseowner landed = RM${workedExample.landed.toFixed(0)} setahun; rumah flat pada ${formatRate(tariff.ho_flat_1A)} = RM${workedExample.flat.toFixed(0)}; householder pada ${formatRate(tariff.hh_1A)} = RM${workedExample.contents.toFixed(0)}. Premium sebenar masih tertakluk pada skop, minimum premium RM${tariff.minPremium} dan setem RM${tariff.stamp}.`,
+  },
+  {
+    q: 'Bagaimana pengiraan premium insurans rumah dibuat?',
+    a: `Asasnya ialah kadar × jumlah diinsuranskan untuk skop yang dipilih, kemudian semak minimum premium RM${tariff.minPremium} dan setem RM${tariff.stamp}. Jumlah diinsuranskan houseowner patut berpandukan kos pembinaan semula, bukan harga tanah; gunakan PIAM Building Cost Calculator di bcc.piam.org.my sebagai rujukan dan sahkan nilai serta wording dengan penyedia.`,
+  },
+];
+
+const pageTitle = 'Insurans Rumah Malaysia 2026';
+const description = buildDescription(
+  'Panduan insurans rumah Malaysia: houseowner, householder, fire-only, kadar tariff, contoh RM100,000, LPPSA, banjir dan rekod sumber rasmi.',
+);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: 'https://insurans.co/home-insurance/',
+  datePublished: homeInsurance.asAt,
+  dateModified: homeInsurance.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Rumah', item: 'https://insurans.co/home-insurance/' },
+    ],
+  },
 };
 ---
 
 <Base
-  title="Insurans Rumah Malaysia 2026 — Fire Insurance, Harga & Panduan"
-  description="Panduan insurans rumah Malaysia 2026. Fire insurance wajib untuk rumah ada loan? Berapa harga? Apa beza fire insurance dan houseowner insurance? Dalam BM."
+  title={buildTitle(pageTitle)}
+  description={description}
+  canonical="https://insurans.co/home-insurance/"
   schema={schema}
   ogType="article"
-  publishedTime="2026-02-01"
-  modifiedTime="2026-02-10"
+  publishedTime={homeInsurance.asAt}
+  modifiedTime={homeInsurance.asAt}
 >
-  <section class="bg-white border-b border-stone-200">
+  <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Rumah</span>
-      </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Insurans Rumah / Fire Insurance Malaysia 2026
-      </h1>
-      <Byline dateModified={schema.dateModified} />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Kalau rumah anda ada loan, bank dah automatically masukkan fire insurance. 
-        Tapi adakah tu cukup? Dan kalau dah habis bayar loan — perlu ke teruskan?
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Insurans Rumah' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Rumah Malaysia 2026</h1>
+      <Byline dateModified={homeInsurance.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Fahami beza houseowner, householder dan fire-only; semak kadar tariff yang dapat disahkan, asas jumlah diinsuranskan
+        dan rekod produk sebelum mendapatkan quotation.
       </p>
+      <div class="mt-6 max-w-3xl">
+        <EditorialStamp
+          articleDate={homeInsurance.asAt}
+          sources={sourceLinks}
+          sourcesLabel="Sumber kadar dan produk"
+          showReviewed={false}
+        />
+      </div>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
-    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
         <article class="prose-editorial">
-
-          <p class="text-lg text-stone-700 leading-relaxed">
-            Rumah adalah aset paling besar untuk kebanyakan rakyat Malaysia. 
-            Tapi ramai yang tak sedar coverage insurans rumah mereka sebenarnya sangat basic. 
-            Fire insurance yang bank belikan cuma cover <strong>struktur bangunan</strong> dari kebakaran — 
-            bukan isi rumah, bukan banjir, bukan pecah masuk.
+          <p class="text-lg leading-7 text-stone-700">
+            Rumah memerlukan dua soalan berasingan: apa yang hendak dilindungi, dan berapa jumlah yang patut diinsuranskan.
+            Fire-only biasanya menjawab keperluan asas bangunan untuk pembiayaan; houseowner merujuk bangunan, manakala
+            householder merujuk isi rumah. Skop sebenar tetap bergantung pada polisi atau sijil dan PDS terkini.
           </p>
-
-          <h2>Dua jenis utama insurans rumah</h2>
-        </article>
-
-        <div class="space-y-4 my-8">
-          <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
-              <h3 class="font-serif text-xl text-stone-900">1. Fire Insurance (Insurans Kebakaran)</h3>
-              <span class="verdict bg-stone-100 text-stone-600">Basic / Bank Beli</span>
-            </div>
-            <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Cover <strong>struktur bangunan sahaja</strong> — dinding, bumbung, lantai, fixed fixtures. 
-              Cuma cover kebakaran, petir, dan letupan domestik. Ini yang bank arrange untuk anda 
-              bila beli rumah ada loan. Premium dibayar sekali setahun, biasanya include dalam instalment.
-            </p>
-            <p class="text-sm text-stone-500">
-              <strong>Tak cover:</strong> Isi rumah (perabot, TV, laptop), banjir, tanah runtuh, pecah masuk, liability.
-            </p>
-          </div>
-
-          <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
-              <h3 class="font-serif text-xl text-stone-900">2. Houseowner / Householder Insurance</h3>
-              <VerdictBadge tone="best" label="Recommended" />
-            </div>
-            <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Coverage yang lebih luas — cover struktur <strong>dan</strong> isi rumah. 
-              Termasuk perlindungan dari banjir, ribut, pecah masuk, liability kepada pihak ketiga, 
-              dan kerosakan paip air. Ini yang anda sepatutnya ada, terutama kalau rumah landed.
-            </p>
-            <p class="text-sm text-stone-500">
-              <strong>Cover:</strong> Struktur bangunan + perabot, elektrik, pakaian, barang kemas (dengan limit), liability.
-            </p>
-          </div>
-        </div>
-
-        <article class="prose-editorial">
-          <h2>Berapa harga insurans rumah?</h2>
           <p>
-            Fire insurance agak murah — antara insurans yang paling affordable. Harga bergantung pada 
-            <strong>nilai bangunan</strong> (bukan harga pasaran tanah + bangunan):
+            {homeInsurance.methodologyNote}
+          </p>
+
+          <h2 id="apa-itu">Apa itu insurans rumah? Houseowner, householder dan fire-only</h2>
+          <p>
+            <strong>Houseowner</strong> ialah perlindungan bangunan dan komponen tetap yang dinyatakan dalam polisi. Ia boleh
+            merangkumi risiko seperti kebakaran, paip pecah, ribut atau banjir jika skop produk dan wording memasukkannya.
+            <strong>Householder</strong> pula merujuk isi rumah seperti perabot, peralatan dan barang peribadi, dengan had khas
+            bagi sesetengah kategori.
+          </p>
+          <p>
+            <strong>Fire-only</strong> ialah perlindungan asas yang lazimnya tertumpu pada kebakaran, kilat dan letupan
+            domestik. Jangan anggap ia melindungi isi rumah, banjir atau pecah masuk tanpa wording yang jelas. Untuk flat atau
+            condo, semak juga skop strata dan bahagian yang menjadi tanggungjawab pemilik unit.
+          </p>
+
+          <h2 id="kadar-tariff">Kadar premium tariff</h2>
+          <p>
+            Kadar asas yang direkodkan di bawah ialah peratus setahun daripada jumlah diinsuranskan. Kelas pembinaan 1A
+            menggunakan kadar berasingan untuk rumah landed dan flat; 1B ialah kelas pembinaan partly brick. Ini bukan quotation
+            individu.
           </p>
         </article>
 
-        <div class="overflow-x-auto my-8">
+        <div class="mt-6 overflow-x-auto">
           <table class="table-editorial">
+            <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+              Kadar houseowner dan householder yang direkodkan daripada sumber rasmi
+            </caption>
             <thead>
               <tr>
-                <th>Jenis Rumah</th>
-                <th>Nilai Bangunan (anggaran)</th>
-                <th>Fire Insurance/tahun</th>
-                <th>Houseowner/tahun</th>
+                <th scope="col">Perlindungan</th>
+                <th scope="col">1A landed</th>
+                <th scope="col">1A flat</th>
+                <th scope="col">1B landed</th>
+                <th scope="col">1B flat</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium text-stone-900">Apartment/Flat kos rendah</td>
-                <td>RM50K – RM100K</td>
-                <td class="font-semibold text-hijau-700">RM50 – RM100</td>
-                <td>RM150 – RM300</td>
+                <th scope="row" class="font-medium text-stone-900">Houseowner</th>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1A)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_flat_1A)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1B)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_flat_1B)}</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">Condo/Apartment</td>
-                <td>RM100K – RM200K</td>
-                <td class="font-semibold text-hijau-700">RM80 – RM150</td>
-                <td>RM200 – RM400</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Rumah teres single storey</td>
-                <td>RM100K – RM200K</td>
-                <td class="font-semibold text-hijau-700">RM80 – RM160</td>
-                <td>RM250 – RM500</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Rumah teres double storey</td>
-                <td>RM150K – RM300K</td>
-                <td class="font-semibold text-hijau-700">RM120 – RM250</td>
-                <td>RM350 – RM700</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Semi-D</td>
-                <td>RM250K – RM500K</td>
-                <td class="font-semibold text-hijau-700">RM200 – RM400</td>
-                <td>RM500 – RM1,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Bungalow</td>
-                <td>RM400K – RM1M+</td>
-                <td>RM300 – RM800</td>
-                <td>RM800 – RM2,000</td>
+                <th scope="row" class="font-medium text-stone-900">Householder</th>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1A)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1A)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1B)}</td>
+                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1B)}</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="info-box mb-8">
-          <p class="text-sm text-stone-700">
-            <strong>Penting:</strong> Nilai bangunan ≠ harga rumah. Rumah RM500,000 mungkin 
-            cuma ada nilai bangunan RM200,000 — sebab RM300,000 tu tanah. 
-            Insurans cover bangunan je, bukan tanah (tanah tak boleh terbakar).
+        <div class="info-box mt-6">
+          <p class="text-sm leading-5 text-stone-700">
+            <strong>Contoh RM100,000, kadar 1A:</strong> houseowner landed pada {formatRate(tariff.ho_landed_1A)} =
+            <strong>RM{workedExample.landed.toFixed(0)}</strong> setahun; houseowner flat pada {formatRate(tariff.ho_flat_1A)} =
+            <strong>RM{workedExample.flat.toFixed(0)}</strong>; householder pada {formatRate(tariff.hh_1A)} =
+            <strong>RM{workedExample.contents.toFixed(0)}</strong>. Semak juga minimum premium RM{tariff.minPremium} dan setem
+            RM{tariff.stamp}.
           </p>
         </div>
 
-        <article class="prose-editorial">
-          <h2>Fire insurance bank wajib ke?</h2>
+        <div class="mt-8">
+          <CtaBand
+            heading="Kalkulator insurans rumah"
+            body="Gunakan kalkulator dalaman untuk memasukkan jumlah diinsuranskan dan melihat asas pengiraan. Ia bukan quotation daripada insurer. Untuk anggaran kos pembinaan semula, PIAM Building Cost Calculator ialah rujukan berasingan."
+            primary={{ label: 'Buka kalkulator insurans rumah →', href: '/tools/kalkulator-insurans-rumah/' }}
+            outbound={[
+              {
+                label: 'PIAM Building Cost Calculator (rujukan)',
+                href: 'https://bcc.piam.org.my/',
+                relationship: 'unpaid',
+              },
+            ]}
+            disclosure="Semak jumlah diinsuranskan, skop dan wording dengan penyedia sebelum membeli. Pautan PIAM di atas ialah rujukan kos pembinaan semula, bukan pengesyoran atau quotation."
+          />
+        </div>
 
+        <article class="prose-editorial mt-10 sm:mt-14">
+          <h2 id="lppsa">LPPSA dan MRTT/MLTT</h2>
           <p>
-            <strong>Ya, wajib selagi ada loan.</strong> Bank require fire insurance sebagai syarat loan. 
-            Ia protect interest bank — kalau rumah terbakar, bank masih dapat bayaran dari insurans.
+            Jika pembiayaan anda melalui LPPSA, rujuk surat tawaran dan syarat pembiayaan untuk jenis perlindungan yang
+            diperlukan. Keperluan pembiayaan dan perlindungan harta bukan perkara yang sama: dokumen pembiayaan mungkin
+            menetapkan saluran insurans atau takaful, tetapi skop polisi tetap perlu dibaca.
+          </p>
+          <p>
+            MRTT ialah perlindungan berkaitan pinjaman dengan jumlah perlindungan yang biasanya mengikuti baki pembiayaan,
+            manakala MLTT biasanya mengekalkan jumlah perlindungan yang ditetapkan mengikut struktur pelan. Kedua-duanya
+            berkaitan kematian atau hilang upaya seperti yang ditakrifkan dalam dokumen masing-masing; ia bukan pengganti
+            perlindungan bangunan atau isi rumah.
+          </p>
+          <p>
+            Selepas loan selesai, semak semula siapa yang memerlukan perlindungan, jumlah diinsuranskan dan risiko lokasi.
+            Fire-only, houseowner dan householder mempunyai skop yang berbeza walaupun semuanya disebut sebagai insurans rumah.
           </p>
 
-          <p>Tapi anda ada pilihan:</p>
-
-          <ul>
-            <li>
-              <strong>Guna fire insurance bank arrange</strong> — Senang, automatic. 
-              Tapi mungkin lebih mahal sebab bank ambil commission.
-            </li>
-            <li>
-              <strong>Beli sendiri dan assign ke bank</strong> — Boleh jimat 20-40%. 
-              Guna Bjak atau beli direct dari Etiqa, Allianz, etc. Kemudian assign polisi 
-              tu kepada bank. Kena inform bank dan dapatkan consent.
-            </li>
-          </ul>
-
-          <h2>Apa yang patut anda buat?</h2>
-
-          <ol class="list-decimal pl-5 space-y-3">
-            <li>
-              <strong>Check fire insurance anda sekarang.</strong> Tengok statement loan — 
-              berapa premium anda bayar? Untuk rumah teres biasa, sepatutnya bawah RM200/tahun. 
-              Kalau lebih, mungkin boleh jimat.
-            </li>
-            <li>
-              <strong>Consider houseowner/householder insurance.</strong> Fire insurance bank cuma cover 
-              struktur dari kebakaran. Kalau rumah kena banjir? Pecah masuk? Paip pecah? 
-              Semua tu tak di-cover. Houseowner insurance cover semua ni.
-            </li>
-            <li>
-              <strong>Content insurance untuk penyewa.</strong> Kalau anda penyewa (tenant), 
-              tuan rumah biasanya ada fire insurance untuk bangunan. 
-              Tapi barang anda — TV, laptop, perabot — tak dilindungi. 
-              Boleh beli householder content insurance yang cover isi rumah. 
-              Murah je — RM100-300 setahun.
-            </li>
-          </ol>
-
-          <h2>Syarikat insurans rumah popular</h2>
-
-          <ul>
-            <li>
-              <strong>Etiqa</strong> — Home insurance online available. Harga competitive. 
-              Ada option takaful juga.
-            </li>
-            <li>
-              <strong>Allianz</strong> — SmartHome coverage yang quite comprehensive. 
-              Cover banjir, ribut, dan pecah masuk.
-            </li>
-            <li>
-              <strong>AIG</strong> — Good untuk high-value homes. Personal liability cover yang luas.
-            </li>
-            <li>
-              <strong>Zurich</strong> — Package yang fleksibel. Boleh pilih cover structure je, 
-              content je, atau dua-dua.
-            </li>
-          </ul>
+          <h2 id="senarai-produk">Senarai produk insurans rumah</h2>
+          <p>
+            Rekod di bawah disusun mengikut jenis produk. Kad yang bertanda angka disahkan memaparkan maklumat yang dapat
+            dikesan kepada sumber rasmi pada tarikh semakan; rekod nama sahaja tidak memaparkan kadar atau had yang belum
+            disahkan.
+          </p>
         </article>
 
-        <article class="prose-editorial">
-          <h2>Soalan lazim insurans rumah</h2>
-        </article>
+        <div class="mt-8 space-y-10 sm:mt-10">
+          {recordGroups.map((group) => (
+            <section id={group.type}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h3 class="font-serif text-headline-md text-stone-900">{group.label}</h3>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.records.length} rekod</span>
+              </div>
 
-        <div class="my-8">
-          <details class="faq-item" open>
-            <summary>Rumah dah habis bayar loan, fire insurance masih perlu ke?</summary>
-            <p>
-              <strong>Tak wajib, tapi sangat recommended.</strong> Lepas habis loan, bank tak require dah. 
-              Tapi rumah anda still exposed kepada risiko kebakaran, banjir, ribut. 
-              Premium cuma RM100-300 setahun — murah untuk peace of mind. 
-              Upgrade ke houseowner insurance lagi bagus.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Condo ada strata insurance, perlu beli lagi ke?</summary>
-            <p>
-              Strata insurance (yang termasuk dalam maintenance fee) cover <strong>common area dan struktur</strong> — 
-              lobby, corridor, luaran bangunan. Tapi <strong>isi unit anda tak di-cover</strong>. 
-              Perabot, renovasi, fixtures yang anda tambah — semua tu anda punya. 
-              Beli householder insurance untuk cover isi unit.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Banjir cover ke dalam fire insurance?</summary>
-            <p>
-              <strong>Tak.</strong> Fire insurance standard cuma cover kebakaran, petir, letupan domestik. 
-              Banjir, ribut, dan tanah runtuh kena beli tambahan sebagai "special perils" rider. 
-              Kalau duduk kawasan yang pernah banjir (Shah Alam, Taman Sri Muda, JB), 
-              ini wajib ambil. Kos tambahan RM30-100 setahun je.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Renovation dan tambahan rumah di-cover ke?</summary>
-            <p>
-              Fire insurance standard biasanya cover struktur asal je. 
-              Kalau anda dah renovate — extend dapur, tambah bilik, auto-gate — 
-              kena update sum insured. Kalau tak, under-insured. 
-              Maknanya kalau claim, anda mungkin tak dapat full payout.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Boleh ke claim kalau paip pecah dan rumah banjir indoor?</summary>
-            <p>
-              Fire insurance standard: <strong>tak boleh</strong>. 
-              Houseowner insurance: <strong>biasanya boleh</strong>, tergantung polisi. 
-              Kerosakan dari burst pipes biasanya covered bawah houseowner insurance, 
-              termasuk kerosakan kepada harta benda. Check polisi anda.
-            </p>
-          </details>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.records.map((record) => (
+                  <a href={`/home-insurance/${record.slug}/`} class="card-editorial group block">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
+                        <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
+                      </div>
+                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                    </div>
+                    {record.figureVerified ? (
+                      <>
+                        <dl class="mt-5 space-y-2 text-sm">
+                          <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
+                            <dt class="text-stone-600">Kadar direkodkan</dt>
+                            <dd class="font-semibold text-hijau-800">{record.tariffRates}</dd>
+                          </div>
+                          {record.minPremium && (
+                            <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
+                              <dt class="text-stone-600">Premium minimum</dt>
+                              <dd class="font-semibold text-stone-900">{record.minPremium}</dd>
+                            </div>
+                          )}
+                        </dl>
+                        <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.coversWhat}</p>
+                      </>
+                    ) : (
+                      <p class="mt-5 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
+                        Nama produk direkodkan, tetapi kadar dan manfaat belum disahkan daripada sumber rasmi semasa penyelidikan.
+                      </p>
+                    )}
+                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
+
+        <article class="prose-editorial mt-10 sm:mt-14">
+          <h2 id="banjir">Banjir: apa yang perlu disemak?</h2>
+          <p>
+            Fire-only asas tidak patut dianggap melindungi banjir. Untuk houseowner atau householder, cari perkataan banjir
+            atau special perils dalam PDS dan wording, kemudian semak had, excess, pengecualian, syarat rumah kosong dan proses
+            tuntutan. Dalam data ini, beberapa sumber rasmi menyatakan banjir, tetapi kenyataan itu tidak menjadikan semua produk
+            atau semua keadaan tuntutan sama.
+          </p>
+          <p>
+            Jika rumah berada di kawasan berisiko, bandingkan skop bangunan dan isi rumah secara berasingan. Banjir yang merosakkan
+            struktur, perabot atau kedua-duanya mungkin tertakluk pada bahagian perlindungan dan had yang berlainan. Simpan PDS,
+            polisi atau sijil yang tepat untuk semakan sebelum pembaharuan.
+          </p>
+        </article>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim insurans rumah</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       </div>
 
       <aside class="lg:col-span-1">
-        <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h3 class="font-serif text-headline-sm text-stone-900">Ringkasan</h3>
+            <dl class="mt-4 space-y-3 text-sm">
               <div>
-                <dt class="text-stone-500">Wajib?</dt>
-                <dd class="font-semibold text-stone-900">Ya, kalau ada loan bank</dd>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{records.length} produk</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Fire insurance (teres)</dt>
-                <dd class="font-semibold text-hijau-700">RM80 – RM250/tahun</dd>
+                <dt class="text-stone-500">Angka disahkan</dt>
+                <dd class="font-semibold text-stone-900">{records.filter((record) => record.figureVerified).length} rekod</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Houseowner insurance</dt>
-                <dd class="font-semibold text-stone-900">RM250 – RM700/tahun</dd>
+                <dt class="text-stone-500">Kadar asas 1A landed</dt>
+                <dd class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1A)} houseowner</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Tip utama</dt>
-                <dd class="font-semibold text-stone-900">Beli sendiri, jangan guna bank</dd>
+                <dt class="text-stone-500">Minimum / setem</dt>
+                <dd class="font-semibold text-stone-900">RM{tariff.minPremium} / RM{tariff.stamp}</dd>
+              </div>
+              <div>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{homeInsurance.asAt}</dd>
               </div>
             </dl>
           </div>
-
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
-            <ul class="space-y-2.5 text-sm">
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kereta</a></li>
-              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kesihatan / Medical Card</a></li>
-              <li><a href="/personal-accident/" class="text-hijau-700 hover:text-hijau-600">Insurans Kemalangan Diri</a></li>
-              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim insurans</a></li>
-              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+            <h3 class="text-sm font-semibold text-stone-900">Baca juga</h3>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/tools/kalkulator-insurans-rumah/" class="text-hijau-700 hover:text-hijau-600">Kalkulator insurans rumah</a></li>
+              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs takaful</a></li>
+              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Direktori syarikat insurans</a></li>
             </ul>
           </div>
         </div>
       </aside>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
 </Base>

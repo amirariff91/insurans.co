@@ -1,332 +1,398 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import personalAccident from '../../data/personal-accident.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Insurans Kemalangan Diri (Personal Accident) Malaysia 2026",
-  "description": "Panduan insurans kemalangan diri / personal accident Malaysia. Apa yang di-cover, berapa harga, dan kenapa rider motosikal wajib ada.",
-  "url": "https://insurans.co/personal-accident/",
-  "datePublished": "2026-02-01",
-  "dateModified": "2026-02-10",
-  "inLanguage": "ms",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Insurans.co",
-    "url": "https://insurans.co"
+const records = personalAccident.records;
+const typeOrder = ['personal-accident', 'personal-accident-takaful'] as const;
+const typeLabels: Record<string, string> = {
+  'personal-accident': 'PA konvensional',
+  'personal-accident-takaful': 'PA takaful',
+};
+const typeDescriptions: Record<string, string> = {
+  'personal-accident': 'Pelan personal accident berasaskan polisi insurans.',
+  'personal-accident-takaful': 'Pelan kemalangan diri berasaskan sijil takaful.',
+};
+const recordGroups = typeOrder
+  .map((type) => ({
+    type,
+    label: typeLabels[type],
+    description: typeDescriptions[type],
+    records: records.filter((record) => record.type === type),
+  }))
+  .filter((group) => group.records.length > 0);
+const publishedRecords = records.filter((record) => record.premiumPublished);
+const sourceLabel = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+const sourceLinks = Array.from(new Set(records.flatMap((record) => record.sources))).map((url) => ({
+  label: sourceLabel(url),
+  url,
+}));
+
+const faqs = [
+  {
+    q: 'Apa beza PA konvensional dan takaful?',
+    a: 'Kedua-duanya bertujuan memberi perlindungan apabila berlaku kemalangan, tetapi PA konvensional menggunakan polisi insurans manakala PA takaful menggunakan sijil takaful dan struktur dana takaful. Manfaat, pengecualian, caruman atau premium serta syarat tuntutan tetap ikut dokumen produk masing-masing; jangan anggap label sahaja menjadikan terma sama.',
   },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
-      { "@type": "ListItem", "position": 2, "name": "Insurans Kemalangan Diri", "item": "https://insurans.co/personal-accident/" }
-    ]
-  }
+  {
+    q: 'SOCSO atau PERKESO sudah cover — masih perlu PA?',
+    a: 'PERKESO ialah skim berkanun dengan kelayakan, caruman dan pencetus yang bergantung pada skim pekerjaan. PA pula ialah kontrak perlindungan kemalangan persendirian. Skop, bentuk bayaran dan proses tuntutan tidak sama, jadi semak perlindungan pekerjaan anda dahulu dan baca polisi PA sebelum menganggap satu menggantikan yang lain.',
+  },
+  {
+    q: 'Boleh beli PA untuk keluarga dan anak?',
+    a: 'Boleh atau tidak bergantung pada produk, umur dan definisi insured person dalam PDS. Rekod Tune Protect PA Easy menyatakan umur masuk 18-70 tahun, jadi angka itu tidak boleh dianggap sebagai kelayakan kanak-kanak. Rekod Etiqa menyebut manfaat kanak-kanak, tetapi sumber yang dibaca tidak menetapkan umur kemasukan kanak-kanak. Semak PDS dan sijil untuk setiap ahli keluarga.',
+  },
+  {
+    q: 'Boleh beli PA online?',
+    a: 'Ada produk yang menyatakan saluran dalam talian. Dalam data ini, Tune Protect PA Easy dinyatakan boleh dibeli online; itu bukan bukti semua pelan mempunyai proses yang sama. Gunakan laman rasmi penginsurans, baca PDS, semak kelas pekerjaan dan simpan polisi atau sijil selepas bayaran. Insurans.co tidak menjual polisi dan tidak menyediakan quotation langsung.',
+  },
+  {
+    q: 'PA ada waiting period?',
+    a: 'Sumber PDS dan laman produk yang dibaca untuk rekod ini tidak menyatakan satu waiting period PA yang universal. Jangan tukar ketiadaan kenyataan itu menjadi dakwaan “tiada waiting period”. Semak tarikh kuat kuasa, tempoh menunggu jika ada, pengecualian dan syarat notifikasi tuntutan dalam PDS atau wording polisi sebenar.',
+  },
+  {
+    q: 'Apa itu PA?',
+    a: 'PA ialah personal accident atau insurans kemalangan diri. Ia biasanya merujuk manfaat seperti AD (kematian akibat kemalangan) dan PPD (hilang upaya kekal mengikut takrif PDS), bersama manfaat tambahan yang dinyatakan produk seperti perubatan atau elaun hospital. PA bukan perlindungan sakit biasa dan tidak sama dengan medical card.',
+  },
+];
+
+const pageTitle = 'Insurans PA Malaysia 2026';
+const description = buildDescription(
+  'Panduan personal accident Malaysia: faham AD dan PPD, bandingkan PA konvensional dengan takaful, serta semak harga yang diterbitkan daripada sumber rasmi.',
+);
+const canonicalUrl = 'https://insurans.co/personal-accident/';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description,
+  url: canonicalUrl,
+  datePublished: personalAccident.asAt,
+  dateModified: personalAccident.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Kemalangan Diri', item: canonicalUrl },
+    ],
+  },
 };
 ---
 
 <Base
-  title="Insurans Kemalangan Diri Malaysia 2026 — Harga, Coverage & Panduan"
-  description="Panduan insurans kemalangan diri (personal accident) Malaysia 2026. Berapa harga, apa yang di-cover, dan kenapa anda perlu ada — terutama rider dan pekerja fizikal."
+  title={buildTitle(pageTitle)}
+  description={description}
+  canonical={canonicalUrl}
   schema={schema}
   ogType="article"
-  publishedTime="2026-02-01"
-  modifiedTime="2026-02-10"
+  publishedTime={personalAccident.asAt}
+  modifiedTime={personalAccident.asAt}
 >
-  <section class="bg-white border-b border-stone-200">
+  <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Kemalangan Diri</span>
-      </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Insurans Kemalangan Diri (Personal Accident) 2026
-      </h1>
-      <Byline dateModified={schema.dateModified} />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        PA insurance — salah satu insurans paling murah tapi paling ramai tak ada. 
-        RM100-300 setahun je boleh dapat coverage sehingga RM100,000 kalau accident.
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Insurans Kemalangan Diri' },
+        ]}
+      />
+      <p class="label mb-3">Panduan Data</p>
+      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Kemalangan Diri (PA) Malaysia 2026</h1>
+      <Byline dateModified={personalAccident.asAt} />
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+        Fahami apa yang PA lindungi, beza polisi konvensional dan sijil takaful, serta angka yang benar-benar diterbitkan oleh sumber rasmi. Tiada harga dianggar atau dikira semula.
       </p>
+      <div class="mt-6 max-w-3xl">
+        <EditorialStamp
+          articleDate={personalAccident.asAt}
+          sources={sourceLinks}
+          sourcesLabel="Sumber rasmi"
+          showReviewed={false}
+        />
+      </div>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
-    <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
         <article class="prose-editorial">
-
-          <p class="text-lg text-stone-700 leading-relaxed">
-            Personal Accident (PA) insurance bayar anda <strong>lump sum</strong> kalau berlaku kemalangan 
-            yang menyebabkan kematian, hilang upaya kekal, atau kecederaan. 
-            Bukan macam medical card yang bayar hospital bill — PA bagi anda <strong>cash terus</strong>. 
-            Nak guna untuk apa pun, terpulang.
+          <p class="text-lg leading-7 text-stone-700">
+            Personal accident (PA) memberi manfaat apabila kemalangan yang dilindungi menyebabkan kematian atau hilang upaya kekal, dengan manfaat tambahan mengikut pelan. Ia bukan medical card: medical card membayar bil rawatan yang layak, manakala PA boleh membayar manfaat tunai atau membayar balik kos tertentu mengikut PDS.
           </p>
 
-          <h2>Apa yang PA insurance cover?</h2>
-
-          <ul>
-            <li>
-              <strong>Kematian akibat kemalangan</strong> — Keluarga dapat payout penuh 
-              (contoh: RM100,000, RM200,000, RM500,000 bergantung pada plan).
-            </li>
-            <li>
-              <strong>Hilang upaya kekal (permanent disability)</strong> — Payout penuh atau sebahagian 
-              bergantung pada jenis disability. Kehilangan dua mata atau dua tangan = 100%. 
-              Kehilangan satu jari = percentage tertentu.
-            </li>
-            <li>
-              <strong>Kecederaan sementara</strong> — Sesetengah plan bayar daily hospital income 
-              (contoh: RM100/hari selama diward).
-            </li>
-            <li>
-              <strong>Kos perubatan akibat accident</strong> — Basic medical expenses reimbursement 
-              untuk rawatan akibat kemalangan.
-            </li>
-          </ul>
-
-          <h2>Berapa harga PA insurance?</h2>
-
-          <p>PA insurance antara insurans yang <strong>paling murah</strong>:</p>
-        </article>
-
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Coverage</th>
-                <th>Premium/tahun (anggaran)</th>
-                <th>Payout kematian/hilang upaya</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">Basic</td>
-                <td class="font-semibold text-hijau-700">RM80 – RM150</td>
-                <td>RM50,000 – RM100,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Standard</td>
-                <td class="font-semibold text-hijau-700">RM150 – RM300</td>
-                <td>RM100,000 – RM200,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Premium</td>
-                <td>RM300 – RM600</td>
-                <td>RM200,000 – RM500,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">High cover</td>
-                <td>RM500 – RM1,200</td>
-                <td>RM500,000 – RM1,000,000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="info-box mb-8">
-          <p class="text-sm text-stone-700">
-            <strong>Perspective:</strong> RM150 setahun = RM12.50 sebulan = kurang dari satu kopi. 
-            Untuk coverage RM100K kalau accident. Honestly, tak ada sebab untuk tak ada PA insurance.
-          </p>
-        </div>
-
-        <article class="prose-editorial">
-          <h2>Siapa yang WAJIB ada PA insurance?</h2>
-
-          <ol class="list-decimal pl-5 space-y-3">
-            <li>
-              <strong>Rider motosikal.</strong> Ini number one. Risiko injury bagi rider 
-              jauh lebih tinggi dari pemandu kereta. Insurans motor cuma cover kerosakan harta — 
-              bukan kecederaan diri anda. PA insurance fill gap tu.
-            </li>
-            <li>
-              <strong>Grab/food delivery rider.</strong> Anda on the road 8-12 jam sehari. 
-              Risiko tinggi. Kalau accident dan tak boleh kerja 2-3 bulan, income hilang. 
-              PA insurance at least bagi lump sum atau daily income.
-            </li>
-            <li>
-              <strong>Pekerja fizikal / construction / kilang.</strong> 
-              SOCSO ada, tapi coverage basic. PA insurance sebagai tambahan yang murah.
-            </li>
-            <li>
-              <strong>Breadwinner keluarga.</strong> Kalau anda satu-satunya sumber income, 
-              PA insurance + <a href="/life-insurance/">insurans nyawa</a> wajib ada.
-            </li>
-            <li>
-              <strong>Orang yang takde medical card.</strong> PA insurance at least cover 
-              medical expenses akibat accident. Bukan replacement untuk medical card, 
-              tapi better than nothing.
-            </li>
-          </ol>
-
-          <h2>PA insurance vs medical card vs life insurance — apa beza?</h2>
-        </article>
-
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Aspek</th>
-                <th>PA Insurance</th>
-                <th>Medical Card</th>
-                <th>Life Insurance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">Cover apa?</td>
-                <td>Accident only</td>
-                <td>Sakit + accident (hospital)</td>
-                <td>Kematian (any cause)</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Payout jenis?</td>
-                <td>Lump sum cash</td>
-                <td>Bayar bil hospital</td>
-                <td>Lump sum ke beneficiary</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Harga/tahun</td>
-                <td class="font-semibold text-hijau-700">RM100 – RM500</td>
-                <td>RM1,500 – RM5,000</td>
-                <td>RM1,000 – RM3,000</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Cover sakit biasa?</td>
-                <td>Tak</td>
-                <td class="font-semibold text-hijau-700">Ya</td>
-                <td>Tak</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <article class="prose-editorial">
+          <h2 id="apa-itu">Apa itu PA? AD &amp; PPD akibat kemalangan, bukan sakit</h2>
           <p>
-            <strong>Idealnya, ada semua tiga.</strong> Tapi kalau budget terhad, 
-            priority: medical card → PA insurance → life insurance. 
-            PA insurance yang paling murah — takde excuse untuk skip.
+            AD ialah kematian akibat kemalangan. PPD merujuk hilang upaya kekal mengikut jadual atau takrif dalam dokumen produk. Jumlah manfaat boleh berbeza untuk jenis kecederaan, dan sesetengah pelan turut menyenaraikan perbelanjaan perubatan, elaun hospital, ambulans atau manfaat pemulihan. Sakit biasa bukan pencetus PA melainkan dokumen produk menyatakan manfaat berasingan.
           </p>
 
-          <h2>Syarikat PA insurance popular</h2>
+          <h2 id="konvensional-takaful">PA konvensional vs takaful</h2>
+          <p>
+            PA konvensional diterbitkan sebagai polisi oleh syarikat insurans. PA takaful menggunakan sijil dan struktur pengendali takaful. Soalan bandingan masih sama: AD dan PPD, jadual bayaran hilang upaya, manfaat perubatan, elaun hospital, pengecualian, umur masuk, kelas pekerjaan dan pembaharuan. Baca PDS atau wording setiap produk kerana struktur dan istilah tidak semestinya seragam.
+          </p>
 
-          <ul>
-            <li>
-              <strong>Etiqa — PA Warisan</strong> — Boleh beli online. Coverage sehingga RM200,000. 
-              Ada option takaful. Dari RM80/tahun.
-            </li>
-            <li>
-              <strong>Allianz — Personal Protect</strong> — Coverage luas termasuk 
-              daily hospital income. Dari RM120/tahun.
-            </li>
-            <li>
-              <strong>AXA (sekarang AXA Affin)</strong> — SmartPA plan yang affordable. 
-              Group PA juga available untuk employer.
-            </li>
-            <li>
-              <strong>PolicyStreet</strong> — Platform digital yang offer PA insurance 
-              dari beberapa insurer. Senang compare dan beli.
-            </li>
-          </ul>
+          <h2 id="cara-banding">Cara banding pelan PA</h2>
+          <ol>
+            <li><strong>Mulakan dengan AD dan PPD.</strong> Semak jumlah perlindungan dan jadual peratusan untuk kecederaan tertentu, bukan tajuk pemasaran sahaja.</li>
+            <li><strong>Asingkan manfaat tunai dan bayaran balik.</strong> Hospital cash, elaun mingguan dan perbelanjaan perubatan mempunyai had, tempoh dan dokumen tuntutan berbeza.</li>
+            <li><strong>Semak kelayakan.</strong> Umur masuk, kelas atau jenis pekerjaan, wilayah perlindungan, aktiviti berisiko dan syarat pembaharuan boleh menukar kelayakan.</li>
+            <li><strong>Baca pengecualian dan tuntutan.</strong> Semak aktiviti yang dikecualikan, tarikh kuat kuasa, notifikasi kemalangan serta dokumen yang perlu disimpan.</li>
+            <li><strong>Bandingkan harga yang diterbitkan sahaja.</strong> Jika sumber tidak menerbitkan harga, minta quotation rasmi; jangan isi jurang dengan purata pasaran.</li>
+          </ol>
         </article>
 
-        <article class="prose-editorial">
-          <h2>Soalan lazim PA insurance</h2>
-        </article>
+        <div class="mt-10 space-y-10 sm:mt-14">
+          {recordGroups.map((group) => (
+            <section id={group.type}>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h2 class="font-serif text-headline-md text-stone-900">{group.label}</h2>
+                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
+                </div>
+                <span class="text-sm text-stone-500">{group.records.length} pelan</span>
+              </div>
 
-        <div class="my-8">
-          <details class="faq-item" open>
-            <summary>PA insurance cover ke kalau jatuh tangga di rumah?</summary>
-            <p>
-              <strong>Ya!</strong> PA insurance cover kemalangan di mana-mana — di jalan raya, 
-              di rumah, di tempat kerja, masa bersukan. Asalkan ia "accidental" 
-              (tak sengaja dan bukan sebab penyakit), ia covered.
-            </p>
-          </details>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                {group.records.map((record) => (
+                  <a href={`/personal-accident/${record.slug}/`} class="card-editorial group block">
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h3>
+                        <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
+                      </div>
+                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                    </div>
 
-          <details class="faq-item">
-            <summary>Dah ada SOCSO/PERKESO, perlu ke PA insurance?</summary>
-            <p>
-              SOCSO cover kemalangan di tempat kerja dan dalam perjalanan ke/dari kerja. 
-              Tapi <strong>di luar waktu kerja? Tak cover.</strong> PA insurance cover 24 jam, 
-              7 hari seminggu, worldwide. Plus, payout SOCSO biasanya basic — 
-              PA insurance bagi tambahan atas tu.
-            </p>
-          </details>
+                    <dl class="mt-5 space-y-2 text-sm">
+                      {record.coversWhat && (
+                        <div class="border-t border-stone-200 pt-2">
+                          <dt class="text-stone-600">Cover utama</dt>
+                          <dd class="mt-1 font-semibold leading-5 text-stone-900">{record.coversWhat}</dd>
+                        </div>
+                      )}
+                      {record.plansAndBenefits && (
+                        <div class="border-t border-stone-200 pt-2">
+                          <dt class="text-stone-600">Pelan &amp; manfaat</dt>
+                          <dd class="mt-1 font-semibold leading-5 text-stone-900">{record.plansAndBenefits}</dd>
+                        </div>
+                      )}
+                      {record.entryAge && (
+                        <div class="border-t border-stone-200 pt-2">
+                          <dt class="text-stone-600">Umur masuk</dt>
+                          <dd class="mt-1 font-semibold leading-5 text-stone-900">{record.entryAge}</dd>
+                        </div>
+                      )}
+                      {record.premiumPublished ? (
+                        <div class="border-t border-stone-200 pt-2">
+                          <dt class="text-stone-600">Harga diterbitkan</dt>
+                          <dd class="mt-1 font-semibold leading-5 text-hijau-800">{record.premiumPublished}</dd>
+                        </div>
+                      ) : (
+                        <div class="border-t border-stone-200 pt-2">
+                          <dt class="text-stone-600">Harga diterbitkan</dt>
+                          <dd class="mt-1 font-semibold leading-5 text-stone-900">Tidak diterbitkan dalam sumber yang dibaca</dd>
+                        </div>
+                      )}
+                    </dl>
 
-          <details class="faq-item">
-            <summary>Boleh ke beli PA insurance untuk anak?</summary>
-            <p>
-              <strong>Boleh.</strong> Banyak plan offer family PA yang cover suami, isteri, 
-              dan anak-anak. Premium tambahan untuk anak biasanya rendah — RM30-50 per anak. 
-              Good idea especially kalau anak aktif bersukan atau naik basikal.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>PA insurance ada waiting period?</summary>
-            <p>
-              Biasanya <strong>takde waiting period</strong> untuk accident claim — 
-              coverage start immediately selepas polisi aktif. Ini berbeza dari medical card 
-              yang ada 30-120 hari waiting period. Satu lagi kelebihan PA.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Kemalangan masa mabuk, cover ke?</summary>
-            <p>
-              <strong>Tak cover.</strong> Kebanyakan PA insurance ada exclusion untuk kemalangan 
-              yang berlaku semasa di bawah pengaruh alkohol atau dadah. 
-              Juga tak cover self-inflicted injury, sukan ekstrem tertentu (skydiving, etc.), 
-              atau kemalangan masa melakukan aktiviti haram.
-            </p>
-          </details>
+                    {!record.figureVerified && (
+                      <p class="mt-4 border-t border-emas-200 pt-3 text-sm leading-5 text-emas-800">
+                        Nota ketelusan: butiran manfaat, umur masuk dan premium tidak dapat disahkan daripada sumber yang dibaca.
+                      </p>
+                    )}
+                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
+
+        <section id="harga" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Harga yang diterbitkan</h2>
+            <p>
+              Berikut ialah angka yang muncul dalam sumber rasmi sahaja. Setiap baris mengekalkan qualifier asal; ia bukan quotation peribadi dan bukan harga yang dikira daripada jumlah perlindungan. Contoh PDS Etiqa ditanda sebagai contoh, bukan harga jualan umum.
+            </p>
+          </div>
+
+          <div class="mt-6 grid gap-4">
+            {publishedRecords.map((record) => {
+              const isExample = record.premiumPublished?.startsWith('Contoh PDS');
+              return (
+                <div class="card-editorial">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 class="font-serif text-headline-sm text-stone-900">{record.planName}</h3>
+                      <p class="mt-1 text-sm text-stone-600">{record.insurer}</p>
+                    </div>
+                    <span class="border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                      {isExample ? 'Contoh PDS' : 'Harga diterbitkan'}
+                    </span>
+                  </div>
+                  <p class="mt-4 text-lg leading-7 text-stone-900">{record.premiumPublished}</p>
+                  {isExample && <p class="mt-2 text-sm leading-5 text-emas-800">Contoh PDS ini bukan harga jualan umum atau quotation individu.</p>}
+                  <div class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
+                    <p><strong>Sumber:</strong> {record.sources.map((url, index) => (
+                      <span>
+                        {index > 0 && <span aria-hidden="true"> · </span>}
+                        <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a>
+                      </span>
+                    ))}</p>
+                    <p class="mt-1"><strong>As at:</strong> {record.asAt}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="banding-tiga" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>PA vs medical card vs life insurance</h2>
+            <p>Ketiga-tiganya boleh melengkapi, tetapi pencetus tuntutan dan bentuk bayaran tidak sama.</p>
+          </div>
+          <div class="mt-6 overflow-x-auto">
+            <table class="table-editorial">
+              <thead>
+                <tr>
+                  <th>Aspek</th>
+                  <th>PA</th>
+                  <th>Medical card</th>
+                  <th>Life insurance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-medium text-stone-900">Pencetus utama</td>
+                  <td>Kemalangan yang memenuhi polisi, termasuk AD atau PPD mengikut takrif</td>
+                  <td>Rawatan hospital atau day surgery yang layak kerana sakit atau kemalangan</td>
+                  <td>Kematian mengikut terma polisi dan pengecualian</td>
+                </tr>
+                <tr>
+                  <td class="font-medium text-stone-900">Bentuk manfaat</td>
+                  <td>Lump sum dan manfaat tambahan seperti yang dinyatakan</td>
+                  <td>Bayaran bil rawatan yang layak, tertakluk pada had dan kos sendiri</td>
+                  <td>Lump sum kepada benefisiari atau penama mengikut polisi</td>
+                </tr>
+                <tr>
+                  <td class="font-medium text-stone-900">Sakit biasa</td>
+                  <td>Tidak menjadi pencetus PA</td>
+                  <td>Boleh dilindungi untuk rawatan yang layak</td>
+                  <td>Bukan manfaat rawatan; pencetusnya ialah manfaat kematian</td>
+                </tr>
+                <tr>
+                  <td class="font-medium text-stone-900">Semak dahulu</td>
+                  <td>Jadual PPD, pengecualian, kelas pekerjaan dan tuntutan</td>
+                  <td>Had tahunan, room &amp; board, deductible dan waiting period</td>
+                  <td>Jumlah perlindungan, tempoh, premium dan pengecualian</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="group-pa" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Group PA</h2>
+            <p>
+              Group PA biasanya datang melalui majikan atau organisasi dan boleh menjadi lapisan tambahan kepada perlindungan peribadi. Minta sijil atau ringkasan manfaat dan semak siapa yang dilindungi, jumlah AD/PPD, waktu serta wilayah perlindungan, aktiviti yang dikecualikan, proses tuntutan dan sama ada cover tamat apabila anda berhenti kerja. Jangan anggap group PA boleh dipindahkan atau mencukupi untuk keluarga tanpa pengesahan bertulis.
+            </p>
+          </div>
+        </section>
+
+        <section id="beli-online" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Beli online</h2>
+            <p>
+              Beli terus melalui laman rasmi hanya selepas membaca PDS dan memastikan maklumat pekerjaan, umur serta orang yang dilindungi tepat. Rekod Tune Protect PA Easy menyatakan boleh beli online; untuk produk lain, ketersediaan saluran dan proses quotation perlu disahkan pada laman rasmi. Selepas membayar, simpan polisi atau sijil, resit, nombor kecemasan dan arahan tuntutan. Kami bukan ejen, broker atau platform quotation.
+            </p>
+          </div>
+        </section>
+
+        <section id="keluarga-anak" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>PA untuk keluarga &amp; anak</h2>
+            <p>
+              Jangan salin kelayakan seorang dewasa kepada ahli keluarga lain. Semak umur masuk setiap insured person, sama ada anak atau pasangan perlu sijil berasingan, had manfaat setiap orang, definisi penjaga atau benefisiari dan cara tuntutan. Dalam data ini, manfaat kanak-kanak Etiqa disebut dalam ringkasan pelan tetapi umur kemasukan tidak dinyatakan; Tune PA Easy pula menyatakan 18-70 tahun. Kekosongan ini perlu disemak dalam PDS atau quotation rasmi.
+            </p>
+          </div>
+        </section>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim PA</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       </div>
 
       <aside class="lg:col-span-1">
-        <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
+            <dl class="mt-4 space-y-3 text-sm">
               <div>
-                <dt class="text-stone-500">Harga</dt>
-                <dd class="font-semibold text-hijau-700">Dari RM80/tahun</dd>
+                <dt class="text-stone-500">Bilangan rekod</dt>
+                <dd class="font-semibold text-stone-900">{records.length} pelan</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Coverage</dt>
-                <dd class="font-semibold text-stone-900">RM50K – RM1M</dd>
+                <dt class="text-stone-500">Kategori</dt>
+                <dd class="font-semibold text-stone-900">PA konvensional dan takaful</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Payout jenis</dt>
-                <dd class="font-semibold text-stone-900">Lump sum cash</dd>
+                <dt class="text-stone-500">Angka diterbitkan</dt>
+                <dd class="font-semibold text-stone-900">{publishedRecords.length} rekod</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Waiting period</dt>
-                <dd class="font-semibold text-hijau-700">Tiada</dd>
+                <dt class="text-stone-500">Data dikemas kini</dt>
+                <dd class="font-semibold text-hijau-700">{personalAccident.asAt}</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Siapa perlu?</dt>
-                <dd class="font-semibold text-stone-900">Semua orang, terutama rider</dd>
+                <dt class="text-stone-500">Harga dianggar</dt>
+                <dd class="font-semibold text-stone-900">Tiada</dd>
               </div>
             </dl>
           </div>
-
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
-            <ul class="space-y-2.5 text-sm">
-              <li><a href="/motorcycle-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Motosikal</a></li>
-              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Medical Card</a></li>
-              <li><a href="/life-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Nyawa</a></li>
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kereta</a></li>
-              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim insurans</a></li>
+            <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/medical-cards/" class="text-hijau-700 hover:text-hijau-600">Medical card</a></li>
+              <li><a href="/life-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans hayat</a></li>
+              <li><a href="/bantuan-insurans/perkeso/" class="text-hijau-700 hover:text-hijau-600">PERKESO</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Panduan takaful</a></li>
             </ul>
           </div>
         </div>
       </aside>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
 </Base>

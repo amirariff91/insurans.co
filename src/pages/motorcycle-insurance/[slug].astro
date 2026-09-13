@@ -1,0 +1,252 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import EditorialStamp from '../../components/EditorialStamp.astro';
+import Hero from '../../components/Hero.astro';
+import motorcycleInsurance from '../../data/motorcycle-insurance.json';
+import { buildDescription, buildTitle } from '../../lib/seo';
+
+type MotorcycleRecord = (typeof motorcycleInsurance.records)[number];
+
+const records = motorcycleInsurance.records;
+const typeLabels: Record<string, string> = {
+  'third-party': 'Third party',
+  comprehensive: 'Comprehensive',
+  'comprehensive-takaful': 'Comprehensive / takaful',
+};
+
+export function getStaticPaths() {
+  return motorcycleInsurance.records.map((record) => ({
+    params: { slug: record.slug },
+    props: { record },
+  }));
+}
+
+const { record } = Astro.props as { record: MotorcycleRecord };
+const canonicalUrl = `https://insurans.co/motorcycle-insurance/${record.slug}/`;
+const typeLabel = typeLabels[record.type] ?? record.type;
+const sourceLinks = record.sources.map((url) => ({
+  label: new URL(url).hostname.replace(/^www\./, ''),
+  url,
+}));
+const specItems = [
+  { label: 'Apa yang dilindungi', value: record.coversWhat },
+  { label: 'Asas premium', value: record.premiumBasis },
+  { label: 'Contoh premium PDS', value: record.workedExample },
+].filter((item) => item.value);
+const honestyLine = 'Manfaat, premium dan syarat portal produk ini belum disahkan daripada sumber primer yang dibaca. Halaman ini tidak membuat tuntutan tentang perlindungan atau harga.';
+const relatedRecords = records.filter((candidate) => candidate.slug !== record.slug).slice(0, 4);
+const title = buildTitle(`${record.planName} — Insurans Motosikal`, { max: 59 });
+const description = buildDescription(
+  record.figureVerified
+    ? `${record.planName} oleh ${record.insurer}: ringkasan jenis perlindungan, asas premium, contoh PDS jika ada dan sumber rasmi. Tiada jadual premium motosikal mengikut cc direka.`
+    : `${record.planName} oleh ${record.insurer}: nama dan jenis produk direkodkan, tetapi manfaat serta premium belum disahkan daripada sumber primer yang dibaca.`,
+);
+const faqs = record.figureVerified
+  ? [
+      {
+        q: `${record.planName} ini jenis perlindungan apa?`,
+        a: `Rekod ini dikelaskan sebagai ${typeLabel}. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini ${record.planName}.`,
+      },
+      {
+        q: `Apa yang dilindungi oleh ${record.planName}?`,
+        a: `${record.coversWhat} Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.`,
+      },
+      {
+        q: `Bagaimana premium ${record.planName} ditentukan?`,
+        a: `${record.premiumBasis} Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.`,
+      },
+      {
+        q: `Adakah contoh premium ini ialah harga untuk semua motosikal?`,
+        a: record.workedExample
+          ? `${record.workedExample}. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.`
+          : 'Tiada contoh premium yang disahkan untuk rekod ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda.',
+      },
+      {
+        q: `Apa yang perlu disemak sebelum membeli ${record.planName}?`,
+        a: 'Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini.',
+      },
+    ]
+  : [
+      {
+        q: `Adakah butiran ${record.planName} sudah disahkan?`,
+        a: honestyLine,
+      },
+      {
+        q: `Di mana boleh semak ${record.planName}?`,
+        a: `Gunakan sumber rasmi ${record.insurer} yang dipautkan pada halaman ini untuk menyemak manfaat, premium, syarat dan status produk terkini. Jangan gunakan halaman ini sebagai pengganti PDS atau quotation.`,
+      },
+    ];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `${record.planName} — Insurans Motosikal`,
+  description,
+  url: canonicalUrl,
+  datePublished: record.asAt,
+  dateModified: record.asAt,
+  inLanguage: 'ms',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insurans.co',
+    url: 'https://insurans.co',
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Insurans Motosikal', item: 'https://insurans.co/motorcycle-insurance/' },
+      { '@type': 'ListItem', position: 3, name: record.planName, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  ogType="article"
+  publishedTime={record.asAt}
+  modifiedTime={record.asAt}
+>
+  <Hero title={`Insurans motosikal: ${record.planName}`}>
+    <Byline slot="byline" dateModified={record.asAt} />
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Insurans Motosikal', href: '/motorcycle-insurance/' },
+        { label: record.planName },
+      ]}
+    />
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+      {record.figureVerified
+        ? `Data ringkas ${record.planName} oleh ${record.insurer}, berdasarkan sumber rasmi yang dibaca pada ${record.asAt}.`
+        : `Rekod nama ${record.planName} oleh ${record.insurer} berdasarkan sumber yang dikenal pasti pada ${record.asAt}; butiran produk belum disahkan.`}
+    </p>
+
+    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p class="label">Insurans motosikal</p>
+          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{record.planName}</h2>
+          <p class="mt-1 text-sm leading-5 text-stone-600">{record.insurer}</p>
+        </div>
+        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
+          {typeLabel}
+        </span>
+      </div>
+
+      {record.figureVerified ? (
+        <>
+          <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Apa yang direkodkan</h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            {specItems.map((spec) => (
+              <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
+                <dt class="text-stone-500">{spec.label}</dt>
+                <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </>
+      ) : (
+        <p class="mt-7 border-t border-stone-200 pt-4 text-sm leading-6 text-stone-600">{honestyLine}</p>
+      )}
+    </div>
+
+    <div class="mt-4 mr-2">
+      <EditorialStamp articleDate={record.asAt} sources={sourceLinks} sourcesLabel="Sumber" showReviewed={false} />
+    </div>
+  </Hero>
+
+  <div class="container-article py-8 sm:py-12">
+    <div class="space-y-10 sm:space-y-14">
+      <article class="prose-editorial">
+        {record.figureVerified ? (
+          <>
+            <p class="text-lg text-stone-700">
+              Halaman ini merumuskan apa yang dinyatakan dalam sumber rasmi {record.planName}. Ringkasan ini bukan quotation;
+              semak PDS, wording polisi atau sijil terkini sebelum membeli.
+            </p>
+            <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+            <p>
+              Bandingkan jenis cover, skop liabiliti, perlindungan motosikal sendiri, jumlah diinsuranskan, NCD, excess,
+              add-on pembonceng dan pengecualian. Premium motosikal tidak boleh disimpulkan daripada jadual roadtax atau
+              angka pasaran yang tidak mempunyai sumber primer.
+            </p>
+            <h2 id="premium">Premium dan quotation</h2>
+            <p>
+              {record.premiumBasis} {record.workedExample ? `Contoh yang dinyatakan dalam PDS ialah ${record.workedExample}; ia tidak mewakili semua motosikal.` : 'Sebab itu quotation sebenar diperlukan untuk keadaan dan motosikal anda.'}
+            </p>
+          </>
+        ) : (
+          <p class="text-lg text-stone-700">{honestyLine}</p>
+        )}
+      </article>
+
+      <section id="faq">
+        <div class="prose-editorial">
+          <h2>Soalan lazim — {record.planName}</h2>
+        </div>
+        <div class="mt-5">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {record.figureVerified && relatedRecords.length > 0 && (
+        <section id="related">
+          <div class="prose-editorial">
+            <h2>Produk motosikal berkaitan</h2>
+            <p>Rekod lain dalam set data yang sama; buka setiap halaman untuk melihat status sumbernya.</p>
+          </div>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            {relatedRecords.map((related) => (
+              <div class="card-editorial">
+                <h3 class="font-semibold text-stone-900">
+                  <a href={`/motorcycle-insurance/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+                    {related.planName}
+                  </a>
+                </h3>
+                <p class="mt-1 text-sm text-stone-600">{related.insurer}</p>
+                <p class="mt-3 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">Jenis: {typeLabels[related.type] ?? related.type}</p>
+                <p class="mt-3 text-sm leading-5 text-stone-600">
+                  {related.figureVerified ? 'Ringkasan bersumber tersedia.' : 'Manfaat dan premium belum disahkan daripada sumber primer yang dibaca.'}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <CtaBand
+        heading={`Semak ${record.planName} dengan penyedia`}
+        body="Pautan rasmi di bawah ialah rujukan tanpa hubungan berbayar. Sahkan quotation, PDS dan syarat terkini terus dengan penyedia."
+        primary={{ label: 'Kembali ke insurans motosikal →', href: '/motorcycle-insurance/' }}
+        outbound={[{ label: `Semak sumber rasmi ${record.insurer}`, href: record.sources[0], relationship: 'unpaid' }]}
+        disclosure="Insurans.co bukan ejen atau broker. Pautan luar tidak bermakna pengesyoran; pembelian dan quotation dibuat di laman penyedia."
+      />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })} />
+</Base>

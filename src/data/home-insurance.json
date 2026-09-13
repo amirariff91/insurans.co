@@ -1,0 +1,128 @@
+{
+  "methodologyNote": "Setiap rekod diambil daripada sumber rasmi penginsurans yang dibaca pada 2026-09-12. figureVerified hanya true apabila kadar atau manfaat yang dipaparkan dapat disahkan daripada sumber tersebut. null bermaksud medan kadar atau had tidak dinyatakan dalam sumber yang dibaca; tiada angka premium atau had direka.",
+  "asAt": "2026-09-12",
+  "tariff": {
+    "ho_landed_1A": 0.090,
+    "ho_flat_1A": 0.093,
+    "hh_1A": 0.338,
+    "ho_landed_1B": 0.226,
+    "ho_flat_1B": 0.243,
+    "hh_1B": 0.520,
+    "minPremium": 60,
+    "stamp": 10
+  },
+  "records": [
+    {
+      "slug": "berjaya-sompo-houseowner-householder",
+      "insurer": "Berjaya Sompo Insurance Berhad",
+      "planName": "Houseowner / Householder",
+      "type": "houseowner-householder",
+      "coversWhat": "Houseowner: bangunan (fire, kilat, letupan, pesawat, hentaman kenderaan/binatang, paip pecah, kecurian pecah masuk, taufan, banjir, gempa) + loss of rent 10% SI + liability awam RM50,000. Householder: isi rumah, barangan kemas dihad 1/3 SI isi rumah",
+      "tariffRates": "Houseowner 1A: 0.090% landed / 0.093% flat; Householder 1A: 0.338% (kadar setahun atas Jumlah Diinsuranskan; ilustrasi RM100,000 = RM90/RM93/RM338)",
+      "minPremium": "RM60",
+      "sumInsuredBasis": "Kos pembinaan semula (rujuk PIAM Building Cost Calculator bcc.piam.org.my); bukan harga pasaran/tanah",
+      "quoteGated": "fire-only basic rate tidak diterbitkan; HOHH premium boleh dikira dari kadar",
+      "figureVerified": true,
+      "sources": [
+        "https://www.berjayasompo.com.my/product/houseowner-householder"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "takaful-malaysia-myhouseowner-householder",
+      "insurer": "Syarikat Takaful Malaysia Am Berhad",
+      "planName": "Takaful myHouseowner/Householder",
+      "type": "houseowner-householder-takaful",
+      "coversWhat": "Kebakaran/kilat/letupan domestik, pesawat, hentaman, paip pecah, kecurian pecah masuk (rumah dibiarkan kosong >90 hari terkecuali), taufan, gempa, banjir; loss of rent 10%; liability RM50,000 (naik RM100k +RM10, RM250k +RM20)",
+      "tariffRates": "Houseowner 1A: 0.090% landed / 0.093% flat; 1B: 0.226% / 0.243%; Householder 1A: 0.338% (1B tidak diterima untuk householder)",
+      "minPremium": "RM60",
+      "sumInsuredBasis": "Market value atau replacement value; average clause jika kurang dilindungi",
+      "quoteGated": null,
+      "figureVerified": true,
+      "sources": [
+        "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "pacific-houseowner-householder",
+      "insurer": "The Pacific Insurance Berhad",
+      "planName": "Houseowner dan/atau Householder",
+      "type": "houseowner-householder",
+      "coversWhat": "Houseowner: bangunan + debris removal + yuran arkitek/jurukur + tambahan loss of rent; Householder: isi rumah; tambahan: riot 0.010%, kecurian penuh 0.25%, kaca keping 0.050%, liability RM100k RM10 / RM200k RM20",
+      "tariffRates": "Houseowner 1A: 0.090% (dwelling bertanah) / 0.093% (apartment); 1B: 0.226% / 0.243%; Householder 1A: 0.338% / 1B: 0.520%",
+      "minPremium": null,
+      "sumInsuredBasis": "NILAI PENUH harta (average clause)",
+      "quoteGated": null,
+      "figureVerified": true,
+      "sources": [
+        "https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "bsn-chubb-houseowner",
+      "insurer": "Chubb Insurance Malaysia Berhad (dijual melalui BSN)",
+      "planName": "BSN Houseowner Insurance",
+      "type": "houseowner-comprehensive",
+      "coversWhat": "Bangunan: fire/kilat/letupan, pesawat, kenderaan, paip pecah, kecurian pecah masuk, windstorm, gempa, banjir; loss of rent 10%; riot; subsidence; alteration 25% SI; liability RM50,000; tempoh 2 tahun",
+      "tariffRates": "Comprehensive: 0.2235% rumah berteres/semi-D/detached; 0.2273% flat/apartment/condo (contoh RM150,000 x 0.2235% = RM335.25/tahun; 2 tahun = RM680.50)",
+      "minPremium": null,
+      "sumInsuredBasis": "Market value atau reinstatement; contoh average clause RM250,000 x 200,000/250,000",
+      "quoteGated": "struktur berbeza (pakej 2-tahun bank); bukan kadar tariff asas",
+      "figureVerified": true,
+      "sources": [
+        "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "etiqa-hohh",
+      "insurer": "Etiqa",
+      "planName": "Houseowner/Householder Insurance & Takaful",
+      "type": "houseowner-householder",
+      "coversWhat": "Kebakaran, kilat, letupan, bencana alam (banjir/gempa/taufan), hentaman, pecah masuk, loss of rent 10%; boleh beli online/MAE; rebat online dilaporkan",
+      "tariffRates": null,
+      "minPremium": null,
+      "sumInsuredBasis": null,
+      "quoteGated": "HANYA NAMA PRODUK disahkan melalui carian; butiran had/kadar TIDAK diverifikasi — baca semula laman sebelum publish",
+      "figureVerified": false,
+      "sources": [
+        "https://www.etiqa.com.my/home/hohh-insurance"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "zurich-z-homeprotect",
+      "insurer": "Zurich Malaysia",
+      "planName": "Z-HomeProtect (Insurance & Takaful)",
+      "type": "houseowner-householder",
+      "coversWhat": "Section I houseowner (bangunan, garaj, fixtures) + Section II householder (barang isi rumah); barangan kemas sehingga 1/3 SI isi rumah (laporan carian)",
+      "tariffRates": null,
+      "minPremium": null,
+      "sumInsuredBasis": null,
+      "quoteGated": "HANYA NAMA PRODUK disahkan; butiran TIDAK diverifikasi",
+      "figureVerified": false,
+      "sources": [
+        "https://www.zurich.com.my/insurance-products/protection/for-my-property/z-homeprotect"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "allianz-smart-home-cover",
+      "insurer": "Allianz General Insurance",
+      "planName": "Smart Home Cover",
+      "type": "modular-houseowner-householder",
+      "coversWhat": "Modul: HouseOwner (bangunan), HouseHolder (isi rumah), perlindungan pinjaman, landlord, HomeFix (laporan carian)",
+      "tariffRates": null,
+      "minPremium": null,
+      "sumInsuredBasis": null,
+      "quoteGated": "HANYA NAMA PRODUK disahkan; butiran TIDAK diverifikasi",
+      "figureVerified": false,
+      "sources": [
+        "https://www.allianz.com.my/personal/home-motor-and-travel/home/smart-home-cover.html"
+      ],
+      "asAt": "2026-09-12"
+    }
+  ]
+}

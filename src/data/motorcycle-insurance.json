@@ -1,0 +1,77 @@
+{
+  "methodologyNote": "Setiap rekod diringkaskan daripada sumber rasmi yang dibaca pada 2026-09-12. Tiada jadual premium motosikal mengikut cc yang disahkan secara awam; premium perlu disemak melalui quotation sebenar. workedExample hanya memaparkan contoh PDS Berjaya Sompo dan bukan kadar umum.",
+  "asAt": "2026-09-12",
+  "records": [
+    {
+      "slug": "kurnia-motorcycle-third-party",
+      "insurer": "AmGeneral Insurance Berhad (Kurnia)",
+      "planName": "Motor Insurance – Motorcycle (Third Party)",
+      "type": "third-party",
+      "coversWhat": "Liabiliti pihak ketiga: kecederaan, maut, kerosakan atau kehilangan harta; motosikal sendiri tidak dilindungi kecuali add-on. Penumpang atau pembonceng memerlukan add-on, termasuk untuk keperluan masuk Singapura.",
+      "premiumBasis": "PDS menyenaraikan NCD, kuasa enjin (cc), umur kenderaan atau pemilik dan lokasi sebagai faktor rating; tiada jadual premium awam diterbitkan.",
+      "workedExample": null,
+      "figureVerified": true,
+      "sources": [
+        "https://www.kurnia.com/download/pds/motorcycle-third-party-eng.pdf"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "berjaya-sompo-motorcycle",
+      "insurer": "Berjaya Sompo Insurance Berhad",
+      "planName": "SOMPO Motorcycle / Motorcycle +",
+      "type": "comprehensive",
+      "coversWhat": "Pilihan comprehensive, TPFT dan third party; add-on liabiliti pembonceng, special perils dan PA penunggang.",
+      "premiumBasis": "Premium bergantung pada jumlah diinsuranskan (SI), cc, NCD dan umur pemilik atau kenderaan; PDS memberikan satu contoh Honda Airblade.",
+      "workedExample": "RM147.12 — SI RM2,500, umur 8, NCD 25%, sebelum SST & setem",
+      "figureVerified": true,
+      "sources": [
+        "https://online.berjayasompo.com.my/motorcycle/docs/Motorcycle%20PDS%20_ENG%20(042023).pdf"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "etiqa-myrider",
+      "insurer": "Etiqa",
+      "planName": "MyRider / MyRider Plus (Motorcycle Insurance & Takaful)",
+      "type": "comprehensive-takaful",
+      "coversWhat": "Comprehensive dan third party dengan butiran manfaat tambahan yang belum disahkan daripada sumber primer yang dibaca.",
+      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
+      "workedExample": null,
+      "figureVerified": false,
+      "sources": [
+        "https://www.etiqa.com.my/motorcycle",
+        "https://www.etiqa.com.my/motorcycle/myRider-insurance"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "zurich-z-rider",
+      "insurer": "Zurich Malaysia",
+      "planName": "Z-Rider (Insurance & Takaful)",
+      "type": "comprehensive-takaful",
+      "coversWhat": "Butiran perlindungan produk belum disahkan daripada sumber primer yang dibaca.",
+      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
+      "workedExample": null,
+      "figureVerified": false,
+      "sources": [
+        "https://www.zurich.com.my/insurance-products/protection/for-my-vehicle/z-rider"
+      ],
+      "asAt": "2026-09-12"
+    },
+    {
+      "slug": "msig-motorcycle-online",
+      "insurer": "MSIG Insurance (Malaysia) Bhd",
+      "planName": "MSIG Motorcycle Insurance (Take It Easy)",
+      "type": "comprehensive",
+      "coversWhat": "Butiran perlindungan produk belum disahkan daripada sumber primer yang dibaca.",
+      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
+      "workedExample": null,
+      "figureVerified": false,
+      "sources": [
+        "https://takeiteasy.msig.com.my/msigonline/products/product-landing-page.html?product=mcy"
+      ],
+      "asAt": "2026-09-12"
+    }
+  ]
+}
