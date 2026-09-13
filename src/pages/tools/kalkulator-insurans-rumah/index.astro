@@ -22,7 +22,7 @@ const rateSources = [
 const faqs = [
   {
     q: 'Kalkulator ini kira apa sebenarnya?',
-    a: `Ia mengira premium houseowner (bangunan) dan householder (isi rumah) menggunakan kadar tariff kebakaran × jumlah diinsuranskan, kemudian floor pada minimum premium RM${tariff.minPremium} dan campur setem RM${tariff.stamp}. Kadar 1A: houseowner ${tariff.ho_landed_1A}% landed / ${tariff.ho_flat_1A}% flat; householder ${tariff.hh_1A}%. Ia bukan quotation daripada insurer.`,
+    a: `Ia mengira premium houseowner (bangunan) dan householder (isi rumah) menggunakan kadar tariff kebakaran × jumlah diinsuranskan, kemudian dinaikkan ke minimum premium RM${tariff.minPremium} jika lebih rendah dan ditambah setem RM${tariff.stamp}. Kadar 1A: houseowner ${tariff.ho_landed_1A.toFixed(3)}% landed / ${tariff.ho_flat_1A.toFixed(3)}% flat; householder ${tariff.hh_1A.toFixed(3)}%. Ia bukan quotation daripada insurer.`,
   },
   {
     q: 'Jumlah diinsuranskan patut guna harga rumah atau kos pembinaan?',
@@ -140,7 +140,7 @@ const schema = {
                 name="buildingSumInsured"
                 inputmode="numeric"
                 min="0"
-                step="1000"
+                step="any"
                 placeholder="cth: 200000"
                 aria-describedby="building-si-help"
                 class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
@@ -156,7 +156,7 @@ const schema = {
                 name="contentsSumInsured"
                 inputmode="numeric"
                 min="0"
-                step="1000"
+                step="any"
                 placeholder="cth: 50000"
                 aria-describedby="contents-si-help"
                 class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
@@ -192,14 +192,15 @@ const schema = {
           <h2>Macam mana kami kira?</h2>
           <p>Premium = kadar tariff × jumlah diinsuranskan, untuk setiap bahagian yang anda isi:</p>
           <ul>
-            <li>Houseowner (bangunan): {tariff.ho_landed_1A}% (1A landed) / {tariff.ho_flat_1A}% (1A flat) / {tariff.ho_landed_1B}% (1B landed) / {tariff.ho_flat_1B}% (1B flat).</li>
-            <li>Householder (isi rumah): {tariff.hh_1A}% (1A) / {tariff.hh_1B}% (1B).</li>
-            <li>Premium bersih di-floor pada minimum RM{tariff.minPremium}, kemudian setem RM{tariff.stamp} ditambah.</li>
+            <li>Houseowner (bangunan): {tariff.ho_landed_1A.toFixed(3)}% (1A landed) / {tariff.ho_flat_1A.toFixed(3)}% (1A flat) / {tariff.ho_landed_1B.toFixed(3)}% (1B landed) / {tariff.ho_flat_1B.toFixed(3)}% (1B flat).</li>
+            <li>Householder (isi rumah): {tariff.hh_1A.toFixed(3)}% (1A) / {tariff.hh_1B.toFixed(3)}% (1B).</li>
+            <li>Premium bersih dinaikkan ke minimum RM{tariff.minPremium} jika lebih rendah, kemudian setem RM{tariff.stamp} ditambah.</li>
           </ul>
 
           <h3>Caveat penting</h3>
           <ul>
             <li>Jumlah diinsuranskan mesti kos pembinaan semula, bukan harga pasaran atau tanah. Kurang insurans mencetuskan <em>average clause</em>.</li>
+            <li>Kelayakan householder kelas 1B tidak seragam: sesetengah pengendali (contoh Takaful Malaysia) tidak menerima householder 1B, manakala yang lain (contoh Pacific) menerbitkan kadar 1B {tariff.hh_1B.toFixed(3)}%. Sahkan kelayakan dengan penyedia sebelum bergantung pada kiraan 1B.</li>
             <li>Kadar polisi fire-only asas bank tidak diterbitkan (quote-gated) dan tidak dikira di sini; sesetengah pakej bank menggunakan struktur berbeza.</li>
             <li>Bank Negara sedang meliberalisasikan tariff kebakaran — harga bukan tariff atau deviasi mungkin berlaku.</li>
             <li>Add-on (banjir/special perils, kecurian penuh, liabiliti tambahan) menambah premium dan tidak termasuk dalam kiraan asas ini.</li>

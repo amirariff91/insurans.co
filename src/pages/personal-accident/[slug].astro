@@ -47,7 +47,7 @@ const description = buildDescription(
 );
 const figureNote = record.figureVerified
   ? 'Angka yang dipaparkan datang daripada sumber rasmi yang disenaraikan dan dikekalkan bersama qualifier asal.'
-  : 'Nota ketelusan: sumber yang dibaca tidak dapat mengesahkan butiran angka atau manfaat. Medan coversWhat, plansAndBenefits, entryAge dan premiumPublished kekal null dalam data; tiada angka direka untuk halaman ini.';
+  : 'Nota ketelusan: sumber yang dibaca tidak dapat mengesahkan butiran angka atau manfaat. Perlindungan, pelan/manfaat, umur masuk dan premium tidak dinyatakan; tiada angka direka untuk halaman ini.';
 
 const typeFaqAnswer =
   record.type === 'personal-accident-takaful'
@@ -211,7 +211,7 @@ const schema = {
         ) : (
           <>
             <h2 id="harga">Harga premium</h2>
-            <p class="border-l-4 border-emas-200 bg-emas-50 p-4 text-stone-700">
+            <p class="border border-stone-200 bg-stone-50 p-4 text-stone-700">
               Harga premium tidak diterbitkan atau tidak dapat disahkan dalam sumber yang dibaca untuk rekod ini. Tiada angka diisi sebagai ganti.
             </p>
           </>

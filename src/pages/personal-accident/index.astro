@@ -69,7 +69,7 @@ const schema = {
   headline: pageTitle,
   description,
   url: canonicalUrl,
-  datePublished: personalAccident.asAt,
+  datePublished: '2026-02-01',
   dateModified: personalAccident.asAt,
   inLanguage: 'ms',
   publisher: {
@@ -93,7 +93,7 @@ const schema = {
   canonical={canonicalUrl}
   schema={schema}
   ogType="article"
-  publishedTime={personalAccident.asAt}
+  publishedTime="2026-02-01"
   modifiedTime={personalAccident.asAt}
 >
   <section class="border-b border-stone-200 bg-white">
@@ -247,7 +247,7 @@ const schema = {
                         <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a>
                       </span>
                     ))}</p>
-                    <p class="mt-1"><strong>As at:</strong> {record.asAt}</p>
+                    <p class="mt-1"><strong>Tarikh semakan:</strong> {record.asAt}</p>
                   </div>
                 </div>
               );
@@ -264,10 +264,10 @@ const schema = {
             <table class="table-editorial">
               <thead>
                 <tr>
-                  <th>Aspek</th>
-                  <th>PA</th>
-                  <th>Medical card</th>
-                  <th>Life insurance</th>
+                  <th scope="col">Aspek</th>
+                  <th scope="col">PA</th>
+                  <th scope="col">Medical card</th>
+                  <th scope="col">Life insurance</th>
                 </tr>
               </thead>
               <tbody>

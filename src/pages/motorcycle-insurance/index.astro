@@ -83,7 +83,7 @@ const schema = {
   headline: pageTitle,
   description,
   url: canonicalUrl,
-  datePublished: asAt,
+  datePublished: '2026-02-01',
   dateModified: asAt,
   inLanguage: 'ms',
   publisher: {
@@ -107,7 +107,7 @@ const schema = {
   canonical={canonicalUrl}
   schema={schema}
   ogType="article"
-  publishedTime={asAt}
+  publishedTime="2026-02-01"
   modifiedTime={asAt}
 >
   <section class="border-b border-stone-200 bg-white">
@@ -142,7 +142,7 @@ const schema = {
             memisahkan angka yang ada sumber daripada premium yang hanya boleh diketahui melalui quotation.
           </p>
           <p>
-            Lima rekod produk di bawah datang daripada sumber rasmi yang dikenal pasti. Klik kad untuk melihat ringkasan
+            {records.length} rekod produk di bawah datang daripada sumber rasmi yang dikenal pasti. Klik kad untuk melihat ringkasan
             dan sumber setiap rekod. Jika sumber yang dibaca belum cukup untuk mengesahkan manfaat atau harga, kami tandakan
             perkara itu dan tidak mengisinya dengan anggaran.
           </p>
@@ -209,7 +209,7 @@ const schema = {
             <a href={roadtaxCalculatorUrl} class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
               Buka kalkulator roadtax motosikal →
             </a>
-            <span class="block text-stone-600">Kalkulator khusus motosikal akan menggunakan jadual ini; premium insurans tetap perlu quotation.</span>
+            <span class="block text-stone-600">Kalkulator khusus motosikal menggunakan jadual ini; premium insurans tetap perlu quotation.</span>
           </p>
         </div>
 
@@ -364,7 +364,7 @@ const schema = {
               </div>
               <div>
                 <dt class="text-stone-500">Premium motosikal</dt>
-                <dd class="font-semibold text-stone-900">Quote-gated</dd>
+                <dd class="font-semibold text-stone-900">Perlu quotation</dd>
               </div>
               <div>
                 <dt class="text-stone-500">Data dikemas kini</dt>

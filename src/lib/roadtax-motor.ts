@@ -21,13 +21,17 @@ export function calcMotorcycleRoadtax(region: MotorcycleRegion, cc: number): Mot
     throw new RangeError('Kapasiti enjin mesti lebih daripada 0cc.');
   }
 
+  // Engine capacity is a whole number; floor any fractional input so values
+  // between band boundaries (e.g. 150.5) resolve deterministically instead of
+  // falling through every band.
+  const engineCc = Math.floor(cc);
   const bands = rates.rates[region] as readonly MotorcycleBand[];
   const band = bands.find(
-    (candidate) => cc >= candidate.minCc && (candidate.maxCc === 99999 || cc <= candidate.maxCc),
+    (candidate) => engineCc >= candidate.minCc && (candidate.maxCc === 99999 || engineCc <= candidate.maxCc),
   );
 
   if (!band) {
-    throw new RangeError(`Tiada band roadtax motosikal untuk ${cc}cc.`);
+    throw new RangeError(`Tiada band roadtax motosikal untuk ${engineCc}cc.`);
   }
 
   return {

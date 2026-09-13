@@ -11,7 +11,7 @@
     "minPremium": 60,
     "stamp": 10
   },
-  "calculatorNote": "Kalkulator premium kebakaran (houseowner/householder) menggunakan kadar tariff × jumlah diinsuranskan, floor pada minimum premium RM60, campur setem RM10. Hanya kadar tariff awam atau input pengguna memandu kiraan — tiada anggaran premium insurer. Kadar fire-only asas bank tidak diterbitkan (quote-gated) dan tidak dikira di sini.",
+  "calculatorNote": "Kalkulator premium kebakaran (houseowner/householder) menggunakan kadar tariff × jumlah diinsuranskan, dinaikkan ke minimum premium RM60 jika lebih rendah, tambah setem RM10. Hanya kadar tariff awam atau input pengguna memandu kiraan — tiada anggaran premium insurer. Kadar fire-only asas bank tidak diterbitkan (perlu quotation) dan tidak dikira di sini.",
   "calculatorTestCases": [
     { "propertyType": "landed", "constructionClass": "1A", "buildingSumInsured": 200000, "contentsSumInsured": 0, "expectHouseowner": 180, "expectHouseholder": 0, "expectTotal": 190 },
     { "propertyType": "flat", "constructionClass": "1A", "buildingSumInsured": 150000, "contentsSumInsured": 50000, "expectHouseowner": 139.5, "expectHouseholder": 169, "expectTotal": 318.5 },
@@ -75,7 +75,7 @@
       "planName": "BSN Houseowner Insurance",
       "type": "houseowner-comprehensive",
       "coversWhat": "Bangunan: fire/kilat/letupan, pesawat, kenderaan, paip pecah, kecurian pecah masuk, windstorm, gempa, banjir; loss of rent 10%; riot; subsidence; alteration 25% SI; liability RM50,000; tempoh 2 tahun",
-      "tariffRates": "Comprehensive: 0.2235% rumah berteres/semi-D/detached; 0.2273% flat/apartment/condo (contoh RM150,000 x 0.2235% = RM335.25/tahun; 2 tahun = RM680.50)",
+      "tariffRates": "Comprehensive: 0.2235% rumah berteres/semi-D/detached; 0.2273% flat/apartment/condo (contoh RM150,000 x 0.2235% = RM335.25/tahun; 2 tahun dinyatakan PDS sebagai RM680.50 — sic, 335.25 x 2 = RM670.50)",
       "minPremium": null,
       "sumInsuredBasis": "Market value atau reinstatement; contoh average clause RM250,000 x 200,000/250,000",
       "quoteGated": "struktur berbeza (pakej 2-tahun bank); bukan kadar tariff asas",
@@ -90,11 +90,11 @@
       "insurer": "Etiqa",
       "planName": "Houseowner/Householder Insurance & Takaful",
       "type": "houseowner-householder",
-      "coversWhat": "Kebakaran, kilat, letupan, bencana alam (banjir/gempa/taufan), hentaman, pecah masuk, loss of rent 10%; boleh beli online/MAE; rebat online dilaporkan",
+      "coversWhat": null,
       "tariffRates": null,
       "minPremium": null,
       "sumInsuredBasis": null,
-      "quoteGated": "HANYA NAMA PRODUK disahkan melalui carian; butiran had/kadar TIDAK diverifikasi — baca semula laman sebelum publish",
+      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
       "figureVerified": false,
       "sources": [
         "https://www.etiqa.com.my/home/hohh-insurance"
@@ -106,11 +106,11 @@
       "insurer": "Zurich Malaysia",
       "planName": "Z-HomeProtect (Insurance & Takaful)",
       "type": "houseowner-householder",
-      "coversWhat": "Section I houseowner (bangunan, garaj, fixtures) + Section II householder (barang isi rumah); barangan kemas sehingga 1/3 SI isi rumah (laporan carian)",
+      "coversWhat": null,
       "tariffRates": null,
       "minPremium": null,
       "sumInsuredBasis": null,
-      "quoteGated": "HANYA NAMA PRODUK disahkan; butiran TIDAK diverifikasi",
+      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
       "figureVerified": false,
       "sources": [
         "https://www.zurich.com.my/insurance-products/protection/for-my-property/z-homeprotect"
@@ -122,11 +122,11 @@
       "insurer": "Allianz General Insurance",
       "planName": "Smart Home Cover",
       "type": "modular-houseowner-householder",
-      "coversWhat": "Modul: HouseOwner (bangunan), HouseHolder (isi rumah), perlindungan pinjaman, landlord, HomeFix (laporan carian)",
+      "coversWhat": null,
       "tariffRates": null,
       "minPremium": null,
       "sumInsuredBasis": null,
-      "quoteGated": "HANYA NAMA PRODUK disahkan; butiran TIDAK diverifikasi",
+      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
       "figureVerified": false,
       "sources": [
         "https://www.allianz.com.my/personal/home-motor-and-travel/home/smart-home-cover.html"
