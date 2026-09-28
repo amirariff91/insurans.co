@@ -1,6 +1,6 @@
 {
-  "methodologyNote": "Setiap rekod diambil daripada sumber rasmi penginsurans yang dibaca pada 2026-09-12. figureVerified hanya true apabila kadar atau manfaat yang dipaparkan dapat disahkan daripada sumber tersebut. null bermaksud medan kadar atau had tidak dinyatakan dalam sumber yang dibaca; tiada angka premium atau had direka.",
-  "asAt": "2026-09-12",
+  "methodologyNote": "Setiap rekod menyimpan tarikh sumber rasmi dibaca dalam medan asAt. figureVerified hanya true apabila kadar atau manfaat yang dipaparkan disahkan daripada sumber rasmi; null bermaksud medan tidak dinyatakan dalam sumber yang dibaca dan tiada angka premium atau had direka.",
+  "asAt": "2026-09-28",
   "tariff": {
     "ho_landed_1A": 0.090,
     "ho_flat_1A": 0.093,
@@ -87,51 +87,55 @@
     },
     {
       "slug": "etiqa-hohh",
-      "insurer": "Etiqa",
-      "planName": "Houseowner/Householder Insurance & Takaful",
+      "insurer": "Etiqa General Insurance Berhad",
+      "planName": "Houseowner/Householder Insurance",
       "type": "houseowner-householder",
-      "coversWhat": null,
-      "tariffRates": null,
+      "coversWhat": "Houseowner/bangunan: kebakaran, kilat, letupan gas domestik, pesawat, impak kenderaan atau binatang, limpahan tangki/aparatus/paip air, kecurian dengan kemasukan atau keluar secara paksa dan ganas, hurricane/cyclone/typhoon/windstorm, gempa/letusan gunung berapi dan banjir; loss of rent sehingga 10% jumlah SI; liabiliti kepada pihak ketiga di rumah sehingga RM50,000. Householder/isi rumah: barang yang dipindahkan sementara sehingga 15% SI isi rumah, cermin RM500 setiap keping/kemalangan, manfaat kematian insured RM10,000 atau separuh SI isi rumah (mana lebih rendah) akibat kebakaran/rompakan dengan kemasukan ganas, serta harta pembantu rumah. Add-on berpremium tambahan: riot/strike/malicious damage; rumah tidak didiami melebihi 90 hari (isi rumah sahaja); kecurian tanpa kemasukan paksa/ganas (isi rumah sahaja, tidak termasuk pembantu rumah/keluarga).",
+      "tariffRates": "Tiada jadual kadar diterbitkan dalam PDS; premium bergantung pada jumlah diinsuranskan dan peril dipilih. Ilustrasi PDS: bangunan SI RM650,000, premium asas RM1,469 + add-on riot RM65 − diskaun online 15% (RM230.10) = RM1,303.90.",
       "minPremium": null,
-      "sumInsuredBasis": null,
-      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
-      "figureVerified": false,
+      "sumInsuredBasis": "Kos bina semula melalui PIAM Building Cost Calculator (bcc.piam.org.my); average clause terpakai. Item householder melebihi 5% daripada SI isi rumah perlu diisytiharkan berasingan.",
+      "quoteGated": "Permohonan dan quotation melalui Apply Online; diskaun online 15%. Bayaran cash-before-cover; notis tuntutan dalam 30 hari. Lebihan terpakai untuk limpahan tangki air, ribut, gempa/letusan gunung berapi dan banjir. Pengecualian termasuk subsidence/landslip, riot/strike/malicious damage tanpa add-on, perang/keganasan, bangunan tidak didiami melebihi 90 hari tanpa endorsement dan risiko nuklear. Hubungi 1-300-13-8888 atau info@etiqa.com.my.",
+      "figureVerified": true,
       "sources": [
+        "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf",
         "https://www.etiqa.com.my/home/hohh-insurance"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     },
     {
       "slug": "zurich-z-homeprotect",
       "insurer": "Zurich Malaysia",
-      "planName": "Z-HomeProtect (Insurance & Takaful)",
+      "planName": "Z-HomeProtect",
       "type": "houseowner-householder",
-      "coversWhat": null,
-      "tariffRates": null,
-      "minPremium": null,
-      "sumInsuredBasis": null,
-      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
-      "figureVerified": false,
+      "coversWhat": "Dua bahagian pilihan: Section I bangunan dan Section II isi rumah, boleh diambil satu atau kedua-duanya. Peril: kebakaran/kilat/thunderbolt/subterranean fire, letupan, pesawat, impak kenderaan/binatang, limpahan tangki/aparatus/paip air domestik, kecurian paksa dan ganas, hurricane/cyclone/typhoon/windstorm, gempa/letusan gunung berapi, banjir serta robbery/hold-up di premis. Manfaat termasuk pembaikan paip pecah Section I sehingga RM1,000 agregat; barang isi rumah dipindahkan sementara; cermin; kematian akibat kecurian ganas/kebakaran; harta pembantu rumah; tunai akibat kebakaran/kecurian sehingga RM500 agregat; rent insurance; liabiliti awam; pokok/ranting tumbang; plate glass RM1,000 setiap kaca dan RM2,000 agregat; kunci RM500 agregat; contingency reimbursement RM2,500.",
+      "tariffRates": "Ilustrasi PDS setahun: bangunan SI RM500,000 pada kadar full-value 0.063% dan isi rumah RM100,000 pada kadar first-loss 0.338% = RM653. Add-on riot/strike/malicious damage dalam ilustrasi: kadar 0.007%, RM42.",
+      "minPremium": "RM60",
+      "sumInsuredBasis": "Section I: reinstatement/market value atau agreed value melalui kalkulator Zurich. Section II: full value atau pelan first loss tetap. Isi rumah baharu pada harga belian, barang lain pada market value; average clause terpakai; PIAM BCC untuk kos bina semula.",
+      "quoteGated": "Add-on berpremium tambahan: extended theft, liabiliti awam lebih tinggi, riot/strike/malicious damage, subsidence/landslip dan bush/lalang fire. Ilustrasi PDS: RM653 + RM42 add-on = RM695, duti setem RM10, komisen 15% (RM104.25), cukai perkhidmatan 8% (RM55.60). Beli melalui ejen, borang pertanyaan, cawangan atau 1300-888-622; bayaran premium dalam 60 hari dari mula perlindungan; PIDM-protected. Pengecualian termasuk perang/keganasan, spontaneous combustion, consequential loss kecuali Rent Insurance, nuklear/radioaktif, kerosakan data/perisian, cyber liability, penyakit berjangkit dan sekatan; subsidence/landslip serta riot/strike/malicious damage dikecualikan tanpa add-on.",
+      "figureVerified": true,
       "sources": [
+        "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf",
         "https://www.zurich.com.my/insurance-products/protection/for-my-property/z-homeprotect"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     },
     {
       "slug": "allianz-smart-home-cover",
-      "insurer": "Allianz General Insurance",
-      "planName": "Smart Home Cover",
+      "insurer": "Allianz General Insurance Company (Malaysia) Berhad",
+      "planName": "Smart Home Cover (Annual or Multi Year)",
       "type": "modular-houseowner-householder",
-      "coversWhat": null,
-      "tariffRates": null,
-      "minPremium": null,
-      "sumInsuredBasis": null,
-      "quoteGated": "Hanya nama produk disahkan; butiran had/kadar tidak diverifikasi daripada sumber rasmi",
-      "figureVerified": false,
+      "coversWhat": "Modul HouseOwner (bangunan) dan HouseHolder (isi rumah) untuk kediaman sahaja; Mortgage Loan Installment Protection, HomeFix dan Landlord Insurance ialah pilihan tambahan. Peril asas: kebakaran, kilat, letupan termasuk gas domestik, pesawat, impak kenderaan/binatang, paip pecah, kecurian paksa dan ganas, windstorm, gempa/letusan gunung berapi dan banjir; banjir tidak termasuk subsidence/landslip. Liabiliti pihak ketiga sehingga RM50,000; loss of rent sehingga 10% jumlah SI; pembaikan sementara sehingga RM500. HomeFix: pembaikan paip pecah RM5,000/RM10,000/RM20,000 bagi Option 1–3; pintu/kunci/tingkap selepas kecurian RM200; bantuan domestik RM100/RM200/RM300; servis pembaikan rumah sekali setahun dan penjagaan anai-anai/pepijat/disinfeksi sekali setahun. Landlord: kerosakan berniat jahat oleh penyewa sehingga RM2,000; penyewa lari RM500/RM1,500 setiap kejadian, maksimum dua kali setahun; fi guaman surat tuntutan dua kali setahun. Mortgage protection jika rumah tidak boleh didiami melebihi 72 jam/pengosongan oleh pihak berkuasa atau kematian/TPD akibat kemalangan insured: sehingga RM10,000/RM20,000/RM30,000 atau enam bulan.",
+      "tariffRates": "HouseOwner SI ditentukan melalui kalkulator agreed-value Allianz atau kos pembinaan semula yang diisytiharkan; diskaun sehingga 30% daripada tariff. HomeFix Option 1–3: RM51.74/RM103.48/RM155.22 (kecuali kawasan berisiko banjir). HouseHolder Full Value tahunan: RM126/RM243/RM360/RM555/RM711 (kecuali kawasan berisiko banjir). Multi-Year memberi eskalasi SI 3% setahun dan penjimatan premium; contoh 3 tahun RM1,046.70 berbanding RM1,368.56.",
+      "minPremium": "RM60",
+      "sumInsuredBasis": "Annual: agreed value melalui kalkulator atau reinstatement/market value. Multi-Year: agreed value dengan eskalasi 3% setahun. Isi rumah: Full Value atau First Loss dengan lima pelan SI RM16,000/RM31,000/RM46,000/RM71,000/RM91,000.",
+      "quoteGated": "Annual ialah 1 tahun dan Multi-Year 3 tahun; beli melalui ejen. Komisen 15% premium, duti setem RM10 dan cukai perkhidmatan 6%. Pengecualian PDS termasuk subsidence/landslip, riot/strike/malicious damage tanpa premium tambahan, harta pembantu rumah, perang/keganasan, spontaneous combustion, radioaktif/nuklear, cessation of works/confiscation, kerosakan data/perisian, consequential loss, kerugian paip pecah semasa rumah tidak didiami dan liabiliti berkaitan asbestos. PDS bertarikh 16/02/2023.",
+      "figureVerified": true,
       "sources": [
+        "https://cys.com.my/wp-content/uploads/2023/03/Smart-Home-Cover_ProductDisclosureSheet_ENG_AZ2302.pdf",
+        "https://web.archive.org/web/20240804105548/https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SmartHomeCover_Brochure_ENG_AZ2302.pdf",
         "https://www.allianz.com.my/personal/home-motor-and-travel/home/smart-home-cover.html"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     }
   ]
 }
