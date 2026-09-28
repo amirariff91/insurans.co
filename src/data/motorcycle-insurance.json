@@ -1,6 +1,6 @@
 {
-  "methodologyNote": "Setiap rekod diringkaskan daripada sumber rasmi yang dibaca pada 2026-09-12. Tiada jadual premium motosikal mengikut cc yang disahkan secara awam; premium perlu disemak melalui quotation sebenar. workedExample hanya memaparkan contoh PDS Berjaya Sompo dan bukan kadar umum.",
-  "asAt": "2026-09-12",
+  "methodologyNote": "Tarikh bacaan sumber setiap rekod disimpan dalam medan asAt. Tiada jadual premium motosikal mengikut cc disahkan secara awam; premium perlu disemak melalui quotation sebenar. workedExample hanya memaparkan contoh PDS Berjaya Sompo dan bukan kadar umum.",
+  "asAt": "2026-09-28",
   "records": [
     {
       "slug": "kurnia-motorcycle-third-party",
@@ -32,46 +32,52 @@
     },
     {
       "slug": "etiqa-myrider",
-      "insurer": "Etiqa",
-      "planName": "MyRider / MyRider Plus (Motorcycle Insurance & Takaful)",
-      "type": "comprehensive-takaful",
-      "coversWhat": "Comprehensive dan third party dengan butiran manfaat tambahan yang belum disahkan daripada sumber primer yang dibaca.",
-      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
+      "insurer": "Etiqa General Insurance Berhad",
+      "planName": "MyRider / MyRider Plus (motorcycle add-on)",
+      "type": "motorcycle-add-on",
+      "coversWhat": "MyRider ialah add-on pilihan kepada polisi Etiqa Motorcycle Comprehensive, bukan polisi comprehensive/takaful yang berdiri sendiri. MyRider (motosikal 249cc ke bawah): kematian akibat kemalangan/PPD RM8,000, compassionate cash RM500, perubatan RM500, elaun inconvenience bagi kehilangan/kerosakan RM500 dan banjir RM500; Etiqa Auto Assist 24/7 di Semenanjung Malaysia dengan towing tanpa had jarak. MyRider Plus (250cc ke atas): kematian/PPD RM10,000, compassionate cash RM500, perubatan sehingga RM2,000, kedua-dua elaun inconvenience RM500 dan Auto Assist yang sama. Add-on tidak melindungi kecederaan/kematian atau harta pihak ketiga, kerosakan/kecurian/kebakaran motosikal sendiri, kecederaan/kematian insured akibat kemalangan motosikal, liabiliti kepada pembonceng, kerosakan act-of-nature atau loss of use; cover motosikal utama kekal di bawah polisi asas. Laporan polis dalam 24 jam untuk tuntutan; Claim Assist 1300 88 1007 dan bengkel diluluskan.",
+      "premiumBasis": "Premium tahunan tetap: MyRider RM75 untuk motosikal 249cc ke bawah; MyRider Plus RM150 untuk 250cc ke atas. Perlu diambil bersama polisi Comprehensive Etiqa; permohonan/quotation online dan diskaun online 10% dinyatakan oleh Etiqa.",
       "workedExample": null,
-      "figureVerified": false,
+      "figureVerified": true,
       "sources": [
-        "https://www.etiqa.com.my/motorcycle",
-        "https://www.etiqa.com.my/motorcycle/myRider-insurance"
+        "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Insurance+Add-On.pdf",
+        "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Plus+Insurance+Add+On.pdf",
+        "https://www.etiqa.com.my/motorcycle/myRider-insurance",
+        "https://www.etiqa.com.my/motorcycle"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     },
     {
       "slug": "zurich-z-rider",
       "insurer": "Zurich Malaysia",
-      "planName": "Z-Rider (Insurance & Takaful)",
+      "planName": "Z-Rider / Z-Rider Takaful",
       "type": "comprehensive-takaful",
-      "coversWhat": "Butiran perlindungan produk belum disahkan daripada sumber primer yang dibaca.",
-      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
-      "workedExample": null,
-      "figureVerified": false,
+      "coversWhat": "Pilihan Third Party dan Comprehensive bagi insurans dan takaful: kecederaan/kematian pihak ketiga, kerosakan harta pihak ketiga, kerosakan motosikal sendiri akibat kemalangan atau kebakaran, dan kecurian. PDS menyenaraikan TP dan Comprehensive; halaman produk turut menyenaraikan TPFT dalam keluarga produk. Add-on PDS: liabiliti pembonceng RM15; banjir/tanah runtuh RM10; strike/riot/civil commotion 0.3% SI; sambungan Thailand 20% premium selepas NCD; PA RM6–RM30 bagi SI RM4,000–RM20,000; PA penunggang+pembonceng RM10 bagi SI RM5,500; hospital income insured/penunggang RM5 bagi SI RM9,000; waiver betterment RM5; waiver compulsory excess RM4. Z-Rider Plus untuk motosikal bawah 250cc: special perils terhad RM1,000, towing kemalangan tambahan RM100, breakdown/emergency towing 60 km, PA RM5,500; perlindungan semua penunggang pada 50% premium asas.",
+      "premiumBasis": "Premium dinilai mengikut motosikal/penunggang, SI nilai pasaran, NCD, cc dan profil penunggang; tiada jadual kadar cc awam. Wilayah Malaysia/Singapura/Brunei, renewal tahunan dan PIDM-protected. Beli online; CyclePAC dinyatakan dari RM13 setahun, Rider PA untuk sehingga dua penunggang bernama serta Pillion PA (penerimaan terjamin, umur 16–80). Bagi takaful, wakalah fee 29.5% (komisen 10%, pengurusan 19.5%); PDS menerangkan tabarru', conditional hibah, Ju'alah dan Qard.",
+      "workedExample": "RM285.49 setahun — SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51.",
+      "figureVerified": true,
       "sources": [
+        "https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb_z-rider_pds_eng.pdf",
+        "https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb_z-rider_pds_eng.pdf",
         "https://www.zurich.com.my/insurance-products/protection/for-my-vehicle/z-rider"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     },
     {
       "slug": "msig-motorcycle-online",
       "insurer": "MSIG Insurance (Malaysia) Bhd",
-      "planName": "MSIG Motorcycle Insurance (Take It Easy)",
+      "planName": "MSIG Motorcycle Insurance (Take It Easy Online)",
       "type": "comprehensive",
-      "coversWhat": "Butiran perlindungan produk belum disahkan daripada sumber primer yang dibaca.",
-      "premiumBasis": "Quote-gated; angka premium tidak disahkan.",
-      "workedExample": null,
-      "figureVerified": false,
+      "coversWhat": "Keluarga produk MSIG Motorcycle menyediakan Comprehensive, TPFT dan Third Party serta Motorcycle 3PA untuk tempoh setahun. Motorcycle 3PA merangkumi kecederaan/kematian pihak ketiga, kerosakan harta pihak ketiga dan Rider's PA; ia tidak melindungi kerosakan, kebakaran atau kecurian motosikal sendiri. Add-on termasuk All Riders, Rider's PA, Legal Liability to Pillion, strike/riot/civil commotion, special perils dan MyMotorcycle Plus (Comprehensive sahaja). Rider's PA: kematian/PPD RM12,000 dan bereavement RM500. MyMotorcycle Plus menambah PA pembonceng RM12,000, bereavement RM500, elaun inconvenience kemalangan/kecurian RM150 dan banjir RM150, liabiliti pembonceng serta waiver compulsory excess. Pengecualian termasuk consequential loss, depreciation, wear and tear, kerosakan mekanikal/elektrikal dan perang; liabiliti pembonceng memerlukan add-on.",
+      "premiumBasis": "Premium mengikut tariff; faktor ilustrasi PDS: Yamaha 125Z 2023, lelaki 30 tahun, Kuala Lumpur, 124cc, SI RM6,000 dan NCD 0%. MSIG Motor Assist menyediakan bantuan tepi jalan 24/7. Beli online melalui Take It Easy atau melalui borang/ejen; notis tuntutan dalam 7 hari, tertakluk syarat bengkel diluluskan; ahli PIDM.",
+      "workedExample": "RM338.06 setahun — contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah.",
+      "figureVerified": true,
       "sources": [
+        "https://www.msig.com.my/products/personal/motor/motorcycle-3pa/",
+        "https://www.msig.com.my/media/stqgr0ef/mcrmcy_pds_c_20260401_eng.pdf",
         "https://takeiteasy.msig.com.my/msigonline/products/product-landing-page.html?product=mcy"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     }
   ]
 }

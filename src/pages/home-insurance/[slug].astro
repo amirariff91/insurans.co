@@ -53,7 +53,7 @@ const typeFaqAnswer = record.figureVerified
     : record.type === 'houseowner-comprehensive'
       ? 'Rekod ini ialah pakej houseowner komprehensif dengan struktur produk tersendiri. Semak PDS untuk tempoh, skop bangunan, had dan pengecualian.'
       : record.type === 'modular-houseowner-householder'
-        ? 'Rekod ini ialah produk modular yang membezakan modul houseowner dan householder. Butiran modul perlu disahkan dalam PDS.'
+        ? 'Rekod ini ialah produk modular yang memisahkan modul HouseOwner dan HouseHolder serta menyediakan pilihan tambahan. Skop dan had setiap modul diringkaskan daripada sumber rasmi yang disenaraikan; semak PDS untuk terma penuh.'
         : 'Rekod ini menggabungkan skop houseowner untuk bangunan dan householder untuk isi rumah. Semak sama ada kedua-dua bahagian diperlukan dan bagaimana hadnya berfungsi.'
   : honestyLine;
 const coverageFaqAnswer = record.figureVerified && record.coversWhat
