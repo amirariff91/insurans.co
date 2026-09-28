@@ -13,6 +13,7 @@ const productLabels: Record<string, string> = {
   car: 'Insurans kereta',
   motorcycle: 'Insurans motosikal',
   'personal-accident': 'Kemalangan diri',
+  home: 'Perlindungan kandungan rumah',
   roadtax: 'Renew roadtax',
 };
 
@@ -27,7 +28,13 @@ const modelGroups = [
     key: 'aggregator',
     label: 'Aggregator — banding beberapa penginsurans',
     description: 'Lihat pilihan daripada beberapa penginsurans dalam satu platform.',
-    records: platforms.records.filter((platform) => platform.model === 'aggregator'),
+    records: platforms.records.filter((platform) => platform.model.startsWith('aggregator')),
+  },
+  {
+    key: 'platform-jpj',
+    label: 'Penyedia kontrak JPJ — bukan eksklusif',
+    description: 'Penyedia berkontrak JPJ yang turut menawarkan urusan digital lain.',
+    records: platforms.records.filter((platform) => platform.model.startsWith('platform berkontrak JPJ')),
   },
   {
     key: 'marketplace',
@@ -38,7 +45,7 @@ const modelGroups = [
 ].filter((group) => group.records.length > 0);
 
 const faqs = verticalFaqs['insurans-online'];
-const schemaDescription = 'Compare insurance Malaysia & buy insurance online Malaysia — semak aggregator, marketplace, insurer-langsung dan cara renew insurance online.';
+const schemaDescription = 'Compare insurance Malaysia & buy insurance online Malaysia — semak insurer-langsung, aggregator FA/IFA, marketplace dan penyedia kontrak JPJ.';
 const canonicalUrl = 'https://insurans.co/insurans-online/';
 const schema = {
   '@context': 'https://schema.org',
@@ -98,19 +105,21 @@ const schema = {
       <div class="lg:col-span-2">
         <article class="prose-editorial">
           <p class="text-lg leading-7 text-stone-700">
-            Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Ada tiga model.
+            Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Salurannya berbeza.
             <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
             i-Lindung via EPF di fwd.com.my; tiada produk travel berasingan disemak 12 Sep 2026) dan Kaotim, jenama takaful
             digital milik Takaful Malaysia (MediKad, Car/Motor, Legasi hibah dari RM30/bulan; semua takaful, tiada travel).
-            <strong>Aggregator:</strong> banding banyak insurer dalam satu laman — Bjak (motor popular, 10+ penginsurans, NCD
-            auto-check, ansuran) dan PolicyStreet (diluluskan BNM, keahlian Drive+ dengan rebate roadtax dan ansuran tanpa
-            faedah, bayar via Atome). <strong>Marketplace:</strong> beli dalam platform besar — Shopee Insurance (Allianz
+            <strong>Aggregator:</strong> banding beberapa insurer — Bjak (panel rasmi 16 insurer/takaful, NCD checker, FA/IFA
+            BNM sejak Okt 2025; kebenaran JPJ semasa tidak disahkan) dan PolicyStreet (Polisea ialah FA/IFA BNM; Drive+ ialah
+            keahlian berbayar; kiraan panel motor berbeza ikut halaman). Rujuk <a href="https://bjak.my/en/approved-financial-adviser" target="_blank" rel="noopener">Bjak</a> dan
+            <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar — Shopee Insurance (Allianz
             Travel + Zurich Travel Takaful, motor takaful, PA; ansur SPayLater 3–12 bulan; Shopee hanya ejen SeaMoney, bukan
-            insurer) dan MyEG (ejen JPJ rasmi untuk roadtax + saman + insurans motor; ada yuran servis dan courier, bukan
-            travel provider). Flow biasa: banding, bayar FPX/kad, terima e-policy, renew roadtax. Caveat penting: JPJ
-            menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk renew roadtax dan tiada integrasi MySikap — status 2026 tak
-            jelas, rujuk MyJPJ. Kami bukan ejen, bukan broker, tiada affiliate — sahkan PDS dan quotation di laman rasmi
-            sebelum bayar.
+            insurer). <strong>Penyedia kontrak JPJ bukan eksklusif:</strong> <a href="https://www.lowyat.net/2023/299735/myeg-jpj-contract-loses-exclusivity/" target="_blank" rel="noopener">MyEG</a> — urusan JPJ dan insurans auto, bukan FA
+            BNM; yuran servis RM2.50 + SST 8%. Status e-LKM disemak melalui MyJPJ.
+            Flow biasa: banding, bayar, terima e-policy dan urus roadtax. <a href="https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/" target="_blank" rel="noopener">JPJ menyatakan pada Mei 2024</a> Bjak tidak dibenarkan
+            renew roadtax dan tidak berintegrasi dengan MySikap; kebenaran JPJ semasa tidak disahkan secara awam. Kelulusan
+            BNM FA/IFA bukan kelulusan JPJ. Kami bukan ejen, bukan broker dan tiada affiliate — sahkan PDS serta quotation
+            di laman rasmi sebelum bayar.
           </p>
         </article>
 
@@ -190,7 +199,7 @@ const schema = {
               </div>
               <div>
                 <dt class="text-stone-500">Model</dt>
-                <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator, marketplace</dd>
+                <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ</dd>
               </div>
               <div>
                 <dt class="text-stone-500">Data dikemas kini</dt>

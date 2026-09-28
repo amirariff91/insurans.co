@@ -29,38 +29,38 @@
     {
       "slug": "bjak",
       "name": "Bjak",
-      "model": "aggregator",
+      "model": "aggregator + FA/IFA berlesen",
       "digitalPlatform": "bjak.my",
       "parentCompany": null,
-      "products": ["car", "motorcycle", "travel", "roadtax"],
-      "keyFact": "Aggregator motor popular: banding 10+ penginsurans, NCD auto-check, ansuran premium, servis roadtax 'percuma' sebagai pilihan.",
-      "caveat": "JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk renew roadtax & tiada integrasi MySikap; rujuk MyJPJ untuk saluran rasmi. Status 2026 dispute tidak jelas dalam sumber.",
-      "sources": ["https://bjak.my/en", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/"],
-      "asAt": "2026-09-12"
+      "products": ["car", "motorcycle", "travel", "life", "health", "personal-accident", "home", "roadtax"],
+      "keyFact": "Bjak Sdn. Bhd. diluluskan BNM sebagai FA/IFA sejak Oktober 2025; laman rasminya menyenaraikan 16 insurer/takaful untuk panel motor.",
+      "caveat": "JPJ menyatakan pada Mei 2024 Bjak tidak dibenarkan memperbaharui roadtax dan tidak berintegrasi dengan MySikap; Bjak menyifatkan roadtax sebagai servis pilihan percuma. Kebenaran JPJ semasa tidak disahkan secara awam. Status e-LKM disemak melalui MyJPJ.",
+      "sources": ["https://bjak.my/en", "https://bjak.my/en/approved-financial-adviser", "https://bjak.my/en/roadtax/renew-roadtax", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/", "https://fintechnews.my/44160/various/bjak-must-seek-formal-approval-for-partnership-says-transport-minister-loke/"],
+      "asAt": "2026-09-28"
     },
     {
       "slug": "policystreet",
       "name": "PolicyStreet",
-      "model": "aggregator",
+      "model": "aggregator + FA/IFA berlesen",
       "digitalPlatform": "policystreet.com.my",
       "parentCompany": null,
-      "products": ["car", "motorcycle", "personal-accident", "roadtax"],
-      "keyFact": "Aggregator diluluskan BNM dengan keahlian Drive+ (rebate roadtax, ansuran tanpa faedah, cashback renew); boleh bayar melalui Atome BNPL.",
-      "caveat": "Ketersediaan produk travel di laman konsumen belum disahkan.",
-      "sources": ["https://policystreet.com.my/compare-car-insurance", "https://fintechnews.my/59602/insurtech-malaysia/policystreet-series-c-blueorchard/"],
-      "asAt": "2026-09-12"
+      "products": ["car", "roadtax"],
+      "keyFact": "Polisea Sdn. Bhd. ialah FA/IFA diluluskan BNM; Drive+ ialah keahlian berbayar dengan diskaun roadtax dan baucar, bukan cashback.",
+      "caveat": "Laman pengguna memaparkan insurans kereta (termasuk EV) dan roadtax, bukan travel; motorcycle dan personal accident tidak ditemui dalam navigasi semasa. Kiraan panel motor berbeza antara halaman (8 hingga 11), dan keputusan permohonan rakan strategik JPJ tidak disahkan secara awam.",
+      "sources": ["https://policystreet.com.my/en/terms-business", "https://policystreet.com.my/bm", "https://policystreet.com.my/en/renew-road-tax", "https://policystreet.com.my/en/blog/get-cheapest-road-tax-with-policystreet-membership", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://www.malaymail.com/news/malaysia/2024/05/10/policystreet-wants-to-become-jpjs-official-partner-for-road-tax-renewal-service/133586"],
+      "asAt": "2026-09-28"
     },
     {
       "slug": "myeg",
       "name": "MyEG",
-      "model": "marketplace",
+      "model": "platform berkontrak JPJ (bukan eksklusif)",
       "digitalPlatform": "myeg.com.my",
       "parentCompany": null,
-      "products": ["car", "motorcycle", "roadtax"],
-      "keyFact": "Ejen JPJ rasmi: renew roadtax + settle saman + beli insurans motor dalam satu platform.",
-      "caveat": "Ada yuran servis MyEG RM2.50 + SST 8% (sumber: helpdesk MyEG) & pos kurier untuk stiker fizikal. Bukan penginsurans, bukan penyedia travel.",
-      "sources": ["https://www.myeg.com.my/services/jpj", "https://help.myeg.com.my/portal/en/kb/articles/what-are-the-charges", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/"],
-      "asAt": "2026-09-12"
+      "products": ["car", "roadtax"],
+      "keyFact": "MY E.G. Services Berhad dinamakan semula Zetrix AI Berhad pada 2025; MyEG ialah salah satu penyedia kontrak JPJ bukan eksklusif dan turut menyenaraikan insurans auto.",
+      "caveat": "MyEG bukan FA BNM. Panel insurer dan pembelian insurans motosikal belum dapat disahkan daripada sumber rasmi yang boleh dicapai; yuran servis RM2.50 + SST 8% dan caj penghantaran mungkin dikenakan.",
+      "sources": ["https://www.insage.com.my/interactiveAR/ZETRIX/interactiveAR2025/", "https://www.lowyat.net/2023/299735/myeg-jpj-contract-loses-exclusivity/", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://help.myeg.com.my/portal/en/kb/articles/what-are-the-charges", "https://help.myeg.com.my/portal/en/kb/articles/can-i-change-the-delivery-method", "https://carro.co/my/blog/how-to-do-online-road-tax-renewal-with-myeg-jpj"],
+      "asAt": "2026-09-28"
     },
     {
       "slug": "kaotim",
