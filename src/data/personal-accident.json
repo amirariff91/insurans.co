@@ -1,6 +1,6 @@
 {
-  "methodologyNote": "Setiap baris diambil daripada PDS, brosur atau laman produk rasmi penginsurans (dibaca 2026-09-12). premiumPublished hanya memaparkan harga atau contoh angka yang diterbitkan oleh sumber; null = tidak diterbitkan atau tidak dapat disahkan dalam sumber yang dibaca. Tiada harga dianggar, dikira semula atau dipuratakan. Lihat sources[] setiap baris.",
-  "asAt": "2026-09-12",
+  "methodologyNote": "Tarikh bacaan sumber setiap rekod disimpan dalam medan asAt. premiumPublished hanya memaparkan harga atau contoh angka yang diterbitkan oleh sumber; null bermaksud tidak diterbitkan atau tidak dapat disahkan. Tiada harga dianggar, dikira semula atau dipuratakan. Lihat sources[] setiap baris.",
+  "asAt": "2026-09-28",
   "records": [
     {
       "slug": "etiqa-buddy-pa-weekend-warrior",
@@ -51,18 +51,19 @@
     },
     {
       "slug": "allianz-personal-accident",
-      "insurer": "Allianz General Insurance",
-      "planName": "Allianz Personal Accident",
+      "insurer": "Allianz General Insurance Company (Malaysia) Berhad",
+      "planName": "Allianz Personal Accident (Individual PA)",
       "type": "personal-accident",
-      "coversWhat": null,
-      "plansAndBenefits": null,
-      "entryAge": null,
-      "premiumPublished": null,
-      "figureVerified": false,
+      "coversWhat": "Manfaat untuk kecederaan akibat kejadian ganas, tidak sengaja, luaran dan kelihatan; perlindungan asas kematian akibat kemalangan dan hilang upaya kekal. Sambungan pilihan: hilang upaya sementara penuh/separa dan perbelanjaan perubatan. Allianz turut menyatakan cover untuk individu dengan ketidakupayaan tertentu, tertakluk syarat kelayakan dan aktiviti harian. PDS mengecualikan antara lain perang/keganasan/radioaktiviti, bunuh diri atau kecederaan sengaja, kecacatan fizikal/kelemahan sedia ada, AIDS, kehamilan, sukan profesional/berbahaya, aktiviti udara, aktiviti bawah air yang memerlukan alat pernafasan dan anggota tentera/penyelamat/polis/krew pesawat.",
+      "plansAndBenefits": "Lima pelan. Plan 1–5: kematian akibat kemalangan RM10,000/RM20,000/RM30,000/RM40,000/RM50,000; permanent disablement dengan jumlah sama; perbelanjaan perubatan RM200/RM400/RM600/RM800/RM1,000.",
+      "entryAge": "Brosur dan laman produk menyatakan warganegara Malaysia atau PR yang menetap di Malaysia berumur 3–70 tahun dan mampu melakukan sekurang-kurangnya 3 daripada 6 ADL. Caveat: PDS (sah setakat 01/06/2024) menyatakan umur masuk 16–65, boleh diperbaharui sehingga 70; ini bercanggah dengan brosur/laman. Sahkan kelayakan semasa dengan Allianz. Sesetengah pekerjaan/aktiviti dikecualikan atau dirujuk.",
+      "premiumPublished": "Brosur: Plan 1 RM10, Plan 2 RM20, Plan 3 RM30, Plan 4 RM40 dan Plan 5 RM50 setahun, tertakluk cukai perkhidmatan. PDS menyatakan cukai perkhidmatan 8%, duti setem RM10 dan komisen 25% premium.",
+      "figureVerified": true,
       "sources": [
-        "https://www.allianz.com.my/personal/life-health-and-savings/personal-accident/personal-accident.html"
+        "https://www.allianz.com.my/personal/life-health-and-savings/personal-accident/personal-accident.html",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/PA-flyer_ENG.pdf"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-28"
     }
   ]
 }

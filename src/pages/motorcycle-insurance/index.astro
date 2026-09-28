@@ -11,16 +11,18 @@ const records = motorcycleInsurance.records;
 const asAt = motorcycleInsurance.asAt;
 const jpjSource = 'https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf';
 const roadtaxCalculatorUrl = '/tools/kalkulator-roadtax-motosikal/';
-const typeOrder = ['third-party', 'comprehensive', 'comprehensive-takaful'];
+const typeOrder = ['third-party', 'comprehensive', 'comprehensive-takaful', 'motorcycle-add-on'];
 const typeLabels: Record<string, string> = {
   'third-party': 'Third party',
   comprehensive: 'Comprehensive',
   'comprehensive-takaful': 'Comprehensive / takaful',
+  'motorcycle-add-on': 'Add-on motosikal',
 };
 const typeDescriptions: Record<string, string> = {
   'third-party': 'Liabiliti kepada pihak ketiga; motosikal sendiri tidak termasuk dalam cover asas.',
   comprehensive: 'Perlindungan motosikal sendiri dan liabiliti pihak ketiga, tertakluk pada wording polisi.',
   'comprehensive-takaful': 'Struktur perlindungan berasaskan sijil takaful; semak manfaat dan pengecualian setiap produk.',
+  'motorcycle-add-on': 'Manfaat pilihan yang ditambah pada polisi motosikal utama; bukan perlindungan motosikal berdiri sendiri.',
 };
 const recordGroups = typeOrder
   .map((type) => ({
@@ -292,7 +294,15 @@ const schema = {
                       </span>
                     </div>
                     {record.figureVerified ? (
-                      <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.coversWhat}</p>
+                      <>
+                        <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.coversWhat}</p>
+                        {record.premiumBasis && (
+                          <p class="mt-3 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.premiumBasis}</p>
+                        )}
+                        {record.workedExample && (
+                          <p class="mt-3 border-t border-stone-200 pt-3 text-sm leading-5 font-semibold text-hijau-800">Contoh premium PDS: {record.workedExample}</p>
+                        )}
+                      </>
                     ) : (
                       <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
                         Manfaat dan premium belum disahkan daripada sumber primer yang dibaca.
