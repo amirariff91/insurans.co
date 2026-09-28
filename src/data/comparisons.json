@@ -1,17 +1,1584 @@
 [
-  {"slug":"etiqa-vs-allianz","company1":"etiqa","company2":"allianz"},
-  {"slug":"tokio-marine-vs-msig","company1":"tokio-marine","company2":"msig"},
-  {"slug":"allianz-vs-zurich","company1":"allianz","company2":"zurich"},
-  {"slug":"aia-vs-great-eastern","company1":"aia","company2":"great-eastern"},
-  {"slug":"etiqa-vs-tokio-marine","company1":"etiqa","company2":"tokio-marine"},
-  {"slug":"msig-vs-zurich","company1":"msig","company2":"zurich"},
-  {"slug":"allianz-vs-aia","company1":"allianz","company2":"aia"},
-  {"slug":"etiqa-vs-msig","company1":"etiqa","company2":"msig"},
-  {"slug":"kurnia-vs-lonpac","company1":"kurnia","company2":"lonpac"},
-  {"slug":"prudential-vs-aia","company1":"prudential","company2":"aia"},
-  {"slug":"tokio-marine-vs-allianz","company1":"tokio-marine","company2":"allianz"},
-  {"slug":"etiqa-vs-zurich","company1":"etiqa","company2":"zurich"},
-  {"slug":"takaful-malaysia-vs-etiqa","company1":"takaful-malaysia","company2":"etiqa"},
-  {"slug":"great-eastern-vs-msig","company1":"great-eastern","company2":"msig"},
-  {"slug":"aia-vs-msig","company1":"aia","company2":"msig"}
+  {
+    "slug": "etiqa-vs-allianz",
+    "company1": "etiqa",
+    "company2": "allianz",
+    "summary": "Perbezaan utama ialah pilihan takaful dan keluasan servis motor yang dapat disahkan. Etiqa meletakkan insurans konvensional dan takaful di bawah satu jenama, sementara Allianz menonjol melalui Road Rangers 24/7 serta MyAllianz untuk urusan tuntutan dan bantuan selepas kemalangan.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Etiqa beroperasi melalui entiti insurans am, insurans hayat, takaful keluarga dan takaful am. Kumpulan Etiqa berada di bawah Maybank.",
+        "b": "Allianz General Insurance Company (Malaysia) Berhad memegang perniagaan am dan Allianz Life Insurance Malaysia Berhad perniagaan hayat. Kumpulan induknya Allianz SE.",
+        "note": "Direktori BNM menyenaraikan entiti berlesen; nama jenama bukan satu entiti tunggal. Untuk polisi, semak nama pengeluar pada jadual perlindungan."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Ada pilihan motor takaful melalui Etiqa General Takaful, termasuk Private Car Takaful dan portal MotorTakaful.com.",
+        "b": "Sumber rasmi yang kami semak mengesahkan insurans konvensional Allianz General dan Allianz Life; tiada operator takaful Allianz Malaysia dikenal pasti.",
+        "note": "Jika struktur patuh Syariah menjadi keperluan, bezakan pengendali takaful daripada insurans konvensional sebelum membandingkan manfaat dan sumbangan."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Etiqa menawarkan motor konvensional dan takaful. Maklumat produk kereta menyebut agreed value dan ciri Cashback by Driving Less; butiran akhir bergantung pada pelan.",
+        "b": "Allianz menyediakan perlindungan kereta komprehensif dan Allianz Motorcycle Plus. Halaman produk dan jadual polisi menentukan perlindungan serta tambahan yang tersedia.",
+        "note": "Kedua-dua laman produk tidak membuktikan premium untuk profil tertentu. Bandingkan jumlah perlindungan, lebihan, pengecualian serta tambahan yang benar-benar dipilih."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Etiqa Auto Assist Care beroperasi 24 jam di 1800-88-6491; bantuan termasuk tunda percuma sehingga 200 km serta bantuan kerosakan asas.",
+        "b": "Allianz Road Rangers menyediakan hotline 24/7 1800-22-5542, bantuan respons kemalangan, trak tunda dan khidmat concierge tuntutan.",
+        "note": "Skop, had tunda dan kelayakan bergantung pada terma polisi. Simpan nombor yang terpakai pada polisi dan hubungi penyedia bantuan sebelum menerima tunda."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Etiqa+ menyokong pengurusan polisi, penghantaran dan penjejakan tuntutan serta penjejakan langsung bantuan jalan.",
+        "b": "MyAllianz membolehkan penghantaran dan penjejakan tuntutan, muat naik dokumen serta beberapa urusan pelanggan motor.",
+        "note": "Kedua-duanya menyenaraikan fungsi digital yang berbeza. Semak sama ada ciri khusus untuk polisi anda tersedia dalam aplikasi dan jenis tuntutan berkenaan."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Di bawah jenama Etiqa terdapat perjalanan, rumah, kemalangan diri, kesihatan dan hayat selain motor.",
+        "b": "Allianz Malaysia mempunyai produk perjalanan, manakala perlindungan hayat dan kesihatan ditawarkan melalui Allianz Life.",
+        "note": "Keluasan pilihan jenama tidak bermaksud semua produk dikeluarkan oleh entiti sama atau dibundel dalam satu kontrak."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tiada rating khusus Etiqa yang setara ditemui dalam sumber rasmi yang kami semak untuk perbandingan ini.",
+        "b": "Allianz SE mempunyai rating kekuatan kewangan kumpulan AM Best A+; ini rating peringkat kumpulan, bukan penilaian perbandingan langsung untuk polisi tempatan.",
+        "note": "Rating meliputi skop entiti dan tarikh penilaian tertentu. Jangan anggap rating kumpulan menggantikan semakan dokumen produk atau kedudukan entiti yang menerbitkan polisi."
+      }
+    ],
+    "chooseA": [
+      "Pilih Etiqa jika anda mahu membandingkan insurans motor konvensional dengan motor takaful di bawah jenama yang sama.",
+      "Pilih Etiqa jika agreed value, ciri Cashback by Driving Less atau urusan bantuan jalan melalui Etiqa+ penting dalam senarai semakan anda."
+    ],
+    "chooseB": [
+      "Pilih Allianz jika anda mengutamakan bantuan respons kemalangan 24/7 melalui Road Rangers dan aliran concierge tuntutan.",
+      "Pilih Allianz jika anda juga mahu menyemak perlindungan motosikal atau produk hayat Allianz Life bersama pilihan motor konvensional."
+    ],
+    "sameForBoth": [
+      "Entiti berkaitan kedua-dua jenama berada dalam direktori peserta sektor kewangan BNM sebagai penyedia berlesen.",
+      "Pertikaian motor dan perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan muktamad penyedia; kelayakan dan had masa FMOS terpakai.",
+      "Premium motor telah diliberalisasikan dan berbeza mengikut risiko serta perlindungan; bandingkan sebut harga sebenar dengan butiran kenderaan yang sama."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah Etiqa dan Allianz kedua-duanya menawarkan takaful motor?",
+        "a": "Fakta produk yang disemak mengesahkan motor takaful Etiqa General Takaful. Allianz Malaysia dalam perbandingan ini disahkan melalui entiti insurans am dan hayat konvensional, bukan operator takaful."
+      },
+      {
+        "q": "Syarikat mana mempunyai bantuan jalan 24 jam yang disahkan?",
+        "a": "Kedua-duanya mempunyai servis yang diterangkan: Etiqa Auto Assist Care dengan tunda sehingga 200 km dan Allianz Road Rangers. Had, kelayakan dan manfaat tepat perlu dirujuk pada terma polisi."
+      },
+      {
+        "q": "Bolehkah saya menentukan pilihan berdasarkan harga jenama sahaja?",
+        "a": "Tidak. Minta sebut harga untuk kenderaan, pemandu, nilai perlindungan dan tambahan yang sama. Premium individu tidak dapat disimpulkan daripada perbandingan ciri umum."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Etiqa — produk kereta",
+        "url": "https://www.etiqa.com.my/car"
+      },
+      {
+        "label": "Etiqa Auto Assist",
+        "url": "https://www.etiqa.com.my/etiqa-auto-assist"
+      },
+      {
+        "label": "Allianz Road Rangers",
+        "url": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
+      },
+      {
+        "label": "MyAllianz",
+        "url": "https://www.allianz.com.my/personal/help-and-services/myallianz.html"
+      },
+      {
+        "label": "AM Best — rating kumpulan Allianz",
+        "url": "https://news.ambest.com/presscontent.aspx?altsrc=149&refnum=37164"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "tokio-marine-vs-msig",
+    "company1": "tokio-marine",
+    "company2": "msig",
+    "summary": "Tokio Marine menawarkan rangkaian hayat dan am serta produk AutoPro dengan manfaat motor yang dinyatakan secara terperinci. MSIG Malaysia ialah penanggung insurans am yang membezakan tawaran motor melalui ciri telematik, bantuan jalan digital dan penjejakan trak tunda; kedua-duanya perlu dibandingkan berdasarkan skop polisi sebenar.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Tokio Marine Insurance (Malaysia) Berhad menjalankan insurans am dan Tokio Marine Life Insurance Malaysia menjalankan insurans hayat. Kumpulan induknya Tokio Marine Holdings dari Jepun.",
+        "b": "MSIG Insurance (Malaysia) Berhad ialah entiti insurans am di bawah Mitsui Sumitomo Insurance dan kumpulan MS&AD; Hong Leong Financial Group memegang 30% MSIG Malaysia.",
+        "note": "MSIG Insurance berbeza daripada Hong Leong MSIG Takaful, iaitu entiti pengendali takaful yang berasingan."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Tiada operator takaful Tokio Marine Malaysia ditemui dalam sumber rasmi yang kami semak; entiti yang disahkan ialah insurans am dan hayat.",
+        "b": "MSIG Insurance Malaysia ialah penanggung insurans am konvensional. Hong Leong MSIG Takaful wujud sebagai entiti usaha sama berasingan, bukan polisi takaful MSIG Insurance.",
+        "note": "Jika mahu takaful, semak nama entiti pada sijil. Hubungan pemilikan atau jenama bersama tidak menjadikan kontrak insurans konvensional sebagai takaful."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Tokio Marine menawarkan perlindungan komprehensif, pihak ketiga, kebakaran dan kecurian serta pihak ketiga. AutoPro menyenaraikan pengecualian lebihan pemandu tanpa nama, tunda tanpa had dan manfaat tertentu.",
+        "b": "MSIG menawarkan motor dengan tambahan telematik EZ-Mile berasaskan penggunaan dan Microtag; dokumen produk menentukan kelayakan dan manfaat khusus.",
+        "note": "Untuk AutoPro, had manfaat termasuk perlindungan pengecas EV dan elaun tertentu perlu disemak pada wording semasa. Jangan anggap semua ciri termasuk dalam polisi asas."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Panduan tuntutan motor Tokio Marine menyenaraikan talian 1800-88-0812; Auto Partner mengurus bantuan kerosakan dan tunda.",
+        "b": "MSIG Motor Assist beroperasi 24 jam di 1-300-880-833. Digital Roadside Assistance dan Smart Towing menyokong permintaan bantuan serta penjejakan trak.",
+        "note": "Bandingkan jenis bantuan, kawasan liputan, had tunda dan proses selepas kemalangan, bukan sekadar sama ada talian tersedia sepanjang masa."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Portal dalam talian Tokio Marine menyediakan akses kepada perkhidmatan; tiada aplikasi motor pengguna Malaysia khusus ditemui dalam sumber rasmi yang kami semak.",
+        "b": "MY MSIG app dan DRA menyokong bantuan jalan digital; Smart Towing menyediakan pautan penjejakan masa nyata.",
+        "note": "Ketersediaan fungsi boleh berbeza mengikut peranti dan produk. Semak sendiri saluran tuntutan untuk jenis kerosakan atau polisi anda."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Selain motor, Tokio Marine menyenaraikan perjalanan, rumah dan kemalangan diri; terdapat juga entiti insurans hayat tempatan.",
+        "b": "MSIG menawarkan perjalanan, rumah, kemalangan diri dan kesihatan dalam rangka perniagaan amnya. Tiada entiti insurans hayat MSIG Malaysia disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Pembeli yang mencari perlindungan hayat perlu menyemak penyedia lain atau entiti berasingan; jangan anggap penanggung insurans am menyediakan polisi hayat."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tokio Marine & Nichido mempunyai rating AM Best kekuatan kewangan kumpulan A++ dan kredit penerbit aa+.",
+        "b": "Tiada rating MSIG Malaysia yang sepadan dikenal pasti dalam fakta perbandingan ini.",
+        "note": "Rating Tokio Marine & Nichido berada pada peringkat kumpulan. Agensi dan skop berbeza tidak boleh dibaca sebagai perbandingan terus dengan penanggung insurans tempatan."
+      }
+    ],
+    "chooseA": [
+      "Pilih Tokio Marine jika manfaat AutoPro yang diterangkan seperti tunda tanpa had atau perlindungan pengecas EV sepadan dengan keperluan kenderaan anda.",
+      "Pilih Tokio Marine jika anda mahu menyemak perlindungan hayat, perjalanan, rumah dan motor dalam kumpulan yang sama."
+    ],
+    "chooseB": [
+      "Pilih MSIG jika penjejakan trak tunda melalui Smart Towing dan permintaan bantuan jalan secara digital menjadi keutamaan.",
+      "Pilih MSIG jika anda mahu menilai tambahan motor berasaskan penggunaan seperti EZ-Mile bersama perlindungan motor konvensional."
+    ],
+    "sameForBoth": [
+      "Kedua-dua penyedia mempunyai entiti insurans am yang disenaraikan dalam direktori BNM.",
+      "Pertikaian motor atau perubatan tertentu boleh dibawa ke FMOS selepas keputusan muktamad penyedia, tertakluk pada kelayakan dan had masa.",
+      "Premium motor ditentukan melalui penilaian risiko dan perlindungan; bandingkan sebut harga dengan butiran kenderaan serta tambahan yang serupa."
+    ],
+    "faqs": [
+      {
+        "q": "Apakah beza utama Tokio Marine AutoPro dengan tambahan MSIG?",
+        "a": "AutoPro ialah pakej motor dengan manfaat khusus yang dinyatakan oleh Tokio Marine. MSIG pula menyenaraikan tambahan EZ-Mile dan Microtag serta servis Smart Towing; ia bukan manfaat yang sama, jadi semak wording dan harga setiap satu."
+      },
+      {
+        "q": "Adakah Tokio Marine atau MSIG mempunyai takaful motor?",
+        "a": "Fakta yang disemak tidak mengenal pasti operator takaful Tokio Marine. MSIG Insurance ialah konvensional; Hong Leong MSIG Takaful ialah pengendali berasingan dan produknya perlu diminta daripada entiti itu."
+      },
+      {
+        "q": "Adakah rating kumpulan Tokio Marine membuktikan tuntutan tempatan lebih baik?",
+        "a": "Tidak. Rating kumpulan bukan ukuran kelajuan tuntutan atau jaminan hasil polisi individu. Semak manfaat, proses tuntutan dan dokumen kontrak serta fahami skop rating yang diterbitkan."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Tokio Marine AutoPro",
+        "url": "https://www.tokiomarine.com/my/en/non-life/products/personal/motor/tokio-marine-autopro.html"
+      },
+      {
+        "label": "Tokio Marine — proses tuntutan motor",
+        "url": "https://www.tokiomarine.com/my/en/non-life/claim/step-by-step-claim-guide/personal/motor-claims-process.html"
+      },
+      {
+        "label": "MSIG Digital Roadside Assistance",
+        "url": "https://www.msig.com.my/digital-roadside-assistance-dra/"
+      },
+      {
+        "label": "MSIG Smart Towing",
+        "url": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+      },
+      {
+        "label": "AM Best — rating kumpulan Tokio Marine & Nichido",
+        "url": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=37849"
+      },
+      {
+        "label": "MSIG — kerjasama dengan Hong Leong Financial Group",
+        "url": "https://www.msig.com.my/highlights/hong-leong-financial-group-berhad-and-mitsui-sumitomo-insurance-co-ltd-form-strategic-partnership-18-jun-2010-announcements/"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "allianz-vs-zurich",
+    "company1": "allianz",
+    "company2": "zurich",
+    "summary": "Kedua-dua kumpulan menawarkan insurans motor konvensional dan mempunyai sokongan antarabangsa, tetapi pilihan kontrak berbeza. Allianz menonjol dengan Road Rangers dan Allianz Motorcycle Plus; Zurich menggabungkan insurans dengan beberapa entiti takaful serta bantuan jalan yang boleh diminta dan dijejak melalui MyZurich.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Allianz General Insurance Company (Malaysia) Berhad dan Allianz Life Insurance Malaysia Berhad menyediakan perniagaan am dan hayat. Kumpulan induknya Allianz SE.",
+        "b": "Zurich mempunyai entiti insurans am, hayat, takaful keluarga dan takaful am di Malaysia. Operasi kumpulan Zurich bermula di Malaysia selepas pengambilalihan MAA Assurance pada 2011.",
+        "note": "Semak nama entiti penerbit pada dokumen polisi; jenama induk merangkumi beberapa syarikat berlesen yang berasingan."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Sumber rasmi yang kami semak mengesahkan entiti insurans konvensional Allianz Malaysia dan tidak mengenal pasti operator takaful Allianz Malaysia.",
+        "b": "Zurich menyediakan pilihan melalui Zurich Takaful Malaysia dan Zurich General Takaful Malaysia selain perniagaan insurans konvensional.",
+        "note": "Zurich mempunyai alternatif takaful dalam kumpulan tempatan; semak produk motor khusus yang tersedia pada tarikh pembelian dan kontrak yang digunakan."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Allianz menawarkan perlindungan kereta komprehensif dan Allianz Motorcycle Plus.",
+        "b": "Zurich memasarkan produk motor di samping rangkaian am dan takaful; nama produk motor khusus atau tambahan pilihan tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Jangan andaikan senarai manfaat daripada jenama sahaja. Minta sebut harga dan wording untuk kereta atau motosikal dengan perlindungan yang sama."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Allianz Road Rangers menyediakan bantuan 24/7, respons awal kemalangan, khidmat concierge tuntutan dan pengaturan tunda.",
+        "b": "Zurich Roadside Assistance beroperasi 24 jam melalui 1-300-88-5566 untuk bantuan kerosakan dan tunda.",
+        "note": "Bandingkan syarat kelayakan, had tunda dan sama ada bantuan merangkumi situasi anda. Talian bantuan tidak menggantikan notis tuntutan kepada penanggung insurans."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "MyAllianz membolehkan urusan tuntutan termasuk penghantaran dan penjejakan serta muat naik dokumen.",
+        "b": "MyZurich membolehkan permintaan bantuan jalan dengan penjejakan GPS, pencari bengkel panel dan penghantaran tuntutan motor; Zurich MyMed berasingan untuk urusan perubatan.",
+        "note": "Aplikasi dan fungsi berbeza antara motor dan perubatan. Sahkan aplikasi mana berkaitan dengan entiti dan jenis polisi anda."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Allianz mempunyai insurans perjalanan dan insurans hayat melalui Allianz Life; motor dan motosikal berada dalam rangkaian am.",
+        "b": "Zurich menawarkan produk motor, rumah dan perjalanan serta perlindungan hayat dan takaful keluarga/am.",
+        "note": "Keluasan barisan produk tidak bermakna satu polisi melindungi semua risiko. Nilai setiap kontrak, had manfaat dan pengecualian secara berasingan."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Allianz SE mempunyai rating kekuatan kewangan kumpulan AM Best A+ dan penarafan kredit penerbit aa.",
+        "b": "Kumpulan Zurich menerbitkan rating kekuatan kewangan AM Best A+.",
+        "note": "Rating yang tersedia ialah pada skala kumpulan. Ia bukan bukti bahawa tuntutan sesuatu polisi lebih cepat atau bahawa risiko tempatan tiada."
+      }
+    ],
+    "chooseA": [
+      "Pilih Allianz jika servis selepas kemalangan seperti respons Road Rangers dan khidmat concierge tuntutan ialah perkara utama untuk anda.",
+      "Pilih Allianz jika perlindungan motosikal dan produk hayat melalui Allianz Life turut masuk dalam perancangan perlindungan anda."
+    ],
+    "chooseB": [
+      "Pilih Zurich jika anda mahu pilihan insurans dan takaful dalam kumpulan yang sama, termasuk entiti takaful am.",
+      "Pilih Zurich jika permintaan bantuan jalan melalui aplikasi dan penjejakan GPS tunda sesuai dengan cara anda mengurus insiden."
+    ],
+    "sameForBoth": [
+      "Kedua-dua kumpulan mempunyai entiti berlesen yang disenaraikan dalam direktori sektor kewangan BNM.",
+      "Pertikaian motor atau perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, tertakluk kepada syarat dan had masa.",
+      "Premium motor tidak ditetapkan sama untuk semua pemandu; gunakan butiran risiko dan perlindungan yang seragam semasa mendapatkan sebut harga."
+    ],
+    "faqs": [
+      {
+        "q": "Antara Allianz dan Zurich, yang manakah mempunyai pilihan takaful?",
+        "a": "Zurich mempunyai entiti takaful keluarga dan takaful am yang disahkan dalam direktori BNM. Fakta yang disemak untuk Allianz Malaysia mengesahkan entiti insurans am dan hayat, bukan operator takaful tempatan."
+      },
+      {
+        "q": "Apakah perbezaan bantuan jalan yang disahkan?",
+        "a": "Allianz menerangkan respons Road Rangers 24/7 dan concierge kemalangan. Zurich menyediakan bantuan kerosakan dan tunda 24 jam serta permintaan bantuan dalam MyZurich. Had dan syarat kontrak perlu dibandingkan."
+      },
+      {
+        "q": "Adakah rating A+ kumpulan bermaksud manfaat polisi sama?",
+        "a": "Tidak. Rating kekuatan kewangan ialah maklumat kumpulan, manakala manfaat motor, had tunda dan pengecualian ditentukan dalam dokumen produk tempatan masing-masing."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Allianz Road Rangers",
+        "url": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
+      },
+      {
+        "label": "Zurich Roadside Assistance",
+        "url": "https://www.zurich.com.my/zurich-roadside-assistance"
+      },
+      {
+        "label": "MyZurich app",
+        "url": "https://www.zurich.com.my/customer-hub/myzurich-app"
+      },
+      {
+        "label": "Allianz Malaysia — latar belakang",
+        "url": "https://www.allianz.com.my/personal/allianz-at-a-glance/about-allianz/background-and-core-values.html"
+      },
+      {
+        "label": "AM Best — rating kumpulan Allianz",
+        "url": "https://news.ambest.com/presscontent.aspx?altsrc=149&refnum=37164"
+      },
+      {
+        "label": "Zurich — rating kumpulan",
+        "url": "https://www.zurich.com/investor-relations/ratings"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "aia-vs-great-eastern",
+    "company1": "aia",
+    "company2": "great-eastern",
+    "summary": "AIA dan Great Eastern lebih berbeza pada gabungan perlindungan kesihatan, insurans am dan takaful berbanding bukti produk motor terperinci. AIA mempunyai aplikasi AIA+ dan manfaat perubatan A-Life; Great Eastern menggabungkan hayat, perubatan kumpulan dan entiti takaful keluarga, dengan fungsi aplikasi korporat yang jelas.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "AIA Bhd menjalankan hayat, AIA General Berhad menjalankan insurans am termasuk motor, dan AIA PUBLIC Takaful ialah pengendali takaful keluarga. Kumpulan induk AIA berpangkalan di Hong Kong.",
+        "b": "Great Eastern mempunyai entiti hayat, Great Eastern General Insurance (Malaysia) Berhad dan Great Eastern Takaful Berhad; kumpulannya di bawah OCBC.",
+        "note": "Polisi motor AIA ialah urusan AIA General, berasingan daripada hayat AIA Bhd dan takaful keluarga AIA PUBLIC."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "AIA PUBLIC Takaful Bhd disenaraikan sebagai pengendali takaful keluarga; sumber rasmi yang kami semak tidak mengesahkan produk motor takaful AIA.",
+        "b": "Great Eastern Takaful Berhad ialah pengendali takaful keluarga. Butiran produk motor takaful khusus tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Kewujudan operator takaful dalam kumpulan tidak membuktikan produk motor takaful tersedia. Tanyakan nama pengeluar dan jenis sijil sebelum membeli."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "AIA General Berhad ialah entiti am berlesen yang menjual motor. Sumber yang disemak tidak mengesahkan nama pakej motor, senarai tambahan atau bantuan jalan khusus.",
+        "b": "Great Eastern General ialah entiti am berlesen, tetapi sumber yang disemak tidak mengesahkan nama produk motor atau manfaat tambahan khusus.",
+        "note": "Maklumat produk awam yang disahkan di sini lebih terperinci untuk kesihatan berbanding motor. Dapatkan wording motor dan jadual manfaat terus daripada pengeluar."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "AIA menyenaraikan talian perkhidmatan 1300-88-1899 untuk AIA Bhd dan AIA General. Proses bantuan jalan motor 24 jam tidak disahkan.",
+        "b": "Great Eastern General menyenaraikan talian tuntutan 1300-13-1088 dan khidmat pelanggan am 1300-13-0088. Bantuan jalan motor 24 jam tidak disahkan.",
+        "note": "Nombor talian tuntutan dan khidmat pelanggan bukan bukti servis tunda atau respons jalan. Hubungi entiti yang menerbitkan polisi untuk mendapatkan arahan tuntutan."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "AIA+ menawarkan kad perubatan elektronik, e-claims, bayaran premium, integrasi AIA Vitality dan teleperubatan.",
+        "b": "Aplikasi Great Eastern Corporate menyokong kad perubatan digital, pencari panel, penghantaran tuntutan dan penjejakan GL bagi pemegang polisi korporat/kumpulan.",
+        "note": "Ciri yang disahkan berbeza mengikut jenis polisi: AIA+ untuk pelanggan AIA dan aplikasi GEC khusus kepada peserta korporat/kumpulan."
+      },
+      {
+        "label": "Produk lain",
+        "a": "AIA menawarkan hayat, perubatan dan motor melalui entiti berbeza. A-Life Med Regular mempunyai perlindungan perubatan sehingga umur 100 tahun dan tanpa had seumur hidup menurut bahan produk.",
+        "b": "Great Eastern menyenaraikan hayat, pelaburan berkaitan, perubatan/kesihatan, manfaat kumpulan dan perlindungan gadai janji; entiti am dan takaful keluarga menambah pilihan berasingan.",
+        "note": "Had umur dan manfaat A-Life Med Regular tertakluk pada syarat produk. Butiran produk perubatan Great Eastern tertentu tidak disahkan dalam sumber rasmi yang kami semak."
+      }
+    ],
+    "chooseA": [
+      "Pilih AIA jika penggunaan AIA+ untuk kad perubatan elektronik, tuntutan dan teleperubatan sepadan dengan cara anda mengurus perlindungan.",
+      "Pilih AIA jika anda sedang membandingkan pelan perubatan A-Life bersama insurans motor yang diterbitkan oleh AIA General."
+    ],
+    "chooseB": [
+      "Pilih Great Eastern jika perlindungan hayat, perubatan kumpulan atau kemudahan digital GEC untuk polisi korporat lebih relevan.",
+      "Pilih Great Eastern jika anda mahu menyemak operator takaful keluarganya sebagai pilihan berasingan daripada insurans konvensional."
+    ],
+    "sameForBoth": [
+      "Kedua-dua kumpulan mempunyai entiti hayat, am dan takaful keluarga yang disenaraikan BNM; entiti dan jenis polisi tetap perlu dikenal pasti.",
+      "Pertikaian motor atau perubatan tertentu boleh dikemukakan kepada FMOS selepas keputusan akhir penyedia, jika memenuhi syarat kelayakan.",
+      "Maklumat motor yang disahkan lebih terhad daripada maklumat kesihatan; minta jadual manfaat, pengecualian dan servis bantuan sebelum membuat perbandingan."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah AIA+ atau GEC aplikasi untuk tuntutan motor?",
+        "a": "AIA+ menawarkan e-claims, tetapi sumber yang disemak tidak memperincikan saluran motor untuk semua produk. GEC dinyatakan untuk peserta korporat/kumpulan dan fungsi perubatannya; sahkan skop tuntutan dengan penyedia polisi."
+      },
+      {
+        "q": "Adakah kedua-dua syarikat mempunyai takaful motor?",
+        "a": "Fakta yang disemak mengesahkan pengendali takaful keluarga AIA PUBLIC dan Great Eastern Takaful, bukan butiran produk motor takaful. Sahkan sijil dan nama entiti sebelum menganggap perlindungan motor tersedia."
+      },
+      {
+        "q": "Bolehkah bantuan jalan 24 jam dibandingkan di sini?",
+        "a": "Belum berdasarkan fakta yang disemak: talian perkhidmatan AIA dan talian tuntutan Great Eastern tidak mengesahkan manfaat tunda 24 jam. Semak wording motor dan pengesahan bertulis daripada insurer."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "AIA — kad perubatan dan tuntutan hospital",
+        "url": "https://www.aia.com.my/en/help-support/claims-and-support/hospitalisation-corp.html"
+      },
+      {
+        "label": "AIA+ app",
+        "url": "https://www.aia.com.my/en/help-support/aia-app.html"
+      },
+      {
+        "label": "Great Eastern — profil Malaysia",
+        "url": "https://www.greateasternlife.com/my/en/about-us/company-profile/about-great-eastern-malaysia.html"
+      },
+      {
+        "label": "Great Eastern Corporate app",
+        "url": "https://www.greateasternlife.com/my/en/corporate-solutions/group-insurance/gec-app.html"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "etiqa-vs-tokio-marine",
+    "company1": "etiqa",
+    "company2": "tokio-marine",
+    "summary": "Etiqa membezakan tawaran melalui pilihan motor takaful dan insurans serta servis digital Etiqa+. Tokio Marine pula menawarkan AutoPro dengan senarai manfaat dan perlindungan tambahan yang terperinci, termasuk pilihan berkaitan kenderaan elektrik. Keputusan praktikal bergantung pada struktur polisi, servis yang diperlukan dan sebut harga individu.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Etiqa merangkumi empat entiti tempatan untuk insurans am, insurans hayat, takaful keluarga dan takaful am di bawah kumpulan Maybank.",
+        "b": "Tokio Marine mempunyai entiti insurans am dan hayat Malaysia di bawah Tokio Marine Holdings, kumpulan insurans Jepun.",
+        "note": "Kedua-duanya mempunyai beberapa entiti berlesen; pastikan nama pengeluar pada dokumen sepadan dengan produk konvensional atau takaful yang diminta."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Etiqa General Takaful menawarkan motor takaful, termasuk Private Car Takaful dan pembelian melalui MotorTakaful.com.",
+        "b": "Tiada pengendali takaful Tokio Marine Malaysia ditemui dalam sumber rasmi yang kami semak.",
+        "note": "Untuk pembeli yang menetapkan keperluan takaful, perbezaan entiti ini lebih bermakna daripada membandingkan jenama semata-mata."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Etiqa menyediakan motor konvensional serta motor takaful; halaman kereta menyebut agreed value dan Cashback by Driving Less.",
+        "b": "Tokio Marine menawarkan AutoPro dengan pelepasan lebihan pemandu tanpa nama, tunda tanpa had, pengecualian betterment sehingga usia tertentu serta manfaat tertentu.",
+        "note": "AutoPro turut menyenaraikan manfaat banjir dan perlindungan pengecas EV. Sahkan nilai had, kelayakan serta sama ada ciri termasuk dalam sebut harga anda."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Etiqa Auto Assist Care mempunyai talian 24 jam 1800-88-6491 dan tunda percuma sehingga 200 km, tertakluk pada terma servis.",
+        "b": "Tokio Marine menyenaraikan panduan tuntutan motor dan talian 1800-88-0812; bantuan kerosakan/tunda melalui Auto Partner.",
+        "note": "Tawaran bantuan tidak sama dari segi had tunda atau komponen. Bandingkan syarat bertulis sebelum memutuskan bahawa dua pakej setara."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Etiqa+ menyokong pengurusan polisi, e-claims, penjejakan tuntutan serta penjejakan langsung bantuan jalan.",
+        "b": "Tokio Marine menyediakan portal perkhidmatan dalam talian; aplikasi pengguna tempatan khusus untuk motor tidak dikenal pasti.",
+        "note": "Jika pengurusan melalui aplikasi penting, uji sama ada polisi dan jenis tuntutan anda disokong, bukan hanya ketersediaan aplikasi."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Rangkaian Etiqa turut merangkumi perjalanan, rumah, kemalangan diri, kesihatan dan hayat selain motor.",
+        "b": "Tokio Marine menyenaraikan perjalanan, rumah dan kemalangan diri; perniagaan hayat diurus oleh entiti hayat berasingan.",
+        "note": "Bandingkan nama pengeluar serta skop manfaat secara berasingan; satu jenama tidak bermaksud semua produk digabungkan dalam polisi motor."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tiada rating Etiqa khusus yang sepadan ditemui dalam sumber rasmi yang kami semak.",
+        "b": "Tokio Marine & Nichido mempunyai rating kekuatan kewangan kumpulan AM Best A++ dan kredit penerbit aa+.",
+        "note": "Rating tersebut berada di peringkat kumpulan Tokio Marine & Nichido, bukan rating khusus yang setara bagi kedua-dua polisi motor Malaysia."
+      }
+    ],
+    "chooseA": [
+      "Pilih Etiqa jika anda mahu membandingkan motor takaful dengan insurans konvensional serta mempertimbangkan agreed value.",
+      "Pilih Etiqa jika permintaan bantuan jalan dan penjejakan tuntutan melalui Etiqa+ sepadan dengan pilihan digital anda."
+    ],
+    "chooseB": [
+      "Pilih Tokio Marine jika pakej AutoPro dan manfaat seperti tunda tanpa had atau perlindungan pengecas EV relevan kepada kereta anda.",
+      "Pilih Tokio Marine jika anda mahukan pilihan hayat dan am dalam kumpulan yang sama, sambil menerima pengurusan melalui portal."
+    ],
+    "sameForBoth": [
+      "Entiti insurans am kedua-dua penyedia tersenarai dalam direktori peserta BNM.",
+      "Pertikaian motor dan perubatan tertentu boleh dirujuk ke FMOS selepas keputusan muktamad penyedia; syarat dan had masa dikenakan.",
+      "Premium motor berbeza mengikut profil risiko dan kontrak; bandingkan sebut harga dengan pemandu, kenderaan, jumlah perlindungan dan tambahan yang sama."
+    ],
+    "faqs": [
+      {
+        "q": "Siapa menawarkan motor takaful dalam perbandingan ini?",
+        "a": "Etiqa General Takaful menawarkan motor takaful yang disahkan. Kami tidak menemui operator takaful Tokio Marine Malaysia, jadi minta pengesahan terus jika takaful ialah syarat pembelian."
+      },
+      {
+        "q": "Adakah tunda Etiqa dan Tokio Marine mempunyai had yang sama?",
+        "a": "Tidak boleh diandaikan. Etiqa menyatakan tunda percuma sehingga 200 km; AutoPro Tokio Marine menyebut tunda tanpa had. Semak definisi perjalanan, syarat tuntutan dan wording terkini."
+      },
+      {
+        "q": "Apakah yang patut dibandingkan selain premium?",
+        "a": "Semak nilai dipersetujui, lebihan, had banjir, bantuan jalan, manfaat tambahan, pengecualian dan proses tuntutan. Bandingkan semuanya pada perlindungan serta butiran risiko yang sama."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Etiqa — produk kereta",
+        "url": "https://www.etiqa.com.my/car"
+      },
+      {
+        "label": "Etiqa Auto Assist",
+        "url": "https://www.etiqa.com.my/etiqa-auto-assist"
+      },
+      {
+        "label": "Tokio Marine AutoPro",
+        "url": "https://www.tokiomarine.com/my/en/non-life/products/personal/motor/tokio-marine-autopro.html"
+      },
+      {
+        "label": "Tokio Marine — perkhidmatan dalam talian",
+        "url": "https://www.tokiomarine.com/my/en/online.html"
+      },
+      {
+        "label": "AM Best — rating kumpulan Tokio Marine & Nichido",
+        "url": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=37849"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "msig-vs-zurich",
+    "company1": "msig",
+    "company2": "zurich",
+    "summary": "MSIG Insurance Malaysia ialah penyedia insurans am dengan ciri motor telematik dan Smart Towing, manakala Zurich mempunyai portfolio insurans dan takaful am serta saluran bantuan jalan melalui MyZurich. Perbandingan ini paling berguna untuk menilai proses digital, struktur takaful dan bantuan selepas kemalangan, bukan mencari satu pemenang umum.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "MSIG Insurance (Malaysia) Berhad ialah penanggung insurans am di bawah Mitsui Sumitomo Insurance/MS&AD; Hong Leong Financial Group memegang 30%.",
+        "b": "Zurich mempunyai entiti insurans am, hayat, takaful keluarga dan takaful am di Malaysia di bawah kumpulan Zurich.",
+        "note": "Hong Leong MSIG Takaful berasingan daripada MSIG Insurance; Zurich juga mengeluarkan kontrak melalui entiti konvensional atau takaful berasingan."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "MSIG Insurance Malaysia menawarkan insurans konvensional. Hong Leong MSIG Takaful ialah pengendali berasingan dalam hubungan usaha sama.",
+        "b": "Zurich menyediakan Zurich Takaful Malaysia dan Zurich General Takaful Malaysia selain entiti insurans konvensional.",
+        "note": "Semak pengendali pada sijil. Kewujudan entiti takaful dalam rangkaian kumpulan tidak memindahkan perlindungan insurans am ke kontrak takaful."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "MSIG menyenaraikan EZ-Mile berasaskan penggunaan serta Microtag sebagai tambahan motor; tawaran khusus bergantung pada produk dan kelayakan.",
+        "b": "Zurich menyediakan produk motor, namun nama pakej motor tertentu dan senarai tambahan tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Minta spesifikasi tambahan, had dan pengecualian secara bertulis. Ciri telematik tidak menggantikan semakan jumlah perlindungan dan lebihan."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "MSIG Motor Assist menyediakan talian 24 jam 1-300-880-833; Smart Towing membolehkan penjejakan trak tunda.",
+        "b": "Zurich Roadside Assistance boleh dihubungi 24 jam di 1-300-88-5566 untuk bantuan kerosakan dan tunda.",
+        "note": "Bandingkan kawasan servis, had tunda, keperluan membuat permintaan melalui saluran tertentu dan manfaat selepas kemalangan."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "MY MSIG app, DRA dan Smart Towing menyediakan akses bantuan serta penjejakan tunda digital.",
+        "b": "MyZurich menyediakan permintaan bantuan jalan dengan penjejakan GPS, pencari bengkel panel dan penghantaran tuntutan motor; MyMed untuk kesihatan.",
+        "note": "Kedua-duanya menawarkan fungsi digital berkaitan kenderaan tetapi skopnya berlainan. Pastikan aplikasi menyokong nombor polisi dan insiden anda."
+      },
+      {
+        "label": "Produk lain",
+        "a": "MSIG menawarkan perjalanan, rumah, kemalangan diri dan kesihatan melalui perniagaan am; sumber rasmi yang kami semak tidak mengesahkan entiti hayat tempatan.",
+        "b": "Zurich menyediakan motor, rumah dan perjalanan serta perlindungan hayat, takaful keluarga dan takaful am.",
+        "note": "Jika anda memerlukan insurans hayat atau takaful, sahkan jenis produk serta entiti Zurich. MSIG Insurance Malaysia ialah entiti insurans am."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tiada rating MSIG Malaysia setara dikenal pasti dalam maklumat yang disemak.",
+        "b": "Kumpulan Zurich menerbitkan rating kekuatan kewangan AM Best A+.",
+        "note": "Rating Zurich ialah rating peringkat kumpulan; ia tidak boleh dianggap sebagai rating setara bagi polisi tempatan atau bukti tahap servis tuntutan."
+      }
+    ],
+    "chooseA": [
+      "Pilih MSIG jika tambahan telematik atau penjejakan tunda Smart Towing ialah ciri yang anda ingin nilai.",
+      "Pilih MSIG jika anda mencari gabungan produk perjalanan, rumah, kemalangan diri dan kesihatan dalam penyedia insurans am."
+    ],
+    "chooseB": [
+      "Pilih Zurich jika anda mahu membandingkan kontrak insurans dengan pilihan takaful am dalam kumpulan yang sama.",
+      "Pilih Zurich jika permintaan bantuan jalan dengan penjejakan GPS dan pencari bengkel melalui MyZurich memudahkan urusan anda."
+    ],
+    "sameForBoth": [
+      "Entiti insurans am masing-masing berada dalam direktori BNM sebagai penyedia berlesen.",
+      "Pertikaian motor atau perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, tertakluk kepada skop dan had masa.",
+      "Harga motor bergantung pada profil dan perlindungan; minta sebut harga untuk spesifikasi sama dan bandingkan manfaat serta pengecualian."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah MSIG dan Zurich kedua-duanya menyediakan takaful motor?",
+        "a": "Zurich mempunyai entiti takaful am tempatan yang disahkan. MSIG Insurance ialah konvensional; Hong Leong MSIG Takaful merupakan entiti berasingan, jadi sahkan produk dan pengeluar secara khusus."
+      },
+      {
+        "q": "Apakah bantuan jalan 24 jam yang boleh dibandingkan?",
+        "a": "MSIG menyenaraikan Motor Assist dan Smart Towing; Zurich menyenaraikan Roadside Assistance serta penjejakan permintaan melalui MyZurich. Bandingkan had, kawasan liputan dan proses dalam terma semasa."
+      },
+      {
+        "q": "Adakah rating kumpulan Zurich boleh dibandingkan terus dengan MSIG?",
+        "a": "Kami tidak menemui rating MSIG Malaysia yang setara, dan rating Zurich yang disebut ialah rating kumpulan. Jangan membuat kesimpulan bahawa satu polisi lebih kukuh hanya berdasarkan perbandingan skop berlainan."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "MSIG Digital Roadside Assistance",
+        "url": "https://www.msig.com.my/digital-roadside-assistance-dra/"
+      },
+      {
+        "label": "MSIG Smart Towing",
+        "url": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+      },
+      {
+        "label": "Zurich Roadside Assistance",
+        "url": "https://www.zurich.com.my/zurich-roadside-assistance"
+      },
+      {
+        "label": "MyZurich app",
+        "url": "https://www.zurich.com.my/customer-hub/myzurich-app"
+      },
+      {
+        "label": "Zurich — rating kumpulan",
+        "url": "https://www.zurich.com/investor-relations/ratings"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "allianz-vs-aia",
+    "company1": "allianz",
+    "company2": "aia",
+    "summary": "Allianz lebih menonjol dalam fakta motor yang disemak melalui Road Rangers dan Allianz Motorcycle Plus, sementara AIA menggabungkan entiti motor am berasingan dengan kekuatan maklumat kesihatan dan aplikasi AIA+. Kedua-duanya bukan pilihan takaful motor yang disahkan di sini; keputusan perlu berpandukan polisi, bukan reputasi kumpulan.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Allianz General Insurance Company (Malaysia) Berhad mengendalikan perniagaan am dan Allianz Life Insurance Malaysia Berhad mengendalikan hayat; induknya Allianz SE.",
+        "b": "AIA General Berhad mengendalikan motor, berasingan daripada AIA Bhd dan AIA PUBLIC Takaful Bhd. Kumpulan AIA berpangkalan di Hong Kong.",
+        "note": "Untuk perlindungan motor, semak nama entiti am sebagai penerbit polisi. AIA Bhd dan AIA PUBLIC mempunyai peranan berbeza daripada AIA General."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Sumber rasmi yang kami semak mengesahkan insurans am dan hayat Allianz Malaysia, bukan operator takaful Allianz Malaysia.",
+        "b": "AIA PUBLIC Takaful ialah operator takaful keluarga; produk motor takaful AIA tidak disahkan.",
+        "note": "Tiada pilihan motor takaful yang disahkan untuk pasangan ini dalam sumber yang disemak. Sahkan sama ada jenis perlindungan yang anda perlukan ditawarkan sebelum membuat keputusan."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Allianz menawarkan perlindungan kereta komprehensif serta Allianz Motorcycle Plus.",
+        "b": "Motor dijual melalui AIA General Berhad, tetapi nama produk dan senarai tambahan motor tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Maklumat Allianz yang tersedia lebih khusus kepada motor. Untuk perbandingan adil, dapatkan wording dan jadual manfaat AIA General yang terkini."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Allianz Road Rangers menyediakan bantuan kemalangan 24/7 termasuk respons di lokasi, tunda dan concierge tuntutan.",
+        "b": "AIA menyenaraikan talian 1300-88-1899 untuk AIA Bhd dan AIA General; bantuan jalan motor 24 jam tidak disahkan.",
+        "note": "Jangan anggap talian perkhidmatan pelanggan bermaksud tunda disediakan. Semak langkah notis kemalangan dan nombor bantuan pada polisi."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "MyAllianz menyokong penghantaran dan penjejakan tuntutan, muat naik dokumen dan permohonan pihak ketiga tertentu.",
+        "b": "AIA+ menawarkan e-claims, kad perubatan elektronik, bayaran premium, integrasi Vitality dan teleperubatan.",
+        "note": "Bukti ciri AIA+ lebih tertumpu kepada kesihatan dan perkhidmatan pelanggan; bandingkan fungsi motor sebenar dengan jenis polisi yang anda pegang."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Allianz turut menyediakan insurans perjalanan serta hayat dan kesihatan melalui Allianz Life.",
+        "b": "AIA menawarkan produk hayat dan perubatan; A-Life Med Regular mempunyai perlindungan sehingga umur 100 tahun serta tiada had seumur hidup menurut bahan produk.",
+        "note": "Had dan akses panel pelan perubatan bergantung kepada kontrak. Jangan menyamakan produk hayat atau kesihatan dengan perlindungan motor."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Allianz SE mempunyai rating AM Best kumpulan A+ untuk kekuatan kewangan dan aa bagi kredit penerbit.",
+        "b": "Tiada rating AIA Malaysia setara ditemui dalam sumber rasmi yang kami semak untuk perbandingan ini.",
+        "note": "Rating Allianz yang disebut ialah peringkat kumpulan. Ia tidak mengukur secara langsung servis tuntutan atau kesihatan kewangan entiti polisi tempatan."
+      }
+    ],
+    "chooseA": [
+      "Pilih Allianz jika bantuan kemalangan Road Rangers 24/7 dan pilihan motor yang diterangkan lebih sepadan dengan keutamaan anda.",
+      "Pilih Allianz jika anda mahu meneliti produk motosikal dan perlindungan perjalanan/hayat dalam kumpulan yang sama."
+    ],
+    "chooseB": [
+      "Pilih AIA jika AIA+ dan pelan perubatan A-Life lebih relevan kepada keperluan perlindungan keluarga anda.",
+      "Pilih AIA jika anda mahu menilai motor melalui AIA General bersama produk hayat dan perubatan daripada entiti AIA lain."
+    ],
+    "sameForBoth": [
+      "Entiti am Allianz dan AIA General disenaraikan dalam direktori peserta kewangan BNM.",
+      "Pertikaian motor atau perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan muktamad penyedia, tertakluk pada syarat perkhidmatan.",
+      "Dapatkan sebut harga untuk kenderaan dan manfaat sama; premium bukan nilai tetap berdasarkan nama syarikat."
+    ],
+    "faqs": [
+      {
+        "q": "Syarikat mana mempunyai bantuan kemalangan motor 24 jam yang disahkan?",
+        "a": "Allianz menerangkan Road Rangers dengan talian 24/7. AIA mengesahkan talian perkhidmatan pelanggan, tetapi sumber yang disemak tidak mengesahkan servis bantuan jalan motor 24 jam."
+      },
+      {
+        "q": "Adakah AIA menawarkan motor takaful?",
+        "a": "AIA PUBLIC Takaful ialah operator takaful keluarga. Fakta yang disemak mengesahkan motor melalui AIA General tetapi tidak mengesahkan produk motor takaful."
+      },
+      {
+        "q": "Adakah rating Allianz bermaksud motor Allianz semestinya pilihan lebih baik?",
+        "a": "Tidak. Rating A+ merujuk kepada kumpulan Allianz SE; ia bukan skor manfaat motor atau kelajuan tuntutan. Bandingkan kontrak, khidmat yang disahkan dan sebut harga individu."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Allianz Road Rangers",
+        "url": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
+      },
+      {
+        "label": "MyAllianz",
+        "url": "https://www.allianz.com.my/personal/help-and-services/myallianz.html"
+      },
+      {
+        "label": "AIA — A-Life Med Regular",
+        "url": "https://www.aia.com.my/content/dam/my/en/docs/individuals/health/A-Life_Med_Regular.pdf"
+      },
+      {
+        "label": "AIA+ app",
+        "url": "https://www.aia.com.my/en/help-support/aia-app.html"
+      },
+      {
+        "label": "AM Best — rating kumpulan Allianz",
+        "url": "https://news.ambest.com/presscontent.aspx?altsrc=149&refnum=37164"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "etiqa-vs-msig",
+    "company1": "etiqa",
+    "company2": "msig",
+    "summary": "Etiqa menyediakan motor takaful dan insurans melalui entiti kumpulan, manakala MSIG Insurance Malaysia menawarkan insurans am dengan tambahan berasaskan penggunaan dan bantuan jalan digital. Kedua-duanya mempunyai pilihan tuntutan dan servis kenderaan, tetapi struktur takaful, skop digital dan produk lain berbeza.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Etiqa beroperasi melalui empat syarikat berlesen untuk insurans am, hayat, takaful keluarga dan takaful am di bawah Maybank.",
+        "b": "MSIG Insurance (Malaysia) Berhad ialah syarikat insurans am di bawah MS&AD/Mitsui Sumitomo; Hong Leong Financial Group memegang kepentingan 30%.",
+        "note": "Hong Leong MSIG Takaful ialah operator berasingan daripada MSIG Insurance. Periksa penerbit dalam kontrak, bukan sekadar nama kumpulan."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Etiqa menawarkan motor takaful melalui Etiqa General Takaful serta motor insurans konvensional.",
+        "b": "MSIG Insurance Malaysia ialah konvensional; pilihan berkaitan takaful berada di Hong Leong MSIG Takaful, entiti berasingan.",
+        "note": "Etiqa mempunyai pilihan motor takaful di bawah jenama yang dibandingkan. Bagi MSIG, minta dokumen daripada operator takaful berasingan jika itu yang anda cari."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Etiqa menyenaraikan private car takaful, agreed value dan ciri Cashback by Driving Less selain pilihan insurans motor.",
+        "b": "MSIG menawarkan motor konvensional serta EZ-Mile berasaskan penggunaan dan Microtag sebagai tambahan yang disemak.",
+        "note": "Bandingkan ciri produk dan kaedah pengiraan sumbangan/premium berdasarkan terma semasa. Tiada sebut harga tetap yang boleh mewakili semua kenderaan."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Etiqa Auto Assist Care menyediakan bantuan 24 jam, tunda percuma sehingga 200 km dan beberapa bantuan kerosakan asas.",
+        "b": "MSIG Motor Assist mempunyai talian 24 jam 1-300-880-833; Smart Towing menyokong penjejakan trak tunda.",
+        "note": "Had, bantuan yang termasuk dan cara mengaktifkan servis berbeza. Rujuk terma polisi serta panduan tuntutan untuk membezakan bantuan jalan daripada tuntutan kerosakan."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Etiqa+ menyokong urus polisi, penghantaran dan penjejakan tuntutan serta penjejakan bantuan jalan secara langsung.",
+        "b": "DRA, MY MSIG app dan Smart Towing menyediakan saluran digital untuk permintaan bantuan serta pemantauan tunda.",
+        "note": "Kedua-duanya mendokumenkan ciri digital motor. Pastikan polisi anda layak, lokasi disokong dan aplikasi/platform yang betul digunakan."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Etiqa menawarkan perjalanan, rumah, kemalangan diri, kesihatan dan hayat selain motor melalui entiti berlainan.",
+        "b": "MSIG menyenaraikan perjalanan, rumah, kemalangan diri dan kesihatan sebagai produk am; entiti hayat MSIG Malaysia tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Untuk produk hayat, bezakan rangkaian Etiqa yang mempunyai entiti hayat daripada MSIG Insurance Malaysia yang merupakan penanggung insurans am."
+      }
+    ],
+    "chooseA": [
+      "Pilih Etiqa jika mempunyai kontrak motor takaful sebagai pilihan bersama insurans konvensional penting untuk anda.",
+      "Pilih Etiqa jika anda mahu menyemak manfaat agreed value dan bantuan jalan Etiqa+ dalam satu penilaian."
+    ],
+    "chooseB": [
+      "Pilih MSIG jika tambahan EZ-Mile, Microtag atau penjejakan trak tunda Smart Towing sesuai dengan cara anda memandu.",
+      "Pilih MSIG jika anda membandingkan perlindungan am untuk motor, perjalanan, rumah dan kesihatan."
+    ],
+    "sameForBoth": [
+      "Entiti insurans am bagi kedua-dua jenama disenaraikan oleh BNM sebagai peserta berlesen.",
+      "FMOS menerima kategori pertikaian motor/perubatan tertentu selepas keputusan muktamad penyedia; syarat kelayakan dan tempoh rujukan dikenakan.",
+      "Kadar motor berbeza mengikut profil dan perlindungan; bandingkan sebut harga sebenar untuk spesifikasi, tambahan dan lebihan yang sama."
+    ],
+    "faqs": [
+      {
+        "q": "Siapa menawarkan motor takaful secara langsung?",
+        "a": "Etiqa mempunyai Etiqa General Takaful dan motor takaful. MSIG Insurance bersifat konvensional; Hong Leong MSIG Takaful ialah entiti berasingan yang perlu dihubungi untuk pilihan takaful."
+      },
+      {
+        "q": "Adakah Etiqa atau MSIG mempunyai aplikasi penjejakan tunda?",
+        "a": "Kedua-duanya menerangkan fungsi digital: Etiqa+ menjejak bantuan jalan secara langsung, manakala MSIG Smart Towing menyokong penjejakan trak tunda. Semak keserasian dan ketersediaan bagi polisi anda."
+      },
+      {
+        "q": "Patutkah saya memilih berdasarkan nama kumpulan?",
+        "a": "Tidak. Semak nama entiti, jenis kontrak, manfaat motor dan had servis bantuan. Kepentingan pemegang saham tidak menggantikan perbandingan wording dan sebut harga."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Etiqa — produk kereta",
+        "url": "https://www.etiqa.com.my/car"
+      },
+      {
+        "label": "Etiqa Auto Assist",
+        "url": "https://www.etiqa.com.my/etiqa-auto-assist"
+      },
+      {
+        "label": "MSIG Digital Roadside Assistance",
+        "url": "https://www.msig.com.my/digital-roadside-assistance-dra/"
+      },
+      {
+        "label": "MSIG Smart Towing",
+        "url": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "kurnia-vs-lonpac",
+    "company1": "kurnia",
+    "company2": "lonpac",
+    "summary": "Berjaya Sompo mempunyai bantuan kerosakan 24 jam dan aplikasi MySOMPO, manakala Lonpac menyediakan butiran meja tuntutan motor serta rating insurer AM Best A yang diterbitkan.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Berjaya Sompo Insurance Berhad ialah penanggung insurans am. Sejarah syarikat bermula sebagai cawangan pada 1974; Sompo Japan mengambil kepentingan dalam usaha sama yang kemudian meningkat.",
+        "b": "Lonpac Insurance Berhad ialah entiti insurans am dalam kumpulan LPI Capital yang kini berada di bawah Public Bank Group.",
+        "note": "Nota: jenama Kurnia kini di bawah Liberty General Insurance Berhad dan bukan sebahagian daripada Berjaya Sompo."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Sumber rasmi yang kami semak mengesahkan Berjaya Sompo sebagai penanggung insurans am; pilihan takaful Berjaya Sompo tidak disahkan.",
+        "b": "Lonpac ialah penanggung insurans am konvensional; tiada operator takaful Lonpac ditemui dalam sumber rasmi yang kami semak.",
+        "note": "Jika takaful diperlukan, semak operator dan kontrak secara berasingan — kewujudan produk takaful tidak boleh diandaikan hanya berdasarkan kumpulan korporat atau jenama."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Berjaya Sompo menyenaraikan perlindungan motor persendirian dan komersial serta motosikal. Nama pakej motor khusus tidak disahkan.",
+        "b": "Lonpac menjalankan insurans am termasuk motor; maklumat produk tambahan motor terperinci tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Sumber yang diperiksa tidak menyokong perbandingan harga atau senarai tambahan produk yang setara. Minta wording dan jadual manfaat bagi kereta anda."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Berjaya Sompo menyediakan talian khidmat pelanggan 1-800-88-9933 dan talian kerosakan 24 jam 1-800-18-8033; terdapat juga bantuan motosikal.",
+        "b": "Lonpac menyenaraikan meja tuntutan motor 03-2723 7899 dan meja bukan motor 03-2723 7898 pada waktu perkhidmatan yang dinyatakan.",
+        "note": "Bukti yang disemak mengesahkan talian kerosakan 24 jam Berjaya Sompo, tetapi bukan servis jalan 24 jam Lonpac. Sahkan ketersediaan dan had dengan Lonpac."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "MySOMPO membolehkan urusan tuntutan dan permintaan bantuan jalan.",
+        "b": "Lonpac menyediakan perkhidmatan melalui laman web; aplikasi pengguna atau nama platform khusus tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Jika mahu permintaan tunda secara digital, semak kaedah yang benar-benar tersedia untuk polisi anda."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Berjaya Sompo menyenaraikan perjalanan, kemalangan diri, kebakaran/rumah serta perkhidmatan berkaitan kesihatan; tiada produk hayat/takaful disahkan.",
+        "b": "Maklumat teras yang disemak mengesahkan Lonpac sebagai penanggung insurans am. Barisan produk hayat khusus tidak dikenal pasti.",
+        "note": "Semak halaman produk rasmi untuk setiap risiko dan entiti pengeluar; sumber yang tersedia tidak membuktikan keluasan produk yang setara."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tiada rating Berjaya Sompo khusus yang setara ditemui dalam sumber rasmi yang kami semak.",
+        "b": "Lonpac mempunyai rating kekuatan kewangan AM Best A (Excellent), Stable.",
+        "note": "Rating Lonpac ialah rating insurer yang diterbitkan; tiada rating sepadan untuk Berjaya Sompo dalam sumber rasmi yang kami semak. Skop rating bukan ukuran servis tuntutan."
+      }
+    ],
+    "chooseA": [
+      "Pilih Berjaya Sompo jika bantuan kerosakan 24 jam, termasuk saluran untuk motosikal, ialah ciri yang anda mahu sahkan pada polisi.",
+      "Pilih Berjaya Sompo jika MySOMPO untuk urusan tuntutan dan bantuan sepadan dengan keperluan digital anda."
+    ],
+    "chooseB": [
+      "Pilih Lonpac jika rating AM Best A (Excellent), Stable yang diterbitkan menjadi salah satu kriteria pertimbangan anda.",
+      "Pilih Lonpac jika meja tuntutan motor khusus dan sokongan kumpulan Public Bank relevan kepada cara anda mahu mengurus polisi."
+    ],
+    "sameForBoth": [
+      "Kedua-duanya ialah penanggung insurans am yang perlu dinilai berdasarkan entiti dan wording polisi sebenar.",
+      "Pertikaian motor tertentu boleh dirujuk kepada FMOS selepas keputusan muktamad penyedia, tertakluk kepada kelayakan dan tempoh rujukan.",
+      "Bandingkan sebut harga motor untuk kenderaan serta manfaat setara; fakta rating atau talian bantuan bukan pengganti perbandingan perlindungan."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah Berjaya Sompo sama dengan Kurnia?",
+        "a": "Tidak. Berjaya Sompo Insurance Berhad dan jenama Kurnia ialah syarikat berbeza — Kurnia kini di bawah Liberty General Insurance Berhad. Perbandingan ini ialah antara Berjaya Sompo dan Lonpac."
+      },
+      {
+        "q": "Siapa menawarkan bantuan kerosakan jalan 24 jam yang disahkan?",
+        "a": "Berjaya Sompo menyenaraikan talian kerosakan 24 jam 1-800-18-8033. Sumber Lonpac yang disemak menyenaraikan meja tuntutan, bukan pengesahan bantuan jalan 24 jam."
+      },
+      {
+        "q": "Adakah rating Lonpac A bermaksud tuntutan lebih cepat?",
+        "a": "Tidak. Rating AM Best ialah penilaian kekuatan kewangan, bukan ukuran kelajuan tuntutan atau jaminan hasil. Bandingkan juga wording polisi, saluran tuntutan dan sebut harga sebenar."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Berjaya Sompo — sejarah syarikat",
+        "url": "https://www.berjayasompo.com.my/about-berjaya-sompo"
+      },
+      {
+        "label": "Berjaya Sompo — hubungi kami",
+        "url": "https://www.berjayasompo.com.my/contact-us"
+      },
+      {
+        "label": "MySOMPO",
+        "url": "https://www.berjayasompo.com.my/mysompo"
+      },
+      {
+        "label": "Lonpac — tuntutan",
+        "url": "https://www.lonpac.com/claims"
+      },
+      {
+        "label": "AM Best — rating kekuatan kewangan Lonpac",
+        "url": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=35542"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "prudential-vs-aia",
+    "company1": "prudential",
+    "company2": "aia",
+    "summary": "Perbandingan Prudential dengan AIA bukan perbandingan dua penanggung insurans kereta setara: fakta yang disemak meletakkan Prudential pada perlindungan hayat dan kesihatan, tanpa perniagaan motor am. AIA pula mempunyai AIA General untuk motor bersama AIA Bhd, operator takaful keluarga dan aplikasi perubatan/digital.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Prudential Assurance Malaysia Berhad menyediakan hayat dan Prudential BSN Takaful ialah operator takaful keluarga. Prudential plc ialah kumpulan induk.",
+        "b": "AIA Bhd menyediakan hayat, AIA General Berhad insurans am termasuk motor dan AIA PUBLIC Takaful takaful keluarga.",
+        "note": "Perbezaan struktur penting untuk motor: tiada entiti am Prudential Malaysia disahkan dalam sumber rasmi yang kami semak, sementara AIA mempunyai AIA General."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Prudential BSN Takaful menawarkan takaful keluarga; produk motor takaful tidak disahkan dan tiada perniagaan motor am dikenal pasti.",
+        "b": "AIA PUBLIC Takaful ialah operator takaful keluarga; sumber yang disemak mengesahkan motor melalui AIA General tetapi tidak mengesahkan motor takaful.",
+        "note": "Jangan anggap entiti takaful keluarga menerbitkan perlindungan motor. Minta sijil dan nama pengendali untuk produk khusus."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Fakta yang disemak tidak menunjukkan Prudential Malaysia menjual produk motor atau tambahan kenderaan.",
+        "b": "AIA General Berhad menyediakan motor, tetapi nama pakej, senarai tambahan dan manfaat bantuan jalan khusus tidak disahkan.",
+        "note": "Jika tujuan anda membeli motor, minta sebut harga dan wording daripada AIA General atau bandingkan penyedia am lain; Prudential bukan perbandingan motor setara berdasarkan bukti ini."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Prudential menyediakan saluran khidmat pelanggan dan tuntutan untuk perlindungan hayat/kesihatan; bantuan jalan motor tidak terpakai berdasarkan fakta yang disemak.",
+        "b": "AIA menyenaraikan talian 1300-88-1899 untuk AIA Bhd dan AIA General; servis tunda atau bantuan jalan 24 jam tidak disahkan.",
+        "note": "Talian perkhidmatan tidak membuktikan manfaat roadside. Untuk aduan polisi, dapatkan keputusan bertulis sebelum mempertimbangkan saluran penyelesaian."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Prudential Malaysia App menyokong urusan polisi, bayaran dan tuntutan; Pulse by Prudential menyediakan fungsi kesihatan digital/telekesihatan.",
+        "b": "AIA+ menyediakan kad perubatan elektronik, e-claims, bayaran premium, AIA Vitality dan teleperubatan.",
+        "note": "Aplikasi kedua-dua kumpulan lebih banyak ciri yang disahkan dalam kesihatan dan servis polisi berbanding bantuan motor."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Prudential menawarkan hayat, kesihatan dan pelaburan berkaitan; PRUValue Med menyenaraikan Med Value Point dan manfaat kesihatan mengikut syarat pelan.",
+        "b": "AIA menawarkan hayat dan perubatan; A-Life Med Regular mempunyai perlindungan perubatan sehingga umur 100 tahun tanpa had seumur hidup menurut bahan produk.",
+        "note": "Manfaat perubatan kedua-duanya berbeza dari segi reka bentuk dan terma. Bandingkan had, perkongsian kos, pengecualian dan umur perlindungan pada dokumen terkini."
+      }
+    ],
+    "chooseA": [
+      "Pilih Prudential jika fokus anda ialah hayat, kesihatan atau takaful keluarga dan anda mahu mengurus polisi melalui Prudential Malaysia App.",
+      "Pilih Prudential jika fungsi kesihatan digital Pulse dan pilihan perlindungan perubatan Prudential relevan kepada keperluan keluarga."
+    ],
+    "chooseB": [
+      "Pilih AIA jika anda memerlukan penyedia dalam perbandingan ini yang mempunyai entiti am motor, AIA General Berhad.",
+      "Pilih AIA jika AIA+ dan manfaat pelan perubatan A-Life penting untuk dibandingkan bersama polisi hayat atau motor berasingan."
+    ],
+    "sameForBoth": [
+      "Kedua-dua kumpulan mempunyai entiti takaful keluarga yang disenaraikan BNM; ini tidak bermaksud mereka menawarkan takaful motor.",
+      "Pertikaian perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, tertakluk pada syarat dan had masa.",
+      "Dapatkan sebut harga daripada entiti yang tepat. Perbandingan ini tidak mendakwa kedua-duanya menawarkan produk motor yang setara."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah Prudential menjual insurans kereta di Malaysia?",
+        "a": "Fakta yang disemak mengesahkan Prudential Assurance Malaysia untuk hayat dan Prudential BSN Takaful untuk takaful keluarga, bukan entiti motor am. AIA mempunyai AIA General Berhad untuk perniagaan am."
+      },
+      {
+        "q": "Bolehkah Prudential BSN Takaful menggantikan insurans motor?",
+        "a": "Tidak berdasarkan fakta yang disemak. Prudential BSN Takaful ialah pengendali takaful keluarga; jangan menganggap ia mengeluarkan sijil motor. Sahkan produk motor dengan operator am berlesen."
+      },
+      {
+        "q": "Apakah beza aplikasi digital kedua-duanya?",
+        "a": "Prudential Malaysia App menyokong urusan polisi dan tuntutan, manakala Pulse menyediakan ciri kesihatan digital. AIA+ menyokong kad perubatan, e-claims dan teleperubatan; fungsi motor khusus perlu disahkan."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Prudential Malaysia — syarikat dan sejarah",
+        "url": "https://www.prudential.com.my/en/about-us/our-company/"
+      },
+      {
+        "label": "Prudential Malaysia App",
+        "url": "https://www.prudential.com.my/en/services-and-claims/prudential-malaysia-app/"
+      },
+      {
+        "label": "AIA — kad perubatan dan tuntutan hospital",
+        "url": "https://www.aia.com.my/en/help-support/claims-and-support/hospitalisation-corp.html"
+      },
+      {
+        "label": "AIA+ app",
+        "url": "https://www.aia.com.my/en/help-support/aia-app.html"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "tokio-marine-vs-allianz",
+    "company1": "tokio-marine",
+    "company2": "allianz",
+    "summary": "Tokio Marine membezakan motor melalui AutoPro dan manfaat khusus kenderaan, manakala Allianz mempunyai respons kemalangan 24/7 melalui Road Rangers serta perlindungan Allianz Motorcycle Plus. Kedua-dua kumpulan mempunyai rating kumpulan AM Best dalam sumber disemak, tetapi rating tersebut berskala berlainan dan tidak menentukan polisi terbaik untuk setiap pemandu.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Tokio Marine Insurance (Malaysia) Berhad ialah penanggung insurans am dan Tokio Marine Life Insurance Malaysia ialah entiti hayat. Kumpulan induknya Tokio Marine Holdings.",
+        "b": "Allianz General Insurance Company (Malaysia) Berhad menjalankan am dan Allianz Life Insurance Malaysia Berhad menjalankan hayat; induknya Allianz SE.",
+        "note": "Setiap jenama menggunakan entiti berasingan mengikut produk; rujuk jadual polisi untuk mengetahui syarikat yang menanggung risiko."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Operator takaful Tokio Marine Malaysia tidak ditemui dalam sumber rasmi yang kami semak.",
+        "b": "Operator takaful Allianz Malaysia tidak ditemui dalam sumber rasmi yang kami semak; entiti yang disahkan ialah insurans am dan hayat konvensional.",
+        "note": "Jika perlu kontrak takaful, sahkan produk dan pengendali lain yang berlesen. Fakta yang dibekalkan tidak menyokong pilihan takaful motor bagi pasangan ini."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "AutoPro menyenaraikan pengecualian lebihan pemandu tanpa nama, tunda tanpa had, pengecualian betterment untuk kenderaan tertentu serta manfaat tambahan.",
+        "b": "Allianz menyediakan perlindungan kereta komprehensif dan Allianz Motorcycle Plus.",
+        "note": "Butiran AutoPro seperti manfaat banjir dan perlindungan pengecas EV mempunyai terma dan had. Dapatkan wording semasa sebelum membandingkan harga."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Tokio Marine menyediakan panduan tuntutan motor, talian 1800-88-0812 dan Auto Partner untuk bantuan kerosakan/tunda.",
+        "b": "Allianz Road Rangers beroperasi 24/7, dengan respons awal, tunda dan concierge tuntutan kemalangan.",
+        "note": "Bandingkan skop servis selepas insiden, bukan nombor hotline sahaja. Periksa had tunda serta bantuan perjalanan pulang atau urusan kenderaan."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Tokio Marine mempunyai portal perkhidmatan dalam talian; aplikasi pengguna motor Malaysia khusus tidak dikenal pasti.",
+        "b": "MyAllianz menyediakan penghantaran dan penjejakan tuntutan, muat naik dokumen dan urusan motor tertentu.",
+        "note": "Jika penggunaan aplikasi penting, semak ketersediaan fungsi untuk polisi khusus. Saluran tuntutan melalui laman web masih boleh berbeza daripada aplikasi."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Tokio Marine turut menawarkan perjalanan, rumah dan kemalangan diri serta produk hayat melalui entiti hayat tempatan.",
+        "b": "Allianz menawarkan perjalanan; hayat dan kesihatan disediakan melalui Allianz Life.",
+        "note": "Kedua-dua kumpulan mempunyai perniagaan hayat dan motor, namun kontrak serta proses tuntutan ditadbir oleh entiti berasingan."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tokio Marine & Nichido mempunyai rating AM Best kekuatan kewangan kumpulan A++ dan kredit penerbit aa+.",
+        "b": "Allianz SE mempunyai rating AM Best kekuatan kewangan kumpulan A+ dan kredit penerbit aa.",
+        "note": "Rating berskop kumpulan dan penarafan kredit penerbit bukan metrik yang sama. Ia tidak patut digunakan sebagai kedudukan langsung untuk polisi motor tempatan."
+      }
+    ],
+    "chooseA": [
+      "Pilih Tokio Marine jika manfaat AutoPro seperti tunda tanpa had atau ciri berkaitan pengecas EV penting untuk kenderaan anda.",
+      "Pilih Tokio Marine jika anda mahu menyemak perlindungan perjalanan, rumah dan hayat dalam satu kumpulan."
+    ],
+    "chooseB": [
+      "Pilih Allianz jika respons kemalangan Road Rangers 24/7 dan concierge tuntutan memberi nilai kepada anda.",
+      "Pilih Allianz jika anda memerlukan pilihan motor motosikal dan aplikasi MyAllianz untuk urusan digital."
+    ],
+    "sameForBoth": [
+      "Kedua-dua entiti insurans am disenaraikan BNM sebagai penyedia berlesen.",
+      "FMOS menyediakan saluran bagi pertikaian motor dan perubatan tertentu selepas keputusan akhir penyedia, tertakluk kepada kriteria perkhidmatan.",
+      "Premium motor perlu dibandingkan menggunakan risiko, kenderaan, lebihan dan tambahan yang sama, bukan rating kumpulan."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah kedua-dua syarikat menawarkan bantuan jalan 24 jam?",
+        "a": "Allianz menyatakan Road Rangers 24/7. Tokio Marine menyenaraikan talian tuntutan dan Auto Partner untuk kerosakan/tunda; sahkan waktu operasi serta skop bantuan dalam terma semasa."
+      },
+      {
+        "q": "Bolehkah rating AM Best A++ dan A+ digunakan untuk menentukan polisi?",
+        "a": "Tidak secara langsung. Rating tersebut ialah skop kumpulan dan meliputi ukuran kewangan, bukan mutu manfaat, kelajuan tuntutan atau kesesuaian perlindungan kenderaan."
+      },
+      {
+        "q": "Apa perbezaan paling praktikal untuk pemilik kereta?",
+        "a": "Bandingkan manfaat AutoPro dan hadnya dengan servis Allianz Road Rangers, kemudian semak sebut harga serta pengecualian. Jika guna motosikal, Allianz Motorcycle Plus juga patut diperiksa."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Tokio Marine AutoPro",
+        "url": "https://www.tokiomarine.com/my/en/non-life/products/personal/motor/tokio-marine-autopro.html"
+      },
+      {
+        "label": "Tokio Marine — tuntutan motor",
+        "url": "https://www.tokiomarine.com/my/en/non-life/claim/step-by-step-claim-guide/personal/motor-claims-process.html"
+      },
+      {
+        "label": "Allianz Road Rangers",
+        "url": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
+      },
+      {
+        "label": "MyAllianz",
+        "url": "https://www.allianz.com.my/personal/help-and-services/myallianz.html"
+      },
+      {
+        "label": "AM Best — rating kumpulan Tokio Marine & Nichido",
+        "url": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=37849"
+      },
+      {
+        "label": "AM Best — rating kumpulan Allianz",
+        "url": "https://news.ambest.com/presscontent.aspx?altsrc=149&refnum=37164"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "etiqa-vs-zurich",
+    "company1": "etiqa",
+    "company2": "zurich",
+    "summary": "Etiqa dan Zurich masing-masing menggabungkan insurans dan takaful dalam kumpulan, tetapi saluran bantuan serta bukti produk motor berbeza. Etiqa mempunyai tawaran motor takaful dan bantuan Auto Assist yang menyatakan had tunda, manakala Zurich menyediakan entiti takaful am dan bantuan jalan yang boleh dijejak melalui MyZurich.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Etiqa merangkumi syarikat insurans am dan hayat serta operator takaful keluarga dan am di bawah Maybank.",
+        "b": "Zurich merangkumi entiti am, hayat, takaful keluarga dan takaful am dalam kumpulan Zurich.",
+        "note": "Pilih pengeluar polisi yang tepat: satu jenama boleh menawarkan kontrak melalui syarikat insurans dan operator takaful yang berbeza."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Etiqa General Takaful menawarkan motor takaful selain insurans motor konvensional.",
+        "b": "Zurich mempunyai Zurich Takaful Malaysia dan Zurich General Takaful Malaysia; kumpulan turut menawarkan motor konvensional.",
+        "note": "Kedua-duanya mempunyai pilihan takaful dalam kumpulan. Semak sama ada model kereta dan perlindungan yang diperlukan ditawarkan oleh entiti tertentu."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Etiqa menyenaraikan private car takaful, agreed value dan ciri Cashback by Driving Less; tersedia pilihan motor konvensional juga.",
+        "b": "Zurich menyediakan perlindungan motor, tetapi nama produk motor khusus dan senarai tambahan tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Bandingkan manfaat yang dinyatakan pada jadual polisi seperti nilai dipersetujui, banjir, cermin dan lebihan. Jangan anggap terma serupa daripada ringkasan jenama."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Etiqa Auto Assist Care menyediakan bantuan 24 jam dan tunda percuma sehingga 200 km, bersama bantuan kerosakan asas.",
+        "b": "Zurich Roadside Assistance menyediakan bantuan kerosakan dan tunda 24 jam melalui 1-300-88-5566.",
+        "note": "Skop dan had kilometer antara servis berbeza. Semak sama ada tunda percuma terpakai kepada lokasi dan kejadian tertentu."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Etiqa+ menyokong tuntutan, pengurusan polisi serta penjejakan langsung bantuan jalan.",
+        "b": "MyZurich membolehkan permintaan bantuan jalan dengan penjejakan GPS, carian bengkel panel dan penghantaran tuntutan motor; MyMed untuk perubatan.",
+        "note": "Pertimbangkan fungsi yang benar-benar diperlukan seperti penjejakan kenderaan tunda atau penghantaran tuntutan dan semak sokongan polisi anda."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Etiqa menawarkan perjalanan, rumah, kemalangan diri, kesihatan dan hayat selain motor.",
+        "b": "Zurich menyediakan perjalanan, rumah, hayat, takaful keluarga dan produk am serta motor.",
+        "note": "Kedua-duanya merangkumi pelbagai kategori, tetapi perlindungan kesihatan dan hayat dikeluarkan melalui produk serta entiti berasingan."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Tiada rating kumpulan Etiqa yang setara dikenal pasti dalam fakta perbandingan ini.",
+        "b": "Kumpulan Zurich menerbitkan rating kekuatan kewangan AM Best A+.",
+        "note": "Rating yang disebut hanya untuk kumpulan Zurich; ketiadaan rating setara dalam bahan Etiqa bukan bukti kelemahan. Semak skop dan tarikh laporan."
+      }
+    ],
+    "chooseA": [
+      "Pilih Etiqa jika pilihan motor takaful bersama insurans konvensional dan ciri agreed value menjadi keutamaan anda.",
+      "Pilih Etiqa jika anda mahu mengurus tuntutan dan bantuan jalan melalui Etiqa+ dengan had tunda yang diterangkan."
+    ],
+    "chooseB": [
+      "Pilih Zurich jika anda mahu menyemak pilihan insurans serta takaful am dan keluarga daripada entiti berlainan dalam kumpulan.",
+      "Pilih Zurich jika penjejakan GPS bantuan jalan dan pencari bengkel melalui MyZurich membantu anda."
+    ],
+    "sameForBoth": [
+      "Entiti berlesen berkaitan kedua-dua kumpulan tersenarai dalam direktori peserta sektor kewangan BNM.",
+      "Pertikaian motor atau perubatan tertentu boleh dikemukakan kepada FMOS selepas keputusan akhir penyedia, tertakluk kepada syarat.",
+      "Premium motor berubah mengikut kenderaan dan profil risiko; bandingkan quote sebenar menggunakan butiran dan pilihan tambahan yang sama."
+    ],
+    "faqs": [
+      {
+        "q": "Antara Etiqa dan Zurich, siapa mempunyai had tunda yang dinyatakan?",
+        "a": "Etiqa Auto Assist Care menyatakan tunda percuma sehingga 200 km. Zurich mengesahkan bantuan tunda 24 jam, tetapi had yang sama tidak ditentukan dalam sumber rasmi yang kami semak."
+      },
+      {
+        "q": "Adakah kedua-duanya mempunyai motor takaful?",
+        "a": "Etiqa General Takaful menawarkan motor takaful. Zurich mempunyai operator takaful am tempatan; sahkan produk dan manfaat motor takaful semasa dengan entiti penerbit."
+      },
+      {
+        "q": "Aplikasi mana yang menyokong penjejakan bantuan jalan?",
+        "a": "Etiqa+ menyokong penjejakan bantuan jalan secara langsung dan MyZurich menyokong permintaan bantuan jalan dengan penjejakan GPS. Periksa ketersediaan untuk polisi dan kawasan anda."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Etiqa — produk kereta",
+        "url": "https://www.etiqa.com.my/car"
+      },
+      {
+        "label": "Etiqa Auto Assist",
+        "url": "https://www.etiqa.com.my/etiqa-auto-assist"
+      },
+      {
+        "label": "Zurich Roadside Assistance",
+        "url": "https://www.zurich.com.my/zurich-roadside-assistance"
+      },
+      {
+        "label": "MyZurich app",
+        "url": "https://www.zurich.com.my/customer-hub/myzurich-app"
+      },
+      {
+        "label": "Zurich — rating kumpulan",
+        "url": "https://www.zurich.com/investor-relations/ratings"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "takaful-malaysia-vs-etiqa",
+    "company1": "takaful-malaysia",
+    "company2": "etiqa",
+    "summary": "Kedua-duanya menyediakan motor takaful, namun struktur produk dan bantuan berbeza. Takaful Malaysia ialah pengendali khusus dengan Tele Bantuan dan panduan tuntutan yang menyatakan langkah masa; Etiqa menggabungkan motor takaful dengan insurans konvensional serta bantuan jalan yang menawarkan tunda sehingga 200 km.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Syarikat Takaful Malaysia Keluarga Berhad menyediakan takaful keluarga dan Syarikat Takaful Malaysia Am Berhad menyediakan takaful am; keduanya disenaraikan BNM.",
+        "b": "Etiqa mempunyai entiti insurans am dan hayat serta operator takaful keluarga dan am dalam kumpulan Maybank.",
+        "note": "Kedua-duanya mempunyai operator takaful berlesen, tetapi Takaful Malaysia beroperasi sebagai kumpulan takaful manakala Etiqa juga mengeluarkan insurans konvensional."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Takaful Malaysia menawarkan motor takaful termasuk pembelian/renewal dalam talian melalui saluran motor dan Kaotim.",
+        "b": "Etiqa General Takaful menyediakan Private Car Takaful; pelanggan turut boleh menyemak pilihan insurans konvensional Etiqa.",
+        "note": "Sahkan sijil takaful, jumlah sumbangan, lebihan dan manfaat tambahan; nama jenama sahaja tidak menentukan struktur atau skop perlindungan."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Takaful Malaysia memasarkan motor takaful dalam talian; butiran tambahan khusus bergantung pada produk yang dipilih.",
+        "b": "Etiqa menyenaraikan agreed value dan ciri Cashback by Driving Less pada tawaran kereta selain motor takaful.",
+        "note": "Bandingkan manfaat yang sama dan semak syarat kelayakan serta pengecualian pada wording polisi/sijil terkini."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Panduan tuntutan meminta laporan polis dalam 24 jam dan notis dalam tujuh hari. Tele Bantuan 24/7 menyediakan bantuan kerosakan dan tunda dengan had dinyatakan.",
+        "b": "Etiqa Auto Assist Care beroperasi 24 jam, termasuk tunda percuma sehingga 200 km dan beberapa bantuan kerosakan.",
+        "note": "Tele Bantuan menyatakan had tunda untuk kereta dan motosikal serta had kemalangan tertentu; semak syarat semasa kerana ia tidak sama dengan had Etiqa."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "Tele Bantuan mempunyai aplikasi khusus untuk permintaan bantuan dan penjejakan trak tunda.",
+        "b": "Etiqa+ menyokong pengurusan polisi, penghantaran/penjejakan tuntutan dan penjejakan bantuan jalan.",
+        "note": "Kedua-duanya menyokong urusan digital bantuan, tetapi aplikasi khusus Takaful Malaysia berfokus kepada Tele Bantuan sedangkan Etiqa+ lebih luas."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Takaful Malaysia menawarkan takaful keluarga dan kredit selain takaful am/motor; skala perniagaan kredit takaful disebut dalam penilaian RAM.",
+        "b": "Etiqa menawarkan perjalanan, rumah, kemalangan diri, kesihatan dan hayat selain motor takaful dan insurans konvensional.",
+        "note": "Pilihan produk Etiqa merangkumi insurans konvensional juga; Takaful Malaysia ialah pilihan khusus takaful. Semak entiti dan kontrak untuk setiap kategori."
+      },
+      {
+        "label": "Kestabilan kewangan dan rating",
+        "a": "Syarikat Takaful Malaysia Keluarga mempunyai rating IFS RAM AA2/Stable/P1 menurut kenyataan RAM.",
+        "b": "Tiada rating Etiqa yang setara ditemui dalam sumber rasmi yang kami semak.",
+        "note": "Rating RAM tersebut merujuk kepada entiti takaful keluarga tertentu. Agensi dan entiti tidak sama, jadi jangan bandingkan sebagai satu skala prestasi polisi."
+      }
+    ],
+    "chooseA": [
+      "Pilih Takaful Malaysia jika anda mahukan penyedia khusus takaful dan menggunakan panduan tuntutan serta Tele Bantuan yang diterangkan.",
+      "Pilih Takaful Malaysia jika pengendalian bantuan tunda melalui aplikasi Tele Bantuan dan operator takaful am khusus penting."
+    ],
+    "chooseB": [
+      "Pilih Etiqa jika anda mahu membandingkan motor takaful dan motor konvensional di bawah satu jenama.",
+      "Pilih Etiqa jika manfaat agreed value atau Cashback by Driving Less sepadan dengan keperluan penggunaan anda."
+    ],
+    "sameForBoth": [
+      "Kedua-dua operator takaful tersenarai dalam direktori peserta sektor kewangan BNM.",
+      "Pertikaian motor dan perubatan takaful tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, tertakluk pada kriteria perkhidmatan.",
+      "Sumbangan/premium motor berubah mengikut risiko dan perlindungan; bandingkan sebut harga serta had bantuan, lebihan dan pengecualian."
+    ],
+    "faqs": [
+      {
+        "q": "Adakah kedua-dua penyedia mempunyai motor takaful?",
+        "a": "Ya. Takaful Malaysia Am dan Etiqa General Takaful menawarkan pilihan motor takaful. Etiqa juga mempunyai motor konvensional, jadi pastikan sebut harga yang dibandingkan menggunakan jenis kontrak sama."
+      },
+      {
+        "q": "Berapa jauh Tele Bantuan menunda kenderaan?",
+        "a": "Terma yang disemak menyatakan had berbeza untuk kereta dan motosikal serta had kemalangan tertentu. Rujuk halaman Tele Bantuan untuk nilai dan syarat semasa; ia tidak sama dengan tunda Etiqa sehingga 200 km."
+      },
+      {
+        "q": "Adakah RAM AA2/Stable membuktikan tuntutan lebih baik?",
+        "a": "Tidak. RAM AA2/Stable ialah rating IFS entiti Syarikat Takaful Malaysia Keluarga, bukan penilaian kelajuan tuntutan atau perbandingan sepadan dengan rating Etiqa."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori pengendali takaful BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator"
+      },
+      {
+        "label": "Takaful Malaysia — motor",
+        "url": "https://online.takaful-malaysia.com.my/Motor"
+      },
+      {
+        "label": "Takaful Malaysia — Tele Bantuan",
+        "url": "https://www.takaful-malaysia.com.my/en/telebantuan/"
+      },
+      {
+        "label": "Takaful Malaysia — panduan tuntutan",
+        "url": "https://www.takaful-malaysia.com.my/en/claim-guide/"
+      },
+      {
+        "label": "Etiqa Auto Assist",
+        "url": "https://www.etiqa.com.my/etiqa-auto-assist"
+      },
+      {
+        "label": "RAM — rating Syarikat Takaful Malaysia Keluarga",
+        "url": "https://www.ram.com.my/pressrelease/?prviewid=7195"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "great-eastern-vs-msig",
+    "company1": "great-eastern",
+    "company2": "msig",
+    "summary": "Great Eastern menggabungkan entiti hayat, am dan takaful keluarga serta aplikasi GEC untuk peserta korporat; MSIG Malaysia yang disemak ialah penanggung insurans am dengan alat digital motor seperti Smart Towing. Bukti produk kesihatan dan motor tidak sama luas, jadi periksa jenis pelanggan dan kontrak yang ditawarkan.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "Great Eastern Life Assurance (Malaysia) Berhad, Great Eastern General Insurance (Malaysia) Berhad dan Great Eastern Takaful Berhad meliputi hayat, am serta takaful keluarga; kumpulan di bawah OCBC.",
+        "b": "MSIG Insurance (Malaysia) Berhad ialah syarikat insurans am di bawah Mitsui Sumitomo Insurance/MS&AD; Hong Leong Financial Group memegang 30%.",
+        "note": "Hong Leong MSIG Takaful merupakan pengendali takaful berasingan daripada MSIG Insurance Malaysia."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "Great Eastern Takaful Berhad ialah operator takaful keluarga yang disenaraikan BNM; produk motor takaful khusus tidak disahkan.",
+        "b": "MSIG Insurance Malaysia ialah insurans konvensional; Hong Leong MSIG Takaful ialah entiti usaha sama yang berasingan.",
+        "note": "Kedua-dua jenama berkait dengan operator takaful tetapi sumber rasmi yang kami semak tidak mengesahkan kontrak motor takaful bagi pasangan ini."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Great Eastern mempunyai entiti am berlesen, namun nama produk motor khusus dan tambahan kereta tidak disahkan dalam sumber rasmi yang kami semak.",
+        "b": "MSIG menawarkan insurans motor dan pilihan tambahan seperti EZ-Mile berasaskan penggunaan serta Microtag.",
+        "note": "MSIG menerbitkan maklumat tambahan motor yang lebih khusus. Minta dokumen Great Eastern General dan MSIG untuk membuat perbandingan perlindungan setara."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "Great Eastern General menyenaraikan talian tuntutan am 1300-13-1088; bantuan jalan 24 jam tidak disahkan.",
+        "b": "MSIG Motor Assist mempunyai talian 24 jam 1-300-880-833 dan Smart Towing menyediakan penjejakan trak tunda.",
+        "note": "Talian tuntutan tidak sama dengan hotline kerosakan. Sahkan servis jalan Great Eastern terus sebelum membuat andaian tentang ketersediaan."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "GEC app menawarkan kad perubatan digital, pencari panel hospital/klinik serta penghantaran dan penjejakan tuntutan/GL untuk pelanggan korporat atau kumpulan.",
+        "b": "MY MSIG app, DRA dan Smart Towing menyokong permintaan bantuan serta penjejakan tunda untuk kegunaan motor.",
+        "note": "Kegunaan aplikasi berlainan: GEC khusus kepada perlindungan kumpulan, sementara ciri MSIG yang disahkan fokus bantuan motor."
+      },
+      {
+        "label": "Produk lain",
+        "a": "Great Eastern menyenaraikan hayat, pelaburan berkaitan, kesihatan/perubatan, manfaat pekerja/kumpulan dan perlindungan gadai janji.",
+        "b": "MSIG menawarkan perjalanan, rumah, kemalangan diri dan kesihatan; entiti hayat MSIG Malaysia tidak disahkan dalam sumber rasmi yang kami semak.",
+        "note": "Pelanggan yang menilai perlindungan hayat boleh menyemak barisan Great Eastern; fakta yang disemak tidak menunjukkan produk hayat MSIG Insurance Malaysia."
+      }
+    ],
+    "chooseA": [
+      "Pilih Great Eastern jika anda membandingkan perlindungan hayat/perubatan atau skim korporat dengan akses aplikasi GEC.",
+      "Pilih Great Eastern jika pilihan pengendali takaful keluarga dalam kumpulan menjadi sebahagian daripada semakan anda."
+    ],
+    "chooseB": [
+      "Pilih MSIG jika Smart Towing, Motor Assist 24 jam atau tambahan telematik lebih penting untuk penggunaan kereta.",
+      "Pilih MSIG jika anda mencari insurans am yang turut mempunyai kategori perjalanan, rumah, kemalangan diri dan kesihatan."
+    ],
+    "sameForBoth": [
+      "Entiti insurans am masing-masing disenaraikan dalam direktori peserta BNM.",
+      "Pertikaian motor/perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, jika menepati skop dan tempoh.",
+      "Tidak semua fungsi digital atau perlindungan tersedia kepada setiap pemegang polisi; sahkan kategori pelanggan dan entiti penerbit."
+    ],
+    "faqs": [
+      {
+        "q": "Aplikasi GEC sesuai untuk siapa?",
+        "a": "Great Eastern menerangkan GEC app untuk peserta korporat atau kumpulan bagi kad perubatan digital, pencari panel, tuntutan dan GL. Ia bukan bukti bahawa semua pelanggan individu mendapat fungsi yang sama."
+      },
+      {
+        "q": "Siapa mempunyai bantuan motor 24 jam yang disahkan?",
+        "a": "MSIG menyenaraikan Motor Assist 24 jam dan Smart Towing. Great Eastern General menyenaraikan talian tuntutan, tetapi sumber yang disemak tidak mengesahkan bantuan jalan 24 jam."
+      },
+      {
+        "q": "Adakah Great Eastern dan MSIG menawarkan produk motor setara?",
+        "a": "Great Eastern General ialah entiti am berlesen, tetapi nama pakej dan tambahan motor tidak disahkan dalam sumber rasmi yang kami semak. MSIG mempunyai tambahan motor yang dinamakan; dapatkan wording kedua-duanya untuk perbandingan tepat."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "Great Eastern — profil Malaysia",
+        "url": "https://www.greateasternlife.com/my/en/about-us/company-profile/about-great-eastern-malaysia.html"
+      },
+      {
+        "label": "Great Eastern Corporate app",
+        "url": "https://www.greateasternlife.com/my/en/corporate-solutions/group-insurance/gec-app.html"
+      },
+      {
+        "label": "MSIG Digital Roadside Assistance",
+        "url": "https://www.msig.com.my/digital-roadside-assistance-dra/"
+      },
+      {
+        "label": "MSIG Smart Towing",
+        "url": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  },
+  {
+    "slug": "aia-vs-msig",
+    "company1": "aia",
+    "company2": "msig",
+    "summary": "AIA menggabungkan hayat, perubatan, motor am dan takaful keluarga melalui entiti berlainan, dengan aplikasi AIA+ yang memberi tumpuan kepada perkhidmatan kesihatan. MSIG Malaysia ialah penanggung insurans am yang menunjukkan lebih banyak ciri motor telematik dan bantuan jalan digital. Bezakan skop motor daripada kesihatan sebelum meminta sebut harga.",
+    "dimensions": [
+      {
+        "label": "Entiti, lesen dan pemilik",
+        "a": "AIA Bhd ialah hayat, AIA General Berhad ialah am termasuk motor, dan AIA PUBLIC Takaful ialah takaful keluarga. Kumpulan AIA berpangkalan di Hong Kong.",
+        "b": "MSIG Insurance (Malaysia) Berhad ialah penanggung insurans am di bawah Mitsui Sumitomo Insurance/MS&AD; Hong Leong Financial Group memegang 30%.",
+        "note": "Hong Leong MSIG Takaful ialah entiti berasingan daripada MSIG Insurance, sama seperti entiti AIA yang berbeza mengeluarkan kontrak masing-masing."
+      },
+      {
+        "label": "Pilihan takaful",
+        "a": "AIA PUBLIC Takaful ialah operator takaful keluarga. Fakta yang disemak tidak mengesahkan takaful motor AIA.",
+        "b": "MSIG Insurance Malaysia ialah konvensional; Hong Leong MSIG Takaful merupakan operator usaha sama berasingan.",
+        "note": "Jika mencari takaful motor, sahkan produk pada operator yang betul. Pengendali takaful keluarga tidak semestinya menawarkan produk motor."
+      },
+      {
+        "label": "Produk motor dan tambahan",
+        "a": "Motor disediakan oleh AIA General Berhad, tetapi nama produk kereta serta tambahan tertentu tidak disahkan dalam sumber rasmi yang kami semak.",
+        "b": "MSIG menawarkan motor konvensional dengan tambahan EZ-Mile berasaskan penggunaan dan Microtag.",
+        "note": "Sumber yang disemak memberi butiran lebih khusus mengenai tambahan MSIG. Minta wording motor AIA General dan bandingkan tambahan yang setara."
+      },
+      {
+        "label": "Tuntutan dan bantuan jalan",
+        "a": "AIA menyenaraikan talian 1300-88-1899 untuk AIA Bhd dan AIA General; bantuan motor jalan 24 jam tidak disahkan.",
+        "b": "MSIG Motor Assist beroperasi 24 jam di 1-300-880-833, dengan Digital Roadside Assistance dan Smart Towing.",
+        "note": "Talian penjagaan pelanggan bukan jaminan bantuan tunda. Pastikan jenis servis, had dan cara meminta bantuan dinyatakan dalam kontrak."
+      },
+      {
+        "label": "Aplikasi digital",
+        "a": "AIA+ menyediakan kad perubatan elektronik, e-claims, bayaran premium, integrasi Vitality dan teleperubatan.",
+        "b": "MY MSIG app dan Digital Roadside Assistance menyokong permintaan bantuan digital serta Smart Towing untuk menjejak trak.",
+        "note": "Bukti AIA+ lebih jelas untuk pengurusan kesihatan; ciri MSIG yang diterangkan di sini memfokus kepada motor."
+      },
+      {
+        "label": "Produk lain",
+        "a": "AIA menyediakan hayat dan perubatan melalui AIA Bhd; A-Life Med Regular menyatakan perlindungan sehingga umur 100 tahun tanpa had seumur hidup.",
+        "b": "MSIG menyenaraikan perjalanan, rumah, kemalangan diri dan kesihatan dalam perniagaan insurans am; produk hayat tempatan tidak disahkan.",
+        "note": "Jika mencari perlindungan hayat, bukti barisan AIA lebih lengkap dalam sumber ini. Semak had dan terma perubatan, bukan hanya ciri aplikasi."
+      }
+    ],
+    "chooseA": [
+      "Pilih AIA jika perkhidmatan perubatan digital AIA+ serta produk hayat/kesihatan lebih utama daripada fungsi bantuan jalan.",
+      "Pilih AIA jika anda mahu semak motor melalui AIA General bersama pilihan hayat dan takaful keluarga dalam kumpulan."
+    ],
+    "chooseB": [
+      "Pilih MSIG jika EZ-Mile, Microtag atau penjejakan tunda Smart Towing sesuai dengan keperluan motor anda.",
+      "Pilih MSIG jika saluran Motor Assist 24 jam dan permintaan bantuan digital menjadi sebahagian daripada kriteria."
+    ],
+    "sameForBoth": [
+      "AIA General dan MSIG Insurance Malaysia ialah entiti insurans am yang disenaraikan BNM.",
+      "Pertikaian motor atau perubatan tertentu boleh dirujuk kepada FMOS selepas keputusan akhir penyedia, tertakluk pada kelayakan.",
+      "Tiada premium seragam untuk semua pemandu; gunakan spesifikasi kenderaan, pemandu, manfaat serta tambahan yang sama untuk membandingkan sebut harga."
+    ],
+    "faqs": [
+      {
+        "q": "Siapa menawarkan bantuan motor 24 jam yang disahkan?",
+        "a": "MSIG menyenaraikan Motor Assist 24 jam dan Smart Towing. AIA mengesahkan talian AIA General, tetapi sumber yang disemak tidak mengesahkan bantuan jalan 24 jam."
+      },
+      {
+        "q": "Adakah MSIG mempunyai perlindungan hayat atau takaful motor sendiri?",
+        "a": "Sumber rasmi mengesahkan MSIG Insurance Malaysia sebagai penanggung insurans am. Hong Leong MSIG Takaful ialah pengendali takaful berasingan; produk hayat MSIG Malaysia tidak disahkan."
+      },
+      {
+        "q": "Adakah AIA+ boleh digunakan untuk tuntutan motor?",
+        "a": "AIA+ menyokong e-claims, tetapi bahan yang disemak menekankan perkhidmatan kad perubatan dan kesihatan. Sahkan fungsi motor khusus untuk polisi AIA General anda."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direktori peserta sektor kewangan BNM",
+        "url": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer"
+      },
+      {
+        "label": "AIA — kad perubatan dan tuntutan hospital",
+        "url": "https://www.aia.com.my/en/help-support/claims-and-support/hospitalisation-corp.html"
+      },
+      {
+        "label": "AIA+ app",
+        "url": "https://www.aia.com.my/en/help-support/aia-app.html"
+      },
+      {
+        "label": "MSIG Digital Roadside Assistance",
+        "url": "https://www.msig.com.my/digital-roadside-assistance-dra/"
+      },
+      {
+        "label": "MSIG Smart Towing",
+        "url": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+      },
+      {
+        "label": "Financial Markets Ombudsman Service",
+        "url": "https://www.fmos.org.my/en/"
+      }
+    ],
+    "asAt": "2026-09-28"
+  }
 ]

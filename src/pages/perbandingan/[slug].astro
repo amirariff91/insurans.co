@@ -2,59 +2,83 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import comparisons from '../../data/comparisons.json';
-import companies from '../../data/companies.json';
 
-export function getStaticPaths() {
-  return comparisons.map((comp, i) => {
-    const c1 = companies.find(c => c.slug === comp.company1);
-    const c2 = companies.find(c => c.slug === comp.company2);
-    const related = comparisons.filter((_, j) => j !== i).slice(0, 3);
-    return {
-      params: { slug: comp.slug },
-      props: { comp, c1, c2, related },
-    };
-  });
+const companyNames: Record<string, string> = {
+  etiqa: 'Etiqa',
+  allianz: 'Allianz',
+  'tokio-marine': 'Tokio Marine',
+  aia: 'AIA',
+  'great-eastern': 'Great Eastern',
+  zurich: 'Zurich',
+  prudential: 'Prudential',
+  'takaful-malaysia': 'Takaful Malaysia',
+  kurnia: 'Berjaya Sompo',
+  msig: 'MSIG',
+  rhi: 'RHB Insurance',
+  lonpac: 'Lonpac',
+};
+
+function companyName(slug: string) {
+  return companyNames[slug] ?? slug;
 }
 
-const { comp, c1, c2, related } = Astro.props;
-const comparisonOgImageAlt = `${c1?.name} vs ${c2?.name} — perbandingan harga, perlindungan dan claim.`;
+export function getStaticPaths() {
+  return comparisons.map((comp, i) => ({
+    params: { slug: comp.slug },
+    props: {
+      comp,
+      related: comparisons.filter((_, j) => j !== i).slice(0, 3),
+    },
+  }));
+}
+
+const { comp, related } = Astro.props;
+const nameA = companyName(comp.company1);
+const nameB = companyName(comp.company2);
+const comparisonTitle = `${nameA} vs ${nameB}: Perbandingan Insurans 2026`;
+const comparisonDescription = `${nameA} dan ${nameB}: bandingkan entiti, takaful, produk, tuntutan dan saluran digital berdasarkan sumber setakat ${comp.asAt}.`;
+const comparisonOgImageAlt = `${comparisonTitle} — perbandingan berdasarkan fakta dan sumber.`;
 
 const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      "@type": "Article",
-      "headline": `${c1?.name} vs ${c2?.name}: Perbandingan Insurans Kereta 2026`,
-      "description": `Nak tahu ${c1?.name} atau ${c2?.name} lebih baik? Bandingkan premium, coverage, kelebihan dan kelemahan di sini.`,
-      "url": `https://insurans.co/perbandingan/${comp.slug}/`,
-      "datePublished": "2026-01-01",
-      "dateModified": "2026-03-01",
-      "inLanguage": "ms",
-      "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" }
+      '@type': 'Article',
+      headline: comparisonTitle,
+      description: comp.summary,
+      url: `https://insurans.co/perbandingan/${comp.slug}/`,
+      datePublished: '2026-01-01',
+      dateModified: comp.asAt,
+      inLanguage: 'ms',
+      publisher: { '@type': 'Organization', name: 'Insurans.co', url: 'https://insurans.co' },
     },
     {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
-        { "@type": "ListItem", "position": 2, "name": "Perbandingan", "item": "https://insurans.co/perbandingan/" },
-        { "@type": "ListItem", "position": 3, "name": `${c1?.name} vs ${c2?.name}`, "item": `https://insurans.co/perbandingan/${comp.slug}/` }
-      ]
-    }
-  ]
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Perbandingan', item: 'https://insurans.co/perbandingan/' },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: `${nameA} vs ${nameB}`,
+          item: `https://insurans.co/perbandingan/${comp.slug}/`,
+        },
+      ],
+    },
+  ],
 };
 ---
 
 <Base
-  title={`${c1?.name} vs ${c2?.name} | Insurans Kereta — Insurans.co`}
-  description={`Nak tahu ${c1?.name} atau ${c2?.name} lebih baik? Bandingkan premium, coverage, kelebihan dan kelemahan di sini.`}
+  title={`${comparisonTitle} — Insurans.co`}
+  description={comparisonDescription}
   schema={schema}
   ogType="article"
   ogImage={`/og/perbandingan/${comp.slug}.png`}
   ogImageAlt={comparisonOgImageAlt}
   publishedTime="2026-01-01"
-  modifiedTime="2026-03-01"
+  modifiedTime={comp.asAt}
 >
-  <!-- Breadcrumb + Header -->
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
       <nav class="text-sm text-stone-400 mb-5">
@@ -62,219 +86,194 @@ const schema = {
         <span class="mx-2">›</span>
         <a href="/perbandingan/" class="hover:text-hijau-700 text-stone-500">Perbandingan</a>
         <span class="mx-2">›</span>
-        <span class="text-stone-700">{c1?.name} vs {c2?.name}</span>
+        <span class="text-stone-700">{nameA} vs {nameB}</span>
       </nav>
       <p class="label mb-3">Perbandingan Head-to-Head</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        {c1?.name} vs {c2?.name}: Perbandingan Insurans Kereta 2026
+        {comparisonTitle}
       </h1>
-      <Byline dateModified="2026-03-01" />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Nak tahu {c1?.name} atau {c2?.name} lebih sesuai untuk anda? Kami bandingkan kedua-duanya
-        secara jujur — premium, coverage, kelebihan, kelemahan, dan siapa yang menang dalam situasi berbeza.
-      </p>
+      <Byline dateModified={comp.asAt} />
+      <p class="text-lg text-stone-600 max-w-3xl leading-relaxed mt-4">{comp.summary}</p>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
-      <!-- Main Content -->
       <div class="lg:col-span-2">
-
-        <!-- Comparison Table -->
-        <article class="prose-editorial">
-          <h2>Perbandingan {c1?.name} vs {c2?.name}</h2>
+        <section class="prose-editorial mb-8">
+          <h2>Skop perbandingan</h2>
           <p>
-            Ini perbandingan ringkas antara {c1?.name} dan {c2?.name} berdasarkan data terkini 2026:
+            Perbandingan ini membezakan perkara yang disahkan untuk setiap penyedia: siapa mengeluarkan
+            polisi, pilihan takaful, manfaat motor yang diterangkan, saluran tuntutan dan kegunaan digital.
+            Jika maklumat produk khusus tidak tersedia dalam sumber yang disemak, perkara itu dinyatakan
+            dan bukannya diandaikan.
           </p>
-        </article>
+        </section>
 
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Kriteria</th>
-                <th>{c1?.name}</th>
-                <th>{c2?.name}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">Jenis</td>
-                <td>
-                  {c1?.type === 'takaful' ? 'Takaful' : 'Konvensional'}
-                  {c1?.takaful && c1?.type !== 'takaful' && <span class="text-xs text-emas-700 ml-1">(ada takaful)</span>}
-                </td>
-                <td>
-                  {c2?.type === 'takaful' ? 'Takaful' : 'Konvensional'}
-                  {c2?.takaful && c2?.type !== 'takaful' && <span class="text-xs text-emas-700 ml-1">(ada takaful)</span>}
-                </td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Ditubuhkan</td>
-                <td>{c1?.founded}</td>
-                <td>{c2?.founded}</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Skor editorial</td>
-                <td class="font-semibold">{c1?.rating}/5</td>
-                <td class="font-semibold">{c2?.rating}/5</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">Harga Premium (anggaran)</td>
-                <td>{c1?.carPremiumRange ?? '—'}</td>
-                <td>{c2?.carPremiumRange ?? '—'}</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900 align-top">Kelebihan</td>
-                <td>
-                  <ul class="space-y-1 text-sm">
-                    {c1?.pros.slice(0, 3).map((pro: string) => (
-                      <li class="flex items-start gap-1.5">
-                        <span class="text-hijau-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>{pro}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </td>
-                <td>
-                  <ul class="space-y-1 text-sm">
-                    {c2?.pros.slice(0, 3).map((pro: string) => (
-                      <li class="flex items-start gap-1.5">
-                        <span class="text-hijau-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>{pro}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900 align-top">Kelemahan</td>
-                <td>
-                  <ul class="space-y-1 text-sm">
-                    {c1?.cons.slice(0, 2).map((con: string) => (
-                      <li class="flex items-start gap-1.5">
-                        <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✗</span>
-                        <span>{con}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </td>
-                <td>
-                  <ul class="space-y-1 text-sm">
-                    {c2?.cons.slice(0, 2).map((con: string) => (
-                      <li class="flex items-start gap-1.5">
-                        <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✗</span>
-                        <span>{con}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-stone-500 italic mt-2">* Harga premium yang ditunjukkan adalah anggaran sahaja. Harga sebenar bergantung pada profil pemandu dan tahun kenderaan.</p>
-        <p class="text-xs text-stone-500 mt-4">Semua kadar NCD di Malaysia dikawal selia oleh <a href="https://www.piam.org.my" class="underline" target="_blank" rel="noopener noreferrer">PIAM (Persatuan Insurans Am Malaysia)</a>.</p>
-
-        <!-- Verdict Section -->
-        <article class="prose-editorial">
-          <h2>Verdict: Bila pilih {c1?.name}, bila pilih {c2?.name}?</h2>
-        </article>
-
-        <div class="grid sm:grid-cols-2 gap-5 my-8">
-          <div class="bg-stone-50 border border-stone-200 p-5">
-            <h3 class="font-semibold text-stone-900 mb-3">Pilih {c1?.name} kalau...</h3>
-            <p class="text-sm text-stone-700 leading-relaxed">{c1?.verdictBM}</p>
-            <a href={`/companies/${c1?.slug}/`} class="inline-block mt-4 btn-outline text-sm">
-              Baca lebih lanjut →
-            </a>
+        <section aria-labelledby="dimensions-heading" class="mb-12">
+          <div class="prose-editorial mb-5">
+            <h2 id="dimensions-heading">Perbezaan mengikut kriteria</h2>
+            <p>
+              Setiap kad menunjukkan fakta untuk kedua-dua pihak dan nota tentang cara mentafsir bezanya.
+              Tiada skor atau pemenang tunggal: pilihan bergantung pada kontrak, keperluan dan sebut harga
+              yang tersedia kepada anda.
+            </p>
           </div>
-          <div class="bg-stone-50 border border-stone-200 p-5">
-            <h3 class="font-semibold text-stone-900 mb-3">Pilih {c2?.name} kalau...</h3>
-            <p class="text-sm text-stone-700 leading-relaxed">{c2?.verdictBM}</p>
-            <a href={`/companies/${c2?.slug}/`} class="inline-block mt-4 btn-outline text-sm">
-              Baca lebih lanjut →
-            </a>
+          <div class="space-y-5">
+            {comp.dimensions.map((dimension: { label: string; a: string; b: string; note: string }) => (
+              <article class="card-editorial">
+                <h3 class="font-serif text-xl text-stone-900 mb-4">{dimension.label}</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-stone-50 border border-stone-200 p-4">
+                    <h4 class="font-semibold text-stone-900 mb-2">{nameA}</h4>
+                    <p class="text-sm text-stone-700 leading-relaxed">{dimension.a}</p>
+                  </div>
+                  <div class="bg-stone-50 border border-stone-200 p-4">
+                    <h4 class="font-semibold text-stone-900 mb-2">{nameB}</h4>
+                    <p class="text-sm text-stone-700 leading-relaxed">{dimension.b}</p>
+                  </div>
+                </div>
+                <p class="text-sm text-stone-600 leading-relaxed mt-4">
+                  <strong>Cara membaca perbezaan ini:</strong> {dimension.note}
+                </p>
+              </article>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <div class="info-box mb-8">
-          <p class="text-sm text-stone-700">
-            <strong>Tip kami:</strong> Jangan buat keputusan hanya berdasarkan brand. Dapatkan quotation sebenar
-            dari kedua-dua syarikat di <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 underline">Bjak.my</a>
-            atau <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 underline">PolicyStreet</a>
-            dan bandingkan harga sebenar untuk kereta anda.
+        <section aria-labelledby="choose-heading" class="mb-12">
+          <div class="prose-editorial mb-5">
+            <h2 id="choose-heading">Pilih berdasarkan keperluan anda</h2>
+            <p>
+              Senarai ini bukan pengesyoran keseluruhan atau penarafan syarikat. Ia memadankan ciri yang
+              disahkan dengan keutamaan tertentu supaya anda boleh menyemak sama ada polisi yang ditawarkan
+              benar-benar memenuhi keperluan tersebut.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <section class="bg-stone-50 border border-stone-200 p-5">
+              <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameA} jika…</h3>
+              <ul class="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
+                {comp.chooseA.map((item: string) => <li>{item}</li>)}
+              </ul>
+            </section>
+            <section class="bg-stone-50 border border-stone-200 p-5">
+              <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameB} jika…</h3>
+              <ul class="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
+                {comp.chooseB.map((item: string) => <li>{item}</li>)}
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section aria-labelledby="both-heading" class="info-box mb-12">
+          <h2 id="both-heading" class="font-serif text-xl text-stone-900 mb-3">Sama untuk kedua-dua</h2>
+          <ul class="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
+            {comp.sameForBoth.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section aria-labelledby="faq-heading" class="mb-12">
+          <div class="prose-editorial mb-5">
+            <h2 id="faq-heading">Soalan lazim tentang {nameA} vs {nameB}</h2>
+          </div>
+          <div class="space-y-4">
+            {comp.faqs.map((faq: { q: string; a: string }) => (
+              <article class="card-editorial">
+                <h3 class="font-semibold text-stone-900 mb-2">{faq.q}</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="sources-heading" class="mb-10">
+          <div class="prose-editorial mb-4">
+            <h2 id="sources-heading">Sumber</h2>
+            <p>Sumber rasmi dan rujukan yang digunakan untuk fakta di atas. Tarikh semakan: {comp.asAt}.</p>
+          </div>
+          <ul class="list-disc pl-5 space-y-2 text-sm">
+            {comp.sources.map((source: { label: string; url: string }) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <aside class="info-box mb-8">
+          <p class="text-sm text-stone-700 leading-relaxed">
+            <strong>Nota editorial:</strong> Perbandingan ini menyusun fakta daripada sumber yang disenaraikan
+            dan bukan sokongan atau pengesyoran kepada mana-mana syarikat. Semak dokumen polisi dan kelayakan
+            semasa sebelum membeli. Untuk harga, banding sebut harga di mana-mana platform seperti
+            <a href="https://bjak.my" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">Bjak.my</a>
+            atau <a href="https://policystreet.com" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">PolicyStreet</a>,
+            atau minta sebut harga terus daripada penyedia; platform ialah saluran perbandingan, bukan
+            pengesyoran terhadap produk tertentu.
           </p>
-        </div>
+        </aside>
 
-        <!-- Lihat Juga -->
         {related.length > 0 && (
-          <>
-            <article class="prose-editorial">
-              <h2>Lihat Juga — Perbandingan Lain</h2>
-            </article>
-            <div class="space-y-3 my-6">
-              {related.map((r: any) => {
-                const rc1 = companies.find((c: any) => c.slug === r.company1);
-                const rc2 = companies.find((c: any) => c.slug === r.company2);
-                return (
-                  <a href={`/perbandingan/${r.slug}/`} class="card-editorial group block">
-                    <span class="font-medium text-stone-900 group-hover:text-hijau-700 transition-colors">
-                      {rc1?.name ?? r.company1} vs {rc2?.name ?? r.company2}
-                    </span>
-                    <span class="text-xs text-hijau-700 ml-2">→</span>
-                  </a>
-                );
-              })}
+          <section aria-labelledby="related-heading">
+            <div class="prose-editorial mb-4">
+              <h2 id="related-heading">Perbandingan lain</h2>
             </div>
-          </>
+            <div class="space-y-3">
+              {related.map((r: { slug: string; company1: string; company2: string }) => (
+                <a href={`/perbandingan/${r.slug}/`} class="card-editorial group block">
+                  <span class="font-medium text-stone-900 group-hover:text-hijau-700 transition-colors">
+                    {companyName(r.company1)} vs {companyName(r.company2)}
+                  </span>
+                  <span class="text-xs text-hijau-700 ml-2">→</span>
+                </a>
+              ))}
+            </div>
+          </section>
         )}
       </div>
 
-      <!-- Sidebar -->
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <!-- Quick Compare Card -->
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-4">Ringkasan Perbandingan</h3>
+          <section class="bg-white border-2 border-stone-900 p-5">
+            <h2 class="font-serif text-lg text-stone-900 mb-4">Ringkasan perbandingan</h2>
             <div class="space-y-4 text-sm">
               <div>
-                <p class="font-semibold text-stone-900 mb-1">{c1?.name}</p>
-                <p class="text-stone-500">{c1?.fullName}</p>
-                <p class="text-stone-600 mt-1">Skor editorial: <strong>{c1?.rating}/5</strong></p>
+                <p class="font-semibold text-stone-900 mb-1">Syarikat dalam perbandingan</p>
+                <ul class="text-stone-600 space-y-1">
+                  <li>{nameA}</li>
+                  <li>{nameB}</li>
+                </ul>
               </div>
               <div class="border-t border-stone-100 pt-4">
-                <p class="font-semibold text-stone-900 mb-1">{c2?.name}</p>
-                <p class="text-stone-500">{c2?.fullName}</p>
-                <p class="text-stone-600 mt-1">Skor editorial: <strong>{c2?.rating}/5</strong></p>
+                <p class="font-semibold text-stone-900 mb-1">Tarikh semakan</p>
+                <p class="text-stone-600">{comp.asAt}</p>
               </div>
             </div>
-          </div>
+          </section>
 
-          <!-- CTA Buttons -->
-          <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Halaman Syarikat</h3>
+          <section class="card-editorial">
+            <h2 class="font-semibold text-sm text-stone-900 mb-3">Halaman syarikat</h2>
             <div class="space-y-2">
-              <a href={`/companies/${c1?.slug}/`} class="block btn-outline text-sm text-center">
-                Info lengkap {c1?.name} →
+              <a href={`/companies/${comp.company1}/`} class="block btn-outline text-sm text-center">
+                Info lengkap {nameA} →
               </a>
-              <a href={`/companies/${c2?.slug}/`} class="block btn-outline text-sm text-center">
-                Info lengkap {c2?.name} →
+              <a href={`/companies/${comp.company2}/`} class="block btn-outline text-sm text-center">
+                Info lengkap {nameB} →
               </a>
             </div>
-          </div>
+          </section>
 
-          <!-- Related -->
-          <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
+          <section class="card-editorial">
+            <h2 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h2>
             <ul class="space-y-2.5 text-sm">
               <li><a href="/perbandingan/" class="text-hijau-700 hover:text-hijau-600">Semua perbandingan →</a></li>
               <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
               <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
               <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
             </ul>
-          </div>
+          </section>
         </div>
       </aside>
     </div>
