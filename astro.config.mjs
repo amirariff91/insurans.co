@@ -11,5 +11,7 @@ export default defineConfig({
   output: 'static',
   redirects: {
     '/sitemap.xml': '/sitemap-index.xml',
+    '/companies/kurnia': '/companies/berjaya-sompo/',
+    '/perbandingan/kurnia-vs-lonpac': '/perbandingan/berjaya-sompo-vs-lonpac/',
   },
 });

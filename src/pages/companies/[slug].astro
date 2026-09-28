@@ -112,7 +112,7 @@ const schema = {
         <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-stone-600">
           <span>Tahun rujukan: {company.founded}</span>
           <span>{company.headquarters}</span>
-          <span>{company.takaful ? 'Pilihan takaful disenaraikan' : 'Takaful tidak disenaraikan dalam rekod ini'}</span>
+          <span>{company.takaful ? 'Pilihan takaful disenaraikan' : 'Tiada operator takaful dalam kumpulan ini'}</span>
         </div>
         <div class="mt-5">
           <Byline dateModified={company.asAt} />
@@ -143,7 +143,7 @@ const schema = {
           <h2 id="latar-belakang">Latar belakang &amp; lesen</h2>
           <p>{company.history}</p>
           <p>
-            Entiti berlesen yang dikenal pasti dalam direktori BNM untuk rekod ini:
+            Entiti berlesen yang disenaraikan dalam direktori BNM:
           </p>
           <ul>
             {company.entities.map((entity) => <li>{entity}</li>)}
