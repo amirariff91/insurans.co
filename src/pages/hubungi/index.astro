@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const contactUrl = 'https://insurans.co/hubungi/';
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Hubungi Kami — Insurans.co",
+  "url": contactUrl,
+  "description": "Hubungi Insurans.co untuk pembetulan kandungan, maklum balas, dan pertanyaan kerjasama.",
+  "inLanguage": "ms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insurans.co",
+    "url": "https://insurans.co"
+  },
+  "mainEntity": {
+    "@type": "ContactPoint",
+    "contactType": "editorial enquiries",
+    "email": "hello@insurans.co",
+    "availableLanguage": "ms"
+  }
+};
+---
+
+<Base
+  title="Hubungi Kami"
+  description="Hubungi Insurans.co untuk pembetulan kandungan, maklum balas, dan pertanyaan kerjasama."
+  canonical={contactUrl}
+  schema={schema}
+>
+  <article class="bg-white border-b border-stone-200">
+    <div class="border-b border-stone-200">
+      <div class="container-article py-10 sm:py-14">
+        <p class="label mb-4">Hubungi Kami</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+          Hubungi Kami
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+          Ada maklum balas atau nampak maklumat yang perlu dibetulkan? Kami sedia mendengar daripada anda.
+        </p>
+      </div>
+    </div>
+
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial max-w-none">
+        <h2>E-mel</h2>
+        <p>
+          Hubungi kami di <a href="mailto:hello@insurans.co">hello@insurans.co</a>.
+        </p>
+
+        <h2>Apa yang boleh kami bantu</h2>
+        <ul>
+          <li>Pembetulan fakta atau kandungan yang tidak tepat</li>
+          <li>Maklum balas dan cadangan untuk menambah baik panduan</li>
+          <li>Pertanyaan kerjasama</li>
+        </ul>
+
+        <h2>Masa maklum balas</h2>
+        <p>
+          Kami biasanya membalas e-mel dalam masa 2–5 hari bekerja.
+        </p>
+
+        <h2>Pertanyaan tentang polisi dan tuntutan</h2>
+        <p>
+          Insurans.co bukan ejen atau broker insurans dan tidak dapat mengurus tuntutan atau perkhidmatan polisi. Untuk bantuan tentang polisi atau tuntutan, hubungi syarikat insurans anda secara terus. Semak <a href="/companies/">direktori syarikat insurans dan talian tuntutan</a> kami untuk maklumat hubungan.
+        </p>
+
+        <h2>Polisi pembetulan</h2>
+        <p>
+          Jika anda melaporkan kesilapan, sertakan pautan halaman, maklumat yang perlu disemak, dan sumber rujukan jika ada. Kami menyemak laporan dan, jika kesilapan disahkan, membetulkan kandungan serta tarikh kemas kini; perubahan penting akan diterangkan pada halaman berkenaan.
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>
