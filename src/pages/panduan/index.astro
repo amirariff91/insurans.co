@@ -16,32 +16,36 @@ const guides = [
   {
     href: '/panduan/checklist-medical-card/',
     title: 'Checklist Pilih Medical Card',
-    description: '8 perkara untuk semak: had tahunan, bilik, deductible, co-payment, waiting period, panel, renewal dan struktur plan.',
+    description: 'Gunakan checklist ini sebelum memilih medical card baharu atau membandingkan pelan sedia ada dengan pilihan lain. Semak lapan perkara: had tahunan, kelayakan bilik, deductible, co-payment, tempoh menunggu, panel hospital, pembaharuan dan struktur pelan. Bawa senarai ini semasa berbincang dengan penyedia supaya soalan tentang kos yang perlu anda bayar sendiri tidak tertinggal.',
   },
   {
     href: '/panduan/renew-insurans-roadtax/',
     title: 'Renew Insurans + Roadtax Online',
-    description: 'Panduan 7 langkah daripada semak NCD dan quotation hingga simpan e-cover note, renew roadtax dan set peringatan.',
+    description: 'Buka panduan ini apabila insurans kereta atau roadtax hampir tamat dan anda mahu renew secara online. Ikuti tujuh langkah daripada menyemak NCD dan membandingkan sebut harga hingga menyimpan e-cover note, memperbaharui roadtax dan menetapkan peringatan. Ia membantu anda mengasingkan semakan perlindungan daripada urusan roadtax, supaya kedua-duanya tidak dianggap sebagai satu pembelian yang sama.',
   },
   {
     href: '/panduan/checklist-travel/',
     title: 'Checklist Travel Insurance',
-    description: '8 perkara sebelum fly: jenis trip, had perubatan, evakuasi, delay, COVID, tier kawasan, sukan dan dokumen claim.',
+    description: 'Gunakan checklist ini sebelum membeli travel insurance untuk perjalanan yang sudah anda rancang. Semak jenis perjalanan, had perubatan, evakuasi, kelewatan, perlindungan COVID, kawasan destinasi, aktiviti sukan dan dokumen tuntutan. Jika anda akan melawat beberapa negara atau melakukan aktiviti tertentu, jadikan butiran perjalanan sebenar sebagai asas semakan, bukan harga polisi sahaja.',
   },
 ];
 
 const faqs = [
   {
-    q: 'Apa yang ada dalam koleksi panduan ini?',
-    a: 'Tiga halaman print-friendly: checklist pilih medical card, panduan renew insurans dan roadtax, serta checklist travel insurance. Setiap halaman memaparkan kandungan penuh tanpa borang gated.',
+    q: 'Panduan mana patut saya baca dahulu?',
+    a: 'Pilih mengikut urusan terdekat: checklist medical card jika anda sedang menilai perlindungan hospital, panduan renew jika insurans kereta hampir tamat, atau checklist travel sebelum membeli perlindungan perjalanan. Anda tidak perlu membaca semuanya sekali gus. Sediakan dokumen dan butiran yang berkaitan, kemudian gunakan satu senarai semak untuk menanda perkara yang sudah jelas dan soalan yang masih perlu dijawab.',
   },
   {
     q: 'Boleh saya print atau Save-as-PDF?',
-    a: 'Boleh. Setiap panduan dipaparkan penuh di halaman dan boleh dicetak atau disimpan sebagai PDF untuk semakan anda sendiri.',
+    a: 'Boleh. Buka halaman panduan yang dipilih, gunakan fungsi Print pada pelayar dan pilih pencetak atau Save as PDF. Semak paparan pratonton supaya jadual dan nota penting turut disimpan. Catat tarikh serta nama produk pada salinan anda; jika anda membandingkan beberapa polisi, simpan satu salinan berasingan bagi setiap pilihan supaya manfaat dan syarat tidak bercampur.',
   },
   {
     q: 'Adakah Insurans.co ejen atau broker?',
-    a: 'Tidak. Kami bukan ejen, bukan broker dan tidak menjual polisi atau plan. Semak PDS, sijil dan sumber rasmi sebelum membuat keputusan.',
+    a: 'Tidak. Kami bukan ejen, bukan broker dan tidak menjual polisi atau pelan. Panduan ini membantu anda menyediakan soalan dan menyusun semakan sendiri, bukan memilih produk bagi pihak anda. Untuk keputusan pembelian, rujuk PDS, dokumen polisi atau sijil dan jawapan penyedia tentang situasi anda. Maklumat kesihatan serta butiran peribadi perlu diberikan melalui saluran rasmi penyedia, bukan di halaman ini.',
+  },
+  {
+    q: 'Adakah checklist menggantikan dokumen polisi?',
+    a: 'Tidak. Checklist ialah alat untuk memastikan perkara penting ditanya, manakala dokumen polisi atau sijil menetapkan perlindungan sebenar. Jika ringkasan jualan dan dokumen kontrak nampak berbeza, minta penyedia menjelaskan bahagian berkenaan sebelum anda membayar. Simpan jawapan bersama sebut harga. Apabila produk, tarikh perjalanan atau keperluan anda berubah, semak semula checklist dan dokumen yang berkaitan.',
   },
 ];
 
@@ -104,12 +108,23 @@ const faqSchema = {
   </section>
 
   <div class="container-wide py-10 sm:py-14">
-    <article class="prose-editorial">
-      <p class="text-lg leading-7 text-stone-700">
-        Mulakan dengan halaman yang sepadan dengan urusan anda. Kandungan dipaparkan penuh di sini — tiada borang email dan tiada email-gating.
+    <section aria-labelledby="mula-panduan" class="info-box mb-8">
+      <h2 id="mula-panduan" class="mb-3 font-serif text-headline-sm text-stone-900">Panduan mana sesuai untuk urusan anda?</h2>
+      <p class="text-base leading-7 text-stone-700">
+        Jika anda hendak memilih perlindungan hospital, mulakan dengan checklist medical card.
+        Jika polisi kereta hampir tamat, gunakan panduan renew insurans dan roadtax. Jika anda hendak
+        bercuti atau bekerja di luar kawasan biasa, semak checklist travel insurance sebelum membeli.
+        Ketiga-tiganya boleh dibaca penuh, dicetak atau disimpan sebagai PDF tanpa borang email.
       </p>
+      <p class="mt-3 text-base leading-7 text-stone-700">
+        Gunakan panduan bersama sebut harga dan dokumen produk. Tandakan perkara yang sudah memenuhi
+        keperluan anda, kemudian bawa soalan yang berbaki kepada penyedia. Tujuannya ialah supaya anda
+        faham perlindungan dan kos sendiri sebelum bersetuju membeli.
+      </p>
+    </section>
+    <div class="prose-editorial">
       <h2 id="pilih-panduan">Pilih panduan anda</h2>
-    </article>
+    </div>
 
     <ul class="mt-6 grid gap-4 md:grid-cols-3">
       {guides.map((guide) => (
@@ -125,13 +140,49 @@ const faqSchema = {
       ))}
     </ul>
 
+    <section aria-labelledby="guna-checklist" class="prose-editorial mt-10 sm:mt-14">
+      <h2 id="guna-checklist">Cara menggunakan senarai semak</h2>
+      <h3>Sediakan butiran sebelum membandingkan</h3>
+      <p>
+        Untuk medical card, sediakan jadual manfaat pelan yang sedang dipertimbangkan dan nota tentang
+        bajet anda. Untuk renew kereta, sediakan polisi lama, tarikh tamat, butiran kenderaan dan NCD.
+        Untuk travel insurance, senaraikan tarikh, destinasi, siapa yang ikut serta dan aktiviti
+        perjalanan. Butiran ini membantu anda menilai produk berdasarkan keperluan sebenar, bukan
+        sekadar nama pelan atau contoh harga dalam iklan.
+      </p>
+      <h3>Bezakan had manfaat daripada kos sendiri</h3>
+      <p>
+        Had yang besar tidak semestinya bermaksud semua perbelanjaan dibayar oleh penyedia. Dalam medical
+        card, semak deductible dan co-payment bersama kelayakan bilik. Untuk kereta, lihat lebihan,
+        nilai perlindungan dan add-on yang dipilih. Bagi perjalanan, semak had setiap manfaat serta
+        syarat tuntutan. Catat angka dan syarat daripada dokumen produk supaya anda boleh membandingkan
+        pilihan dengan asas yang sama.
+      </p>
+      <h3>Selesaikan soalan sebelum bayaran</h3>
+      <p>
+        Jangan tandakan sesuatu sebagai selesai hanya kerana ia disebut dalam bahan promosi. Cari
+        bahagian berkaitan dalam PDS atau dokumen polisi, dan minta penjelasan jika istilahnya kurang
+        jelas. Contohnya, tanyakan cara menggunakan panel hospital, perlindungan tambahan yang termasuk
+        dalam sebut harga kereta, atau syarat aktiviti sukan semasa perjalanan. Simpan jawapan bertulis
+        bersama dokumen supaya anda boleh merujuknya kemudian.
+      </p>
+      <h3>Semak dokumen selepas pembelian</h3>
+      <p>
+        Periksa nama, butiran perlindungan dan tarikh mula serta tamat pada dokumen yang diterima.
+        Pastikan pilihan yang anda persetujui turut tercatat. Simpan salinan digital di tempat yang
+        mudah dicapai dan beritahu ahli keluarga yang berkaitan cara mencarinya. Untuk urusan renew,
+        tetapkan peringatan lebih awal supaya anda mempunyai masa untuk menilai semula keperluan dan
+        membandingkan pilihan, bukan hanya mengulang pembelian lama.
+      </p>
+    </section>
+
     <section id="faq" class="mt-10 sm:mt-14">
       <div class="prose-editorial">
         <h2>Soalan lazim panduan print</h2>
       </div>
       <div class="mt-5">
-        {faqs.map((faq, index) => (
-          <details class="faq-item" open={index === 0}>
+        {faqs.map((faq) => (
+          <details class="faq-item" open>
             <summary>{faq.q}</summary>
             <p>{faq.a}</p>
           </details>

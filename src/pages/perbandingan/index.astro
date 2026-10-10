@@ -10,6 +10,8 @@ const schema = {
   "headline": "Perbandingan Syarikat Insurans Kereta Malaysia 2026",
   "description": "Bandingkan syarikat insurans kereta Malaysia — Etiqa vs Allianz, Tokio Marine vs MSIG, dan banyak lagi. Semua dalam satu tempat.",
   "url": "https://insurans.co/perbandingan/",
+  "datePublished": "2026-09-28",
+  "dateModified": comparisons.reduce((latest, comparison) => comparison.asAt > latest ? comparison.asAt : latest, comparisons[0].asAt),
   "inLanguage": "ms",
   "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
   "breadcrumb": {
@@ -46,8 +48,8 @@ function getCompanyName(slug: string) {
       </h1>
       <Byline />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Tak pasti nak pilih syarikat mana? Kami bandingkan syarikat insurans kereta Malaysia secara head-to-head —
-        premium, coverage, pros &amp; cons, dan verdict kami.
+        Bandingkan pilihan insurans kereta, kesihatan dan hayat sebelum minta sebut harga.
+        Semak jenis perlindungan, cara tuntutan dan urusan digital yang sesuai dengan keperluan anda.
       </p>
     </div>
   </section>
@@ -86,14 +88,120 @@ function getCompanyName(slug: string) {
       })}
     </div>
 
-    <div class="mt-12 border-t border-stone-200 pt-10">
-      <h2 class="font-serif text-2xl text-stone-900 mb-4">Cara memilih syarikat insurans yang betul</h2>
-      <p class="text-stone-600 leading-relaxed max-w-2xl">
-        Pilih syarikat insurans bukan sekadar tengok harga premium. Pertimbangkan kekuatan kewangan syarikat,
-        panel bengkel di kawasan anda, kelajuan proses claim, dan sama ada syarikat tu ada pilihan takaful.
-        Guna perbandingan di atas sebagai titik permulaan, kemudian dapatkan quotation sebenar dari
-        aggregator seperti <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 underline">Bjak.my</a> untuk harga terkini.
+    <section aria-labelledby="pilih-syarikat" class="prose-editorial mt-12 border-t border-stone-200 pt-10">
+      <h2 id="pilih-syarikat">Cara memilih syarikat insurans</h2>
+      <p>
+        Mulakan dengan jenis perlindungan yang anda perlukan, bukan nama syarikat atau premium paling rendah.
+        Untuk kereta, bandingkan polisi dengan nilai perlindungan, NCD dan add-on yang sama. Untuk medical
+        card atau insurans hayat, senaraikan dahulu had manfaat, tanggungan dan bajet anda. Sebut harga murah
+        tidak banyak membantu jika perlindungan yang diperlukan tiada dalam polisi tersebut.
       </p>
-    </div>
+      <h3>1. Fahami proses tuntutan sebelum membeli</h3>
+      <p>
+        Semak cara melaporkan kemalangan, menghantar dokumen dan menjejak status tuntutan. Simpan nombor
+        bantuan yang tertera pada polisi, bukan sekadar nombor khidmat pelanggan umum. Jika kereta perlu
+        ditunda, tanya siapa mengurus tunda, ke mana kereta dihantar dan had bantuan yang terpakai. Aplikasi
+        yang mudah digunakan berguna, tetapi keputusan tuntutan tetap bergantung pada perlindungan dan
+        syarat kontrak.
+      </p>
+      <h3>2. Semak panel bengkel berhampiran</h3>
+      <p>
+        Cari bengkel panel yang mudah dicapai dari rumah atau tempat kerja. Untuk model dengan sensor
+        cermin, sistem bantuan pemanduan atau alat ganti khusus, tanya sama ada bengkel boleh mengurus
+        pembaikan tersebut. Semak juga aturan jika anda mahu menggunakan bengkel bukan panel. Jangan
+        anggap semua kos pembaikan, alat ganti dan pengangkutan sementara termasuk secara automatik;
+        minta penjelasan tentang lebihan dan had manfaat sebelum membayar.
+      </p>
+      <h3>3. Nilai kemudahan renew secara digital</h3>
+      <p>
+        Saluran online patut memudahkan anda menyemak butiran kenderaan, NCD, jumlah diinsuranskan dan
+        perlindungan tambahan sebelum bayaran. Pastikan anda boleh mendapatkan jadual polisi atau
+        e-cover note selepas pembelian. Bezakan urusan renew insurans daripada renew roadtax, dan semak
+        caj setiap urusan. Jika berlaku kesilapan pada nama, nombor pendaftaran atau tarikh perlindungan,
+        anda juga perlu tahu saluran untuk meminta pembetulan.
+      </p>
+      <h3>4. Bezakan takaful dengan insurans konvensional</h3>
+      <p>
+        Jika anda mahu perlindungan patuh Syariah, semak nama pengendali takaful pada sijil dan jenis
+        produk yang ditawarkan. Satu kumpulan boleh mempunyai beberapa entiti: kewujudan takaful keluarga
+        tidak semestinya bermaksud ada takaful motor. Selepas memilih struktur yang sesuai, bandingkan
+        manfaat, pengecualian, lebihan dan sumbangan atau premium dengan teliti. Jangan menganggap dua
+        produk mempunyai perlindungan sama hanya kerana menggunakan jenama yang sama.
+      </p>
+      <p>
+        Akhir sekali, minta sebut harga menggunakan butiran yang seragam. Semak jumlah akhir selepas
+        cukai, duti dan tambahan, kemudian baca helaian pendedahan produk (PDS) serta dokumen polisi.
+        Perbandingan di bawah membantu anda menyusun soalan; harga untuk kereta atau profil anda perlu
+        diperoleh terus daripada penyedia atau platform perbandingan.
+      </p>
+    </section>
+
+    <section aria-labelledby="ringkasan-perbandingan" class="mt-12">
+      <div class="prose-editorial mb-5">
+        <h2 id="ringkasan-perbandingan">Ringkasan semua perbandingan</h2>
+        <p>
+          Pilih pasangan syarikat yang sedang anda pertimbangkan. Ada halaman yang lebih tertumpu pada
+          servis motor, dan ada yang membantu membezakan perlindungan kesihatan atau hayat. Baca skopnya
+          sebelum menggunakan perbandingan untuk memilih polisi.
+        </p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-sm leading-6">
+          <caption class="mb-3 text-left text-stone-600">Pasangan syarikat dan perkara utama untuk dibandingkan</caption>
+          <thead class="bg-stone-100">
+            <tr>
+              <th scope="col" class="border-b border-stone-200 p-4">Perbandingan</th>
+              <th scope="col" class="border-b border-stone-200 p-4">Ringkasan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisons.map(comp => (
+              <tr class="border-b border-stone-200 align-top">
+                <th scope="row" class="p-4 font-semibold">
+                  <a href={`/perbandingan/${comp.slug}/`} class="text-hijau-700 underline">
+                    {getCompanyName(comp.company1)} vs {getCompanyName(comp.company2)}
+                  </a>
+                </th>
+                <td class="p-4 text-stone-700">{comp.summary}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-perbandingan" class="prose-editorial mt-12">
+      <h2 id="faq-perbandingan">Soalan lazim memilih syarikat insurans</h2>
+      <h3>Adakah syarikat dengan premium paling murah pilihan terbaik?</h3>
+      <p>
+        Tidak semestinya. Bandingkan jumlah perlindungan, lebihan, pengecualian dan add-on terlebih dahulu.
+        Dua sebut harga boleh berbeza kerana satu memasukkan cermin atau banjir, manakala satu lagi tidak.
+        Pilih berdasarkan kos akhir dan perlindungan yang anda perlukan, bukan angka premium sahaja.
+      </p>
+      <h3>Boleh saya tukar syarikat semasa renew insurans kereta?</h3>
+      <p>
+        Anda boleh membandingkan penyedia lain sebelum renew. Minta mereka menyemak kelayakan NCD dan
+        pastikan tarikh mula polisi baharu bersambung dengan perlindungan sedia ada. Semak juga nilai
+        kereta dan add-on sekali lagi; tidak semua manfaat polisi lama akan dibawa ke polisi baharu.
+      </p>
+      <h3>Bagaimana hendak menilai servis tuntutan?</h3>
+      <p>
+        Semak langkah tuntutan, senarai dokumen, saluran bantuan dan cara menjejak status. Untuk motor,
+        lihat panel bengkel serta had tunda. Ulasan pengguna boleh membantu anda menyediakan soalan,
+        tetapi tidak menjamin tempoh atau keputusan tuntutan bagi polisi anda.
+      </p>
+      <h3>Adakah semua syarikat dalam senarai menawarkan insurans kereta?</h3>
+      <p>
+        Jangan anggap begitu. Prudential vs AIA, misalnya, turut membezakan perniagaan hayat dan kesihatan
+        daripada motor. Semak nama entiti pengeluar dan produk yang tersedia. Jika tujuan anda ialah
+        renew kereta, pastikan sebut harga itu benar-benar untuk perlindungan motor.
+      </p>
+      <h3>Apa perlu dibaca sebelum membayar?</h3>
+      <p>
+        Baca PDS, jadual manfaat dan dokumen polisi atau sijil. Semak siapa dilindungi, bila perlindungan
+        bermula, apa yang dikecualikan dan berapa lebihan perlu dibayar sendiri. Simpan sebut harga serta
+        dokumen pembelian supaya anda boleh merujuk semula butiran yang dipersetujui.
+      </p>
+    </section>
   </div>
 </Base>

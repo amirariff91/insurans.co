@@ -25,17 +25,17 @@
     "descriptionBM": "Etiqa menghimpunkan pilihan insurans konvensional dan takaful; nama entiti yang mengeluarkan polisi atau sijil perlu disemak pada dokumen produk.",
     "verdictBM": "Sesuai dibandingkan oleh pengguna yang mahukan pilihan konvensional dan takaful serta saluran digital Etiqa.",
     "rating": 4.2,
-    "keyFact": "Jenama Etiqa dilancarkan pada 15 November 2007; tahun 1963 ialah tahun penubuhan Maybank, bukan tahun pelancaran jenama Etiqa.",
+    "keyFact": "Jenama Etiqa diperkenalkan pada 2007; pada 2018, perniagaan Malaysia diasingkan kepada empat entiti insurans dan takaful.",
     "claimLineSource": "https://www.etiqa.com.my/claims/car",
     "claimLineNote": "Claims Careline; talian kemalangan motor berasingan ialah 1800-88-6491",
     "claimLineVerified": "2026-09-10",
     "entities": [
       "Etiqa General Insurance Berhad",
       "Etiqa Life Insurance Berhad",
-      "Etiqa Family Takaful",
+      "Etiqa Family Takaful Berhad",
       "Etiqa General Takaful Berhad"
     ],
-    "history": "Maybank ditubuhkan pada 1963, tetapi itu bukan tarikh penubuhan jenama insurans Etiqa. Jenama Etiqa dilancarkan pada 15 November 2007; sejarah entiti sebelumnya termasuk Mayban-Phoenix Assurance pada 1977.",
+    "history": "Jenama Etiqa diperkenalkan pada 2007 apabila Malaysia National Insurance dan Takaful Nasional dinamakan semula. Pada 2018, perniagaan Malaysia diasingkan kepada Etiqa General Insurance Berhad, Etiqa Life Insurance Berhad, Etiqa General Takaful Berhad dan Etiqa Family Takaful Berhad.",
     "productDetails": [
       {
         "line": "Motor konvensional",
@@ -103,22 +103,23 @@
     },
     "notable": [
       {
-        "text": "Jenama Etiqa dilancarkan pada 15 November 2007; angka 1963 merujuk kepada penubuhan Maybank.",
+        "text": "Jenama Etiqa diperkenalkan pada 2007; perniagaan Malaysia diasingkan kepada empat entiti insurans dan takaful pada 2018.",
         "source": "https://www.etiqa.com/company-information/"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Claims Careline Etiqa ialah 1300-88-1007; bantuan tepi jalan 24 jam menggunakan talian 1800-88-6491.",
+        "source": "https://www.etiqa.com.my/help-and-support"
+      },
+      {
+        "text": "Etiqa+ membolehkan pelanggan mengurus polisi atau sijil, menghantar dan menjejak tuntutan serta memohon Guarantee Letter.",
+        "source": "https://www.etiqa.com.my/help-and-support"
       }
     ],
     "sesuaiUntuk": [
       "Pembeli yang mahu membandingkan insurans motor konvensional dengan motor takaful.",
       "Pengguna yang menghargai fungsi penjejakan tuntutan dan bantuan jalan dalam aplikasi Etiqa+."
     ],
-    "kurangSesuaiUntuk": [
-      "Pengguna yang mahukan tuntutan diurus sepenuhnya melalui seorang ejen; sumber yang disemak lebih menonjolkan saluran digital.",
-      "Pembeli yang mahu membuat keputusan berdasarkan anggaran premium tetap; sebut harga bergantung pada butiran perlindungan dan tidak disahkan di sini."
-    ],
+    "kurangSesuaiUntuk": [],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator",
@@ -128,9 +129,10 @@
       "https://www.etiqa.com.my/claims/car",
       "https://www.etiqa.com.my/claims/home",
       "https://www.etiqa.com.my/etiqa-auto-assist",
-      "https://www.fmos.org.my/en/"
+      "https://www.etiqa.com.my/help-and-support",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "allianz",
@@ -157,7 +159,7 @@
     "descriptionBM": "Allianz SE bermula di Jerman pada 1890; operasi Allianz di Malaysia bermula pada 2001. Semak entiti yang mengeluarkan produk sebelum memohon.",
     "verdictBM": "Perbandingan Allianz wajar membezakan sejarah kumpulan global daripada operasi dan entiti berlesen di Malaysia.",
     "rating": 4.3,
-    "keyFact": "Allianz SE diasaskan di Berlin pada 1890; operasi Allianz di Malaysia bermula pada 2001. MAA Assurance bukan sebahagian daripada sejarah pengambilalihan Allianz yang dinyatakan di sini.",
+    "keyFact": "Allianz SE diasaskan di Berlin pada 1890; operasi Allianz di Malaysia bermula pada 2001.",
     "claimLineSource": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html",
     "claimLineNote": "Allianz Road Rangers — bantuan kemalangan dan kerosakan 24/7",
     "claimLineVerified": "2026-09-10",
@@ -200,15 +202,14 @@
           "number": "1800-22-5542"
         }
       ],
-      "roadside": "Road Rangers menawarkan bantuan jalan raya 24/7; sumber rasmi menyenaraikan Bike Brigade, trak tunda GPS/CCTV, concierge tuntutan dan baucar e-hailing."
+      "roadside": "Road Rangers menyediakan bantuan kemalangan dan kerosakan 24 jam, khidmat concierge tuntutan di balai polis dan pautan WhatsApp untuk menjejak trak tunda."
     },
     "app": {
       "name": "MyAllianz (MyAllianz MY)",
       "features": [
         "Hantar dan jejak tuntutan",
         "Permintaan Guarantee Letter",
-        "Muat naik dokumen",
-        "Tuntutan motor pihak ketiga untuk bukan pelanggan"
+        "Pembayaran dan akses dokumen elektronik"
       ]
     },
     "contact": {
@@ -219,26 +220,23 @@
     },
     "notable": [
       {
-        "text": "Allianz SE diasaskan pada 1890, manakala operasi Allianz Malaysia bermula pada 2001; MAA Assurance bukan dibeli oleh Allianz dalam sejarah yang disahkan.",
-        "source": "https://www.allianz.com.my/personal/allianz-at-a-glance/about-allianz/background-and-core-values.html"
+        "text": "Allianz Road Rangers menyediakan bantuan kemalangan dan kerosakan 24 jam di 1800-22-5542 untuk polisi motor dan motosikal komprehensif Allianz.",
+        "source": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
       },
       {
-        "text": "AM Best memberikan penarafan FSR A+ kepada kumpulan Allianz; ini ialah penarafan peringkat kumpulan, bukan penarafan khusus entiti Malaysia.",
-        "source": "https://news.ambest.com/presscontent.aspx?altsrc=149&refnum=37164"
+        "text": "Road Rangers menyediakan khidmat concierge tuntutan di balai polis dan pautan WhatsApp untuk menjejak lokasi trak tunda.",
+        "source": "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "MyAllianz menyediakan urusan tuntutan, Guarantee Letter, pembayaran dan akses dokumen elektronik.",
+        "source": "https://www.allianz.com.my/personal/help-and-services/myallianz.html"
       }
     ],
     "sesuaiUntuk": [
       "Pemandu yang mengutamakan bantuan kemalangan 24/7 dengan khidmat tunda dan concierge.",
       "Pengguna yang mahu mengurus dokumen dan penjejakan tuntutan melalui aplikasi MyAllianz."
     ],
-    "kurangSesuaiUntuk": [
-      "Pembeli yang khusus mencari pengendali takaful Allianz di Malaysia; sumber yang disemak menyenaraikan entiti insurans am dan hayat.",
-      "Pengguna yang memerlukan pakej motor takaful daripada kumpulan yang sama."
-    ],
+    "kurangSesuaiUntuk": [],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
       "https://www.allianz.com/en/about-us/company/history.html",
@@ -247,14 +245,14 @@
       "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html",
       "https://www.allianz.com.my/personal/whats-new/allianz-road-rangers.html",
       "https://www.allianz.com.my/personal/help-and-services/myallianz.html",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "tokio-marine",
     "name": "Tokio Marine",
-    "fullName": "Tokio Marine Insurance (Malaysia) Berhad",
+    "fullName": "Tokio Marine Insurans (Malaysia) Berhad",
     "type": "conventional",
     "takaful": false,
     "parent": "Tokio Marine Holdings (Jepun)",
@@ -262,7 +260,7 @@
     "headquarters": "Kuala Lumpur",
     "website": "https://www.tokiomarine.com/my",
     "claimLine": "1800-88-0812",
-    "digitalPlatform": "Portal dalam talian Tokio Marine; aplikasi khusus Malaysia tidak disahkan",
+    "digitalPlatform": "MyTokioApp dan portal dalam talian Tokio Marine",
     "products": [
       "car",
       "motorcycle",
@@ -271,16 +269,16 @@
       "home",
       "personal-accident"
     ],
-    "description": "Tokio Marine Insurance (Malaysia) Berhad ialah pengendali insurans am di bawah Tokio Marine Holdings; sejarah kumpulan dan sejarah operasi Malaysia mempunyai tarikh berbeza.",
+    "description": "Tokio Marine Insurans (Malaysia) Berhad ialah pengendali insurans am di bawah Tokio Marine Holdings; sejarah kumpulan dan sejarah operasi Malaysia mempunyai tarikh berbeza.",
     "descriptionBM": "Kumpulan Tokio Marine bermula pada 1879. Pengunderaitan insurans bukan hayat di Malaysia bermula pada 1957; semak produk dan terma semasa pada laman rasmi.",
     "verdictBM": "AutoPro memuatkan beberapa manfaat motor khusus; bandingkan setiap manfaat dengan keperluan dan wording polisi anda.",
     "rating": 4.1,
     "keyFact": "Tokio Marine Holdings bermula pada 1879; pengunderaitan bukan hayat di Malaysia bermula pada 1957 dan cawangan Kuala Lumpur dibuka pada 1974.",
     "claimLineSource": "https://www.tokiomarine.com/my/en/non-life/claim/step-by-step-claim-guide/personal/motor-claims-process.html",
-    "claimLineNote": "Hotline tuntutan motor",
+    "claimLineNote": "Talian khidmat pelanggan dan tuntutan; Isnin–Jumaat, 8:30–17:00",
     "claimLineVerified": "2026-09-10",
     "entities": [
-      "Tokio Marine Insurance (Malaysia) Berhad",
+      "Tokio Marine Insurans (Malaysia) Berhad",
       "Tokio Marine Life Insurance Malaysia Berhad"
     ],
     "history": "Tokio Marine Holdings bermula di Jepun pada 1879. Pengunderaitan bukan hayat di Malaysia bermula pada 1957 dan cawangan Kuala Lumpur dibuka pada 1974; sejarah entiti hayat Malaysia mempunyai laluan korporat tersendiri.",
@@ -319,30 +317,30 @@
       "roadside": "Auto Partner menyediakan bantuan kerosakan dan tunda. AutoPro menyatakan tunda tanpa had jarak; syarat bagi AutoPro dan bantuan lain perlu disemak dalam dokumen polisi."
     },
     "app": {
-      "name": "Portal dalam talian Tokio Marine",
+      "name": "MyTokioApp dan portal dalam talian Tokio Marine",
       "features": [
-        "Maklumat dan pembelian produk dalam talian",
-        "Aplikasi mudah alih khusus untuk pasaran Malaysia tidak disahkan dalam sumber yang disemak"
+        "MyTokioApp: lihat butiran polisi",
+        "Portal web: maklumat dan pembelian produk dalam talian"
       ]
     },
     "contact": {
       "website": "https://www.tokiomarine.com/my",
-      "email": null,
-      "hours": null,
+      "email": "letusknow@tokiomarine.com.my",
+      "hours": "Talian 1800-88-0812: Isnin–Jumaat, 8:30–17:00",
       "notes": "Gunakan hotline berasingan untuk tuntutan motor dan Auto Partner."
     },
     "notable": [
       {
-        "text": "AutoPro menyenaraikan pengecualian excess bagi pemandu tidak dinamakan, tunda tanpa had, pengecualian betterment sehingga umur kenderaan 15 tahun, elaun hospital harian dan manfaat banjir tertakluk had.",
-        "source": "https://www.tokiomarine.com/my/en/non-life/products/personal/motor/tokio-marine-autopro.html"
+        "text": "Tokio Marine AutoPro menawarkan tunda tanpa had jarak serta pengecualian excess wajib RM400 bagi pemandu tidak dinamakan, tertakluk pada terma polisi.",
+        "source": "https://www.tokiomarine.com/my/en/online/products/motor-insurance.html"
       },
       {
-        "text": "Penarafan AM Best A++/aa+ yang ditemui adalah untuk Tokio Marine & Nichido pada peringkat kumpulan, bukan pengesahan khusus entiti Malaysia.",
-        "source": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=37849"
+        "text": "Talian 1800-88-0812 dan WhatsApp +603 2027 8488 beroperasi Isnin hingga Jumaat, 8:30 pagi hingga 5:00 petang.",
+        "source": "https://www.tokiomarine.com/my/en/online/about.html"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "MyTokioApp membolehkan pelanggan melihat butiran polisi insurans.",
+        "source": "https://www.tokiomarine.com/my/en/online/help/faqs/my-tokio-app/what-are-the-services-available-in-mytokioapp.html"
       }
     ],
     "sesuaiUntuk": [
@@ -350,7 +348,6 @@
       "Pemandu yang menilai manfaat AutoPro seperti had tunda dan betterment berdasarkan keperluan sebenar."
     ],
     "kurangSesuaiUntuk": [
-      "Pembeli yang mensyaratkan aplikasi mudah alih khusus Malaysia; tiada aplikasi sedemikian disahkan dalam sumber yang disemak.",
       "Pengguna yang hanya mahukan perlindungan takaful."
     ],
     "sources": [
@@ -361,9 +358,13 @@
       "https://www.tokiomarine.com/my/en/non-life/products/personal/motor/tokio-marine-autopro.html",
       "https://www.tokiomarine.com/my/en/non-life/claim/step-by-step-claim-guide/personal/motor-claims-process.html",
       "https://www.tokiomarine.com/my/en/online.html",
-      "https://www.fmos.org.my/en/"
+      "https://www.tokiomarine.com/my/en/online/products/motor-insurance.html",
+      "https://www.tokiomarine.com/my/en/online/about.html",
+      "https://www.tokiomarine.com/my/en/online/help/faqs/my-tokio-app/what-are-the-services-available-in-mytokioapp.html",
+      "https://www.tokiomarine.com/my/en/non-life/get-in-touch.html",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "aia",
@@ -440,9 +441,13 @@
         {
           "label": "Panggilan dari luar negara",
           "number": "+603 2056 1111"
+        },
+        {
+          "label": "AIA Auto Assist / Roadside Assist 24 jam",
+          "number": "1800-88-8733"
         }
       ],
-      "roadside": "Tiada talian bantuan tepi jalan untuk AIA General disahkan dalam sumber yang disemak."
+      "roadside": "AIA Auto Assist / Roadside Assist beroperasi 24 jam di 1800-88-8733 atau 03-7989 0352. Permintaan bantuan digital membolehkan pelanggan memilih bengkel dan menjejak trak tunda atau juruteknik; skop perkhidmatan tertakluk pada terma."
     },
     "app": {
       "name": "AIA+",
@@ -461,16 +466,16 @@
     },
     "notable": [
       {
-        "text": "A-Life Med Regular menyatakan perlindungan sehingga umur 100 tahun, tiada had seumur hidup serta kemudahan Just Swipe; semak PDS untuk terma dan pengecualian.",
-        "source": "https://www.aia.com.my/content/dam/my/en/docs/individuals/health/A-Life_Med_Regular.pdf"
+        "text": "Careline AIA Bhd dan AIA General ialah 1300-88-1899, beroperasi Isnin–Khamis 8:30 pagi–5:30 petang dan Jumaat 8:30 pagi–4:30 petang.",
+        "source": "https://www.aia.com.my/en/help-support/contact-us.html"
       },
       {
-        "text": "AIA memulakan operasi Malaysia pada 1948; produk motor dikeluarkan oleh AIA General Berhad, bukan AIA Bhd.",
-        "source": "https://www.aia.com.my/en/about-aia.html"
+        "text": "AIA PUBLIC Takaful menggunakan careline berasingan, 1300-88-8922; urusan Guarantee Letter tersedia 24 jam.",
+        "source": "https://www.aia.com.my/en/help-support/contact-us.html"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "AIA Digital Roadside Assist menyediakan permintaan bantuan melalui web dan Live Tracker untuk menjejak trak tunda atau juruteknik; hotline 24 jam ialah 1800-88-8733.",
+        "source": "https://www.aia.com.my/en/knowledge-hub/protect-well/24-hour-digital-roadside-assistance-at-your-fingertips.html"
       }
     ],
     "sesuaiUntuk": [
@@ -478,7 +483,6 @@
       "Pembeli motor yang memahami polisi dikeluarkan oleh AIA General Berhad dan mahu menghubungi entiti yang betul."
     ],
     "kurangSesuaiUntuk": [
-      "Pengguna yang memerlukan bantuan tepi jalan motor dalam aplikasi; tiada perkhidmatan sedemikian disahkan.",
       "Pembeli yang mahu mendapatkan insurans am dan takaful keluarga di bawah satu entiti yang sama."
     ],
     "sources": [
@@ -490,9 +494,10 @@
       "https://www.aia.com.my/en/help-support/claims-and-support/hospitalisation-corp.html",
       "https://www.aia.com.my/en/help-support/contact-us.html",
       "https://www.aia.com.my/en/help-support/aia-app.html",
-      "https://www.fmos.org.my/en/"
+      "https://www.aia.com.my/en/knowledge-hub/protect-well/24-hour-digital-roadside-assistance-at-your-fingertips.html",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "great-eastern",
@@ -506,15 +511,15 @@
     "headquarters": "Kuala Lumpur",
     "website": "https://www.greateasternlife.com/my",
     "claimLine": "1300-13-1088",
-    "digitalPlatform": "Great Eastern Corporate (GEC) app",
+    "digitalPlatform": "Great Eastern Corporate (GEC) dan e-Connect",
     "products": [
       "health",
       "life",
       "personal-accident"
     ],
     "description": "Great Eastern menjalankan perniagaan hayat dan insurans am di Malaysia; Great Eastern Takaful Berhad ialah pengendali takaful keluarga berlesen.",
-    "descriptionBM": "Kumpulan Great Eastern bermula di Singapura pada 1908. Sumber Malaysia yang disemak menunjukkan perniagaan hayat, insurans am dan takaful keluarga melalui entiti berasingan.",
-    "verdictBM": "Semak nama entiti dan jenis perlindungan; aplikasi GEC yang disahkan menyasarkan pemegang polisi korporat dan berkumpulan.",
+    "descriptionBM": "Kumpulan Great Eastern bermula di Singapura pada 1908. Perniagaan hayat, insurans am dan takaful keluarga di Malaysia dijalankan melalui entiti berasingan.",
+    "verdictBM": "Semak nama entiti dan jenis perlindungan; GEC menyasarkan pemegang polisi korporat, manakala e-Connect menyediakan akses e-Claims untuk polisi hayat dan perubatan.",
     "rating": 4.2,
     "keyFact": "Great Eastern diasaskan di Singapura pada 1908; Great Eastern Takaful Berhad ialah pengendali takaful keluarga Malaysia yang berlesen.",
     "claimLineSource": "https://www.greateasternlife.com/my/en/customer-services/claims/medical-and-hospitalisation/make-a-medical-claim.html",
@@ -556,17 +561,22 @@
         {
           "label": "Careline dari luar negara",
           "number": "+603 4259 8888"
+        },
+        {
+          "label": "Bantuan tepi jalan Great Eastern General 24 jam",
+          "number": "03-6416 9622"
         }
       ],
-      "roadside": "Talian bantuan tepi jalan motor khusus tidak ditemui dalam sumber yang disemak."
+      "roadside": "Great Eastern General menyediakan bantuan tepi jalan 24 jam di 03-6416 9622, termasuk pembaikan kecil serta tunda kemalangan atau kerosakan. Kelayakan dan had bantuan bergantung pada polisi."
     },
     "app": {
-      "name": "Great Eastern Corporate (GEC)",
+      "name": "Great Eastern Corporate (GEC) dan e-Connect",
       "features": [
         "Kad perubatan digital untuk polisi kumpulan",
         "Pencari klinik dan hospital panel",
         "Hantar dan jejak tuntutan serta Guarantee Letter",
-        "Fokus kepada pemegang polisi korporat/kumpulan"
+        "GEC: untuk pemegang polisi korporat/kumpulan",
+        "e-Connect: hantar dan jejak tuntutan hayat atau perubatan melalui e-Claims"
       ]
     },
     "contact": {
@@ -577,26 +587,23 @@
     },
     "notable": [
       {
-        "text": "Great Eastern Takaful Berhad tersenarai sebagai pengendali takaful keluarga; ia melengkapkan entiti hayat dan insurans am Great Eastern.",
-        "source": "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator"
-      },
-      {
-        "text": "Aplikasi GEC menawarkan kad perubatan digital serta fungsi tuntutan dan Guarantee Letter untuk pemegang polisi korporat/kumpulan.",
+        "text": "GEC tersedia untuk pekerja yang dilindungi polisi korporat Great Eastern, dengan kad perubatan digital, tuntutan dan permohonan Guarantee Letter.",
         "source": "https://www.greateasternlife.com/my/en/corporate-solutions/group-insurance/gec-app.html"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Pemegang polisi Great Eastern Life Assurance boleh menghantar tuntutan hayat dan perubatan melalui e-Claims serta memantau status dalam e-Connect.",
+        "source": "https://www.greateasternlife.com/my/en/customer-services/self-service-portal/digital-services/e-claims.html"
+      },
+      {
+        "text": "Hotline bantuan tepi jalan Great Eastern General ialah 03-6416 9622, beroperasi 24 jam setiap hari termasuk cuti umum.",
+        "source": "https://www.greateasterngeneral.com/content/dam/corp-site/my/malaysia/gelm-brand-comm/gegm/claims/gegm-cs-gh-rsa-faq.pdf"
       }
     ],
     "sesuaiUntuk": [
       "Majikan atau pemegang polisi kumpulan yang memerlukan kemudahan GEC.",
       "Pengguna yang mencari gabungan produk hayat, kesihatan dan takaful keluarga daripada kumpulan sama."
     ],
-    "kurangSesuaiUntuk": [
-      "Pembeli yang mengutamakan insurans motor; produk motor khusus tidak dikenal pasti dalam sumber yang disemak.",
-      "Pengguna individu yang mencari aplikasi runcit menyeluruh; aplikasi yang disahkan ialah GEC untuk polisi korporat/kumpulan."
-    ],
+    "kurangSesuaiUntuk": [],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator",
@@ -604,9 +611,11 @@
       "https://www.greateasternlife.com/my/en/customer-services/claims/medical-and-hospitalisation/make-a-medical-claim.html",
       "https://www.greateasternlife.com/my/en/corporate-solutions/group-insurance/gec-app.html",
       "https://www.greateasterngeneral.com/my/en/index.html",
-      "https://www.fmos.org.my/en/"
+      "https://www.greateasternlife.com/my/en/customer-services/self-service-portal/digital-services/e-claims.html",
+      "https://www.greateasterngeneral.com/content/dam/corp-site/my/malaysia/gelm-brand-comm/gegm/claims/gegm-cs-gh-rsa-faq.pdf",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "zurich",
@@ -645,6 +654,13 @@
     ],
     "history": "Zurich Group diasaskan di Zürich pada 1872; operasi insurans Malaysia bermula pada 2011 selepas pengambilalihan MAA Assurance. Pengambilalihan MAA Takaful diselesaikan pada 2016 dan membentuk operasi takaful Zurich di Malaysia.",
     "productDetails": [
+      {
+        "line": "Motor takaful",
+        "names": [
+          "Z-Driver Takaful"
+        ],
+        "url": "https://www.zurich.com.my/takaful-products/protection/for-my-vehicle/z-driver-takaful"
+      },
       {
         "line": "Motor, rumah dan perjalanan",
         "names": [],
@@ -698,16 +714,16 @@
     },
     "notable": [
       {
-        "text": "Zurich memperoleh MAA Assurance pada 2011; pengambilalihan MAA Takaful selesai pada 2016.",
-        "source": "https://www.zurich.com.my/about-zurich/zurich-in-the-news/2012/2012-06-13"
+        "text": "Z-Driver Takaful ialah pelan motor komprehensif Zurich dengan pilihan pembelian dalam talian.",
+        "source": "https://www.zurich.com.my/takaful-products/protection/for-my-vehicle/z-driver-takaful"
       },
       {
-        "text": "Penarafan AM Best A+ yang dirujuk ialah penarafan kumpulan Zurich, bukan penarafan khusus entiti Malaysia.",
-        "source": "https://www.zurich.com/investor-relations/ratings"
+        "text": "Careline Zurich 1-300-888-622 beroperasi Isnin–Jumaat, 8:30 pagi–5:15 petang, kecuali cuti umum; e-melnya callcentre@zurich.com.my.",
+        "source": "https://www.zurich.com.my/takaful-products/protection/for-my-vehicle/z-driver-takaful"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Zurich Roadside Assistance beroperasi 24 jam di 1-300-88-5566; saluran WhatsApp bantuan ialah +603-7989 0345.",
+        "source": "https://www.zurich.com.my/takaful-products/protection/for-my-vehicle/z-driver-takaful"
       }
     ],
     "sesuaiUntuk": [
@@ -715,7 +731,6 @@
       "Pemandu yang mahu meminta dan menjejak bantuan tunda melalui MyZurich."
     ],
     "kurangSesuaiUntuk": [
-      "Pembeli yang memerlukan nama produk motor tertentu sebelum membuat perbandingan; nama khusus tidak disahkan dalam sumber yang digunakan.",
       "Pengguna yang mahu satu nombor untuk semua urusan; talian careline, bantuan jalan dan hospital berbeza."
     ],
     "sources": [
@@ -723,13 +738,15 @@
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator",
       "https://www.zurich.com/about-us/history-and-heritage",
       "https://www.zurich.com.my/about-zurich/zurich-in-the-news/2012/2012-06-13",
+      "https://www.zurich.com.my/about-zurich/zurich-in-the-news/2017/2017-05-01-b",
       "https://www.zurich.com.my/zurich-roadside-assistance",
       "https://www.zurich.com.my/customer-hub/i-want-to-get-in-touch/contact-us",
       "https://www.zurich.com.my/customer-hub/myzurich-app",
+      "https://www.zurich.com.my/takaful-products/protection/for-my-vehicle/z-driver-takaful",
       "https://apps.apple.com/my/app/zurich-mymed/id6670733403",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "prudential",
@@ -743,7 +760,7 @@
     "headquarters": "Kuala Lumpur",
     "website": "https://www.prudential.com.my",
     "claimLine": "03-2771 0228",
-    "digitalPlatform": "Prudential Malaysia App dan Pulse by Prudential",
+    "digitalPlatform": "Prudential Malaysia App dan PRUServices",
     "products": [
       "health",
       "life",
@@ -751,7 +768,7 @@
     ],
     "description": "Prudential Malaysia menyediakan insurans hayat dan kesihatan; Prudential BSN Takaful ialah entiti takaful keluarga yang berasingan.",
     "descriptionBM": "Prudential mula beroperasi di Malaysia pada 1924. PRUValue Med ialah antara produk perubatan yang mempunyai butiran produk rasmi untuk disemak.",
-    "verdictBM": "Nilai manfaat PRUValue Med dan saluran aplikasi mengikut keperluan; Prudential Malaysia tidak disenaraikan sebagai pengendali insurans am dalam sumber ini.",
+    "verdictBM": "Bandingkan manfaat PRUValue Med serta kemudahan urusan polisi dan tuntutan melalui Prudential Malaysia App.",
     "rating": 4.3,
     "claimLineSource": "https://www.prudential.com.my/en/services-and-claims/claims/claims-faq/",
     "claimLineNote": "Khidmat pelanggan dan pertanyaan tuntutan",
@@ -794,43 +811,40 @@
           "number": "+603 2771 0228"
         }
       ],
-      "roadside": "Tiada insurans motor atau talian bantuan tepi jalan Prudential Malaysia disahkan dalam sumber yang disemak."
+      "roadside": ""
     },
     "app": {
-      "name": "Prudential Malaysia App dan Pulse by Prudential",
+      "name": "Prudential Malaysia App dan PRUServices",
       "features": [
         "Prudential Malaysia App: lihat polisi, bayar premium, urus tuntutan dan cari hospital panel",
-        "Pulse: pemeriksa simptom berasaskan AI dan telekesihatan"
+        "PRUServices: urus polisi dan tuntutan melalui portal web"
       ]
     },
     "contact": {
       "website": "https://www.prudential.com.my",
       "email": "customer.mys@prudential.com.my",
       "hours": "Khidmat pelanggan +603 2771 0228: Isnin–Jumaat, 8:30–17:15",
-      "notes": "Urusan polisi kini disokong oleh Prudential Malaysia App; Pulse berfokus pada perkhidmatan kesihatan digital."
+      "notes": "Urusan polisi dan tuntutan tersedia melalui Prudential Malaysia App serta portal web PRUServices."
     },
     "notable": [
       {
-        "text": "PRUValue Med menyatakan Med Value Point seumur hidup RM1 juta hingga RM2 juta serta perkongsian 80% kos layak yang melebihi had tersebut, tertakluk pada PDS.",
+        "text": "PRUValue Med menawarkan Med Value Point seumur hidup sehingga RM2 juta; selepas had itu dicapai, 80% perbelanjaan perubatan yang layak masih dilindungi, tertakluk pada terma produk.",
         "source": "https://www.prudential.com.my/en/products/medical-insurance/pruvalue-med/"
       },
       {
-        "text": "Pulse dilancarkan di Malaysia pada Ogos 2019; khidmat polisi menggunakan aplikasi Prudential Malaysia yang berasingan.",
-        "source": "https://www.prudentialplc.com/en/newsroom/company-news/2019/revolutionising-the-future-of-healthcare-with-pulse-by-prudential-an-all-in-one-ai-powered-mobile-app/"
+        "text": "Contact Centre Prudential menggunakan +603 2771 0228, beroperasi Isnin–Jumaat, 8:30 pagi–5:15 petang, kecuali cuti umum.",
+        "source": "https://www.prudential.com.my/en/general/contact-our-team/"
       },
       {
-        "text": "Pertikaian perubatan/kesihatan dan takaful yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Prudential Malaysia App menyediakan pembayaran premium, penghantaran dan penjejakan tuntutan serta pencarian hospital panel; akses web tersedia melalui PRUServices.",
+        "source": "https://www.prudential.com.my/en/services-and-claims/prudential-malaysia-app/"
       }
     ],
     "sesuaiUntuk": [
       "Pengguna yang mencari gabungan perlindungan hayat dan perubatan serta saluran takaful keluarga.",
       "Pemegang polisi yang akan menggunakan aplikasi polisi khusus dan perkhidmatan kesihatan digital."
     ],
-    "kurangSesuaiUntuk": [
-      "Pembeli insurans motor, kebakaran atau bantuan jalan; produk insurans am tersebut tidak disahkan dalam sumber yang disemak.",
-      "Pengguna yang mahu menyatukan urusan polisi dengan satu aplikasi sahaja; Pulse dan Prudential Malaysia App mempunyai fungsi berbeza."
-    ],
+    "kurangSesuaiUntuk": [],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=takaful-operator",
@@ -838,10 +852,10 @@
       "https://www.prudential.com.my/en/products/medical-insurance/pruvalue-med/",
       "https://www.prudential.com.my/en/services-and-claims/claims/claims-faq/",
       "https://www.prudential.com.my/en/services-and-claims/prudential-malaysia-app/",
-      "https://www.prudentialplc.com/en/newsroom/company-news/2019/revolutionising-the-future-of-healthcare-with-pulse-by-prudential-an-all-in-one-ai-powered-mobile-app/",
-      "https://www.fmos.org.my/en/"
+      "https://www.prudential.com.my/en/general/contact-our-team/",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "takaful-malaysia",
@@ -863,7 +877,7 @@
       "home",
       "personal-accident"
     ],
-    "description": "Syarikat Takaful Malaysia Keluarga Berhad dan Syarikat Takaful Malaysia Am menyediakan perlindungan takaful keluarga dan am.",
+    "description": "Syarikat Takaful Malaysia Keluarga Berhad dan Syarikat Takaful Malaysia Am Berhad menyediakan perlindungan takaful keluarga dan am.",
     "descriptionBM": "Syarikat Takaful Malaysia ditubuhkan pada 1984 dan memulakan operasi pada 1985. Pilihan produk termasuk motor takaful, perlindungan keluarga dan kredit takaful.",
     "verdictBM": "Pertimbangkan Takaful Malaysia jika anda mencari pengendali takaful dengan produk motor dan bantuan Tele Bantuan.",
     "rating": 4.1,
@@ -873,7 +887,7 @@
     "claimLineVerified": "2026-09-10",
     "entities": [
       "Syarikat Takaful Malaysia Keluarga Berhad",
-      "Syarikat Takaful Malaysia Am"
+      "Syarikat Takaful Malaysia Am Berhad"
     ],
     "history": "Syarikat Takaful Malaysia diperbadankan pada 29 November 1984 di bawah Akta Takaful 1984 dan memulakan operasi pada Julai 1985 sebagai pengendali takaful pertama di Malaysia.",
     "productDetails": [
@@ -907,7 +921,7 @@
           "number": "1800-888-788"
         }
       ],
-      "roadside": "Tele Bantuan 24/7 menyediakan pembaikan kecil dan tunda. Sumber menyatakan had jarak tunda berbeza mengikut kereta/motosikal dan penggunaan; kos tunda kemalangan juga mempunyai had berasingan."
+      "roadside": "Tele Bantuan menyediakan bantuan 24 jam di 1800-888-788. Bagi kerosakan, tunda percuma ke bengkel panel terdekat dihadkan kepada 50 km untuk kereta persendirian dan 30 km untuk motosikal setiap kejadian; manfaat motosikal ini hanya untuk penggunaan pertama dalam tempoh takaful."
     },
     "app": {
       "name": "Tele Bantuan",
@@ -925,16 +939,16 @@
     },
     "notable": [
       {
-        "text": "Panduan tuntutan menyebut laporan polis dalam 24 jam dan pemberitahuan tuntutan dalam tujuh hari; semak arahan penuh bagi keadaan tuntutan anda.",
+        "text": "Panduan tuntutan motor Takaful Malaysia menetapkan laporan polis dalam 24 jam dan pemberitahuan kepada pengendali dalam tujuh hari dari tarikh kemalangan.",
         "source": "https://www.takaful-malaysia.com.my/en/claim-guide/"
       },
       {
-        "text": "RAM memberikan penarafan IFS AA2/Stable/P1 kepada Syarikat Takaful Malaysia Keluarga Berhad; penarafan ini bukan jaminan keputusan tuntutan individu.",
-        "source": "https://www.ram.com.my/pressrelease/?prviewid=7195"
+        "text": "Tele Bantuan menggunakan hotline 1800-888-788 yang beroperasi 24 jam; peserta yang layak juga boleh meminta bantuan melalui aplikasi Tele Bantuan.",
+        "source": "https://www.takaful-malaysia.com.my/en/telebantuan/"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan takaful yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir pengendali; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Bagi kerosakan kenderaan, Tele Bantuan menyediakan tunda percuma sehingga 50 km untuk kereta persendirian dan 30 km untuk motosikal ke bengkel panel terdekat; manfaat motosikal terhad kepada penggunaan pertama dalam tempoh takaful.",
+        "source": "https://www.takaful-malaysia.com.my/en/telebantuan/"
       }
     ],
     "sesuaiUntuk": [
@@ -952,10 +966,9 @@
       "https://www.takaful-malaysia.com.my/en/claim-guide/",
       "https://www.takaful-malaysia.com.my/en/claims-support/",
       "https://www.takaful-malaysia.com.my/en/telebantuan/",
-      "https://www.ram.com.my/pressrelease/?prviewid=7195",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "berjaya-sompo",
@@ -1048,16 +1061,16 @@
     },
     "notable": [
       {
-        "text": "Berjaya Sompo Insurance Berhad bermula pada 1974; pegangan Sompo Japan bermula pada 30% pada 2007 dan meningkat kepada 70% pada 2011.",
-        "source": "https://www.berjayasompo.com.my/about-berjaya-sompo"
+        "text": "Customer Service Berjaya Sompo menggunakan 1-800-88-9933 dan customer@bsompo.com.my, beroperasi Isnin–Jumaat, 8:30 pagi–5:00 petang.",
+        "source": "https://www.berjayasompo.com.my/contact-us"
       },
       {
-        "text": "Jenama Kurnia kini di bawah Liberty General Insurance Berhad (bukan Berjaya Sompo)",
-        "source": "https://www.kurnia.com/newsroom/amgeneral-now-liberty-general-insurance-berhad"
+        "text": "Bantuan kerosakan 24 jam Berjaya Sompo menggunakan 1-800-18-8033 untuk kereta dan kenderaan komersial, serta 1300-88-2323 untuk motosikal.",
+        "source": "https://www.berjayasompo.com.my/contact-us"
       },
       {
-        "text": "Pertikaian motor yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "MySOMPO membolehkan pelanggan menghantar dan menjejak tuntutan, mencari bengkel panel serta menjejak bantuan tepi jalan secara langsung.",
+        "source": "https://www.berjayasompo.com.my/mysompo"
       }
     ],
     "sesuaiUntuk": [
@@ -1075,9 +1088,9 @@
       "https://www.berjayasompo.com.my/mysompo",
       "https://www.iag.com.au/archive/announcement/completion-kurnia-insurans-acquisition",
       "https://www.kurnia.com/newsroom/amgeneral-now-liberty-general-insurance-berhad",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "msig",
@@ -1099,7 +1112,7 @@
       "personal-accident"
     ],
     "description": "MSIG Insurance (Malaysia) Bhd ialah pengendali insurans am di bawah MS&AD, dengan Hong Leong Financial Group sebagai pemegang 30% sejak kerjasama strategik 2010.",
-    "descriptionBM": "MSIG Malaysia menawarkan insurans am; talian Motor Assist dan hotline umum berbeza. Perkhidmatan digital yang disahkan termasuk penjejakan tunda.",
+    "descriptionBM": "MSIG Malaysia menawarkan insurans am; talian Motor Assist dan hotline umum berbeza. Digital Roadside Assistance menyediakan permintaan bantuan dan penjejakan trak tunda.",
     "verdictBM": "Bandingkan MSIG mengikut manfaat motor, perjalanan dan bantuan jalan digital yang benar-benar diperlukan.",
     "rating": 4.0,
     "keyFact": "Hong Leong Financial Group memegang 30% MSIG Insurance (Malaysia) Bhd sejak kerjasama strategik 2010 dengan Mitsui Sumitomo Insurance.",
@@ -1166,21 +1179,21 @@
     "contact": {
       "website": "https://www.msig.com.my",
       "email": null,
-      "hours": null,
+      "hours": "Khidmat pelanggan 1-800-88-6744: Isnin–Jumaat, 8:30–17:30",
       "notes": "Untuk talian bantuan, bezakan Motor Assist, Travel Assist dan hotline umum."
     },
     "notable": [
       {
-        "text": "Hong Leong Financial Group memegang 30% MSIG Malaysia sejak perkongsian strategik 2010; Hong Leong MSIG Takaful ialah entiti berasingan.",
-        "source": "https://www.msig.com.my/highlights/hong-leong-financial-group-berhad-and-mitsui-sumitomo-insurance-co-ltd-form-strategic-partnership-18-jun-2010-announcements/"
+        "text": "MSIG Motor Assist menggunakan hotline 1-300-880-833 untuk bantuan kemalangan dan kerosakan motor, 24 jam setiap hari.",
+        "source": "https://www.msig.com.my/contact-us/"
       },
       {
-        "text": "Smart Towing menambah penjejakan trak tunda pada perkhidmatan Motor Assist 24 jam.",
-        "source": "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/"
+        "text": "Digital Roadside Assistance MSIG membolehkan pemegang polisi motor meminta bantuan, mencari bengkel panel dan menjejak trak tunda secara langsung.",
+        "source": "https://www.msig.com.my/digital-roadside-assistance-dra/"
       },
       {
-        "text": "Pertikaian motor dan perubatan/kesihatan yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "MSIG Home Assist menggunakan talian berasingan, 1-300-880-863, untuk polisi perlindungan rumah; talian bantuan ini beroperasi 24 jam.",
+        "source": "https://www.msig.com.my/contact-us/"
       }
     ],
     "sesuaiUntuk": [
@@ -1197,9 +1210,9 @@
       "https://www.msig.com.my/contact-us/",
       "https://www.msig.com.my/digital-roadside-assistance-dra/",
       "https://www.msig.com.my/highlights/msig-introduces-smart-towing-to-24-hour-motor-assist/",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "rhi",
@@ -1220,7 +1233,7 @@
       "personal-accident",
       "travel"
     ],
-    "description": "RHB Insurance Berhad ialah pengendali insurans am dalam RHB Banking Group; bukti yang disemak tidak menyokong dakwaan ia satu-satunya bank Malaysia dengan syarikat insurans am.",
+    "description": "RHB Insurance Berhad ialah pengendali insurans am dalam RHB Banking Group.",
     "descriptionBM": "RHB Insurance menawarkan produk insurans am serta bantuan jalan dan pengurusan motor melalui aplikasi mudah alih.",
     "verdictBM": "Pilihan RHB boleh dibandingkan berdasarkan perlindungan insurans am, talian bantuan jalan dan fungsi aplikasi.",
     "rating": 3.8,
@@ -1231,7 +1244,7 @@
     "entities": [
       "RHB Insurance Berhad"
     ],
-    "history": "RHB Insurance Berhad diperbadankan pada 7 Mac 1978 dan merupakan sebahagian daripada RHB Banking Group. Sumber registry yang disemak merekodkan nombor pendaftaran 197801000983/38000-U.",
+    "history": "RHB Insurance Berhad diperbadankan pada 7 Mac 1978 dan merupakan sebahagian daripada RHB Banking Group.",
     "productDetails": [
       {
         "line": "Insurans am",
@@ -1254,7 +1267,7 @@
     ],
     "claims": {
       "steps": [
-        "Untuk kemalangan atau kerosakan jalan, hubungi 1300 880 881 atau hantar mesej WhatsApp ke 012-932 4854.",
+        "Untuk kemalangan atau kerosakan jalan, hubungi 1300 880 881 atau gunakan portal bantuan jalan yang dipautkan pada laman rasmi RHB.",
         "Tunggu trak tunda yang dilantik RHB dan elakkan trak tunda yang merayau, seperti dinyatakan dalam panduan rasmi.",
         "Aplikasi RHB Insurance menyokong penghantaran dan penjejakan tuntutan motor."
       ],
@@ -1262,10 +1275,6 @@
         {
           "label": "Bantuan jalan/kemalangan 24 jam",
           "number": "1300 880 881"
-        },
-        {
-          "label": "WhatsApp teks",
-          "number": "012-932 4854"
         }
       ],
       "roadside": "Bantuan jalan dan kemalangan beroperasi 24 jam. Panduan rasmi meminta pelanggan menunggu trak tunda yang dilantik dan mengelakkan trak tunda tidak diminta."
@@ -1282,20 +1291,20 @@
       "website": "https://www.rhbgroup.com/insurance",
       "email": null,
       "hours": null,
-      "notes": "Talian WhatsApp 012-932 4854 dinyatakan untuk mesej teks."
+      "notes": "Permintaan bantuan jalan boleh dibuat melalui hotline 1300 880 881, portal web atau aplikasi RHB Insurance."
     },
     "notable": [
       {
-        "text": "RHB Insurance Berhad diperbadankan pada 7 Mac 1978; dakwaan bahawa ia satu-satunya bank Malaysia yang masih memiliki syarikat insurans am adalah tidak tepat.",
-        "source": "https://ctoscredit.com.my/businessreport/oneoffreport_api/single-report/malaysia-company/0038000U/RHB-INSURANCE-BERHAD"
+        "text": "RHB Insurance Berhad diperbadankan pada 7 Mac 1978, seperti dinyatakan dalam perlembagaan syarikat.",
+        "source": "https://www.rhbgroup.com/-/media/Assets/Corporate-Website/HTML-Component/Section/Corporate-Governance-Link-Panel/files/rhb-insurance-berhad/Constitution.pdf"
       },
       {
-        "text": "Panduan rasmi mengarahkan pelanggan menghubungi hotline, menunggu trak tunda yang dilantik dan mengelakkan trak tunda tidak diminta.",
+        "text": "Hotline RHB Insurance Roadside Assistance ialah 1300 880 881; permintaan bantuan juga boleh dibuat melalui portal web dan aplikasi RHB Insurance.",
         "source": "https://www.rhbgroup.com/rhbi-roadsideassistance/index.html"
       },
       {
-        "text": "Pertikaian motor yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Tuntutan motor RHB boleh dihantar melalui bengkel panel atau francais serta Claims Portal yang dipautkan pada laman rasmi RHB.",
+        "source": "https://www.rhbgroup.com/rhbi-roadsideassistance/index.html"
       }
     ],
     "sesuaiUntuk": [
@@ -1308,14 +1317,15 @@
     ],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
-      "https://ctoscredit.com.my/businessreport/oneoffreport_api/single-report/malaysia-company/0038000U/RHB-INSURANCE-BERHAD",
+      "https://www.rhbgroup.com/-/media/Assets/Corporate-Website/HTML-Component/Section/Corporate-Governance-Link-Panel/files/rhb-insurance-berhad/Constitution.pdf",
       "https://www.rhbgroup.com/others/about-us/who-we-are/index.html",
       "https://www.rhbgroup.com/rhbi-roadsideassistance/index.html",
+      "https://www.rhbgroup.com/-/media/Assets/Corporate-Website/Document/Highlights/Media-Release/20180605---RHB_LAUNCHES_MOBILE_APP_FOR_MOTOR_INSURANCE_AND_ROADTAX_RENEWAL.pdf",
       "https://play.google.com/store/apps/details?id=com.rhbinsurancemobile",
       "https://apps.apple.com/my/app/rhb-insurance/id1326090181",
-      "https://www.fmos.org.my/en/"
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   },
   {
     "slug": "lonpac",
@@ -1328,7 +1338,7 @@
     "headquarters": "Kuala Lumpur",
     "website": "https://www.lonpac.com",
     "claimLine": "03-2723 7899",
-    "digitalPlatform": "Perkhidmatan dalam talian Lonpac; aplikasi pengguna tidak disahkan",
+    "digitalPlatform": "Lonpac Road Assist melalui web",
     "products": [
       "car",
       "motorcycle",
@@ -1374,15 +1384,18 @@
         {
           "label": "Tuntutan bukan motor",
           "number": "03-2723 7898"
+        },
+        {
+          "label": "Lonpac Road Assist 24 jam",
+          "number": "1300-88-1138"
         }
       ],
-      "roadside": "Talian bantuan jalan 24 jam tidak ditemui dalam sumber yang disemak."
+      "roadside": "Lonpac Road Assist menyediakan bantuan tunda dan pembaikan kecil untuk pelanggan kereta persendirian komprehensif melalui 1300-88-1138 atau portal ezlonpac.com/road-assist; bantuan beroperasi 24 jam, tertakluk pada terma."
     },
     "app": {
-      "name": "Perkhidmatan dalam talian Lonpac",
+      "name": "Lonpac Road Assist melalui web",
       "features": [
-        "Akses maklumat melalui lonpac.com",
-        "Aplikasi pengguna khusus tidak ditemui dalam sumber yang disemak"
+        "Permintaan bantuan tepi jalan melalui ezlonpac.com/road-assist"
       ]
     },
     "contact": {
@@ -1393,39 +1406,34 @@
     },
     "notable": [
       {
-        "text": "Perniagaan insurans dipindahkan kepada Lonpac Insurance Bhd pada 1 Mei 1999; tarikh 1963 merujuk kepada sejarah entiti induk terdahulu.",
-        "source": "https://www.lpicapital.com/downloads/annualreport2017.pdf"
+        "text": "Meja tuntutan motor Lonpac menggunakan 03-2723 7899 dan bukan motor 03-2723 7898; waktu operasi Isnin–Jumaat, 9:00 pagi–4:30 petang.",
+        "source": "https://www.lonpac.com/claims"
       },
       {
-        "text": "Public Bank menyelesaikan pengambilalihan 44.15% LPI Capital pada 4 Disember 2024 selepas kelulusan berkaitan.",
-        "source": "https://www.publicbankgroup.com/about-us/corporate-milestones/"
+        "text": "Lonpac Road Assist menyediakan bantuan tunda dan pembaikan kecil melalui 1300-88-1138 untuk pelanggan kereta persendirian komprehensif yang layak.",
+        "source": "https://www.lonpac.com/claims/e-assist-services/road-assist"
       },
       {
-        "text": "Lonpac mempunyai penarafan AM Best FSR A (Excellent), Stable; ini penarafan syarikat, bukan jaminan untuk tuntutan individu.",
-        "source": "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=35542"
-      },
-      {
-        "text": "Pertikaian motor yang layak boleh dirujuk kepada FMOS secara percuma selepas keputusan akhir penyedia; had masa yang dinyatakan ialah enam bulan.",
-        "source": "https://www.fmos.org.my/en/"
+        "text": "Permintaan Lonpac Road Assist boleh dibuat melalui ezlonpac.com/road-assist; talian bantuan beroperasi 24 jam.",
+        "source": "https://www.lonpac.com/downloads/emergency_road_assist_t%26c.pdf"
       }
     ],
     "sesuaiUntuk": [
       "Pengguna yang mahu menyemak butiran tuntutan melalui halaman rasmi dan talian meja tuntutan.",
       "Pelanggan Public Bank yang mengambil kira hubungan kumpulan selepas pengambilalihan LPI Capital."
     ],
-    "kurangSesuaiUntuk": [
-      "Pemandu yang mengutamakan bantuan tepi jalan 24 jam; talian sedemikian tidak ditemui dalam sumber disemak.",
-      "Pembeli yang mahukan aplikasi pengguna khusus; aplikasi sedemikian tidak disahkan."
-    ],
+    "kurangSesuaiUntuk": [],
     "sources": [
       "https://www.bnm.gov.my/regulations/fsp-directory?p_p_id=com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_jXC730NRlqU0&p_p_lifecycle=0&p_p_state=normal&p_r_p_tag=insurer",
       "https://www.lpicapital.com/downloads/annualreport2017.pdf",
-      "https://www.thestar.com.my/business/business-news/2024/10/11/public-bank-to-take-over-lpi-capital",
+      "https://www.lpicapital.com/downloads/IAC.pdf",
       "https://www.publicbankgroup.com/about-us/corporate-milestones/",
       "https://www.lonpac.com/claims",
-      "https://news.ambest.com/PR/PressContent.aspx?altsrc=2&refnum=35542",
-      "https://www.fmos.org.my/en/"
+      "https://www.lonpac.com/claims/travel",
+      "https://www.lonpac.com/claims/e-assist-services/road-assist",
+      "https://www.lonpac.com/downloads/emergency_road_assist_t%26c.pdf",
+      "https://www.fmos.org.my/en/filing-a-complaint-with-fmos-what-to-expect-and-what-you-need-to-know/"
     ],
-    "asAt": "2026-09-28"
+    "asAt": "2026-10-10"
   }
 ]

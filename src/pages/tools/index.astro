@@ -41,6 +41,15 @@ const schema = {
   </section>
 
   <div class="container-wide py-10 sm:py-14">
+    <section aria-labelledby="pilih-alat" class="info-box mb-8">
+      <h2 id="pilih-alat" class="mb-3 font-serif text-headline-sm text-stone-900">Alat mana patut anda gunakan?</h2>
+      <p class="text-base leading-7 text-stone-700">
+        Untuk bajet renew kenderaan, gunakan kalkulator NCD bersama kalkulator roadtax kereta atau
+        motosikal. Untuk menilai keperluan keluarga, mulakan dengan kalkulator coverage nyawa. Untuk
+        anggaran perlindungan rumah, gunakan kalkulator insurans rumah. Setiap alat menjawab soalan
+        berbeza: diskaun premium, cukai jalan, jurang perlindungan atau anggaran premium rumah.
+      </p>
+    </section>
     <div class="prose-editorial mb-8 max-w-3xl">
       <p>
         Alat di halaman ini membantu anda memahami beberapa angka asas sebelum menilai perlindungan: anggaran NCD, jurang perlindungan nyawa, kadar roadtax kereta dan motosikal, serta anggaran kos insurans rumah. Masukkan butiran yang diminta untuk melihat pengiraan berdasarkan andaian pada setiap alat. Anda boleh gunakan hasilnya sebagai titik mula untuk menyediakan soalan sebelum membuat semakan lanjut dengan penyedia insurans.
@@ -49,40 +58,107 @@ const schema = {
         Kami merujuk setiap angka kepada sumber yang sesuai: kadar roadtax kepada jadual JPJ, anggaran insurans rumah kepada kadar tarif PIAM, dan penerangan tentang peraturan serta istilah insurans kepada penerbitan BNM dan dokumen pendedahan produk (PDS) syarikat insurans. Rujukan ini boleh berubah apabila kadar, produk atau peraturan dikemas kini, jadi semak sumber rasmi dan dokumen terkini sebelum membuat keputusan. Angka dalam kalkulator ialah anggaran berdasarkan input anda, bukan sebut harga syarikat insurans, jaminan kelulusan atau tawaran perlindungan; premium sebenar bergantung pada profil risiko dan pilihan perlindungan.
       </p>
       <p>
-        Untuk mula, cuba <a href="/tools/ncd-calculator/">Kalkulator NCD</a> untuk semak kesan diskaun, <a href="/tools/kalkulator-roadtax/">kalkulator roadtax</a> bagi kadar kenderaan, atau <a href="/tools/kalkulator-insurans-rumah/">kalkulator insurans rumah</a>. Jika anda membandingkan perlindungan kereta, lihat juga <a href="/car-insurance/">panduan insurans kereta</a>.
+        Jika anda membandingkan perlindungan kereta, baca <a href="/car-insurance/">panduan insurans kereta</a> sebelum menilai sebut harga. Panduan itu membantu anda membezakan jenis perlindungan, memahami NCD dan menyemak add-on supaya pengiraan bajet tidak terpisah daripada apa yang dilindungi.
       </p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="/tools/ncd-calculator/" class="card-editorial group block">
         <div class="text-3xl mb-3">🧮</div>
         <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator NCD</h2>
-        <p class="text-sm text-stone-600">Kira berapa anda jimat dengan NCD anda. Termasuk kalkulator "patut ke claim?"</p>
+        <p class="text-sm text-stone-600">Gunakan alat ini sebelum renew untuk mengira kesan NCD pada premium kereta anda. Masukkan premium asas dan kadar NCD yang berkaitan, kemudian semak anggaran penjimatan. Jika anda sedang menimbang tuntutan kerosakan kecil, gunakan bahagian "patut ke claim?" untuk membandingkan kos pembaikan dengan kesan kehilangan NCD, sambil merujuk syarat tuntutan polisi anda.</p>
         <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
       </a>
       <a href="/tools/kalkulator-coverage-nyawa/" class="card-editorial group block">
         <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Life</div>
         <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Coverage Nyawa</h2>
-        <p class="text-sm text-stone-600">Kira jurang coverage kasar berdasarkan nombor pendapatan, hutang, simpanan dan coverage sedia ada.</p>
+        <p class="text-sm text-stone-600">Gunakan alat ini apabila anda mahu menganggarkan jurang perlindungan nyawa untuk keluarga. Sediakan angka pendapatan, hutang, simpanan dan coverage sedia ada supaya pengiraan tidak bergantung pada tekaan. Hasilnya membantu anda menyusun perbincangan tentang keperluan tanggungan; ia bukan keputusan bahawa anda mesti membeli jumlah perlindungan tersebut atau cadangan produk tertentu.</p>
         <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
       </a>
       <a href="/tools/kalkulator-roadtax/" class="card-editorial group block">
         <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motor</div>
         <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax</h2>
-        <p class="text-sm text-stone-600">Kira kadar roadtax JPJ untuk kereta persendirian ikut cc, wilayah dan jenis badan.</p>
+        <p class="text-sm text-stone-600">Gunakan kalkulator ini apabila anda mahu mengasingkan kos roadtax kereta daripada premium insurans semasa renew. Pilih kapasiti enjin dalam cc, wilayah dan jenis badan kereta persendirian yang betul. Semak butiran pada dokumen kenderaan, kerana pilihan kategori yang salah boleh menghasilkan kadar yang tidak sesuai walaupun kapasiti enjin nampak hampir sama.</p>
         <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
       </a>
       <a href="/tools/kalkulator-roadtax-motosikal/" class="card-editorial group block">
         <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motosikal</div>
         <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax Motosikal</h2>
-        <p class="text-sm text-stone-600">Kira kadar roadtax JPJ untuk motosikal persendirian ikut cc dan wilayah.</p>
+        <p class="text-sm text-stone-600">Gunakan alat ini untuk menyemak kadar roadtax motosikal persendirian sebelum menyediakan bajet tahunan. Masukkan kapasiti enjin dan pilih wilayah yang berkaitan dengan kenderaan anda. Pengiraan ini untuk cukai jalan motosikal, bukan premium insurans atau jumlah bayaran renew keseluruhan; asingkan sebut harga perlindungan serta apa-apa caj perkhidmatan dalam bajet anda.</p>
         <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
       </a>
       <a href="/tools/kalkulator-insurans-rumah/" class="card-editorial group block">
         <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Rumah</div>
         <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Insurans Rumah</h2>
-        <p class="text-sm text-stone-600">Kira anggaran premium houseowner/householder dari kadar tariff kebakaran × jumlah diinsuranskan.</p>
+        <p class="text-sm text-stone-600">Gunakan alat ini sebagai anggaran awal premium houseowner atau householder sebelum meminta sebut harga. Pengiraan menggunakan kadar tarif kebakaran dan jumlah diinsuranskan, jadi semak dahulu nilai perlindungan yang anda masukkan. Bandingkan hasil dengan skop bangunan atau kandungan yang hendak dilindungi, kemudian semak tambahan, pengecualian dan jumlah akhir dalam sebut harga penyedia.</p>
         <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
       </a>
     </div>
+
+    <section aria-labelledby="semak-pengiraan" class="prose-editorial mt-12">
+      <h2 id="semak-pengiraan">Cara membaca hasil kalkulator</h2>
+      <h3>Semak input dan andaian</h3>
+      <p>
+        Sediakan polisi, dokumen kenderaan atau catatan kewangan sebelum mula. Pastikan angka tahunan
+        tidak tersalah dimasukkan sebagai angka bulanan, dan pilih wilayah serta kategori yang sesuai.
+        Jika hasil nampak berbeza daripada jangkaan, periksa input dahulu dan baca penerangan alat.
+        Kalkulator tidak mengetahui perubahan pada keadaan anda selain butiran yang anda masukkan.
+      </p>
+      <h3>Bandingkan angka yang sama jenis</h3>
+      <p>
+        Roadtax ialah cukai jalan, bukan premium perlindungan. Anggaran NCD pula tidak bermaksud semua
+        komponen dalam bil insurans menerima diskaun yang sama. Untuk bajet renew, asingkan premium,
+        roadtax, add-on dan caj lain. Bagi perlindungan nyawa atau rumah, bandingkan jumlah perlindungan
+        bersama manfaat dan pengecualian, bukan jumlah premium sahaja.
+      </p>
+      <h3>Bawa hasil kepada penyedia</h3>
+      <p>
+        Simpan input serta hasil pengiraan untuk rujukan semasa meminta sebut harga. Tanyakan sebab
+        perbezaan jika angka penyedia tidak sama dengan anggaran anda. Penyedia mungkin menggunakan
+        butiran risiko, manfaat atau syarat produk yang lebih khusus. Gunakan pengiraan untuk bertanya
+        dengan lebih tepat, bukan sebagai bukti bahawa sesuatu premium atau tuntutan mesti diluluskan.
+      </p>
+    </section>
+
+    <section aria-labelledby="faq-tools" class="mt-12">
+      <div class="prose-editorial mb-5">
+        <h2 id="faq-tools">Soalan lazim kalkulator insurans</h2>
+      </div>
+      <details class="faq-item" open>
+        <summary>Adakah hasil kalkulator ialah sebut harga rasmi?</summary>
+        <p>
+          Tidak. Hasil ialah pengiraan berdasarkan input dan andaian pada alat tersebut. Untuk premium
+          sebenar, minta sebut harga daripada penyedia dengan butiran yang lengkap dan semak PDS serta
+          dokumen polisi. Kadar roadtax pula perlu dipadankan dengan kategori kenderaan dan jadual
+          yang berkaitan, bukan dianggap sebagai kos insurans.
+        </p>
+      </details>
+      <details class="faq-item" open>
+        <summary>Alat mana perlu digunakan untuk bajet renew kereta?</summary>
+        <p>
+          Gunakan kalkulator NCD untuk memahami kesan diskaun pada premium, kemudian kalkulator roadtax
+          kereta untuk cukai jalan. Tambahkan kos perlindungan tambahan dan caj yang tertera pada sebut
+          harga secara berasingan. Pastikan anda tidak menambah roadtax dua kali jika jumlah yang
+          diberi oleh platform sudah memasukkannya.
+        </p>
+      </details>
+      <details class="faq-item" open>
+        <summary>Adakah kalkulator NCD menentukan sama ada saya patut claim?</summary>
+        <p>
+          Ia membantu membandingkan kos pembaikan dengan kemungkinan kesan kehilangan NCD, tetapi
+          keputusan bergantung pada jenis tuntutan dan syarat polisi. Semak sama ada tuntutan tersebut
+          menjejaskan NCD dengan penyedia anda. Jangan gunakan pengiraan kos untuk menggantikan
+          kewajipan melaporkan kemalangan atau langkah tuntutan yang ditetapkan.
+        </p>
+      </details>
+      <details class="faq-item" open>
+        <summary>Bagaimana jika saya belum tahu semua angka yang diperlukan?</summary>
+        <p>
+          Semak dokumen dahulu: premium dan NCD pada polisi, kapasiti enjin pada dokumen kenderaan,
+          serta hutang, simpanan dan coverage pada rekod kewangan anda. Jika anda mencuba angka
+          anggaran, catat andaian itu dan kira semula apabila maklumat lengkap tersedia. Jangan
+          membuat keputusan pembelian berdasarkan input yang anda sendiri masih kurang pasti.
+        </p>
+      </details>
+    </section>
   </div>
 </Base>

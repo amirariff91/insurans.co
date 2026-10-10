@@ -2,16 +2,39 @@
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
 
+const faqItems = [
+  {
+    q: "Adakah motosikal boleh dapat NCD 55%?",
+    a: "Tidak mengikut jadual motosikal yang diterbitkan Zurich Malaysia. Motosikal mendapat 15% selepas satu tahun tanpa tuntutan, 20% selepas dua tahun dan maksimum 25% selepas tiga tahun. Maksimum 55% ialah untuk kereta persendirian selepas lima tahun tanpa tuntutan."
+  },
+  {
+    q: "Boleh pindah NCD kepada pasangan atau anak?",
+    a: "PIAM dan Zurich menerangkan bahawa NCD adalah peribadi kepada pemegang polisi, bukan untuk dipindahkan kepada orang lain. Pemindahan ke kenderaan baharu mestilah di bawah nama pemegang polisi yang sama. Menjual kereta tidak memberikan NCD anda kepada pembeli."
+  },
+  {
+    q: "Adakah semua claim menyebabkan NCD jadi 0%?",
+    a: "Tidak. Tuntutan own damage biasa boleh menyebabkan NCD menjadi 0% pada pembaharuan seterusnya, tetapi tuntutan OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan yang berkenaan boleh mengekalkannya. Minta syarikat mengesahkan kategori tuntutan dan syarat polisi anda."
+  },
+  {
+    q: "NCD terus hilang jika saya lambat renew?",
+    a: "Bezakan tamat perlindungan daripada NCD tidak digunakan. Kontrak kereta Etiqa menyatakan NCD berundur mengikut jadual bagi setiap tahun tidak digunakan. Minta syarikat menyemak tarikh dan kadar sebenar anda; aturan NCD bukan kebenaran untuk memandu selepas insurans tamat."
+  },
+  {
+    q: "Kenapa premium naik walaupun NCD sama?",
+    a: "NCD ialah peratus diskaun pada premium asas yang layak, bukan harga tetap. PDS Etiqa menyatakan premium dipengaruhi nilai diinsuranskan, model, umur pemohon, pengalaman tuntutan, pilihan tambahan dan pengunderaitan. Bandingkan premium sebelum NCD serta pecahan bayaran sebelum membuat kesimpulan."
+  }
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Article",
       "headline": "NCD (No Claim Discount) — Panduan Lengkap",
-      "description": "Apa itu NCD, macam mana ia berfungsi, dan cara maximize diskaun insurans kereta anda.",
+      "description": "Jadual NCD kereta dan motosikal Malaysia, cara semak, aturan pemindahan, penarikan NCD dan kesan tuntutan.",
       "url": "https://insurans.co/guides/ncd-explained/",
       "datePublished": "2026-01-20",
-      "dateModified": "2026-02-01",
+      "dateModified": "2026-10-10",
       "inLanguage": "ms",
       "publisher": { "@type": "Organization", "name": "Insurans.co" }
     },
@@ -22,126 +45,171 @@ const schema = {
         { "@type": "ListItem", "position": 2, "name": "Panduan", "item": "https://insurans.co/guides/" },
         { "@type": "ListItem", "position": 3, "name": "NCD (No Claim Discount) — Panduan Lengkap", "item": "https://insurans.co/guides/ncd-explained/" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": { "@type": "Answer", "text": item.a }
+      }))
     }
   ]
 };
 ---
 
 <Base
-  title="NCD (No Claim Discount) — Panduan Lengkap 2026"
-  description="Apa itu NCD, macam mana ia berfungsi, jadual NCD penuh (25%-55%), dan tips untuk maximize diskaun insurans kereta di Malaysia."
+  title="NCD (No Claim Discount) — Panduan Lengkap Malaysia 2026"
+  description="Faham NCD Malaysia: jadual kereta 0–55%, motosikal 0–25%, semakan MyCarInfo, pemindahan antara kereta sendiri dan kesan tuntutan."
   schema={schema}
   ogType="article"
   publishedTime="2026-01-20"
-  modifiedTime="2026-02-01"
+  modifiedTime="2026-10-10"
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
+      <nav class="text-sm text-stone-400 mb-5" aria-label="Jejak halaman">
         <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
         <span class="mx-2">›</span>
         <a href="/car-insurance/" class="hover:text-hijau-700 text-stone-500">Insurans Kereta</a>
         <span class="mx-2">›</span>
-        <span class="text-stone-700">NCD Explained</span>
+        <span class="text-stone-700">NCD</span>
       </nav>
       <p class="label mb-3">Panduan</p>
       <h1 class="font-serif text-headline-lg text-stone-900 mb-4">NCD (No Claim Discount) — Panduan Lengkap</h1>
-      <Byline dateModified="2026-02-01" />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        NCD adalah diskaun yang anda dapat sebab tak buat claim insurans kereta. Faham NCD betul-betul
-        boleh jimat anda ribuan ringgit setiap tahun.
+      <Byline dateModified="2026-10-10" />
+      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed" id="jawapan-ringkas">
+        NCD ialah diskaun premium motor berdasarkan tempoh insurans tanpa tuntutan. Di Malaysia, kereta persendirian boleh mencapai 55%, manakala motosikal maksimum 25%. NCD boleh dipindahkan antara kenderaan sendiri, bukan kepada orang lain. Semak kadar melalui MyCarInfo atau syarikat insurans sebelum renew, kerana jenis tuntutan dan rekod polisi menentukan kelayakan anda.
       </p>
     </div>
   </section>
 
   <div class="container-article py-10 sm:py-14">
     <article class="prose-editorial">
-      <h2>Apa itu NCD?</h2>
+      <figure class="not-prose mb-8">
+        <img src="/images/guides/ncd-explained.webp" alt="Ilustrasi kereta di sebelah tangga kadar NCD kereta persendirian dari 0% hingga 55%" width="1200" height="630" class="w-full h-auto rounded-xl" decoding="async" fetchpriority="high" />
+      </figure>
+      <h2>Apa yang NCD potong daripada bil insurans?</h2>
       <p>
-        NCD bermaksud <strong>No Claim Discount</strong> — diskaun atas premium insurans kereta anda
-        untuk setiap tahun anda TIDAK buat apa-apa claim. Makin lama anda tak claim, makin besar diskaun.
+        NCD bermaksud <strong>No Claim Discount</strong>, iaitu diskaun yang diperoleh apabila anda memenuhi tempoh insurans tanpa tuntutan. Ia bukan jumlah wang dalam akaun dan bukan diskaun berdasarkan berapa lama anda mempunyai lesen. Kontrak kereta Etiqa menetapkan tempoh berterusan 12 bulan tanpa tuntutan sebelum NCD digunakan pada pembaharuan mengikut skalanya. <a href="#rujukan-kontrak">[1]</a>
       </p>
       <p>
-        NCD ni <strong>hak anda</strong>, bukan hak syarikat insurans. Maknanya kalau anda tukar syarikat
-        insurans, NCD anda ikut sama. Tak perlu start dari 0% balik.
+        PIAM menerangkan bahawa diskaun maksimum kereta persendirian ialah 55% daripada premium asas yang layak. Jangan potong peratus itu daripada keseluruhan bil yang sudah termasuk pilihan tambahan, cukai atau roadtax. PDS Etiqa menunjukkan premium asas ditolak NCD terlebih dahulu, kemudian premium perlindungan tambahan dan bayaran lain disenaraikan dalam pecahan jumlah. <a href="#rujukan-pindah">[2]</a> <a href="#rujukan-pds">[3]</a>
       </p>
 
-      <h2>Jadual NCD di Malaysia</h2>
-    </article>
-
-    <div class="overflow-x-auto my-8">
-      <table class="table-editorial">
-        <thead>
-          <tr>
-            <th>Tempoh Tanpa Claim</th>
-            <th>Diskaun NCD</th>
-            <th>Contoh: Premium RM2,000</th>
-            <th>Anda Jimat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Baru dapat lesen</td><td class="font-semibold">0%</td><td>RM2,000</td><td>—</td></tr>
-          <tr><td>1 tahun tanpa claim</td><td class="font-semibold">25%</td><td>RM1,500</td><td class="text-hijau-700">RM500</td></tr>
-          <tr><td>2 tahun</td><td class="font-semibold">30%</td><td>RM1,400</td><td class="text-hijau-700">RM600</td></tr>
-          <tr><td>3 tahun</td><td class="font-semibold">38.33%</td><td>RM1,233</td><td class="text-hijau-700">RM767</td></tr>
-          <tr><td>4 tahun</td><td class="font-semibold">45%</td><td>RM1,100</td><td class="text-hijau-700">RM900</td></tr>
-          <tr><td>5+ tahun</td><td class="font-semibold text-hijau-700">55%</td><td class="text-hijau-700 font-semibold">RM900</td><td class="text-hijau-700 font-semibold">RM1,100</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <article class="prose-editorial">
-      <h2>Bila NCD reset?</h2>
+      <h2>Jadual NCD kereta persendirian dan motosikal</h2>
       <p>
-        NCD reset ke <strong>0%</strong> bila anda buat claim. Satu claim je — tak kira besar atau kecil.
-        Sebab tu penting untuk fikir betul-betul sebelum claim.
+        Jadual Zurich Malaysia membezakan kereta persendirian daripada motosikal. Kereta bermula tanpa diskaun jika tiada NCD yang layak digunakan, kemudian meningkat pada pembaharuan selepas tempoh tanpa tuntutan yang berkenaan. Motosikal mempunyai skala yang lebih pendek dan maksimum yang lebih rendah. Jangan gunakan jadual kereta untuk membuat bajet polisi motosikal. <a href="#rujukan-zurich">[4]</a>
+      </p>
+      <div class="overflow-x-auto my-8">
+        <table class="table-editorial">
+          <caption class="text-left text-sm text-stone-600 mb-3">Kadar mengikut tempoh insurans berterusan tanpa tuntutan</caption>
+          <thead>
+            <tr><th scope="col">Tempoh tanpa tuntutan</th><th scope="col">Kereta persendirian</th><th scope="col">Motosikal</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Tiada NCD yang layak</th><td>0%</td><td>0%</td></tr>
+            <tr><th scope="row">Selepas 1 tahun</th><td>25%</td><td>15%</td></tr>
+            <tr><th scope="row">Selepas 2 tahun</th><td>30%</td><td>20%</td></tr>
+            <tr><th scope="row">Selepas 3 tahun</th><td>38.33% (38⅓%)</td><td>25% — maksimum</td></tr>
+            <tr><th scope="row">Selepas 4 tahun</th><td>45%</td><td>25%</td></tr>
+            <tr><th scope="row">Selepas 5 tahun dan seterusnya</th><td>55% — maksimum</td><td>25%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Tahun dalam jadual ialah tahun insurans tanpa tuntutan, bukan umur kereta. Pemilik yang membeli kereta baharu mungkin mempunyai NCD daripada kereta lamanya yang boleh dipindahkan, manakala kereta terpakai yang dibeli daripada orang lain tidak membawa NCD penjual kepada pembeli. Semak nama pemegang polisi dan rekod NCD, bukannya membuat andaian daripada tahun pendaftaran kereta. <a href="#rujukan-pindah">[2]</a>
       </p>
 
+      <h2>Cara semak NCD sebelum renew</h2>
+      <p>
+        Zurich menyenaraikan <strong>Central NCD Database</strong> melalui MyCarInfo sebagai saluran semakan, dan anda juga boleh menghubungi syarikat insurans. Kontrak Etiqa memberikan rujukan semakan yang sama. MyCarInfo berbeza daripada MyJPJ atau MySIKAP; jangan menganggap semakan tarikh roadtax turut mengesahkan kadar NCD insurans. <a href="#rujukan-zurich">[4]</a> <a href="#rujukan-kontrak">[1]</a>
+      </p>
+      <ol class="list-decimal pl-5 space-y-3">
+        <li><strong>Buka saluran semakan rasmi.</strong> Gunakan pautan MyCarInfo yang diberikan syarikat atau hubungi syarikat semasa. Sediakan maklumat pemilik dan nombor pendaftaran untuk menjawab permintaan semakan.</li>
+        <li><strong>Semak untuk pembaharuan yang betul.</strong> Minta pengesahan kadar yang boleh digunakan pada tarikh mula polisi baharu, terutama jika polisi lama belum tamat atau ada tuntutan tertunggak.</li>
+        <li><strong>Padankan dengan sebut harga.</strong> Semak nama pemegang polisi, nombor pendaftaran dan peratus NCD. Simpan hasil semakan atau pengesahan bertulis bersama sebut harga.</li>
+        <li><strong>Betulkan percanggahan sebelum bayar.</strong> Jika kadar tidak seperti dijangka, tanya sama ada tuntutan, penarikan NCD atau tarikh kemas kini menyebabkan perbezaan. Jangan mengisi kadar lebih tinggi hanya untuk mendapatkan harga lebih murah.</li>
+      </ol>
+      <p>
+        <a href="/tools/ncd-calculator/">Kalkulator NCD</a> boleh membantu mengira potongan berdasarkan kadar yang anda masukkan. Ia bukan sambungan kepada rekod polisi rasmi. Gunakan bahagian kiraan premium untuk ilustrasi, kemudian sahkan kelayakan dan jumlah akhir dengan syarikat. Untuk urutan pembelian polisi hingga roadtax, ikut <a href="/guides/renew-car-insurance/">panduan renew insurans kereta</a>.
+      </p>
+
+      <h2>Contoh kiraan: bagaimana 38.33% menjadi RM740.04?</h2>
       <div class="info-box my-6">
-        <p class="text-sm text-stone-700">
-          <strong>Contoh sebenar:</strong> Kereta anda calar, kos repair RM600. NCD anda 55%, premium kereta RM2,500.
-          Kalau claim: anda save RM600 sekarang tapi tahun depan NCD reset, premium naik ~RM1,375.
-          <strong>Bayar sendiri lagi jimat RM775.</strong>
+        <p><strong>Andaian:</strong> premium asas kereta ialah RM1,200 sebelum NCD, dan sebut harga menggunakan kadar 38.33%.</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Potongan = RM1,200 × 0.3833 = <strong>RM459.96</strong>.</li>
+          <li>Baki premium asas = RM1,200 − RM459.96 = <strong>RM740.04</strong>.</li>
+          <li>Semakan silang = RM1,200 × (1 − 0.3833) = <strong>RM740.04</strong>.</li>
+        </ul>
+        <p>
+          Ini contoh matematik, bukan harga polisi untuk mana-mana model. RM740.04 belum termasuk premium tambahan, cukai, duti atau roadtax. Kadar 38⅓% dalam sesetengah kontrak ialah pecahan berulang; contoh ini menggunakan 38.33% tepat, jadi ikut pembundaran pada sebut harga sebenar. PDS Etiqa menunjukkan mengapa premium asas selepas NCD dan jumlah akhir perlu dibaca sebagai dua angka berbeza. <a href="#rujukan-pds">[3]</a>
         </p>
       </div>
+      <p>
+        NCD yang sama tidak menjamin harga yang sama setiap tahun. PDS Etiqa menyatakan jumlah premium boleh berubah mengikut nilai diinsuranskan, jenama dan model, umur pemohon, pengalaman tuntutan, manfaat tambahan serta pengunderaitan. Jika bil naik, bandingkan premium sebelum NCD dan pecahan tambahan dahulu. Jangan terus menganggap rekod NCD anda salah. <a href="#rujukan-pds">[3]</a>
+      </p>
 
-      <h2>Tips maximize NCD</h2>
+      <h2>Tuntutan mana yang boleh mengurangkan NCD?</h2>
+      <p>
+        Kontrak kereta Etiqa menyatakan satu kejadian yang menimbulkan tuntutan boleh menjadikan NCD sifar pada pembaharuan seterusnya. Klausa itu juga membolehkan syarikat mendapatkan semula NCD yang sudah diberikan jika tuntutan diterima selepas diskaun digunakan. Jadi, tidak membuat tuntutan sendiri belum tentu mencukupi jika ada pihak lain membuat tuntutan terhadap polisi anda. <a href="#rujukan-kontrak">[1]</a>
+      </p>
+      <p>
+        Namun, <strong>bukan semua tuntutan menghilangkan NCD</strong>. PIAM menerangkan bahawa tuntutan Own Damage Knock-for-Knock atau OD-KfK boleh mengekalkan NCD apabila kemalangan berpunca daripada kecuaian pihak ketiga dan polis mengesahkan anda tidak bersalah. Ini tuntutan melalui syarikat sendiri dengan laluan yang berbeza daripada own damage biasa. <a href="#rujukan-motor">[5]</a>
+      </p>
+      <p>
+        Semak syarat kontrak juga. Dalam pengecualian NCD kontrak Etiqa, syarikat perlu berpendapat anda tidak bersalah, kenderaan yang bersalah mesti dikenal pasti, bukan kenderaan membawa penumpang untuk sewa atau upah, diinsuranskan oleh syarikat berlesen Malaysia, dan tiada tuntutan kematian atau kecederaan diri terlibat. Jangan anggap rakaman dashcam sahaja menjamin keputusan; hantar bukti dan minta pengesahan kategori tuntutan. <a href="#rujukan-kontrak">[1]</a>
+      </p>
+      <h3>Cermin pecah: ada beza antara polisi asas dan add-on</h3>
+      <p>
+        PIAM menyatakan tuntutan di bawah windscreen add-on tidak menjejaskan NCD, berbeza daripada tuntutan cermin di bawah polisi komprehensif utama tanpa tambahan itu. Endorsement 89 Etiqa pula menyatakan NCD tidak hilang apabila tuntutan untuk kaca rosak sahaja dan tiada kerosakan lain. Semak had perlindungan dan syarat kaca, bukan sekadar kewujudan perkataan windscreen pada iklan. <a href="#rujukan-pindah">[2]</a> <a href="#rujukan-kontrak">[1]</a>
+      </p>
+      <p>
+        Untuk kerosakan kecil, bandingkan anggaran pembaikan bertulis, excess dan kesan NCD sebelum memilih cara tuntutan. Jangan gunakan satu ambang ringgit sebagai aturan untuk semua kemalangan. Anda masih perlu melaporkan kejadian mengikut kewajipan polisi; keputusan membayar pembaikan sendiri tidak memadam kemungkinan tuntutan pihak ketiga. Baca <a href="/guides/how-to-claim/">panduan tuntutan insurans kereta</a> untuk langkah selepas kemalangan. <a href="#rujukan-kontrak">[1]</a>
+      </p>
+
+      <h2>Pindah NCD antara kereta sendiri: buat penarikan dahulu</h2>
+      <p>
+        NCD adalah peribadi kepada pemegang polisi. Zurich menyatakan ia boleh dipindahkan antara kenderaan milik anda, bukan kepada orang lain. PIAM menegaskan kenderaan penerima perlu didaftarkan atas nama pemegang polisi yang sama. Membayar premium kereta pasangan atau anak tidak dengan sendirinya membolehkan anda memberikan NCD kepada mereka. <a href="#rujukan-zurich">[4]</a> <a href="#rujukan-pindah">[2]</a>
+      </p>
       <ol class="list-decimal pl-5 space-y-3">
-        <li><strong>Jangan claim untuk kerosakan kecil.</strong> Kalau bawah RM1,000-1,500, usually lebih jimat bayar sendiri.</li>
-        <li><strong>Pasang dashcam.</strong> Kalau accident bukan salah anda, footage boleh bantu buktikan dan elak NCD affected.</li>
-        <li><strong>Drive carefully.</strong> Obvious, tapi NCD 55% bermakna anda bayar almost half price. Worth protecting.</li>
-        <li><strong>Semak NCD sebelum renew.</strong> Kadang syarikat tersalah rekod. Semak di MySIKAP atau tanya ejen.</li>
+        <li><strong>Beritahu syarikat lama.</strong> Minta penarikan NCD daripada kereta asal dan nyatakan sama ada kereta itu dijual atau masih akan digunakan.</li>
+        <li><strong>Dapatkan kiraan polisi lama.</strong> PIAM menyatakan jika kereta lama masih dimiliki dan diinsuranskan, ada premium tambahan untuk baki tempoh selepas NCD dikeluarkan. NCD polisi lama kembali kepada 0%.</li>
+        <li><strong>Simpan surat pengesahan penarikan.</strong> Selepas urusan selesai, syarikat mengemas kini pangkalan data NCD dan mengeluarkan pengesahan. Serahkan dokumen itu semasa meminta NCD digunakan pada polisi kereta baharu.</li>
+        <li><strong>Semak kedua-dua polisi.</strong> Pastikan kadar pada kereta baharu betul dan kereta lama masih mempunyai perlindungan jika anda menyimpannya. Pemindahan NCD bukan alasan untuk meninggalkan kereta lama tanpa polisi.</li>
       </ol>
+      <p>
+        Jika kereta lama sudah dijual, PIAM menerangkan bahawa anda boleh membatalkan polisi dan meminta pembatalan diproses sebagai penarikan NCD; tiada premium tambahan bagi polisi lama yang dibatalkan itu. Jangan menggunakan satu rekod NCD serentak untuk dua kereta. Minta penjelasan bertulis tentang tarikh pemindahan, premium tambahan atau pemulangan premium yang berkenaan sebelum bersetuju. <a href="#rujukan-pindah">[2]</a>
+      </p>
 
-      <h2>Soalan lazim NCD</h2>
+      <h2>Jika NCD tidak digunakan selepas menjual kereta</h2>
+      <p>
+        Jangan samakan penyimpanan NCD dengan perlindungan insurans. Kontrak kereta Etiqa menyatakan bagi setiap tahun NCD tidak digunakan, kadar terkumpul berundur mengikut skala jadualnya. Itu berbeza daripada dakwaan bahawa semua NCD terus menjadi sifar sebaik sahaja polisi lambat diperbaharui. Minta syarikat menyemak tempoh tidak digunakan berdasarkan rekod sebenar sebelum membeli kereta seterusnya. <a href="#rujukan-kontrak">[1]</a>
+      </p>
+      <p>
+        Jika anda masih memiliki kereta, jangan gunakan aturan NCD untuk menentukan sama ada selamat memandu. Tempoh perlindungan bergantung pada jadual polisi, bukan baki kadar diskaun. Semasa <a href="/guides/renew-car-insurance/">renew</a>, sahkan kedua-duanya: bila perlindungan bermula dan NCD berapa peratus yang benar-benar digunakan. Rujuk <a href="/car-insurance/">panduan insurans kereta</a> untuk menilai perlindungan selain harga. <a href="#rujukan-kontrak">[1]</a>
+      </p>
+
+      <h2>Soalan lazim</h2>
+      {faqItems.map(item => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+      <p class="text-sm text-stone-600">Maklumat am sahaja. Gunakan kontrak, jadual polisi dan pengesahan syarikat untuk menentukan NCD serta kesan tuntutan bagi kenderaan anda.</p>
+
+      <section id="rujukan" class="border-t border-stone-200 pt-6 mt-8" aria-labelledby="tajuk-rujukan">
+        <h2 id="tajuk-rujukan">Rujukan</h2>
+        <ol class="list-decimal pl-5 space-y-2">
+          <li id="rujukan-kontrak"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Private_Car_Insurance_Policy_Contract.pdf" target="_blank" rel="noopener noreferrer">Etiqa — kontrak kereta persendirian: Seksyen C, pengecualian NCD, tempoh tidak digunakan dan Endorsement 89.</a></li>
+          <li id="rujukan-pindah"><a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">PIAM — pemindahan NCD, penarikan daripada polisi lama, premium tambahan dan tuntutan cermin.</a></li>
+          <li id="rujukan-pds"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf" target="_blank" rel="noopener noreferrer">Etiqa — PDS kereta: faktor harga serta pecahan premium, NCD dan bayaran lain.</a></li>
+          <li id="rujukan-zurich"><a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">Zurich Malaysia — jadual kereta dan motosikal, semakan MyCarInfo dan hak pemegang polisi.</a></li>
+          <li id="rujukan-motor"><a href="https://piam.org.my/insurance-101/individual/motor/" target="_blank" rel="noopener noreferrer">PIAM — perlindungan motor dan tuntutan OD-KfK yang mengekalkan NCD.</a></li>
+        </ol>
+      </section>
     </article>
-
-    <div class="my-8">
-      <details class="faq-item" open>
-        <summary>Kalau tukar syarikat insurans, NCD hilang ke?</summary>
-        <p>Tidak. NCD ikut ANDA, bukan syarikat. Boleh pindah ke mana-mana syarikat berlesen dan NCD kekal sama.</p>
-      </details>
-      <details class="faq-item">
-        <summary>NCD apply untuk motor/motosikal juga?</summary>
-        <p>Ya, sistem NCD sama untuk kereta dan motosikal. Jadual diskaun pun sama — 25% hingga 55%.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Claim windscreen affect NCD ke?</summary>
-        <p>Tidak, kalau anda ada windscreen add-on. Claim windscreen bawah add-on coverage tak affect NCD. Tapi kalau claim bawah polisi utama, NCD akan affected.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Kalau insurans lapse lebih dari setahun, NCD hilang?</summary>
-        <p>Ya. Kalau gap lebih dari 1 tahun, kebanyakan syarikat akan reset NCD ke 0%. Jadi jangan biarkan insurans lapse.</p>
-      </details>
-    </div>
-
-    <div class="border-t border-stone-200 pt-8 mt-8">
-      <p class="text-sm text-stone-500">Baca juga:</p>
-      <div class="flex flex-wrap gap-4 mt-2">
-        <a href="/car-insurance/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Panduan Insurans Kereta →</a>
-        <a href="/guides/how-to-claim/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Cara Buat Claim →</a>
-        <a href="/companies/" class="text-sm text-hijau-700 font-medium hover:text-hijau-600">Syarikat Insurans →</a>
-      </div>
-    </div>
   </div>
 </Base>

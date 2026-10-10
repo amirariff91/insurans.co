@@ -13,6 +13,7 @@ interface Props {
   schema?: object;
   ogType?: 'website' | 'article';
   noindex?: boolean;
+  ads?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
   pageType?: string;
@@ -28,6 +29,7 @@ const {
   schema,
   ogType = 'website',
   noindex = false,
+  ads = true,
   publishedTime,
   modifiedTime,
   pageType = 'page',
@@ -103,6 +105,12 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
     "@type": "Organization",
     "name": "Insurans.co",
     "url": "https://insurans.co",
+    "logo": "https://insurans.co/logo-mark.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@insurans.co"
+    },
     "description": "Panduan insurans Malaysia — harga sebenar, perbandingan syarikat, dan panduan dalam Bahasa Malaysia.",
     "inLanguage": ["ms", "en"],
     "knowsAbout": ["Insurance", "Takaful", "Car Insurance Malaysia", "Health Insurance Malaysia", "Insurans Kereta", "Insurans Kesihatan"],
@@ -129,7 +137,9 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <!-- End Google Tag Manager -->
 
   <!-- Google AdSense -->
-  <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6126092270142355" crossorigin="anonymous"></script>
+  {ads !== false && !noindex && (
+    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6126092270142355" crossorigin="anonymous"></script>
+  )}
 </head>
 <body class="min-h-screen flex flex-col" data-page-type={pageType}>
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>

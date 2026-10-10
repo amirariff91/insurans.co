@@ -26,7 +26,27 @@ const relatedCars = model.relatedModels
   .map((slug: string) => carModels.find((candidate) => candidate.slug === slug))
   .filter(Boolean)
   .slice(0, 4);
-const articleDate = '2026-02-14';
+const initialArticleDate = '2026-02-14';
+const articleDate = model.premiumReviewed > initialArticleDate ? model.premiumReviewed : initialArticleDate;
+const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
+// Base appends the site name; the NCD 55% condition must always accompany the discounted range.
+const titleSuffix = ' | Insurans.co';
+const rangeText = hasPremiumRange
+  ? `${rm(model.premiumNCD55Min).replace('\u00a0', '')}–${rm(model.premiumNCD55Max).replace('\u00a0', '')}`
+  : '';
+const titleCandidates = hasPremiumRange
+  ? [
+      `Insurans ${model.fullName} 2026: ${rangeText} Setahun (NCD 55%)`,
+      `Insurans ${model.fullName} 2026: ${rangeText}/tahun (NCD 55%)`,
+      `Insurans ${model.fullName}: ${rangeText}/tahun (NCD 55%)`,
+      `Insurans ${model.fullName}: ${rangeText} (NCD 55%)`,
+    ]
+  : [];
+const premiumTitle = titleCandidates.find((t) => t.length + titleSuffix.length <= 60) ?? titleCandidates.at(-1) ?? '';
+const pageTitle = model.titleOverride
+  ? model.titleOverride
+  : (premiumTitle || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`);
+const description = `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
 const repairHeadline = model.riskProfile.repairCost.split('—')[0].trim();
@@ -40,8 +60,8 @@ const faqSchemaItems = modelFaqs.length > 0
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan`,
-  "description": `Panduan lengkap insurans ${model.fullName} di Malaysia. Harga premium ${rm(model.premiumNCD55Min)} – ${rm(model.premiumNCD55Max)} (NCD 55%). Tips jimat, add-ons dan perbandingan syarikat.`,
+  "headline": pageTitle,
+  "description": description,
   "url": `https://insurans.co/car-insurance/${model.slug}/`,
   "datePublished": "2026-02-01",
   "dateModified": articleDate,
@@ -65,8 +85,8 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
 ---
 
 <Base
-  title={model.titleOverride || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`}
-  description={model.descriptionOverride || `Harga insurans ${model.fullName} 2026: ${rm(model.premiumNCD55Min)}–${rm(model.premiumNCD55Max)} (NCD 55%) hingga ${rm(model.premiumNCD0Min)}–${rm(model.premiumNCD0Max)} (tanpa NCD). Bandingkan coverage komprehensif, NCD dan add-ons.`}
+  title={pageTitle}
+  description={description}
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"

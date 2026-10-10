@@ -1,6 +1,6 @@
 {
-  "methodologyNote": "Saluran online untuk banding/beli/renew insurans di Malaysia. Fakta dibaca 2026-09-12 daripada laman rasmi platform + liputan media bebas. insurans.co tiada hubungan berbayar atau affiliate dengan mana-mana platform. Kaotim ialah jenama digital milik Takaful Malaysia (rujuk syarikat: takaful-malaysia).",
-  "asAt": "2026-09-12",
+  "methodologyNote": "Panduan saluran online untuk membandingkan, membeli dan memperbaharui insurans di Malaysia. Insurans.co tidak menerima bayaran atau komisen affiliate daripada platform yang disenaraikan.",
+  "asAt": "2026-10-10",
   "records": [
     {
       "slug": "fwd",
@@ -9,10 +9,10 @@
       "digitalPlatform": "FWD Buy Online (fwd.com.my)",
       "parentCompany": null,
       "products": ["life", "critical-illness", "health"],
-      "keyFact": "Insurans & takaful beli terus online tanpa ejen (term/CI/medical + FWD i-Lindung via EPF); tiada produk travel berasingan ditemui pada fwd.com.my (disemak 12 Sep 2026).",
-      "caveat": "Barisan produk online lebih sempit berbanding saluran ejen.",
-      "sources": ["https://www.fwd.com.my/buy-online/", "https://www.imoney.my/articles/fwd-takaful-fwd-protect-direct-takaful-online"],
-      "asAt": "2026-09-12"
+      "keyFact": "FWD menawarkan pembelian online untuk pelan hayat, penyakit kritikal dan perubatan; FWD i-Lindung Critical Illness Plan menyediakan perlindungan penyakit kritikal dan kematian untuk ahli KWSP serta keluarga.",
+      "caveat": "Sumbangan FWD i-Lindung Critical Illness Plan bergantung pada jumlah perlindungan, umur dan jantina orang yang dilindungi. Semak tempoh menunggu serta pengecualian sebelum memohon.",
+      "sources": ["https://www.fwd.com.my/buy-online/", "https://www.fwd.com.my/life-insurance-takaful/i-care/", "https://www.fwd.com.my/critical-illness-insurance-takaful/i-protect-plus/", "https://www.fwd.com.my/medical-insurance-takaful/i-med/", "https://www.fwd.com.my/files/v3/assets/bltca8cd6b067df6d1c/bltcdda9742a1440734/68d363633653b77049b4928e/FWD_i-Lindung_Critical_Illness_Plan_P2_EN_V0.1.pdf?branch=capricorn"],
+      "asAt": "2026-10-10"
     },
     {
       "slug": "shopee",
@@ -22,9 +22,9 @@
       "parentCompany": null,
       "products": ["travel", "car", "motorcycle", "personal-accident"],
       "keyFact": "Marketplace dalam Shopee/ShopeePay (dikendalikan ejen SeaMoney): travel insurance Allianz + Zurich Travel Takaful (single & annual), motor takaful Takaful IKHLAS, PA & wallet protection; bayar boleh ansur SPayLater 3-12 bulan.",
-      "caveat": "Shopee bukan penginsurans — hanya ejen digital. COVID pada plan Allianz hanya untuk divaksin penuh; harga pemasaran 'RM3/hari' belum disahkan (laman JS).",
+      "caveat": "Shopee ialah saluran pembelian melalui ejen digital SeaMoney. Untuk Allianz Travel Insurance, perlindungan COVID tertakluk kepada syarat vaksinasi penuh dan bukti diagnosis dalam dokumen polisi.",
       "sources": ["https://help.shopee.com.my/portal/4/article/145752", "https://shopeepay.com.my/en/insurance", "https://fintechnews.my/47657/islamic-fintech/shopee-takaful-motor-insurance/"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-10-10"
     },
     {
       "slug": "bjak",
@@ -34,9 +34,9 @@
       "parentCompany": null,
       "products": ["car", "motorcycle", "travel", "life", "health", "personal-accident", "home", "roadtax"],
       "keyFact": "Bjak Sdn. Bhd. diluluskan BNM sebagai FA/IFA sejak Oktober 2025; laman rasminya menyenaraikan 16 insurer/takaful untuk panel motor.",
-      "caveat": "JPJ menyatakan pada Mei 2024 Bjak tidak dibenarkan memperbaharui roadtax dan tidak berintegrasi dengan MySikap; Bjak menyifatkan roadtax sebagai servis pilihan percuma. Kebenaran JPJ semasa tidak disahkan secara awam. Status e-LKM disemak melalui MyJPJ.",
-      "sources": ["https://bjak.my/en", "https://bjak.my/en/approved-financial-adviser", "https://bjak.my/en/roadtax/renew-roadtax", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/", "https://fintechnews.my/44160/various/bjak-must-seek-formal-approval-for-partnership-says-transport-minister-loke/"],
-      "asAt": "2026-09-28"
+      "caveat": "Dalam kenyataan 6 Mei 2024, JPJ menyatakan Bjak tidak mendapat kelulusan pembaharuan roadtax dan sistemnya tidak berintegrasi dengan MySikap. Aliran Bjak memerlukan insurans aktif dahulu; perkhidmatan roadtaxnya tidak tersedia untuk kenderaan e-hailing. Semak status e-LKM dalam MyJPJ.",
+      "sources": ["https://bjak.my/en", "https://bjak.my/en/approved-financial-adviser", "https://bjak.my/en/roadtax/how-roadtax-renewal-works", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf"],
+      "asAt": "2026-10-10"
     },
     {
       "slug": "policystreet",
@@ -46,9 +46,9 @@
       "parentCompany": null,
       "products": ["car", "roadtax"],
       "keyFact": "Polisea Sdn. Bhd. ialah FA/IFA diluluskan BNM; Drive+ ialah keahlian berbayar dengan diskaun roadtax dan baucar, bukan cashback.",
-      "caveat": "Laman pengguna memaparkan insurans kereta (termasuk EV) dan roadtax, bukan travel; motorcycle dan personal accident tidak ditemui dalam navigasi semasa. Kiraan panel motor berbeza antara halaman (8 hingga 11), dan keputusan permohonan rakan strategik JPJ tidak disahkan secara awam.",
-      "sources": ["https://policystreet.com.my/en/terms-business", "https://policystreet.com.my/bm", "https://policystreet.com.my/en/renew-road-tax", "https://policystreet.com.my/en/blog/get-cheapest-road-tax-with-policystreet-membership", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://www.malaymail.com/news/malaysia/2024/05/10/policystreet-wants-to-become-jpjs-official-partner-for-road-tax-renewal-service/133586"],
-      "asAt": "2026-09-28"
+      "caveat": "PolicyStreet memproses roadtax selepas polisi insurans dikeluarkan. Drive+ ialah keahlian pilihan berbayar yang dipilih semasa checkout; semak harga tahap keahlian dan syarat baucar sebelum membayar.",
+      "sources": ["https://policystreet.com.my/en/terms-business", "https://policystreet.com.my/bm", "https://policystreet.com.my/en/renew-road-tax", "https://policystreet.com.my/en/blog/get-cheapest-road-tax-with-policystreet-membership", "https://www.bnm.gov.my/-/approved-financial-advisers"],
+      "asAt": "2026-10-10"
     },
     {
       "slug": "myeg",
@@ -58,9 +58,9 @@
       "parentCompany": null,
       "products": ["car", "roadtax"],
       "keyFact": "MY E.G. Services Berhad dinamakan semula Zetrix AI Berhad pada 2025; MyEG ialah salah satu penyedia kontrak JPJ bukan eksklusif dan turut menyenaraikan insurans auto.",
-      "caveat": "MyEG bukan FA BNM. Panel insurer dan pembelian insurans motosikal belum dapat disahkan daripada sumber rasmi yang boleh dicapai; yuran servis RM2.50 + SST 8% dan caj penghantaran mungkin dikenakan.",
-      "sources": ["https://www.insage.com.my/interactiveAR/ZETRIX/interactiveAR2025/", "https://www.lowyat.net/2023/299735/myeg-jpj-contract-loses-exclusivity/", "https://www.bnm.gov.my/-/approved-financial-advisers", "https://help.myeg.com.my/portal/en/kb/articles/what-are-the-charges", "https://help.myeg.com.my/portal/en/kb/articles/can-i-change-the-delivery-method", "https://carro.co/my/blog/how-to-do-online-road-tax-renewal-with-myeg-jpj"],
-      "asAt": "2026-09-28"
+      "caveat": "Pembaharuan roadtax MyEG memerlukan insurans kenderaan yang sah. Caj penghantaran tidak dipulangkan apabila pelanggan menukar pilihan penghantaran kepada kutipan sendiri.",
+      "sources": ["https://www.insage.com.my/interactiveAR/ZETRIX/interactiveAR2025/", "https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf", "https://help.myeg.com.my/portal/en/kb/articles/what-are-the-requirements-for-renewing-road-tax-online-via-myeg", "https://help.myeg.com.my/portal/en/kb/articles/can-i-change-the-delivery-method"],
+      "asAt": "2026-10-10"
     },
     {
       "slug": "kaotim",
@@ -69,10 +69,10 @@
       "digitalPlatform": "kaotim.my + app Kaotim",
       "parentCompany": "takaful-malaysia",
       "products": ["car", "motorcycle", "health", "life"],
-      "keyFact": "Platform takaful digital milik Takaful Malaysia: MediKad (medical card, annual limit RM50k/RM75k/RM100k, naik ke RM550k-RM1.1m dengan rider MediBooster), Car/Motor (diskaun 10% + PA RM15,000 percuma), Legasi hibah dari RM30/bulan. Semua takaful, tiada produk travel.",
-      "caveat": "Ulasan komuniti nota premium naik ikut umur & GP rutin tidak dilindungi; rujuk PDS MediKad untuk terma penuh.",
+      "keyFact": "Platform takaful digital milik Takaful Malaysia: MediKad (medical card, annual limit RM50k/RM75k/RM100k, naik ke RM550k-RM1.1m dengan rider MediBooster), Car/Motor (diskaun 10% + PA RM15,000 percuma), Legasi hibah dari RM30/bulan.",
+      "caveat": "Semak jadual sumbangan mengikut umur, kewajipan mengisytiharkan keadaan kesihatan sedia ada dan senarai rawatan yang dilindungi dalam PDS MediKad.",
       "sources": ["https://kaotim.my/", "https://api.kaotim.my/uploads/PDS-MediKad-EN-19072024.pdf", "https://www.takaful-malaysia.com.my/en/news/takaful-malaysia-unveils-kaotim-a-new-digital-platform-offering-an-affordable-medical-card-for-malaysians/"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-10-10"
     }
   ]
 }
