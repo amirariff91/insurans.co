@@ -29,18 +29,23 @@ const relatedCars = model.relatedModels
 const initialArticleDate = '2026-02-14';
 const articleDate = model.premiumReviewed > initialArticleDate ? model.premiumReviewed : initialArticleDate;
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
-const premiumTitle = hasPremiumRange
-  ? `Insurans ${model.fullName} 2026: ${rm(model.premiumNCD55Min).replace('\u00a0', '')}–${rm(model.premiumNCD55Max).replace('\u00a0', '')} Setahun`
-  : '';
-// Base appends the site name; reserve its space without truncating the model or prices.
+// Base appends the site name; the NCD 55% condition must always accompany the discounted range.
 const titleSuffix = ' | Insurans.co';
-const titleWithNcd = `${premiumTitle} (NCD 55%)`;
-const titleWithoutNcd = premiumTitle.length + titleSuffix.length <= 60
-  ? premiumTitle
-  : premiumTitle.replace(' Setahun', '/tahun').replaceAll(',', '');
-const pageTitle = model.titleOverride ? model.titleOverride : hasPremiumRange
-  ? (titleWithNcd.length + titleSuffix.length <= 60 ? titleWithNcd : titleWithoutNcd)
-  : (model.titleOverride || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`);
+const rangeText = hasPremiumRange
+  ? `${rm(model.premiumNCD55Min).replace('\u00a0', '')}–${rm(model.premiumNCD55Max).replace('\u00a0', '')}`
+  : '';
+const titleCandidates = hasPremiumRange
+  ? [
+      `Insurans ${model.fullName} 2026: ${rangeText} Setahun (NCD 55%)`,
+      `Insurans ${model.fullName} 2026: ${rangeText}/tahun (NCD 55%)`,
+      `Insurans ${model.fullName}: ${rangeText}/tahun (NCD 55%)`,
+      `Insurans ${model.fullName}: ${rangeText} (NCD 55%)`,
+    ]
+  : [];
+const premiumTitle = titleCandidates.find((t) => t.length + titleSuffix.length <= 60) ?? titleCandidates.at(-1) ?? '';
+const pageTitle = model.titleOverride
+  ? model.titleOverride
+  : (premiumTitle || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`);
 const description = `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);

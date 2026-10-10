@@ -27,7 +27,7 @@ function buyerCopy(text: string) {
   return text.replace(
     /tidak disahkan(?: dalam sumber rasmi yang kami semak)?|[Ss]umber yang disemak/g,
     (phrase) => phrase.startsWith('tidak')
-      ? 'tiada maklumat rasmi diterbitkan; semak terus dengan penyedia'
+      ? 'tidak dinyatakan dalam rujukan kami; semak terus dengan penyedia'
       : (phrase.startsWith('S') ? 'Maklumat produk yang tersedia' : 'maklumat produk yang tersedia'),
   );
 }

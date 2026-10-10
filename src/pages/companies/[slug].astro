@@ -64,7 +64,7 @@ const schema = {
   headline: title,
   description,
   url: canonicalUrl,
-  datePublished: company.asAt,
+  datePublished: company.publishedAt ?? '2026-09-28',
   dateModified: company.asAt,
   inLanguage: 'ms',
   publisher: {
@@ -88,7 +88,7 @@ const schema = {
   canonical={canonicalUrl}
   schema={schema}
   ogType="article"
-  publishedTime={company.asAt}
+  publishedTime={company.publishedAt ?? '2026-09-28'}
   modifiedTime={company.asAt}
   ogImage={`/og/companies/${company.slug}.png`}
   ogImageAlt={companyOgImageAlt}
