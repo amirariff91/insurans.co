@@ -3,7 +3,6 @@ import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import platforms from '../../data/platforms.json';
-import verticalFaqs from '../../data/vertical-faqs.json';
 
 const productLabels: Record<string, string> = {
   life: 'Insurans hayat / term',
@@ -44,7 +43,38 @@ const modelGroups = [
   },
 ].filter((group) => group.records.length > 0);
 
-const faqs = verticalFaqs['insurans-online'];
+const faqs = [
+  {
+    q: 'Macam mana cara banding dan beli insurans online?',
+    a: 'Bandingkan sebut harga untuk jumlah perlindungan dan manfaat yang sama. Semak nama insurer, PDS, add-on serta jumlah bayaran akhir sebelum memilih. Untuk pembaharuan roadtax melalui PolicyStreet, polisi insurans dikeluarkan dahulu sebelum roadtax diproses.',
+    source: 'https://policystreet.com.my/en/renew-road-tax',
+  },
+  {
+    q: 'Apa beza Bjak dan PolicyStreet?',
+    a: 'Bjak dan Polisea, entiti PolicyStreet, diluluskan sebagai Financial Adviser dan Islamic Financial Adviser. Bjak menyenaraikan 16 insurer/takaful untuk perbandingan motor. PolicyStreet menawarkan Drive+, keahlian pilihan berbayar dengan tiga tahap: Lite, Standard dan Premium.',
+    source: 'https://policystreet.com.my/en/blog/get-cheapest-road-tax-with-policystreet-membership',
+  },
+  {
+    q: 'Apa yang perlu disemak sebelum membeli travel insurance di Shopee?',
+    a: 'Shopee menawarkan Allianz Travel Insurance dan Zurich Travel Takaful. Semak penyedia yang dipilih, manfaat dan pengecualian dalam dokumen polisi atau sijil. Perlindungan COVID pada pelan Allianz tertakluk kepada syarat vaksinasi penuh serta bukti diagnosis.',
+    source: 'https://help.shopee.com.my/portal/4/article/145752',
+  },
+  {
+    q: 'Apa yang diperlukan untuk renew roadtax melalui MyEG atau Bjak?',
+    a: 'Insurans kenderaan perlu aktif sebelum roadtax diperbaharui. Dalam aliran Bjak, roadtax dihantar untuk pemprosesan JPJ selepas insurans diproses dan pelanggan boleh menyemak status digital dalam MyJPJ. Perkhidmatan roadtax Bjak tidak tersedia untuk kenderaan e-hailing.',
+    source: 'https://bjak.my/en/roadtax/how-roadtax-renewal-works',
+  },
+  {
+    q: 'Apakah pelan FWD yang boleh dipertimbangkan?',
+    a: 'FWD menawarkan i-Care untuk hayat bertempoh, i-Protect dan i-Protect Plus untuk penyakit kritikal serta i-Med untuk perubatan. FWD i-Lindung Critical Illness Plan pula melindungi penyakit kritikal dan kematian sehingga RM200,000 untuk diri, pasangan dan anak.',
+    source: 'https://www.fwd.com.my/files/v3/assets/bltca8cd6b067df6d1c/bltcdda9742a1440734/68d363633653b77049b4928e/FWD_i-Lindung_Critical_Illness_Plan_P2_EN_V0.1.pdf?branch=capricorn',
+  },
+  {
+    q: 'Kaotim ini platform siapa?',
+    a: 'Kaotim ialah platform takaful digital milik Takaful Malaysia. Untuk MediKad, semak jumlah perlindungan, tempoh menunggu, pengecualian serta jadual sumbangan sebelum memilih pelan.',
+    source: 'https://www.takaful-malaysia.com.my/en/news/takaful-malaysia-unveils-kaotim-a-new-digital-platform-offering-an-affordable-medical-card-for-malaysians/',
+  },
+];
 const schemaDescription = 'Compare insurance Malaysia & buy insurance online Malaysia — semak insurer-langsung, aggregator FA/IFA, marketplace dan penyedia kontrak JPJ.';
 const canonicalUrl = 'https://insurans.co/insurans-online/';
 const schema = {
@@ -94,8 +124,8 @@ const schema = {
       </h1>
       <Byline dateModified={platforms.asAt} />
       <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
-        Semakan bebas untuk insurance online Malaysia: kenali model platform, produk yang disenaraikan dan caveat sebelum
-        membandingkan quotation atau renew insurance online.
+        Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
+        Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
       </p>
     </div>
   </section>
@@ -107,19 +137,18 @@ const schema = {
           <p class="text-lg leading-7 text-stone-700">
             Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Salurannya berbeza.
             <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
-            i-Lindung via EPF di fwd.com.my; tiada produk travel berasingan disemak 12 Sep 2026) dan Kaotim, jenama takaful
-            digital milik Takaful Malaysia (MediKad, Car/Motor, Legasi hibah dari RM30/bulan; semua takaful, tiada travel).
-            <strong>Aggregator:</strong> banding beberapa insurer — Bjak (panel rasmi 16 insurer/takaful, NCD checker, FA/IFA
-            BNM sejak Okt 2025; kebenaran JPJ semasa tidak disahkan) dan PolicyStreet (Polisea ialah FA/IFA BNM; Drive+ ialah
-            keahlian berbayar; kiraan panel motor berbeza ikut halaman). Rujuk <a href="https://bjak.my/en/approved-financial-adviser" target="_blank" rel="noopener">Bjak</a> dan
+            i-Lindung melalui KWSP) dan Kaotim, jenama takaful digital milik Takaful Malaysia (MediKad, Car/Motor dan Legasi).
+            <strong>Aggregator:</strong> banding beberapa insurer. Bjak menyenaraikan 16 insurer/takaful dan diluluskan BNM
+            sebagai FA/IFA sejak Oktober 2025. Polisea, entiti PolicyStreet, juga diluluskan sebagai FA/IFA.
+            PolicyStreet menawarkan Drive+, keahlian pilihan berbayar yang dipilih semasa checkout. Rujuk <a href="https://bjak.my/en/approved-financial-adviser" target="_blank" rel="noopener">Bjak</a> dan
             <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar — Shopee Insurance (Allianz
             Travel + Zurich Travel Takaful, motor takaful, PA; ansur SPayLater 3–12 bulan; Shopee hanya ejen SeaMoney, bukan
-            insurer). <strong>Penyedia kontrak JPJ bukan eksklusif:</strong> <a href="https://www.lowyat.net/2023/299735/myeg-jpj-contract-loses-exclusivity/" target="_blank" rel="noopener">MyEG</a> — urusan JPJ dan insurans auto, bukan FA
-            BNM; yuran servis RM2.50 + SST 8%. Status e-LKM disemak melalui MyJPJ.
-            Flow biasa: banding, bayar, terima e-policy dan urus roadtax. <a href="https://fintechnews.my/44093/various/bjak-not-approved-for-road-tax-renewals-seeks-to-address-jpj-concerns/" target="_blank" rel="noopener">JPJ menyatakan pada Mei 2024</a> Bjak tidak dibenarkan
-            renew roadtax dan tidak berintegrasi dengan MySikap; kebenaran JPJ semasa tidak disahkan secara awam. Kelulusan
-            BNM FA/IFA bukan kelulusan JPJ. Kami bukan ejen, bukan broker dan tiada affiliate — sahkan PDS serta quotation
-            di laman rasmi sebelum bayar.
+            insurer). <strong>Urusan JPJ:</strong> MyEG disenaraikan sebagai rakan niaga JPJ dalam
+            <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener">kenyataan JPJ pada 6 Mei 2024</a>.
+            Kenyataan yang sama menyebut Bjak tidak mendapat kelulusan pembaharuan roadtax dan tiada integrasi MySikap.
+            Untuk Bjak, aliran pembaharuan bermula dengan insurans aktif sebelum roadtax dihantar untuk pemprosesan JPJ;
+            pelanggan menyemak statusnya dalam MyJPJ. Rujuk <a href="https://bjak.my/en/roadtax/how-roadtax-renewal-works" target="_blank" rel="noopener">langkah rasmi Bjak</a>.
+            Bandingkan PDS, quotation dan jumlah bayaran akhir di saluran penyedia sebelum membayar.
           </p>
         </article>
 
@@ -181,7 +210,10 @@ const schema = {
             {faqs.map((faq, index) => (
               <details class="faq-item" open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <p>
+                  {faq.a}{' '}
+                  <a href={faq.source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">Rujukan rasmi</a>
+                </p>
               </details>
             ))}
           </div>

@@ -28,7 +28,7 @@ const canonicalUrl = `https://insurans.co/companies/${company.slug}/`;
 const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
 const companyOgImageAlt = `${companyOgName} — entiti, produk, tuntutan dan sumber rasmi.`;
 const productsSummary = company.productDetails.map((product) =>
-  `${product.line}: ${product.names.length ? product.names.join(', ') : 'hubungi penyedia untuk nama dan butiran produk semasa'}`
+  product.names.length ? `${product.line}: ${product.names.join(', ')}` : product.line
 ).join('; ');
 const hotlineSummary = company.claims.hotlines
   .map((hotline) => `${hotline.label}: ${hotline.number}`)
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: `Apakah produk utama ${company.name}?`,
-    a: `Maklumat produk yang disemak: ${productsSummary}. Ketersediaan, manfaat, had, pengecualian dan harga bergantung pada produk dan dokumen semasa; pautan rasmi disediakan untuk semakan lanjut.`,
+    a: `${company.name} menawarkan ${productsSummary}. Rujuk helaian pendedahan produk dan dokumen polisi atau sijil untuk manfaat, had dan pengecualian.`,
   },
   {
     q: `Bagaimana menghubungi ${company.name} untuk tuntutan?`,
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: `Apakah aplikasi atau saluran digital ${company.name}?`,
-    a: `${appSummary}. Fungsi yang dipaparkan datang daripada sumber yang disenaraikan; ia bukan pengesahan bahawa setiap fungsi tersedia bagi setiap produk atau pemegang polisi.`,
+    a: `${appSummary}. Semak fungsi yang tersedia untuk polisi atau sijil anda terus dengan ${company.name}.`,
   },
   {
     q: `Bolehkah pertikaian terhadap ${company.name} dirujuk kepada FMOS?`,
@@ -103,22 +103,22 @@ const schema = {
         ]}
       />
       <div class="mt-6 max-w-3xl">
-        <p class="label mb-3">Review syarikat · semakan sumber</p>
+        <p class="label mb-3">Profil syarikat</p>
         <h1 class="mb-3 font-serif text-headline-lg text-stone-900">{company.name}</h1>
         <p class="mb-4 text-sm text-stone-500">
           {company.fullName}{company.parent && <span> · {company.parent}</span>}
         </p>
         <p class="text-lg leading-7 text-stone-700">{company.descriptionBM}</p>
         <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-stone-600">
-          <span>Tahun rujukan: {company.founded}</span>
-          <span>{company.headquarters}</span>
-          <span>{company.takaful ? 'Pilihan takaful disenaraikan' : 'Tiada operator takaful dalam kumpulan ini'}</span>
+          {company.founded && <span>Tahun rujukan: {company.founded}</span>}
+          {company.headquarters && <span>{company.headquarters}</span>}
+          {company.takaful && <span>Pilihan takaful</span>}
         </div>
         <div class="mt-5">
           <Byline dateModified={company.asAt} />
         </div>
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone-600">
-          Insurans.co ialah penerbit kandungan bebas, bukan ejen atau broker, dan tidak menjual polisi. Ringkasan ini berdasarkan sumber yang dipautkan; semak PDS, wording polisi atau sijil semasa dengan penyedia sebelum membuat keputusan.
+          Insurans.co ialah penerbit kandungan bebas dan tidak menjual polisi. Semak helaian pendedahan produk serta dokumen polisi atau sijil semasa dengan penyedia sebelum membuat keputusan.
         </p>
         <div class="mt-6">
           <EditorialStamp
@@ -137,7 +137,7 @@ const schema = {
       <div class="lg:col-span-2">
         <article class="prose-editorial">
           <p class="text-lg leading-7 text-stone-700">
-            Review ini membezakan jenama, kumpulan induk dan entiti berlesen kerana ketiga-tiganya boleh merujuk kepada perkara berlainan. Entiti yang tertera pada polisi atau sijil ialah titik mula untuk menyemak siapa yang menyediakan perlindungan dan menerima tuntutan. Nama produk, kelayakan dan had manfaat pula perlu diperiksa dalam dokumen produk semasa, bukan disimpulkan daripada nama syarikat.
+            Kenal pasti entiti yang mengeluarkan polisi atau sijil anda. Nama entiti tersebut membantu anda mencari saluran tuntutan dan khidmat pelanggan yang betul. Rujuk dokumen produk untuk manfaat, kelayakan dan had perlindungan.
           </p>
 
           <h2 id="latar-belakang">Latar belakang &amp; lesen</h2>
@@ -149,7 +149,7 @@ const schema = {
             {company.entities.map((entity) => <li>{entity}</li>)}
           </ul>
           <p>
-            Tarikh rujukan {company.founded} bukan semestinya tarikh setiap entiti dalam senarai diperbadankan. Sejarah di atas menerangkan perbezaan tarikh kumpulan, jenama dan operasi Malaysia setakat yang disokong sumber. Takaful juga perlu dibezakan daripada insurans konvensional: semak nama pengendali serta sama ada dokumen anda ialah polisi atau sijil yang berkaitan.
+            Semak nama pengendali pada dokumen perlindungan anda. Insurans konvensional menggunakan polisi, manakala takaful menggunakan sijil. Tarikh sejarah kumpulan dan jenama boleh berbeza daripada tarikh penubuhan entiti yang mengeluarkan dokumen tersebut.
           </p>
           <p>
             Untuk membandingkan perlindungan dengan adil, kenal pasti dahulu entiti yang menanggung risiko, jenis produk dan saluran servisnya. Hubungan dengan kumpulan bank atau syarikat antarabangsa ialah maklumat korporat; ia tidak menggantikan semakan terma kontrak, had perlindungan, pengecualian atau proses aduan bagi produk tertentu.
@@ -165,17 +165,13 @@ const schema = {
           {company.productDetails.map((product) => (
             <article class="border border-stone-200 bg-white p-5">
               <h3 class="font-semibold text-stone-900">{product.line}</h3>
-              {product.names.length > 0 ? (
+              {product.names.length > 0 && (
                 <ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-stone-700">
                   {product.names.map((name) => <li>{name}</li>)}
                 </ul>
-              ) : (
-                <p class="mt-3 text-sm leading-6 text-stone-600">
-                  Hubungi penyedia untuk nama dan butiran produk semasa.
-                </p>
               )}
               <a href={product.url} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-hijau-700 underline">
-                Semak sumber produk →
+                Lihat butiran produk →
               </a>
             </article>
           ))}
@@ -196,11 +192,11 @@ const schema = {
             {company.claims.steps.map((step) => <li>{step}</li>)}
           </ol>
           <p>
-            Talian yang disahkan bagi urusan berlainan:
+            Talian tuntutan dan bantuan:
           </p>
         </article>
         <div class="my-5 space-y-3">
-          {company.claims.hotlines.map((hotline) => (
+          {company.claims.hotlines.filter((hotline) => hotline.number.trim()).map((hotline) => (
             <div class="flex flex-wrap items-baseline justify-between gap-2 border border-stone-200 bg-krim-50 p-4 text-sm">
               <span class="font-medium text-stone-700">{hotline.label}</span>
               <a href={`tel:${hotline.number.replace(/[^0-9+]/g, '')}`} class="font-semibold text-hijau-700 underline">
@@ -210,7 +206,7 @@ const schema = {
           ))}
         </div>
         <article class="prose-editorial">
-          <p><strong>Bantuan tepi jalan:</strong> {company.claims.roadside}</p>
+          {company.claims.roadside && <p><strong>Bantuan tepi jalan:</strong> {company.claims.roadside}</p>}
           <p>
             Jika melibatkan kemalangan, hubungi penyedia melalui saluran rasmi dan simpan maklumat berkaitan kejadian. Jangan anggap nombor hotline sebagai kelulusan tuntutan atau jaminan tempoh bayaran. Minta senarai dokumen serta arahan bertulis untuk tuntutan anda, dan gunakan bantuan tunda yang dilantik apabila penyedia mensyaratkannya.
           </p>
@@ -220,7 +216,7 @@ const schema = {
 
           <h2 id="digital">Aplikasi &amp; saluran digital</h2>
           <p>
-            Nama aplikasi atau portal sahaja tidak menerangkan semua keupayaannya. Fungsi di bawah ialah fungsi yang dinyatakan dalam sumber; ketersediaan boleh berbeza mengikut produk, entiti, kelayakan pengguna atau versi aplikasi.
+            Gunakan aplikasi atau portal rasmi di bawah untuk urusan yang tersedia bagi polisi atau sijil anda.
           </p>
           <h3>{company.app.name}</h3>
           <ul>
@@ -236,10 +232,12 @@ const schema = {
           </p>
         </article>
         <div class="my-5 space-y-3">
-          <div class="flex flex-wrap gap-3 border-b border-stone-200 pb-3 text-sm">
-            <span class="w-24 shrink-0 font-medium text-stone-500">Laman web</span>
-            <a href={company.contact.website} target="_blank" rel="noopener noreferrer" class="break-all text-hijau-700 underline">{company.contact.website}</a>
-          </div>
+          {company.contact.website && (
+            <div class="flex flex-wrap gap-3 border-b border-stone-200 pb-3 text-sm">
+              <span class="w-24 shrink-0 font-medium text-stone-500">Laman web</span>
+              <a href={company.contact.website} target="_blank" rel="noopener noreferrer" class="break-all text-hijau-700 underline">{company.contact.website}</a>
+            </div>
+          )}
           {company.contact.email && (
             <div class="flex flex-wrap gap-3 border-b border-stone-200 pb-3 text-sm">
               <span class="w-24 shrink-0 font-medium text-stone-500">E-mel</span>
@@ -252,7 +250,7 @@ const schema = {
               <span class="text-stone-700">{company.contact.hours}</span>
             </div>
           )}
-          <p class="border border-stone-200 bg-krim-50 p-4 text-sm leading-6 text-stone-700">{company.contact.notes}</p>
+          {company.contact.notes && <p class="border border-stone-200 bg-krim-50 p-4 text-sm leading-6 text-stone-700">{company.contact.notes}</p>}
           <p class="text-sm leading-6 text-stone-600">
             Untuk isu yang tidak sesuai dengan talian khusus di atas, lawati laman penyedia dan cari saluran khidmat pelanggan terkini. Simpan nombor rujukan, tarikh komunikasi dan dokumen yang dihantar. Insurans.co tidak menerima permohonan, mengurus tuntutan atau mewakili pelanggan dengan syarikat ini.
           </p>
@@ -261,7 +259,7 @@ const schema = {
         <article class="prose-editorial">
           <h2 id="fakta-penting">Fakta penting</h2>
           <p>
-            Fakta berikut dipilih kerana ia membantu membezakan sejarah, struktur atau fungsi perkhidmatan yang boleh disahkan. Fakta korporat dan penarafan kewangan tidak menjamin hasil tuntutan atau kesesuaian produk untuk seseorang.
+            Maklumat tentang produk dan perkhidmatan {company.name}, dengan pautan rasmi untuk setiap fakta.
           </p>
         </article>
         <div class="my-5 space-y-3">
@@ -278,23 +276,27 @@ const schema = {
         <article class="prose-editorial">
           <h2 id="kesesuaian">Sesuai / Kurang sesuai</h2>
           <p>
-            Kesesuaian di bawah ialah padanan berdasarkan skop produk, talian dan aplikasi yang disahkan—bukan ranking atau cadangan peribadi. Keputusan masih bergantung pada bajet, tanggungan, risiko, pengecualian dan syarat kelayakan anda.
+            Padankan produk dan saluran perkhidmatan dengan keperluan anda. Pertimbangkan bajet, tanggungan, risiko dan syarat kelayakan sebelum membeli.
           </p>
           <h3>Sesuai untuk dipertimbangkan</h3>
           <ul>
             {company.sesuaiUntuk.map((item) => <li>{item}</li>)}
           </ul>
-          <h3>Kurang sesuai jika</h3>
-          <ul>
-            {company.kurangSesuaiUntuk.map((item) => <li>{item}</li>)}
-          </ul>
+          {company.kurangSesuaiUntuk.length > 0 && (
+            <>
+              <h3>Kurang sesuai jika</h3>
+              <ul>
+                {company.kurangSesuaiUntuk.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
           <p>
             Sebelum membeli, bandingkan sekurang-kurangnya dua quotation dengan jumlah diinsuranskan dan tambahan yang sama. Baca helaian pendedahan produk serta wording polisi/sijil untuk had, excess, pengecualian, kewajipan pemberitahuan tuntutan dan cara membuat aduan. Pastikan manfaat yang anda perlukan dinyatakan dalam dokumen polisi atau sijil.
           </p>
 
           <h2 id="sumber">Sumber</h2>
           <p>
-            Rekod ini disemak pada {company.asAt}. Pautan di bawah merangkumi direktori pengawal selia, sejarah korporat, helaian produk, arahan tuntutan atau saluran rasmi yang digunakan untuk rumusan ini. Pautan bukan sokongan komersial dan terma penyedia boleh berubah.
+            Maklumat di halaman ini disemak daripada laman rasmi {company.name} dan rujukan rasmi lain pada {company.asAt}. Rujuk pautan di bawah untuk butiran produk, tuntutan dan khidmat pelanggan terkini.
           </p>
           <ol>
             {sourceLinks.map((source) => (
@@ -351,18 +353,24 @@ const schema = {
                 <dt class="text-stone-500">Jenis</dt>
                 <dd class="text-right font-medium">{company.type === 'takaful' ? 'Takaful' : 'Konvensional'}</dd>
               </div>
-              <div class="flex justify-between gap-3">
-                <dt class="text-stone-500">Takaful</dt>
-                <dd class="text-right font-medium">{company.takaful ? 'Ada entiti/pilihan takaful' : 'Tidak disenaraikan'}</dd>
-              </div>
-              <div class="flex justify-between gap-3">
-                <dt class="text-stone-500">Tahun rujukan</dt>
-                <dd class="text-right font-medium">{company.founded}</dd>
-              </div>
-              <div class="flex justify-between gap-3">
-                <dt class="text-stone-500">Ibu pejabat</dt>
-                <dd class="text-right font-medium">{company.headquarters}</dd>
-              </div>
+              {company.takaful && (
+                <div class="flex justify-between gap-3">
+                  <dt class="text-stone-500">Takaful</dt>
+                  <dd class="text-right font-medium">Ada pilihan takaful</dd>
+                </div>
+              )}
+              {company.founded && (
+                <div class="flex justify-between gap-3">
+                  <dt class="text-stone-500">Tahun rujukan</dt>
+                  <dd class="text-right font-medium">{company.founded}</dd>
+                </div>
+              )}
+              {company.headquarters && (
+                <div class="flex justify-between gap-3">
+                  <dt class="text-stone-500">Ibu pejabat</dt>
+                  <dd class="text-right font-medium">{company.headquarters}</dd>
+                </div>
+              )}
               <div class="flex justify-between gap-3">
                 <dt class="text-stone-500">Entiti disenaraikan</dt>
                 <dd class="text-right font-medium">{company.entities.length}</dd>

@@ -76,13 +76,13 @@ const modelReferences = Object.fromEntries(
         <!-- ── CALCULATOR 1: NCD Savings ── -->
         <div class="bg-white border-2 border-stone-900 p-6 sm:p-8">
           <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Kira Premium Selepas NCD</h2>
-          <p class="text-stone-500 text-sm mb-6">Berapa anda patut bayar tahun ni?</p>
+          <p class="text-stone-500 text-sm mb-6">Anggaran premium asas selepas potongan NCD.</p>
 
           <div class="space-y-5">
             <!-- Premium input -->
             <div>
               <label for="base-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
-                Premium Asal (sebelum NCD) — RM
+                Premium Asas (sebelum NCD) — RM
               </label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
@@ -95,7 +95,7 @@ const modelReferences = Object.fromEntries(
                   class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
                 />
               </div>
-              <p class="text-xs text-stone-400 mt-1.5">Tengok dalam polisi lama anda. Ini jumlah SEBELUM NCD dipotong.</p>
+              <p class="text-xs text-stone-400 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
             </div>
 
             <!-- NCD selector -->
@@ -113,7 +113,7 @@ const modelReferences = Object.fromEntries(
                 ))}
               </div>
               <p class="text-xs text-stone-400 mt-1.5">
-                Tak tahu NCD anda? Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline">MyEG</a> atau tanya ejen insurans anda.
+                Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">Rujukan Zurich</a>.
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ const modelReferences = Object.fromEntries(
           <div id="ncd-result" class="hidden mt-6 p-5 bg-hijau-50 border border-hijau-200">
             <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
               <div>
-                <p class="text-sm text-stone-500">Premium yang anda bayar</p>
+                <p class="text-sm text-stone-500">Anggaran premium asas selepas NCD</p>
                 <p id="result-premium" class="font-serif text-4xl font-bold text-hijau-700 mt-0.5"></p>
               </div>
               <div class="text-right">
@@ -151,7 +151,7 @@ const modelReferences = Object.fromEntries(
             <!-- Current premium (after NCD) -->
             <div>
               <label for="current-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
-                Premium Semasa Anda Bayar (selepas NCD) — RM
+                Premium Asas Semasa (selepas NCD) — RM
               </label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
@@ -164,6 +164,7 @@ const modelReferences = Object.fromEntries(
                   class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
                 />
               </div>
+              <p class="text-xs text-stone-400 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
             </div>
 
             <!-- Current NCD % for claim calc -->
@@ -176,7 +177,7 @@ const modelReferences = Object.fromEntries(
                 class="w-full px-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-base transition-colors bg-white"
               >
                 {[...NCD_TIERS].reverse().map((tier) => (
-                  <option value={tier.value}>{tier.label} ({tier.years})</option>
+                  <option value={tier.value}>{tier.label} ({tier.value === 0 ? 'Tiada NCD yang layak' : tier.years})</option>
                 ))}
               </select>
             </div>
@@ -203,7 +204,6 @@ const modelReferences = Object.fromEntries(
             <div>
               <label for="excess" class="block text-sm font-semibold text-stone-700 mb-1.5">
                 Excess Polisi Anda — RM
-                <span class="text-stone-400 font-normal">(biasanya RM400)</span>
               </label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
@@ -230,10 +230,29 @@ const modelReferences = Object.fromEntries(
           <div id="claim-result" class="hidden mt-6"></div>
         </div>
 
+        <section class="prose-editorial" aria-labelledby="cara-kiraan">
+          <h2 id="cara-kiraan">Cara kiraan ini dibuat</h2>
+          <p>
+            Kalkulator ini menggunakan premium asas sebelum NCD dan kadar yang anda pilih. Masukkan angka premium asas daripada pecahan sebut harga, kemudian pilih NCD yang layak digunakan. Potongan dikira dengan formula <strong>premium asas × NCD ÷ 100</strong>. Baki premium asas ialah <strong>premium asas × (1 − NCD ÷ 100)</strong>. <a href="https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf" target="_blank" rel="noopener noreferrer">PDS Etiqa</a> menunjukkan premium asas ditolak NCD sebelum perlindungan tambahan dan bayaran lain.
+          </p>
+          <p>
+            Sebagai contoh matematik, premium asas RM2,000 dengan NCD 55% memberi potongan RM1,100 dan baki RM900. Angka itu belum termasuk perlindungan tambahan, cukai, duti atau roadtax. Paparan ringgit dibundarkan kepada ringgit terdekat. Pilihan 38.33% menggunakan nilai perpuluhan itu; ikut pembundaran syarikat pada sebut harga akhir, terutama jika kontrak menggunakan kadar 38⅓%.
+          </p>
+          <p>
+            Jadual di sini untuk kereta persendirian. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">Zurich Malaysia</a> menerbitkan skala berasingan untuk motosikal dan menyediakan pautan semakan MyCarInfo. Kalkulator ini tidak menyemak rekod polisi atau menentukan kelayakan NCD anda. Sahkan kadar dengan syarikat sebelum renew. Premium asas juga boleh berubah mengikut nilai diinsuranskan, model, umur pemohon, pengalaman tuntutan dan pengunderaitan, seperti diterangkan dalam PDS Etiqa.
+          </p>
+          <p>
+            Bahagian “Patut Ke Claim?” menganggarkan premium sebelum NCD melalui <strong>premium asas selepas NCD ÷ (1 − NCD ÷ 100)</strong>. Bayaran bersih anggaran ialah kos repair ditolak excess, dengan minimum RM0. Kiraan mengandaikan tuntutan own damage biasa menjadikan NCD 0% pada pembaharuan seterusnya dan premium asas kekal sama. Petunjuknya membandingkan bayaran bersih dengan dua kali tambahan premium asas tahun pertama. Ambang dua tahun ini ialah kaedah perbandingan alat, bukan syarat tuntutan syarikat.
+          </p>
+          <p>
+            Kiraan tidak meramal kenaikan semula NCD selepas tahun pertama, perubahan harga atau keputusan tuntutan. OD-KfK yang layak dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Semak pengecualian dalam <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">kontrak Etiqa</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a> sebelum menggunakan hasil untuk membuat keputusan.
+          </p>
+        </section>
+
         <!-- ── NCD Table ── -->
         <div class="prose-editorial">
-          <h2>Jadual NCD Malaysia 2026</h2>
-          <p>NCD (No Claim Discount) adalah diskaun yang anda dapat kerana tidak membuat tuntutan (claim) insurans. Setiap tahun tanpa claim, NCD anda naik — sehingga maksimum 55%.</p>
+          <h2>Jadual NCD Kereta Persendirian Malaysia 2026</h2>
+          <p>NCD meningkat mengikut tempoh insurans tanpa tuntutan, sehingga maksimum 55% untuk kereta persendirian. Rujuk <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">jadual Zurich Malaysia</a>.</p>
         </div>
 
         <div class="overflow-x-auto my-6">
@@ -242,13 +261,13 @@ const modelReferences = Object.fromEntries(
               <tr>
                 <th>Tahun Tanpa Claim</th>
                 <th>NCD</th>
-                <th>Contoh: Premium RM2,000</th>
-                <th>Anda bayar</th>
+                <th>Contoh: Premium Asas RM2,000</th>
+                <th>Baki premium asas</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Baru ada lesen / selepas claim</td>
+                <td>Tiada NCD yang layak</td>
                 <td class="font-semibold">0%</td>
                 <td>Tiada diskaun</td>
                 <td class="font-bold text-stone-900">RM2,000</td>
@@ -291,23 +310,23 @@ const modelReferences = Object.fromEntries(
         <article class="prose-editorial">
           <h2>Apa yang berlaku kepada NCD kalau saya claim?</h2>
           <p>
-            Kalau anda buat <strong>satu claim</strong> sahaja, NCD anda <strong>reset ke 0%</strong> — tidak kira berapa lama anda dah kumpul NCD tu.
-            Ini bermakna tahun depan, anda bayar premium penuh tanpa sebarang diskaun.
+            Tuntutan <strong>own damage biasa</strong> boleh menjadikan NCD <strong>0% pada pembaharuan seterusnya</strong>.
+            OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Rujuk <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C dan Endorsement 89 kontrak Etiqa</a>.
           </p>
           <p>
-            Atas sebab ini, ramai pemilik kereta memilih untuk <strong>bayar sendiri</strong> kos repair kecil — kerana jimat lebih dalam jangka masa panjang.
+            Bandingkan kos repair, excess dan kesan NCD sebelum memilih cara tuntutan. Tuntutan pihak ketiga terhadap polisi anda juga boleh menjejaskan NCD walaupun anda membayar repair sendiri, mengikut <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C kontrak Etiqa</a>.
           </p>
 
-          <h3>Contoh sebenar:</h3>
+          <h3>Contoh kiraan own damage biasa:</h3>
           <p>
-            Kereta anda calar sikit. Kos repair: <strong>RM600</strong>. NCD anda: <strong>55%</strong>. Premium asal anda: <strong>RM2,000</strong>.
+            Andaikan kos repair <strong>RM600</strong>, excess RM0, NCD <strong>55%</strong> dan premium asas <strong>RM2,000</strong> yang kekal sama pada pembaharuan seterusnya.
           </p>
           <ul>
-            <li>Kalau <strong>claim</strong>: Anda jimat RM600 repair — tapi tahun depan bayar RM2,000 (NCD reset), berbanding RM900 sekarang. Rugi <strong>RM1,100 extra</strong> setahun.</li>
-            <li>Kalau <strong>bayar sendiri</strong>: Keluar RM600 sekarang, tapi NCD kekal 55%. Jimat RM500+ setahun seterusnya.</li>
+            <li>Kalau <strong>claim dan NCD menjadi 0%</strong>: Bayaran repair RM600, tetapi premium asas tahun depan menjadi RM2,000 berbanding RM900 jika NCD kekal. Tambahan premium asas: <strong>RM1,100</strong>.</li>
+            <li>Kalau <strong>bayar sendiri dan NCD kekal 55%</strong>: Keluar RM600 untuk repair. Dalam perbandingan tahun pertama ini, kosnya <strong>RM500 lebih rendah</strong> daripada tambahan premium asas RM1,100.</li>
           </ul>
           <p>
-            Dalam kes ini, bayar sendiri lebih bijak — melainkan kos repair jauh lebih tinggi daripada NCD yang akan hilang.
+            Contoh ini mengasingkan kesan NCD sahaja. Gunakan kos repair dan excess sebenar, kemudian sahkan kategori tuntutan dengan syarikat.
           </p>
 
           <h2>Soalan lazim tentang NCD</h2>
@@ -317,33 +336,28 @@ const modelReferences = Object.fromEntries(
           <details class="faq-item" open>
             <summary>Boleh ke pindah NCD ke kereta lain?</summary>
             <p>
-              Ya! NCD ikut <strong>pemilik</strong>, bukan kereta. Kalau anda jual kereta lama dan beli kereta baru,
-              NCD anda dibawa sekali. Anda boleh juga pindah NCD dari kereta lama ke nama orang lain
-              (cth: anak, suami/isteri) dengan syarat tertentu.
+              NCD hanya boleh dipindahkan antara kenderaan atas nama pemegang polisi yang sama, bukan kepada pasangan, anak atau orang lain.
+              Maklumkan syarikat insurans untuk menguruskan penarikan NCD daripada polisi lama. Rujuk <a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">panduan pemindahan PIAM</a> dan <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
             </p>
           </details>
           <details class="faq-item">
             <summary>Kalau kereta kena langgar dan bukan salah saya, NCD kena reset juga?</summary>
             <p>
-              Ini bergantung pada cara claim dibuat. Dalam sistem <strong>knock-for-knock</strong> Malaysia,
-              masing-masing claim insurans sendiri — jadi NCD anda mungkin terjejas.
-              Tapi kalau anda ada police report yang jelas buktikan anda tak bersalah,
-              boleh appeal untuk dapatkan NCD kembali. Dashcam footage sangat membantu.
+              Tuntutan OD-KfK yang memenuhi syarat boleh mengekalkan NCD apabila pihak ketiga bersalah dan polis mengesahkan anda tidak bersalah.
+              <a href="https://piam.org.my/insurance-101/individual/motor/" target="_blank" rel="noopener noreferrer">PIAM menerangkan syarat OD-KfK</a>. Tuntutan pihak ketiga terhadap polisi anda pula boleh menjejaskan NCD, mengikut <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C kontrak Etiqa</a>. Sahkan kategori tuntutan dan syarat polisi dengan syarikat; baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
             </p>
           </details>
           <details class="faq-item">
             <summary>Berapa lama NCD kekal kalau saya tak renew insurans?</summary>
             <p>
-              NCD anda kekal selama <strong>90 hari</strong> selepas polisi tamat.
-              Kalau tak renew dalam tempoh tu, NCD akan dilupuskan dan anda kena mula semula dari 0%.
-              Jadi pastikan renew sebelum polisi tamat!
+              Kontrak kereta Etiqa menyatakan NCD berundur mengikut jadual bagi setiap tahun NCD tidak digunakan.
+              Semak tempoh tidak digunakan dan kadar sebenar dengan syarikat. Perlindungan insurans tetap mengikut tarikh dalam jadual polisi. Rujuk <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C kontrak Etiqa</a> dan <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
             </p>
           </details>
           <details class="faq-item">
             <summary>Boleh ke ada NCD untuk insurans kereta lagi dari satu?</summary>
             <p>
-              Ya, tapi NCD adalah <strong>satu per kereta</strong>. Kalau anda ada dua kereta, setiap kereta ada NCD tersendiri.
-              NCD kereta pertama tidak boleh digunakan untuk kereta kedua.
+              Setiap kenderaan mempunyai rekod NCD sendiri. NCD boleh dipindahkan antara kenderaan milik anda selepas penarikan daripada polisi asal; satu rekod NCD tidak digunakan serentak untuk dua kereta. Rujuk <a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">penerangan PIAM</a>.
             </p>
           </details>
         </div>
@@ -395,7 +409,7 @@ const modelReferences = Object.fromEntries(
             <ol class="space-y-3 text-sm text-stone-600">
               <li class="flex gap-2.5">
                 <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">1</span>
-                <span>Masukkan <strong>premium asal</strong> dari polisi lama anda</span>
+                <span>Masukkan <strong>premium asas sebelum NCD</strong> daripada pecahan sebut harga</span>
               </li>
               <li class="flex gap-2.5">
                 <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">2</span>
@@ -403,7 +417,7 @@ const modelReferences = Object.fromEntries(
               </li>
               <li class="flex gap-2.5">
                 <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">3</span>
-                <span>Tengok premium sebenar dan <strong>berapa anda jimat</strong></span>
+                <span>Tengok anggaran premium asas dan <strong>berapa anda jimat</strong></span>
               </li>
             </ol>
           </div>
@@ -413,8 +427,8 @@ const modelReferences = Object.fromEntries(
             <p class="text-sm text-stone-600 mb-3">Semak NCD secara online melalui:</p>
             <ul class="space-y-2 text-sm">
               <li>
-                <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">MyEG.com.my</a>
-                <span class="text-stone-500"> — MySIKAP semak NCD</span>
+                <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="text-hijau-700 font-medium hover:text-hijau-600">Semakan NCD MyCarInfo</a>
+                <span class="text-stone-500"> (<a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">rujukan Zurich</a>)</span>
               </li>
               <li class="text-stone-600">Atau tanya ejen / syarikat insurans anda terus</li>
             </ul>
@@ -423,9 +437,8 @@ const modelReferences = Object.fromEntries(
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-2">Tip penting</h3>
             <p class="text-sm text-stone-600">
-              Untuk kerosakan kecil di bawah <strong>RM1,000–2,000</strong>,
-              biasanya lebih jimat <strong>bayar sendiri</strong> daripada claim
-              — sebab NCD yang hilang akan cost lebih mahal dalam jangka panjang.
+              Bandingkan <strong>kos repair, excess dan kesan NCD</strong> dengan syarikat sebelum claim.
+              Semak jenis tuntutan dalam <a href="/guides/ncd-explained/" class="text-hijau-700 underline">panduan NCD</a>.
             </p>
           </div>
         </div>
@@ -474,7 +487,7 @@ const modelReferences = Object.fromEntries(
       const isActive = rate.value === selectedNCD;
       breakdownEl.innerHTML += `
         <div class="flex justify-between items-center py-1.5 ${isActive ? 'font-bold text-hijau-700' : 'text-stone-600'} text-sm border-b border-hijau-100 last:border-0">
-          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-400">(${rate.years})</span></span>
+          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-400">(${rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
           <span>${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-400">(jimat ' + rm(tierSaving) + ')</span>' : ''}</span>
         </div>`;
     });
@@ -584,10 +597,10 @@ const modelReferences = Object.fromEntries(
     const verdictColor = shouldClaim ? 'hijau' : 'stone';
     const verdictBg = shouldClaim ? 'bg-hijau-50 border-hijau-300' : 'bg-amber-50 border-amber-300';
     const verdictText = shouldClaim ? 'text-hijau-800' : 'text-amber-800';
-    const verdictTitle = shouldClaim ? '✓ Patut Claim' : '⚠ Elak Claim — Bayar Sendiri Lebih Jimat';
+    const verdictTitle = shouldClaim ? '✓ Bayaran bersih melebihi ambang dua tahun' : '⚠ Bayaran bersih tidak melebihi ambang dua tahun';
     const verdictDesc = shouldClaim
-      ? `Net payout claim anda (${rm(Math.round(netPayout))}) melebihi premium tambahan yang anda kena bayar. Worth it untuk claim.`
-      : `Kalau claim, NCD anda reset ke 0% — premium naik ${rm(Math.round(premiumExtraPerYear))} setahun. Bayar sendiri ${rm(Math.round(repairCost))} lebih jimat dalam jangka panjang.`;
+      ? `Dalam andaian NCD menjadi 0%, bayaran bersih anggaran (${rm(Math.round(netPayout))}) melebihi dua kali tambahan premium asas tahun pertama (${rm(Math.round(premiumExtraPerYear * 2))}). Sahkan kategori tuntutan dengan syarikat sebelum membuat keputusan.`
+      : `Dalam andaian NCD menjadi 0%, bayaran bersih anggaran (${rm(Math.round(netPayout))}) tidak melebihi dua kali tambahan premium asas tahun pertama (${rm(Math.round(premiumExtraPerYear * 2))}). Sahkan kategori tuntutan dengan syarikat sebelum membuat keputusan.`;
 
     resultEl.classList.remove('hidden');
     resultEl.innerHTML = `
@@ -608,12 +621,12 @@ const modelReferences = Object.fromEntries(
             <strong>${rm(Math.round(netPayout))}</strong>
           </div>
           <div class="flex justify-between">
-            <span class="text-stone-600">Premium tambahan setahun (NCD reset)</span>
+            <span class="text-stone-600">Tambahan premium asas tahun pertama (NCD 0%)</span>
             <strong class="text-red-600">+ ${rm(Math.round(premiumExtraPerYear))}</strong>
           </div>
           ${!shouldClaim ? `
           <div class="flex justify-between border-t border-stone-200 pt-2">
-            <span class="text-stone-600 font-semibold">Kerugian bersih kalau claim</span>
+            <span class="text-stone-600 font-semibold">Tambahan premium asas tolak bayaran bersih</span>
             <strong class="text-red-700">${rm(Math.round(premiumExtraPerYear - netPayout))} (tahun pertama)</strong>
           </div>` : ''}
         </div>

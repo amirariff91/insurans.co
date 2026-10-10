@@ -72,9 +72,11 @@ const riskColor: Record<string, string> = {
             <h2 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors text-base">
               {state.displayName}
             </h2>
-            <span class={`text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
-              {state.floodRisk}
-            </span>
+            {state.floodRisk && (
+              <span class={`text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
+                {state.floodRisk}
+              </span>
+            )}
           </div>
           <p class="text-xs text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
           <p class="text-xs text-stone-600 leading-relaxed line-clamp-2">{state.notes}</p>

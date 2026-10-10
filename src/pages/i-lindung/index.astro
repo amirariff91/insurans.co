@@ -4,18 +4,24 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
-import schemes from '../../data/schemes.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
-const scheme = schemes.records.find((record) => record.slug === 'i-lindung')!;
-const asAt = '2026-09-12';
+const asAt = '2026-10-10';
 const pageTitle = 'i-Lindung KWSP 2026: Produk, Harga & Cara Beli';
 const title = buildTitle(pageTitle);
 const description = buildDescription(
-  'i-Lindung ialah saluran beli insurans guna KWSP: produk disahkan dari RM12 setahun, potongan Akaun Sejahtera, fasa keluarga dan cara beli melalui i-Akaun.',
+  'i-Lindung ialah saluran beli insurans guna KWSP: produk dari RM12 setahun, potongan Akaun Sejahtera, perlindungan keluarga dan cara beli melalui i-Akaun.',
 );
 const canonicalUrl = 'https://insurans.co/i-lindung/';
-const sourceLinks = scheme.sources.map((url) => ({
+const fwdBrochure = 'https://www.fwd.com.my/files/v3/assets/bltca8cd6b067df6d1c/bltcdda9742a1440734/68d363633653b77049b4928e/FWD_i-Lindung_Critical_Illness_Plan_P2_EN_V0.1.pdf?branch=capricorn';
+const sourceLinks = [
+  'https://www.kwsp.gov.my/ms/ahli/kesihatan/i-lindung',
+  'https://www.etiqa.com/newsroom/etiqa-enhances-its-i-lindung-plans-to-include-protection-for-families/',
+  'https://www.prudential.com.my/en/products-health-insurance/epf-i-lindung/',
+  'https://www.prubsn.com.my/en/campaigns-announcements/epf-i-lindung/',
+  fwdBrochure,
+  'https://www.perkeso.gov.my/perkhidmatan-kami/perlindungan/pekerjaan-sendiri.html',
+].map((url) => ({
   label: new URL(url).hostname.replace(/^www\./, ''),
   url,
 }));
@@ -52,9 +58,10 @@ const products = [
   },
   {
     operator: 'FWD',
-    product: 'Pelan i-Lindung',
-    type: 'Term / penyakit kritikal',
-    details: 'Wujud; nama disahkan di tahap tajuk/meta sahaja',
+    product: 'FWD i-Lindung Critical Illness Plan',
+    type: 'Takaful penyakit kritikal dan kematian',
+    details: 'Sehingga RM200,000; diri, pasangan dan anak',
+    source: fwdBrochure,
   },
 ];
 const faqs = [
@@ -64,7 +71,7 @@ const faqs = [
   },
   {
     q: 'Apakah pelan i-Lindung yang ada?',
-    a: 'Yang disahkan: Etiqa Term Plus dari RM12 setahun, Etiqa Critical Care Plus 42 penyakit kritikal dari RM16 setahun, Prudential PRUGuard dan PRUCare Family, PruBSN takaful, serta FWD. Sahkan senarai penuh dalam aplikasi KWSP.',
+    a: 'Antara pilihan: Etiqa Term Plus dari RM12 setahun, Etiqa Critical Care Plus untuk 42 penyakit kritikal dari RM16 setahun, Prudential PRUGuard dan PRUCare Family, PruBSN takaful, serta FWD i-Lindung Critical Illness Plan sehingga RM200,000. Bandingkan manfaat dan syarat dalam aplikasi KWSP i-Akaun.',
   },
   {
     q: 'Akaun KWSP mana ditolak?',
@@ -76,7 +83,7 @@ const faqs = [
   },
   {
     q: 'i-Lindung PERKESO itu apa?',
-    a: 'Bukan produk. Ia kekeliruan antara i-Lindung KWSP dan skim pekerjaan sendiri PERKESO, iaitu SPS atau Lindung Kendiri. Dua sistem dan dua saluran bayaran berbeza.',
+    a: 'i-Lindung KWSP membolehkan pembelian insurans atau takaful menggunakan simpanan Akaun Sejahtera melalui i-Akaun. PERKESO mengendalikan Skim Pekerjaan Sendiri (Lindung Kendiri); pendaftaran dan carumannya boleh diurus melalui aplikasi atau Web Prihatin.',
   },
 ];
 const schema = {
@@ -122,12 +129,12 @@ const schema = {
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      i-Lindung bukan produk dan bukan bantuan — ia saluran beli-diri dalam aplikasi KWSP i-Akaun di bawah Pelan Perlindungan Ahli. Premium tahunan ditolak daripada Akaun Sejahtera. Akaun 1 tidak terjejas. Ini bermaksud anda menggunakan duit KWSP sendiri.
+      i-Lindung ialah saluran layan diri dalam KWSP i-Akaun untuk membeli perlindungan di bawah Pelan Perlindungan Ahli. Pembelian menggunakan simpanan Akaun Sejahtera anda. Bandingkan manfaat untuk diri, pasangan dan anak sebelum memilih pelan.
     </p>
 
     <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
       <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Saluran, bukan produk</h2>
+      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Perlindungan melalui KWSP i-Akaun</h2>
       <dl class="mt-4 space-y-3 text-sm">
         <div>
           <dt class="text-stone-500">Akaun yang digunakan</dt>
@@ -138,7 +145,7 @@ const schema = {
           <dd class="font-semibold text-hijau-700">Akaun 1 tidak terjejas</dd>
         </div>
         <div>
-          <dt class="text-stone-500">Harga disahkan</dt>
+          <dt class="text-stone-500">Harga permulaan</dt>
           <dd class="font-semibold text-stone-900">Dari RM12 setahun untuk produk tertentu</dd>
         </div>
       </dl>
@@ -158,26 +165,26 @@ const schema = {
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial">
         <p class="text-lg leading-7 text-stone-700">
-          i-Lindung bukan produk dan bukan bantuan — ia saluran beli-diri dalam aplikasi KWSP i-Akaun di bawah Pelan Perlindungan Ahli (PPA). Ahli membeli pelan hayat dan penyakit kritikal daripada pengendali panel, kemudian premium tahunan ditolak terus daripada Akaun Sejahtera (dahulu Akaun 2). Akaun 1 tidak terjejas. Guna duit KWSP sendiri — bukan bantuan percuma.
+          Melalui i-Lindung, ahli KWSP membeli pelan hayat dan penyakit kritikal daripada pengendali panel menggunakan simpanan Akaun Sejahtera. Perlindungan juga boleh dibeli untuk pasangan dan anak, tertakluk pada kelayakan produk. Rujuk <a href="https://www.kwsp.gov.my/ms/ahli/kesihatan/i-lindung" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan rasmi i-Lindung KWSP</a> dan semak manfaat dalam i-Akaun sebelum memohon.
         </p>
 
         <h2 id="akaun">Duit dari akaun mana?</h2>
         <p>
-          Akaun Sejahtera ialah nama Akaun 2 selepas penstrukturan semula Akaun 1, 2 dan 3 pada Mei 2024. Potongan tahunan dibuat daripada baki Akaun Sejahtera; Akaun 1 atau Akaun Persaraan tidak disentuh. Kementerian Kewangan mengesahkan perkara ini semula pada Mac 2026.
+          Pembelian i-Lindung menggunakan simpanan Akaun Sejahtera melalui KWSP i-Akaun. Semak baki akaun, jumlah bayaran tahunan dan manfaat untuk setiap orang yang hendak dilindungi sebelum memohon.
         </p>
         <p>
           Ahli berumur 55 tahun ke atas layak jika mempunyai sekurang-kurangnya RM100 dalam Akaun 55 atau Akaun Emas, tertakluk pada syarat produk. Permohonan tidak memerlukan pemeriksaan perubatan; soalan kesihatan ringkas tetap perlu dijawab.
         </p>
 
-        <h2 id="produk">Produk disahkan</h2>
+        <h2 id="produk">Pilihan produk</h2>
         <p>
-          Jadual ini menyenaraikan produk dan pengendali yang disahkan daripada sumber yang dibaca. Ia bukan ranking dan bukan cadangan produk.
+          Bandingkan jenis perlindungan, jumlah manfaat dan syarat setiap pelan. Semak harga untuk umur serta jumlah perlindungan anda dalam i-Akaun.
         </p>
       </article>
 
       <div class="overflow-x-auto">
         <table class="w-full min-w-[40rem] border-collapse text-left text-sm">
-          <caption class="mb-3 text-left text-sm text-stone-600">Produk i-Lindung yang direkodkan setakat {asAt}</caption>
+          <caption class="mb-3 text-left text-sm text-stone-600">Pilihan produk i-Lindung setakat {asAt}</caption>
           <thead>
             <tr class="border-b-2 border-stone-900">
               <th scope="col" class="px-3 py-3 font-semibold text-stone-900">Pengendali</th>
@@ -190,7 +197,11 @@ const schema = {
             {products.map((product) => (
               <tr class="border-b border-stone-200 align-top">
                 <td class="px-3 py-3 font-semibold text-stone-900">{product.operator}</td>
-                <td class="px-3 py-3 text-stone-700">{product.product}</td>
+                <td class="px-3 py-3 text-stone-700">
+                  {product.source ? (
+                    <a href={product.source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">{product.product}</a>
+                  ) : product.product}
+                </td>
                 <td class="px-3 py-3 text-stone-700">{product.type}</td>
                 <td class="px-3 py-3 text-stone-700">{product.details}</td>
               </tr>
@@ -200,7 +211,7 @@ const schema = {
       </div>
 
       <p class="text-sm leading-6 text-stone-600">
-        Operator yang disahkan: {(scheme.operators ?? []).slice(0, 3).join(', ')}. FWD disahkan di tahap tajuk/meta sahaja. <strong>Senarai penuh dalam app KWSP i-Akaun</strong>; semak senarai itu sebelum membeli kerana halaman awam tidak mengesahkan keseluruhan senarai 2026.
+        Brosur <a href={fwdBrochure} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">FWD i-Lindung Critical Illness Plan</a> menerangkan perlindungan penyakit kritikal dari peringkat awal hingga lanjut serta kematian. Sumbangan bergantung pada umur, jantina dan jumlah perlindungan; semak tempoh menunggu dan pengecualian dalam dokumen sijil.
       </p>
 
       <article class="prose-editorial">
@@ -218,16 +229,10 @@ const schema = {
           Polisi biasanya bertempoh satu tahun dan merupakan perlindungan tulen tanpa nilai tunai; pelepasan cukai tertakluk pada syarat LHDN serta produk.
         </p>
 
-        <aside class="info-box not-prose my-8">
-          <h2 class="font-serif text-headline-sm text-stone-900">MHIT — dalam kajian, belum aktif</h2>
-          <p class="mt-3 text-sm leading-6 text-stone-700">
-            Belanjawan 2026 membenarkan kajian pengeluaran Akaun Sejahtera untuk pelan asas MHIT, iaitu insurans atau takaful perubatan dan kesihatan asas. Setakat 2026-09-12, MHIT belum menjadi produk i-Lindung yang boleh dibeli. Jangan anggap i-Lindung sudah cover bil hospital swasta — untuk itu baca <a href="/medical-cards/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan medical card</a>.
-          </p>
-        </aside>
 
-        <h2 id="perkeso">“i-Lindung PERKESO” — penjelasan kekeliruan</h2>
+        <h2 id="perkeso">i-Lindung KWSP dan Lindung Kendiri PERKESO</h2>
         <p>
-          Tiada produk bernama “i-Lindung PERKESO” dalam sumber yang disemak. Istilah itu mencampurkan dua benda berbeza: i-Lindung KWSP, iaitu pembelian insurans menggunakan Akaun Sejahtera, dan skim PERKESO untuk orang bekerja sendiri — Skim Perlindungan Sosial Pekerjaan Sendiri atau SPS/Lindung Kendiri. Caruman SPS dibayar terus kepada PERKESO melalui portal dan aplikasi PERKESO, bukan melalui akaun KWSP. Baca <a href="/bantuan-insurans/perkeso/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan PERKESO</a> untuk beza kedua-duanya.
+          i-Lindung KWSP membolehkan pembelian insurans atau takaful menggunakan simpanan Akaun Sejahtera melalui i-Akaun. PERKESO pula mengendalikan Skim Pekerjaan Sendiri (Lindung Kendiri). Pendaftaran dan pembayaran caruman skim PERKESO boleh dibuat melalui aplikasi atau Web Prihatin. Rujuk <a href="https://www.perkeso.gov.my/perkhidmatan-kami/perlindungan/pekerjaan-sendiri.html" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan rasmi Lindung Kendiri</a> atau baca <a href="/bantuan-insurans/perkeso/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan PERKESO</a>.
         </p>
       </article>
 
@@ -246,7 +251,7 @@ const schema = {
       </section>
 
       <p class="text-sm leading-5 text-stone-600">Kami bukan ejen atau broker dan tidak mengambil permohonan polisi.</p>
-      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemaskini 2026-09-12 — semak portal rasmi untuk status terkini</p>
+      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemas kini {asAt}. Semak harga dan terma semasa di portal pengendali sebelum membeli.</p>
     </div>
   </div>
 
