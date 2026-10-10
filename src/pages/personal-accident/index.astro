@@ -59,6 +59,7 @@ const faqs = [
 ];
 
 const pageTitle = 'Insurans PA Malaysia 2026';
+const updatedAt = '2026-10-10';
 const description = buildDescription(
   'Panduan personal accident Malaysia: faham AD dan PPD, bandingkan PA konvensional dengan takaful, serta semak harga yang diterbitkan daripada sumber rasmi.',
 );
@@ -70,7 +71,7 @@ const schema = {
   description,
   url: canonicalUrl,
   datePublished: '2026-02-01',
-  dateModified: personalAccident.asAt,
+  dateModified: updatedAt,
   inLanguage: 'ms',
   publisher: {
     '@type': 'Organization',
@@ -94,7 +95,7 @@ const schema = {
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
-  modifiedTime={personalAccident.asAt}
+  modifiedTime={updatedAt}
 >
   <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
@@ -106,18 +107,69 @@ const schema = {
       />
       <p class="label mb-3">Panduan Data</p>
       <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Kemalangan Diri (PA) Malaysia 2026</h1>
-      <Byline dateModified={personalAccident.asAt} />
+      <Byline dateModified={updatedAt} />
       <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
         Fahami apa yang PA lindungi, beza polisi konvensional dan sijil takaful, serta angka yang benar-benar diterbitkan oleh sumber rasmi. Tiada harga dianggar atau dikira semula.
       </p>
       <div class="mt-6 max-w-3xl">
         <EditorialStamp
-          articleDate={personalAccident.asAt}
+          articleDate={updatedAt}
           sources={sourceLinks}
           sourcesLabel="Sumber rasmi"
           showReviewed={false}
         />
       </div>
+
+      <section id="banding-pelan" class="mt-10">
+        <h2 class="font-serif text-headline-md text-stone-900">Bandingkan pelan PA</h2>
+        <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
+        <div class="mt-6 overflow-x-auto">
+          <table class="table-editorial min-w-[60rem]">
+            <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+              Had manfaat dan premium untuk {records.length} pelan kemalangan diri
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Pelan / penyedia</th>
+                <th scope="col">Jenis pelan</th>
+                <th scope="col">Had &amp; manfaat</th>
+                <th scope="col">Premium diterbitkan</th>
+                <th scope="col">Sumber</th>
+              </tr>
+            </thead>
+            <tbody>
+              {records.map((record) => (
+                <tr>
+                  <th scope="row" class="align-top">
+                    <a href={`/personal-accident/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
+                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
+                  </th>
+                  <td class="align-top">{typeLabels[record.type] ?? record.type ?? '—'}</td>
+                  <td class="min-w-64 align-top">{record.plansAndBenefits ?? '—'}</td>
+                  <td class="min-w-64 align-top">{record.premiumPublished ?? '—'}</td>
+                  <td class="align-top">
+                    {record.sources.length > 0 ? (
+                      <ul class="space-y-2">
+                        {record.sources.map((url) => (
+                          <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a></li>
+                        ))}
+                      </ul>
+                    ) : '—'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-5 max-w-3xl text-sm leading-6 text-stone-600">
+          <h3 class="font-semibold text-stone-900">Cara membaca jadual ini</h3>
+          <p class="mt-2">
+            Bandingkan had AD (kematian akibat kemalangan) dan PPD (hilang upaya kekal) mengikut varian pelan.
+            Premium mengekalkan syarat harga asal; contoh PDS ialah ilustrasi pengiraan.
+            Tanda “—” menunjukkan maklumat tidak dinyatakan; rujuk pautan sumber untuk syarat penuh.
+          </p>
+        </div>
+      </section>
     </div>
   </section>
 

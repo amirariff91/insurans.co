@@ -57,6 +57,8 @@ const faqs = [
   },
 ];
 const title = `Review ${company.name}${company.name.endsWith('Malaysia') ? '' : ' Malaysia'} 2026 — Entiti, produk dan tuntutan`;
+// Company profiles were first published on 2026-09-28; asAt is the review date.
+const COMPANY_PUBLISHED_AT = '2026-09-28';
 const description = `${company.name}: sejarah entiti, produk, proses tuntutan, aplikasi, talian hubungan dan sumber rasmi. Data disemak pada ${company.asAt}.`;
 const schema = {
   '@context': 'https://schema.org',
@@ -64,7 +66,7 @@ const schema = {
   headline: title,
   description,
   url: canonicalUrl,
-  datePublished: company.publishedAt ?? '2026-09-28',
+  datePublished: COMPANY_PUBLISHED_AT,
   dateModified: company.asAt,
   inLanguage: 'ms',
   publisher: {
@@ -88,7 +90,7 @@ const schema = {
   canonical={canonicalUrl}
   schema={schema}
   ogType="article"
-  publishedTime={company.publishedAt ?? '2026-09-28'}
+  publishedTime={COMPANY_PUBLISHED_AT}
   modifiedTime={company.asAt}
   ogImage={`/og/companies/${company.slug}.png`}
   ogImageAlt={companyOgImageAlt}

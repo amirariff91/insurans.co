@@ -5,13 +5,13 @@ import companies from '../../data/companies.json';
 const conventional = companies.filter(c => c.type === 'conventional');
 const takafulOnly = companies.filter(c => c.type === 'takaful');
 const withTakaful = companies.filter(c => c.takaful);
-const rankedCompanies = [...companies].sort((a, b) => b.rating - a.rating);
+const sortedCompanies = [...companies].sort((a, b) => a.name.localeCompare(b.name, 'ms'));
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Senarai Syarikat Insurans Malaysia",
-  "description": "Senarai 12 syarikat insurans dan takaful Malaysia — rating, range premium kereta, dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich.",
+  "description": "Senarai 12 syarikat insurans dan takaful Malaysia — profil, produk, status takaful dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich.",
   "url": "https://insurans.co/companies/",
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -24,8 +24,8 @@ const schema = {
 ---
 
 <Base
-  title="Senarai Syarikat Insurans Malaysia 2026 — Rating, Harga & Nombor Claim"
-  description="Senarai 12 syarikat insurans dan takaful Malaysia — rating, range premium kereta, dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich."
+  title="Senarai Syarikat Insurans Malaysia 2026 — Profil & Nombor Claim"
+  description="Senarai 12 syarikat insurans dan takaful Malaysia — profil, produk, status takaful dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich."
   schema={schema}
 >
   <section class="bg-white border-b border-stone-200">
@@ -37,10 +37,10 @@ const schema = {
       </nav>
       <p class="label mb-3">Direktori Syarikat 2026</p>
       <h1 class="font-serif text-headline-lg text-stone-900 mb-4">
-        Syarikat Insurans & Takaful di Malaysia: Senarai, Rating & Nombor Claim
+        Syarikat Insurans & Takaful di Malaysia: Senarai, Profil & Nombor Claim
       </h1>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Senarai syarikat insurans dan takaful berlesen di Malaysia — 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Bandingkan rating, range premium kereta (Myvi/Axia), status takaful, dan nombor claim hotline setiap syarikat sebelum renew.
+        Senarai syarikat insurans dan takaful berlesen di Malaysia — 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Semak produk, status takaful dan nombor claim hotline setiap syarikat sebelum renew.
       </p>
 
       <div class="flex flex-wrap gap-4 mt-6 text-sm text-stone-600">
@@ -54,9 +54,6 @@ const schema = {
   </section>
 
   <section class="container-wide py-10 sm:py-14">
-    <!-- Sort info -->
-    <p class="text-sm text-stone-500 mb-6">Disusun mengikut skor editorial — tertinggi dahulu.</p>
-
     <h2 id="claim-hotline" class="font-serif text-headline-md text-stone-900 mb-3">Nombor claim hotline syarikat insurans</h2>
     <p class="text-stone-600 max-w-3xl mb-6">
       Nak buat claim, call terus hotline rasmi di bawah — bukan ejen. Semua nombor disalin dari laman rasmi syarikat. Klik nombor untuk call terus dari mobile.
@@ -73,7 +70,7 @@ const schema = {
           </tr>
         </thead>
         <tbody>
-          {rankedCompanies.map((company) => (
+          {sortedCompanies.map((company) => (
             <tr>
               <td>
                 <a href={`/companies/${company.slug}/`}>{company.name}</a>
@@ -93,7 +90,7 @@ const schema = {
 
     <!-- Company list -->
     <div class="space-y-4">
-      {rankedCompanies.map((company) => (
+      {sortedCompanies.map((company) => (
         <div class="card-editorial group block">
           <a href={`/companies/${company.slug}/`} class="block">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4">
@@ -104,7 +101,6 @@ const schema = {
                   <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
                     {company.name}
                   </h2>
-                  <span class="text-xs text-stone-500">Skor editorial {company.rating}/5</span>
                   {company.type === 'takaful' ? (
                     <span class="text-xs font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
                   ) : company.takaful ? (
@@ -166,9 +162,8 @@ const schema = {
     <div class="container-article">
       <div class="info-box">
         <p class="text-sm text-stone-700">
-          <strong>Tentang rating kami:</strong> Rating berdasarkan gabungan harga, kemudahan proses online,
-          kelajuan claim, dan pengalaman pelanggan. Kami tak dibayar oleh mana-mana syarikat untuk review ini.
-          Kalau anda ada pengalaman berbeza, kami nak dengar.
+          <strong>Cara kami menyusun profil:</strong> Profil disenaraikan mengikut abjad nama syarikat.
+          Maklumat fakta dalam setiap profil dirujuk daripada laman rasmi syarikat berkenaan.
         </p>
       </div>
     </div>

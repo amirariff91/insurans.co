@@ -165,7 +165,7 @@ const faqSchema = {
               Pilih antara dua syarikat?
             </h2>
             <p class="text-stone-600 text-sm leading-relaxed">
-              {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga, rating dan claim line.
+              {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga dan claim line.
             </p>
           </a>
           <ul class="mt-4 space-y-2 text-sm">
@@ -254,7 +254,7 @@ const faqSchema = {
     <div class="flex items-baseline justify-between mb-8">
       <div>
         <h2 class="font-serif text-headline-md text-stone-900 mb-2">Syarikat insurans motor</h2>
-        <p class="text-stone-600 text-sm">Senarai, bukan ranking — profil dan skor editorial di setiap halaman.</p>
+        <p class="text-stone-600 text-sm">Senarai syarikat, bukan ranking — baca profil setiap syarikat.</p>
       </div>
       <a href="/companies/" class="hidden sm:inline text-sm font-semibold text-hijau-700 hover:text-hijau-600">
         Semua syarikat →
@@ -275,7 +275,6 @@ const faqSchema = {
             </div>
             <p class="text-sm text-stone-600 mb-2">{company.verdictBM}</p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-500">
-              <span>Skor editorial {company.rating}/5</span>
               {company.claimLine && <span>Claim: {company.claimLine}</span>}
             </div>
           </div>

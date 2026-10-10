@@ -1,8 +1,11 @@
 ---
+import { existsSync } from 'node:fs';
 import Base from '../../../layouts/Base.astro';
 import { AUTHOR_SLUG, EDITORIAL_AUTHOR } from '../../../lib/schema';
 
 const authorUrl = `https://insurans.co/penulis/${AUTHOR_SLUG}/`;
+const authorPhoto = '/images/penulis/amir-ariff.webp';
+const hasAuthorPhoto = existsSync(`public${authorPhoto}`);
 
 const schema = {
   "@context": "https://schema.org",
@@ -10,13 +13,17 @@ const schema = {
   "name": "Amir Ariff",
   "url": authorUrl,
   "inLanguage": "ms",
-  "mainEntity": EDITORIAL_AUTHOR
+  "mainEntity": {
+    ...EDITORIAL_AUTHOR,
+    "email": "hello@insurans.co",
+    ...(hasAuthorPhoto ? { "image": new URL(authorPhoto, authorUrl).href } : {})
+  }
 };
 ---
 
 <Base
   title="Amir Ariff — Pengasas & Editor Insurans.co"
-  description="Profil Amir Ariff, pengasas dan editor Insurans.co yang menulis panduan insurans motor dan takaful dalam Bahasa Malaysia."
+  description="Profil Amir Ariff, pengasas dan editor Insurans.co: bidang liputan, kaedah editorial dan had kepakaran dalam panduan insurans Bahasa Malaysia."
   canonical={authorUrl}
   schema={schema}
   ogImageAlt="Amir Ariff — Pengasas & Editor Insurans.co"
@@ -26,27 +33,113 @@ const schema = {
     <div class="border-b border-stone-200">
       <div class="container-article py-10 sm:py-14">
         <p class="label mb-4">Profil penulis</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900">Amir Ariff</h1>
-        <p class="mt-3 text-lg text-stone-600">Pengasas &amp; Editor, Insurans.co</p>
+        <div class="flex items-center gap-4">
+          {hasAuthorPhoto ? (
+            <img src={authorPhoto} alt="Amir Ariff" width="48" height="48" class="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+          ) : (
+            <div class="w-12 h-12 rounded-full bg-hijau-100 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <span class="font-serif text-hijau-700 text-lg font-bold">A</span>
+            </div>
+          )}
+          <div>
+            <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900">Amir Ariff</h1>
+            <p class="mt-3 text-lg text-stone-600">Pengasas &amp; Editor, Insurans.co</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="container-article py-10 sm:py-14">
       <div class="prose-editorial max-w-none">
-        <h2>Tentang Amir Ariff</h2>
+        <h2>Peranan</h2>
         <p>
-          Amir Ariff ialah pengasas dan editor Insurans.co, panduan insurans Malaysia yang mengutamakan Bahasa Malaysia. Beliau menulis panduan tentang insurans motor dan takaful, termasuk penerangan mengenai harga, perlindungan, NCD, pembaharuan dan tuntutan. Tujuannya ialah membantu pembaca biasa memahami istilah serta pilihan polisi sebelum mendapatkan maklumat lanjut daripada penyedia insurans atau takaful. Amir berpusat di Malaysia dan menggunakan pendekatan penerangan yang ringkas, perbandingan yang jelas serta rujukan yang boleh dibaca semula. Setiap panduan di laman ini adalah kandungan umum untuk membantu pembaca membuat semakan awal; terma dan perlindungan sebenar bergantung pada polisi serta keadaan individu. Amir bukan penasihat kewangan berlesen dan bukan ejen insurans atau takaful berlesen. Untuk keputusan yang khusus kepada situasi anda, sila rujuk syarikat insurans, pengendali takaful atau profesional berlesen yang sesuai.
+          Amir Ariff ialah pengasas dan editor Insurans.co. Beliau mengendalikan laman ini serta menulis dan
+          mengemaskini panduan insurans dalam Bahasa Malaysia. Panduan tersebut membantu pembaca memahami istilah
+          polisi dan pilihan perlindungan sebelum mendapatkan penjelasan lanjut daripada syarikat insurans atau
+          pengendali takaful.
+        </p>
+        <p>
+          Dalam panduan motor, Amir menerangkan perkara seperti NCD, pembaharuan insurans, perlindungan banjir dan
+          langkah membuat tuntutan. Penulisan menggunakan bahasa yang mudah diikuti oleh pembaca biasa.
+          Istilah teknikal diterangkan supaya pembaca boleh membaca dokumen polisi dengan lebih jelas.
+          Insurans.co menyediakan maklumat umum dan tidak menjual polisi.
         </p>
 
-        <h2>Kaedah</h2>
+        <h2>Bidang liputan</h2>
         <p>
-          Untuk melihat cara kandungan Insurans.co diselidik dan dikemaskini, baca <a href="/about/#metodologi">kaedah editorial kami</a>.
+          Panduan di Insurans.co merangkumi beberapa jenis perlindungan untuk pembaca Malaysia. Anda boleh
+          meneroka topik yang berkaitan melalui halaman berikut:
+        </p>
+        <ul>
+          <li><a href="/car-insurance/">Insurans kereta</a> — anggaran premium, pilihan perlindungan dan pembaharuan polisi motor.</li>
+          <li><a href="/motorcycle-insurance/">Insurans motosikal</a> — penerangan perlindungan untuk pemilik motosikal.</li>
+          <li><a href="/health-insurance/">Insurans kesihatan</a> — panduan memahami perlindungan perubatan.</li>
+          <li><a href="/medical-cards/">Medical card</a> — panduan pelan perlindungan hospital.</li>
+          <li><a href="/life-insurance/">Insurans nyawa</a> — penerangan tentang perlindungan hayat.</li>
+          <li><a href="/home-insurance/">Insurans rumah</a> — panduan insurans rumah dan perlindungan kebakaran.</li>
+          <li><a href="/travel-insurance/">Insurans perjalanan</a> — panduan perlindungan untuk perjalanan.</li>
+          <li><a href="/personal-accident/">Insurans kemalangan diri</a> — penerangan perlindungan kemalangan diri.</li>
+          <li><a href="/critical-illness/">Penyakit kritikal</a> — panduan perlindungan penyakit kritikal.</li>
+          <li><a href="/takaful/">Takaful</a> — konsep takaful dan perbezaannya dengan insurans konvensional.</li>
+          <li><a href="/bantuan-insurans/">Bantuan insurans dan i-Lindung</a> — penerangan mySalam, i-Lindung dan Perlindungan Tenang.</li>
+          <li><a href="/insurans-online/">Insurans online</a> — perbandingan saluran pembelian dan pembaharuan online.</li>
+        </ul>
+        <p>
+          Laman ini turut menyediakan <a href="/companies/">profil syarikat insurans</a>,
+          <a href="/perbandingan/">perbandingan syarikat</a> dan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>.
+          Bahan ini boleh digunakan bersama panduan untuk membuat semakan awal sebelum meminta quotation.
         </p>
 
-        <h2>Semakan pakar</h2>
-        <p>Artikel belum disemak oleh penasihat kewangan berlesen; kami sedang mencari penyemak bertauliah.</p>
+        <h2>Cara Amir menulis dan menyemak</h2>
+        <p>
+          Amir merujuk sumber primer untuk menyediakan penerangan di Insurans.co. Rujukan tersebut termasuk
+          Bank Negara Malaysia (BNM), Persatuan Insurans Am Malaysia (PIAM), Jabatan Pengangkutan Jalan (JPJ)
+          dan dokumen pendedahan produk (PDS) syarikat insurans. Laman rasmi syarikat serta dokumen polisi juga
+          menjadi rujukan untuk butiran produk dan perlindungan.
+        </p>
+        <p>
+          PDS dan dokumen polisi penting kerana penerangan ringkas dalam artikel tidak merangkumi setiap terma
+          produk. Pembaca boleh merujuk dokumen tersebut untuk memahami manfaat, pengecualian dan syarat
+          perlindungan yang ditawarkan. Anggaran harga dalam panduan perlu dibezakan daripada quotation yang
+          dikeluarkan oleh penyedia untuk keadaan individu.
+        </p>
+        <p>
+          Baca <a href="/about/#metodologi">kaedah editorial Insurans.co</a> untuk penerangan tentang rujukan,
+          semakan dan kemaskini kandungan. Kandungan dikemaskini apabila harga, produk atau peraturan berubah.
+          Tarikh kemaskini pada artikel membantu pembaca mengenal pasti bila maklumat itu dikemaskini.
+        </p>
 
-        <h2 id="artikel">Artikel ditulis</h2>
+        <h2>Had kepakaran</h2>
+        <p>
+          Amir bukan penasihat kewangan berlesen dan bukan ejen insurans atau takaful berlesen.
+          Artikel di Insurans.co belum disemak oleh penasihat kewangan berlesen. Semakan editorial yang
+          diterangkan di atas ialah semakan maklumat untuk penulisan.
+        </p>
+        <p>
+          Kandungan laman ini ialah maklumat am dan tidak menggantikan nasihat profesional untuk situasi anda.
+          Kesesuaian polisi bergantung pada keperluan, kemampuan dan terma produk yang dipilih. Untuk keputusan
+          khusus tentang perlindungan anda, rujuk ejen insurans berlesen atau perunding kewangan berlesen.
+          Pengesahan manfaat dan syarat polisi perlu diperoleh daripada syarikat insurans atau pengendali takaful.
+        </p>
+
+        <h2>Hubungi</h2>
+        <p>
+          Untuk soalan tentang kandungan, cadangan topik atau pembetulan fakta, emel
+          <a href="mailto:hello@insurans.co">hello@insurans.co</a> atau gunakan maklumat pada
+          <a href="/hubungi/">halaman Hubungi</a>. Jika anda menemui ralat, sertakan pautan artikel dan
+          bahagian yang perlu dibetulkan supaya isu itu mudah dikenal pasti.
+        </p>
+        <p>
+          Pertanyaan tentang status polisi, bayaran atau tuntutan anda perlu dihantar terus kepada penyedia
+          insurans atau takaful yang berkenaan. Insurans.co menyediakan panduan untuk memahami urusan tersebut.
+          Pengendalian polisi dan tuntutan kekal dengan penyedia perlindungan anda.
+        </p>
+
+        <h2 id="artikel">Panduan terkini oleh Amir</h2>
+        <p>
+          Berikut ialah panduan yang ditulis Amir di Insurans.co. Pilih topik yang berkaitan untuk membaca
+          penerangan lanjut dan rujukan pada halaman panduan.
+        </p>
         <ul>
           <li><a href="/car-insurance/">Panduan Insurans Kereta Malaysia</a></li>
           <li><a href="/car-insurance/perodua-axia/">Harga insurans Perodua Axia</a></li>
