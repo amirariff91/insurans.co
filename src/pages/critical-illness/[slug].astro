@@ -12,7 +12,7 @@ type CriticalIllnessRecord = (typeof ci.records)[number];
 
 const records = ci.records;
 const typeLabels: Record<string, string> = {
-  standalone: 'Standalone',
+  standalone: 'Pelan berdiri sendiri',
   rider: 'Rider',
   takaful: 'Takaful',
   scheme: 'Skim',
@@ -26,77 +26,46 @@ export function getStaticPaths() {
 }
 
 const { record } = Astro.props as { record: CriticalIllnessRecord };
+// Measured built main text on 2026-10-10: >=700 words and every sibling Jaccard <0.35.
+const adsEnabledSlugs = new Set([
+  'aia-a-life-beyond-critical-care',
+  'prudential-crisis-cover-benefit',
+  'great-eastern-smart-early-payout-criticalcare',
+  'etiqa-critical-care-plus',
+  'etiqa-critical-care-takaful',
+  'zurich-early-care-critical-illness',
+  'mysalam',
+]);
+const passesUniqueness = adsEnabledSlugs.has(record.slug);
 const canonicalUrl = `https://insurans.co/critical-illness/${record.slug}/`;
 const typeLabel = typeLabels[record.type] ?? record.type;
-const relatedRecords = records.filter((candidate) => candidate.slug !== record.slug).slice(0, 4);
-const sourceLinks = record.sources.map((url) => ({
+const { analysis } = record;
+const sibling = records.find((candidate) => candidate.slug === analysis.siblingSlug)!;
+const sourceUrls = [...new Set([...record.sources, ...analysis.facts.map((fact) => fact.source)])];
+const sourceLinks = sourceUrls.map((url) => ({
   label: new URL(url).hostname.replace(/^www\./, ''),
   url,
 }));
-const earlyStageLabel =
-  record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : undefined;
-const specItems = [
-  { label: 'Kondisi dilindungi', value: record.conditionsCovered },
-  { label: 'Early stage', value: earlyStageLabel },
-  { label: 'Struktur bayaran', value: record.payoutStructure },
-  { label: 'Jenis pelan', value: typeLabel },
-  { label: 'Ciri utama', value: record.standoutFeature },
-].filter((item) => item.value !== null && item.value !== undefined && item.value !== '');
+const specItems = analysis.facts.filter((fact) =>
+  ['Penyakit yang dilindungi', 'Bayaran mengikut peringkat', 'Tempoh perlindungan'].includes(fact.label),
+);
 
 const title = buildTitle(`${record.planName} — Penyakit Kritikal`);
 const description = buildDescription(
-  `Insurans penyakit kritikal ${record.planName} di Malaysia: bandingkan jenis pelan, kondisi, early stage, struktur bayaran dan sumber rasmi sebelum memilih.`,
+  `${record.planName}: kelayakan, manfaat penyakit kritikal, had tuntutan dan perbandingan dengan ${sibling.planName} berdasarkan dokumen rasmi.`,
 );
 
-const typeFaqAnswer =
-  record.type === 'standalone'
-    ? 'Standalone ialah perlindungan penyakit kritikal yang berdiri sendiri dan tidak perlu dilekatkan pada polisi asas.'
-    : record.type === 'rider'
-      ? 'Rider ialah perlindungan penyakit kritikal yang menempel pada polisi asas. Payout atau sum assured boleh tertakluk pada struktur pelan asas dan wording rider.'
-      : record.type === 'takaful'
-        ? 'Takaful ialah perlindungan penyakit kritikal berasaskan sijil takaful. Semak manfaat, pengecualian dan syarat sijil atau PDS terkini.'
-        : 'Skim ialah perlindungan atau bantuan berasaskan kelayakan skim, bukan semestinya polisi CI swasta. Semak syarat kelayakan dan saluran tuntutan skim tersebut.';
-const conditionsFaqAnswer = record.conditionsCovered
-  ? `Rekod sumber untuk ${record.planName} menyatakan ${record.conditionsCovered}. Sebagai rujukan, senarai severe-stage 36 telah diseragamkan oleh Bank Negara Malaysia untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016; produk boleh menambah expansion sendiri.`
-  : `Sumber yang dibaca untuk ${record.planName} tidak menyatakan bilangan kondisi. Senarai severe-stage 36 ialah standard rujukan BNM untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016, manakala setiap produk boleh mempunyai expansion dan definisi sendiri.`;
-const earlyStageFaqAnswer =
-  record.earlyStageCovered === 'yes'
-    ? `Rekod ini menyatakan early-stage dilindungi. Early-stage biasanya dibayar lebih awal mengikut definisi polisi dan boleh menjadi bayaran accelerated yang mengurangkan baki sum assured; semak peratus dan syarat dalam PDS ${record.planName}.`
-    : record.earlyStageCovered === 'no'
-      ? `Rekod ini menyatakan early-stage tidak dilindungi. Standard 36 merujuk keadaan severe-stage; jangan anggap diagnosis awal dilindungi tanpa manfaat dan definisi yang dinyatakan dalam PDS.`
-      : `Sumber yang dibaca tidak menyatakan sama ada early-stage dilindungi untuk rekod ini. Standard 36 merujuk keadaan severe-stage; semak manfaat early-stage dan definisi setiap kondisi dalam PDS.`;
-const payoutFaqAnswer = record.payoutStructure
-  ? `Rekod ini menyatakan: ${record.payoutStructure}. Sesetengah polisi juga menetapkan survival period, iaitu tempoh pemegang polisi perlu hidup selepas diagnosis sebelum tuntutan dibayar; tempoh sebenar untuk ${record.planName} mesti disahkan dalam wording polisi atau sijil.`
-  : `Struktur bayaran untuk ${record.planName} tidak dinyatakan dalam sumber yang dibaca. Secara umum, CI swasta membayar sekaligus selepas diagnosis yang memenuhi definisi polisi dan survival period (jika ada). Semak tempoh dan syarat sebenar dalam wording polisi atau sijil.`;
-const finalFaq =
-  record.type === 'scheme'
-    ? {
-        q: `Adakah ${record.planName} percuma dan siapa layak?`,
-        a: `${record.standoutFeature ?? 'Status percuma dan syarat kelayakan perlu disahkan dalam portal rasmi'}. Manfaat yang direkodkan: ${record.payoutStructure ?? 'rujuk portal rasmi'}. Semak kelayakan dan status manfaat semasa di portal rasmi.`,
-      }
-    : {
-        q: `Adakah COI atau caruman ${record.planName} dijamin semasa renewal?`,
-        a: 'Renewal yang dijamin tidak semestinya bermaksud harga dijamin. COI atau caruman boleh berubah mengikut terma produk dan notis penginsurans atau pengendali takaful. Semak PDS, surat pembaharuan dan terma sijil sebelum membuat keputusan.',
-      };
-const faqs = [
-  {
-    q: `${record.planName} ini jenis insurans penyakit kritikal apa?`,
-    a: typeFaqAnswer,
-  },
-  {
-    q: `Berapa kondisi ${record.planName} dan adakah ia ikut standard 36?`,
-    a: conditionsFaqAnswer,
-  },
-  {
-    q: `Adakah early stage critical illness dilindungi untuk ${record.planName}?`,
-    a: earlyStageFaqAnswer,
-  },
-  {
-    q: `Bagaimana payout dan survival period untuk ${record.planName}?`,
-    a: payoutFaqAnswer,
-  },
-  finalFaq,
+const faqTopics = [
+  { q: `Bagaimana ${record.planName} dibeli atau diperoleh?`, labels: ['Jenis dan saluran pelan'] },
+  { q: `Apakah penyakit yang dilindungi oleh ${record.planName}?`, labels: ['Penyakit yang dilindungi', 'Definisi kanser'] },
+  { q: `Bagaimana manfaat ${record.planName} dibayar?`, labels: ['Bayaran mengikut peringkat', 'Peraturan tuntutan'] },
+  { q: `Apakah syarat masa tuntutan ${record.planName}?`, labels: ['Tempoh menunggu', 'Tempoh hidup selepas diagnosis', 'Keadaan yang memburuk selepas 2025'] },
+  { q: `Siapa layak dan berapa lama ${record.planName} melindungi mereka?`, labels: ['Umur kemasukan', 'Umur dalam jadual kadar', 'Kelayakan dan umur', 'Tempoh perlindungan'] },
 ];
+const faqs = faqTopics.map((topic) => ({
+  q: topic.q,
+  a: analysis.facts.filter((fact) => topic.labels.includes(fact.label)).map((fact) => fact.value).join(' '),
+}));
 
 const schema = {
   '@context': 'https://schema.org',
@@ -105,7 +74,7 @@ const schema = {
   description,
   url: canonicalUrl,
   datePublished: record.asAt,
-  dateModified: record.asAt,
+  dateModified: record.analysisAsAt,
   inLanguage: 'ms',
   publisher: {
     '@type': 'Organization',
@@ -128,13 +97,13 @@ const schema = {
   description={description}
   canonical={canonicalUrl}
   schema={schema}
-  ads={false}
+  ads={passesUniqueness}
   ogType="article"
   publishedTime={record.asAt}
-  modifiedTime={record.asAt}
+  modifiedTime={record.analysisAsAt}
 >
   <Hero title={`Insurans penyakit kritikal: ${record.planName}`}>
-    <Byline slot="byline" dateModified={record.asAt} />
+    <Byline slot="byline" dateModified={record.analysisAsAt} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -144,8 +113,7 @@ const schema = {
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      Data ringkas {record.planName} oleh {record.insurer}, berdasarkan sumber rasmi yang dibaca pada {record.asAt}.
-      Tiada anggaran premium dalam halaman ini.
+      {analysis.facts.find((fact) => fact.label === 'Jenis dan saluran pelan')?.value}
     </p>
 
     <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
@@ -173,7 +141,7 @@ const schema = {
 
     <div class="mt-4 mr-2">
       <EditorialStamp
-        articleDate={record.asAt}
+        articleDate={record.analysisAsAt}
         sources={sourceLinks}
         sourcesLabel="Sumber"
         showReviewed={false}
@@ -184,23 +152,38 @@ const schema = {
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial">
-        <p class="text-lg text-stone-700">
-          Halaman ini merumuskan manfaat yang dinyatakan dalam sumber rasmi {record.planName}. Insurans penyakit kritikal
-          biasanya membayar wang sekaligus apabila diagnosis memenuhi definisi polisi, jadi ia berbeza daripada medical card
-          yang membayar bil rawatan. Syarat sebenar tertakluk pada polisi atau sijil dan PDS terkini.
-        </p>
-        <h2 id="bandingkan">Apa yang patut dibanding untuk critical illness insurance Malaysia?</h2>
+        <h2 id="sesuai">Siapa yang sesuai dengan {record.planName}</h2>
+        <p>{analysis.bestFor}</p>
+
+        <h2 id="fakta">Fakta utama {record.planName}</h2>
+        <dl class="not-prose my-6 divide-y divide-stone-200 border-y border-stone-200">
+          {analysis.facts.map((fact) => (
+            <div class="py-4 sm:grid sm:grid-cols-[12rem_1fr] sm:gap-6">
+              <dt class="font-semibold text-stone-900">{fact.label}</dt>
+              <dd class="mt-1 leading-7 text-stone-700 sm:mt-0">
+                {fact.value}{' '}
+                <sup>
+                  <a
+                    href={fact.source}
+                    aria-label={`Sumber rasmi: ${fact.label}`}
+                    class="text-hijau-700 underline underline-offset-2"
+                  >[{sourceUrls.indexOf(fact.source) + 1}]</a>
+                </sup>
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
+        <p>{analysis.tradeoffs}</p>
+
+        <h2 id="perbandingan">{record.planName} berbanding {sibling.planName}</h2>
+        <ul>
+          {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
+        </ul>
         <p>
-          Semak kondisi yang dilindungi, tahap diagnosis, struktur payout, survival period, pengecualian dan syarat
-          pembaharuan. Jika manfaat early-stage dibayar secara accelerated, bayaran itu boleh mengurangkan baki sum assured;
-          jangan anggap jumlah early-stage dan late-stage sentiasa berasingan.
-        </p>
-        <h2>Senarai 36 penyakit kritikal dan expansion produk</h2>
-        <p>
-          Senarai 36 severe-stage ialah standard rujukan yang diseragamkan Bank Negara Malaysia untuk polisi baharu atau
-          diperbaharui berkuat kuasa 1 April 2016. Itu lantai, bukan siling: produk tertentu menambah kondisi atau tahap
-          sendiri. Lihat <a href="/critical-illness/senarai-penyakit-kritikal/">senarai penyakit kritikal penuh</a> untuk
-          nama BM dan English.
+          Baca manfaat dan syarat <a href={`/critical-illness/${sibling.slug}/`}>{sibling.planName}</a>
+          {' '}untuk melihat kesan perbezaan ini pada pilihan perlindungan anda.
         </p>
       </article>
 
@@ -218,58 +201,22 @@ const schema = {
         </div>
       </section>
 
-      {relatedRecords.length > 0 && (
-        <section id="related">
-          <div class="prose-editorial">
-            <h2>Pelan berkaitan</h2>
-            <p>Bandingkan beberapa rekod penyakit kritikal lain daripada set data yang sama:</p>
-          </div>
-          <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            {relatedRecords.map((related) => {
-              const relatedEarlyStage =
-                related.earlyStageCovered === 'yes' ? 'Ya' : related.earlyStageCovered === 'no' ? 'Tidak' : undefined;
-              return (
-                <article class="card-editorial">
-                  <div class="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 class="font-semibold text-stone-900">
-                        <a href={`/critical-illness/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
-                          {related.planName}
-                        </a>
-                      </h3>
-                      <p class="mt-1 text-sm text-stone-600">{related.insurer}</p>
-                    </div>
-                    <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
-                      {typeLabels[related.type] ?? related.type}
-                    </span>
-                  </div>
-                  <dl class="mt-4 space-y-2 text-sm">
-                    {related.conditionsCovered && (
-                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
-                        <dt class="text-stone-600">Kondisi direkodkan</dt>
-                        <dd class="font-semibold text-hijau-800">{related.conditionsCovered}</dd>
-                      </div>
-                    )}
-                    {relatedEarlyStage && (
-                      <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
-                        <dt class="text-stone-600">Early stage</dt>
-                        <dd class="font-semibold text-stone-900">{relatedEarlyStage}</dd>
-                      </div>
-                    )}
-                  </dl>
-                  {related.standoutFeature && (
-                    <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{related.standoutFeature}</p>
-                  )}
-                </article>
-              );
-            })}
-          </div>
-        </section>
-      )}
+      <section id="sumber" class="prose-editorial">
+        <h2>Sumber rasmi {record.planName}</h2>
+        <ol>
+          {sourceUrls.map((url) => {
+            const source = new URL(url);
+            const document = source.pathname.endsWith('.pdf')
+              ? decodeURIComponent(source.pathname.split('/').pop()!)
+              : source.searchParams.get('url') ?? 'Halaman produk';
+            return <li><a href={url} class="break-words">{source.hostname.replace(/^www\./, '')} — {document}</a></li>;
+          })}
+        </ol>
+      </section>
 
       <CtaBand
         heading="Bandingkan semua insurans penyakit kritikal"
-        body="Gunakan halaman hub untuk membandingkan rekod mengikut jenis pelan, kondisi, early stage dan struktur bayaran."
+        body="Bandingkan kelayakan, tahap penyakit dan baki manfaat dalam panduan penyakit kritikal sebelum memilih perlindungan."
         primary={{ label: 'Lihat semua penyakit kritikal →', href: '/critical-illness/' }}
         disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
       />

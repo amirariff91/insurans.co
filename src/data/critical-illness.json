@@ -12,7 +12,105 @@
       "payoutStructure": "Bayaran sekaligus 100% perlindungan apabila didiagnos penyakit kritikal peringkat awal, pertengahan atau lanjut",
       "standoutFeature": "Perlindungan sehingga umur 80; bonus tunai tahunan AIA Vitality sehingga 20% premium; Personal Medical Case Management dengan Teladoc Health",
       "sources": ["https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "A-Life Beyond Critical Care sesuai untuk pembeli berumur 16-60 tahun yang mahu perlindungan penyakit kritikal berdiri sendiri sehingga umur 80. Bayaran 100% pada peringkat awal, pertengahan atau lanjut memberi akses kepada jumlah perlindungan penuh melalui satu tuntutan yang layak. Ahli AIA Vitality boleh menilai bonus tunai tahunan mengikut status keahlian mereka. Perlindungan RM100,000 ke atas turut membuka akses kepada saringan kesihatan setiap 2 tahun dan Personal Medical Case Management oleh Teladoc Health. Manfaat sokongan pemulihan membayar balik perbelanjaan tertentu selepas tuntutan penuh diluluskan. Pembeli yang mengutamakan satu bayaran besar boleh menimbang struktur ini bersama manfaat kematangan jika manfaat penyakit kritikal belum dibayar penuh.",
+        "tradeoffs": "Manfaat penyakit kritikal utama dibayar sekali sahaja. Selepas bayaran penuh, premium tidak lagi perlu dibayar dan polisi kekal sehingga umur 80 untuk Manfaat Ihsan 10%. Premium asas ditetapkan mengikut umur kemasukan, namun kadarnya tidak dijamin dan boleh dipinda dengan notis bertulis 3 bulan. Gejala peringkat awal dan pertengahan dalam 60 hari pertama dikecualikan. Peringkat lanjut menggunakan tempoh 30 atau 60 hari mengikut penyakit. Orang dilindungi perlu hidup sekurang-kurangnya 15 hari selepas diagnosis. Pengecualian turut meliputi keadaan sedia ada, kecederaan sendiri, penyalahgunaan alkohol atau dadah, serta penyakit kongenital yang muncul sebelum umur 17. Perlindungan HIV mempunyai pengecualian khusus bagi kejadian yang disenaraikan.",
+        "siblingSlug": "etiqa-critical-care-plus",
+        "siblingDifferences": [
+          "AIA melindungi 180 keadaan merentas 76 kategori sehingga umur 80 melalui pelan yang dijual oleh AIA Life Planner. Etiqa melindungi 42 penyakit sehingga umur 70 dan hanya dibeli melalui KWSP i-Lindung.",
+          "AIA membayar 100% sekali bagi penyakit kritikal yang layak pada mana-mana peringkat. Etiqa mengehadkan bayaran awal kepada 10%, maksimum RM25,000, untuk 4 keadaan dan menawarkan tambahan Manfaat Penjagaan Kanser 50% dengan syarat hidup 30 hari.",
+          "Perlindungan AIA bermula pada RM20,000 dan mempunyai manfaat kematangan sehingga 150% jumlah premium asas jika manfaat penyakit kritikal belum dibayar penuh. Etiqa menawarkan RM10,000-RM200,000 tanpa manfaat kematangan atau nilai serahan."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "16-60 tahun.",
+            "source": "https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Sehingga umur 80 bagi pelan tanpa penyertaan keuntungan. Premium asas ditetapkan mengikut umur kemasukan dan tidak dijamin. AIA boleh meminda premium dengan notis bertulis 3 bulan.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "180 keadaan merentas 76 kategori: 65 peringkat awal, 40 peringkat pertengahan dan 75 peringkat lanjut. Bilangan ini menggunakan kategori dan definisi produk AIA.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "Bayaran sekaligus 100% jumlah perlindungan atau nilai tunai asas, yang mana lebih tinggi, apabila penyakit kritikal peringkat awal, pertengahan atau lanjut didiagnosis. Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari dihadkan kepada 10% jumlah perlindungan atau RM25,000, yang mana lebih rendah.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Manfaat penyakit kritikal 100% dibayar sekali. Selepas bayaran penuh, premium tidak lagi perlu dibayar dan polisi kekal sehingga umur 80 hanya untuk Manfaat Ihsan 10%. Rider pilihan A-Plus Beyond Advance Care tamat selepas tuntutan peringkat lanjut.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Tempoh hidup selepas diagnosis",
+            "value": "Orang dilindungi mesti hidup sekurang-kurangnya 15 hari selepas diagnosis kejadian penyakit kritikal. Kegagalan memenuhi tempoh ini termasuk dalam pengecualian.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "Gejala yang muncul dalam 60 hari dari Tarikh Pengeluaran atau Permulaan dikecualikan bagi kejadian peringkat awal dan pertengahan. Peringkat lanjut: 60 hari untuk Kanser, Serangan Jantung, Pembedahan Pintasan Arteri Koronari, Penyakit Arteri Koronari Serius serta Angioplasti dan Rawatan Invasif Lain; 30 hari untuk kejadian peringkat lanjut yang lain.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Jumlah perlindungan",
+            "value": "Jumlah perlindungan minimum RM20,000.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Saringan kesihatan AIA Vitality",
+            "value": "Setiap 2 tahun: RM600 bagi Platinum, RM500 bagi Gold, RM300 bagi Silver dan RM300 bagi Bronze. Memerlukan keahlian AIA Vitality dan perlindungan RM100,000 ke atas. Manfaat pertama tersedia 12 bulan selepas tarikh polisi.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Bonus tunai tahunan",
+            "value": "Sehingga 20% bagi status Platinum atau 10% bagi Gold daripada premium asas tahunan yang dibayar. Khusus untuk ahli AIA Vitality, bermula pada akhir tahun polisi pertama.",
+            "source": "https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"
+          },
+          {
+            "label": "Sokongan pemulihan",
+            "value": "Bayaran balik sehingga 5% jumlah perlindungan untuk tempoh 1 tahun selepas kelulusan tuntutan penyakit kritikal penuh. Perbelanjaan yang layak merangkumi ubat, konsultasi, ujian susulan dan rehabilitasi.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Pengurusan perubatan, ihsan dan kematangan",
+            "value": "Personal Medical Case Management oleh Teladoc Health tersedia bagi perlindungan RM100,000 ke atas. Manfaat Ihsan pada kematian ialah 10% jumlah perlindungan atau nilai tunai asas. Manfaat Kematangan Terjamin sehingga 150% jumlah premium asas bagi umur kemasukan bawah 40, atau 100% bagi umur 40 ke atas, dengan syarat manfaat penyakit kritikal belum dibayar penuh.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Pengecualian keadaan sedia ada",
+            "value": "Keadaan sedia ada dan penyakit yang didiagnosis dalam tempoh menunggu dikecualikan.",
+            "source": "https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"
+          },
+          {
+            "label": "Pengecualian penyakit dan kecederaan",
+            "value": "Kehadiran AIDS/HIV dikecualikan kecuali AIDS Sepenuhnya, Jangkitan HIV Akibat Serangan, Transfusi Darah atau Pemindahan Organ, serta HIV yang diperoleh melalui pekerjaan. Pengecualian lain: kecacatan atau penyakit kongenital yang muncul sebelum umur 17, kecederaan sendiri, penyalahgunaan alkohol atau dadah dan kegagalan hidup 15 hari selepas diagnosis.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Pengecualian manfaat kematian",
+            "value": "Bunuh diri dalam 1 tahun dari Tarikh Pengeluaran atau Permulaan dikecualikan bagi manfaat kematian.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Pelan asas penyakit kritikal berdiri sendiri, dijual melalui AIA Life Planner. Rider pilihan A-Plus Beyond Advance Care membayar 100% jumlah perlindungannya bagi mana-mana 75 penyakit kritikal peringkat lanjut.",
+            "source": "https://www.aia.com.my/en/our-products/health-protection/critical-illness-protection/a-life-beyond-critical-care.html"
+          },
+          {
+            "label": "Contoh premium rasmi",
+            "value": "Ilustrasi brosur: premium tahunan RM2,466 untuk perlindungan RM100,000 bagi lelaki bukan perokok berumur 30 dengan status AIA Vitality Gold. Tambahan A-Plus Beyond Advance Care RM100,000 menghasilkan premium tahunan RM2,466 + RM1,109. Brosur versi '1st' tidak bertarikh. Premium tidak dijamin; angka ini ialah ilustrasi profil tersebut.",
+            "source": "https://www.aia.com.my/content/dam/my-wise/document/health-protection-conventional/A-Life_Beyond_Critical_Care_1st.pdf"
+          }
+        ]
+      }
     },
     {
       "slug": "prudential-crisis-cover-benefit",
@@ -24,7 +122,85 @@
       "payoutStructure": "Bayaran pendahuluan (accelerated) daripada perlindungan pelan asas yang dilekatkan, apabila didiagnos salah satu daripada 36 penyakit kritikal",
       "standoutFeature": "Boleh dilekatkan pada PRUCash; secara rasmi diterangkan sebagai rider insurans (add-on)",
       "sources": ["https://www.prudential.com.my/en/products/riders/crisis-cover-benefit/"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Crisis Cover Benefit sesuai untuk pemilik PRUCash atau pembeli yang sedang mempertimbangkan pelan asas itu. Rider ini memberi akses kepada jumlah diinsuranskan asas berserta bonus, jika ada, apabila diagnosis memenuhi definisi salah satu daripada 36 penyakit kritikal. Struktur bayaran pendahuluan ini boleh dinilai oleh pembeli yang mahu satu manfaat sekaligus bagi penyakit pada peringkat lanjut. Tiada kategori manfaat awal atau pertengahan diterangkan dalam PDS. Oleh sebab bayaran mengurangkan jumlah diinsuranskan PRUCash, pembeli perlu menilai baki manfaat pelan asas selepas tuntutan. PDS bertarikh 19/11/2025 menggunakan contoh tempoh perlindungan 30 tahun dan jumlah manfaat RM100,000 berserta bonus, jika ada.",
+        "tradeoffs": "Tuntutan penyakit kritikal mengurangkan jumlah diinsuranskan pelan asas PRUCash. Kesannya perlu ditimbang bersama manfaat kematian atau kematangan yang masih diperlukan. PDS menerangkan satu bayaran sekaligus dan tidak menyediakan kategori peringkat awal atau pertengahan. Gejala sebelum permulaan polisi atau dalam tempoh menunggu dikecualikan. Tempoh 60 hari terpakai bagi Kanser, Serangan Jantung, Pembedahan Pintasan Arteri Koronari dan Penyakit Arteri Koronari Serius. Penyakit lain menggunakan 30 hari, dikira dari tarikh kuat kuasa atau penghidupan semula yang terkemudian. Keadaan sedia ada turut dikecualikan. Had khusus melibatkan penyakit kongenital atau keturunan pada kemasukan 6 bulan ke bawah dan pekak pada kemasukan 2 tahun ke bawah.",
+        "siblingSlug": "great-eastern-smart-early-payout-criticalcare",
+        "siblingDifferences": [
+          "Prudential mempercepat bayaran jumlah diinsuranskan PRUCash berserta bonus, jika ada, bagi 36 penyakit kritikal. Great Eastern menggunakan tahap Severity 10/25/50 dengan bayaran 10%/25%/50% dan jumlah semua tuntutan dihadkan kepada jumlah diinsuranskan rider.",
+          "Tempoh menunggu Prudential ialah 30 atau 60 hari mengikut penyakit. Great Eastern menetapkan 120 hari bagi Kanser pada Severity 25 dan Severity 50, selain tempoh 30 atau 60 hari bagi kejadian lain.",
+          "Crisis Cover Benefit hanya dilekatkan pada PRUCash. SMART Early Payout CriticalCare memerlukan pelan investment-linked dan IL Critical Illness Benefit Rider dengan jumlah diinsuranskan yang sepadan, bermula pada RM12,000."
+        ],
+        "facts": [
+          {
+            "label": "Umur dalam jadual kadar",
+            "value": "Jadual premium memaparkan umur hari jadi berikutnya (ANB) 1-65. ANB 1-15 menggunakan kadar lelaki perokok ANB 16. Ini bacaan paksi jadual kadar dan tidak menetapkan kelayakan kemasukan.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-Ann-Prem.pdf"
+          },
+          {
+            "label": "Pengurangan manfaat kanak-kanak",
+            "value": "Pengurangan manfaat kanak-kanak terpakai apabila manfaat dibayar sebelum umur hari jadi berikutnya (ANB) 5.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "PDS bertarikh 19/11/2025 memberikan contoh tempoh perlindungan 30 tahun. Tempoh contoh perlu dibezakan daripada tempoh dalam polisi PRUCash individu.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Tempoh dalam jadual kadar",
+            "value": "Jadual kadar menawarkan tempoh perlindungan dari 5 hingga 65 tahun. Julat dalam jadual ini tidak menetapkan umur tamat perlindungan.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-Ann-Prem.pdf"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "36 penyakit kritikal disenaraikan dalam PDS: Strok, Serangan Jantung, Kegagalan Buah Pinggang, Kanser, Pembedahan Pintasan Arteri Koronari, Penyakit Arteri Koronari Serius, Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari, Kegagalan Hati Peringkat Akhir, Hepatitis Virus Fulminan, Koma, Tumor Otak Benigna, Kelumpuhan Anggota, Buta, Pekak, Melecur Tahap Ketiga, Jangkitan HIV Akibat Transfusi Darah, AIDS Sepenuhnya, Penyakit Paru-paru Peringkat Akhir, Ensefalitis, Pemindahan Organ Utama atau Sumsum Tulang, Kehilangan Pertuturan, Pembedahan Otak, Pembedahan Injap Jantung, Kehilangan Keupayaan Hidup Berdikari, Meningitis Bakteria, Trauma Kepala Utama, Anemia Aplastik Kronik, Penyakit Neuron Motor, Penyakit Alzheimer atau Demensia Teruk, Pembedahan Aorta, Sklerosis Berbilang, Hipertensi Arteri Pulmonari Primer, Penyakit Sista Medula, Lupus Eritematosus Sistemik dengan Komplikasi Buah Pinggang Teruk, Kardiomiopati dan Hipertensi. Tuntutan tertakluk pada definisi setiap penyakit dalam kontrak.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "Bayaran sekaligus jumlah diinsuranskan berserta bonus, jika ada, apabila penyakit kritikal yang dilindungi didiagnosis sebelum polisi tamat. Bayaran mengurangkan jumlah diinsuranskan pelan asas. PDS tidak menerangkan manfaat peringkat awal atau pertengahan.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "PDS menerangkan satu manfaat sekaligus dan menggunakan contoh RM100,000 berserta bonus, jika ada. Manfaat itu mengurangkan jumlah diinsuranskan asas. Dokumen tersebut tidak menetapkan peraturan tuntutan berbilang.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "30 hari bagi penyakit lain yang dilindungi. 60 hari bagi Serangan Jantung, Pembedahan Pintasan Arteri Koronari, Penyakit Arteri Koronari Serius dan Kanser. Tempoh dikira dari tarikh kuat kuasa atau tarikh penghidupan semula, yang mana terkemudian.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Bayaran pendahuluan dan PIDM",
+            "value": "Manfaat mempercepat bayaran jumlah diinsuranskan PRUCash berserta bonus pada diagnosis penyakit kritikal. Manfaat dilindungi PIDM sehingga had perlindungan yang berkenaan.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Cara membaca jadual premium",
+            "value": "Kadar tahunan diterbitkan bagi setiap RM1,000 jumlah diinsuranskan. Jadual menggunakan pengurangan umur 3 tahun bagi lelaki bukan perokok atau wanita perokok, dan 6 tahun bagi wanita bukan perokok. Jadual kadar perlu dipadankan dengan profil pemohon dan tempoh perlindungan.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-Ann-Prem.pdf"
+          },
+          {
+            "label": "Pengecualian gejala dan tempoh menunggu",
+            "value": "Gejala penyakit sebelum permulaan polisi atau dalam 30 hari pertama dikecualikan. Tempoh ialah 60 hari bagi Kanser, Serangan Jantung, Pembedahan Pintasan Arteri Koronari dan Penyakit Arteri Koronari Serius.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Pengecualian kesihatan",
+            "value": "Keadaan sedia ada dikecualikan. AIDS/HIV dikecualikan kecuali Jangkitan HIV Akibat Transfusi Darah dan AIDS Sepenuhnya. Penyakit kongenital atau keturunan dikecualikan apabila umur kemasukan 6 bulan atau kurang. Pekak dikecualikan apabila umur kemasukan 2 tahun atau kurang.",
+            "source": "https://www.prudential.com.my/content/dam/prudential-aem-lbu/pamb/en/products/riders/Crisis-Cover-Benefit-PDS.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Rider insurans yang hanya boleh dilekatkan pada pelan asas PRUCash. Halaman rasmi yang diterbitkan pada 2026-09-23 menerangkan produk ini sebagai perlindungan tambahan kepada PRUCash.",
+            "source": "https://www.prudential.com.my/en/products/riders/crisis-cover-benefit/"
+          }
+        ]
+      }
     },
     {
       "slug": "great-eastern-smart-early-payout-criticalcare",
@@ -36,7 +212,85 @@
       "payoutStructure": "Accelerated: bayar pada diagnosis awal; faedah mengurangkan sum assured rider IL Critical Illness, yang seterusnya mempercepat pelan asas investment-linked",
       "standoutFeature": "Dipasarkan sebagai pelan pertama di Malaysia yang bayar di peringkat awal; tuntutan berbilang merentas penyakit & tahap tanpa tempoh menunggu antara tuntutan; mesti dilekatkan dengan IL Critical Illness Benefit Rider",
       "sources": ["https://www.greateasternlife.com/my/en/personal-insurance/our-products/health-insurance/smart-early-payout-criticalcare.html"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "SMART Early Payout CriticalCare sesuai untuk pemegang pelan investment-linked premium biasa Great Eastern yang mahu manfaat pada tahap penyakit lebih awal. Rider ini perlu dipasang bersama IL Critical Illness Benefit Rider dengan jumlah diinsuranskan yang sama. Struktur Severity 10/25/50 membolehkan tuntutan merentas kejadian berlainan atau perkembangan tahap bagi kejadian yang sama. Tiada tempoh menunggu antara tuntutan yang layak. Ibu bapa boleh menilai perlindungan kanak-kanak dari umur 14 hari, dengan pengurangan manfaat sebelum umur 5 tahun hari jadi berikutnya. Pembeli perlu selesa dengan caj bulanan daripada nilai dana dan had bayaran khusus bagi angioplasti serta beberapa kejadian lain, termasuk kanser.",
+        "tradeoffs": "Bayaran pada Severity 10/25/50 ialah 10%/25%/50%, tertakluk pada had bagi kejadian tertentu. Jumlah semua tuntutan tidak boleh melebihi jumlah diinsuranskan rider. Tuntutan Severity 50 bagi kejadian yang sama mengambil kira bayaran Severity 25 terdahulu. Bayaran turut mempercepat manfaat IL Critical Illness Benefit Rider dan pelan asas. Caj insurans tidak dijamin dan ditolak setiap bulan daripada dana, jadi kecukupan nilai dana perlu diperhatikan untuk mengelakkan polisi luput. Keadaan sedia ada dikecualikan. Tempoh menunggu mengikut kejadian ialah 30 atau 60 hari, dengan 120 hari bagi Kanser pada Severity 25/50. Rider tamat apabila jumlahnya dibayar penuh atau apabila rider penyakit kritikal berkaitan tamat.",
+        "siblingSlug": "prudential-crisis-cover-benefit",
+        "siblingDifferences": [
+          "Great Eastern membayar 10%/25%/50% mengikut Severity 10/25/50 dan membenarkan beberapa tuntutan sehingga jumlah diinsuranskan rider digunakan. Prudential menerangkan satu bayaran sekaligus jumlah diinsuranskan PRUCash berserta bonus, jika ada.",
+          "Great Eastern ditawarkan sebagai rider pengurangan unit dengan caj bulanan daripada nilai dana. Prudential menerbitkan jadual kadar premium tahunan mengikut umur dan tempoh perlindungan 5 hingga 65 tahun.",
+          "Kanser pada Severity 25/50 Great Eastern mempunyai tempoh menunggu 120 hari. Prudential menggunakan 60 hari bagi Kanser dan penyakit koronari tertentu, serta 30 hari bagi penyakit lain."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "Minimum 14 hari mengikut umur sebenar. Maksimum 65 tahun hari jadi berikutnya. Rider dilekatkan pada pelan insurans investment-linked premium biasa.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Rider tamat pada kejadian terawal: kematian orang dilindungi, ulang tahun polisi apabila umur mencapai 70 tahun hari jadi berikutnya, tarikh tamat rider, bayaran penuh jumlah diinsuranskan rider, penamatan IL Critical Illness Benefit Rider, atau polisi luput, diserahkan atau ditamatkan.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "20 kejadian dilindungi pada 3 tahap keparahan, Severity 10/25/50. Antara kejadian yang disenaraikan ialah Kanser, Serangan Jantung, Strok, Koma, Kegagalan Buah Pinggang, Melecur Utama dan Pemindahan Organ Utama. Kiraan kejadian serta tahap ini perlu dibaca mengikut definisi produk.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/product-disclosure-sheet/gelm-mmc-pd-sepcc-pds.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "Severity 10: 10% jumlah diinsuranskan, maksimum RM25,000 seorang bagi angioplasti. Severity 25: 25%, maksimum RM50,000 seorang bagi Kanser dan 5 kejadian; 9 kejadian lain membayar 25% tanpa had tunai yang dicetak. Severity 50: 50%, dengan had Kanser RM100,000 seorang. Jumlah semua tuntutan dihadkan kepada jumlah diinsuranskan rider. Pengurangan manfaat kanak-kanak terpakai sebelum umur 5 tahun hari jadi berikutnya.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/product-disclosure-sheet/gelm-mmc-pd-sepcc-pds.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Tuntutan berbilang dibenarkan untuk kejadian berlainan atau tahap keparahan berlainan bagi kejadian sama, tanpa tempoh menunggu antara tuntutan. Bayaran Severity 50 bagi kejadian sama ditolak bayaran Severity 25 terdahulu. Contoh brosur menggunakan jumlah diinsuranskan RM300,000 dengan 3 tuntutan RM50,000 + RM50,000 + RM100,000. Jumlah tuntutan keseluruhan tidak boleh melebihi jumlah diinsuranskan rider.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "30 atau 60 hari mengikut kejadian yang dilindungi. Banyak kejadian menggunakan 30 hari; Serangan Jantung dan Penyakit Arteri Koronari Serius Lain menggunakan 60 hari. Kanser pada Severity 25 dan Severity 50 menggunakan 120 hari. Tempoh dikira dari tarikh kuat kuasa atau pengembalian semula, yang mana terkemudian.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/product-disclosure-sheet/gelm-mmc-pd-sepcc-pds.pdf"
+          },
+          {
+            "label": "Jumlah perlindungan",
+            "value": "Jumlah diinsuranskan rider minimum RM12,000. Jumlah ini mesti sama dengan jumlah diinsuranskan Critical Illness Benefit Rider atau IL Critical Illness Benefit Rider yang berkaitan.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          },
+          {
+            "label": "Dakwaan pemasaran penginsurans",
+            "value": "Halaman rasmi menggunakan frasa 'The first plan in Malaysia that pays at the early stages of critical illness'. Halaman itu menyatakan maklumat betul pada 1 Jun 2024. Frasa tersebut ialah dakwaan pemasaran Great Eastern.",
+            "source": "https://www.greateasternlife.com/my/en/personal-insurance/our-products/health-insurance/smart-early-payout-criticalcare.html"
+          },
+          {
+            "label": "Caj pengurangan unit",
+            "value": "Tiada premium berasingan bagi rider ini. Caj insurans standard tahunan yang diterbitkan ialah RM0.52-RM19.20 bagi setiap RM1,000 jumlah diinsuranskan; contoh lelaki bukan perokok berumur 30 ialah RM0.65. Caj tidak dijamin dan ditolak setiap bulan daripada nilai dana. Tempoh penelitian percuma ialah 15 hari.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          },
+          {
+            "label": "Kesan terhadap pelan asas",
+            "value": "Bayaran mempercepat jumlah diinsuranskan IL Critical Illness Benefit Rider, yang seterusnya mempercepat jumlah diinsuranskan pelan asas.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/product-disclosure-sheet/gelm-mmc-pd-sepcc-pds.pdf"
+          },
+          {
+            "label": "Pengecualian",
+            "value": "Penyakit sedia ada dikecualikan. Kejadian yang bermula, berlaku atau didiagnosis dalam tempoh menunggu 30, 60 atau 120 hari yang berkenaan turut dikecualikan. Tempoh dikira dari Tarikh Kuat Kuasa Risiko atau pengembalian semula terkini. Senarai pengecualian PDS tidak menyeluruh.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/product-disclosure-sheet/gelm-mmc-pd-sepcc-pds.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Rider pengurangan unit bagi pelan investment-linked premium biasa terpilih. IL Critical Illness Benefit Rider mesti dilampirkan bersama, dengan jumlah diinsuranskan yang sama.",
+            "source": "https://www.greateasternlife.com/my/en/personal-insurance/our-products/health-insurance/smart-early-payout-criticalcare.html"
+          },
+          {
+            "label": "Contoh caj rasmi",
+            "value": "Caj insurans standard tahunan RM0.65 bagi setiap RM1,000 jumlah diinsuranskan untuk lelaki bukan perokok berumur sebenar 30. Ini caj rider dan tidak mewakili premium keseluruhan polisi investment-linked. Caj tidak dijamin.",
+            "source": "https://www.greateasternlife.com/content/dam/corp-site/my/malaysia/gelm-mcm-marcom/product-/health-insurance/smart-early-payout-criticalcare/gelm-mmc-pd-smart-early-payout-criticalcare-brochure.pdf"
+          }
+        ]
+      }
     },
     {
       "slug": "etiqa-critical-care-plus",
@@ -48,7 +302,105 @@
       "payoutStructure": null,
       "standoutFeature": "Daftar online via EPF i-Lindung dengan pengeluaran terus Akaun EPF; early cash payout; cancer care benefit; elaun tunai penyakit berjangkit; tanpa pemeriksaan perubatan",
       "sources": ["https://www.etiqa.com.my/health/critical-care-plus-insurance"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Etiqa Critical Care Plus Insurance sesuai untuk ahli KWSP warganegara Malaysia berumur 17-65 tahun hari jadi berikutnya yang mahu membeli perlindungan melalui i-Lindung. Premium ditolak terus daripada akaun EPF, jadi pembelian tidak memerlukan bayaran tunai pendahuluan. Pemohon menjawab 4 soalan kesihatan tanpa pemeriksaan perubatan. Jumlah diinsuranskan bermula pada RM10,000 dan boleh dinaikkan dalam gandaan RM5,000 sehingga RM200,000. Pakej keluarga merangkumi seorang pasangan dan sehingga 10 anak, tertakluk pada umur serta tempoh masing-masing. Pembeli yang mahu manfaat tambahan bagi kanser boleh menilai bayaran 50% yang berasingan daripada manfaat utama. Empat keadaan mempunyai bayaran terhad 10%, termasuk Kanser Peringkat Awal dan Komplikasi Diabetes Mellitus.",
+        "tradeoffs": "Pelan perlindungan tulen ini tiada manfaat kematangan atau nilai serahan. Premium mengikut umur sebenar pada setiap tahun polisi dan tidak dijamin. Polisi boleh luput jika potongan EPF gagal. Bayaran terhad untuk 4 keadaan mengurangkan jumlah diinsuranskan dan setiap keadaan itu boleh dituntut sekali. Perlindungan bermula 30 hari selepas tarikh pengeluaran, dengan pengecualian diagnosis dalam 60 hari bagi kanser dan penyakit koronari tertentu. Manfaat Penjagaan Kanser memerlukan tempoh hidup 30 hari. Keadaan sedia ada, kecederaan sendiri dan pengambilan alkohol atau dadah tertentu dikecualikan. Elaun penyakit berjangkit mempunyai tempoh gejala 60 hari tersendiri serta pengecualian berkaitan keadaan sedia ada dan peperangan.",
+        "siblingSlug": "etiqa-critical-care-takaful",
+        "siblingDifferences": [
+          "Insurance Plus melindungi 42 penyakit sehingga umur 70 dengan premium tahunan. Critical Care Takaful asas melindungi 39 penyakit bagi tempoh 1 tahun, dengan penyertaan semula dalam 30 hari selepas tamat tertakluk pada syarat.",
+          "Insurance Plus menawarkan Manfaat Penjagaan Kanser tambahan 50%, bayaran terhad 10% bagi 4 keadaan dan elaun penyakit berjangkit RM300. Critical Care Takaful asas mempunyai bayaran angioplasti 10%, maksimum RM25,000, tanpa manfaat tambahan tersebut.",
+          "Insurance Plus menerima umur 17-65 dengan pilihan RM10,000-RM200,000. Critical Care Takaful asas menerima umur 17-60 dengan pilihan RM5,000-RM50,000, fi Wakalah 20% dan perkongsian lebihan Dana Risiko Peserta 50/50."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "Ahli KWSP dan pasangan: 17-65 tahun hari jadi berikutnya. Anak: 14 hari hingga 16 tahun hari jadi berikutnya. Pembelian oleh ahli KWSP warganegara Malaysia. Tiada pemeriksaan perubatan; pemohon menjawab 4 soalan kesihatan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Sehingga umur tamat 70 tahun hari jadi berikutnya, dengan premium tahunan. Perlindungan pasangan berakhir apabila perlindungan ahli tamat. Perlindungan anak sehingga umur 25 atau tamat perlindungan ahli, yang mana lebih awal.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "42 penyakit kritikal, termasuk Kanser, Serangan Jantung dan Strok. Senarai penuh serta definisi terdapat dalam PDS dan polisi.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "100% jumlah diinsuranskan bagi diagnosis penyakit kritikal yang dilindungi. Kanser Peringkat Awal, Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari, Penyakit Mental Teruk serta Komplikasi Diabetes Mellitus mempunyai bayaran terhad 10%, maksimum RM25,000. Setiap satu daripada 4 keadaan ini boleh dituntut sekali dan bayaran mengurangkan jumlah diinsuranskan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Setiap penyakit yang dilindungi boleh dituntut sekali. Bayaran mengurangkan jumlah diinsuranskan. Polisi berbilang dibenarkan sehingga jumlah perlindungan gabungan RM200,000. Manfaat Penjagaan Kanser tidak mengurangkan jumlah diinsuranskan penyakit kritikal.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Tempoh hidup selepas diagnosis",
+            "value": "Manfaat Penjagaan Kanser memerlukan orang dilindungi hidup sekurang-kurangnya 30 hari dari diagnosis kanser. Syarat ini khusus untuk manfaat tambahan tersebut.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "Perlindungan bermula 30 hari kalendar selepas tarikh pengeluaran. Tiada bayaran bagi penyakit kritikal yang didiagnosis dalam 30 hari dari pengeluaran, atau dalam 60 hari bagi Kanser, Penyakit Jantung Koronari yang Memerlukan Pembedahan, Serangan Jantung dan Penyakit Arteri Koronari Serius Lain.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Jumlah perlindungan",
+            "value": "Minimum RM10,000 dalam gandaan RM5,000, maksimum RM200,000 termasuk gabungan polisi berbilang. Jumlah diinsuranskan anak ditetapkan pada 20% daripada jumlah diinsuranskan ahli KWSP.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Manfaat Penjagaan Kanser",
+            "value": "Tambahan 50% jumlah diinsuranskan apabila kanser didiagnosis dan orang dilindungi hidup sekurang-kurangnya 30 hari. Bayaran ini di atas manfaat penyakit kritikal dan tidak mengurangkan jumlah diinsuranskan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Elaun tunai penyakit berjangkit",
+            "value": "RM300 sekaligus bagi diagnosis dan kemasukan hospital di Malaysia akibat COVID-19, denggi atau penyakit berjangkit yang memerlukan kuarantin menurut undang-undang. Had 2 kali bagi setiap tempoh polisi, sekali setiap tahun polisi, dan RM3,000 bagi setiap orang dilindungi.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Pembayaran dan pakej keluarga",
+            "value": "Pendaftaran melalui i-Lindung dalam i-Akaun KWSP, dengan premium ditolak automatik daripada akaun EPF tanpa tunai pendahuluan. Jualan langsung tidak melibatkan ejen atau komisen. Pakej keluarga meliputi sehingga 12 orang: ahli, 1 pasangan dan 10 anak, dengan sijil individu bagi setiap orang.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Urusan tuntutan dan cukai",
+            "value": "Tuntutan diproses dalam 7 hari bekerja selepas dokumen lengkap diterima. Premium layak untuk pelepasan cukai pendapatan peribadi. Duti setem RM10 dibayar oleh Etiqa.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Pengecualian penyakit kritikal",
+            "value": "Keadaan sedia ada; kecederaan sendiri yang disengajakan ketika waras atau tidak waras; pengambilan alkohol, ubat tanpa preskripsi, dadah haram atau narkotik; AIDS, kompleks berkaitan AIDS atau HIV kecuali kejadian yang dilindungi.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Pengecualian elaun penyakit berjangkit",
+            "value": "Elaun dikecualikan jika gejala muncul dalam 60 hari pertama perlindungan berterusan, berpunca daripada keadaan sedia ada, atau akibat peperangan, revolusi, serangan asing atau pencerobohan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Manfaat kematian",
+            "value": "Pelan ini tidak mempunyai manfaat kematian.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/FAQ_Etiqa_Critical_Care_Plus.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Polisi insurans penyakit kritikal berdiri sendiri yang ditaja jamin oleh Etiqa Life Insurance Berhad. Jualan hanya melalui KWSP i-Lindung, tanpa saluran ejen.",
+            "source": "https://www.etiqa.com.my/health/critical-care-plus-insurance"
+          },
+          {
+            "label": "Contoh premium rasmi",
+            "value": "Jadual kadar premium tahunan bagi setiap RM1,000 jumlah diinsuranskan: umur 26-30, lelaki RM1.70 dan wanita RM2.10; umur 61-65, lelaki RM35.30 dan wanita RM23.50. Umur 66-70 ditandakan untuk pembaharuan sahaja, dengan kadar lelaki RM54.40 dan wanita RM36.30. Premium mengikut umur sebenar dan tidak dijamin.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Yearly_Premium_Rate_%20Table_Etiqa_Critical_Care_Plus.pdf"
+          }
+        ]
+      }
     },
     {
       "slug": "etiqa-critical-care-takaful",
@@ -60,7 +412,125 @@
       "payoutStructure": null,
       "standoutFeature": "Sum covered RM50,000 dari serendah RM30 setahun; tanpa pemeriksaan perubatan (3 soalan kesihatan); beli online via EPF i-Lindung; dilesenkan di bawah IFSA 2013",
       "sources": ["https://www.etiqa.com.my/pdfs/en/takaful/Flyer_Etiqa_Critical_Care_Takaful.pdf"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Etiqa Critical Care Takaful sesuai untuk ahli KWSP warganegara Malaysia berumur 17-60 tahun hari jadi berikutnya yang mahu perlindungan takaful bagi tempoh 1 tahun. Jumlah dilindungi boleh dipilih dari RM5,000 hingga RM50,000 dalam gandaan RM5,000. Pembelian dibuat terus melalui i-Lindung dalam i-Akaun KWSP dan caruman ditolak daripada akaun EPF. Pemohon menjawab 3 soalan kesihatan tanpa pemeriksaan perubatan. Struktur ini boleh dinilai oleh pembeli yang mahu manfaat sekaligus bagi 39 penyakit kritikal dengan jumlah perlindungan kecil. Peserta yang tidak menuntut juga boleh menerima bahagian lebihan Dana Risiko Peserta, tertakluk pada lebihan yang tersedia. Pilihan penyertaan semula mempunyai syarat umur dan sejarah tuntutan tersendiri.",
+        "tradeoffs": "Sijil memberi perlindungan selama 1 tahun dan bayaran penuh menamatkan liabiliti manfaat. Jumlah gabungan semua sijil dihadkan kepada RM50,000 seorang. Angioplasti dibayar sekali pada 10% jumlah dilindungi, maksimum RM25,000, dan mengurangkan baki perlindungan. Tuntutan memerlukan orang dilindungi hidup sekurang-kurangnya 30 hari selepas diagnosis. Tempoh menunggu ialah 30 hari, atau 60 hari bagi kanser dan penyakit koronari tertentu; tempoh ini tidak terpakai bagi sijil penyertaan semula. Keadaan sedia ada, kecederaan sendiri yang disengajakan ketika waras, serta pengambilan alkohol atau dadah tertentu dikecualikan. Fi Wakalah mengambil 20% caruman tahunan. Penyertaan semula perlu dibuat dalam 30 hari selepas tamat dan tertakluk pada syarat termasuk tiada tuntutan.",
+        "siblingSlug": "etiqa-critical-care-plus",
+        "siblingDifferences": [
+          "Critical Care Takaful asas ialah sijil 1 tahun bagi umur kemasukan 17-60 dan jumlah RM5,000-RM50,000. Critical Care Plus Insurance menerima umur 17-65, menawarkan RM10,000-RM200,000 dan perlindungan sehingga umur 70.",
+          "Takaful asas melindungi 39 penyakit dengan syarat hidup 30 hari selepas diagnosis. Insurance Plus melindungi 42 penyakit dan menambah Manfaat Penjagaan Kanser 50% yang mempunyai syarat hidup 30 hari khusus untuk manfaat tambahan itu.",
+          "Takaful asas mengenakan fi Wakalah 20% dan membahagikan lebihan Dana Risiko Peserta 50/50 antara pengendali dan peserta yang layak. Insurance Plus menawarkan bayaran terhad 10% bagi 4 keadaan serta elaun penyakit berjangkit RM300."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "17-60 tahun hari jadi berikutnya. Pemohon mesti warganegara Malaysia dan ahli KWSP. Kelayakan ini tidak merangkumi warga asing.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Pelan takaful 1 tahun. Penyertaan semula boleh dibuat dalam 30 hari selepas tarikh tamat, dengan syarat tiada tuntutan dan tertakluk pada terma FAQ.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "39 penyakit kritikal menurut FAQ dan risalah. Senarai serta definisi penyakit kritikal ditetapkan dalam Sijil Induk.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "100% jumlah dilindungi dibayar sekaligus bagi diagnosis salah satu daripada 39 penyakit pada peringkat lanjut. Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari membayar 10%, maksimum RM25,000, sekali sahaja dan mengurangkan jumlah dilindungi.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Bayaran sekaligus bagi diagnosis pertama penyakit yang dilindungi. Bayaran angioplasti mengurangkan jumlah dilindungi. Bayaran penuh menamatkan liabiliti. Sijil berbilang dibenarkan sehingga jumlah gabungan maksimum RM50,000 seorang.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Tempoh hidup selepas diagnosis",
+            "value": "Orang dilindungi mesti hidup sekurang-kurangnya 30 hari selepas diagnosis untuk tuntutan dibayar.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "30 hari dari tarikh pengeluaran sijil. Tempoh 60 hari terpakai bagi Kanser, Penyakit Jantung Koronari yang Memerlukan Pembedahan, Serangan Jantung dan Penyakit Arteri Koronari Serius Lain. Tempoh menunggu tidak terpakai bagi sijil penyertaan semula.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Jumlah perlindungan",
+            "value": "Minimum RM5,000 dalam gandaan RM5,000, maksimum RM50,000. 1 unit bersamaan RM5,000 dan maksimum 10 unit. Had RM50,000 termasuk gabungan sijil berbilang.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Ilustrasi caruman dalam risalah",
+            "value": "Risalah memaparkan perlindungan RM50,000 dari serendah RM30 setahun. Angka ini ialah ilustrasi rasmi dan tidak menetapkan caruman semua peserta.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Flyer_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Soalan kesihatan",
+            "value": "Tiada pemeriksaan perubatan; pemohon menjawab 3 soalan kesihatan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Flyer_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Dakwaan kelulusan ketika pelancaran",
+            "value": "Siaran akhbar pelancaran i-Lindung pada 12 Julai 2022 menyatakan kelulusan dijamin 100%. Ini ialah kenyataan pelancaran bertarikh tersebut; syarat kesihatan dan sijil tetap perlu dipadankan dengan permohonan.",
+            "source": "https://www.etiqa.com/newsroom/etiqa-introduces-etiqa-term-secure-and-etiqa-critical-care"
+          },
+          {
+            "label": "Saluran pembayaran",
+            "value": "Pembelian dalam talian melalui EPF i-Lindung dalam i-Akaun KWSP. Caruman ditolak terus daripada akaun EPF tanpa bayaran tunai. Produk dijual secara langsung tanpa ejen.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Lebihan Dana Risiko Peserta",
+            "value": "Lebihan Dana Risiko Peserta: 50% kepada pengendali dan 50% dikongsi dengan orang dilindungi yang tidak membuat tuntutan dalam tahun kewangan. Manfaat dilindungi PIDM mengikut had yang berkenaan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Fi, penelitian percuma dan serahan",
+            "value": "Fi Wakalah 20% caruman tahunan. Tempoh penelitian percuma 15 hari. Formula nilai serahan ialah 80% × caruman tahunan mengikut perkadaran hari berbaki.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Syarat penyertaan semula",
+            "value": "Penyertaan semula mempunyai pengecualian terhadap terma tertentu. Tiada soalan kesihatan bagi umur hari jadi berikutnya 50 tahun atau kurang, tertakluk pada syarat penyertaan semula.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/FAQ_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Pengecualian keadaan sedia ada",
+            "value": "Keadaan sedia ada sebelum Tarikh Permulaan dikecualikan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Pengecualian kecederaan sendiri",
+            "value": "Kecederaan sendiri yang dilakukan dengan sengaja ketika waras dikecualikan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Pengecualian alkohol dan dadah",
+            "value": "Pengambilan alkohol, ubat tanpa preskripsi, dadah haram atau narkotik dikecualikan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Pengecualian AIDS dan HIV",
+            "value": "AIDS, kompleks berkaitan AIDS atau jangkitan HIV dikecualikan kecuali kejadian yang dilindungi dalam senarai definisi.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Sijil takaful berdiri sendiri selama 1 tahun di bawah Sijil Induk Etiqa Family Takaful Berhad. Pengendali dilesenkan di bawah IFSA 2013 dan dikawal selia BNM. Produk dijual terus dalam talian tanpa komisen.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Master_Certificate_Etiqa_Critical_Care_Takaful.pdf"
+          },
+          {
+            "label": "Contoh caruman rasmi",
+            "value": "Risalah mencetak jumlah dilindungi RM50,000 dari serendah RM30 setahun. Caruman sebenar bergantung pada umur hari jadi berikutnya, jantina dan jumlah dilindungi seperti diterangkan dalam FAQ soalan 12.",
+            "source": "https://www.etiqa.com.my/pdfs/en/takaful/Flyer_Etiqa_Critical_Care_Takaful.pdf"
+          }
+        ]
+      }
     },
     {
       "slug": "zurich-early-care-critical-illness",
@@ -69,10 +539,103 @@
       "type": "rider",
       "conditionsCovered": null,
       "earlyStageCovered": "yes",
-      "payoutStructure": "Peringkat awal: 50% sum assured rider (mengurangkan sum assured); peringkat akhir: 100% baki; tambah 12% faedah pemulihan sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu; tidak untuk angioplasti)",
+      "payoutStructure": "Peringkat awal: 50% jumlah diinsuranskan rider; peringkat akhir: sehingga 100% ditolak tuntutan awal terdahulu; tambah 12% manfaat pemulihan keseluruhan (1% sebulan selama 12 bulan) dan RM2,000 pendapat perubatan kedua (sekali setiap satu; tidak untuk angioplasti)",
       "standoutFeature": "Peringkat awal dilindungi sehingga umur 85, peringkat akhir sehingga umur 100; rider unit-deducting pada pelan investment-linked premium tetap",
       "sources": ["https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Early Care Critical Illness sesuai untuk pemegang pelan investment-linked premium biasa Zurich yang mahu rider dengan bayaran penyakit kritikal peringkat awal 50%. Selepas bayaran awal, baki jumlah diinsuranskan masih tersedia bagi tuntutan peringkat akhir yang layak. Pembeli boleh menilai manfaat pemulihan berjumlah 12%, dibayar 1% sebulan selama 12 bulan selepas diagnosis pertama yang diluluskan. Bayaran RM2,000 untuk pendapat perubatan kedua membolehkan pilihan pakar sendiri. Manfaat tambahan tersebut hanya dibayar sekali dan tersedia sehingga umur 85. Struktur ini berguna untuk menilai jumlah tunai awal berbanding baki perlindungan kemudian. Rider menerima kemasukan dari umur 14 hari hingga 60 tahun dan mengenakan caj melalui pengurangan unit bulanan.",
+        "tradeoffs": "Bayaran awal 50% mengurangkan jumlah diinsuranskan dan meninggalkan baki bagi penyakit kritikal peringkat akhir. Manfaat awal, pemulihan dan pendapat perubatan kedua berhenti pada umur 85; manfaat akhir boleh berterusan sehingga umur 100 atau kematangan pelan asas yang lebih awal. Angioplasti membayar 10%, maksimum RM25,000, sekali seumur hidup tanpa manfaat pemulihan atau pendapat kedua. Tempoh hidup ialah 7 hari bagi peringkat awal dan 30 hari bagi peringkat akhir. Tempoh menunggu 30/60 hari turut terpakai. Caj pengurangan unit tidak dijamin dan boleh disemak pada ulang tahun polisi. Pengecualian meliputi penyakit sedia ada, kecederaan sendiri, penyalahgunaan alkohol atau dadah serta keadaan kongenital bagi orang dilindungi juvana.",
+        "siblingSlug": "great-eastern-smart-early-payout-criticalcare",
+        "siblingDifferences": [
+          "Zurich membayar 50% pada peringkat awal dan baki sehingga jumlah manfaat penyakit kritikal 100% pada peringkat akhir. Great Eastern menggunakan Severity 10/25/50 dengan bayaran 10%/25%/50% dan beberapa tuntutan sehingga jumlah diinsuranskan rider.",
+          "Zurich menambah manfaat pemulihan 12% melalui 1% sebulan selama 12 bulan serta RM2,000 untuk pendapat perubatan kedua. Great Eastern menetapkan had bayaran RM25,000 bagi Severity 10 angioplasti dan RM100,000 bagi Kanser Severity 50.",
+          "Zurich melindungi peringkat awal sehingga umur 85 dan peringkat akhir sehingga umur 100, tertakluk pada kematangan pelan asas. Great Eastern tamat selewat-lewatnya pada ulang tahun polisi ketika umur 70 hari jadi berikutnya dan memerlukan IL Critical Illness Benefit Rider."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "14 hari hingga 60 tahun apabila rider ditambah pada pelan investment-linked premium biasa.",
+            "source": "https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Sehingga umur 100 atau kematangan pelan asas, yang mana lebih awal. Manfaat penyakit kritikal peringkat awal, pemulihan dan pendapat perubatan kedua tersedia sehingga umur 85. Manfaat peringkat akhir tersedia sehingga umur 100.",
+            "source": "https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "36 kategori penyakit dengan definisi peringkat awal dan peringkat akhir masing-masing. Jadual brosur menyenaraikan kategori 1-36; tahap dan definisi produk menentukan kelayakan tuntutan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "Peringkat awal membayar 50% jumlah diinsuranskan rider. Peringkat akhir membayar sehingga 100% jumlah diinsuranskan rider ditolak tuntutan awal terdahulu. Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari membayar 10%, maksimum RM25,000, sekali seumur hidup.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Tuntutan awal mengurangkan jumlah diinsuranskan, dengan baki tersedia untuk manfaat peringkat akhir. Manfaat pemulihan dan pendapat perubatan kedua dibayar sekali sahaja selepas tuntutan pertama dan tersedia sehingga umur 85. Angioplasti dibayar sekali seumur hidup; baki jumlah diinsuranskan kekal untuk tuntutan masa hadapan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Tempoh hidup selepas diagnosis",
+            "value": "7 hari selepas diagnosis bagi penyakit kritikal peringkat awal. 30 hari selepas diagnosis bagi penyakit kritikal peringkat akhir.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Tempoh menunggu",
+            "value": "30 hari dari tarikh polisi atau tarikh pengembalian semula, yang mana lebih awal. Tempoh 60 hari terpakai bagi Angioplasti dan Rawatan Invasif Lain untuk Penyakit Arteri Koronari, Kanser, Pembedahan Pintasan Arteri Koronari, Serangan Jantung dan Penyakit Arteri Koronari. Tempoh menunggu diketepikan bagi kejadian akibat kemalangan. Tiada tempoh menunggu antara tuntutan awal dan akhir dengan bukti perubatan yang memuaskan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Manfaat pemulihan",
+            "value": "12% jumlah diinsuranskan rider dibayar secara bulanan, iaitu 1% sebulan selama 12 bulan selepas diagnosis pertama yang diluluskan, untuk keperluan pemulihan.",
+            "source": "https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"
+          },
+          {
+            "label": "Pendapat perubatan kedua",
+            "value": "Bayaran sekaligus RM2,000 untuk mendapatkan pendapat daripada pakar pilihan.",
+            "source": "https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"
+          },
+          {
+            "label": "Ilustrasi manfaat rasmi",
+            "value": "Jumlah diinsuranskan RM200,000: tuntutan pertama RM100,000 + RM24,000 pemulihan + RM2,000 pendapat perubatan kedua; tuntutan kedua RM100,000. Jumlah ilustrasi RM226,000 terdiri daripada RM200,000 manfaat penyakit kritikal, RM24,000 pemulihan dan RM2,000 pendapat perubatan kedua.",
+            "source": "https://www.zurich.com.my/insurance-products/protection/for-my-health/early-care-critical-illness"
+          },
+          {
+            "label": "Had angioplasti",
+            "value": "10% jumlah diinsuranskan rider, maksimum RM25,000, sekali seumur hidup. Baki jumlah diinsuranskan kekal untuk tuntutan kemudian. Manfaat pemulihan dan pendapat perubatan kedua tidak dibayar bagi angioplasti.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Pengecualian keadaan sedia ada",
+            "value": "Penyakit sedia ada dikecualikan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Pengecualian kecederaan dan bahan",
+            "value": "Kecederaan atau penyakit yang berpunca secara langsung atau tidak langsung daripada kecederaan sendiri ketika waras atau tidak waras, penyalahgunaan alkohol secara sukarela, atau pengambilan dadah selain atas arahan pengamal perubatan berdaftar dikecualikan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Pengecualian aktiviti berisiko",
+            "value": "Kecederaan atau penyakit semasa menyertai pemberontakan, perang atau pencerobohan; penerbangan selain sebagai penumpang berbayar dalam penerbangan berjadual; perlumbaan kereta atau kuda; serta pengendalian kapal selam dikecualikan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Pengecualian kehamilan dan kongenital",
+            "value": "Kehamilan atau kelahiran dikecualikan melainkan ketidakupayaan berterusan melebihi 3 bulan selepas pengguguran. Bagi orang dilindungi juvana, kerosakan atau kecacatan kongenital dikecualikan secara khusus.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Rider pengurangan unit yang dilekatkan pada pelan investment-linked premium biasa. Caj insurans ditolak melalui pengurangan unit bulanan mengikut umur dan jantina, dengan tambahan caj risiko jika berkenaan. Caj tidak dijamin dan boleh disemak pada ulang tahun polisi.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+          }
+        ]
+      }
     },
     {
       "slug": "mysalam",
@@ -84,7 +647,90 @@
       "payoutStructure": "RM8,000 tunai one-off seumur hidup untuk penyakit kritikal; RM50/hari elaun hospital (mesti bermalam), maksimum 14 hari setahun (RM700 setahun)",
       "standoutFeature": "Skim percuma untuk penerima STR (kelayakan automatik ikut data LHDN, umur 18-65/21-65 pada 1 Jan); diteruskan untuk 2026; rawatan hospital kerajaan/universiti/tentera; diuruskan Great Eastern di bawah inisiatif MOF",
       "sources": ["https://www.mysalam.com.my/mys/info/?url=ci", "https://www.mysalam.com.my/mys/info/?url=hb", "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan", "https://www.mof.gov.my/portal/arkib/media/2019/feb/sm260219_Laman_Web_MySalam.pdf"],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "mySalam sesuai untuk penerima Sumbangan Tunai Rahmah yang layak melalui data LHDN dan memerlukan manfaat tunai tanpa premium. Kelayakan ditentukan secara automatik, jadi penerima STR tidak perlu memohon polisi individu. Manfaat penyakit kritikal ialah RM8,000 sekali seumur hidup apabila diagnosis memenuhi salah satu daripada 50 definisi skim. Penerima juga boleh menuntut RM50 sehari untuk kemasukan wad bermalam di hospital kerajaan, universiti atau angkatan tentera yang disenaraikan. Had hospitalisasi RM700 diperbaharui setiap tahun perlindungan. Bagi tahun skim 2026, penerima perlu membezakan tarikh perlindungan sehingga 31 Disember 2026 daripada tarikh akhir penghantaran tuntutan pada 30 Jun 2027. Semakan kelayakan portal penting kerana aturan umur mengikut kategori STR.",
+        "tradeoffs": "Jumlah manfaat penyakit kritikal ditetapkan pada RM8,000 dan dibayar sekali seumur hidup. Penerima yang sudah menerima bayaran penyakit kritikal bagi tahun 2019-2024 tidak boleh mendapat bayaran baharu bagi manfaat itu. Definisi kanser mengecualikan kanser peringkat awal dan karsinoma in situ. Kejadian sebelum tarikh kuat kuasa perlindungan tertakluk pada pengecualian, dengan aturan khusus bagi keadaan yang memburuk selepas 1 Januari 2025. Hospitalisasi memerlukan sekurang-kurangnya 1 malam di wad hospital yang disenaraikan; rawatan unit kecemasan tidak dikira. Had tahunan ialah 14 hari atau RM700. Pengecualian penyakit kritikal termasuk kecederaan sendiri, peperangan dan aktiviti keganasan atau jenayah. Manfaat hospitalisasi mempunyai pengecualian tambahan, termasuk kehamilan, kelahiran dan rawatan kesuburan.",
+        "siblingSlug": "etiqa-critical-care-takaful",
+        "siblingDifferences": [
+          "mySalam ialah skim kerajaan percuma dengan kelayakan automatik melalui STR. Etiqa Critical Care Takaful ialah sijil sukarela 1 tahun melalui KWSP i-Lindung, dengan caruman EPF dan 3 soalan kesihatan.",
+          "mySalam membayar RM8,000 tetap sekali seumur hidup bagi 50 penyakit kritikal. Etiqa menawarkan jumlah RM5,000-RM50,000 bagi 39 penyakit, dengan tempoh menunggu 30/60 hari dan syarat hidup 30 hari selepas diagnosis.",
+          "mySalam menyediakan elaun hospital RM50 sehari sehingga 14 hari atau RM700 setahun di hospital yang disenaraikan. Critical Care Takaful asas tidak mempunyai manfaat hospitalisasi tersebut."
+        ],
+        "facts": [
+          {
+            "label": "Kelayakan dan umur",
+            "value": "Kelayakan 2026 berdasarkan penerimaan Sumbangan Tunai Rahmah melalui data LHDN. Umur dinilai pada 1 Januari: individu dan pasangan 18-65, individu bujang 21-65 mengikut jadual STR 2025/2026. FAQ turut menggunakan frasa 'mencapai umur 18 atau 21 tahun ke atas dan tidak melebihi 66 tahun'. Gunakan semakan kelayakan portal bagi kategori penerima masing-masing.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan"
+          },
+          {
+            "label": "Tempoh perlindungan",
+            "value": "Tahun skim 2026 berjalan dari 1 Januari 2026 hingga 31 Disember 2026. Tarikh akhir tuntutan ialah 30 Jun 2027. Kerajaan meneruskan skim sehingga 2026.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan"
+          },
+          {
+            "label": "Penyakit yang dilindungi",
+            "value": "50 penyakit kritikal dalam 12 kumpulan. 5 kategori baharu berkuat kuasa 1 Januari 2025: Reumatoid, Kulit Kronik, Darah, Mental dan Jarang Dijumpai. Skim menggunakan definisi penyakit kritikalnya sendiri.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=ci"
+          },
+          {
+            "label": "Definisi kanser",
+            "value": "Definisi skim mengecualikan kanser peringkat awal dan karsinoma in situ.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=ci-CI-01"
+          },
+          {
+            "label": "Bayaran mengikut peringkat",
+            "value": "RM8,000 tunai dibayar sekali seumur hidup apabila salah satu daripada 50 penyakit kritikal didiagnosis mengikut definisi skim. Manfaat ini tidak menggunakan struktur bayaran mengikut peringkat.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=ci"
+          },
+          {
+            "label": "Peraturan tuntutan",
+            "value": "Manfaat penyakit kritikal dibayar sekali seumur hidup. Tuntutan penyakit kritikal yang diluluskan dan dibayar bagi 2019-2024 menghalang tuntutan penyakit kritikal baharu. Manfaat hospitalisasi boleh dituntut setiap tahun perlindungan dan hadnya diperbaharui setiap tahun.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_tuntutan"
+          },
+          {
+            "label": "Dokumen dan pemprosesan tuntutan",
+            "value": "Borang Kenyataan Doktor yang dilengkapkan oleh doktor yang merawat diperlukan bagi tuntutan penyakit kritikal. Tuntutan diproses dalam kira-kira 10 hari bekerja.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_tuntutan"
+          },
+          {
+            "label": "Manfaat hospitalisasi",
+            "value": "RM50 sehari bagi kemasukan wad di Hospital Kerajaan Malaysia, Hospital Universiti dan Hospital Angkatan Tentera yang disenaraikan. Mesti bermalam sekurang-kurangnya 1 malam. Maksimum 14 hari atau RM700 setahun, dengan had diperbaharui setiap tahun perlindungan. Rawatan unit kecemasan tidak dikira.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=hb"
+          },
+          {
+            "label": "Kos dan pengurusan skim",
+            "value": "Skim percuma di bawah inisiatif MOF/Bajet, diuruskan oleh Great Eastern Takaful Berhad. Kelayakan automatik melalui data STR/LHDN, tanpa pendaftaran polisi atau premium.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=ci"
+          },
+          {
+            "label": "Diagnosis di hospital swasta",
+            "value": "Tuntutan penyakit kritikal daripada diagnosis di hospital swasta dibenarkan jika rawatan susulan dibuat oleh doktor yang dilantik dalam panel skim.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_tuntutan"
+          },
+          {
+            "label": "Keadaan yang memburuk selepas 2025",
+            "value": "Penerima tahun 2025 dan seterusnya dengan keadaan sebelum 2025 masih boleh menuntut jika keadaan memburuk selepas 1 Januari 2025 hingga memenuhi definisi skim. Contoh FAQ: Parkinson awal pada 2024 menjadi ketidakupayaan aktiviti kehidupan harian pada 2025; karsinoma in situ pada 2024 menjadi kanser tahap 3 pada 2025.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_tuntutan"
+          },
+          {
+            "label": "Pengecualian penyakit kritikal",
+            "value": "Kecederaan sendiri ketika waras atau tidak waras, kecuali ketika menyelamatkan nyawa; peperangan atau pergolakan; keganasan, feloni atau pelanggaran undang-undang; serta kejadian sebelum tarikh kuat kuasa perlindungan takaful dikecualikan.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=ci"
+          },
+          {
+            "label": "Pengecualian hospitalisasi",
+            "value": "Bunuh diri atau kecederaan sendiri ketika waras atau tidak waras; peperangan, pergolakan, kegiatan jenayah atau pemberontakan; tugas aktif dalam angkatan tentera; mogok; keganasan atau feloni; ketagihan alkohol atau dadah haram, seks atau penyakit kelamin dan akibatnya dikecualikan. Pengecualian turut meliputi kehamilan, kelahiran termasuk pembedahan, keguguran, pengguguran, penjagaan atau pembedahan sebelum dan selepas kelahiran, kontrasepsi, rawatan ketidaksuburan, disfungsi erektil, ujian kemandulan dan pensterilan.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=hb"
+          },
+          {
+            "label": "Jenis dan saluran pelan",
+            "value": "Skim perlindungan sosial kerajaan di bawah inisiatif MOF/Bajet dan pengurusan Great Eastern Takaful Berhad. Penerima STR yang layak tidak perlu memohon. Portal rasmi menyediakan semakan kelayakan serta saluran tuntutan skim.",
+            "source": "https://www.mysalam.com.my/mys/info/?url=faq_kelayakan"
+          }
+        ]
+      }
     }
   ]
 }
