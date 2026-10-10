@@ -25,15 +25,15 @@ const updatedAt = travel.analysisAsAt;
 const faqs = [
   {
     q: 'Pelan mana memerlukan pembelian awal untuk pembatalan perjalanan?',
-    a: 'Etiqa TripCare 360 dan MSIG Travel SafeGuard memerlukan pembelian sekurang-kurangnya 7 hari sebelum perjalanan untuk manfaat pembatalan. Generali SmartTraveller Enhanced menetapkan sekurang-kurangnya 14 hari bagi Cancellation or Postponement serta Travel Curtailment.',
+    a: 'Etiqa TripCare 360, Allianz Travel Easy dan MSIG Travel SafeGuard memerlukan pembelian sekurang-kurangnya 7 hari sebelum perjalanan untuk manfaat pembatalan. Generali SmartTraveller Enhanced menetapkan sekurang-kurangnya 14 hari bagi Cancellation or Postponement serta Travel Curtailment.',
   },
   {
     q: 'Apakah perbezaan had evakuasi dalam jadual ini?',
-    a: 'Zurich Z-Travel Silver, Gold dan Diamond serta Zurich Travel Takaful mempunyai evakuasi perubatan tanpa had. Generali SmartTraveller Enhanced juga menyediakan evakuasi tanpa had. Etiqa Platinum menghadkan evakuasi dan repatriasi perubatan kepada RM1,500,000 seorang; MSIG Travel Max menetapkan RM1,000,000 untuk evakuasi.',
+    a: 'Zurich Z-Travel Silver, Gold dan Diamond serta Zurich Travel Takaful mempunyai evakuasi perubatan tanpa had. Generali SmartTraveller Enhanced juga menyediakan evakuasi tanpa had. Etiqa Platinum menghadkan evakuasi dan repatriasi perubatan kepada RM1,500,000 seorang; MSIG Travel Max menetapkan RM1,000,000 untuk evakuasi. Allianz Travel Easy menggabungkan evakuasi, repatriasi perubatan dan penghantaran pulang jenazah dalam had agregat RM1,000,000.',
   },
   {
     q: 'Bagaimana tempoh notis tuntutan berbeza?',
-    a: 'Zurich Z-Travel dan Zurich Travel Takaful memerlukan pemberitahuan dalam 14 hari selepas pulang. Allianz dan MSIG menetapkan 30 hari selepas pulang. Etiqa dan Tune menetapkan notis dalam 30 hari dari peristiwa. Generali menetapkan 45 hari selepas tamat polisi atau pulang ke Malaysia, mana lebih awal.',
+    a: 'PDS Zurich Z-Travel dan Zurich Travel Takaful menetapkan pemberitahuan dalam 14 hari selepas pulang. Allianz Travel Easy dan MSIG menetapkan 30 hari selepas pulang. Allianz turut memerlukan bukti kehilangan dalam 90 hari dari kehilangan atau kemalangan. Etiqa dan Tune menetapkan notis dalam 30 hari dari peristiwa. Generali menetapkan 45 hari selepas tamat polisi atau pulang ke Malaysia, mana lebih awal.',
   },
 ];
 
@@ -178,16 +178,19 @@ const schema = {
           <p>
             Etiqa TripCare 360 dan Zurich Z-Travel menawarkan tambahan COVID-19 berbayar. WPUA Tune mengecualikan
             COVID-19, sementara Pelan Tahunan Tune mempunyai manfaat tertentu seperti Bereavement Allowance RM5,000.
-            PDS Zurich Travel Takaful menyenaraikan pengecualian epidemik atau pandemik. Rujuk skop produk dan
-            tambahan yang dipilih sebelum bergantung pada manfaat berkaitan penyakit.
+            Zurich Travel Takaful mengecualikan perubatan berkaitan epidemik atau pandemik, dengan pengecualian
+            terhad untuk pembatalan atau pemendekan kerana wabak di destinasi. Allianz Travel Easy memasukkan
+            COVID-19 dalam manfaat perubatan luar negara dan manfaat lain yang dinyatakan; perubatan domestik
+            terhad kepada kemalangan. Rujuk skop produk dan tambahan yang dipilih sebelum bergantung pada manfaat penyakit.
           </p>
 
           <h3>Delay, domestik dan polisi annual</h3>
           <p>
             Threshold delay berbeza: Etiqa TripCare 360 mempunyai auto-payout dari 2 jam, manakala Zurich Z-Travel
             membayar delay dari 6 jam. Zurich Travel Takaful antarabangsa membayar RM100 pada 3 jam, kemudian
-            RM200 setiap 6 jam sehingga RM2,000. Tempoh domestik MSIG terhad kepada 14 hari setiap trip,
-            berbanding 30 hari bagi Allianz dan 60 hari bagi Zurich Travel Takaful.
+            RM200 setiap 6 jam sehingga RM2,000 Basic atau RM3,000 VIP. Allianz Travel Easy luar negara membayar
+            RM300 setiap 5 jam penuh sehingga RM3,000. Tempoh domestik MSIG terhad kepada 14 hari setiap trip,
+            berbanding 31 hari bagi Allianz Travel Easy dan 60 hari bagi Zurich Travel Takaful.
           </p>
 
           <h3>Kelayakan, claim dan takaful</h3>

@@ -1,5 +1,5 @@
 {
-  "methodologyNote": "Medan asal bertarikh 2026-09-12 dikekalkan sebagai rekod terdahulu. Analisis bertarikh 2026-10-10 menggunakan dokumen dan laman penginsurans sahaja; fakta daripada marketplace, pihak ketiga dan URL rosak diketepikan. Had berbeza mengikut varian, umur dan kawasan. Angka premium ialah ilustrasi rasmi, bukan sebut harga peribadi. Rujuk pautan pada setiap fakta untuk syarat penuh.",
+  "methodologyNote": "Rekod asal bertarikh 2026-09-12; analisis dikemas kini pada 2026-10-10 menggunakan dokumen dan laman penginsurans sahaja. Fakta daripada marketplace, pihak ketiga dan URL rosak diketepikan. Rekod Allianz kini menerangkan Travel Easy yang diterbitkan di allianz.com.my, dengan medan terdahulu diganti mengikut produk tersebut. Had berbeza mengikut varian, umur dan kawasan. Bagi Zurich Travel Takaful, wording sijil mengatasi PDS apabila nilai manfaat berbeza. Premium Allianz menggunakan brosur berkuat kuasa 30 Jun 2026 apabila angka FAQ berbeza. Angka premium merujuk ilustrasi PDS atau kadar brosur rasmi, bukan sebut harga peribadi. Rujuk pautan pada setiap fakta untuk syarat penuh.",
   "asAt": "2026-09-12",
   "analysisAsAt": "2026-10-10",
   "records": [
@@ -194,9 +194,10 @@
         "tradeoffs": "Had manfaat berubah antara Lite Basic, VIP dan pelan penuh. Lite Basic tiada pembatalan perjalanan; VIP dan Silver menyediakan RM20,000, Gold RM25,000 dan Diamond RM30,000. Kelewatan perlu mencapai minimum 6 jam untuk bayaran RM150. Tambahan COVID-19 berbayar mempunyai skop lebih sempit bagi Lite, iaitu perubatan luar negara dan kematian sahaja. Area 2 mengecualikan Canada, Mongolia, Nepal, Tibet dan USA; pilih kawasan yang sepadan dengan destinasi. Pendakian atau aktiviti di atas 3,000 meter dikecualikan. PDS turut menyenaraikan keadaan sedia ada, peperangan, keganasan serta epidemik atau pandemik sebagai pengecualian. Kejadian yang diketahui semasa membeli atau menempah perjalanan juga dikecualikan. Notis tuntutan perlu dibuat dalam 14 hari selepas pulang.",
         "siblingSlug": "zurich-travel-takaful",
         "siblingDifferences": [
-          "Single Trip Z-Travel membenarkan 200 hari berturut-turut, berbanding 60 hari bagi perjalanan antarabangsa Zurich Travel Takaful. Had perubatan Silver Z-Travel RM300,000; Pelan Asas Takaful Worldwide RM100,000.",
-          "Z-Travel membayar RM150 setiap 6 jam dengan minimum 6 jam. Zurich Travel Takaful antarabangsa membayar RM100 pada 3 jam, kemudian RM200 setiap 6 jam sehingga RM2,000.",
-          "Zurich Travel Takaful mempunyai indemniti berganda pengangkutan awam dan cuti umum sehingga RM300,000 serta diskaun kumpulan 5-10%. PDS Z-Travel menyenaraikan Badal Haji RM3,000 dan penjagaan haiwan sehingga RM1,000."
+          "Single Trip Z-Travel membenarkan 200 hari berturut-turut; Zurich Travel Takaful antarabangsa membenarkan 60 hari. Had setiap perjalanan tahunan antarabangsa ialah 100 hari bagi kedua-duanya.",
+          "Z-Travel menyediakan Senior Cover umur 71-85 tahun dan menerima kategori bukan warganegara seperti penduduk tetap, pemegang permit kerja, pas pelajar dan MM2H. Zurich Travel Takaful memerlukan kewarganegaraan Malaysia dengan had umur 70 tahun.",
+          "Tambahan COVID-19 berbayar tersedia pada Z-Travel dengan syarat vaksinasi. Zurich Travel Takaful mengecualikan perubatan berkaitan epidemik atau pandemik; pembatalan dan pemendekan mempunyai pengecualian terhad untuk wabak di destinasi.",
+          "Z-Travel menyediakan Special Coverage untuk aktiviti seperti bungee jump, belon udara panas, scuba dan hiking atau trekking. Zurich Travel Takaful tiada manfaat aktiviti lasak khusus, dan kedua-duanya mengecualikan aktiviti melebihi 3,000 meter."
         ],
         "facts": [
           {
@@ -320,63 +321,400 @@
     {
       "slug": "zurich-travel-takaful",
       "insurer": "Zurich General Takaful Malaysia Berhad",
-      "planName": "Zurich Travel Takaful (saluran Shopee)",
+      "planName": "Zurich Travel Takaful",
       "tripType": "single|annual",
-      "medicalCoverLimit": null,
-      "covidCovered": "yes",
+      "medicalCoverLimit": "Antarabangsa Basic RM100,000 / VIP RM200,000; domestik RM50,000 (kemalangan)",
+      "covidCovered": "Perubatan COVID-19 dikecualikan; pembatalan/pemendekan mempunyai pengecualian terhad untuk wabak di destinasi",
       "tripCancellation": "yes",
       "regionTiers": [
-        "Domestik (≥50km dari rumah)",
+        "Domestik (>50km dari rumah)",
         "Southeast Asia",
         "Asia",
         "Asia/Eropah/Afrika/Amerika Selatan/Oceania",
         "Worldwide"
       ],
-      "standoutFeature": "Takaful; pembatalan polisi tahunan dikira prorata 40%-100% ikut tempoh berkuat kuasa; dijual dalam app Shopee/ShopeePay",
+      "standoutFeature": "Evakuasi perubatan tanpa had; repatriasi antarabangsa tanpa had; diskaun kumpulan 5%-10%; bayaran balik sijil tahunan mengikut kadar tempoh pendek",
       "sources": [
-        "https://www.zurich.com.my/takaful-products/protection/for-my-travel/zurich-travel-takaful"
+        "https://www.zurich.com.my/takaful-products/protection/for-my-travel/zurich-travel-takaful",
+        "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf",
+        "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
       ],
       "asAt": "2026-09-12",
       "analysisAsAt": "2026-10-10",
       "analysis": {
-        "bestFor": "Zurich Travel Takaful sesuai untuk peserta yang mengutamakan evakuasi dan repatriasi perubatan tanpa had pada perlindungan antarabangsa atau domestik. Pelan Asas Worldwide menyediakan perubatan luar negara sehingga RM100,000. Indemniti berganda bagi pengangkutan awam dan cuti umum mencapai RM300,000 antarabangsa atau RM200,000 domestik. Rombongan 2-5 orang menerima diskaun kumpulan 5%, manakala 6-10 orang menerima 10%. Perjalanan tunggal antarabangsa dibenarkan sehingga 60 hari berturut-turut. Perjalanan tahunan luar negara mempunyai had 100 hari setiap trip. Untuk perjalanan dalam Malaysia, manfaat perubatan akibat kemalangan RM50,000 dan pembatalan RM5,000 perlu dinilai berasingan daripada manfaat antarabangsa. Pengendalian menggunakan wakalah dengan yuran 43.5% dan tabarru bagi baki caruman.",
-        "tradeoffs": "Perubatan RM100,000 dalam Pelan Asas Worldwide perlu dinilai bersama had pembatalan RM20,000. Had itu lebih rendah daripada sesetengah pilihan pelan penuh dalam keluarga Z-Travel. Single Trip antarabangsa dan domestik terhad kepada 60 hari, walaupun Annual Trip antarabangsa membenarkan 100 hari setiap perjalanan. Polisi tahunan tidak meliputi Malaysia. Umur dewasa 18-70 tahun dan kanak-kanak 30 hari - 17 tahun dikira pada hari jadi seterusnya. PDS mengecualikan epidemik atau pandemik, keadaan sedia ada, pendakian atau aktiviti di atas 3,000 meter dan perlumbaan selain berjalan kaki. Perlindungan khusus COVID-19 perlu dirujuk terus kepada sijil sebelum membeli. Pemberitahuan tuntutan mesti dibuat dalam 14 hari selepas pulang ke rumah.",
-        "siblingSlug": "allianz-travel-insurance",
+        "bestFor": "Zurich Travel Takaful sesuai untuk rakyat Malaysia yang memilih perlindungan takaful bagi perjalanan singkat dalam negara atau ke luar negara. Peserta boleh memilih Basic atau VIP antarabangsa mengikut had perubatan dan kos tempahan. Evakuasi kecemasan tanpa had tersedia untuk kedua-dua kawasan, sementara repatriasi perubatan dan penghantaran pulang jenazah tanpa had disenaraikan bagi antarabangsa. Single Trip membenarkan 60 hari; Annual Trip antarabangsa membenarkan 100 hari setiap perjalanan. Rombongan kecil menerima diskaun caruman mengikut bilangan peserta. Untuk perjalanan domestik, jarak dari rumah mesti melebihi 50km dan perubatan RM50,000 terhad kepada kemalangan.",
+        "tradeoffs": "Had perubatan antarabangsa ialah RM100,000 bagi Basic dan RM200,000 bagi VIP. Pembatalan RM20,000 atau RM30,000 perlu dipadankan dengan jumlah tempahan yang dibayar. Sijil perjalanan tunggal tidak boleh dibatalkan untuk bayaran balik selepas dikeluarkan. Epidemik dan pandemik berada dalam pengecualian umum; pengecualian terhad bagi pembatalan atau pemendekan kerana wabak di destinasi bergantung pada nasihat kerajaan atau WHO. Skop ini tidak menyediakan manfaat perubatan COVID-19. Penyertaan memerlukan kewarganegaraan Malaysia dan umur sehingga 70 tahun. Sukan musim sejuk, panjat tebing dan aktiviti melebihi 3,000 meter dikecualikan. Subhad setiap barang boleh mengehadkan tuntutan bagasi walaupun jumlah perlindungan masih berbaki.",
+        "siblingSlug": "zurich-z-travel-international",
         "siblingDifferences": [
-          "Zurich Travel Takaful antarabangsa membayar RM100 pada 3 jam, kemudian RM200 setiap 6 jam sehingga RM2,000. Allianz membayar RM300 setiap 6 jam sehingga RM2,000.",
-          "Single Trip antarabangsa Zurich Travel Takaful terhad kepada 60 hari. Allianz membenarkan perjalanan luar negara sehingga 200 hari; had domestiknya 30 hari.",
-          "Pelan Asas Worldwide Zurich Travel Takaful menyediakan perubatan RM100,000 dan umur dewasa 18-70 tahun. Ilustrasi Allianz menyediakan RM150,000, dengan umur pelan asas sehingga 65 tahun."
+          "Zurich Travel Takaful mengehadkan Single Trip antarabangsa kepada 60 hari; Z-Travel membenarkan 200 hari. Kedua-duanya membenarkan 100 hari setiap perjalanan tahunan antarabangsa.",
+          "Travel Takaful menerima rakyat Malaysia sehingga umur 70 tahun. Z-Travel turut menerima penduduk tetap dan pemegang permit kerja, pas pelajar atau MM2H serta menyediakan Senior Cover bagi umur 71-85 tahun.",
+          "Z-Travel menawarkan tambahan COVID-19 berbayar dengan syarat vaksinasi. Travel Takaful mengecualikan epidemik dan pandemik daripada perlindungan perubatan.",
+          "Special Coverage Z-Travel menyenaraikan bungee jump, belon udara panas, scuba dan hiking atau trekking. Travel Takaful tiada manfaat aktiviti lasak khusus; aktiviti melebihi 3,000 meter dikecualikan oleh kedua-dua produk."
         ],
-        "facts": []
+        "facts": [
+          {
+            "label": "Saluran dan pemegang sijil",
+            "value": "Pelan ini dijual melalui Shopee, dengan Shopee Mobile Malaysia Sdn Bhd sebagai pemegang sijil.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Jenis perjalanan",
+            "value": "Domestik menggunakan sijil perjalanan tunggal bagi setiap perjalanan dalam Malaysia yang melebihi 50km dari rumah; sijil ini tidak boleh diperbaharui. Antarabangsa menawarkan Single Trip atau Annual Trip.",
+            "source": "https://www.zurich.com.my/takaful-products/protection/for-my-travel/zurich-travel-takaful"
+          },
+          {
+            "label": "Kawasan antarabangsa",
+            "value": "Empat pilihan kawasan: Asia Tenggara; Asia termasuk Asia Tenggara; Asia, Eropah, Afrika, Amerika Selatan dan Oceania; atau seluruh dunia. Kawasan yang dipilih dinyatakan dalam sijil.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Tempoh maksimum perjalanan",
+            "value": "Antarabangsa: Single Trip sehingga 60 hari berturut-turut; Annual Trip sehingga 100 hari berturut-turut setiap perjalanan. Domestik: setiap perjalanan sehingga 60 hari berturut-turut.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf"
+          },
+          {
+            "label": "Umur penyertaan",
+            "value": "Peserta berumur 18-70 tahun; orang dilindungi tambahan berumur 30 hari hingga 70 tahun. Kanak-kanak berumur 30 hari hingga 17 tahun, dilanjutkan sehingga 23 tahun bagi pelajar sepenuh masa. Kelayakan memerlukan kewarganegaraan Malaysia.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf"
+          },
+          {
+            "label": "Had perubatan",
+            "value": "Perubatan luar negara: Basic sehingga RM100,000; VIP sehingga RM200,000 mengikut jadual manfaat dalam wording sijil. Ilustrasi PDS menggunakan had RM100,000. Perubatan domestik akibat kemalangan sehingga RM50,000.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Perubatan domestik",
+            "value": "Accidental Medical Expenses menyediakan sehingga RM50,000 bagi perjalanan domestik. Had ini merujuk rawatan akibat kemalangan, berbeza daripada manfaat perubatan luar negara.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Evakuasi dan repatriasi perubatan",
+            "value": "Antarabangsa: Emergency Medical Evacuation, Medical Repatriation dan Repatriation of Mortal Remains masing-masing tanpa had. Domestik: evakuasi perubatan kecemasan tanpa had dalam Malaysia.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pembatalan perjalanan",
+            "value": "Antarabangsa: Basic sehingga RM20,000; VIP sehingga RM30,000. Pemendekan perjalanan mempunyai had yang sama. Domestik: pembatalan dan pemendekan masing-masing sehingga RM5,000. Sijil Single Trip tamat selepas tuntutan pembatalan dibayar.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pembatalan dan pemendekan domestik",
+            "value": "Jadual domestik menetapkan Travel Cancellation sehingga RM5,000 dan Travel Curtailment sehingga RM5,000, tertakluk kejadian yang dilindungi dan syarat manfaat dalam sijil.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Kelewatan penerbangan",
+            "value": "Antarabangsa: RM100 bagi 3 jam penuh pertama, kemudian RM200 setiap 6 jam berturut-turut. Had Basic RM2,000; VIP RM3,000. Bayaran bergantung pada tempoh lengkap yang ditetapkan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Kelewatan penerbangan domestik",
+            "value": "Manfaat domestik terhad kepada penerbangan: RM100 bagi 6 jam penuh pertama, kemudian RM150 bagi setiap 6 jam penuh seterusnya, sehingga RM700.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Bagasi dan barang peribadi",
+            "value": "Antarabangsa: Basic sehingga RM3,000; VIP sehingga RM5,000. Subhad Basic ialah RM750 satu barang, pasangan atau set; RM1,500 komputer peribadi mudah alih; dan RM300 bagasi.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Bagasi domestik",
+            "value": "Had keseluruhan RM1,000. Subhad satu barang, pasangan atau set RM500; komputer peribadi mudah alih RM1,000; bagasi RM250. Had keseluruhan dan subhad digunakan bersama.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Kelewatan bagasi",
+            "value": "Basic antarabangsa sehingga RM1,500. Bagasi berdaftar yang lewat sekurang-kurangnya 3 jam ketika pulang ke Malaysia mempunyai bayaran sekali gus RM100.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Kelewatan bagasi domestik",
+            "value": "Jadual manfaat domestik menghadkan pampasan kelewatan bagasi kepada RM700.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Perlindungan COVID-19",
+            "value": "Epidemik dan pandemik dikecualikan secara umum, termasuk perubatan COVID-19. Pembatalan atau pemendekan mempunyai pengecualian terhad bagi wabak tidak dijangka di destinasi dengan nasihat kerajaan atau WHO. Zurich Travel Takaful tiada manfaat atau tambahan khusus COVID-19.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Aktiviti lasak",
+            "value": "Tiada manfaat aktiviti lasak khusus. Pengecualian merangkumi sukan musim sejuk, payung terjun, hang-gliding, panjat tebing, aktiviti bawah air melebihi 50 meter serta pendakian gunung atau aktiviti di atas 3,000 meter.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Keadaan sedia ada",
+            "value": "Dikecualikan berdasarkan keadaan yang munasabah diketahui sebelum sijil bermula melalui rawatan, nasihat, diagnosis atau gejala yang nyata. Pengecualian antarabangsa ini tidak terpakai kepada Bahagian A Manfaat 4, penghantaran pulang jenazah.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pengecualian: konflik dan radiasi",
+            "value": "Peperangan, perang saudara, pencerobohan, permusuhan, pemberontakan serta radiasi pengionan atau pencemaran daripada bahan api dan sisa nuklear dikecualikan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pengecualian: kesihatan dan kecederaan sengaja",
+            "value": "HIV dan penyakit berkaitan termasuk AIDS atau ARC; bunuh diri sama ada waras atau tidak; pembunuhan atau serangan yang diprovokasi; serta kecederaan diri sengaja dikecualikan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-domestic-master-cw.pdf"
+          },
+          {
+            "label": "Pengecualian: kehamilan dan keganasan",
+            "value": "Kelahiran, keguguran, kehamilan atau komplikasinya dikecualikan kecuali berpunca semata-mata dan secara langsung daripada kemalangan. Pengecualian keganasan tidak terpakai kepada pembatalan, pemendekan dan kelewatan perjalanan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pengecualian: pekerjaan dan sukan",
+            "value": "Kerja manual, aktiviti luar pesisir atau perlombongan, ujian kenderaan, potholing, seni bela diri, tinju, sukan profesional dan perlumbaan selain berjalan kaki dikecualikan. Memburu memerlukan pengendali komersial berlesen; memandu atau menunggang memerlukan lesen sah.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Pengecualian: kejadian diketahui",
+            "value": "Keadaan yang diketahui atau munasabah dijangka membawa kepada tuntutan semasa penyertaan atau tempahan dikecualikan. PDS domestik turut mengecualikan keadaan yang sudah wujud atau diketahui umum sebelum tempahan serta kegagalan mengambil langkah berjaga-jaga selepas amaran media.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-domestic-pds.pdf"
+          },
+          {
+            "label": "Indemniti berganda",
+            "value": "Basic antarabangsa menyediakan RM300,000 bagi indemniti berganda pengangkutan awam dan RM300,000 bagi cuti umum. Had domestik bagi setiap manfaat tersebut ialah RM200,000.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Liabiliti peribadi dan bantuan",
+            "value": "Basic antarabangsa menyediakan liabiliti peribadi RM750,000, manakala domestik RM500,000. Travel Assist menyediakan bantuan 24 jam.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf"
+          },
+          {
+            "label": "Wang peribadi dan keutamaan dokumen",
+            "value": "Personal Money Basic antarabangsa ialah RM1,250 mengikut jadual wording sijil. PDS menyatakan RM1,000; nilai wording sijil digunakan kerana wording sijil mengatasi PDS apabila terdapat perbezaan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Diskaun kumpulan",
+            "value": "Kumpulan 2-5 orang menerima diskaun 5%; kumpulan 6-10 orang menerima diskaun 10%.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf"
+          },
+          {
+            "label": "Pembatalan sijil oleh peserta",
+            "value": "Sijil tahunan mempunyai bayaran balik mengikut kadar tempoh pendek 40%-100%, tertakluk tempoh berkuat kuasa. Sijil perjalanan tunggal tidak mempunyai pembatalan atau bayaran balik selepas dikeluarkan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Tarikh akhir notis tuntutan",
+            "value": "PDS menetapkan notis bertulis atau melalui portal Zurich dalam 14 hari selepas pulang ke rumah. Wording sijil meminta butiran penuh dalam 14 hari selepas ketidakupayaan, kejadian atau penemuan kehilangan. Kedua-dua tempoh perlu diberi perhatian ketika melapor.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/certificate-wordings/zgtmb-shopee-travel-takaful-international-master-cw.pdf"
+          },
+          {
+            "label": "Ilustrasi caruman antarabangsa",
+            "value": "PDS bertarikh 1 September 2025 memberikan ilustrasi Basic Worldwide tahunan RM217.10, dengan duti setem RM10 tambahan. Angka ini ialah ilustrasi bagi varian dan tempoh tersebut.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf"
+          },
+          {
+            "label": "Ilustrasi caruman domestik",
+            "value": "PDS bertarikh 1 September 2025 memberikan caruman RM59 bagi satu perjalanan selama 60 hari, dengan duti setem RM10 tambahan. PDS menerbitkan ilustrasi ini tanpa jadual kadar mengikut tempoh perjalanan.",
+            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-domestic-pds.pdf"
+          }
+        ]
       }
     },
     {
       "slug": "allianz-travel-insurance",
       "insurer": "Allianz General Insurance Company (Malaysia) Berhad",
-      "planName": "Allianz Travel Insurance (saluran Shopee)",
-      "tripType": "single",
-      "medicalCoverLimit": null,
-      "covidCovered": "yes (pelancong divaksin penuh sahaja)",
+      "planName": "Allianz Travel Easy",
+      "tripType": "single|annual",
+      "medicalCoverLimit": "Luar negara RM200,000; domestik RM15,000 (kemalangan sahaja)",
+      "covidCovered": "Termasuk dalam manfaat tertentu; perubatan COVID-19 untuk luar negara sahaja",
       "tripCancellation": "yes",
       "regionTiers": [
         "Domestik",
         "Asia",
         "Worldwide (kecuali negara disekat/zon perang)"
       ],
-      "standoutFeature": "Coverage bermula dari rumah/tempat kerja; tamat 24 jam selepas ketibaan balik Malaysia; tuntutan COVID perlu diagnosis doktor + laporan makmal",
-      "sources": [],
-      "asAt": "2026-09-12",
+      "standoutFeature": "Dijual dalam talian; kemasukan hospital luar negara tanpa tunai bagi tuntutan melebihi RM20,000; janji tuntutan kecil melalui MyAllianz dalam 3 hari bekerja; sukan rekreasi bagi umur bawah 71 tahun",
+      "sources": [
+        "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PDS_ENG.pdf",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf"
+      ],
+      "asAt": "2026-10-10",
       "analysisAsAt": "2026-10-10",
       "analysis": {
-        "bestFor": "Allianz Travel Insurance dalam PDS TravelGPA sesuai untuk pengembara yang menilai perlindungan bagasi bersama manfaat kelewatan. Ilustrasi Worldwide 3 hari menyediakan perubatan sehingga RM150,000 dan elaun hospital RM350 sehari sehingga RM15,000. Bagasi atau barang peribadi mempunyai had RM5,000. Kelewatan perjalanan dibayar RM300 setiap 6 jam sehingga RM2,000. Perjalanan luar negara boleh berlangsung sehingga 200 hari berturut-turut, manakala domestik terhad kepada 30 hari. Pembeli yang merancang aktiviti sukan boleh menilai Optional Rider 1 dan rider pendakian altitud tinggi secara berasingan. Kelayakan meliputi rakyat Malaysia, penduduk tetap, pemegang permit kerja atau pas pelajar serta tanggungan sah yang memenuhi syarat umur.",
-        "tradeoffs": "Pelan asas menerima umur 30 hari hingga 65 tahun. Rider pendakian altitud tinggi bermula pada umur 18 tahun dan berakhir pada 65 tahun. Had pembatalan dan pemendekan perjalanan masing-masing RM5,000, jadi jumlah kos tempahan perlu dibandingkan dengan had berkenaan. Aktiviti berbahaya dikecualikan melainkan perlindungan tambahan sukan dibeli. Sukan profesional dan pertandingan sukan turut disenaraikan sebagai pengecualian. PDS menyenaraikan lockdown, kuarantin, arahan tinggal di rumah dan Notifiable Diseases; skop penyakit perlu dibaca pada polisi sebelum pembelian. Keadaan sedia ada serta memandu tanpa lesen sah juga dikecualikan. Semua tuntutan mesti dikemukakan secara bertulis dalam 30 hari selepas pulang dari perjalanan.",
+        "bestFor": "Allianz Travel Easy sesuai untuk pembeli yang mahu mengurus perlindungan perjalanan dalam talian dan tuntutan melalui MyAllianz. Pelan luar negara menyediakan perubatan RM200,000 akibat kemalangan atau penyakit, termasuk COVID-19. Evakuasi, repatriasi perubatan dan penghantaran pulang jenazah berkongsi had RM1,000,000. Kemasukan dan keluar hospital luar negara mempunyai kemudahan tanpa tunai apabila tuntutan melebihi RM20,000 bagi setiap kemasukan. Sukan rekreasi disertakan bagi peserta bawah 71 tahun, dengan pilihan pendakian altitud tinggi berbayar untuk umur 18-60 tahun. Pembeli boleh memilih perjalanan tunggal atau tahunan serta kawasan Domestik, Asia atau Worldwide.",
+        "tradeoffs": "Perubatan domestik terhad kepada kemalangan dengan had RM15,000; pembatalan dan pemendekan domestik masing-masing RM1,000. Tuntutan pembatalan tidak dibayar jika polisi dibeli kurang daripada 7 hari sebelum berlepas. Had 200 hari luar negara merujuk perjalanan dua hala; satu hala dan setiap perjalanan tahunan terhad kepada 90 hari. Perjalanan domestik terhad kepada 31 hari. Had RM1,000,000 bagi bantuan kecemasan ialah jumlah gabungan tiga manfaat. Bagasi mempunyai subhad peranti pintar dan setiap artikel yang lebih rendah daripada had keseluruhan RM5,000. Negara yang disenaraikan, negara bersanksi dan negara berperang dikecualikan. Peserta berumur 71-85 tahun tidak mendapat manfaat sukan rekreasi.",
         "siblingSlug": "zurich-travel-takaful",
         "siblingDifferences": [
-          "Umur pelan asas Allianz berakhir pada 65 tahun. Zurich Travel Takaful menerima dewasa 18-70 tahun dan membenarkan perjalanan tahunan antarabangsa sehingga 100 hari setiap trip.",
-          "Tuntutan Allianz perlu dikemukakan dalam 30 hari selepas pulang. Zurich Travel Takaful memerlukan pemberitahuan dalam 14 hari selepas pulang.",
-          "Allianz membayar kelewatan RM300 setiap 6 jam sehingga RM2,000. Zurich Travel Takaful antarabangsa membayar RM100 pada 3 jam, kemudian RM200 setiap 6 jam sehingga RM2,000."
+          "Travel Easy menyediakan perubatan luar negara RM200,000 dan domestik RM15,000 akibat kemalangan. Zurich Travel Takaful menyediakan Basic RM100,000 atau VIP RM200,000 antarabangsa serta RM50,000 domestik akibat kemalangan.",
+          "Perjalanan dua hala luar negara Travel Easy boleh mencapai 200 hari; perjalanan tunggal antarabangsa Zurich Travel Takaful terhad kepada 60 hari. Had setiap perjalanan tahunan masing-masing 90 dan 100 hari.",
+          "Travel Easy memasukkan COVID-19 dalam manfaat perubatan luar negara yang dinyatakan. Zurich Travel Takaful mengecualikan epidemik atau pandemik secara umum, dengan pengecualian terhad bagi pembatalan atau pemendekan kerana wabak di destinasi.",
+          "Travel Easy membayar RM300 setiap 5 jam penuh sehingga RM3,000 untuk kelewatan luar negara. Zurich Travel Takaful membayar RM100 pada 3 jam penuh pertama, kemudian RM200 setiap 6 jam sehingga RM2,000 Basic atau RM3,000 VIP.",
+          "Notis Travel Easy perlu dihantar dalam 30 hari selepas pulang, dengan bukti kehilangan dalam 90 hari dari kehilangan atau kemalangan. PDS Zurich Travel Takaful menetapkan notis dalam 14 hari selepas pulang."
         ],
-        "facts": []
+        "facts": [
+          {
+            "label": "Produk dan saluran pembelian",
+            "value": "Travel Easy dijual dalam talian sahaja di bawah halaman berjenama Allianz Travel Insurance. Allianz turut menjual perlindungan perjalanan melalui saluran lain, dan halaman ini menerangkan Travel Easy seperti yang diterbitkan di allianz.com.my.",
+            "source": "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html"
+          },
+          {
+            "label": "Jenis perjalanan",
+            "value": "Single Trip untuk perjalanan satu hala atau dua hala/pulang-pergi, serta Annual Plan. Kawasan perlindungan ialah Domestik dalam Malaysia, Asia atau Worldwide bagi luar negara.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Tempoh maksimum perjalanan",
+            "value": "Luar negara: perjalanan dua hala sehingga 200 hari berturut-turut; satu hala dan setiap perjalanan tahunan sehingga 90 hari berturut-turut. Domestik: sehingga 31 hari berturut-turut bagi pelan tunggal atau tahunan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Umur penyertaan",
+            "value": "Dewasa 18-70 tahun; kanak-kanak 30 hari hingga 17 tahun; warga emas 71-85 tahun. Manfaat tertentu mempunyai syarat umur berasingan, termasuk sukan rekreasi dan pilihan pendakian altitud tinggi.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PDS_ENG.pdf"
+          },
+          {
+            "label": "Had perubatan",
+            "value": "Asia dan Worldwide: sehingga RM200,000 akibat kemalangan atau penyakit, termasuk COVID-19. Domestik: sehingga RM15,000 akibat kemalangan sahaja; penyakit termasuk COVID-19 tidak dilindungi di bawah perubatan domestik.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Evakuasi dan repatriasi perubatan",
+            "value": "Emergency Medical Evacuation RM1,000,000; Emergency Medical Repatriation RM1,000,000; Mortal Remains Repatriation RM1,000,000. Ketiga-tiga manfaat berkongsi had agregat RM1,000,000, jadi jumlah bayaran gabungan tidak boleh melebihi had itu.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pembatalan perjalanan",
+            "value": "Deposit or Trip Cancellation sehingga RM25,000 luar negara atau RM1,000 domestik. Travel Curtailment mempunyai had yang sama. Tuntutan pembatalan dikecualikan jika polisi dibeli kurang daripada 7 hari sebelum berlepas.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Kelewatan perjalanan",
+            "value": "Luar negara: RM300 setiap 5 jam penuh sehingga RM3,000. Domestik: RM100 setiap 5 jam penuh sehingga RM1,500. Tempoh kelewatan berlepas atau tiba yang lebih panjang digunakan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Perubahan kepada waktu lebih awal",
+            "value": "Penjadualan semula kepada waktu lebih awal mempunyai bayaran sekali gus RM300 bagi luar negara atau RM100 bagi domestik, mengikut manfaat Travel Delay.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Bagasi dan barang peribadi",
+            "value": "Kehilangan atau kerosakan sehingga RM5,000 luar negara. Subhad agregat peranti pintar RM1,000 dan barang lain RM500; satu artikel, pasangan atau set RM500; satu peranti pintar RM300. Domestik: had keseluruhan RM500, dengan subhad peranti pintar RM300 dan barang lain RM100.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Kelewatan bagasi",
+            "value": "Luar negara: RM200 setiap 5 jam sehingga RM3,000. Domestik: RM100 sekali gus untuk kelewatan minimum 5 jam. Ketika pulang ke Malaysia, bayaran sekali gus RM200 tersedia mengikut syarat manfaat.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Perlindungan COVID-19",
+            "value": "Luar negara memasukkan COVID-19 dalam perubatan, evakuasi, repatriasi, rawatan susulan, elaun hospital dan manfaat penyakit lain yang disenaraikan. Pembatalan, pemendekan, pemulangan kereta sewa/campervan dan hotel haiwan meliputi COVID-19 bagi luar negara serta domestik. Diagnosis mesti disokong laporan perubatan atau makmal yang mengesahkan COVID-19. Wording Travel Easy tidak menetapkan status vaksinasi khusus bagi manfaat COVID-19.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Manfaat penyakit luar negara",
+            "value": "Senarai manfaat yang memasukkan penyakit termasuk COVID-19 turut merangkumi lawatan ihsan, penjagaan anak dan penghantaran ubat. Skop penyakit ini mengikut manfaat yang dinyatakan dalam wording polisi.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Aktiviti lasak",
+            "value": "Leisure Sports Activities disertakan dalam polisi asas, dengan umur 71-85 tahun dikecualikan daripada manfaat ini. Aktiviti berbahaya masih tertakluk pengecualian; pilihan pendakian altitud tinggi mempunyai syarat tersendiri.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pilihan pendakian altitud tinggi",
+            "value": "Untuk luar negara, ketinggian melebihi 3,500 hingga 5,500 meter boleh dilindungi melalui Optional Benefit. Umur layak 18-60 tahun; tempoh maksimum 31 hari. Premium setiap perjalanan RM450 bagi umur 18-40 atau RM900 bagi umur 41-60. Pilihan ini tidak tersedia untuk domestik.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf"
+          },
+          {
+            "label": "Keadaan sedia ada",
+            "value": "Pengecualian terhad kepada Bahagian A Personal Accident Benefits, B Medical Related Benefits dan C Emergency Assistance. Takrifnya merangkumi keadaan yang menerima rawatan, ubat, nasihat, diagnosis, konsultasi atau preskripsi dalam 12 bulan sebelum perjalanan bermula. Manfaat lain masih tertakluk syarat masing-masing.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: destinasi",
+            "value": "Afghanistan, Belarus, Cuba, Republik Demokratik Congo, Iran, Iraq, Israel, Lebanon, Libya, Korea Utara, Somalia, Sudan Selatan, Sudan, Syria, Yemen dan Zimbabwe dikecualikan, bersama negara yang tertakluk sekatan atau berada dalam peperangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: konflik dan arahan pihak berkuasa",
+            "value": "Peperangan, pencerobohan, permusuhan, perang saudara, pemberontakan, revolusi, darurat ketenteraan, mogok, rusuhan dan lockout dikecualikan. Arahan kerajaan atau kastam yang melarang perjalanan, termasuk nasihat umum berkaitan COVID-19, turut tertakluk pengecualian.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: sekatan kesihatan awam",
+            "value": "Lockdown, kuarantin, pengasingan wajib, arahan tinggal di rumah dan perubahan tahap amaran kerajaan dikecualikan, termasuk arahan yang menamakan peserta atau teman perjalanan kecuali dinyatakan sebaliknya. Notifiable Diseases yang memerlukan pengasingan atau kuarantin dikecualikan selain COVID-19 dalam manfaat yang dinyatakan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: kesihatan dan tujuan perjalanan",
+            "value": "HIV dan penyakit berkaitan, gangguan psikologi, mental atau saraf, prognosis terminal, perjalanan bertentangan nasihat perubatan atau semata-mata mendapatkan rawatan serta kegagalan memperoleh vaksinasi yang diperlukan sebelum berlepas dikecualikan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: kecederaan sengaja dan kehamilan",
+            "value": "Bunuh diri atau percubaannya, kecederaan diri, pendedahan sengaja kepada bahaya kecuali menyelamatkan nyawa, jenayah, penyalahgunaan dadah dan alkohol melebihi had undang-undang dikecualikan. Kos kelahiran, keguguran atau komplikasi kehamilan dikecualikan kecuali berpunca semata-mata dan secara langsung daripada kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: aktiviti berbahaya",
+            "value": "Pendakian di Nepal, BASE jumping, pendakian luar negara melebihi 3,500 meter tanpa pilihan berkenaan, ski atau snowboard off-piste, parkour, perlumbaan selain berjalan kaki, rali motor, memburu, penerokaan gua dan rafting gred 5 ke atas dikecualikan. Takrif turut meliputi aktiviti lain yang memerlukan kemahiran dengan pendedahan risiko.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Pengecualian: pertandingan dan pengangkutan",
+            "value": "Sukan profesional atau berbayar serta pertandingan amatur dikecualikan, dengan pengecualian terhad bagi pertandingan rekreasi tidak formal anjuran penginapan, resort atau kapal persiaran. Memandu tanpa lesen sah, penerbangan selain sebagai penumpang berbayar dan kerugian kerana insolvensi agen perjalanan atau pengangkut turut dikecualikan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Keganasan dan risiko nuklear",
+            "value": "Manfaat keganasan disertakan, dengan pengecualian senjata pemusnah besar-besaran nuklear, kimia atau biologi. Penyertaan langsung dalam keganasan dikecualikan. Radiasi pengionan, pencemaran radioaktif serta bahan dan senjata nuklear turut dikecualikan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Kemasukan hospital tanpa tunai",
+            "value": "Kemudahan kemasukan dan keluar hospital tanpa tunai tersedia bagi hospitalisasi luar negara apabila tuntutan melebihi RM20,000 untuk setiap kemasukan.",
+            "source": "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html"
+          },
+          {
+            "label": "Janji bayaran tuntutan kecil",
+            "value": "Janji Our Promise, Or Else We Pay Double meliputi tuntutan sehingga RM5,000 yang dihantar melalui aplikasi atau web MyAllianz: pembayaran balik dalam 3 hari bekerja atau bayaran berganda, tertakluk syarat janji Allianz.",
+            "source": "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html"
+          },
+          {
+            "label": "Diskaun peserta",
+            "value": "Diskaun premium 5% untuk kumpulan sekurang-kurangnya 5 pengembara; diskaun kanak-kanak 20% turut diterbitkan pada laman Allianz.",
+            "source": "https://www.allianz.com.my/personal/home-motor-and-travel/travel-and-flight-insurance/allianz-travel-insurance.html"
+          },
+          {
+            "label": "Manfaat tambahan perjalanan",
+            "value": "Loss of Home Contents RM6,000; Rental Car/Campervan RM3,500; Pet Hotel RM500; Alternative Medicine RM1,000; Missed Departure RM2,000. Kehilangan dokumen perjalanan sehingga RM5,000 bagi luar negara; manfaat dokumen ini tidak tersedia untuk domestik.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Rawatan susulan dan elaun hospital",
+            "value": "Rawatan susulan sehingga RM50,000, dengan tempoh maksimum 45 hari. Hospital Income luar negara RM350 sehari sehingga RM15,000.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Lanjutan automatik perlindungan",
+            "value": "Tempoh insurans dilanjutkan secara automatik sehingga 14 hari bagi kelewatan pengangkut atau sehingga 30 hari bagi penyakit yang dilindungi, tertakluk syarat lanjutan polisi.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Tarikh akhir notis tuntutan",
+            "value": "Semua tuntutan perlu diberi secara bertulis kepada Allianz dalam 30 hari selepas pulang ke rumah. Bukti bertulis seperti laporan perubatan, resit asal atau laporan polis perlu dihantar dalam 90 hari dari tarikh kehilangan atau kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PW_ENG.pdf"
+          },
+          {
+            "label": "Ilustrasi premium rasmi",
+            "value": "PDS memberikan ilustrasi Worldwide tahunan RM553 dan pilihan High Altitude Mountaineering RM450 setiap perjalanan, berjumlah RM1,003. Caj yang disenaraikan ialah IMA RM1.62 dan duti setem RM10. Cukai perkhidmatan 8% terpakai pada pelan Domestik dan Overseas-with-Domestic sahaja.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PDS_ENG.pdf"
+          },
+          {
+            "label": "Kadar premium dalam brosur",
+            "value": "Brosur berkuat kuasa 30 Jun 2026: dewasa 18-70 tahun dan kanak-kanak 30 hari hingga 17 tahun, Domestik 1-5 hari RM21, 6-10 hari RM32, tahunan RM199; Asia RM63, RM82 dan RM450 bagi tempoh yang sama; Worldwide RM107, RM148 dan RM553. Worldwide warga emas 71-85 tahun untuk 6-10 hari RM237. Kadar Domestik 1-5 hari pada halaman ini menggunakan angka brosur RM21.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf"
+          }
+        ]
       }
     },
     {
