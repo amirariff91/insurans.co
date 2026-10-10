@@ -6,6 +6,7 @@ import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
 const cards = medicalCards.records;
+const updatedAt = '2026-10-10';
 const typeOrder = ['standalone', 'rider', 'takaful'];
 const typeLabels: Record<string, string> = {
   standalone: 'Standalone',
@@ -63,7 +64,7 @@ const schema = {
   description,
   url: 'https://insurans.co/medical-cards/',
   datePublished: medicalCards.asAt,
-  dateModified: medicalCards.asAt,
+  dateModified: updatedAt,
   inLanguage: 'ms',
   publisher: {
     '@type': 'Organization',
@@ -87,7 +88,7 @@ const schema = {
   schema={schema}
   ogType="article"
   publishedTime={medicalCards.asAt}
-  modifiedTime={medicalCards.asAt}
+  modifiedTime={updatedAt}
 >
   <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
@@ -99,7 +100,7 @@ const schema = {
       />
       <p class="label mb-3">Panduan Data</p>
       <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Medical Card Malaysia 2026</h1>
-      <Byline dateModified={medicalCards.asAt} />
+      <Byline dateModified={updatedAt} />
       <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
         Bandingkan pilihan medical card berdasarkan data manfaat yang dinyatakan dalam PDS atau brosur rasmi.
         Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia.
@@ -109,11 +110,53 @@ const schema = {
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
-      <div class="lg:col-span-2">
+      <div class="min-w-0 lg:col-span-2">
         <article class="prose-editorial">
           <p class="text-lg leading-7 text-stone-700">
             Setiap rekod memaparkan had tahunan, room &amp; board, pilihan kos sendiri, tempoh menunggu dan ciri utama
             apabila medan itu dinyatakan dalam sumber. Klik pelan untuk melihat sumber rasmi dan ringkasan penuh.
+          </p>
+          <h2 id="jadual-perbandingan">Jadual perbandingan medical card</h2>
+          <div class="overflow-x-auto my-8">
+            <table class="table-editorial min-w-[60rem]">
+              <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+                Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Pelan</th>
+                  <th scope="col">Penyedia</th>
+                  <th scope="col">Jenis pelan</th>
+                  <th scope="col">Had tahunan</th>
+                  <th scope="col">Room &amp; board</th>
+                  <th scope="col">Ciri utama</th>
+                  <th scope="col">Sumber</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cards.map((card) => (
+                  <tr>
+                    <th scope="row">
+                      <a href={`/medical-cards/${card.slug}/`}>{card.planName || '—'}</a>
+                    </th>
+                    <td>{card.insurer || '—'}</td>
+                    <td>{typeLabels[card.type] ?? '—'}</td>
+                    <td>{card.annualLimit || '—'}</td>
+                    <td>{card.roomBoard || '—'}</td>
+                    <td>{card.standoutFeature || '—'}</td>
+                    <td>
+                      {card.sources[0] ? <a href={card.sources[0]}>Sumber rasmi</a> : '—'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <h3>Cara membaca jadual ini</h3>
+          <p>
+            Bandingkan had tahunan dan kadar room &amp; board mengikut pilihan pelan yang sama.
+            Tanda — menunjukkan maklumat tidak dinyatakan.
+            Semak deductible, co-payment dan syarat pembaharuan melalui pautan sumber rasmi sebelum memilih pelan.
           </p>
           <h2 id="bandingkan">Apa yang patut dibanding?</h2>
           <p>

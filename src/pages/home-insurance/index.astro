@@ -79,6 +79,7 @@ const faqs = [
 ];
 
 const pageTitle = 'Insurans Rumah Malaysia 2026';
+const updatedAt = '2026-10-10';
 const description = buildDescription(
   'Panduan insurans rumah Malaysia: houseowner, householder, fire-only, kadar tariff, contoh RM100,000, LPPSA, banjir dan rekod sumber rasmi.',
 );
@@ -89,7 +90,7 @@ const schema = {
   description,
   url: 'https://insurans.co/home-insurance/',
   datePublished: '2026-02-01',
-  dateModified: homeInsurance.asAt,
+  dateModified: updatedAt,
   inLanguage: 'ms',
   publisher: {
     '@type': 'Organization',
@@ -113,7 +114,7 @@ const schema = {
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
-  modifiedTime={homeInsurance.asAt}
+  modifiedTime={updatedAt}
 >
   <section class="border-b border-stone-200 bg-white">
     <div class="container-wide py-10 sm:py-14">
@@ -125,19 +126,72 @@ const schema = {
       />
       <p class="label mb-3">Panduan Data</p>
       <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Rumah Malaysia 2026</h1>
-      <Byline dateModified={homeInsurance.asAt} />
+      <Byline dateModified={updatedAt} />
       <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
         Fahami beza houseowner, householder dan fire-only; semak kadar tariff yang dapat disahkan, asas jumlah diinsuranskan
         dan rekod produk sebelum mendapatkan quotation.
       </p>
       <div class="mt-6 max-w-3xl">
         <EditorialStamp
-          articleDate={homeInsurance.asAt}
+          articleDate={updatedAt}
           sources={sourceLinks}
           sourcesLabel="Sumber kadar dan produk"
           showReviewed={false}
         />
       </div>
+
+      <section id="banding-pelan" class="mt-10">
+        <h2 class="font-serif text-headline-md text-stone-900">Bandingkan pelan insurans rumah</h2>
+        <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
+        <div class="mt-6 overflow-x-auto">
+          <table class="table-editorial min-w-[60rem]">
+            <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+              Kadar premium dan asas perlindungan untuk {records.length} pelan insurans rumah
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Pelan / penyedia</th>
+                <th scope="col">Jenis pelan</th>
+                <th scope="col">Kadar / contoh premium</th>
+                <th scope="col">Premium minimum</th>
+                <th scope="col">Asas jumlah diinsuranskan</th>
+                <th scope="col">Sumber</th>
+              </tr>
+            </thead>
+            <tbody>
+              {records.map((record) => (
+                <tr>
+                  <th scope="row" class="align-top">
+                    <a href={`/home-insurance/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
+                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
+                  </th>
+                  <td class="align-top">{typeLabels[record.type] ?? record.type ?? '—'}</td>
+                  <td class="min-w-64 align-top">{record.tariffRates ?? '—'}</td>
+                  <td class="align-top">{record.minPremium ?? '—'}</td>
+                  <td class="min-w-64 align-top">{record.sumInsuredBasis ?? '—'}</td>
+                  <td class="align-top">
+                    {record.sources.length > 0 ? (
+                      <ul class="space-y-2">
+                        {record.sources.map((url) => (
+                          <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{new URL(url).hostname.replace(/^www\./, '')}</a></li>
+                        ))}
+                      </ul>
+                    ) : '—'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-5 max-w-3xl text-sm leading-6 text-stone-600">
+          <h3 class="font-semibold text-stone-900">Cara membaca jadual ini</h3>
+          <p class="mt-2">
+            Baca kadar dan contoh premium bersama jumlah diinsuranskan serta tempoh perlindungan.
+            Premium minimum ialah nilai minimum yang dinyatakan bagi produk.
+            Tanda “—” menunjukkan maklumat tidak dinyatakan; rujuk pautan sumber untuk skop dan syarat penuh.
+          </p>
+        </div>
+      </section>
     </div>
   </section>
 
