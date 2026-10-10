@@ -22,6 +22,16 @@ function companyName(slug: string) {
   return companyNames[slug] ?? slug;
 }
 
+// Preserve the read-only data's limitations as practical checks for the buyer.
+function buyerCopy(text: string) {
+  return text.replace(
+    /tidak disahkan(?: dalam sumber rasmi yang kami semak)?|[Ss]umber yang disemak/g,
+    (phrase) => phrase.startsWith('tidak')
+      ? 'perlu disemak terus dengan penyedia'
+      : (phrase.startsWith('S') ? 'Maklumat produk yang tersedia' : 'maklumat produk yang tersedia'),
+  );
+}
+
 export function getStaticPaths() {
   return comparisons.map((comp, i) => ({
     params: { slug: comp.slug },
@@ -35,9 +45,16 @@ export function getStaticPaths() {
 const { comp, related } = Astro.props;
 const nameA = companyName(comp.company1);
 const nameB = companyName(comp.company2);
-const comparisonTitle = `${nameA} vs ${nameB}: Perbandingan Insurans 2026`;
-const comparisonDescription = `${nameA} dan ${nameB}: bandingkan entiti, takaful, produk, tuntutan dan saluran digital berdasarkan sumber setakat ${comp.asAt}.`;
-const comparisonOgImageAlt = `${comparisonTitle} — perbandingan berdasarkan fakta dan sumber.`;
+const titlePrefix = `${nameA} vs ${nameB} 2026: `;
+const titleSuffix = ' | Insurans.co';
+const fullQuestion = 'Mana Lebih Sesuai Untuk Anda?';
+const comparisonTitle = titlePrefix + (
+  titlePrefix.length + fullQuestion.length + titleSuffix.length <= 60
+    ? fullQuestion
+    : 'Mana Lebih Sesuai?'
+);
+const comparisonDescription = `${nameA} vs ${nameB}: banding pilihan takaful, cara tuntutan dan aplikasi digital. Semak manfaat serta syarat polisi sebelum memilih perlindungan.`;
+const comparisonOgImageAlt = `${nameA} vs ${nameB} 2026 — pilihan takaful, tuntutan dan aplikasi digital.`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -70,7 +87,7 @@ const schema = {
 ---
 
 <Base
-  title={`${comparisonTitle} — Insurans.co`}
+  title={comparisonTitle}
   description={comparisonDescription}
   schema={schema}
   ogType="article"
@@ -103,10 +120,9 @@ const schema = {
         <section class="prose-editorial mb-8">
           <h2>Skop perbandingan</h2>
           <p>
-            Perbandingan ini membezakan perkara yang disahkan untuk setiap penyedia: siapa mengeluarkan
-            polisi, pilihan takaful, manfaat motor yang diterangkan, saluran tuntutan dan kegunaan digital.
-            Jika maklumat produk khusus tidak tersedia dalam sumber yang disemak, perkara itu dinyatakan
-            dan bukannya diandaikan.
+            Semak siapa mengeluarkan polisi, pilihan takaful, manfaat motor, saluran tuntutan dan urusan
+            digital bagi setiap penyedia. Untuk produk yang anda pertimbangkan, minta jadual manfaat
+            dan dokumen polisi terkini supaya anda boleh membandingkan perlindungan yang sama.
           </p>
         </section>
 
@@ -126,15 +142,15 @@ const schema = {
                 <div class="grid md:grid-cols-2 gap-4">
                   <div class="bg-stone-50 border border-stone-200 p-4">
                     <h4 class="font-semibold text-stone-900 mb-2">{nameA}</h4>
-                    <p class="text-sm text-stone-700 leading-relaxed">{dimension.a}</p>
+                    <p class="text-sm text-stone-700 leading-relaxed">{buyerCopy(dimension.a)}</p>
                   </div>
                   <div class="bg-stone-50 border border-stone-200 p-4">
                     <h4 class="font-semibold text-stone-900 mb-2">{nameB}</h4>
-                    <p class="text-sm text-stone-700 leading-relaxed">{dimension.b}</p>
+                    <p class="text-sm text-stone-700 leading-relaxed">{buyerCopy(dimension.b)}</p>
                   </div>
                 </div>
                 <p class="text-sm text-stone-600 leading-relaxed mt-4">
-                  <strong>Cara membaca perbezaan ini:</strong> {dimension.note}
+                  <strong>Cara membaca perbezaan ini:</strong> {buyerCopy(dimension.note)}
                 </p>
               </article>
             ))}
@@ -181,7 +197,7 @@ const schema = {
             {comp.faqs.map((faq: { q: string; a: string }) => (
               <article class="card-editorial">
                 <h3 class="font-semibold text-stone-900 mb-2">{faq.q}</h3>
-                <p class="text-sm text-stone-700 leading-relaxed">{faq.a}</p>
+                <p class="text-sm text-stone-700 leading-relaxed">{buyerCopy(faq.a)}</p>
               </article>
             ))}
           </div>

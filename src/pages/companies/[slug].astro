@@ -28,7 +28,7 @@ const canonicalUrl = `https://insurans.co/companies/${company.slug}/`;
 const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
 const companyOgImageAlt = `${companyOgName} — entiti, produk, tuntutan dan sumber rasmi.`;
 const productsSummary = company.productDetails.map((product) =>
-  `${product.line}: ${product.names.length ? product.names.join(', ') : 'nama produk khusus tidak disahkan dalam sumber yang digunakan'}`
+  `${product.line}: ${product.names.length ? product.names.join(', ') : 'hubungi penyedia untuk nama dan butiran produk semasa'}`
 ).join('; ');
 const hotlineSummary = company.claims.hotlines
   .map((hotline) => `${hotline.label}: ${hotline.number}`)
@@ -56,7 +56,7 @@ const faqs = [
     a: 'Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS.',
   },
 ];
-const title = `Review ${company.name} Malaysia 2026 — Entiti, produk dan tuntutan`;
+const title = `Review ${company.name}${company.name.endsWith('Malaysia') ? '' : ' Malaysia'} 2026 — Entiti, produk dan tuntutan`;
 const description = `${company.name}: sejarah entiti, produk, proses tuntutan, aplikasi, talian hubungan dan sumber rasmi. Data disemak pada ${company.asAt}.`;
 const schema = {
   '@context': 'https://schema.org',
@@ -124,7 +124,7 @@ const schema = {
           <EditorialStamp
             articleDate={company.asAt}
             sources={sourceLinks}
-            sourcesLabel="Sumber yang disemak"
+            sourcesLabel="Rujukan rasmi"
             showReviewed={false}
           />
         </div>
@@ -157,7 +157,7 @@ const schema = {
 
           <h2 id="produk-utama">Produk utama</h2>
           <p>
-            Senarai berikut mengasingkan jenis perlindungan dan nama produk yang dapat dikenal pasti dalam sumber. Jika nama khusus tidak disahkan, halaman ini menyatakannya dengan jelas dan tidak menganggap nama produk daripada pasaran lain sebagai produk Malaysia.
+            Senarai berikut mengasingkan jenis perlindungan dan nama produk. Untuk nama dan butiran produk semasa, rujuk laman rasmi penyedia serta dokumen produk Malaysia yang berkaitan.
           </p>
         </article>
 
@@ -171,7 +171,7 @@ const schema = {
                 </ul>
               ) : (
                 <p class="mt-3 text-sm leading-6 text-stone-600">
-                  Nama produk khusus tidak disahkan dalam sumber yang digunakan.
+                  Hubungi penyedia untuk nama dan butiran produk semasa.
                 </p>
               )}
               <a href={product.url} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-hijau-700 underline">
@@ -185,7 +185,7 @@ const schema = {
             Untuk insurans motor, bandingkan jenis perlindungan, nilai diinsuranskan, excess, betterment, manfaat tambahan dan had tunda dalam quotation serta wording sebenar. Untuk perubatan atau hayat, semak had tahunan/seumur hidup, perkongsian kos, syarat kelayakan dan tempoh menunggu. Nama manfaat dalam ringkasan ini tidak menjamin tuntutan akan diluluskan.
           </p>
           <p>
-            Tiada julat premium kereta dipaparkan sebagai fakta: harga sebenar bergantung pada butiran risiko, kenderaan, perlindungan dan pilihan tambahan. Dapatkan quotation terus daripada penyedia dan bandingkan skop setara, bukan angka anggaran yang tidak disahkan.
+            Harga insurans kereta bergantung pada butiran risiko, kenderaan, perlindungan dan pilihan tambahan. Dapatkan quotation terus daripada penyedia dan bandingkan skop perlindungan yang setara.
           </p>
 
           <h2 id="tuntutan">Cara buat tuntutan</h2>
@@ -227,7 +227,7 @@ const schema = {
             {company.app.features.map((feature) => <li>{feature}</li>)}
           </ul>
           <p>
-            Sebelum bergantung pada aplikasi ketika kecemasan, semak sama ada polisi anda telah dipautkan, kaedah log masuk berfungsi dan talian telefon masih tersedia. Jika sesuatu fungsi tidak disahkan, halaman ini menyebut batasan tersebut dan tidak mengandaikan bahawa portal web menyediakan fungsi aplikasi.
+            Sebelum bergantung pada aplikasi ketika kecemasan, semak sama ada polisi anda telah dipautkan, kaedah log masuk berfungsi dan talian telefon masih tersedia. Semak fungsi yang tersedia untuk polisi anda dengan penyedia; portal web dan aplikasi mungkin menawarkan kemudahan yang berbeza.
           </p>
 
           <h2 id="hubungi">Hubungi</h2>
@@ -289,7 +289,7 @@ const schema = {
             {company.kurangSesuaiUntuk.map((item) => <li>{item}</li>)}
           </ul>
           <p>
-            Sebelum membeli, bandingkan sekurang-kurangnya dua quotation dengan jumlah diinsuranskan dan tambahan yang sama. Baca helaian pendedahan produk serta wording polisi/sijil untuk had, excess, pengecualian, kewajipan pemberitahuan tuntutan dan cara membuat aduan. Perkara yang tidak disahkan dalam sumber tidak dianggap sebagai manfaat atau kelemahan penyedia.
+            Sebelum membeli, bandingkan sekurang-kurangnya dua quotation dengan jumlah diinsuranskan dan tambahan yang sama. Baca helaian pendedahan produk serta wording polisi/sijil untuk had, excess, pengecualian, kewajipan pemberitahuan tuntutan dan cara membuat aduan. Pastikan manfaat yang anda perlukan dinyatakan dalam dokumen polisi atau sijil.
           </p>
 
           <h2 id="sumber">Sumber</h2>
