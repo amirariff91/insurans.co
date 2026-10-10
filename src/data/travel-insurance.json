@@ -266,11 +266,6 @@
             "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf"
           },
           {
-            "label": "Pengecualian: keadaan sedia ada",
-            "value": "Pre-existing condition.",
-            "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf"
-          },
-          {
             "label": "Pengecualian: ketinggian dan perlumbaan",
             "value": "Pendakian atau aktiviti di atas 3,000 meter; sebarang perlumbaan selain berjalan kaki.",
             "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf"
@@ -302,7 +297,7 @@
           },
           {
             "label": "Keluarga dan bantuan perjalanan",
-            "value": "Family Cover membayar sehingga 300% jadual; Individual & Spouse 200%. Bantuan Europ Assistance 24/7: +603-7841-5630.",
+            "value": "Family Cover membayar sehingga 300% jadual; Individual & Spouse 200%. Manfaat tertentu, seperti kematian akibat kemalangan, elaun hospital, Special Coverage dan kematian akibat COVID-19, dikira bagi setiap orang mengikut PDS. Bantuan Europ Assistance 24/7: +603-7841-5630.",
             "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf"
           },
           {
@@ -735,7 +730,7 @@
       "analysisAsAt": "2026-10-10",
       "analysis": {
         "bestFor": "AirAsia Travel Protection sesuai untuk pengembara yang mahu membezakan manfaat Lite dan Plus sebelum memilih perlindungan pulang-pergi antarabangsa. Plus Standard menyediakan perubatan RM1,000,000 serta pembatalan RM50,000. Lite Standard menyediakan perubatan RM200,000 dan pembatalan RM5,000. On-Time Guarantee RM200 bagi kelewatan melebihi 2 jam tersedia pada Plus untuk perjalanan pulang-pergi antarabangsa. Delay Lounge Pass bagi perjalanan antarabangsa memerlukan pendaftaran dan kelewatan sekurang-kurangnya 2 jam. Untuk penerbangan berulang, Pelan Tahunan ialah produk berasingan yang meliputi penerbangan mana-mana syarikat. Setiap perjalanan tahunan boleh berlangsung sehingga 60 hari berturut-turut. Perbezaan jadual WPUA, Comprehensive dan Tahunan penting ketika menilai tempoh serta kelayakan umur.",
-        "tradeoffs": "WPUA perjalanan tunggal mengecualikan pandemik, epidemik dan COVID-19 serta menghadkan setiap trip kepada 30 hari. Jadual Comprehensive pula membezakan Standard dan Senior; manfaat Senior lebih rendah, termasuk perubatan Plus RM500,000 berbanding RM1,000,000 Standard. Pelan Tahunan mempunyai manfaat COVID-19 tertentu seperti Bereavement Allowance RM5,000, dengan skop tersendiri. Angka tahunan itu perlu dipisahkan daripada polisi tunggal. Lebihan RM50 dikenakan pada tuntutan pesakit luar dalam jadual Comprehensive antarabangsa. On-Time Guarantee Plus berbeza daripada Travel Delay yang dibayar setiap 6 jam. Menunggang motosikal melebihi 123cc dan sukan profesional termasuk dalam pengecualian WPUA. Keadaan sedia ada menggunakan tempoh 90 hari WPUA atau 120 hari tahunan. Notis bertulis tuntutan perlu dibuat dalam 30 hari selepas peristiwa.",
+        "tradeoffs": "WPUA perjalanan tunggal mengecualikan pandemik, epidemik dan COVID-19 serta menghadkan setiap trip kepada 30 hari. Jadual Comprehensive pula membezakan Standard dan Senior; manfaat Senior lebih rendah, termasuk perubatan Plus RM500,000 berbanding RM1,000,000 Standard. Pelan Tahunan mempunyai manfaat COVID-19 tertentu dengan skop tersendiri. Angka tahunan itu perlu dipisahkan daripada polisi tunggal. Lebihan RM50 dikenakan pada tuntutan pesakit luar dalam jadual Comprehensive antarabangsa. On-Time Guarantee Plus berbeza daripada Travel Delay yang dibayar setiap 6 jam. Menunggang motosikal melebihi 123cc dan sukan profesional termasuk dalam pengecualian WPUA. Keadaan sedia ada menggunakan tempoh 90 hari WPUA atau 120 hari tahunan. Notis bertulis tuntutan perlu dibuat dalam 30 hari selepas peristiwa.",
         "siblingSlug": "zurich-z-travel-international",
         "siblingDifferences": [
           "On-Time Guarantee Plus pulang-pergi antarabangsa Tune membayar RM200 selepas kelewatan melebihi 2 jam. Z-Travel bermula pada minimum 6 jam dengan RM150 setiap 6 jam.",
@@ -780,12 +775,12 @@
           },
           {
             "label": "Bagasi dan barang peribadi",
-            "value": "Return International: Lite RM2,000; Plus RM5,000; RM200 satu barang rosak, RM400 satu barang hilang. Domestik RM1,500. Tahunan Worldwide RM3,500. Kelewatan bagasi RM200/6 jam sehingga RM800.",
+            "value": "Return International: Lite RM2,000; Plus RM5,000; RM200 satu barang rosak, RM400 satu barang hilang. Domestik RM1,500. Kelewatan bagasi RM200/6 jam sehingga RM800.",
             "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/airasia/tpaa/TPAA_MY_ComprehensivePlan.pdf"
           },
           {
             "label": "Perlindungan COVID-19",
-            "value": "Pelan tunggal: pandemik, epidemik dan Coronavirus COVID-19 dikecualikan, termasuk ketakutan atau kewujudan sebenar penyakit berjangkit. Pelan Tahunan: COVID-19 Bereavement Allowance RM5,000 serta manfaat Trip Cancellation, Compassionate Visit dan Hospital Allowance tertentu bagi kes COVID-19.",
+            "value": "Pelan tunggal: pandemik, epidemik dan Coronavirus COVID-19 dikecualikan, termasuk ketakutan atau kewujudan sebenar penyakit berjangkit. Pelan Tahunan: manfaat Trip Cancellation, Compassionate Visit dan Hospital Allowance tertentu bagi kes COVID-19.",
             "source": "https://www.tuneprotect.com/airasia/wpua/en/ENG_WPUA-One-Way-Domestic-2025.pdf"
           },
           {
@@ -850,7 +845,7 @@
           },
           {
             "label": "Tarikh akhir notis tuntutan",
-            "value": "Notis bertulis secepat mungkin, tidak lewat 30 hari selepas peristiwa; bukti kematian/kerosakan 90 hari. Arahan tuntutan melalui oneclaim.tuneprotect.com.",
+            "value": "Notis bertulis secepat mungkin, tidak lewat 30 hari selepas peristiwa. Arahan tuntutan melalui oneclaim.tuneprotect.com.",
             "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/airasia/tpaa/TPAA_MY_ComprehensivePlan.pdf"
           },
           {
@@ -1001,7 +996,7 @@
       "analysisAsAt": "2026-10-10",
       "analysis": {
         "bestFor": "Travel SafeGuard sesuai untuk pengembara yang mahu membandingkan Travel Shield, Travel Max dan Golden Joy mengikut umur serta aktiviti. Travel Max bawah 65 tahun menyediakan perubatan RM500,000 dan evakuasi RM1,000,000. Golden Joy untuk umur 65-80 tahun mempunyai perubatan RM150,000. Single Trip menerima peserta dari 15 hari hingga 80 tahun dan membenarkan sehingga 185 hari berturut-turut. Annual Cover membenarkan 90 hari setiap trip, dengan kemasukan pertama sehingga umur 64 tahun. Adventurous Activity Cover memperluas kemalangan diri dan perubatan untuk aktiviti tertentu, termasuk scuba sehingga 30m dan rafting sehingga Gred 3. Rawatan susulan di Malaysia termasuk TCM mempunyai subhad dan tempoh maksimum 30 hari.",
-        "tradeoffs": "Evakuasi perlu kelulusan awal melalui MSIG Assist; pengangkutan dari Malaysia ke destinasi asing tidak dibayar. Had perubatan Travel Max bagi umur 65-80 tahun berkurang kepada RM350,000, berbanding RM500,000 bawah 65 tahun. Pembatalan memerlukan polisi dibeli sekurang-kurangnya 7 hari sebelum perjalanan. Manfaat kelewatan RM200 bermula selepas 4 jam berturut-turut, kemudian setiap 6 jam; hanya satu tuntutan antara Seksyen 9/10/11/12/13/21. Perlindungan aktiviti lasak mempunyai sempadan, termasuk pendakian bawah 3,000m dan scuba sehingga 30m. Mountain sickness serta barangan elektronik tertentu dalam perlindungan bagasi dikecualikan. Pengecualian wabak berkaitan amaran Kerajaan Malaysia atau WHO perlu dibaca mengikut keadaan perjalanan. Laporan bertulis tuntutan mesti dihantar dalam 30 hari selepas pulang ke Malaysia.",
+        "tradeoffs": "Evakuasi perlu kelulusan awal melalui MSIG Assist. Had perubatan Travel Max bagi umur 65-80 tahun berkurang kepada RM350,000, berbanding RM500,000 bawah 65 tahun. Pembatalan memerlukan polisi dibeli sekurang-kurangnya 7 hari sebelum perjalanan. Manfaat kelewatan RM200 bermula selepas 4 jam berturut-turut, kemudian setiap 6 jam; hanya satu tuntutan antara Seksyen 9/10/11/12/13/21. Perlindungan aktiviti lasak mempunyai sempadan, termasuk pendakian bawah 3,000m dan scuba sehingga 30m. Mountain sickness serta barangan elektronik tertentu dalam perlindungan bagasi dikecualikan. Pengecualian wabak berkaitan amaran Kerajaan Malaysia atau WHO perlu dibaca mengikut keadaan perjalanan. Laporan bertulis tuntutan mesti dihantar dalam 30 hari selepas pulang ke Malaysia.",
         "siblingSlug": "generali-smarttraveller-enhanced",
         "siblingDifferences": [
           "MSIG Travel Max bawah 65 tahun menyediakan perubatan RM500,000 berbanding Generali Single Trip Standard RM350,000. Evakuasi MSIG Travel Max RM1,000,000; Generali tanpa had.",
@@ -1111,7 +1106,7 @@
           },
           {
             "label": "Bantuan dan pilihan tambahan",
-            "value": "WhatsApp kecemasan luar negara +1-980-499-5888. Pilihan: Alternative Transport Top Up, Cruise Benefit, Golf Benefit dan Pet Benefit dengan penjagaan haiwan sehingga RM1,250.",
+            "value": "WhatsApp kecemasan luar negara +1-980-499-5888. Pilihan: Alternative Transport Top Up, Cruise Benefit, Golf Benefit dan Pet Benefit.",
             "source": "https://www.msig.com.my/products/personal/travel/travel-safeguard/"
           },
           {

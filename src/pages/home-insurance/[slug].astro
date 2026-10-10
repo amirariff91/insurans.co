@@ -29,6 +29,7 @@ const { record } = Astro.props as { record: HomeInsuranceRecord };
 const canonicalUrl = `https://insurans.co/home-insurance/${record.slug}/`;
 const typeLabel = typeLabels[record.type] ?? record.type;
 // Measured built-page gate: max sibling 5-word Jaccard < 0.35 and main words >= 700.
+// Ads stay off where official sources could not be independently fetched for verification (Allianz 403, Generali renamed PDS).
 const adsEnabledSlugs = new Set([
   'berjaya-sompo-houseowner-householder',
   'takaful-malaysia-myhouseowner-householder',
@@ -36,7 +37,6 @@ const adsEnabledSlugs = new Set([
   'bsn-chubb-houseowner',
   'etiqa-hohh',
   'zurich-z-homeprotect',
-  'allianz-smart-home-cover',
 ]);
 const passesUniqueness = adsEnabledSlugs.has(record.slug);
 const siblingRecord = records.find((candidate) => candidate.slug === record.analysis.siblingSlug)!;

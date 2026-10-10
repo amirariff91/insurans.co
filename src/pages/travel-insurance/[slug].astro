@@ -26,13 +26,12 @@ const planName = ({
 } as Record<string, string>)[plan.slug] ?? plan.planName;
 const { analysis } = plan;
 // Built <main> text measured on 2026-10-10: >= 700 words and max sibling Jaccard < 0.35.
+// Ads stay off where official sources could not be independently fetched for verification (Allianz 403, Generali renamed PDS).
 const adsEnabledSlugs = new Set([
   'etiqa-tripcare-360',
   'zurich-z-travel-international',
   'zurich-travel-takaful',
-  'allianz-travel-insurance',
   'tune-protect-travel-airasia',
-  'generali-smarttraveller-enhanced',
   'msig-travel-safeguard',
 ]);
 const passesUniqueness = adsEnabledSlugs.has(plan.slug);

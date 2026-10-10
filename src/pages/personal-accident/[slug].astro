@@ -28,11 +28,11 @@ const canonicalUrl = `https://insurans.co/personal-accident/${record.slug}/`;
 const typeLabel = typeLabels[record.type] ?? record.type;
 const { analysis } = record;
 // Measured on built <main> text, excluding collapsed FAQ answers: >=700 words and Jaccard <0.35.
+// Ads stay off where official sources could not be independently fetched for verification (Allianz 403, Generali renamed PDS).
 const adsEnabledSlugs = new Set([
   'etiqa-buddy-pa-weekend-warrior',
   'tune-protect-pa-easy',
   'tune-protect-pa-shield',
-  'allianz-personal-accident',
 ]);
 const passesUniqueness = adsEnabledSlugs.has(record.slug);
 const siblingRecord = records.find((candidate) => candidate.slug === analysis.siblingSlug)!;
