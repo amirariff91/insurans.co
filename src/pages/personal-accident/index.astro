@@ -6,7 +6,14 @@ import EditorialStamp from '../../components/EditorialStamp.astro';
 import personalAccident from '../../data/personal-accident.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
-const records = personalAccident.records;
+const records = personalAccident.records.map((record) => ({
+  ...record,
+  coversWhat: record.analysis.bestFor,
+  plansAndBenefits: record.analysis.facts.find((fact) => fact.label === 'Kematian akibat kemalangan')!.value,
+  entryAge: record.analysis.facts[0].value,
+  premiumPublished: record.analysis.facts.find((fact) => fact.label.toLowerCase().includes('premium'))?.value ?? null,
+  sources: Array.from(new Set([...record.sources, ...record.analysis.facts.map((fact) => fact.source)])),
+}));
 const typeOrder = ['personal-accident', 'personal-accident-takaful'] as const;
 const typeLabels: Record<string, string> = {
   'personal-accident': 'PA konvensional',
@@ -34,7 +41,7 @@ const sourceLinks = Array.from(new Set(records.flatMap((record) => record.source
 const faqs = [
   {
     q: 'Apa beza PA konvensional dan takaful?',
-    a: 'Kedua-duanya bertujuan memberi perlindungan apabila berlaku kemalangan, tetapi PA konvensional menggunakan polisi insurans manakala PA takaful menggunakan sijil takaful dan struktur dana takaful. Manfaat, pengecualian, caruman atau premium serta syarat tuntutan tetap ikut dokumen produk masing-masing; jangan anggap label sahaja menjadikan terma sama.',
+    a: 'PA konvensional menggunakan polisi insurans. PA takaful menggunakan sijil takaful dan struktur dana takaful. Manfaat, pengecualian, caruman atau premium serta syarat tuntutan mengikut dokumen produk masing-masing.',
   },
   {
     q: 'SOCSO atau PERKESO sudah cover — masih perlu PA?',
@@ -42,7 +49,7 @@ const faqs = [
   },
   {
     q: 'Boleh beli PA untuk keluarga dan anak?',
-    a: 'Boleh atau tidak bergantung pada produk, umur dan definisi insured person dalam PDS. Rekod Tune Protect PA Easy menyatakan umur masuk 18-70 tahun, jadi angka itu tidak boleh dianggap sebagai kelayakan kanak-kanak. Rekod Etiqa menyebut manfaat kanak-kanak, tetapi sumber yang dibaca tidak menetapkan umur kemasukan kanak-kanak. Semak PDS dan sijil untuk setiap ahli keluarga.',
+    a: 'Etiqa Buddy PA Weekend Warrior menerima anak berumur 45 hari hingga 18 tahun, atau hingga 23 jika belajar sepenuh masa. Pasangan perlu berumur 18–65 tahun. PA Shield menerima kemasukan umur 1–60 tahun; pemohon di bawah 18 mesti dicadangkan oleh ibu bapa atau penjaga sah. PA Easy menetapkan umur di atas 18 dan di bawah 70 tahun.',
   },
   {
     q: 'Boleh beli PA online?',
@@ -50,7 +57,7 @@ const faqs = [
   },
   {
     q: 'PA ada waiting period?',
-    a: 'Sumber PDS dan laman produk yang dibaca untuk rekod ini tidak menyatakan satu waiting period PA yang universal. Jangan tukar ketiadaan kenyataan itu menjadi dakwaan “tiada waiting period”. Semak tarikh kuat kuasa, tempoh menunggu jika ada, pengecualian dan syarat notifikasi tuntutan dalam PDS atau wording polisi sebenar.',
+    a: 'Tempoh berkaitan perlindungan berbeza mengikut manfaat. PA Easy bermula pada tarikh bayaran berjaya. Kemudahan kemasukan hospital tanpa tunai PA Shield aktif 7 hari bekerja selepas tarikh mula. Semak tarikh kuat kuasa dan syarat setiap manfaat dalam PDS serta polisi produk yang dipilih.',
   },
   {
     q: 'Apa itu PA?',
@@ -255,11 +262,9 @@ const schema = {
                       )}
                     </dl>
 
-                    {!record.figureVerified && (
-                      <p class="mt-4 border-t border-emas-200 pt-3 text-sm leading-5 text-emas-800">
-                        Nota ketelusan: butiran manfaat, umur masuk dan premium tidak dapat disahkan daripada sumber yang dibaca.
-                      </p>
-                    )}
+                    <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
+                      Analisis dikemas kini pada {record.analysisAsAt}.
+                    </p>
                     <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
                   </a>
                 ))}
@@ -299,7 +304,7 @@ const schema = {
                         <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a>
                       </span>
                     ))}</p>
-                    <p class="mt-1"><strong>Tarikh semakan:</strong> {record.asAt}</p>
+                    <p class="mt-1"><strong>Tarikh analisis:</strong> {record.analysisAsAt}</p>
                   </div>
                 </div>
               );
@@ -356,7 +361,7 @@ const schema = {
           <div class="prose-editorial">
             <h2>Group PA</h2>
             <p>
-              Group PA biasanya datang melalui majikan atau organisasi dan boleh menjadi lapisan tambahan kepada perlindungan peribadi. Minta sijil atau ringkasan manfaat dan semak siapa yang dilindungi, jumlah AD/PPD, waktu serta wilayah perlindungan, aktiviti yang dikecualikan, proses tuntutan dan sama ada cover tamat apabila anda berhenti kerja. Jangan anggap group PA boleh dipindahkan atau mencukupi untuk keluarga tanpa pengesahan bertulis.
+              Group PA biasanya datang melalui majikan atau organisasi dan boleh menjadi lapisan tambahan kepada perlindungan peribadi. Minta sijil atau ringkasan manfaat dan semak siapa yang dilindungi, jumlah AD/PPD, waktu serta wilayah perlindungan, aktiviti yang dikecualikan, proses tuntutan dan sama ada cover tamat apabila anda berhenti kerja. Minta pengesahan bertulis tentang pemindahan polisi dan perlindungan keluarga.
             </p>
           </div>
         </section>
@@ -374,7 +379,7 @@ const schema = {
           <div class="prose-editorial">
             <h2>PA untuk keluarga &amp; anak</h2>
             <p>
-              Jangan salin kelayakan seorang dewasa kepada ahli keluarga lain. Semak umur masuk setiap insured person, sama ada anak atau pasangan perlu sijil berasingan, had manfaat setiap orang, definisi penjaga atau benefisiari dan cara tuntutan. Dalam data ini, manfaat kanak-kanak Etiqa disebut dalam ringkasan pelan tetapi umur kemasukan tidak dinyatakan; Tune PA Easy pula menyatakan 18-70 tahun. Kekosongan ini perlu disemak dalam PDS atau quotation rasmi.
+              Etiqa Buddy PA Weekend Warrior menerima pasangan berumur 18–65 tahun dan anak berumur 45 hari hingga 18 tahun, atau hingga 23 jika belajar sepenuh masa. Had kematian anak ialah RM40,000/50,000/60,000/70,000 mengikut Basic/Good/Better/Best. PA Shield menerima kemasukan umur 1–60 tahun; kanak-kanak di bawah 18 memerlukan ibu bapa atau penjaga sah sebagai pencadang. PA Easy menetapkan umur di atas 18 dan di bawah 70. Semak kelayakan serta had setiap ahli keluarga mengikut produk.
             </p>
           </div>
         </section>
@@ -413,7 +418,7 @@ const schema = {
               </div>
               <div>
                 <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{personalAccident.asAt}</dd>
+                <dd class="font-semibold text-hijau-700">{updatedAt}</dd>
               </div>
               <div>
                 <dt class="text-stone-500">Harga dianggar</dt>

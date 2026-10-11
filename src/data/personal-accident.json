@@ -1,5 +1,5 @@
 {
-  "methodologyNote": "Tarikh bacaan sumber setiap rekod disimpan dalam medan asAt. premiumPublished hanya memaparkan harga atau contoh angka yang diterbitkan oleh sumber; null bermaksud tidak diterbitkan atau tidak dapat disahkan. Tiada harga dianggar, dikira semula atau dipuratakan. Lihat sources[] setiap baris.",
+  "methodologyNote": "asAt mengekalkan tarikh rekod asal. analysisAsAt ialah tarikh kemas kini analisis. Halaman menggunakan analysis untuk kesesuaian, batas polisi, bandingan dan fakta dengan pautan dokumen rasmi. Medan asal dikekalkan untuk sejarah rekod. Harga dipaparkan hanya melalui fakta premium rasmi yang mempunyai sumber sah. Fakta tanpa nilai atau pautan sumber sah digugurkan. Tiada harga dianggar, dikira semula atau dipuratakan.",
   "asAt": "2026-09-28",
   "records": [
     {
@@ -16,7 +16,102 @@
         "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Weekend_Warrior_Insurance.pdf",
         "https://www.etiqa.com.my/personal-accident"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Buddy PA Weekend Warrior sesuai untuk peminat aktiviti rekreasi yang mahu menilai perlindungan berdasarkan jenis sukan yang mereka lakukan. Senarai Etiqa merangkumi marathon, triathlon, selam skuba, ski, terjun bungee dan skydiving, tertakluk syarat serta pengecualian polisi. Dewasa mempunyai pilihan manfaat kematian dan hilang upaya kekal daripada RM50,000 hingga RM250,000. Pasangan dan anak boleh dimasukkan dengan kelayakan umur masing-masing. Manfaat anak menggunakan had berasingan, daripada RM40,000 hingga RM70,000. Pelan ini juga relevan bagi isi rumah yang memerlukan bantuan selepas kecederaan serius. Jururawat pemulihan, peralatan pemulihan dan pengubahsuaian rumah atau kenderaan mempunyai manfaat khusus mengikut pelan.",
+        "tradeoffs": "Had rawatan dewasa agak kecil: pesakit luar RM100–750 dan rawatan dalam hospital RM250–1,500 setiap kemalangan, dengan bilik serta penginapan dikecualikan daripada manfaat tersebut. Elaun hospital terhad kepada 30 hari. Skala hilang upaya menetapkan bayaran 100% atau 50% bagi kecederaan yang disenaraikan; manfaat hilang upaya separa tidak dibayar. Sukan profesional, lumba bermotor, tinju, gusti dan MMA dikecualikan. Alkohol, dadah, penyakit sedia ada dan pekerjaan berisiko turut mempunyai pengecualian. Sambungan tugas pejabat atau luar waktu bertugas perlu dibaca bersama pengecualian pekerjaan. Kadar premium boleh berubah apabila umur beralih kepada 66 tahun. Notifikasi tuntutan perlu dibuat dalam 30 hari. Kejadian di luar Malaysia mempunyai batas perjalanan melebihi 3 bulan berturut-turut.",
+        "siblingSlug": "tune-protect-pa-shield",
+        "siblingDifferences": [
+          "Contoh Etiqa Better untuk seorang dewasa dengan jumlah diinsuranskan RM200,000 ialah RM337.24 setahun termasuk SST dan setem. PA Shield Pelan 3 menawarkan RM300,000 pada premium RM408 setahun bagi Kelas 1&2 tanpa manfaat mingguan, sebelum SST 8% dan setem RM10. Jumlah perlindungan dan asas harga kedua-dua angka berbeza.",
+          "Etiqa membayar elaun hospital RM100–250 sehari sehingga 30 hari setiap kemalangan. PA Shield membayar RM75–250 sehari sehingga 180 hari, dengan pilihan manfaat mingguan sehingga 104 minggu pada premium tambahan.",
+          "Etiqa menyenaraikan skydiving, selam skuba dan terjun bungee untuk rekreasi. PA Shield mengecualikan aktiviti udara dan menghadkan sambungan selam skuba rekreasi kepada 30 meter di Malaysia serta Singapura. Pilihan bergantung pada aktiviti sebenar dan syarat polisi."
+        ],
+        "facts": [
+          {
+            "label": "Umur kemasukan",
+            "value": "Dewasa dan pasangan: 18 hingga 65 tahun, tidak lebih 65 pada Tarikh Mula Polisi. Anak: 45 hari hingga 18 tahun, atau hingga 23 jika belajar sepenuh masa. Polisi boleh diperbaharui sehingga umur 80 dan tamat pada umur 81.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Umur pembaharuan",
+            "value": "Pembaharuan sehingga umur 80 tahun; perlindungan tamat pada umur 81. Kadar premium boleh berubah apabila umur beralih kepada 66 tahun.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Kematian akibat kemalangan",
+            "value": "Seksyen 1, jumlah RM bagi setiap dewasa/anak: Basic 50,000/40,000; Good 100,000/50,000; Better 200,000/60,000; Best 250,000/70,000. Kematian mesti berlaku dalam 12 bulan dari tarikh kemalangan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Hilang upaya kekal",
+            "value": "Seksyen 2, had RM bagi setiap dewasa/anak: Basic 50,000/40,000; Good 100,000/50,000; Better 200,000/60,000; Best 250,000/70,000. Skala 100% meliputi hilang upaya kekal menyeluruh, kehilangan 2 anggota, penglihatan kedua-dua mata atau 1 mata bersama 1 anggota. Skala 50% meliputi kehilangan 1 anggota, 1 mata, pendengaran kedua-dua telinga atau suara. Manfaat hilang upaya separa tidak dibayar. Jumlah maksimum ialah 100% amaun manfaat.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Bayaran balik rawatan",
+            "value": "Had RM setiap kemalangan bagi dewasa/anak, rawatan dalam hospital selain bilik dan penginapan: Basic 250/100; Good 500/150; Better 1,000/200; Best 1,500/250. Rawatan pesakit luar: Basic 100/75; Good 250/100; Better 500/150; Best 750/200. Rawatan tradisional atau alternatif: RM50 setiap lawatan, maksimum RM150 setiap kemalangan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Elaun hospital",
+            "value": "Dibayar bagi setiap 24 jam penuh, maksimum 30 hari setiap kemalangan. Basic RM100 sehari; Good RM150; Better RM200; Best RM250.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Pekerjaan dan sambungan luar waktu bertugas",
+            "value": "Pengecualian semasa bekerja meliputi tentera, pertahanan awam, penguatkuasaan, pemadam kebakaran, keselamatan, krew udara, kapal atau pelantar minyak, penyelam dan nelayan. Turut disenaraikan: perlombongan, pembalakan, kilang gergaji, kayu, kerja bawah tanah, perobohan, letupan, kuari, perancah, kerja luar bangunan melebihi aras bawah tanah serta bahan letupan, gas atau cecair berbahaya. Sambungan Sedentary Work / Off-Duty Cover membenarkan perlindungan bagi tugas pejabat sahaja dan kemalangan luar waktu bertugas atau selepas dihantar pulang ke daratan, mengikut item 11 & 12 pengecualian.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Sukan rekreasi dan batas aktiviti",
+            "value": "Senarai sukan rekreasi meliputi atletik, memanah, badminton, bola keranjang, kriket, bowling, basikal, ekuestrian, lawan pedang, hoki, gimnastik, bola baling, marathon, seni mempertahankan diri selain tinju atau gusti, bola jaring, ragbi, sepak takraw, squash, bola sepak, softball, menembak, paintball, ping-pong, tenis, triathlon, angkat berat, pilates, pickleball dan golf. Aktiviti air: selam skuba, terjun air, jet ski, kayak, kanu, layar, snorkel, renang, parasailing, surfing, rowing, wakeboard, rafting, polo air dan yachting. Sukan musim sejuk: ski, snowboard, bobsleigh dan luncur ais. Aktiviti lain termasuk abseiling, terjun bungee, caving, go-kart, payung terjun atau skydiving, hang-gliding, hiking, pendaratan lintang, mendaki gunung, polo, power boating, rollerblade atau roller hockey dan skateboard. Senarai ini untuk rekreasi sahaja; sukan profesional berbayar, lumba atau ujian laju bermotor, tinju, gusti dan MMA mempunyai pengecualian dalam polisi.",
+            "source": "https://www.etiqa.com.my/pdfs/Etiqa_Buddy_PA_List_Sports_Covered_V2.pdf"
+          },
+          {
+            "label": "Pengecualian polisi",
+            "value": "Perang, pencerobohan, pemberontakan dan keganasan; kecederaan disengajakan sendiri, bunuh diri dan perbuatan haram; kecacatan atau penyakit sedia ada termasuk jangkitan bakteria atau virus walaupun akibat kemalangan; penyakit berjangkit atau ancamannya; sukan profesional, lumba atau ujian laju bermotor, tinju, gusti, MMA dan sukan berbahaya; pengaruh alkohol atau ubat; pekerjaan berisiko yang disenaraikan; memandu tanpa lesen sah. Polisi memberi toleransi bagi lesen tamat tempoh jika pemegangnya tidak dilarang oleh JPJ.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Pemulihan dan manfaat tambahan",
+            "value": "Mengikut Basic/Good/Better/Best: perjalanan dan penginapan 1 ahli keluarga ketika orang diinsuranskan dirawat di wad, RM500/1,000/1,500/2,000; peralatan pemulihan selepas hilang upaya kekal separa, RM300/750/1,000/1,500; pengubahsuaian rumah, kenderaan atau perpindahan selepas hilang upaya kekal menyeluruh, RM1,000/2,000/4,000/4,500. Jururawat pemulihan RM100–400 sehari, maksimum 60 hari setiap kemalangan. Ambulans jalan raya RM500 bagi semua pelan. Pembedahan membina semula muka atau rawatan gigi RM10,000 bagi semua pelan. Cantuman kulit bagi luka bakar sekurang-kurangnya darjah 2: RM10,000 bagi semua pelan. Sambungan pendedahan dan kehilangan membayar manfaat kematian jika mayat tidak ditemui selepas 1 tahun. Tempoh penelitian percuma 15 hari; notifikasi tuntutan dalam 30 hari.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Penduduk dan perjalanan luar negara",
+            "value": "Untuk warganegara Malaysia, pemastautin tetap atau penduduk yang bekerja secara sah di Malaysia, serta pasangan dan anak. Manfaat tidak dibayar bagi kejadian di luar Malaysia jika perjalanan perniagaan atau percutian di luar Malaysia melebihi 3 bulan berturut-turut dalam tempoh polisi tahunan.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Policy_Wording_Weekend_Warrior_Insurance.pdf"
+          },
+          {
+            "label": "Contoh premium rasmi",
+            "value": "PDS bertarikh 01/06/2026: seorang dewasa, Better, jumlah diinsuranskan RM200,000. Premium asas RM403.99 ditolak diskaun 25% sebanyak RM100.99 menjadi RM303.00. Cukai perkhidmatan 8% ialah RM24.24; duti setem RM10.00. Jumlah premium dibayar RM337.24 setahun.",
+            "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Weekend_Warrior_Insurance.pdf"
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Bolehkah pasangan dan anak menyertai Buddy PA Weekend Warrior?",
+            "a": "Ya, pasangan berumur 18–65 tahun dan anak berumur 45 hari hingga 18 tahun boleh dimasukkan. Had anak dilanjutkan hingga 23 tahun jika belajar sepenuh masa. Semak had setiap orang: manfaat kematian dewasa ialah RM50,000–250,000, manakala anak RM40,000–70,000 mengikut pelan."
+          },
+          {
+            "q": "Adakah skydiving dan selam skuba termasuk dalam senarai sukan Etiqa?",
+            "a": "Kedua-duanya disenaraikan untuk aktiviti rekreasi, bersama terjun bungee, ski dan marathon. Sukan profesional berbayar mempunyai pengecualian berasingan. Lumba atau ujian laju bermotor, tinju, gusti dan MMA juga dikecualikan. Padankan aktiviti anda dengan senarai sukan serta pengecualian polisi sebelum memilih perlindungan."
+          },
+          {
+            "q": "Berapa premium contoh bagi pelan Better?",
+            "a": "PDS 01/06/2026 menggunakan seorang dewasa dengan jumlah diinsuranskan RM200,000. Premium asas RM403.99 ditolak diskaun 25% sebanyak RM100.99 menjadi RM303.00. Selepas cukai perkhidmatan RM24.24 dan duti setem RM10.00, jumlah contoh ialah RM337.24 setahun. Angka itu terikat pada ilustrasi tersebut."
+          },
+          {
+            "q": "Bagaimana elaun hospital berbeza daripada bayaran balik rawatan?",
+            "a": "Elaun hospital dibayar bagi setiap 24 jam penuh, sehingga 30 hari setiap kemalangan. Kadarnya RM100–250 sehari mengikut pelan. Bayaran balik rawatan dewasa mempunyai had berasingan: RM250–1,500 bagi rawatan dalam hospital selain bilik dan penginapan, serta RM100–750 bagi pesakit luar."
+          },
+          {
+            "q": "Apakah tempoh yang penting untuk pembaharuan dan tuntutan?",
+            "a": "Polisi boleh diperbaharui sehingga umur 80 dan perlindungan tamat pada umur 81. Kadar boleh berubah apabila umur beralih kepada 66. Tempoh penelitian percuma ialah 15 hari. Tuntutan perlu diberitahu dalam 30 hari. Had perjalanan luar negara ialah 3 bulan berturut-turut bagi keadaan yang dinyatakan polisi."
+          }
+        ]
+      }
     },
     {
       "slug": "tune-protect-pa-easy",
@@ -26,12 +121,92 @@
       "coversWhat": "Kematian akibat kemalangan & PPD, perbelanjaan perubatan kemalangan, elaun hospital, kosmetik, khairat (bereavement)",
       "plansAndBenefits": "AD & PPD sehingga RM50,000; perubatan RM2,000 setiap kemalangan; hospital RM50/hari (max 120 hari, RM6,000); kosmetik RM1,000; khairat RM2,000",
       "entryAge": "18-70 tahun (penduduk Malaysia / permit kerja sah)",
-      "premiumPublished": "RM36.00 setahun (harga rata diterbitkan); boleh beli online",
+      "premiumPublished": "RM36.00 setahun (kasar); RM27.00 selepas rebat dalam talian 25% mengikut ilustrasi PDS; boleh beli online",
       "figureVerified": true,
       "sources": [
         "https://www.tuneprotect.com/my/products/pa-easy/"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Tune Protect PA Easy sesuai untuk pembaca yang mahu satu pakej kemalangan dengan manfaat tetap dan proses pembelian dalam talian. Had kematian akibat kemalangan dan hilang upaya kekal ialah RM50,000. Elaun hospital RM50 sehari boleh membantu perbelanjaan harian ketika kemasukan wad yang layak, sehingga 120 hari penuh setiap kemalangan. Pelan turut menyenaraikan manfaat kosmetik RM1,000 setiap tempoh polisi dan elaun kematian RM2,000. Kelayakan merangkumi penduduk Malaysia serta bukan warganegara dengan permit kerja sah dan alamat tetap Malaysia, atau peserta Malaysia Second Home. Pemohon perlu berumur di atas 18 dan di bawah 70 tahun. Kesesuaian sangat bergantung pada pekerjaan serta aktiviti harian pemohon.",
+        "tradeoffs": "PDS mengecualikan aktiviti motosikal, termasuk perkara yang penting bagi pengguna yang berulang-alik dengan motosikal. Aktiviti sukan amatur, sukan profesional dan seni mempertahankan diri turut berada dalam senarai pengecualian. Aktiviti ketenteraan, udara, kerja pelantar minyak luar pesisir dan penggunaan mesin pertukangan kayu berkuasa mekanikal juga dikecualikan. Had kematian serta hilang upaya kekal kekal pada RM50,000. Pekerja pembinaan, pengawal keselamatan, pemandu lori dan beberapa pekerjaan lain disenaraikan sebagai pekerjaan terkecuali. Perlindungan bermula pada tarikh bayaran berjaya dan tempoh polisi ialah 12 bulan. Notifikasi tuntutan perlu dibuat dalam 14 hari. Pembatalan menggunakan kadar tempoh pendek, tertakluk premium minimum RM10 seperti dinyatakan dalam syarat pembatalan PDS.",
+        "siblingSlug": "tune-protect-pa-shield",
+        "siblingDifferences": [
+          "PA Easy mempunyai satu pakej dengan kematian dan hilang upaya kekal RM50,000. PA Shield mempunyai 5 pelan dengan jumlah RM100,000/200,000/300,000/500,000/1,000,000. Perbezaan ini penting jika anda memerlukan jumlah perlindungan melebihi had tetap PA Easy.",
+          "PA Easy membayar pendapatan hospital RM50 sehari sehingga 120 hari penuh setiap kemalangan, dengan had RM6,000. PA Shield membayar RM75/125/175/200/250 sehari mengikut pelan sehingga 180 hari, serta menyediakan manfaat mingguan pilihan sehingga 104 minggu.",
+          "PA Easy mengecualikan aktiviti motosikal dalam PDS. PA Shield mempunyai sambungan percuma untuk penunggang dan pembonceng bagi tujuan peribadi serta perniagaan, tertakluk lesen sah dan pengecualian perlumbaan. PA Shield juga menetapkan kelayakan kemasukan 1–60 tahun, berbanding PA Easy di atas 18 dan di bawah 70."
+        ],
+        "facts": [
+          {
+            "label": "Umur dan status pemohon",
+            "value": "Berumur di atas 18 dan di bawah 70 tahun. Untuk penduduk Malaysia dan bukan warganegara dengan permit kerja sah serta alamat tetap Malaysia, atau di bawah skim Malaysia Second Home.",
+            "source": "https://www.tuneprotect.com/my/products/pa-easy/"
+          },
+          {
+            "label": "Kematian akibat kemalangan",
+            "value": "RM50,000 bagi kematian akibat kemalangan. Manfaat hilang upaya kekal juga RM50,000.",
+            "source": "https://www.tuneprotect.com/my/products/pa-easy/"
+          },
+          {
+            "label": "Hilang upaya kekal",
+            "value": "Had RM50,000. PDS meminta pemegang polisi merujuk skala manfaat kematian dan hilang upaya dalam polisi; bayaran bagi kecederaan tertentu mengikuti skala tersebut.",
+            "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf"
+          },
+          {
+            "label": "Pendapatan hospital",
+            "value": "RM50 sehari, maksimum 120 hari penuh setiap kemalangan, sehingga RM6,000.",
+            "source": "https://www.tuneprotect.com/my/products/pa-easy/"
+          },
+          {
+            "label": "Pekerjaan terkecuali",
+            "value": "Juruterbang helikopter atau penerbangan sewaan, joki, pelumba atau jurulatih kuda, pengendali atau pembuat bahan letupan, pekerja pembinaan, pengecat, pengendali kren, ahli bomba, polis, tentera udara, pengawal keselamatan, pegawai perhubungan tetamu (GRO), pengawal kelab, pemandu lumba profesional, pelagak ngeri, penyelam skuba, pemandu lori, pemandu tangki bahan api, pendawai atau juruelektrik melebihi 500V, pekerja minyak, gas atau petroleum luar pesisir, krew udara, krew kapal, pekerja bawah tanah, nelayan, tentera dan penghibur profesional.",
+            "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf"
+          },
+          {
+            "label": "Sukan dan aktiviti terkecuali",
+            "value": "Aktiviti sukan amatur, sukan profesional, seni mempertahankan diri, aktiviti ketenteraan dan udara serta kerja pelantar minyak luar pesisir disenaraikan sebagai pengecualian. Penggunaan mesin pertukangan kayu berkuasa mekanikal juga dikecualikan.",
+            "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf"
+          },
+          {
+            "label": "Pengecualian bernama",
+            "value": "Risiko berkaitan perang; kecederaan disengajakan sendiri dan bunuh diri; aktiviti motosikal; perbuatan haram; aktiviti sukan amatur, sukan profesional, seni mempertahankan diri, ketenteraan, udara dan kerja pelantar minyak luar pesisir; penggunaan mesin pertukangan kayu berkuasa mekanikal.",
+            "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf"
+          },
+          {
+            "label": "Manfaat tambahan dan urusan polisi",
+            "value": "Perbelanjaan perubatan RM2,000 setiap kejadian. Pendapatan hospital RM50 sehari sehingga 120 hari atau RM6,000. Pembedahan kosmetik sehingga RM1,000 setiap tempoh polisi. Elaun kematian RM2,000. Diskaun langsung 25% untuk pembelian dalam talian. Tuntutan perlu diberitahu dalam 14 hari. Bayaran balik pembatalan mengikut kadar tempoh pendek, dengan premium minimum RM10.",
+            "source": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf"
+          },
+          {
+            "label": "Tarikh mula dan tempoh polisi",
+            "value": "Perlindungan bermula pada tarikh bayaran berjaya. Tempoh polisi 12 bulan dan pembaharuan dibuat setiap tahun. Kelayakan penduduk menggunakan syarat Malaysia, permit kerja sah atau skim Malaysia Second Home.",
+            "source": "https://www.tuneprotect.com/my/products/pa-easy/"
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Adakah PA Easy melindungi perjalanan dengan motosikal?",
+            "a": "PDS menyenaraikan aktiviti motosikal sebagai pengecualian. Ini perkara utama bagi penunggang yang menggunakan motosikal untuk perjalanan harian. PA Shield mempunyai sambungan motosikal dengan syarat tersendiri. Baca dokumen produk yang anda pilih supaya manfaat motosikal pelan lain tidak dianggap turut terpakai kepada PA Easy."
+          },
+          {
+            "q": "Bolehkah saya menggunakan PA Easy untuk sukan amatur?",
+            "a": "Aktiviti sukan amatur disenaraikan sebagai pengecualian dalam PDS, bersama sukan profesional dan seni mempertahankan diri. Aktiviti ketenteraan serta udara turut dikecualikan. Pelan yang menyenaraikan perlindungan sukan rekreasi mempunyai skop berbeza. Semak aktiviti khusus anda sebelum bergantung pada PA Easy ketika bersukan."
+          },
+          {
+            "q": "Siapa yang memenuhi syarat umur PA Easy?",
+            "a": "Halaman produk menetapkan umur di atas 18 dan di bawah 70 tahun. Kelayakan turut meliputi bukan warganegara dengan permit kerja sah dan alamat tetap Malaysia, atau peserta Malaysia Second Home. Pekerjaan mempunyai senarai pengecualian sendiri, termasuk pembinaan, pengawal keselamatan, pemandu lori dan krew kapal."
+          },
+          {
+            "q": "Berapakah bantuan tunai semasa berada di hospital?",
+            "a": "Elaun hospital ialah RM50 sehari bagi hari penuh yang layak, sehingga 120 hari penuh setiap kemalangan dan maksimum RM6,000. Pembedahan kosmetik mempunyai had berasingan sehingga RM1,000 setiap tempoh polisi. Elaun kematian ialah RM2,000. Had ini perlu dibaca mengikut manfaat masing-masing."
+          },
+          {
+            "q": "Bilakah PA Easy bermula dan bila tuntutan perlu diberitahu?",
+            "a": "Perlindungan bermula pada tarikh bayaran berjaya. Polisi berjalan selama 12 bulan dan diperbaharui setiap tahun. PDS menetapkan notifikasi tuntutan dalam 14 hari. Jika polisi dibatalkan, bayaran balik menggunakan kadar tempoh pendek dengan premium minimum RM10, mengikut syarat pembatalan yang dinyatakan."
+          }
+        ]
+      }
     },
     {
       "slug": "tune-protect-pa-shield",
@@ -47,7 +222,112 @@
         "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/Tune_Protect_PA_Shield_Brochure.pdf",
         "https://www.tuneprotect.com/my/products/pa-shield/"
       ],
-      "asAt": "2026-09-12"
+      "asAt": "2026-09-12",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "PA Shield sesuai untuk penunggang motosikal berlesen yang mahu perlindungan kemalangan dengan jumlah lebih tinggi dan manfaat keluarga yang terperinci. Sambungan motosikal merangkumi penunggang serta pembonceng bagi tujuan peribadi dan perniagaan, tertakluk syarat polisi. Lima pelan menawarkan kematian dan hilang upaya kekal RM100,000 hingga RM1,000,000. Pekerjaan Kelas 1, 2 dan 3 boleh dipertimbangkan, dengan pengecualian pekerjaan tertentu. Pendapatan hospital termasuk dalam manfaat teras. Pemohon yang memerlukan pampasan mingguan boleh memilih sambungan berpremium tambahan jika kelas pekerjaan dan pelan membenarkannya. Dana sokongan ibu bapa tersedia pada Pelan 3–5. Manfaat perubatan turut meliputi penghospitalan penyakit tertentu seperti denggi dan HFMD.",
+        "tradeoffs": "Premium jadual brosur tidak termasuk SST 8% dan duti setem RM10. Manfaat mingguan memerlukan premium tambahan serta tidak tersedia bagi pekerjaan Kelas 3 pada Pelan 4–5. Liabiliti peribadi terhad kepada Malaysia. Sambungan selam skuba rekreasi hanya untuk Malaysia dan Singapura, sehingga 30 meter. Sukan profesional, seni mempertahankan diri, tinju, aktiviti udara, perlumbaan dan mendaki gunung menggunakan tali mempunyai pengecualian. Lesen sah diperlukan bagi perlindungan motosikal. Kemasukan hospital tanpa tunai aktif 7 hari bekerja selepas tarikh mula. Pendapatan hospital memerlukan kemasukan melebihi 12 jam dan rawatan dalam 21 hari dari kemalangan. Peluasan perubatan bagi denggi atau HFMD tidak menjadikan penyakit itu pencetus pendapatan hospital.",
+        "siblingSlug": "tune-protect-pa-easy",
+        "siblingDifferences": [
+          "PA Shield mempunyai 5 pelan dengan kematian dan hilang upaya kekal RM100,000–1,000,000. PA Easy menawarkan satu pakej RM50,000. Bonus pembaharuan PA Shield menambah 10% setahun sehingga maksimum 150% bagi manfaat kematian dan hilang upaya kekal.",
+          "Pendapatan hospital PA Shield ialah RM75–250 sehari sehingga 180 hari setiap kemalangan. PA Easy menetapkan RM50 sehari sehingga 120 hari penuh, dengan had RM6,000. PA Shield turut menawarkan manfaat mingguan pilihan sehingga 104 minggu, tertakluk kelas pekerjaan dan premium tambahan.",
+          "PA Shield menerima kemasukan umur 1–60 tahun dan pembaharuan sehingga 75. PA Easy menetapkan umur di atas 18 dan di bawah 70. Sambungan motosikal percuma PA Shield meliputi penunggang atau pembonceng yang memenuhi syarat, sedangkan PDS PA Easy mengecualikan aktiviti motosikal."
+        ],
+        "facts": [
+          {
+            "label": "Umur dan kelayakan kemasukan",
+            "value": "Umur 1–60 tahun bagi warganegara Malaysia, pemastautin tetap atau ekspatriat dengan permit kerja sah. Pelajar dengan permit pelajar diterima dalam PDS. Kanak-kanak di bawah 18 tahun mesti dicadangkan oleh sekurang-kurangnya seorang ibu bapa atau penjaga sah.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/Tune_Protect_PA_Shield_Brochure.pdf"
+          },
+          {
+            "label": "Umur pembaharuan",
+            "value": "Pembaharuan sehingga 75 tahun. Perlindungan tamat pada akhir tahun polisi ulang tahun ke-75; polisi tidak boleh diperbaharui apabila orang diinsuranskan mencapai umur 75.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Kematian akibat kemalangan",
+            "value": "Pelan 1–5: RM100,000/200,000/300,000/500,000/1,000,000, atau 100% jumlah pokok diinsuranskan. Kematian mesti berlaku dalam 12 bulan. Bayaran hilang upaya kekal yang telah dibuat ditolak daripada manfaat kematian. Bonus pembaharuan menambah 10% setahun sehingga maksimum 150%.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Skala hilang upaya kekal",
+            "value": "Had Pelan 1–5 sama dengan kematian: RM100,000–1,000,000. Skala 100% meliputi kehilangan dua anggota, kedua-dua tangan atau semua jari bersama ibu jari, penglihatan kedua-dua mata, hilang upaya kekal menyeluruh, lengan pada bahu/siku/pergelangan, kaki pada pinggul/lutut/bawah lutut serta seluruh mata atau semua penglihatan satu mata. Pendengaran kedua-dua telinga: 75%. Penglihatan kecuali persepsi cahaya, kanta satu mata, empat jari bersama ibu jari satu tangan atau pertuturan: 50%. Empat jari: 40%. Ibu jari 25%/10%; telunjuk 10%/8%/4%; jari tengah 6%/4%/2%; jari manis 5%/4%/2%; jari kelengkeng 4%/3%/2%; metakarpus 3%/2%. Semua jari kaki 15%; ibu jari kaki dua ruas 5%, satu ruas 2%; jari kaki lain 1% setiap satu. Pemendekan tangan 2.5%/5%/12.5%; kaki 5%/10%/25%. Kecederaan mesti berlaku dalam 12 bulan; agregat maksimum 100% setiap kemalangan. Koma sekurang-kurangnya 1 tahun akibat kemalangan membayar 100% jumlah pokok diinsuranskan.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Perubatan dan subhad",
+            "value": "Pelan 1–5: RM5,000/6,500/7,500/8,500/12,000 setiap kemalangan. Rawatan mesti dalam 12 bulan. Subhad adalah sebahagian had perubatan: rawatan tradisional RM100 setiap lawatan, maksimum RM1,000 setiap kemalangan; alat ortopedik sehingga RM2,000; laporan perubatan, pakar atau bedah siasat sehingga RM3,000; ambulans sehingga RM1,000 setiap kemalangan. Manfaat dilanjutkan kepada penghospitalan denggi, malaria, JE, Zika dan HFMD. Kemasukan hospital tanpa tunai mengikut had perubatan, aktif 7 hari bekerja selepas tarikh mula.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Pendapatan hospital dan manfaat mingguan",
+            "value": "Pendapatan hospital teras Pelan 1–5: RM75/125/175/200/250 sehari, maksimum 180 hari setiap kemalangan. Kemasukan mesti melebihi 12 jam dan rawatan dalam 21 hari dari kemalangan; keracunan makanan dan penyakit seperti denggi tidak termasuk pencetusnya. Manfaat mingguan pilihan berpremium tambahan bagi Kelas 1&2: RM100/150/200/300/500 seminggu. Kelas 3: RM100/150/200 bagi Pelan 1–3 sahaja. Maksimum 104 minggu setiap kemalangan, dengan hilang upaya berterusan bermula dalam 21 hari.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Elaun khairat kematian",
+            "value": "RM5,000 sekali gus bagi kematian akibat kemalangan, atau kematian dalam 2 tahun akibat pemindahan darah, denggi, malaria, JE atau HFMD. Manfaat ini dinamakan Bereavement Allowance; tiada baris perbelanjaan pengebumian berasingan.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Kelas pekerjaan dan pekerjaan terkecuali",
+            "value": "Pekerjaan Kelas 1, 2 dan 3 sahaja. Pengecualian merangkumi juruterbang helikopter atau penerbangan sewaan dan krew udara; kapal laut atau limbungan; joki, pelumba atau jurulatih kuda; nelayan; penyelam, pemandu lumba atau penghibur profesional; pelabuhan dan kuari; sukan profesional bergaji; tentera, polis, penjara, bomba dan pengawal peribadi; perlombongan, asbestos dan terowong; pengendali haiwan liar; kerja bawah air; sarkas, pelagak ngeri dan pelakon; bahan letupan atau toksik; dandang atau bekas tekanan; pelantar minyak luar pesisir, loji kuasa, nuklear dan persekitaran berbahaya; kerja pada ketinggian melebihi 30 kaki, kira-kira 9 meter; industri arang batu, tembakau dan senjata. Manfaat mingguan Kelas 3 tidak tersedia pada Pelan 4–5.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/Tune_Protect_PA_Shield_Brochure.pdf"
+          },
+          {
+            "label": "Perlindungan motosikal",
+            "value": "Sambungan percuma bagi penunggang atau pembonceng untuk tujuan peribadi dan perniagaan. Perlumbaan, pace-making, ujian kebolehpercayaan dan ujian kelajuan dikecualikan. Penunggang mesti berlesen dan layak memegang lesen sah di bawah Akta Pengangkutan Jalan 1987.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Sukan amatur dan had selam skuba",
+            "value": "Sambungan sukan amatur termasuk memburu, mendaki gunung, polo dan bungee, tertakluk pengecualian. Sukan profesional, seni mempertahankan diri, tinju, aktiviti ketenteraan dan udara serta kerja pelantar minyak luar pesisir dikecualikan. Perlumbaan selain lari kaki, pace-making, ujian kelajuan atau ketahanan, mendaki gunung dengan tali atau alat mekanikal serta aktiviti bawah air melebihi 30 meter turut dikecualikan. Selam skuba rekreasi sehingga 30 meter diliputi di Malaysia dan Singapura.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Pengecualian polisi",
+            "value": "Perang, pemberontakan, perebutan kuasa, kuarantin dan risiko atom atau radioaktif; kecederaan disengajakan sendiri, bunuh diri, kegilaan dan bahaya tidak perlu; jangkitan bakteria selain jangkitan luka kemalangan yang dibenarkan, virus, parasit, penyakit serta keadaan fizikal atau mental sedia ada; kehamilan, kelahiran, keguguran dan pengguguran tertakluk pengecualian khusus bagi kemalangan; penyakit kelamin dan HIV/AIDS; kemalangan kenderaan tanpa lesen sah; perlumbaan selain lari kaki; mendaki dengan tali; aktiviti bawah air melebihi 30 meter; pembunuhan atau serangan yang dicetuskan; sukan profesional, seni mempertahankan diri, tinju, aktiviti ketenteraan, udara dan pelantar minyak; penerbangan sebagai kru atau penerbangan bukan penumpang berjadual; mesin kayu berkuasa mekanikal; perbuatan haram; radiasi nuklear; penyalahgunaan dadah; keganasan nuklear, kimia atau biologi; sukan berbahaya.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Manfaat keluarga dan sambungan tambahan",
+            "value": "Bonus pembaharuan kematian dan hilang upaya kekal +10% setahun sehingga maksimum 150%. Pembedahan gigi atau kosmetik sehingga RM3,000. Jangkitan HIV selepas transfusi di hospital kerajaan Malaysia dalam 2 tahun: 10% jumlah pokok diinsuranskan. Suplemen selepas penghospitalan RM500 setiap kemalangan, dibeli dalam 30 hari. Khairat RM5,000. Dana sokongan ibu bapa: Pelan 3 RM10,000; Pelan 4 RM20,000; Pelan 5 sehingga RM40,000; tiada pada Pelan 1–2. Penghantaran balik RM5,000 dan perjalanan keluarga RM5,000 bagi luar negara. Ragut atau samun RM1,000 setiap kemalangan, maksimum 2 tuntutan setahun dengan laporan polis dalam 24 jam. Penculikan: perbelanjaan RM5,000 dan ganjaran RM25,000. Liabiliti peribadi sehingga RM1,000,000 di Malaysia. Koma sekurang-kurangnya 1 tahun akibat kemalangan: 100% jumlah pokok. Sambungan percuma termasuk motosikal, rampasan kapal atau pesawat, mogok atau rusuhan, keracunan makanan atau minuman, serangan tanpa provokasi, sukan amatur, gigitan haiwan, lemas atau hampir lemas, keganasan selain nuklear/kimia/biologi, selam skuba sehingga 30 meter serta sesak nafas akibat asap, wasap atau gas.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Wilayah perlindungan",
+            "value": "Seluruh dunia, 24 jam sehari, kecuali manfaat dengan had khusus. Liabiliti peribadi hanya dalam Malaysia. Kemasukan hospital tanpa tunai dan bayaran ambulans di Malaysia. Selam skuba hanya di Malaysia dan Singapura. Semua manfaat dibayar dalam Ringgit Malaysia.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PW_TuneProtect_PA_Shield.pdf"
+          },
+          {
+            "label": "Contoh dan jadual premium rasmi",
+            "value": "PDS 1/1/2026: Pelan 1, jumlah pokok RM100,000, individu 30 tahun, pekerja pejabat Kelas 1, dengan manfaat mingguan. Premium standard RM188 ditambah perlindungan RM40 menjadi RM228, sebelum SST dan setem. Duti setem RM10; komisen 25% atau RM57; SST 8% atau RM18.24. Jumlah rasmi RM256.24 setahun termasuk SST dan setem. Brosur Kelas 1&2 tanpa manfaat mingguan, Pelan 1–5: RM188/308/408/668/1,238. Dengan manfaat mingguan: RM228/368/488/788/1,438. Jadual brosur tidak termasuk SST 8% dan setem RM10.",
+            "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_PA_Shield.pdf"
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Adakah PA Shield sesuai untuk penunggang dan pembonceng motosikal?",
+            "a": "Polisi mempunyai sambungan motosikal percuma untuk penunggang dan pembonceng bagi tujuan peribadi serta perniagaan. Penunggang perlu mempunyai lesen sah dan layak memegangnya di bawah Akta Pengangkutan Jalan 1987. Perlumbaan, pace-making, ujian kebolehpercayaan dan ujian kelajuan tetap dikecualikan daripada sambungan tersebut."
+          },
+          {
+            "q": "Adakah manfaat mingguan termasuk dalam premium asas?",
+            "a": "Manfaat mingguan ialah pilihan berpremium tambahan. Kelas 1&2 mempunyai kadar RM100/150/200/300/500 seminggu mengikut Pelan 1–5. Kelas 3 hanya mempunyai RM100/150/200 bagi Pelan 1–3. Tempoh maksimum ialah 104 minggu setiap kemalangan, dengan hilang upaya berterusan bermula dalam 21 hari."
+          },
+          {
+            "q": "Adakah denggi mencetuskan pendapatan hospital PA Shield?",
+            "a": "Peluasan perbelanjaan perubatan meliputi penghospitalan denggi, malaria, JE, Zika dan HFMD. Pendapatan hospital mempunyai pencetus kemalangan tersendiri dan tidak merangkumi denggi. Manfaat tersebut memerlukan kemasukan melebihi 12 jam serta rawatan dalam 21 hari dari kemalangan. Asingkan kedua-dua manfaat ketika menilai tuntutan."
+          },
+          {
+            "q": "Bilakah kemasukan hospital tanpa tunai boleh digunakan?",
+            "a": "Kemudahan ini aktif 7 hari bekerja selepas tarikh mula dan tertakluk had perbelanjaan perubatan pelan. Had Pelan 1–5 ialah RM5,000/6,500/7,500/8,500/12,000 setiap kemalangan. Kemasukan tanpa tunai dan bayaran ambulans mempunyai batas Malaysia, walaupun had wilayah umum polisi ialah seluruh dunia."
+          },
+          {
+            "q": "Berapakah jumlah dalam contoh premium rasmi PA Shield?",
+            "a": "PDS 1/1/2026 menggunakan individu 30 tahun, pekerja pejabat Kelas 1, Pelan 1 dengan jumlah pokok RM100,000 dan manfaat mingguan. Premium RM228 ditambah SST RM18.24 serta setem RM10 menghasilkan jumlah rasmi RM256.24 setahun. Jadual tanpa manfaat mingguan mempunyai asas premium yang berbeza."
+          }
+        ]
+      }
     },
     {
       "slug": "allianz-personal-accident",
@@ -63,7 +343,112 @@
         "https://www.allianz.com.my/personal/life-health-and-savings/personal-accident/personal-accident.html",
         "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/PA-flyer_ENG.pdf"
       ],
-      "asAt": "2026-09-28"
+      "asAt": "2026-09-28",
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Allianz Personal Accident Individual PA sesuai sebagai tambahan manfaat kematian dan hilang upaya kekal dengan jumlah perlindungan yang kecil. Lima pelan menetapkan jumlah pokok RM10,000 hingga RM50,000. Brosur turut membuka permohonan kepada orang dengan kekurangan keupayaan tertentu yang mampu melakukan sekurang-kurangnya 3 daripada 6 aktiviti harian. Kelayakan masih tertakluk pengunderaitan perubatan standard. Pembaca yang memerlukan rawatan atau pampasan hilang upaya sementara perlu memilih sambungan berpremium tambahan. Skala hilang upaya kekal merangkumi kecederaan anggota, penglihatan, pendengaran dan pertuturan pada peratusan berbeza. Perincian skala itu relevan bagi pemohon yang mahu memahami bayaran kecederaan tertentu sebelum memilih jumlah pokok.",
+        "tradeoffs": "Jumlah pokok tertinggi ialah RM50,000. Perbelanjaan perubatan dan hilang upaya sementara merupakan pilihan dengan premium tambahan. Had perubatan pilihan hanya RM200–1,000 setiap kemalangan. Brosur menyatakan umur 3–70 tahun, sedangkan PDS menyatakan 16–65; pengesahan kelayakan semasa dengan Allianz penting sebelum pendaftaran. Polisi mengecualikan sukan profesional, seni mempertahankan diri, tinju, aktiviti udara, selaman melebihi 50 meter dan mendaki gunung menggunakan tali. Pekerjaan seperti polis, tentera, krew pesawat dan pekerja pelantar minyak turut dikecualikan. Pembaharuan mempunyai batas umur 70. Bagi rawatan pilihan, belanja pertama mesti ditanggung dalam 26 minggu dan rawatan dalam 2 tahun selepas kemalangan. Menetap di luar Malaysia, Singapura dan Brunei melebihi 90 hari mengehadkan manfaat kepada kematian serta hilang upaya kekal.",
+        "siblingSlug": "tune-protect-pa-easy",
+        "siblingDifferences": [
+          "Allianz Individual PA mempunyai 5 pelan dengan jumlah kematian dan hilang upaya kekal RM10,000/20,000/30,000/40,000/50,000. PA Easy menggunakan satu pakej RM50,000. Allianz membolehkan pemilihan jumlah lebih kecil, manakala had tetap PA Easy menyamai pelan tertinggi Allianz.",
+          "Allianz mempunyai rawatan pilihan berpremium tambahan, dengan had RM200/400/600/800/1,000 mengikut pelan. PA Easy menyenaraikan perbelanjaan perubatan RM2,000 setiap kejadian dalam manfaatnya. Status manfaat pilihan Allianz perlu diambil kira ketika membandingkan pakej.",
+          "Allianz tidak mempunyai pendapatan hospital harian dalam pelan asas. PA Easy menetapkan RM50 sehari sehingga 120 hari penuh setiap kemalangan, dengan had RM6,000. Allianz menawarkan hilang upaya sementara pilihan sehingga 104 minggu, tertakluk maksimum 75% pendapatan mingguan purata dan jadual polisi."
+        ],
+        "facts": [
+          {
+            "label": "Kelayakan dan percanggahan umur",
+            "value": "Brosur AZ06/24 dan laman produk: warganegara Malaysia atau pemastautin tetap yang menetap di Malaysia, umur 3–70 tahun dan mampu melakukan sekurang-kurangnya 3 daripada 6 aktiviti harian, termasuk mobiliti, mandi, makan, berpakaian dan perkumuhan. Pengunderaitan perubatan standard terpakai. PDS sah 01/06/2024 menyatakan umur 16–65 tahun. Kedua-dua had umur rasmi bercanggah; sahkan kelayakan semasa pendaftaran.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PA-incPWD_Brochure_2406.pdf"
+          },
+          {
+            "label": "Umur pembaharuan",
+            "value": "Had umur 70 tahun. PDS menyatakan pembaharuan sehingga 70. Syarat 8 dan 9(c) polisi menetapkan polisi tidak boleh diperbaharui atau luput apabila orang diinsuranskan mencapai umur 70.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Kematian akibat kemalangan",
+            "value": "Pelan 1–5: RM10,000/20,000/30,000/40,000/50,000, bersamaan 100% jumlah pokok. Kematian mesti berlaku dalam 12 bulan kalendar selepas kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PA-incPWD_Brochure_2406.pdf"
+          },
+          {
+            "label": "Skala hilang upaya kekal",
+            "value": "Jumlah pokok sama dengan kematian, RM10,000–50,000 mengikut pelan. Skala dalam 12 bulan: 100% bagi kehilangan dua anggota, kedua-dua tangan atau semua jari bersama ibu jari, penglihatan kedua-dua mata, lumpuh sepenuhnya, terlantar kekal di katil, hilang upaya kekal menyeluruh, lengan pada bahu/siku/antara siku dan pergelangan/pergelangan, kaki pada pinggul/antara lutut dan pergelangan/pergelangan, seluruh mata atau semua penglihatan satu mata serta kehilangan pendengaran kedua-dua telinga bersama pertuturan. Pendengaran kedua-dua telinga sahaja 75%. Penglihatan kecuali persepsi cahaya, empat jari bersama ibu jari satu tangan atau pertuturan: 50%. Empat jari 40%; ibu jari 30%/15%; telunjuk 15%/10%/5%; jari tengah 8%/5%/3%; jari manis 6%/5%/3%; jari kelengkeng 5%/4%/3%; metakarpus 4%/3%. Semua jari kaki 20%; ibu jari kaki dua ruas 8%, satu ruas 3%; jari kaki lain 2% setiap satu. Pemendekan tangan 2.5%/5%/12.5%; kaki 5%/10%/25%. Agregat maksimum 100% setiap kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Rawatan perubatan pilihan",
+            "value": "Manfaat pilihan dengan premium tambahan. Had Pelan 1–5: RM200/400/600/800/1,000 setiap kemalangan. Rawatan perubatan atau pembedahan oleh pengamal perubatan berkelayakan mesti dalam 2 tahun selepas kemalangan. Belanja pertama mesti ditanggung dalam 26 minggu dari tarikh kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PA-incPWD_Brochure_2406.pdf"
+          },
+          {
+            "label": "Hilang upaya sementara pilihan",
+            "value": "Pelan asas tidak mempunyai pendapatan hospital harian. Hilang upaya sementara menyeluruh C1 dan sebahagian C2 ialah pilihan berpremium tambahan. Bayaran mingguan mengikut jadual polisi, maksimum 75% pendapatan mingguan purata. Gabungan C1 dan C2 tidak melebihi 104 minggu setiap kecederaan. Polisi menetapkan syarat kehilangan dalam 20 hari dari tarikh kemalangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Khairat dan pengebumian",
+            "value": "Brosur, PDS dan polisi tidak menyenaraikan manfaat khairat atau pengebumian. Manfaat asas ialah kematian dan hilang upaya kekal; rawatan serta hilang upaya sementara ialah pilihan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PA-incPWD_Brochure_2406.pdf"
+          },
+          {
+            "label": "Pekerjaan terkecuali",
+            "value": "Pengecualian 14 menyenaraikan 23 kategori: polis, tentera atau penguatkuasaan undang-undang; penguji pesawat, juruterbang atau kru; penyelam; pemandu lumba; joki; sukan profesional; perlombongan bawah tanah atau terowong; ahli bomba; pelaut atau nelayan laut; wartawan perang; pekerja pelantar minyak; tukang menara; pemunggah kapal; perobohan bangunan; perkhidmatan ambulans; gergaji kayu, pembalakan, pemandu lori balak atau winch; mesin kayu berkuasa mekanikal; bahan letupan; kuari; kerja manual landasan keretapi; pelatih binatang; pengawal keselamatan bersenjata; pembersihan bangunan melebihi 9 meter. PDS mengarahkan pemohon merujuk pekerjaan rujukan dalam Borang Cadangan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Lesen memandu",
+            "value": "Pengecualian 13 meliputi menunggang atau memandu tanpa lesen memandu sah. Dokumen Individual PA tidak menyenaraikan sambungan motosikal khusus.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Sukan dan aktiviti terkecuali",
+            "value": "Pengecualian 9–11: sukan profesional; seni mempertahankan diri atau tinju; aktiviti udara termasuk payung terjun dan hang-gliding; aktiviti bawah air melebihi 50 meter; mendaki gunung dengan tali atau alat panduan mekanikal; perlumbaan selain lari kaki, pace-making serta ujian kelajuan atau ketahanan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Pengecualian polisi",
+            "value": "Perang, serangan musuh asing, perang saudara, pemberontakan, revolusi, insurjensi, dahagi dan perebutan kuasa; kegilaan, bunuh diri atau percubaan serta kecederaan disengajakan sendiri; penyakit, jangkitan, parasit dan HIV/AIDS; mabuk akibat alkohol atau dadah; kelahiran, keguguran, kehamilan atau komplikasi kecuali semata-mata dan secara langsung akibat kemalangan; pembunuhan atau serangan yang dicetuskan; penerbangan sebagai kru selain pengecualian penumpang membayar tambang dalam pesawat berlesen; perbuatan haram; sukan profesional; seni mempertahankan diri, tinju dan aktiviti berisiko yang disenaraikan; perlumbaan selain lari kaki; radiasi atau pencemaran radioaktif dan senjata nuklear; menunggang atau memandu tanpa lesen sah; 23 kategori pekerjaan berisiko.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Ciri kelayakan dan sambungan",
+            "value": "Brosur PA termasuk bagi orang dengan kekurangan keupayaan tertentu menetapkan kemampuan sekurang-kurangnya 3 daripada 6 aktiviti harian. Sambungan pilihan berpremium tambahan meliputi hilang upaya sementara menyeluruh atau sebahagian serta perbelanjaan perubatan. Rawatan kemalangan sehingga 2 tahun dengan belanja pertama dalam 26 minggu. Skala hilang upaya kekal merangkumi bayaran 100% bagi lumpuh sepenuhnya, terlantar kekal di katil serta kehilangan pendengaran kedua-dua telinga bersama pertuturan.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PA-incPWD_Brochure_2406.pdf"
+          },
+          {
+            "label": "Menetap dan rawatan luar negara",
+            "value": "Syarat 5: jika menetap di luar Malaysia, Singapura dan Brunei melebihi 90 hari berturut-turut, hanya kematian dan hilang upaya kekal dibayar. Syarat 10: rawatan perubatan di luar Malaysia dibayar dalam Ringgit Malaysia mengikut kadar tukaran.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PersonalAccidentPolicyWording.pdf"
+          },
+          {
+            "label": "Premium rasmi dan caj",
+            "value": "Brosur AZ06/24: Pelan 1–5 RM10.00/20.00/30.00/40.00/50.00 setahun, tertakluk cukai perkhidmatan. PDS AZ0624 menyenaraikan komisen 25% daripada premium, duti setem RM10 dan cukai perkhidmatan 8%. Kelayakan dan pengunderaitan perubatan standard tetap terpakai.",
+            "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PDS_PersonalAccident_ENG_AZ0624.pdf"
+          }
+        ],
+        "faqs": [
+          {
+            "q": "Apakah had umur Allianz Individual PA?",
+            "a": "Brosur AZ06/24 dan laman produk menyatakan 3–70 tahun, manakala PDS sah 01/06/2024 menyatakan 16–65 tahun. Percanggahan dokumen ini memerlukan pengesahan kelayakan semasa dengan Allianz. Pemohon juga perlu memenuhi syarat kewarganegaraan atau pemastautin tetap, tempat tinggal, aktiviti harian dan pengunderaitan perubatan standard."
+          },
+          {
+            "q": "Adakah manfaat rawatan termasuk dalam pelan asas?",
+            "a": "Perbelanjaan perubatan ialah manfaat pilihan dengan premium tambahan. Had Pelan 1–5 ialah RM200/400/600/800/1,000 setiap kemalangan. Rawatan oleh pengamal perubatan berkelayakan perlu dalam 2 tahun selepas kemalangan. Belanja pertama mesti ditanggung dalam 26 minggu. Semak sambungan yang dipilih dalam jadual polisi."
+          },
+          {
+            "q": "Bolehkah orang dengan kekurangan keupayaan memohon?",
+            "a": "Brosur membuka permohonan kepada orang dengan kekurangan keupayaan tertentu yang mampu melakukan sekurang-kurangnya 3 daripada 6 aktiviti harian. Polisi tertakluk pengunderaitan perubatan standard. Kelayakan umur mempunyai percanggahan antara brosur dan PDS, jadi pengesahan permohonan perlu mengambil kira keadaan pemohon serta dokumen semasa."
+          },
+          {
+            "q": "Berapa premium yang diterbitkan untuk lima pelan?",
+            "a": "Brosur menyenaraikan RM10.00/20.00/30.00/40.00/50.00 setahun bagi Pelan 1–5, tertakluk cukai perkhidmatan. PDS menyenaraikan cukai perkhidmatan 8%, duti setem RM10 dan komisen 25% daripada premium. Angka brosur perlu dibaca bersama caj dan sambungan pilihan dalam sebut harga."
+          },
+          {
+            "q": "Apa kesan menetap di luar negara lebih lama?",
+            "a": "Jika orang diinsuranskan menetap di luar Malaysia, Singapura dan Brunei melebihi 90 hari berturut-turut, polisi mengehadkan bayaran kepada kematian serta hilang upaya kekal. Rawatan luar Malaysia yang layak dibayar dalam Ringgit Malaysia mengikut kadar tukaran. Batas ini penting jika anda merancang tinggal lama di negara lain."
+          }
+        ]
+      }
     }
   ]
 }

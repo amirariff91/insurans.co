@@ -35,6 +35,79 @@
       "sources": [
         "https://www.berjayasompo.com.my/product/houseowner-householder"
       ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Berjaya Sompo sesuai untuk pemilik kediaman Kelas Binaan 1A yang mahu memilih perlindungan bangunan, isi rumah atau kedua-duanya dalam polisi tahunan. Kadar bangunan yang diterbitkan membezakan rumah bertanah daripada flat dan apartmen. Contoh rasmi bangunan RM500,000 menunjukkan premium asas RM450.00 setahun. Banjir serta rompakan dan tahan di premis termasuk dalam skop asas. Pemilik boleh memilih nilai pasaran atau nilai pengembalian semula mengikut keperluan harta. Perlindungan sewa turut menyediakan had 10% untuk kehilangan sewa atau perbelanjaan penginapan tambahan semasa pembinaan semula. Pilihan menaikkan liabiliti awam kepada RM100,000 berguna jika had asas RM50,000 tidak memenuhi keperluan pemilik.",
+        "tradeoffs": "Kadar awam Berjaya Sompo yang diberikan adalah untuk Kelas Binaan 1A. Contoh premium RM450.00 meliputi bangunan sahaja; isi rumah perlu dinilai berasingan. Mendapan dan runtuhan tanah memerlukan perhatian kerana perlindungan banjir mengecualikan kerosakan tersebut, dengan pengecualian tertentu bagi gempa bumi atau letusan gunung berapi. Ilustrasi PDS mengenakan premium tambahan untuk mendapan, rusuhan dan kaca keping. Kecurian oleh pembantu rumah atau ahli keluarga dikecualikan. Kerosakan semasa kediaman kosong melebihi 90 hari juga dinyatakan sebagai batas perlindungan. Klausa purata mengurangkan bayaran secara berkadar apabila nilai harta melebihi jumlah diinsuranskan. Notis kerugian perlu dibuat segera, diikuti butiran tuntutan dalam 30 hari. Tempoh ini ialah kewajipan tuntutan.",
+        "siblingSlug": "pacific-houseowner-householder",
+        "siblingDifferences": [
+          "Contoh Berjaya Sompo ialah RM450.00 setahun untuk bangunan RM500,000. Contoh Pacific ialah RM788.00 untuk bangunan RM500,000 bersama isi rumah RM100,000. Skop contoh berbeza, jadi angka tersebut tidak menentukan penyedia yang lebih murah.",
+          "Berjaya Sompo menerbitkan kadar Kelas 1A: bangunan 0.090% atau 0.093%, serta isi rumah 0.338%. Pacific turut menerbitkan kadar Kelas 1B, 2 dan 3, dengan kadar isi rumah Kelas 3 mencapai 1.041%.",
+          "Berjaya Sompo menyatakan premium minimum RM60.00. Appendix Pacific memberikan kadar tambahan mendapan 0.081%, rusuhan 0.010% dan kecurian diperluas 0.25%; angka premium minimum tidak dinyatakan dalam PDS Pacific."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh polisi",
+          "value": "Houseowner / Householder untuk bangunan dan/atau isi rumah. Polisi konvensional dengan tempoh 1 tahun.",
+          "source": "https://www.berjayasompo.com.my/product/houseowner-householder"
+        },
+        {
+          "label": "Risiko yang dilindungi",
+          "value": "Kebakaran, kilat, petir dan kebakaran bawah tanah; letupan gas domestik; pesawat atau peranti udara serta barangan yang jatuh; hentaman kenderaan jalan raya atau binatang; pecahan atau limpahan tangki, peralatan atau paip air domestik; kecurian dengan pecah masuk atau keluar secara paksa dan ganas; rompakan dan tahan di premis; hurikan, siklon, taufan dan ribut angin; gempa bumi, letusan gunung berapi; banjir.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/1225_HOHH_PW_ENG_1.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Banjir termasuk, tertakluk kepada ekses dalam Jadual. Kerosakan akibat mendapan atau runtuhan tanah dikecualikan daripada perlindungan banjir; pengecualian tertentu terpakai apabila berpunca daripada gempa bumi atau letusan gunung berapi.",
+          "source": "https://www.berjayasompo.com.my/product/houseowner-householder"
+        },
+        {
+          "label": "Asas jumlah diinsuranskan",
+          "value": "Pilihan nilai pasaran atau nilai pengembalian semula. PDS merujuk PIAM Building Cost Calculator di bcc.piam.org.my untuk anggaran jumlah perlindungan, termasuk ubah suai.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/PDS_HouseownerHouseholder_ENG_0126.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Jika jumlah diinsuranskan lebih rendah daripada nilai sebenar ketika kerugian, pemegang polisi menanggung bahagian kerugian secara berkadar. Jika jumlah diinsuranskan berlebihan, bayaran maksimum ialah nilai sebenar harta.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/PDS_HouseownerHouseholder_ENG_0126.pdf"
+        },
+        {
+          "label": "Premium minimum",
+          "value": "Premium minimum polisi RM60.00.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/PDS_HouseownerHouseholder_ENG_0126.pdf"
+        },
+        {
+          "label": "Kadar tahunan diterbitkan",
+          "value": "Kelas Binaan 1A: dinding bata dengan bumbung jubin atau konkrit. Houseowner rumah bertanah berasingan atau bersambung 0.090%; flat dan apartmen 0.093%; Householder 0.338%.",
+          "source": "https://www.berjayasompo.com.my/product/houseowner-householder"
+        },
+        {
+          "label": "Had dan pengecualian isi rumah",
+          "value": "Had satu barang ialah 5% daripada jumlah diinsuranskan isi rumah melainkan diisytiharkan berasingan. Perabot, piano, organ, peralatan rumah, radio, TV, perakam video dan Hi-Fi dikecualikan daripada had satu barang tersebut. Platinum, emas, perak, barang kemas dan bulu dihadkan kepada 1/3 jumlah isi rumah. Surat ikatan, bon, bil tukaran, cek, sekuriti, setem, dokumen, wang tunai atau mata wang, manuskrip, syiling dan kenderaan bermotor dikecualikan daripada harta dilindungi.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/1225_HOHH_PW_ENG_1.pdf"
+        },
+        {
+          "label": "Sewa dan penginapan sementara",
+          "value": "Pemilik mendapat perlindungan kehilangan sewa. Penghuni mendapat perbelanjaan tambahan munasabah di hotel, rumah penginapan atau rumah tumpangan semasa pembinaan semula. Had keseluruhan 10% daripada jumlah diinsuranskan bangunan dan/atau isi rumah. Manfaat ini adalah tambahan kepada jumlah diinsuranskan.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/1225_HOHH_PW_ENG_1.pdf"
+        },
+        {
+          "label": "Liabiliti kepada awam",
+          "value": "Had RM50,000 bagi satu kemalangan, termasuk kos guaman. Pilihan menaikkan had kepada RM100,000 tersedia; ilustrasi PDS menunjukkan tambahan RM10.00 setahun.",
+          "source": "https://www.berjayasompo.com.my/product/houseowner-householder"
+        },
+        {
+          "label": "Notis dan dokumen tuntutan",
+          "value": "Notis bertulis segera. Tuntutan bertulis lengkap dengan butiran dan bukti perlu diserahkan dalam 30 hari selepas insiden atas kos pemegang polisi. Laporan polis segera diperlukan bagi kecurian atau cubaan kecurian.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/1225_HOHH_PW_ENG_1.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi",
+          "value": "PDS FHO0126 bertarikh 01/01/2026: bangunan rumah bertanah Kelas 1A, jumlah diinsuranskan RM500,000; premium asas RM450.00 setahun. Pilihan tambahan dalam ilustrasi: rusuhan, mogok dan kerosakan berniat jahat RM50.00; mendapan dan runtuhan tanah RM405.00; kaca keping RM250.00; liabiliti awam RM100,000 dengan premium RM10.00. Duti setem RM10.00. Komisen 15% atau RM174.75. Cukai perkhidmatan 8% atau RM93.20. Pecahan ini merangkumi pilihan tambahan, jadi cukai tersebut tidak merujuk premium asas sahaja.",
+          "source": "https://www.berjayasompo.com.my/sites/default/files/para/files/PDS_HouseownerHouseholder_ENG_0126.pdf"
+        }
+      ],
       "asAt": "2026-09-12"
     },
     {
@@ -50,6 +123,79 @@
       "figureVerified": true,
       "sources": [
         "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+      ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Takaful myHouseowner & Householder sesuai untuk peserta yang mahu sijil tahunan bagi bangunan atau isi rumah melalui struktur takaful. Konsep yang dinyatakan termasuk Tabarru', Wakalah, Ju'alah, Qard dan Hibah. Peserta layak tanpa tuntutan boleh menerima Hibah daripada sekurang-kurangnya 50% lebihan boleh agih Dana Takaful Am. Bayaran ini bergantung pada lebihan dan kelayakan peserta. Perlindungan bangunan menerima Kelas 1A dan 1B, manakala perlindungan isi rumah menerima Kelas 1A sahaja. Banjir termasuk dalam perlindungan dengan ekses dinyatakan. Peserta yang memerlukan had liabiliti lebih tinggi boleh memilih peningkatan daripada RM50,000 kepada RM100,000 atau RM250,000. PDS turut memperincikan yuran Wakalah dan pecahan sumbangan.",
+        "tradeoffs": "Yuran Wakalah 50% daripada sumbangan perlu dibaca bersama pecahan komisen dan pengurusan. Hibah daripada lebihan tidak menjamin potongan sumbangan pada waktu pembelian. Householder terhad kepada Kelas Binaan 1A. Pengecualian Syariah merangkumi bir, arak, gambar haiwan dan berhala. Kecurian oleh pembantu rumah atau ahli keluarga juga dikecualikan. Perlindungan kecurian digantung apabila rumah kosong melebihi 90 hari melainkan melalui endorsemen. Banjir mengecualikan kerosakan mendapan atau runtuhan tanah dan mempunyai ekses 1% jumlah dilindungi bangunan atau RM200.00, mengikut nilai yang lebih rendah. Klausa purata menyebabkan peserta menanggung sebahagian kerugian jika jumlah dilindungi tidak mencukupi. Dokumen tuntutan lengkap perlu diserahkan dalam 30 hari selepas kejadian.",
+        "siblingSlug": "etiqa-hohh",
+        "siblingDifferences": [
+          "Takaful Malaysia menggunakan sijil takaful dengan yuran Wakalah 50% dan Hibah sekurang-kurangnya 50% lebihan boleh agih untuk peserta layak tanpa tuntutan. Etiqa ialah polisi konvensional dengan diskaun pembelian dalam talian 15%.",
+          "Ilustrasi Takaful Malaysia menggunakan bangunan RM500,000: asas RM450.00, sumbangan dengan pilihan tambahan RM962.13 dan bayaran RM1,049.10. Etiqa menggunakan bangunan RM650,000: premium selepas diskaun RM1,303.90 dan bayaran RM1,418.21. Nilai bangunan dan pilihan tambahan tidak setara.",
+          "Takaful Malaysia menyatakan ekses banjir 1% jumlah dilindungi bangunan atau RM200.00, mengikut nilai lebih rendah. PDS Etiqa menyatakan ekses banjir terpakai tanpa memberikan angka dalam fakta yang tersedia; laman Etiqa turut menyenaraikan pilihan rumah kosong melebihi 90 hari untuk Householder."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh sijil",
+          "value": "Takaful myHouseowner & Householder dengan tempoh perlindungan 1 tahun. Konsep: Tabarru', Wakalah, Ju'alah, Qard dan Hibah.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+        },
+        {
+          "label": "Risiko yang dilindungi",
+          "value": "Kebakaran, kilat, petir dan kebakaran bawah tanah; letupan domestik; pesawat atau peranti udara; hentaman kenderaan jalan raya atau binatang; pecahan atau limpahan tangki, peralatan atau paip domestik; kecurian dengan pecah masuk atau keluar secara paksa dan ganas; rompakan dan tahan di premis; hurikan, siklon, taufan dan ribut angin; gempa bumi, letusan gunung berapi; banjir.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Banjir termasuk, dengan pengecualian kerugian akibat mendapan atau runtuhan tanah. Ekses ialah 1% daripada jumlah dilindungi bangunan atau RM200.00, mengikut nilai lebih rendah. Bagi pecahan atau limpahan paip, RM50.00 pertama ditanggung peserta.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Asas jumlah dilindungi",
+          "value": "Asas nilai pasaran atau nilai penggantian. Jumlah dilindungi hendaklah meliputi kos membina semula harta.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDS-Takaful-myHouseowner-Householder-BM-V01-01-2026.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Peserta dianggap menanggung sendiri perbezaan apabila jumlah dilindungi tidak mencukupi ketika kerugian. Bayaran tuntutan tertakluk kepada pembahagian kerugian secara berkadar melalui syarat purata.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Sumbangan minimum",
+          "value": "Sumbangan minimum RM60.00 untuk Houseowner sahaja dan Householder sahaja.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+        },
+        {
+          "label": "Kadar sumbangan diterbitkan",
+          "value": "Houseowner sahaja: Kelas 1A 0.090% untuk rumah bertanah atau 0.093% untuk flat dan apartmen; Kelas 1B 0.226% atau 0.243%. Householder sahaja menerima Kelas 1A pada kadar 0.338%, dengan sumbangan minimum RM60.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+        },
+        {
+          "label": "Had isi rumah",
+          "value": "Had satu barang 5% jumlah dilindungi isi rumah melainkan diisytiharkan berasingan. Perabot, piano, organ, alat rumah, radio, TV, perakam video dan Hi-Fi dikecualikan daripada had satu barang. Platinum, emas, perak, barang kemas dan bulu terhad kepada 1/3 jumlah dilindungi. Surat ikatan, bon, bil tukaran, nota janji hutang, cek, sekuriti, setem, dokumen, wang tunai atau mata wang, manuskrip, pingat, syiling dan kenderaan bermotor dikecualikan. Pemindahan sementara isi rumah dihadkan kepada 15%; cermin RM500.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Sewa dan penginapan",
+          "value": "Had agregat perlindungan sewa 10%. Pemilik dilindungi untuk kehilangan sewa; penghuni untuk perbelanjaan tambahan munasabah di hotel, rumah penginapan atau rumah tumpangan semasa pembinaan semula. Pilihan tambahan berbayar tersedia untuk kehilangan sewa melebihi 10%.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Liabiliti kepada awam",
+          "value": "Had RM50,000.00 bagi satu kemalangan. Pilihan had RM100,000 atau RM250,000 tersedia. Contoh PDS 2026 menunjukkan sumbangan tambahan RM20.00 untuk had RM250,000.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDSE-HOHH-V01-03-2023.pdf"
+        },
+        {
+          "label": "Notis dan dokumen tuntutan",
+          "value": "Notis bertulis segera. Tuntutan bertulis lengkap dengan butiran dan bukti dalam 30 hari selepas insiden, atas kos peserta. Laporan polis segera bagi kecurian atau cubaan kecurian.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-Certificate-Wording-Takaful-HOHH-V1.0-E-04-2025.pdf"
+        },
+        {
+          "label": "Contoh sumbangan rasmi",
+          "value": "PDS BM 1 Januari 2026: bangunan Kelas 1A bertanah RM500,000.00; sumbangan asas RM450.00 setahun. Tambahan mendapan atau runtuhan RM405.00, rusuhan RM50.00, pengubahsuaian RM28.12, kehilangan sewa RM9.00 dan liabiliti RM250,000 dengan sumbangan RM20.00. Jumlah sumbangan yang dicetak RM962.13. Yuran Wakalah 50% atau RM481.06, terdiri daripada komisen 15% RM144.32 dan pengurusan 35% RM336.74. Cukai perkhidmatan 8% RM76.97; duti setem RM10.00. Jumlah perlu dibayar RM1,049.10. PDS menyatakan pengecualian duti sehingga 31/12/2028 bagi sumbangan individu ≤RM150 atau korporat ≤RM250.",
+          "source": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/02/STMAB-PDS-Takaful-myHouseowner-Householder-BM-V01-01-2026.pdf"
+        }
       ],
       "asAt": "2026-09-12"
     },
@@ -67,6 +213,74 @@
       "sources": [
         "https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf"
       ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Pacific sesuai untuk pemilik atau penyewa yang mahu meneliti kadar mengikut kelas pembinaan sebelum memilih bangunan, isi rumah atau gabungan kedua-duanya. Appendix PDS menerbitkan kadar Kelas 1A hingga Kelas 3, termasuk kadar lebih tinggi bagi struktur tertentu. Contoh rasmi rumah bertanah Kelas 1A menggabungkan bangunan RM500,000 dan isi rumah RM100,000 pada premium asas RM788.00 setahun. Pilihan tambahan turut mempunyai kadar tersendiri, seperti mendapan 0.081% dan kecurian diperluas 0.25%. Maklumat ini membantu pembaca memisahkan kos perlindungan asas daripada pilihan tambahan. Pemilik yang memerlukan had liabiliti melebihi RM50,000 boleh memilih RM100,000 atau RM250,000. Bangunan dan isi rumah perlu dinilai pada nilai penuh masing-masing.",
+        "tradeoffs": "Jumlah diinsuranskan Pacific perlu mewakili nilai penuh harta. Klausa purata membahagikan kerugian secara berkadar apabila jumlah tersebut tidak mencukupi. Kadar isi rumah meningkat mengikut kelas pembinaan, daripada 0.338% bagi Kelas 1A kepada 1.041% bagi Kelas 3. Harta penghuni hotel, kelab kediaman atau rumah tumpangan menerima tambahan kadar 50%. Perlindungan kecurian digantung apabila kediaman kosong melebihi 90 hari. Banjir termasuk dengan ekses, namun kerosakan mendapan atau runtuhan tanah dikecualikan daripada skop banjir. Had satu barang dan had barang kemas perlu dipadankan dengan inventori isi rumah. Notis bertulis hendaklah diberikan segera dan dokumen tuntutan lengkap dalam 30 hari. PDS tidak memberikan angka premium minimum.",
+        "siblingSlug": "berjaya-sompo-houseowner-householder",
+        "siblingDifferences": [
+          "Pacific menerbitkan kadar bangunan Kelas 3 sebanyak 0.548% untuk rumah bertanah dan 0.706% untuk flat atau apartmen, serta kadar isi rumah 1.041%. Kadar awam Berjaya Sompo yang diberikan terhad kepada Kelas 1A: 0.090%, 0.093% dan 0.338%.",
+          "Contoh Pacific RM788.00 setahun melindungi bangunan RM500,000 bersama isi rumah RM100,000. Contoh Berjaya Sompo RM450.00 setahun melindungi bangunan RM500,000 sahaja. Pacific menunjukkan jumlah RM866.00 apabila rusuhan dan peluasan kerosakan paip ditambah.",
+          "Appendix Pacific menyenaraikan kecurian diperluas pada 0.25% dan pilihan kerosakan tangki atau paip dengan had RM1,000 hingga RM5,000. Berjaya Sompo menyatakan premium minimum RM60.00; angka minimum Pacific tidak diberikan dalam PDS."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh polisi",
+          "value": "Houseowners untuk bangunan dan Householders untuk isi rumah. Boleh diambil berasingan atau digabungkan, dengan tempoh 1 tahun.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Risiko yang dilindungi",
+          "value": "Kebakaran, kilat, petir dan kebakaran bawah tanah; letupan gas domestik; pesawat atau peranti udara; hentaman kenderaan jalan raya atau binatang; pecahan atau limpahan tangki, peralatan atau paip domestik; kecurian dengan pecah masuk atau keluar secara paksa dan ganas; rompakan dan tahan; hurikan, siklon, taufan dan ribut angin; gempa bumi, letusan gunung berapi; banjir.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Banjir termasuk, tertakluk kepada ekses. Kerosakan akibat mendapan atau runtuhan tanah dikecualikan daripada perlindungan banjir. Laman produk turut menyebut limpahan laut dalam skop banjir.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Asas jumlah diinsuranskan",
+          "value": "Jumlah diinsuranskan bangunan perlu meliputi kos pembinaan semula. Jumlah isi rumah perlu mewakili nilai penuh kandungan rumah. Borang cadangan mensyaratkan jumlah diinsuranskan mewakili nilai penuh harta.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Borang cadangan menyatakan pemegang polisi menjadi penanggung sendiri bagi perbezaan nilai apabila kurang diinsuranskan. Pemegang polisi menanggung bahagian kerugian secara berkadar; PDS turut menyenaraikan syarat purata.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf"
+        },
+        {
+          "label": "Kadar tahunan dan pilihan tambahan",
+          "value": "Appendix PDS V4.0 berkuat kuasa 1 Jan 2026. Houseowner, rumah bertanah / flat atau apartmen: Kelas 1A 0.090% / 0.093%; 1B 0.226% / 0.243%; Kelas 2 0.243% / 0.349%; Kelas 3 0.548% / 0.706%. Householder: 1A 0.338%; 1B 0.520%; Kelas 2 0.650%; Kelas 3 1.041%. Harta penghuni hotel, kelab kediaman atau rumah tumpangan menerima tambahan kadar 50%. Kadar tambahan: mendapan dan runtuhan tanah 0.081%; rusuhan, mogok dan kerosakan berniat jahat 0.010% atas bangunan dan isi rumah; kaca keping 0.05% atas bangunan; kecurian diperluas 0.25% atas isi rumah. Pilihan kerosakan tangki, peralatan atau paip mempunyai had RM1,000, RM2,000, RM3,000, RM4,000 atau RM5,000.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Had isi rumah",
+          "value": "Had satu barang 5% jumlah diinsuranskan isi rumah melainkan diisytiharkan berasingan. Platinum, emas, perak, barang kemas dan bulu terhad kepada 1/3 jumlah isi rumah. Pemindahan sementara 15%; cermin selain cermin tangan RM500 sekeping; pampasan kematian RM10,000 atau ½ jumlah isi rumah, mengikut nilai lebih rendah. Surat ikatan, bon, cek, sekuriti, wang tunai, manuskrip, syiling dan kenderaan bermotor dikecualikan.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2024/02/Houseowner-Householder_P-Form_CFH_V1.1_1-MAR-2024.pdf"
+        },
+        {
+          "label": "Sewa dan penginapan",
+          "value": "Houseowner: kehilangan sewa sehingga 10% jumlah diinsuranskan bangunan. Laman produk menyatakan kehilangan sewa dan perbelanjaan hotel yang perlu untuk Householder. Pilihan tambahan menaikkan had indemniti insurans sewa tersedia.",
+          "source": "https://www.pacificinsurance.com.my/products/fire/houseowners-householders/"
+        },
+        {
+          "label": "Liabiliti pihak ketiga",
+          "value": "Had RM50,000 bagi satu kejadian kecederaan atau kerosakan, bersama kos guaman yang diluluskan. Pilihan had RM100,000 atau RM250,000 tersedia.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Notis dan dokumen tuntutan",
+          "value": "Notis bertulis segera; tuntutan bertulis lengkap dengan butiran dan bukti dalam 30 hari selepas insiden atas kos pemegang polisi. Laporan polis segera bagi kecurian atau cubaan kecurian.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi",
+          "value": "PDS V4.0: rumah bertanah Kelas 1A, bangunan RM500,000 dan isi rumah RM100,000; premium asas RM788.00 setahun sebelum cukai perkhidmatan dan duti setem. Tambahan rusuhan RM60.00 serta peluasan kerosakan tangki atau paip RM18.00 dengan had RM1,000 menghasilkan jumlah RM866.00. Duti setem RM10.00; komisen 15% atau RM129.90; cukai perkhidmatan 8% atau RM69.28. Pengecualian duti sehingga 31/12/2028 bagi individu dengan premium kasar tahunan ≤RM150 atau perusahaan mikro, kecil dan sederhana ≤RM250.",
+          "source": "https://www.pacificinsurance.com.my/wp-content/uploads/2025/12/Houseowner-Householder_PDS-ENG_V4.0-.pdf"
+        }
+      ],
       "asAt": "2026-09-12"
     },
     {
@@ -82,6 +296,79 @@
       "figureVerified": true,
       "sources": [
         "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+      ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "BSN Houseowner Insurance sesuai untuk pemilik yang mahu perlindungan bangunan dalam pakej dua tahun melalui BSN. Chubb Insurance Malaysia Berhad menanggung polisi ini. Bagi harta bergadai dengan BSN, dokumen menyatakan pembaharuan setiap 24 bulan disusun oleh bank sehingga pinjaman dilunaskan. Rusuhan, mogok, kerosakan berniat jahat, mendapan dan runtuhan tanah termasuk dalam pakej komprehensif yang diterangkan. Pemilik boleh memilih asas nilai pasaran atau nilai pengembalian semula, tertakluk kepada kecukupan jumlah diinsuranskan. Kehilangan sewa mempunyai had 10% dan liabiliti pihak ketiga sehingga RM50,000. Pelan ini menumpukan struktur bangunan, jadi pembaca yang memerlukan perlindungan barang dalam rumah perlu menilai skop isi rumah secara berasingan.",
+        "tradeoffs": "PDS BSN yang dirujuk bertarikh 1 Januari 2017. Harga pakej dan terma semasa perlu dipastikan dengan BSN sebelum pembelian. Contoh dua tahun mencetak RM680.50, walaupun RM335.25 didarab dua menghasilkan RM670.50. Angka bercanggah itu tidak sesuai dijadikan jumlah bayaran muktamad. Polisi ini meliputi bangunan sahaja dan tidak memberikan jadual had isi rumah. Bangunan yang ditinggalkan tanpa penjagaan melebihi 90 hari dikecualikan melainkan dimaklumkan secara bertulis. Pengecualian lain merangkumi perang, keganasan dan risiko nuklear. Ekses mendapan atau runtuhan tanah dinyatakan sebagai 5% jumlah diinsuranskan atau RM25,000. Klausa purata boleh mengecilkan tuntutan kerosakan separa. Notis perlu dibuat segera dan tuntutan bertulis lengkap dihantar dalam 30 hari.",
+        "siblingSlug": "etiqa-hohh",
+        "siblingDifferences": [
+          "BSN menawarkan tempoh 2 tahun dengan kadar tahunan pakej komprehensif 0.2235% bagi rumah bertanah dan 0.2273% bagi flat, apartmen atau kondominium. Etiqa menawarkan polisi 1 tahun tanpa jadual kadar dalam PDS.",
+          "BSN memasukkan rusuhan, mogok, kerosakan berniat jahat serta mendapan dan runtuhan tanah dalam pakej. Etiqa menyenaraikan tambahan rusuhan RM65.00 dalam contoh bangunan RM650,000; mendapan dan runtuhan tanah disenaraikan sebagai pengecualian dalam PDS Etiqa.",
+          "Contoh BSN bangunan RM150,000 menunjukkan RM335.25 setahun dan percanggahan jumlah dua tahun RM680.50 berbanding kiraan RM670.50. Contoh Etiqa bangunan RM650,000 menunjukkan RM1,303.90 selepas diskaun, sebelum cukai dan duti. Nilai bangunan dan tempoh perlindungan berbeza."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh polisi",
+          "value": "Houseowner Insurance untuk bangunan, dalam pakej komprehensif 2 tahun melalui BSN. Penanggung insurans ialah Chubb Insurance Malaysia Berhad.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Risiko yang dilindungi",
+          "value": "Kebakaran, kilat dan letupan gas domestik; pesawat, kenderaan jalan raya atau binatang; pecahan atau limpahan tangki dan paip air; kecurian dengan pecah masuk atau keluar paksa dan ganas; ribut angin; gempa bumi; banjir; rusuhan, mogok dan kerosakan berniat jahat; mendapan dan runtuhan tanah; kehilangan sewa sehingga 10% jumlah diinsuranskan.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Banjir termasuk. Ekses ribut angin, gempa bumi, letusan gunung berapi dan banjir ialah 1% jumlah diinsuranskan atau RM200, mengikut nilai lebih rendah. Ekses mendapan dan runtuhan tanah dinyatakan sebagai 5% jumlah diinsuranskan atau RM25,000. Ekses pecahan atau limpahan paip domestik RM50.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Asas jumlah diinsuranskan",
+          "value": "Nilai pasaran mengambil kira haus dan susut nilai. Nilai pengembalian semula menggunakan kos penuh tanpa potongan jika jumlah diinsuranskan mencukupi. Jumlah bangunan perlu dinilai mengikut asas yang dipilih.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Contoh klausa purata",
+          "value": "Nilai pasaran bangunan RM250,000 dengan jumlah diinsuranskan RM200,000. Untuk kerosakan separa RM100,000, formula bayaran ialah kerugian × jumlah diinsuranskan / nilai pasaran: RM100,000 × RM200,000 / RM250,000 = RM80,000. Ini contoh kerugian separa.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Kadar pakej komprehensif",
+          "value": "Kadar setahun: rumah bersambung, berkembar atau berasingan 0.2235%; flat, apartmen atau kondominium 0.2273%. Pakej perlindungan ialah 2 tahun.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Kehilangan sewa",
+          "value": "Had kehilangan sewa sehingga 10% jumlah diinsuranskan. PDS ini tidak menyatakan peruntukan penginapan alternatif.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Liabiliti pihak ketiga",
+          "value": "Liabiliti untuk kemalangan di harta pemegang polisi sehingga RM50,000.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Pengecualian utama",
+          "value": "Bangunan ditinggalkan tanpa penjagaan melebihi 90 hari melainkan dimaklumkan secara bertulis; radioaktif dan tenaga nuklear; perang, pencerobohan, tindakan musuh asing, permusuhan, operasi perang atau perang saudara; dahagi, keganasan sivil, pemberontakan dan kebangkitan; tindakan keganasan.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Ciri pakej BSN",
+          "value": "Tempoh 2 tahun dengan pembaharuan 24 bulan disusun oleh BSN sehingga pinjaman harta bergadai dengan BSN dilunaskan. Rusuhan, mogok, kerosakan berniat jahat, mendapan dan runtuhan tanah termasuk standard. Pengubahsuaian, pembaikan atau penambahan sehingga 25% jumlah diinsuranskan. Jadual pemulangan premium tempoh singkat 80%–5%. Komisen bank 15%.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Notis dan dokumen tuntutan",
+          "value": "Notis bertulis segera mengenai kerugian atau kerosakan. Tuntutan bertulis dengan butiran dan bukti perlu dihantar dalam 30 hari selepas insiden.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi dan percanggahan",
+          "value": "PDS: rumah teres RM150,000 × 0.2235% = RM335.25 setahun. Dokumen mencetak RM335.25 × 2 = RM680.50 untuk perlindungan dua tahun; hasil aritmetik ialah RM670.50. Duti setem RM10 dibayar berasingan. PDS lama menyatakan cukai perkhidmatan 6% bagi bukan individu dan komisen bank 15%. Angka cukai dalam dokumen lama ini tidak menetapkan kadar semasa.",
+          "source": "https://www.bsn.com.my/cms/upload/pdf/personal/wealth/general_insurance_houseowner_pds_1.pdf"
+        }
       ],
       "asAt": "2026-09-12"
     },
@@ -100,6 +387,79 @@
         "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf",
         "https://www.etiqa.com.my/home/hohh-insurance"
       ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Etiqa Houseowner/Householder Insurance sesuai untuk pemilik yang mahu membeli perlindungan tahunan melalui Apply Online dengan diskaun 15%. Bangunan dan isi rumah boleh dilindungi mengikut bahagian yang dipilih. PDS menyenaraikan banjir untuk kedua-dua bahagian, bersama risiko seperti kebakaran, ribut dan gempa bumi. Had kehilangan sewa ialah 10% jumlah diinsuranskan dan liabiliti pihak ketiga sehingga RM50,000. Bahagian isi rumah mempunyai manfaat pemindahan sementara, cermin dan pampasan kematian dengan had tertentu. Pemilik yang memerlukan peluasan kecurian tanpa pecah masuk boleh menilai pilihan tambahan Householder. Pembelian menggunakan syarat bayaran sebelum perlindungan bermula. Ilustrasi rasmi memberikan pecahan diskaun, cukai dan duti supaya jumlah premium akhir boleh dibezakan.",
+        "tradeoffs": "PDS Etiqa tidak menerbitkan jadual kadar atau angka premium minimum. Premium bergantung pada jumlah diinsuranskan dan risiko yang dipilih. Ilustrasi RM650,000 tidak boleh digunakan sebagai kadar tetap untuk rumah lain. Mendapan dan runtuhan tanah disenaraikan sebagai pengecualian. Rusuhan, mogok dan kerosakan berniat jahat memerlukan perlindungan tambahan. Bangunan ditinggalkan melebihi 90 hari memerlukan pemberitahuan bertulis dan endorsemen; pilihan khusus kediaman kosong di laman produk adalah untuk Householder. Pengecualian lain termasuk perang, keganasan serta risiko radioaktif dan nuklear. Barang isi rumah melebihi 5% jumlah diinsuranskan perlu diisytiharkan berasingan. Klausa purata terpakai jika nilai harta melebihi jumlah diinsuranskan. Notis tuntutan mesti dibuat secepat mungkin dan selewat-lewatnya 30 hari selepas kejadian.",
+        "siblingSlug": "takaful-malaysia-myhouseowner-householder",
+        "siblingDifferences": [
+          "Etiqa memberikan diskaun pembelian dalam talian 15% dalam polisi konvensional. Takaful Malaysia menggunakan sijil takaful, yuran Wakalah 50% dan pengagihan Hibah sekurang-kurangnya 50% lebihan boleh agih kepada peserta layak tanpa tuntutan.",
+          "Contoh Etiqa bangunan RM650,000 menghasilkan premium RM1,303.90 selepas diskaun RM230.10, dengan bayaran RM1,418.21 termasuk cukai dan duti. Contoh Takaful Malaysia bangunan RM500,000 menunjukkan sumbangan RM962.13 dan bayaran RM1,049.10. Pilihan tambahan dalam contoh juga berbeza.",
+          "Takaful Malaysia menerbitkan kadar bangunan Kelas 1A 0.090% atau 0.093% dan Kelas 1B 0.226% atau 0.243%. Etiqa tidak memberikan jadual kadar dalam PDS; laman produk menyenaraikan peluasan Householder bagi rumah kosong melebihi 90 hari dan kecurian tanpa pecah masuk."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh polisi",
+          "value": "Houseowner/Householder Insurance untuk bangunan dan/atau isi rumah, dengan tempoh 1 tahun.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Risiko dan bahagian perlindungan",
+          "value": "Kebakaran, kilat, letupan gas domestik; pesawat atau peranti udara; hentaman kenderaan jalan raya atau binatang; limpahan atau pecahan tangki, peralatan atau paip air; kecurian dengan pecah masuk atau keluar paksa dan ganas; hurikan, siklon, taufan dan ribut angin; gempa bumi dan letusan gunung berapi; banjir. Kehilangan sewa 10% jumlah diinsuranskan dan liabiliti pihak ketiga RM50,000. Peril 1–10 terpakai kepada Houseowner dan Householder; manfaat 11–14 adalah untuk Householder sahaja.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Baris 8 PDS menyatakan banjir dilindungi bagi Houseowner dan Householder. Ekses terpakai kepada limpahan tangki atau paip, ribut, gempa bumi, letusan gunung berapi dan banjir.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Asas jumlah diinsuranskan",
+          "value": "Jumlah diinsuranskan perlu meliputi kos pembinaan semula dan penggantian harta. PDS merujuk PIAM Building Cost Calculator di bcc.piam.org.my. Barang isi rumah bernilai lebih 5% jumlah diinsuranskan perlu diisytiharkan berasingan.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Jika nilai harta ketika kerugian lebih tinggi daripada jumlah diinsuranskan, pemegang polisi dianggap menanggung sendiri perbezaannya. Pemegang polisi menanggung bahagian kerugian secara berkadar.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Had manfaat isi rumah",
+          "value": "Pemindahan sementara sehingga 15% jumlah diinsuranskan isi rumah. Cermin selain cermin tangan RM500 sekeping bagi setiap kemalangan. Pampasan kematian akibat kebakaran atau rompakan dengan pecah masuk ganas ialah RM10,000 atau separuh jumlah isi rumah, mengikut nilai lebih rendah. Harta pembantu rumah turut disenaraikan. Barang melebihi 5% jumlah isi rumah perlu diisytiharkan berasingan.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Kehilangan sewa",
+          "value": "Had 10% daripada jumlah diinsuranskan. Laman produk menawarkan pilihan menaikkan had kehilangan sewa. PDS tidak menyatakan peruntukan hotel.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Liabiliti pihak ketiga",
+          "value": "Liabiliti untuk kemalangan di rumah pemegang polisi sehingga RM50,000.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Pengecualian utama",
+          "value": "Mendapan dan runtuhan tanah; rusuhan, mogok dan kerosakan berniat jahat tanpa perlindungan tambahan; perang, perang saudara dan tindakan keganasan; bangunan ditinggalkan melebihi 90 hari melainkan dimaklumkan secara bertulis dan melalui endorsemen; risiko radioaktif dan tenaga nuklear.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Pembelian dan pilihan tambahan",
+          "value": "Diskaun 15% melalui Apply Online. Bayaran sebelum perlindungan bermula. Sebut harga melalui edp.etiqa.com. Hubungan: 1-300-13-8888 atau info@etiqa.com.my. Pilihan tambahan: rusuhan, mogok dan kerosakan berniat jahat; peningkatan had kehilangan sewa; kediaman kosong melebihi 90 hari untuk Householder; kecurian tanpa pecah masuk paksa dan ganas untuk Householder, dengan pengecualian pembantu rumah dan ahli keluarga. Dokumen polisi tersedia untuk dimuat turun. Perlindungan PIDM TIPS dinyatakan.",
+          "source": "https://www.etiqa.com.my/home/hohh-insurance"
+        },
+        {
+          "label": "Tempoh notis tuntutan",
+          "value": "Semua tuntutan perlu dimaklumkan secepat mungkin dan selewat-lewatnya 30 hari selepas kejadian yang mungkin membolehkan tuntutan. Dokumen sokongan perlu dihantar segera atas kos pemohon.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi",
+          "value": "PDS 01/06/2026: bangunan RM650,000.00; premium asas RM1,469.00 dan tambahan rusuhan, mogok serta kerosakan berniat jahat RM65.00. Diskaun 15% atau RM230.10 menghasilkan premium RM1,303.90. Cukai perkhidmatan 8% RM104.31 dan duti setem RM10.00. Jumlah perlu dibayar RM1,418.21.",
+          "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Houseowner_and_Householder_Insurance.pdf"
+        }
+      ],
       "asAt": "2026-09-28"
     },
     {
@@ -117,6 +477,89 @@
         "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf",
         "https://www.zurich.com.my/insurance-products/protection/for-my-property/z-homeprotect"
       ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Z-HomeProtect sesuai untuk pembeli yang mahu memisahkan pilihan nilai bangunan daripada pilihan perlindungan isi rumah. Section I menawarkan nilai pengembalian semula, nilai pasaran atau nilai dipersetujui melalui kalkulator Zurich. Section II menawarkan nilai penuh atau sepuluh pelan kerugian pertama dengan jumlah tetap RM10,000 hingga RM100,000. Had satu barang tertentu ialah 10% jumlah isi rumah, dengan syarat pengisytiharan bagi barang yang melebihinya. Manfaat praktikal termasuk pembaikan paip pecah RM1,000, penggantian kunci RM500 dan kehilangan tunai RM500. Bayaran balik keadaan luar jangka mempunyai had RM2,500 untuk kejadian yang dinyatakan. Pemilik dan penghuni turut mempunyai manfaat sewa atau penginapan semasa pembinaan semula dengan had 10%.",
+        "tradeoffs": "Pilihan nilai penuh dan kerugian pertama Zurich perlu dibaca mengikut bahagian polisi yang dibeli. PDS menyatakan klausa purata apabila nilai harta melebihi jumlah diinsuranskan; pilihan kerugian pertama tidak patut dianggap menghapuskan semua syarat itu tanpa merujuk jadual. Barang kemas dan logam berharga tetap terhad kepada 1/3 jumlah isi rumah walaupun had satu barang tertentu ialah 10%. Kecurian oleh pembantu rumah atau ahli keluarga memerlukan perhatian kepada pilihan tambahan 5A/5B. Kediaman kosong melebihi 90 hari menyebabkan perlindungan kecurian digantung. Mendapan, runtuhan tanah dan rusuhan memerlukan tambahan perlindungan. Pengecualian termasuk liabiliti siber, penyakit berjangkit, data atau perisian, nuklear dan perang. Premium perlu dibayar dalam 60 hari; tuntutan lengkap dalam 30 hari.",
+        "siblingSlug": "allianz-smart-home-cover",
+        "siblingDifferences": [
+          "Zurich menawarkan 10 pelan isi rumah kerugian pertama dengan jumlah RM10,000 hingga RM100,000. Allianz menawarkan 5 pelan dengan jumlah RM16,000, RM31,000, RM46,000, RM71,000 atau RM91,000, tertakluk kepada batas kawasan berisiko banjir.",
+          "Zurich ialah polisi 1 tahun dan menerbitkan kadar bangunan Kelas 1A bertanah 0.063%. Allianz menawarkan Annual 1 tahun atau Multi-Year 3 tahun, dengan peningkatan jumlah diinsuranskan 3% setahun bagi Multi-Year dan diskaun HouseOwner sehingga 30% daripada tarif.",
+          "Zurich menyenaraikan paip pecah RM1,000, penggantian kunci RM500, tunai RM500 dan bayaran balik keadaan luar jangka RM2,500. Allianz memisahkan HomeFix, Landlord dan perlindungan ansuran sebagai modul pilihan; had paip HomeFix ialah RM5,000, RM10,000 atau RM20,000."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Jenis dan tempoh polisi",
+          "value": "Z-HomeProtect Insurance: Section I bangunan dan Section II isi rumah. Boleh memilih satu atau kedua-dua bahagian. Tempoh polisi 1 tahun.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        },
+        {
+          "label": "Risiko yang dilindungi",
+          "value": "Kebakaran, kilat, petir dan kebakaran bawah tanah; letupan; pesawat atau peranti udara; hentaman kenderaan jalan raya atau binatang; pecahan atau limpahan tangki, peralatan atau paip domestik; kecurian dengan pecah masuk atau keluar paksa dan ganas; rompakan dan tahan di premis; hurikan, siklon, taufan dan ribut angin; gempa bumi, letusan gunung berapi; banjir.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Banjir dan ekses",
+          "value": "Banjir ialah Peristiwa Diinsuranskan 9, tertakluk kepada ekses dalam Jadual. Kerosakan bangunan akibat mendapan atau runtuhan tanah dikecualikan, kecuali apabila berpunca daripada gempa bumi atau letusan gunung berapi.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Asas nilai bangunan dan isi rumah",
+          "value": "Section I: nilai pengembalian semula atau pasaran ditentukan pemegang polisi, atau nilai dipersetujui melalui Kalkulator Nilai Zurich. Section II: nilai penuh atau kerugian pertama, dengan 10 pelan jumlah tetap RM10,000–RM100,000. Barang isi rumah baharu menggunakan harga pembelian; barang lain menggunakan nilai pasaran. Rujukan kos bangunan ialah BCC PIAM dan MTA di bcc.piam.org.my.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Jika nilai harta ketika kerugian lebih tinggi daripada jumlah diinsuranskan, pemegang polisi menanggung bahagian kerugian secara berkadar. Jumlah diinsuranskan perlu dipantau berkala supaya mewakili kos pembinaan semula.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        },
+        {
+          "label": "Premium minimum",
+          "value": "Premium minimum RM60.00.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        },
+        {
+          "label": "Kadar diterbitkan",
+          "value": "Section I: Kelas 1A rumah bertanah 0.063%, flat atau apartmen 0.065%; Kelas 1B rumah bertanah 0.158%, flat 0.170%. Section II nilai penuh: Kelas 1A 0.338% bagi jumlah ≤RM49,999 atau 0.304% bagi RM50,000 ke atas; Kelas 1B 0.520% atau 0.468%. Kerugian pertama mempunyai Pelan 1–10 dengan jumlah RM10,000–RM100,000. Jadual risalah tidak termasuk SST dan duti setem.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zgimb-z-home-protect-brochure-pidm.pdf"
+        },
+        {
+          "label": "Had barang isi rumah",
+          "value": "Had satu barang tertentu 10% jumlah diinsuranskan isi rumah melainkan diisytiharkan khas. Perabot, piano, organ, peralatan rumah, radio, TV, perakam video dan Hi-Fi dikecualikan daripada had tersebut. Platinum, emas, perak, barang kemas dan bulu terhad kepada 1/3 jumlah isi rumah. Kecurian oleh pembantu rumah atau ahli keluarga dikecualikan dalam skop asas; pilihan tambahan 5A/5B perlu dirujuk. Tunai dikecualikan kecuali manfaat kehilangan tunai RM500.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Sewa dan penginapan sementara",
+          "value": "Insurans sewa sehingga 10% jumlah diinsuranskan bangunan dan/atau isi rumah. Pemilik: kehilangan sewa. Penghuni: perbelanjaan tambahan munasabah di hotel, rumah penginapan atau rumah tumpangan semasa pembinaan semula. Manfaat ini tambahan kepada jumlah diinsuranskan.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Liabiliti kepada awam",
+          "value": "Had RM50,000 melalui Manfaat Tambahan H. Pilihan menaikkan had indemniti disenaraikan sebagai Manfaat Pilihan 7.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Pengecualian utama",
+          "value": "Perang, perang saudara dan keganasan; pembakaran spontan; kerugian lanjutan kecuali insurans sewa; nuklear atau radioaktiviti; data atau perisian; liabiliti siber; penyakit berjangkit; sekatan. Mendapan, runtuhan tanah, rusuhan, mogok dan kerosakan berniat jahat memerlukan pilihan tambahan. Kecurian oleh pembantu rumah atau ahli keluarga dikecualikan dalam skop asas. Perlindungan kecurian digantung apabila kediaman kosong >90 hari.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        },
+        {
+          "label": "Manfaat tambahan",
+          "value": "Pembaikan paip pecah Section I RM1,000.00 agregat; pemindahan sementara isi rumah 15%; cermin RM500 sekeping; pampasan kematian RM10,000 atau ½ jumlah isi rumah; harta pembantu rumah; kehilangan tunai akibat kebakaran atau kecurian RM500.00 agregat; insurans sewa 10%; liabiliti awam RM50,000. Tuntutan pokok atau dahan tumbang mempunyai bahagian pertama RM250 ditanggung pemegang polisi. Kaca keping RM1,000 setiap kaca dan RM2,000 agregat; penggantian pengunci dan kunci selepas kecurian RM500.00 agregat. Bayaran balik keadaan luar jangka RM2,500.00 bagi kebakaran, banjir atau kecurian paksa dan ganas. Pilihan tambahan merangkumi kecurian diperluas, peningkatan liabiliti, rusuhan, mendapan dan kebakaran belukar atau lalang. PIDM TIPS dinyatakan.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zgimb-z-home-protect-brochure-pidm.pdf"
+        },
+        {
+          "label": "Tuntutan dan bayaran premium",
+          "value": "Notis bertulis segera. Tuntutan lengkap dengan butiran dan bukti dalam 30 hari selepas insiden atas kos pemegang polisi. Laporan polis segera untuk kecurian atau cubaan kecurian. Premium perlu dibayar dalam 60 hari.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/policy-wordings/zgimb-z-homeprotect-insurance-policy-wordings.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi",
+          "value": "PDS 01 Nov 2025: bangunan RM500,000 pada kadar nilai penuh 0.063% bersama isi rumah RM100,000 pada kadar kerugian pertama 0.338%; premium asas RM653.00 setahun. Tambahan rusuhan, mogok dan kerosakan berniat jahat 0.007% atau RM42.00 menghasilkan jumlah premium RM695.00 sebelum cukai dan duti. Duti setem RM10.00; komisen 15% atau RM104.25; cukai 8% atau RM55.60. Premium minimum RM60.00. Komisen ialah pecahan yang didedahkan dalam PDS.",
+          "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-homeprotect-insurance-pds.pdf"
+        }
+      ],
       "asAt": "2026-09-28"
     },
     {
@@ -131,9 +574,92 @@
       "quoteGated": "Annual ialah 1 tahun dan Multi-Year 3 tahun; beli melalui ejen. Komisen 15% premium, duti setem RM10 dan cukai perkhidmatan 6%. Pengecualian PDS termasuk subsidence/landslip, riot/strike/malicious damage tanpa premium tambahan, harta pembantu rumah, perang/keganasan, spontaneous combustion, radioaktif/nuklear, cessation of works/confiscation, kerosakan data/perisian, consequential loss, kerugian paip pecah semasa rumah tidak didiami dan liabiliti berkaitan asbestos. PDS bertarikh 16/02/2023.",
       "figureVerified": true,
       "sources": [
-        "https://cys.com.my/wp-content/uploads/2023/03/Smart-Home-Cover_ProductDisclosureSheet_ENG_AZ2302.pdf",
-        "https://web.archive.org/web/20240804105548/https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SmartHomeCover_Brochure_ENG_AZ2302.pdf",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf",
+        "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SHC_Brochure_ENG_2406.pdf",
         "https://www.allianz.com.my/personal/home-motor-and-travel/home/smart-home-cover.html"
+      ],
+      "analysisAsAt": "2026-10-10",
+      "analysis": {
+        "bestFor": "Allianz Smart Home Cover sesuai untuk pemilik yang mahu memilih komponen perlindungan mengikut kegunaan rumah. HouseOwner dan HouseHolder boleh disusun bersama pilihan HomeFix, Landlord Insurance atau Mortgage Loan Installment Protection. Modul Landlord menyediakan manfaat tertentu bagi kerosakan berniat jahat oleh penyewa dan penyewa yang melarikan diri. HomeFix pula mempunyai had pembaikan paip pecah serta perkhidmatan penjagaan rumah mengikut pilihan. Pembeli boleh menilai polisi Annual satu tahun atau Multi-Year tiga tahun. Multi-Year menggunakan nilai dipersetujui dengan peningkatan jumlah diinsuranskan 3% setahun. Panel penjimatan rasmi membandingkan jumlah RM1,368.56 bagi susunan Annual dengan RM1,046.70 bagi Multi-Year. Angka itu merujuk gabungan komponen dalam contoh, bukan premium bangunan sahaja.",
+        "tradeoffs": "Komponen pilihan Allianz perlu dinilai berasingan kerana manfaat HomeFix, Landlord dan perlindungan ansuran tidak terpakai secara automatik kepada setiap pembeli. HomeFix dan HouseHolder kerugian pertama mempunyai batas kelayakan kawasan berisiko banjir, walaupun banjir termasuk dalam peril asas. Harga HouseOwner bergantung pada asas nilai dan sebut harga; risalah menyatakan diskaun sehingga 30% daripada tarif. Harta pembantu rumah dikecualikan. Kerosakan paip semasa bangunan tidak berpenghuni juga dikecualikan. Mendapan, runtuhan tanah dan rusuhan memerlukan premium tambahan. Pengecualian lain merangkumi pembakaran spontan, perang, nuklear, data atau perisian dan liabiliti berkaitan asbestos. Jumlah diinsuranskan perlu dipantau untuk mengelakkan klausa purata. Wording Annual menetapkan tuntutan lengkap dalam 30 hari selepas insiden.",
+        "siblingSlug": "zurich-z-homeprotect",
+        "siblingDifferences": [
+          "Allianz mempunyai Annual 1 tahun dan Multi-Year 3 tahun dengan peningkatan jumlah diinsuranskan 3% setahun. Zurich menawarkan polisi 1 tahun; kadar bangunan Kelas 1A bertanah yang diterbitkan ialah 0.063%.",
+          "Allianz menyediakan 5 pelan isi rumah kerugian pertama dengan jumlah RM16,000 hingga RM91,000. Zurich menyediakan 10 pelan dengan jumlah RM10,000 hingga RM100,000. Had satu barang tertentu ialah 5% untuk Allianz dan 10% untuk Zurich, dengan pengecualian kategori dan syarat pengisytiharan masing-masing.",
+          "HomeFix Allianz menawarkan had paip pecah RM5,000, RM10,000 atau RM20,000 sebagai modul pilihan. Zurich menyenaraikan paip pecah RM1,000, kunci RM500, tunai RM500 dan bayaran balik keadaan luar jangka RM2,500 sebagai manfaat dalam polisi mengikut bahagian berkenaan."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Komponen dan tempoh polisi",
+          "value": "Section I Houseowner bangunan; Section II Householder isi rumah; Section III Mortgage Loan Installment Protection; Section IV HomeFix; Section V Landlord Insurance. Tempoh Annual 1 tahun atau Multi-Year 3 tahun.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Risiko asas bangunan dan isi rumah",
+          "value": "Kebakaran, kilat dan letupan gas domestik; pesawat atau peranti udara; hentaman kenderaan jalan raya atau binatang; pecahan atau limpahan tangki dan paip air, dengan ekses RM50.00 dan pengecualian semasa bangunan kosong; kecurian dengan pecah masuk atau keluar paksa dan ganas; hurikan, siklon, taufan dan ribut angin; gempa bumi, letusan gunung berapi; banjir dengan pengecualian mendapan atau runtuhan tanah; rompakan dan tahan di premis. Ekses terpakai bagi risiko cuaca dan banjir yang dinyatakan.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Banjir dan kelayakan pilihan",
+          "value": "Banjir termasuk, tertakluk kepada ekses dan pengecualian kerosakan akibat mendapan atau runtuhan tanah. HomeFix dan HouseHolder kerugian pertama tidak tersedia bagi kawasan berisiko banjir.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Asas nilai dan peningkatan perlindungan",
+          "value": "Annual: nilai pengembalian semula, nilai pasaran atau nilai dipersetujui melalui kalkulator Allianz, termasuk yuran arkitek atau jurukur, pengalihan debri dan pematuhan peraturan bangunan. Multi-Year: nilai dipersetujui dengan peningkatan 3% setahun, dikira 1/365 setiap hari. Householder: nilai penuh atau kerugian pertama dengan 5 pelan jumlah RM16,000, RM31,000, RM46,000, RM71,000 atau RM91,000. PIAM BCC dirujuk bagi anggaran kos bangunan.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Klausa purata",
+          "value": "Jumlah diinsuranskan perlu dipantau dan dikaji berkala supaya mewakili nilai penuh harta. Jika kurang diinsuranskan, penyelesaian tuntutan menggunakan asas purata dan pemegang polisi menanggung perbezaan secara berkadar.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Premium minimum",
+          "value": "Premium minimum polisi RM60.00.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Struktur harga diterbitkan",
+          "value": "Risalah SHC_Brochure_ENG_2406 menyatakan diskaun HouseOwner sehingga 30% daripada tarif. Jumlah diinsuranskan menggunakan kalkulator Allianz atau kos pembinaan semula yang dicadangkan. Jadual pilihan berasingan diterbitkan untuk HouseHolder, HomeFix, Mortgage Loan Installment Protection dan Landlord Insurance. Batas kawasan berisiko banjir dinyatakan untuk HouseHolder kerugian pertama dan HomeFix.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SHC_Brochure_ENG_2406.pdf"
+        },
+        {
+          "label": "Had isi rumah",
+          "value": "Had satu barang tertentu 5% jumlah isi rumah melainkan diisytiharkan; perabot, piano, organ, alat rumah, radio, TV, perakam video dan Hi-Fi dikecualikan daripada had tersebut. Platinum, emas, perak, barang kemas dan bulu terhad kepada 1/3 jumlah isi rumah. Pemindahan sementara 15%; cermin RM500 sekeping; pampasan kematian RM10,000 atau ½ jumlah isi rumah. Kehilangan wang peribadi akibat kecurian atau rompakan sehingga RM1,000 untuk Multi-Year sahaja. Harta pembantu rumah dikecualikan dalam PDS 6(b).",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Sewa, pembaikan sementara dan ansuran",
+          "value": "Kehilangan sewa sehingga 10% jumlah diinsuranskan bagi kedua-dua seksyen. Pembaikan sementara premis sehingga RM500 setiap tuntutan. Mortgage Loan Installment Protection pilihan meliputi ansuran apabila rumah tidak dapat didiami >72 jam, berlaku pemindahan oleh pihak berkuasa atau kematian atau hilang upaya kekal akibat kemalangan. Had pilihan RM10,000, RM20,000 atau RM30,000, atau 6 ansuran bulanan mengikut pilihan.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Liabiliti pihak ketiga",
+          "value": "Had sehingga RM50,000.00 bagi kemalangan di harta pemegang polisi. Peningkatan had liabiliti pihak ketiga ialah pilihan berpremium tambahan.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Pengecualian utama",
+          "value": "Mendapan, runtuhan tanah, rusuhan, mogok dan kerosakan berniat jahat tanpa premium tambahan; harta pembantu rumah; perang, perang saudara dan keganasan; pembakaran spontan; radioaktif atau nuklear; pemberhentian kerja atau rampasan; pengenalan tarikh; kerosakan data atau perisian; kerugian lanjutan; kerosakan paip semasa bangunan tidak berpenghuni. Liabiliti kepada awam mengecualikan kerosakan berkaitan asbestos.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
+        },
+        {
+          "label": "Manfaat dan modul pilihan",
+          "value": "Pembaikan sementara RM500 setiap tuntutan. Multi-Year: kehilangan wang peribadi termasuk mata wang asing sehingga RM1,000 setiap tahun polisi dan peningkatan jumlah diinsuranskan 3% setahun. HomeFix: paip pecah RM5,000, RM10,000 atau RM20,000; pintu, kunci atau tingkap selepas kecurian RM200; bantuan domestik RM100, RM200 atau RM300; servis pembaikan rumah sekali setahun serta penjagaan anai-anai, pepijat atau disinfeksi sekali setahun. Landlord: kerosakan berniat jahat oleh penyewa sehingga RM2,000; penyewa melarikan diri sehingga RM500 bagi Pilihan 1 atau RM1,500 bagi Pilihan 3, setiap kejadian sehingga 2 kali dalam 12 bulan; fi guaman surat tuntutan sehingga 2 kali dalam 12 bulan. Pembelian melalui ejen. PIDM TIPS dinyatakan.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SHC_Brochure_ENG_2406.pdf"
+        },
+        {
+          "label": "Notis dan dokumen tuntutan Annual",
+          "value": "PDS menasihatkan tuntutan dikemukakan secepat mungkin. Wording Annual memerlukan notis bertulis segera dan tuntutan bertulis lengkap dalam 30 hari selepas insiden atas kos pemegang polisi. Laporan polis segera diperlukan bagi kecurian.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SmartHomeCover_PolicyAnnual_EN_AZ2406.pdf"
+        },
+        {
+          "label": "Contoh premium rasmi",
+          "value": "Panel penjimatan risalah 2406 menggunakan HouseOwner RM300,000, HouseHolder nilai penuh RM30,000, HomeFix Pilihan 1, Landlord Pilihan 1 dan Mortgage Loan Installment Protection Pilihan 1. Jumlah yang dibandingkan: Annual RM1,368.56 dan Multi-Year 3 tahun RM1,046.70; penjimatan RM321.86. HouseOwner menggunakan nilai dipersetujui dengan peningkatan 3% setahun. Premium turut tertakluk kepada SST 8% dan duti setem RM10. Angka ini ialah jumlah gabungan dalam panel, bukan pecahan harga setiap komponen.",
+          "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SHC_Brochure_ENG_2406.pdf"
+        }
       ],
       "asAt": "2026-09-28"
     }
