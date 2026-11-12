@@ -17,12 +17,12 @@
     "marketValueRange": "RM22,000 – RM38,000",
     "marketValueMin": 22000,
     "marketValueMax": 38000,
-    "premiumNCD0": "RM1,200 – RM1,600",
-    "premiumNCD55": "RM540 – RM720",
-    "premiumNCD0Min": 1200,
-    "premiumNCD0Max": 1600,
-    "premiumNCD55Min": 540,
-    "premiumNCD55Max": 720,
+    "premiumNCD0": "RM740 – RM1,480",
+    "premiumNCD55": "RM330 – RM670",
+    "premiumNCD0Min": 740,
+    "premiumNCD0Max": 1480,
+    "premiumNCD55Min": 330,
+    "premiumNCD55Max": 670,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -69,45 +69,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.0 (998cc) RM20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1200,
-        1600
+        740,
+        1480
       ],
       "ncd25": [
-        900,
-        1200
+        560,
+        1110
       ],
       "ncd30": [
-        840,
-        1120
+        520,
+        1040
       ],
       "ncd38": [
-        740,
-        990
+        460,
+        910
       ],
       "ncd45": [
-        660,
-        880
+        410,
+        810
       ],
       "ncd55": [
-        540,
-        720
+        330,
+        670
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        540,
-        720
+        330,
+        670
       ],
       "pantaiTimur": [
-        510,
-        680
+        310,
+        630
       ],
       "borneo": [
-        520,
-        690
+        320,
+        640
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM22,000–RM38,000. Harga sebenar ikut umur kereta, lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak Mac 2026. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM22,000–RM38,000, julat −10% hingga +20%. Harga sebenar ikut umur kereta, lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak Mac 2026. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Axia paling kerap ialah cermin depan (batu di lebuh raya) dan calar bumper bandar. Claim enjin jarang; claim banjir naik setiap monsun untuk kereta parkir di kawasan rendah Klang/Shah Alam.",
     "theftRiskDetail": "Risiko kecurian rendah — Axia bukan sasaran utama pencuri (rujuk nota risiko semasa). Pasang immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -158,7 +158,7 @@
       },
       {
         "q": "Windscreen Axia retak sikit — claim atau bayar sendiri?",
-        "a": "Jika ada windscreen cover, claim cermin tidak usik NCD — claim sahaja. Jika tiada cover dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM660–RM880/tahun)."
+        "a": "Jika ada windscreen cover, claim cermin tidak usik NCD — claim sahaja. Jika tiada cover dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM410–RM810/tahun)."
       }
     ],
     "sources": [
@@ -199,12 +199,12 @@
     "marketValueRange": "RM38,000 – RM58,000",
     "marketValueMin": 38000,
     "marketValueMax": 58000,
-    "premiumNCD0": "RM1,500 – RM2,200",
-    "premiumNCD55": "RM680 – RM990",
-    "premiumNCD0Min": 1500,
-    "premiumNCD0Max": 2200,
-    "premiumNCD55Min": 680,
-    "premiumNCD55Max": 990,
+    "premiumNCD0": "RM1,110 – RM2,150",
+    "premiumNCD55": "RM500 – RM970",
+    "premiumNCD0Min": 1110,
+    "premiumNCD0Max": 2150,
+    "premiumNCD55Min": 500,
+    "premiumNCD55Max": 970,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -251,45 +251,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.3 (1,329cc) RM70; 1.5 (1,496cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1500,
-        2200
+        1110,
+        2150
       ],
       "ncd25": [
-        1130,
-        1650
+        830,
+        1610
       ],
       "ncd30": [
-        1050,
-        1540
+        780,
+        1510
       ],
       "ncd38": [
-        930,
-        1360
+        680,
+        1330
       ],
       "ncd45": [
-        830,
-        1210
+        610,
+        1180
       ],
       "ncd55": [
-        680,
-        990
+        500,
+        970
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        680,
-        990
+        500,
+        970
       ],
       "pantaiTimur": [
-        640,
-        930
+        470,
+        910
       ],
       "borneo": [
-        650,
-        950
+        480,
+        930
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM38,000–RM58,000. Harga sebenar ikut umur kereta, varian (1.3 vs 1.5 AV), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM38,000–RM58,000, julat −10% hingga +20%. Harga sebenar ikut umur kereta, varian (1.3 vs 1.5 AV), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Myvi ialah kereta paling banyak di jalan raya, jadi claim kemalangan bandar (bumper, fender, cermin sisi) paling kerap — bukan kerana kereta bermasalah, tetapi kerana jumlah unit. Claim cermin depan akibat batu di lebuh raya juga biasa.",
     "theftRiskDetail": "Risiko kecurian sederhana. Myvi bukan sasaran utama pecah masuk seperti Honda, tetapi unit yang banyak bermakna kes kecurian masih dilaporkan — kunci stereng atau immobiliser standard sudah memadai untuk kebanyakan pemilik.",
@@ -332,7 +332,7 @@
         "name": "NCD protector",
         "priceBM": "RM200–RM350/tahun",
         "verdict": "berbaloi jika NCD 45–55%",
-        "whyBM": "NCD 55% jimat RM820–RM1,210/tahun — sekali claim kecil tanpa protector, rugi besar."
+        "whyBM": "NCD 55% jimat RM610–RM1,180/tahun — sekali claim kecil tanpa protector, rugi besar."
       }
     ],
     "modelFAQs": [
@@ -386,12 +386,12 @@
     "marketValueRange": "RM30,000 – RM48,000",
     "marketValueMin": 30000,
     "marketValueMax": 48000,
-    "premiumNCD0": "RM1,300 – RM1,900",
-    "premiumNCD55": "RM590 – RM860",
-    "premiumNCD0Min": 1300,
-    "premiumNCD0Max": 1900,
-    "premiumNCD55Min": 590,
-    "premiumNCD55Max": 860,
+    "premiumNCD0": "RM930 – RM1,790",
+    "premiumNCD55": "RM420 – RM810",
+    "premiumNCD0Min": 930,
+    "premiumNCD0Max": 1790,
+    "premiumNCD55Min": 420,
+    "premiumNCD55Max": 810,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -432,45 +432,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.0 (998cc) RM20; 1.3 (1,329cc) RM70 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1300,
-        1900
+        930,
+        1790
       ],
       "ncd25": [
-        980,
-        1430
+        700,
+        1340
       ],
       "ncd30": [
-        910,
-        1330
+        650,
+        1250
       ],
       "ncd38": [
-        800,
-        1170
+        570,
+        1100
       ],
       "ncd45": [
-        720,
-        1050
+        510,
+        980
       ],
       "ncd55": [
-        590,
-        860
+        420,
+        810
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        590,
-        860
-      ],
-      "pantaiTimur": [
-        550,
+        420,
         810
       ],
+      "pantaiTimur": [
+        390,
+        760
+      ],
       "borneo": [
-        570,
-        830
+        400,
+        780
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM30,000–RM48,000. Harga sebenar ikut varian (1.0 vs 1.3 AV), tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM30,000–RM48,000, julat −10% hingga +20%. Harga sebenar ikut varian (1.0 vs 1.3 AV), tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim rendah ke sederhana — pemandu Bezza biasanya berhemah dan parts kongsi platform Axia (murah). Claim paling biasa ialah perlanggaran belakang di bandar dan calar bumper boot yang panjang.",
     "theftRiskDetail": "Risiko kecurian rendah — Bezza bukan sasaran utama. Immobiliser standard sudah memadai.",
@@ -517,7 +517,7 @@
       },
       {
         "q": "Bumper belakang Bezza kemek kena sondol — claim atau cash?",
-        "a": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (diskaun bernilai kira-kira RM580–RM1,040 setahun mengikut anggaran di halaman ini), bayar tunai biasanya lebih jimat — selepas satu tuntutan, NCD kembali ke 0% dan premium tahun depan naik sebanyak nilai diskaun itu."
+        "a": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (diskaun bernilai kira-kira RM420–RM980 setahun mengikut anggaran di halaman ini), bayar tunai biasanya lebih jimat — selepas satu tuntutan, NCD kembali ke 0% dan premium tahun depan naik sebanyak nilai diskaun itu."
       }
     ],
     "sources": [
@@ -557,12 +557,12 @@
     "marketValueRange": "RM55,000 – RM75,000",
     "marketValueMin": 55000,
     "marketValueMax": 75000,
-    "premiumNCD0": "RM2,000 – RM2,800",
-    "premiumNCD55": "RM900 – RM1,260",
-    "premiumNCD0Min": 2000,
-    "premiumNCD0Max": 2800,
-    "premiumNCD55Min": 900,
-    "premiumNCD55Max": 1260,
+    "premiumNCD0": "RM1,510 – RM2,640",
+    "premiumNCD55": "RM680 – RM1,190",
+    "premiumNCD0Min": 1510,
+    "premiumNCD0Max": 2640,
+    "premiumNCD55Min": 680,
+    "premiumNCD55Max": 1190,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -608,45 +608,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.0T (998cc) RM20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2000,
-        2800
+        1510,
+        2640
       ],
       "ncd25": [
-        1500,
-        2100
+        1130,
+        1980
       ],
       "ncd30": [
-        1400,
-        1960
+        1060,
+        1850
       ],
       "ncd38": [
-        1230,
-        1730
+        930,
+        1630
       ],
       "ncd45": [
-        1100,
-        1540
+        830,
+        1450
       ],
       "ncd55": [
-        900,
-        1260
+        680,
+        1190
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        900,
-        1260
+        680,
+        1190
       ],
       "pantaiTimur": [
-        850,
-        1180
+        640,
+        1120
       ],
       "borneo": [
-        860,
-        1210
+        650,
+        1140
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM75,000. Harga sebenar ikut varian (X, H dan AV dengan ASA 3.0), umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM55,000–RM75,000, julat −10% hingga +20%. Harga sebenar ikut varian (X, H dan AV dengan ASA 3.0), umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana — SUV yang banyak dipandu keluarga muda. Claim paling biasa ialah calar bumper dan cermin. Claim sensor ADAS (bumper depan dengan radar ASA) jarang tetapi mahal bila berlaku.",
     "theftRiskDetail": "Risiko kecurian rendah ke sederhana. Bukan sasaran utama pencuri; immobiliser standard dan parkir biasa sudah memadai.",
@@ -739,12 +739,12 @@
     "marketValueRange": "RM50,000 – RM72,000",
     "marketValueMin": 50000,
     "marketValueMax": 72000,
-    "premiumNCD0": "RM1,800 – RM2,600",
-    "premiumNCD55": "RM810 – RM1,170",
-    "premiumNCD0Min": 1800,
-    "premiumNCD0Max": 2600,
-    "premiumNCD55Min": 810,
-    "premiumNCD55Max": 1170,
+    "premiumNCD0": "RM1,420 – RM2,580",
+    "premiumNCD55": "RM640 – RM1,160",
+    "premiumNCD0Min": 1420,
+    "premiumNCD0Max": 2580,
+    "premiumNCD55Min": 640,
+    "premiumNCD55Max": 1160,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -790,45 +790,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 (1,496cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1800,
-        2600
+        1420,
+        2580
       ],
       "ncd25": [
-        1350,
-        1950
+        1070,
+        1940
       ],
       "ncd30": [
-        1260,
-        1820
+        990,
+        1810
       ],
       "ncd38": [
-        1110,
-        1600
+        880,
+        1590
       ],
       "ncd45": [
-        990,
-        1430
+        780,
+        1420
       ],
       "ncd55": [
-        810,
-        1170
+        640,
+        1160
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        810,
-        1170
+        640,
+        1160
       ],
       "pantaiTimur": [
-        760,
-        1100
+        600,
+        1090
       ],
       "borneo": [
-        780,
-        1120
+        610,
+        1110
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM50,000–RM72,000. Harga sebenar ikut tahun (Gen 1 vs Gen 2 2022+), varian (X vs H vs AV) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM50,000–RM72,000, julat −10% hingga +20%. Harga sebenar ikut tahun (Gen 1 vs Gen 2 2022+), varian (X vs H vs AV) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Alza paling kerap ialah calar bumper parking dan perlanggaran belakang — MPV keluarga yang selalu penuh dan dipandu harian di bandar. Claim besar jarang; kos repair Perodua masih antara paling murah.",
     "theftRiskDetail": "Risiko kecurian rendah — Alza bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -911,23 +911,26 @@
     "model": "Saga",
     "fullName": "Proton Saga",
     "variants": [
-      "1.3 Standard AT",
       "1.3 Standard MT",
-      "1.3 Executive",
-      "1.3 Premium"
+      "1.3 Standard AT",
+      "1.3 Premium AT",
+      "1.3 Premium S AT",
+      "1.5 Standard",
+      "1.5 Executive",
+      "1.5 Premium"
     ],
-    "engineCC": "1.3L (1332cc)",
-    "yearRange": "1985 – kini (facelift 2022+)",
+    "engineCC": "1.3L (1,332cc) / 1.5L (1,499cc)",
+    "yearRange": "1985 – kini (generasi ke-4 1.5: Nov 2025+)",
     "segment": "Sedan A",
     "marketValueRange": "RM28,000 – RM42,000",
     "marketValueMin": 28000,
     "marketValueMax": 42000,
-    "premiumNCD0": "RM1,300 – RM1,800",
-    "premiumNCD55": "RM590 – RM810",
-    "premiumNCD0Min": 1300,
-    "premiumNCD0Max": 1800,
-    "premiumNCD55Min": 590,
-    "premiumNCD55Max": 810,
+    "premiumNCD0": "RM880 – RM1,650",
+    "premiumNCD55": "RM400 – RM740",
+    "premiumNCD0Min": 880,
+    "premiumNCD0Max": 1650,
+    "premiumNCD55Min": 400,
+    "premiumNCD55Max": 740,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -949,14 +952,14 @@
       "theftRate": "Rendah",
       "repairCost": "Rendah — spare parts murah",
       "claimFrequency": "Sederhana",
-      "notes": "Kereta nasional legendaris. Spare parts sangat murah dan mudah didapati. Risiko kecurian rendah. Model terbaru (2022+) sudah jauh lebih baik dari segi kualiti."
+      "notes": "Kereta nasional legendaris. Spare parts sangat murah dan mudah didapati. Risiko kecurian rendah. Generasi ke-4 (Nov 2025+) guna enjin 1.5 dan varian 1.5 Premium ada ADAS."
     },
     "tips": [
       "Saga spare parts antara paling murah di Malaysia — bayar sendiri untuk repair kecil.",
       "Kalau Saga lama (pre-2016), mungkin worth pertimbangkan TPFT je sebab nilai kereta dah rendah.",
-      "Saga baru (2022+) ada ADAS asas — boleh jadi faktor untuk diskaun premium."
+      "Saga generasi ke-4 1.5 Premium (Nov 2025+) ada ADAS seperti AEB — tanya syarikat insurans sama ada ada diskaun, dan sama ada calibration sensor termasuk dalam claim cermin."
     ],
-    "description": "Proton Saga adalah sedan nasional kebanggaan Malaysia. Insurans sangat berpatutan kerana spare parts murah dan nilai pasaran rendah.",
+    "description": "Proton Saga adalah sedan nasional kebanggaan Malaysia. Insurans sangat berpatutan kerana spare parts murah dan nilai pasaran rendah. Saga 1.3 dihasilkan sehingga September 2025; generasi ke-4 yang dilancarkan 27 November 2025 guna enjin 1.5 i-GT.",
     "relatedModels": [
       "proton-persona",
       "proton-iriz",
@@ -964,49 +967,49 @@
       "perodua-axia"
     ],
     "roadtaxMin": 70,
-    "roadtaxMax": 70,
-    "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.3 (1,332cc) RM70 setahun, ikut jadual JPJ",
+    "roadtaxMax": 90,
+    "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.3 (1,332cc) RM70; 1.5 (1,499cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1300,
-        1800
+        880,
+        1650
       ],
       "ncd25": [
-        980,
-        1350
+        660,
+        1240
       ],
       "ncd30": [
-        910,
-        1260
+        620,
+        1160
       ],
       "ncd38": [
-        800,
-        1110
+        540,
+        1020
       ],
       "ncd45": [
-        720,
-        990
+        480,
+        910
       ],
       "ncd55": [
-        590,
-        810
+        400,
+        740
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        590,
-        810
+        400,
+        740
       ],
       "pantaiTimur": [
-        550,
-        760
+        380,
+        700
       ],
       "borneo": [
-        570,
-        780
+        380,
+        710
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM28,000–RM42,000. Harga sebenar ikut tahun (VVT awal vs MC2), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM28,000–RM42,000, julat −10% hingga +20%. Harga sebenar ikut tahun (1.3 hingga 1.5 generasi ke-4), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana — kebanyakannya calar parking dan perlanggaran belakang ringan. Parts Saga antara paling murah di Malaysia, jadi banyak kerosakan kecil diselesaikan cash tanpa claim untuk jaga NCD.",
     "theftRiskDetail": "Risiko kecurian rendah — Saga bukan sasaran pencuri. Immobiliser standard sudah memadai; tidak perlu belanja tracker.",
@@ -1021,11 +1024,15 @@
         "note": "Facelift dengan ciri keselamatan tambahan. Sum insured ikut harga pasaran semasa; windscreen cover RM50–RM80."
       },
       {
-        "range": "2022–kini (MC2)",
-        "note": "Model terkini dengan kualiti jauh lebih baik. Pastikan sum insured ikut harga beli (RM35,000+). Varian Premium ada ciri tambahan — insure ikut varian."
+        "range": "2022–2025 (MC2, 1.3)",
+        "note": "Saga 1.3 terakhir — produksi tamat September 2025. Sum insured ikut nilai pasaran semasa unit anda. Varian Premium ada ciri tambahan — insure ikut varian."
+      },
+      {
+        "range": "Nov 2025–kini (generasi ke-4, 1.5 i-GT)",
+        "note": "Enjin baharu 1.5 (1,499cc) dengan varian Standard, Executive dan Premium; harga baharu RM38,990–RM49,990 (Semenanjung). Pastikan sum insured ikut harga beli varian anda. Hanya 1.5 Premium ada ADAS — beritahu insurer varian yang tepat."
       }
     ],
-    "windscreenPrice": "RM300–RM600; cermin standard tanpa sensor — antara paling murah dalam segmen",
+    "windscreenPrice": "RM300–RM600 untuk 1.3; 1.5 Premium (Nov 2025+) ada kamera ADAS — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
     "addOnsDetail": [
       {
         "name": "Windscreen cover",
@@ -1048,7 +1055,7 @@
     ],
     "modelFAQs": [
       {
-        "q": "Saga Standard MT vs Premium — beza premium?",
+        "q": "Saga Standard vs Premium — beza premium?",
         "a": "Kecil — ikut beza sum insured sekitar RM5,000–RM8,000, premium naik lebih kurang RM50–RM150/tahun. Pilih varian ikut keselesaan (Premium ada ciri lebih), bukan risau pasal insurans."
       },
       {
@@ -1075,6 +1082,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Proton — risalah Saga baharu (1.5, 1,499cc)",
+        "url": "https://cms-assets.proton.com/proton-cms-blob/media/40ehguyc/all-new-saga-leaflet.pdf",
+        "retrieved": "2026-11-12"
       }
     ],
     "factChecked": "2026-09-10",
@@ -1097,12 +1109,12 @@
     "marketValueRange": "RM35,000 – RM52,000",
     "marketValueMin": 35000,
     "marketValueMax": 52000,
-    "premiumNCD0": "RM1,500 – RM2,100",
-    "premiumNCD55": "RM680 – RM950",
-    "premiumNCD0Min": 1500,
-    "premiumNCD0Max": 2100,
-    "premiumNCD55Min": 680,
-    "premiumNCD55Max": 950,
+    "premiumNCD0": "RM1,070 – RM1,960",
+    "premiumNCD55": "RM480 – RM880",
+    "premiumNCD0Min": 1070,
+    "premiumNCD0Max": 1960,
+    "premiumNCD55Min": 480,
+    "premiumNCD55Max": 880,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -1143,45 +1155,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.6 (1,597cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1500,
-        2100
+        1070,
+        1960
       ],
       "ncd25": [
-        1130,
-        1580
-      ],
-      "ncd30": [
-        1050,
+        800,
         1470
       ],
+      "ncd30": [
+        750,
+        1370
+      ],
       "ncd38": [
-        930,
-        1300
+        660,
+        1210
       ],
       "ncd45": [
-        830,
-        1160
+        590,
+        1080
       ],
       "ncd55": [
-        680,
-        950
+        480,
+        880
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        680,
-        950
+        480,
+        880
       ],
       "pantaiTimur": [
-        640,
-        890
+        450,
+        830
       ],
       "borneo": [
-        650,
-        910
+        460,
+        840
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM35,000–RM52,000. Harga sebenar ikut tahun (BH awal vs facelift), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM35,000–RM52,000, julat −10% hingga +20%. Harga sebenar ikut tahun (BH awal vs facelift), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Persona paling kerap ialah perlanggaran belakang dan calar parking — sedan keluarga yang banyak dipandu harian di bandar. Claim gearbox atau enjin jarang; isu CVT adalah kos penyelenggaraan, bukan claim insurans.",
     "theftRiskDetail": "Risiko kecurian rendah — Persona bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -1267,17 +1279,17 @@
       "1.6 Premium"
     ],
     "engineCC": "1.3L / 1.6L",
-    "yearRange": "2014 – kini",
+    "yearRange": "2014 – 2025 (tidak lagi dijual baharu)",
     "segment": "Hatchback B",
     "marketValueRange": "RM32,000 – RM48,000",
     "marketValueMin": 32000,
     "marketValueMax": 48000,
-    "premiumNCD0": "RM1,400 – RM1,900",
-    "premiumNCD55": "RM630 – RM860",
-    "premiumNCD0Min": 1400,
-    "premiumNCD0Max": 1900,
-    "premiumNCD55Min": 630,
-    "premiumNCD55Max": 860,
+    "premiumNCD0": "RM970 – RM1,830",
+    "premiumNCD55": "RM440 – RM820",
+    "premiumNCD0Min": 970,
+    "premiumNCD0Max": 1830,
+    "premiumNCD55Min": 440,
+    "premiumNCD55Max": 820,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -1306,7 +1318,7 @@
       "Competitor langsung Myvi — tapi biasanya insurans Iriz sedikit lebih murah.",
       "Kalau nak hatchback murah untuk insurans, Iriz dan Axia antara yang paling jimat."
     ],
-    "description": "Proton Iriz adalah hatchback selamat dengan 5 bintang ASEAN NCAP. Premium insurans berpatutan dan spare parts murah.",
+    "description": "Proton Iriz adalah hatchback selamat dengan 5 bintang ASEAN NCAP. Premium insurans berpatutan dan spare parts murah. Pengeluaran Iriz ditamatkan pada September 2025. Tidak lagi dijual baharu, tetapi unit terpakai masih boleh diinsuranskan.",
     "relatedModels": [
       "proton-saga",
       "perodua-myvi",
@@ -1318,45 +1330,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.3 (1,332cc) RM70; 1.6 (1,597cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1400,
-        1900
+        970,
+        1830
       ],
       "ncd25": [
-        1050,
-        1430
+        730,
+        1370
       ],
       "ncd30": [
-        980,
-        1330
+        680,
+        1280
       ],
       "ncd38": [
-        860,
-        1170
+        600,
+        1130
       ],
       "ncd45": [
-        770,
-        1050
+        530,
+        1010
       ],
       "ncd55": [
-        630,
-        860
+        440,
+        820
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        630,
-        860
+        440,
+        820
       ],
       "pantaiTimur": [
-        590,
-        810
+        410,
+        770
       ],
       "borneo": [
-        600,
-        830
+        420,
+        790
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM32,000–RM48,000. Harga sebenar ikut tahun, varian (1.3 vs 1.6 Premium) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM32,000–RM48,000, julat −10% hingga +20%. Harga sebenar ikut tahun, varian (1.3 vs 1.6 Premium) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Iriz paling kerap ialah calar parking dan perlanggaran kecil bandar — hatchback harian yang lincah di kawasan sempit. Claim besar jarang; parts Proton murah dan mudah didapati.",
     "theftRiskDetail": "Risiko kecurian rendah — Iriz bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -1367,7 +1379,7 @@
         "note": "Unit awal nilai bawah RM20,000. Kira third-party vs comprehensive — comprehensive hanya berbaloi jika kereta masih dipandu harian jauh."
       },
       {
-        "range": "2019–kini (facelift)",
+        "range": "2019–2025 (facelift)",
         "note": "Kualiti binaan dan infotainment bertambah baik. Varian 1.6 Premium nilainya lebih tinggi — pastikan sum insured ikut varian, bukan harga Standard."
       }
     ],
@@ -1403,7 +1415,7 @@
       },
       {
         "q": "Iriz lama bawah RM15,000 — masih perlu comprehensive?",
-        "a": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri, third-party mungkin memadai. Tetapi jika Iriz masih kereta harian utama tanpa simpanan repair, comprehensive RM630–RM860/tahun (NCD 55%) masih berbaloi."
+        "a": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri, third-party mungkin memadai. Tetapi jika Iriz masih kereta harian utama tanpa simpanan repair, comprehensive RM440–RM820/tahun (NCD 55%) masih berbaloi."
       }
     ],
     "sources": [
@@ -1444,12 +1456,12 @@
     "marketValueRange": "RM70,000 – RM105,000",
     "marketValueMin": 70000,
     "marketValueMax": 105000,
-    "premiumNCD0": "RM2,500 – RM3,800",
-    "premiumNCD55": "RM1,130 – RM1,710",
-    "premiumNCD0Min": 2500,
-    "premiumNCD0Max": 3800,
-    "premiumNCD55Min": 1130,
-    "premiumNCD55Max": 1710,
+    "premiumNCD0": "RM1,890 – RM3,610",
+    "premiumNCD55": "RM850 – RM1,620",
+    "premiumNCD0Min": 1890,
+    "premiumNCD0Max": 3610,
+    "premiumNCD55Min": 850,
+    "premiumNCD55Max": 1620,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -1496,45 +1508,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5T (1,477cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2500,
-        3800
+        1890,
+        3610
       ],
       "ncd25": [
-        1880,
-        2850
+        1420,
+        2710
       ],
       "ncd30": [
-        1750,
-        2660
+        1320,
+        2530
       ],
       "ncd38": [
-        1540,
-        2340
+        1170,
+        2230
       ],
       "ncd45": [
-        1380,
-        2090
+        1040,
+        1990
       ],
       "ncd55": [
-        1130,
-        1710
+        850,
+        1620
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1130,
-        1710
+        850,
+        1620
       ],
       "pantaiTimur": [
-        1060,
-        1610
+        800,
+        1520
       ],
       "borneo": [
-        1080,
-        1640
+        820,
+        1560
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM70,000–RM105,000 (1.5T Standard hingga 1.5 TGDi Flagship). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM70,000–RM105,000 (1.5T Standard hingga 1.5 TGDi Flagship), julat −10% hingga +20%. Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim X50 jarang tetapi mahal — SUV turbo dengan banyak sensor. Claim paling biasa ialah cermin depan dan calar bumper parking. Sekali accident depan, kos radar dan kamera ADAS menaikkan bil repair dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana — SUV popular tetapi bukan sasaran utama seperti Honda. Comprehensive wajib; parkir berkunci dan dashcam disarankan untuk varian Flagship.",
@@ -1620,7 +1632,7 @@
       "1.5 TGDi Standard",
       "1.5 TGDi Executive",
       "1.5 TGDi Premium",
-      "1.5 TGDi Flagship"
+      "1.5 TGDi Premium X"
     ],
     "engineCC": "1.5L Turbo (TGDi)",
     "yearRange": "2018 – kini",
@@ -1628,12 +1640,12 @@
     "marketValueRange": "RM85,000 – RM125,000",
     "marketValueMin": 85000,
     "marketValueMax": 125000,
-    "premiumNCD0": "RM3,200 – RM4,800",
-    "premiumNCD55": "RM1,440 – RM2,160",
-    "premiumNCD0Min": 3200,
-    "premiumNCD0Max": 4800,
-    "premiumNCD55Min": 1440,
-    "premiumNCD55Max": 2160,
+    "premiumNCD0": "RM2,240 – RM4,240",
+    "premiumNCD55": "RM1,010 – RM1,910",
+    "premiumNCD0Min": 2240,
+    "premiumNCD0Max": 4240,
+    "premiumNCD55Min": 1010,
+    "premiumNCD55Max": 1910,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -1680,48 +1692,48 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 TGDi (1,477cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3200,
-        4800
+        2240,
+        4240
       ],
       "ncd25": [
-        2400,
-        3600
+        1680,
+        3180
       ],
       "ncd30": [
-        2240,
-        3360
+        1570,
+        2970
       ],
       "ncd38": [
-        1970,
-        2960
+        1380,
+        2610
       ],
       "ncd45": [
-        1760,
-        2640
+        1230,
+        2330
       ],
       "ncd55": [
-        1440,
-        2160
+        1010,
+        1910
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1440,
-        2160
+        1010,
+        1910
       ],
       "pantaiTimur": [
-        1350,
-        2030
+        950,
+        1800
       ],
       "borneo": [
-        1380,
-        2070
+        970,
+        1830
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM125,000 (1.5 TGDi Standard hingga Flagship). Harga sebenar ikut varian, tahun (1.8T awal vs 1.5T) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM85,000–RM125,000 (1.5 TGDi Standard hingga Premium X), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (1.8T awal vs 1.5T) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim X70 jarang tetapi bil antara tertinggi untuk jenama nasional — SUV segmen C dengan parts Geely import. Claim cermin besar dan sensor ADAS paling biasa. Sekali accident depan, kos radar dan lampu LED menaikkan bil dengan cepat.",
-    "theftRiskDetail": "Risiko kecurian sederhana — nilai tinggi tetapi bukan sasaran utama pencuri. Comprehensive wajib; tracker GPS berbaloi untuk varian Flagship yang parkir di kawasan terbuka.",
+    "theftRiskDetail": "Risiko kecurian sederhana — nilai tinggi tetapi bukan sasaran utama pencuri. Comprehensive wajib; tracker GPS berbaloi untuk varian Premium X yang parkir di kawasan terbuka.",
     "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah tetap terdedah. Special perils RM50–RM90/tahun disarankan — komponen elektrik X70 mahal jika masuk air.",
     "modelYearNotes": [
       {
@@ -1730,7 +1742,7 @@
       },
       {
         "range": "2020–kini (CKD; 1.5 TGDi dari 2022)",
-        "note": "CKD bermula Feb 2020 masih dengan enjin 1.8T; enjin 1.5 TGDi mula ditawarkan pada kemas kini Jun 2022 (1.8T kekal pada varian tertinggi sehingga facelift Ogos 2024). Parts lebih mudah selepas CKD. Varian Flagship ada sensor penuh — ambil ADAS calibration cover dan pastikan sum insured ikut varian."
+        "note": "CKD bermula Feb 2020 masih dengan enjin 1.8T; enjin 1.5 TGDi mula ditawarkan pada kemas kini Jun 2022 (1.8T kekal pada varian tertinggi sehingga facelift Ogos 2024). Parts lebih mudah selepas CKD. Varian tertinggi (Premium, Premium X) ada sensor penuh — ambil ADAS calibration cover dan pastikan sum insured ikut varian."
       }
     ],
     "windscreenPrice": "RM700–RM1,400; semua varian tinggi ada kamera/radar — gantian cermin wajib calibration, sahkan kos dengan panel bengkel",
@@ -1805,17 +1817,17 @@
       "1.6 Turbo Premium"
     ],
     "engineCC": "1.6L Turbo (CFE)",
-    "yearRange": "2009 – kini",
+    "yearRange": "2009 – 2023 (tidak lagi dijual baharu)",
     "segment": "MPV C",
     "marketValueRange": "RM40,000 – RM62,000",
     "marketValueMin": 40000,
     "marketValueMax": 62000,
-    "premiumNCD0": "RM1,700 – RM2,400",
-    "premiumNCD55": "RM770 – RM1,080",
-    "premiumNCD0Min": 1700,
-    "premiumNCD0Max": 2400,
-    "premiumNCD55Min": 770,
-    "premiumNCD55Max": 1080,
+    "premiumNCD0": "RM1,190 – RM2,270",
+    "premiumNCD55": "RM540 – RM1,020",
+    "premiumNCD0Min": 1190,
+    "premiumNCD0Max": 2270,
+    "premiumNCD55Min": 540,
+    "premiumNCD55Max": 1020,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -1849,7 +1861,7 @@
       "Enjin turbo CFE boleh jadi problematic kalau tak maintain — breakdown towing bagus untuk peace of mind.",
       "Model dah lama — pertimbangkan agreed value untuk protect nilai kereta."
     ],
-    "description": "Proton Exora adalah MPV turbo termurah di Malaysia. Premium berpatutan untuk MPV 7 tempat duduk dengan enjin turbo.",
+    "description": "Proton Exora adalah MPV turbo termurah di Malaysia. Premium berpatutan untuk MPV 7 tempat duduk dengan enjin turbo. Pengeluaran Exora ditamatkan pada 18 Oktober 2023. Tidak lagi dijual baharu, tetapi unit terpakai masih boleh diinsuranskan.",
     "relatedModels": [
       "perodua-alza",
       "proton-persona",
@@ -1861,45 +1873,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.6 Turbo (1,561cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        1700,
-        2400
+        1190,
+        2270
       ],
       "ncd25": [
-        1280,
-        1800
+        890,
+        1700
       ],
       "ncd30": [
-        1190,
-        1680
+        830,
+        1590
       ],
       "ncd38": [
-        1050,
-        1480
+        730,
+        1400
       ],
       "ncd45": [
-        940,
-        1320
+        650,
+        1250
       ],
       "ncd55": [
-        770,
-        1080
+        540,
+        1020
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        770,
-        1080
-      ],
-      "pantaiTimur": [
-        720,
+        540,
         1020
       ],
+      "pantaiTimur": [
+        510,
+        960
+      ],
       "borneo": [
-        740,
-        1040
+        520,
+        980
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM40,000–RM62,000 (1.6 Turbo Executive vs Premium). Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM40,000–RM62,000 (1.6 Turbo Executive vs Premium), julat −10% hingga +20%. Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Exora jarang tetapi libatkan MPV penuh — calar bumper parking dan perlanggaran belakang paling biasa. Enjin turbo CFE pula isu penyelenggaraan, bukan claim insurans.",
     "theftRiskDetail": "Risiko kecurian rendah — Exora bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -1993,12 +2005,12 @@
     "marketValueRange": "RM60,000 – RM95,000",
     "marketValueMin": 60000,
     "marketValueMax": 95000,
-    "premiumNCD0": "RM2,200 – RM3,200",
-    "premiumNCD55": "RM990 – RM1,440",
-    "premiumNCD0Min": 2200,
-    "premiumNCD0Max": 3200,
-    "premiumNCD55Min": 990,
-    "premiumNCD55Max": 1440,
+    "premiumNCD0": "RM1,660 – RM3,300",
+    "premiumNCD55": "RM750 – RM1,490",
+    "premiumNCD0Min": 1660,
+    "premiumNCD0Max": 3300,
+    "premiumNCD55Min": 750,
+    "premiumNCD55Max": 1490,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2045,45 +2057,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,498cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2200,
-        3200
+        1660,
+        3300
       ],
       "ncd25": [
-        1650,
-        2400
+        1250,
+        2480
       ],
       "ncd30": [
-        1540,
-        2240
+        1160,
+        2310
       ],
       "ncd38": [
-        1360,
-        1970
+        1020,
+        2040
       ],
       "ncd45": [
-        1210,
-        1760
+        910,
+        1820
       ],
       "ncd55": [
-        990,
-        1440
+        750,
+        1490
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        990,
-        1440
+        750,
+        1490
       ],
       "pantaiTimur": [
-        930,
-        1350
+        710,
+        1400
       ],
       "borneo": [
-        950,
-        1380
+        720,
+        1430
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM95,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM60,000–RM95,000 (1.5 S hingga RS e:HEV), julat −10% hingga +20%. Harga sebenar ikut varian hybrid, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan kunci stereng tambahan jika parkir di kawasan terbuka.",
@@ -2167,8 +2179,10 @@
     "fullName": "Honda Civic",
     "variants": [
       "1.5 TC-P",
-      "1.5 TC-P RS",
-      "2.0 RS e:HEV"
+      "1.5 E",
+      "1.5 V",
+      "1.5 RS",
+      "2.0 e:HEV RS"
     ],
     "engineCC": "1.5L Turbo / 2.0L e:HEV Hybrid",
     "yearRange": "1972 – kini (Gen 11: 2022+)",
@@ -2176,12 +2190,12 @@
     "marketValueRange": "RM95,000 – RM155,000",
     "marketValueMin": 95000,
     "marketValueMax": 155000,
-    "premiumNCD0": "RM3,500 – RM5,500",
-    "premiumNCD55": "RM1,580 – RM2,480",
-    "premiumNCD0Min": 3500,
-    "premiumNCD0Max": 5500,
-    "premiumNCD55Min": 1580,
-    "premiumNCD55Max": 2480,
+    "premiumNCD0": "RM2,470 – RM5,210",
+    "premiumNCD55": "RM1,110 – RM2,340",
+    "premiumNCD0Min": 2470,
+    "premiumNCD0Max": 5210,
+    "premiumNCD55Min": 1110,
+    "premiumNCD55Max": 2340,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2228,45 +2242,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 Turbo (1,498cc) RM90; 2.0 e:HEV (1,993cc) RM376.50 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3500,
-        5500
+        2470,
+        5210
       ],
       "ncd25": [
-        2630,
-        4130
+        1850,
+        3910
       ],
       "ncd30": [
-        2450,
-        3850
+        1730,
+        3650
       ],
       "ncd38": [
-        2160,
-        3390
+        1520,
+        3210
       ],
       "ncd45": [
-        1930,
-        3030
+        1360,
+        2870
       ],
       "ncd55": [
-        1580,
-        2480
+        1110,
+        2340
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1580,
-        2480
+        1110,
+        2340
       ],
       "pantaiTimur": [
-        1490,
-        2330
+        1040,
+        2200
       ],
       "borneo": [
-        1520,
-        2380
+        1070,
+        2250
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM155,000 (1.5 TC-P hingga 2.0 RS e:HEV). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM95,000–RM155,000 (1.5 TC-P hingga 2.0 e:HEV RS), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — sedan segmen C dengan enjin turbo dan sensor penuh. Claim cermin dan bumper biasa; sekali accident depan, kos lampu LED, radar Honda Sensing dan intercooler turbo menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian tinggi — Civic antara sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng + tracker GPS sangat disarankan.",
@@ -2278,7 +2292,7 @@
       },
       {
         "range": "2022–kini (Gen 11, termasuk 2.0 e:HEV)",
-        "note": "Honda Sensing standard semua varian. Varian 2.0 RS e:HEV ialah hybrid — premium 15–20% lebih tinggi. Cermin perlu calibration setiap kali ditukar."
+        "note": "Honda Sensing standard semua varian. Varian 2.0 e:HEV RS ialah hybrid — premium 15–20% lebih tinggi. Cermin perlu calibration setiap kali ditukar."
       }
     ],
     "windscreenPrice": "RM700–RM1,500; semua varian Gen 11 ada Honda Sensing — gantian cermin wajib calibration kamera, sahkan kos dengan panel bengkel",
@@ -2310,7 +2324,7 @@
     ],
     "modelFAQs": [
       {
-        "q": "Civic 1.5 TC-P vs 2.0 RS e:HEV — beza premium?",
+        "q": "Civic 1.5 TC-P vs 2.0 e:HEV RS — beza premium?",
         "a": "Besar — 2.0 e:HEV sum insured sekitar RM30,000 lebih tinggi dengan kos bateri hybrid, jadi premium 15–20% lebih mahal. Bandingkan quotation sebelum renew."
       },
       {
@@ -2350,8 +2364,8 @@
     "fullName": "Honda HR-V",
     "variants": [
       "1.5 S",
-      "1.5 E",
-      "1.5 V",
+      "1.5 Turbo E",
+      "1.5 Turbo V",
       "1.5 RS e:HEV"
     ],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
@@ -2360,12 +2374,12 @@
     "marketValueRange": "RM90,000 – RM140,000",
     "marketValueMin": 90000,
     "marketValueMax": 140000,
-    "premiumNCD0": "RM3,200 – RM5,000",
-    "premiumNCD55": "RM1,440 – RM2,250",
-    "premiumNCD0Min": 3200,
-    "premiumNCD0Max": 5000,
-    "premiumNCD55Min": 1440,
-    "premiumNCD55Max": 2250,
+    "premiumNCD0": "RM2,360 – RM4,700",
+    "premiumNCD55": "RM1,060 – RM2,120",
+    "premiumNCD0Min": 2360,
+    "premiumNCD0Max": 4700,
+    "premiumNCD55Min": 1060,
+    "premiumNCD55Max": 2120,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2412,45 +2426,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 (1,498cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3200,
-        5000
+        2360,
+        4700
       ],
       "ncd25": [
-        2400,
-        3750
+        1770,
+        3530
       ],
       "ncd30": [
-        2240,
-        3500
+        1650,
+        3290
       ],
       "ncd38": [
-        1970,
-        3080
+        1460,
+        2900
       ],
       "ncd45": [
-        1760,
-        2750
+        1300,
+        2590
       ],
       "ncd55": [
-        1440,
-        2250
+        1060,
+        2120
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1440,
-        2250
-      ],
-      "pantaiTimur": [
-        1350,
+        1060,
         2120
       ],
+      "pantaiTimur": [
+        1000,
+        1990
+      ],
       "borneo": [
-        1380,
-        2160
+        1020,
+        2040
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM90,000–RM140,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun (Gen 2 vs Gen 3) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM90,000–RM140,000 (1.5 S hingga RS e:HEV), julat −10% hingga +20%. Harga sebenar ikut varian hybrid, tahun (Gen 2 vs Gen 3) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana tetapi mahal — SUV segmen B dengan cermin besar dan sensor penuh. Claim cermin depan dan calar bumper parking paling biasa. Sekali accident, kos panel SUV dan sensor Honda Sensing menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng tambahan disarankan.",
@@ -2499,7 +2513,7 @@
       },
       {
         "q": "HR-V Gen 2 lama vs Gen 3 baru — beza insurans?",
-        "a": "Ketara — Gen 2 used sum insured sekitar RM35,000–RM60,000 dengan premium NCD 55% sekitar RM900–RM1,400; Gen 3 baru RM115,000–RM140,000 dengan premium seperti dalam jadual. Jangan insure Gen 2 ikut harga baru — itu over-insure."
+        "a": "Ketara — Gen 2 used sum insured sekitar RM35,000–RM60,000, jadi premiumnya jauh lebih rendah daripada julat dalam jadual; Gen 3 baru RM115,000–RM140,000 dengan premium seperti dalam jadual. Jangan insure Gen 2 ikut harga baru — itu over-insure."
       },
       {
         "q": "Bateri hybrid RS e:HEV rosak — boleh claim?",
@@ -2542,12 +2556,12 @@
     "marketValueRange": "RM80,000 – RM105,000",
     "marketValueMin": 80000,
     "marketValueMax": 105000,
-    "premiumNCD0": "RM2,800 – RM3,800",
-    "premiumNCD55": "RM1,260 – RM1,710",
-    "premiumNCD0Min": 2800,
-    "premiumNCD0Max": 3800,
-    "premiumNCD55Min": 1260,
-    "premiumNCD55Max": 1710,
+    "premiumNCD0": "RM2,120 – RM3,610",
+    "premiumNCD55": "RM950 – RM1,620",
+    "premiumNCD0Min": 2120,
+    "premiumNCD0Max": 3610,
+    "premiumNCD55Min": 950,
+    "premiumNCD55Max": 1620,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2593,45 +2607,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 (1,497cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2800,
-        3800
+        2120,
+        3610
       ],
       "ncd25": [
-        2100,
-        2850
+        1590,
+        2710
       ],
       "ncd30": [
-        1960,
-        2660
+        1480,
+        2530
       ],
       "ncd38": [
-        1730,
-        2340
+        1310,
+        2230
       ],
       "ncd45": [
-        1540,
-        2090
+        1170,
+        1990
       ],
       "ncd55": [
-        1260,
-        1710
+        950,
+        1620
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1260,
-        1710
+        950,
+        1620
       ],
       "pantaiTimur": [
-        1180,
-        1610
+        890,
+        1520
       ],
       "borneo": [
-        1210,
-        1640
+        910,
+        1560
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM80,000–RM105,000 (1.5 E vs V). Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM80,000–RM105,000 (1.5 E vs V), julat −10% hingga +20%. Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim BR-V paling kerap ialah calar bumper parking dan perlanggaran belakang — 7-seater keluarga yang selalu penuh di bandar. Claim besar jarang; kos repair ikut standard Honda.",
     "theftRiskDetail": "Risiko kecurian sederhana — jenama Honda berisiko tetapi BR-V bukan sasaran utama seperti Civic. Comprehensive wajib; immobiliser standard plus kunci stereng sudah memadai.",
@@ -2724,12 +2738,12 @@
     "marketValueRange": "RM55,000 – RM80,000",
     "marketValueMin": 55000,
     "marketValueMax": 80000,
-    "premiumNCD0": "RM2,000 – RM2,800",
-    "premiumNCD55": "RM900 – RM1,260",
-    "premiumNCD0Min": 2000,
-    "premiumNCD0Max": 2800,
-    "premiumNCD55Min": 900,
-    "premiumNCD55Max": 1260,
+    "premiumNCD0": "RM1,540 – RM2,830",
+    "premiumNCD55": "RM690 – RM1,270",
+    "premiumNCD0Min": 1540,
+    "premiumNCD0Max": 2830,
+    "premiumNCD55Min": 690,
+    "premiumNCD55Max": 1270,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2776,45 +2790,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,496cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2000,
-        2800
+        1540,
+        2830
       ],
       "ncd25": [
-        1500,
-        2100
+        1160,
+        2120
       ],
       "ncd30": [
-        1400,
-        1960
+        1080,
+        1980
       ],
       "ncd38": [
-        1230,
-        1730
+        950,
+        1750
       ],
       "ncd45": [
-        1100,
-        1540
+        850,
+        1560
       ],
       "ncd55": [
-        900,
-        1260
+        690,
+        1270
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        900,
-        1260
+        690,
+        1270
       ],
       "pantaiTimur": [
-        850,
-        1180
+        650,
+        1190
       ],
       "borneo": [
-        860,
-        1210
+        660,
+        1220
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000. Harga sebenar ikut generasi (NCP150 vs AC100 DNGA baru), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM55,000–RM80,000, julat −10% hingga +20%. Harga sebenar ikut generasi (NCP150 vs AC100 DNGA baru), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana — Vios dipandu ramai termasuk pemandu muda dan e-hailing, jadi claim bumper dan cermin biasa. Reliability Toyota bermakna claim mekanikal hampir tiada; purata kos claim terkawal kerana parts mudah didapati.",
     "theftRiskDetail": "Risiko kecurian sederhana. Sedan Toyota popular — bukan sasaran utama seperti Hilux, tetapi unit banyak. Comprehensive wajib; pertimbangkan immobiliser tambahan jika parkir terbuka setiap malam.",
@@ -2907,12 +2921,12 @@
     "marketValueRange": "RM55,000 – RM78,000",
     "marketValueMin": 55000,
     "marketValueMax": 78000,
-    "premiumNCD0": "RM2,000 – RM2,800",
-    "premiumNCD55": "RM900 – RM1,260",
-    "premiumNCD0Min": 2000,
-    "premiumNCD0Max": 2800,
-    "premiumNCD55Min": 900,
-    "premiumNCD55Max": 1260,
+    "premiumNCD0": "RM1,540 – RM2,770",
+    "premiumNCD55": "RM690 – RM1,250",
+    "premiumNCD0Min": 1540,
+    "premiumNCD0Max": 2770,
+    "premiumNCD55Min": 690,
+    "premiumNCD55Max": 1250,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -2953,45 +2967,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,496cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2000,
-        2800
+        1540,
+        2770
       ],
       "ncd25": [
-        1500,
-        2100
+        1160,
+        2080
       ],
       "ncd30": [
-        1400,
-        1960
+        1080,
+        1940
       ],
       "ncd38": [
-        1230,
-        1730
+        950,
+        1710
       ],
       "ncd45": [
-        1100,
-        1540
+        850,
+        1520
       ],
       "ncd55": [
-        900,
-        1260
+        690,
+        1250
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        900,
-        1260
+        690,
+        1250
       ],
       "pantaiTimur": [
-        850,
+        650,
         1180
       ],
       "borneo": [
-        860,
-        1210
+        660,
+        1200
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM78,000 (1.5 J hingga G). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM55,000–RM78,000 (1.5 J hingga G), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Yaris paling kerap ialah calar bumper bandar dan cermin depan akibat batu di highway. Claim besar jarang — Toyota reliability bermakna kurang claim mekanikal, dan parts mudah didapati.",
     "theftRiskDetail": "Risiko kecurian rendah ke sederhana — Yaris bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
@@ -3078,12 +3092,12 @@
     "marketValueRange": "RM100,000 – RM140,000",
     "marketValueMin": 100000,
     "marketValueMax": 140000,
-    "premiumNCD0": "RM3,800 – RM5,200",
-    "premiumNCD55": "RM1,710 – RM2,340",
-    "premiumNCD0Min": 3800,
-    "premiumNCD0Max": 5200,
-    "premiumNCD55Min": 1710,
-    "premiumNCD55Max": 2340,
+    "premiumNCD0": "RM2,620 – RM4,740",
+    "premiumNCD55": "RM1,180 – RM2,130",
+    "premiumNCD0Min": 2620,
+    "premiumNCD0Max": 4740,
+    "premiumNCD55Min": 1180,
+    "premiumNCD55Max": 2130,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -3130,45 +3144,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.8 (1,798cc) RM279.20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3800,
-        5200
+        2620,
+        4740
       ],
       "ncd25": [
-        2850,
-        3900
+        1970,
+        3560
       ],
       "ncd30": [
-        2660,
-        3640
+        1830,
+        3320
       ],
       "ncd38": [
-        2340,
-        3210
+        1620,
+        2920
       ],
       "ncd45": [
-        2090,
-        2860
+        1440,
+        2610
       ],
       "ncd55": [
-        1710,
-        2340
+        1180,
+        2130
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1710,
-        2340
+        1180,
+        2130
       ],
       "pantaiTimur": [
-        1610,
-        2200
+        1110,
+        2000
       ],
       "borneo": [
-        1640,
-        2250
+        1130,
+        2040
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM140,000 (1.8 E hingga 1.8 GR Sport). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM100,000–RM140,000 (1.8 E hingga 1.8 GR Sport), julat −10% hingga +20%. Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Corolla jarang tetapi mahal bila berlaku — sedan segmen C dengan sensor penuh. Claim paling biasa ialah cermin depan dan calar bumper parking. Sekali accident depan, kos Toyota Safety Sense menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana — nilai tinggi tetapi bukan sasaran utama seperti Hilux. Comprehensive wajib; parkir berkunci disarankan.",
@@ -3254,7 +3268,7 @@
     "faqSchemaItems": [
       {
         "question": "Berapa harga insurans Toyota Corolla Cross di Malaysia?",
-        "answer": "Harga insurans Toyota Corolla Cross bergantung pada NCD dan varian (hybrid atau non-hybrid). Dengan NCD 55%, anggaran premium komprehensif adalah RM1,890 – RM2,610 setahun. Tanpa NCD boleh mencecah RM4,200 – RM5,800. Varian hybrid biasanya 15-20% lebih tinggi dari non-hybrid."
+        "answer": "Harga insurans Toyota Corolla Cross bergantung pada NCD dan varian (hybrid atau non-hybrid). Dengan NCD 55%, anggaran premium komprehensif adalah RM1,340 – RM2,340 setahun. Tanpa NCD boleh mencecah RM2,970 – RM5,210. Varian hybrid biasanya 15-20% lebih tinggi dari non-hybrid."
       },
       {
         "question": "Jenis insurans terbaik untuk Toyota Corolla Cross?",
@@ -3272,12 +3286,12 @@
     "marketValueRange": "RM115,000 – RM155,000",
     "marketValueMin": 115000,
     "marketValueMax": 155000,
-    "premiumNCD0": "RM4,200 – RM5,800",
-    "premiumNCD55": "RM1,890 – RM2,610",
-    "premiumNCD0Min": 4200,
-    "premiumNCD0Max": 5800,
-    "premiumNCD55Min": 1890,
-    "premiumNCD55Max": 2610,
+    "premiumNCD0": "RM2,970 – RM5,210",
+    "premiumNCD55": "RM1,340 – RM2,340",
+    "premiumNCD0Min": 2970,
+    "premiumNCD0Max": 5210,
+    "premiumNCD55Min": 1340,
+    "premiumNCD55Max": 2340,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -3324,45 +3338,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.8 (1,798cc) RM359.40 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        4200,
-        5800
+        2970,
+        5210
       ],
       "ncd25": [
-        3150,
-        4350
+        2230,
+        3910
       ],
       "ncd30": [
-        2940,
-        4060
+        2080,
+        3650
       ],
       "ncd38": [
-        2590,
-        3580
+        1830,
+        3210
       ],
       "ncd45": [
-        2310,
-        3190
+        1630,
+        2870
       ],
       "ncd55": [
-        1890,
-        2610
+        1340,
+        2340
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1890,
-        2610
+        1340,
+        2340
       ],
       "pantaiTimur": [
-        1780,
-        2450
+        1260,
+        2200
       ],
       "borneo": [
-        1810,
-        2510
+        1290,
+        2250
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM155,000 (varian petrol vs Hybrid). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM115,000–RM155,000 (varian petrol vs Hybrid), julat −10% hingga +20%. Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim jarang tetapi mahal — SUV crossover dengan banyak sensor. Claim paling biasa ialah cermin depan besar dan calar bumper parking. Sekali accident depan, kos sensor Toyota Safety Sense menaikkan bil repair dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana. Bukan sasaran utama seperti Hilux, tetapi nilai tinggi bermakna comprehensive wajib dan kereta elok dipasang dashcam + parkir berkunci.",
@@ -3456,12 +3470,12 @@
     "marketValueRange": "RM100,000 – RM165,000",
     "marketValueMin": 100000,
     "marketValueMax": 165000,
-    "premiumNCD0": "RM3,800 – RM5,800",
-    "premiumNCD55": "RM1,710 – RM2,610",
-    "premiumNCD0Min": 3800,
-    "premiumNCD0Max": 5800,
-    "premiumNCD55Min": 1710,
-    "premiumNCD55Max": 2610,
+    "premiumNCD0": "RM2,650 – RM5,560",
+    "premiumNCD55": "RM1,190 – RM2,500",
+    "premiumNCD0Min": 2650,
+    "premiumNCD0Max": 5560,
+    "premiumNCD55Min": 1190,
+    "premiumNCD55Max": 2500,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -3508,45 +3522,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 2.4 (2,393cc) RM754.40; 2.8 (2,755cc) RM1,248 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3800,
-        5800
+        2650,
+        5560
       ],
       "ncd25": [
-        2850,
-        4350
+        1990,
+        4170
       ],
       "ncd30": [
-        2660,
-        4060
+        1860,
+        3890
       ],
       "ncd38": [
-        2340,
-        3580
+        1630,
+        3430
       ],
       "ncd45": [
-        2090,
-        3190
+        1460,
+        3060
       ],
       "ncd55": [
-        1710,
-        2610
+        1190,
+        2500
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1710,
-        2610
+        1190,
+        2500
       ],
       "pantaiTimur": [
-        1610,
-        2450
+        1120,
+        2350
       ],
       "borneo": [
-        1640,
-        2510
+        1140,
+        2400
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM165,000 (2.4 E hingga 2.8 Rogue). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM100,000–RM165,000 (2.4 E hingga 2.8 Rogue), julat −10% hingga +20%. Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Hilux yang memang digunakan lasak.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — pickup popular untuk dicuri (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berkunci sangat disarankan, terutamanya varian Rogue.",
@@ -3641,12 +3655,12 @@
     "marketValueRange": "RM85,000 – RM98,000",
     "marketValueMin": 85000,
     "marketValueMax": 98000,
-    "premiumNCD0": "RM2,800 – RM3,600",
-    "premiumNCD55": "RM1,260 – RM1,620",
-    "premiumNCD0Min": 2800,
-    "premiumNCD0Max": 3600,
-    "premiumNCD55Min": 1260,
-    "premiumNCD55Max": 1620,
+    "premiumNCD0": "RM2,240 – RM3,390",
+    "premiumNCD55": "RM1,010 – RM1,530",
+    "premiumNCD0Min": 2240,
+    "premiumNCD0Max": 3390,
+    "premiumNCD55Min": 1010,
+    "premiumNCD55Max": 1530,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -3692,45 +3706,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 (1,496cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2800,
-        3600
+        2240,
+        3390
       ],
       "ncd25": [
-        2100,
-        2700
+        1680,
+        2540
       ],
       "ncd30": [
-        1960,
-        2520
+        1570,
+        2370
       ],
       "ncd38": [
-        1730,
-        2220
+        1380,
+        2090
       ],
       "ncd45": [
-        1540,
-        1980
+        1230,
+        1860
       ],
       "ncd55": [
-        1260,
-        1620
+        1010,
+        1530
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1260,
-        1620
+        1010,
+        1530
       ],
       "pantaiTimur": [
-        1180,
-        1520
+        950,
+        1440
       ],
       "borneo": [
-        1210,
-        1560
+        970,
+        1470
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM98,000 (1.5 AT). Harga sebenar ikut tahun, aksesori dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM85,000–RM98,000 (1.5 AT), julat −10% hingga +20%. Harga sebenar ikut tahun, aksesori dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Veloz masih rendah kerana model baru — data claims terhad. Jangkaan claim biasa ialah calar bumper parking dan cermin depan, seperti MPV 7-seater lain yang selalu penuh.",
     "theftRiskDetail": "Risiko kecurian rendah — Veloz bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
@@ -3819,11 +3833,11 @@
     "marketValueRange": "RM55,000 – RM80,000",
     "marketValueMin": 55000,
     "marketValueMax": 80000,
-    "premiumNCD0": "RM2,000 – RM2,800",
-    "premiumNCD55": "RM900 – RM1,260",
-    "premiumNCD0Min": 2000,
-    "premiumNCD0Max": 2800,
-    "premiumNCD55Min": 900,
+    "premiumNCD0": "RM1,510 – RM2,790",
+    "premiumNCD55": "RM680 – RM1,260",
+    "premiumNCD0Min": 1510,
+    "premiumNCD0Max": 2790,
+    "premiumNCD55Min": 680,
     "premiumNCD55Max": 1260,
     "popularAddOns": [
       {
@@ -3865,45 +3879,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.0 Turbo (999cc) RM20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2000,
-        2800
+        1510,
+        2790
       ],
       "ncd25": [
-        1500,
-        2100
+        1130,
+        2090
       ],
       "ncd30": [
-        1400,
-        1960
+        1060,
+        1950
       ],
       "ncd38": [
-        1230,
-        1730
+        930,
+        1720
       ],
       "ncd45": [
-        1100,
-        1540
+        830,
+        1530
       ],
       "ncd55": [
-        900,
+        680,
         1260
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        900,
+        680,
         1260
       ],
       "pantaiTimur": [
-        850,
+        640,
         1180
       ],
       "borneo": [
-        860,
+        650,
         1210
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000 (1.0 Turbo VL hingga VLT). Harga sebenar ikut varian, tahun (Gen 1 vs Gen 2 2020+) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM55,000–RM80,000 (1.0 Turbo VL hingga VLT), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (Gen 1 vs Gen 2 2020+) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Almera paling kerap ialah calar bumper bandar dan cermin depan. Claim besar jarang; enjin 1.0 turbo baru masih dalam pemerhatian jangka panjang tetapi setakat ini tiada corak claim luar biasa.",
     "theftRiskDetail": "Risiko kecurian rendah — Almera bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -3989,11 +4003,11 @@
     "marketValueRange": "RM60,000 – RM85,000",
     "marketValueMin": 60000,
     "marketValueMax": 85000,
-    "premiumNCD0": "RM2,200 – RM3,000",
-    "premiumNCD55": "RM990 – RM1,350",
-    "premiumNCD0Min": 2200,
-    "premiumNCD0Max": 3000,
-    "premiumNCD55Min": 990,
+    "premiumNCD0": "RM1,660 – RM2,990",
+    "premiumNCD55": "RM750 – RM1,350",
+    "premiumNCD0Min": 1660,
+    "premiumNCD0Max": 2990,
+    "premiumNCD55Min": 750,
     "premiumNCD55Max": 1350,
     "popularAddOns": [
       {
@@ -4035,45 +4049,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,496cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2200,
-        3000
+        1660,
+        2990
       ],
       "ncd25": [
-        1650,
-        2250
+        1250,
+        2240
       ],
       "ncd30": [
-        1540,
-        2100
+        1160,
+        2090
       ],
       "ncd38": [
-        1360,
-        1850
+        1020,
+        1840
       ],
       "ncd45": [
-        1210,
-        1650
+        910,
+        1640
       ],
       "ncd55": [
-        990,
+        750,
         1350
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        990,
+        750,
         1350
       ],
       "pantaiTimur": [
-        930,
+        710,
         1270
       ],
       "borneo": [
-        950,
+        720,
         1300
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM85,000 (1.5 Sedan vs Hatchback). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM60,000–RM85,000 (1.5 Sedan vs Hatchback), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Mazda 2 jarang — volume rendah di jalan raya. Bila berlaku, bil lebih tinggi dari segmennya kerana parts import dan kurang bengkel pakar. Claim cermin dan calar bumper paling biasa.",
     "theftRiskDetail": "Risiko kecurian rendah — Mazda 2 bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -4160,12 +4174,12 @@
     "marketValueRange": "RM100,000 – RM145,000",
     "marketValueMin": 100000,
     "marketValueMax": 145000,
-    "premiumNCD0": "RM3,600 – RM5,200",
-    "premiumNCD55": "RM1,620 – RM2,340",
-    "premiumNCD0Min": 3600,
-    "premiumNCD0Max": 5200,
-    "premiumNCD55Min": 1620,
-    "premiumNCD55Max": 2340,
+    "premiumNCD0": "RM2,590 – RM4,900",
+    "premiumNCD55": "RM1,170 – RM2,210",
+    "premiumNCD0Min": 2590,
+    "premiumNCD0Max": 4900,
+    "premiumNCD55Min": 1170,
+    "premiumNCD55Max": 2210,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -4212,45 +4226,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,496cc) RM90; 2.0 (1,998cc) RM379 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3600,
-        5200
+        2590,
+        4900
       ],
       "ncd25": [
-        2700,
-        3900
+        1940,
+        3680
       ],
       "ncd30": [
-        2520,
-        3640
+        1810,
+        3430
       ],
       "ncd38": [
-        2220,
-        3210
+        1600,
+        3020
       ],
       "ncd45": [
-        1980,
-        2860
+        1420,
+        2700
       ],
       "ncd55": [
-        1620,
-        2340
+        1170,
+        2210
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1620,
-        2340
+        1170,
+        2210
       ],
       "pantaiTimur": [
-        1520,
-        2200
+        1100,
+        2080
       ],
       "borneo": [
-        1560,
-        2250
+        1120,
+        2120
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM145,000 (1.5 Sedan hingga 2.0 Hatchback). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM100,000–RM145,000 (1.5 Sedan hingga 2.0 Hatchback), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Mazda 3 jarang tetapi mahal — body panel complex dan parts import dari Jepun. Claim cermin dan bumper biasa; sekali accident, kos lampu LED dan panel Kodo design menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian rendah ke sederhana — bukan sasaran utama pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS berbaloi jika parkir di kawasan terbuka.",
@@ -4344,12 +4358,12 @@
     "marketValueRange": "RM110,000 – RM175,000",
     "marketValueMin": 110000,
     "marketValueMax": 175000,
-    "premiumNCD0": "RM4,200 – RM6,500",
-    "premiumNCD55": "RM1,890 – RM2,930",
-    "premiumNCD0Min": 4200,
-    "premiumNCD0Max": 6500,
-    "premiumNCD55Min": 1890,
-    "premiumNCD55Max": 2930,
+    "premiumNCD0": "RM2,860 – RM5,880",
+    "premiumNCD55": "RM1,290 – RM2,650",
+    "premiumNCD0Min": 2860,
+    "premiumNCD0Max": 5880,
+    "premiumNCD55Min": 1290,
+    "premiumNCD55Max": 2650,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -4396,45 +4410,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 2.0 (1,998cc) RM439.20; 2.5 (2,488cc) RM830.40 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        4200,
-        6500
+        2860,
+        5880
       ],
       "ncd25": [
-        3150,
-        4880
+        2150,
+        4410
       ],
       "ncd30": [
-        2940,
-        4550
+        2000,
+        4120
       ],
       "ncd38": [
-        2590,
-        4010
+        1760,
+        3630
       ],
       "ncd45": [
-        2310,
-        3580
+        1570,
+        3230
       ],
       "ncd55": [
-        1890,
-        2930
+        1290,
+        2650
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1890,
-        2930
+        1290,
+        2650
       ],
       "pantaiTimur": [
-        1780,
-        2750
+        1210,
+        2490
       ],
       "borneo": [
-        1810,
-        2810
+        1240,
+        2540
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM110,000–RM175,000 (2.0 GL hingga 2.5 Turbo). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM110,000–RM175,000 (2.0 GL hingga 2.5 Turbo), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim CX-5 jarang tetapi antara termahal dalam segmennya — SUV besar dengan panel complex dan parts import. Claim cermin besar dan bumper biasa; sekali accident, kos lampu LED dan sensor i-Activsense menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian rendah ke sederhana — nilai tinggi tetapi bukan sasaran utama. Comprehensive wajib; tracker GPS berbaloi untuk varian 2.5 Turbo.",
@@ -4528,12 +4542,12 @@
     "marketValueRange": "RM140,000 – RM185,000",
     "marketValueMin": 140000,
     "marketValueMax": 185000,
-    "premiumNCD0": "RM5,000 – RM7,000",
-    "premiumNCD55": "RM2,250 – RM3,150",
-    "premiumNCD0Min": 5000,
-    "premiumNCD0Max": 7000,
-    "premiumNCD55Min": 2250,
-    "premiumNCD55Max": 3150,
+    "premiumNCD0": "RM3,530 – RM6,150",
+    "premiumNCD55": "RM1,590 – RM2,770",
+    "premiumNCD0Min": 3530,
+    "premiumNCD0Max": 6150,
+    "premiumNCD55Min": 1590,
+    "premiumNCD55Max": 2770,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -4581,45 +4595,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 Turbo (1,498cc) RM120; 2.0 e:HEV (1,993cc) RM437.20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        5000,
-        7000
+        3530,
+        6150
       ],
       "ncd25": [
-        3750,
-        5250
+        2650,
+        4610
       ],
       "ncd30": [
-        3500,
-        4900
+        2470,
+        4310
       ],
       "ncd38": [
-        3080,
-        4320
+        2180,
+        3790
       ],
       "ncd45": [
-        2750,
-        3850
+        1940,
+        3380
       ],
       "ncd55": [
-        2250,
-        3150
+        1590,
+        2770
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        2250,
-        3150
+        1590,
+        2770
       ],
       "pantaiTimur": [
-        2120,
-        2960
+        1490,
+        2600
       ],
       "borneo": [
-        2160,
-        3020
+        1530,
+        2660
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM140,000–RM185,000 (1.5 Turbo 2WD vs AWD). Harga sebenar ikut varian, tahun (Gen 5 vs Gen 6) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM140,000–RM185,000 (1.5 Turbo 2WD vs AWD), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (Gen 5 vs Gen 6) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim CR-V sederhana tetapi bil antara tertinggi untuk SUV Jepun — body besar, enjin turbo dan Honda Sensing penuh. Claim cermin besar paling biasa; sekali accident depan, kos radar, lampu LED dan intercooler menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana — CR-V bukan antara paling banyak dicuri (Hilux/Proton Wira lebih kerap). Comprehensive wajib; kunci stereng + tracker GPS disarankan untuk keyless.",
@@ -4711,12 +4725,12 @@
     "marketValueRange": "RM100,000 – RM160,000",
     "marketValueMin": 100000,
     "marketValueMax": 160000,
-    "premiumNCD0": "RM3,600 – RM5,500",
-    "premiumNCD55": "RM1,620 – RM2,480",
-    "premiumNCD0Min": 3600,
-    "premiumNCD0Max": 5500,
-    "premiumNCD55Min": 1620,
-    "premiumNCD55Max": 2480,
+    "premiumNCD0": "RM2,650 – RM5,410",
+    "premiumNCD55": "RM1,190 – RM2,430",
+    "premiumNCD0Min": 2650,
+    "premiumNCD0Max": 5410,
+    "premiumNCD55Min": 1190,
+    "premiumNCD55Max": 2430,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -4763,45 +4777,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 2.4 (2,442cc) RM793.60 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3600,
-        5500
+        2650,
+        5410
       ],
       "ncd25": [
-        2700,
-        4130
+        1990,
+        4060
       ],
       "ncd30": [
-        2520,
-        3850
+        1860,
+        3790
       ],
       "ncd38": [
-        2220,
-        3390
+        1630,
+        3340
       ],
       "ncd45": [
-        1980,
-        3030
+        1460,
+        2980
       ],
       "ncd55": [
-        1620,
-        2480
+        1190,
+        2430
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1620,
-        2480
+        1190,
+        2430
       ],
       "pantaiTimur": [
-        1520,
-        2330
+        1120,
+        2280
       ],
       "borneo": [
-        1560,
-        2380
+        1140,
+        2330
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM160,000 (2.4 VGT AT hingga Adventure X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM100,000–RM160,000 (2.4 VGT AT hingga Adventure X), julat −10% hingga +20%. Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Triton yang memang digunakan lasak.",
     "theftRiskDetail": "Risiko kecurian sederhana — pickup popular tetapi Triton kurang disasarkan dari Hilux. Comprehensive wajib; tracker GPS disarankan jika selalu parkir di tapak kerja terbuka.",
@@ -4896,11 +4910,11 @@
     "marketValueRange": "RM68,000 – RM92,000",
     "marketValueMin": 68000,
     "marketValueMax": 92000,
-    "premiumNCD0": "RM2,400 – RM3,200",
-    "premiumNCD55": "RM1,080 – RM1,440",
-    "premiumNCD0Min": 2400,
-    "premiumNCD0Max": 3200,
-    "premiumNCD55Min": 1080,
+    "premiumNCD0": "RM1,840 – RM3,210",
+    "premiumNCD55": "RM830 – RM1,440",
+    "premiumNCD0Min": 1840,
+    "premiumNCD0Max": 3210,
+    "premiumNCD55Min": 830,
     "premiumNCD55Max": 1440,
     "popularAddOns": [
       {
@@ -4947,45 +4961,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.5 (1,499cc) RM120 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2400,
-        3200
+        1840,
+        3210
       ],
       "ncd25": [
-        1800,
-        2400
+        1380,
+        2410
       ],
       "ncd30": [
-        1680,
-        2240
+        1290,
+        2250
       ],
       "ncd38": [
-        1480,
-        1970
+        1130,
+        1980
       ],
       "ncd45": [
-        1320,
-        1760
+        1010,
+        1770
       ],
       "ncd55": [
-        1080,
+        830,
         1440
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1080,
+        830,
         1440
       ],
       "pantaiTimur": [
-        1020,
+        780,
         1350
       ],
       "borneo": [
-        1040,
+        800,
         1380
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM92,000 (1.5 AT). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM68,000–RM92,000 (1.5 AT), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Xpander rendah ke sederhana — MPV 7-seater yang selalu penuh tetapi dipandu cara keluarga. Claim biasa ialah calar bumper parking dan perlanggaran belakang di bandar.",
     "theftRiskDetail": "Risiko kecurian rendah — Xpander bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
@@ -5078,12 +5092,12 @@
     "marketValueRange": "RM100,000 – RM155,000",
     "marketValueMin": 100000,
     "marketValueMax": 155000,
-    "premiumNCD0": "RM3,600 – RM5,500",
-    "premiumNCD55": "RM1,620 – RM2,480",
-    "premiumNCD0Min": 3600,
-    "premiumNCD0Max": 5500,
-    "premiumNCD55Min": 1620,
-    "premiumNCD55Max": 2480,
+    "premiumNCD0": "RM2,650 – RM5,250",
+    "premiumNCD55": "RM1,190 – RM2,360",
+    "premiumNCD0Min": 2650,
+    "premiumNCD0Max": 5250,
+    "premiumNCD55Min": 1190,
+    "premiumNCD55Max": 2360,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -5129,45 +5143,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 2.5 (2,488cc) RM830.40 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3600,
-        5500
+        2650,
+        5250
       ],
       "ncd25": [
-        2700,
-        4130
+        1990,
+        3940
       ],
       "ncd30": [
-        2520,
-        3850
+        1860,
+        3680
       ],
       "ncd38": [
-        2220,
-        3390
+        1630,
+        3240
       ],
       "ncd45": [
-        1980,
-        3030
+        1460,
+        2890
       ],
       "ncd55": [
-        1620,
-        2480
+        1190,
+        2360
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1620,
-        2480
+        1190,
+        2360
       ],
       "pantaiTimur": [
-        1520,
-        2330
+        1120,
+        2220
       ],
       "borneo": [
-        1560,
-        2380
+        1140,
+        2270
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM155,000 (2.5 V hingga PRO-4X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM100,000–RM155,000 (2.5 V hingga PRO-4X), julat −10% hingga +20%. Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Navara yang digunakan lasak.",
     "theftRiskDetail": "Risiko kecurian sederhana — pickup berisiko tetapi Navara kurang disasarkan dari Hilux. Comprehensive wajib; tracker GPS disarankan jika parkir di kawasan terbuka.",
@@ -5260,12 +5274,12 @@
     "marketValueRange": "RM115,000 – RM165,000",
     "marketValueMin": 115000,
     "marketValueMax": 165000,
-    "premiumNCD0": "RM4,200 – RM6,000",
-    "premiumNCD55": "RM1,890 – RM2,700",
-    "premiumNCD0Min": 4200,
-    "premiumNCD0Max": 6000,
-    "premiumNCD55Min": 1890,
-    "premiumNCD55Max": 2700,
+    "premiumNCD0": "RM2,940 – RM5,520",
+    "premiumNCD55": "RM1,320 – RM2,480",
+    "premiumNCD0Min": 2940,
+    "premiumNCD0Max": 5520,
+    "premiumNCD55Min": 1320,
+    "premiumNCD55Max": 2480,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -5312,45 +5326,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.6 Turbo (1,598cc) RM120; 2.0 (1,999cc) RM439.60 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        4200,
-        6000
+        2940,
+        5520
       ],
       "ncd25": [
-        3150,
-        4500
+        2210,
+        4140
       ],
       "ncd30": [
-        2940,
-        4200
+        2060,
+        3860
       ],
       "ncd38": [
-        2590,
-        3700
+        1810,
+        3400
       ],
       "ncd45": [
-        2310,
-        3300
+        1620,
+        3040
       ],
       "ncd55": [
-        1890,
-        2700
+        1320,
+        2480
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1890,
-        2700
+        1320,
+        2480
       ],
       "pantaiTimur": [
-        1780,
-        2540
+        1240,
+        2330
       ],
       "borneo": [
-        1810,
-        2590
+        1270,
+        2380
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM165,000 (2.0 Executive hingga 1.6 Turbo). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM115,000–RM165,000 (2.0 Executive hingga 1.6 Turbo), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Tucson jarang tetapi mahal — panel parametric complex dan parts import Korea. Claim cermin besar dan bumper biasa; sekali accident, kos lampu LED dan sensor SmartSense menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian rendah — Tucson bukan sasaran utama pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib tetapi berbaloi.",
@@ -5442,12 +5456,12 @@
     "marketValueRange": "RM95,000 – RM130,000",
     "marketValueMin": 95000,
     "marketValueMax": 130000,
-    "premiumNCD0": "RM3,500 – RM4,800",
-    "premiumNCD55": "RM1,580 – RM2,160",
-    "premiumNCD0Min": 3500,
-    "premiumNCD0Max": 4800,
-    "premiumNCD55Min": 1580,
-    "premiumNCD55Max": 2160,
+    "premiumNCD0": "RM2,470 – RM4,390",
+    "premiumNCD55": "RM1,110 – RM1,980",
+    "premiumNCD0Min": 2470,
+    "premiumNCD0Max": 4390,
+    "premiumNCD55Min": 1110,
+    "premiumNCD55Max": 1980,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -5494,45 +5508,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.6 (1,598cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        3500,
-        4800
+        2470,
+        4390
       ],
       "ncd25": [
-        2630,
-        3600
+        1850,
+        3290
       ],
       "ncd30": [
-        2450,
-        3360
+        1730,
+        3070
       ],
       "ncd38": [
-        2160,
-        2960
+        1520,
+        2710
       ],
       "ncd45": [
-        1930,
-        2640
+        1360,
+        2410
       ],
       "ncd55": [
-        1580,
-        2160
+        1110,
+        1980
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1580,
-        2160
+        1110,
+        1980
       ],
       "pantaiTimur": [
-        1490,
-        2030
+        1040,
+        1860
       ],
       "borneo": [
-        1520,
-        2070
+        1070,
+        1900
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM130,000 (1.6 Executive vs Premium). Harga sebenar ikut varian, tahun (Gen 6 vs Gen 7) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM95,000–RM130,000 (1.6 Executive vs Premium), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (Gen 6 vs Gen 7) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Elantra jarang — volume rendah di jalan raya. Bila berlaku, bil lebih tinggi dari segmennya kerana panel parametric unik dan parts import Korea. Claim cermin dan bumper paling biasa.",
     "theftRiskDetail": "Risiko kecurian rendah — Elantra bukan sasaran pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib.",
@@ -5626,12 +5640,12 @@
     "marketValueRange": "RM120,000 – RM155,000",
     "marketValueMin": 120000,
     "marketValueMax": 155000,
-    "premiumNCD0": "RM4,400 – RM5,800",
-    "premiumNCD55": "RM1,980 – RM2,610",
-    "premiumNCD0Min": 4400,
-    "premiumNCD0Max": 5800,
-    "premiumNCD55Min": 1980,
-    "premiumNCD55Max": 2610,
+    "premiumNCD0": "RM3,060 – RM5,210",
+    "premiumNCD55": "RM1,380 – RM2,340",
+    "premiumNCD0Min": 3060,
+    "premiumNCD0Max": 5210,
+    "premiumNCD55Min": 1380,
+    "premiumNCD55Max": 2340,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -5678,45 +5692,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.6T (1,598cc) RM120; 2.0 (1,999cc) RM439.60 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        4400,
-        5800
+        3060,
+        5210
       ],
       "ncd25": [
-        3300,
-        4350
+        2300,
+        3910
       ],
       "ncd30": [
-        3080,
-        4060
+        2140,
+        3650
       ],
       "ncd38": [
-        2710,
-        3580
+        1890,
+        3210
       ],
       "ncd45": [
-        2420,
-        3190
+        1680,
+        2870
       ],
       "ncd55": [
-        1980,
-        2610
+        1380,
+        2340
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1980,
-        2610
+        1380,
+        2340
       ],
       "pantaiTimur": [
-        1860,
-        2450
+        1300,
+        2200
       ],
       "borneo": [
-        1900,
-        2510
+        1320,
+        2250
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM120,000–RM155,000 (2.0 hingga 1.6T High AWD). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM120,000–RM155,000 (2.0 hingga 1.6T High AWD), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Sportage jarang — model baru dengan volume masih rendah. Bila berlaku, bil tinggi kerana panel futuristik complex dan parts import Korea. Claim cermin besar dan bumper paling biasa.",
     "theftRiskDetail": "Risiko kecurian rendah — Sportage bukan sasaran pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib tetapi berbaloi.",
@@ -5799,20 +5813,23 @@
     "model": "Swift",
     "fullName": "Suzuki Swift",
     "variants": [
-      "1.5 GLX"
+      "1.5 (2005–2012)",
+      "1.4 GL / GLX (2013–2016)",
+      "Swift Sport 1.6 (2007–2016)",
+      "Swift Sport 1.4 Turbo (2021–2025)"
     ],
-    "engineCC": "1.5L",
-    "yearRange": "2005 – kini",
+    "engineCC": "1.5L / 1.4L / 1.6L (Sport) / 1.4L Turbo (Sport, 1,373cc)",
+    "yearRange": "2005 – 2016; Swift Sport 2021 – 2025",
     "segment": "Hatchback B",
     "marketValueRange": "RM55,000 – RM72,000",
     "marketValueMin": 55000,
     "marketValueMax": 72000,
-    "premiumNCD0": "RM2,000 – RM2,600",
-    "premiumNCD55": "RM900 – RM1,170",
-    "premiumNCD0Min": 2000,
-    "premiumNCD0Max": 2600,
-    "premiumNCD55Min": 900,
-    "premiumNCD55Max": 1170,
+    "premiumNCD0": "RM1,510 – RM2,540",
+    "premiumNCD55": "RM680 – RM1,140",
+    "premiumNCD0Min": 1510,
+    "premiumNCD0Max": 2540,
+    "premiumNCD55Min": 680,
+    "premiumNCD55Max": 1140,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -5834,76 +5851,80 @@
       "theftRate": "Rendah",
       "repairCost": "Sederhana",
       "claimFrequency": "Rendah",
-      "notes": "Hatchback fun-to-drive dari Suzuki. Volume rendah di Malaysia bermakna kurang panel bengkel. Parts Suzuki okay dari segi harga tapi availability boleh jadi isu."
+      "notes": "Hatchback fun-to-drive dari Suzuki. Suzuki berhenti menjual kereta di Malaysia pada 2016 dan kembali melalui Naza pada 2021 dengan Swift Sport sahaja. Volume rendah bermakna kurang panel bengkel; parts Suzuki okay dari segi harga tapi availability boleh jadi isu."
     },
     "tips": [
       "Swift volume rendah — cari insurer yang biasa handle Suzuki untuk smoother claim process.",
       "Kereta kecil dan ringan — premium berpatutan tapi pastikan comprehensive.",
       "Parts Suzuki kadang lambat sampai — consider rental car coverage."
     ],
-    "description": "Suzuki Swift adalah hatchback sporty yang fun to drive. Premium berpatutan tapi perlu perhatian pada ketersediaan spare parts.",
+    "description": "Suzuki Swift adalah hatchback sporty yang fun to drive. Premium berpatutan tapi perlu perhatian pada ketersediaan spare parts. Anggaran harga di halaman ini menggambarkan Swift terpakai generasi lama (1.5/1.4), bukan Swift Sport 1.4 turbo yang berharga sekitar RM138,000–RM140,000 ketika baharu — Swift Sport perlukan sum insured dan premium yang lebih tinggi.",
     "relatedModels": [
       "perodua-myvi",
       "proton-iriz",
       "mazda-2",
       "honda-city"
     ],
-    "roadtaxMin": 90,
+    "roadtaxMin": 70,
     "roadtaxMax": 90,
-    "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,490cc) RM90 setahun, ikut jadual JPJ",
+    "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.4 (2013–2016) dan Swift Sport 1.4 turbo (1,373cc) RM70; 1.5 (2005–2012) dan Swift Sport 1.6 RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2000,
-        2600
+        1510,
+        2540
       ],
       "ncd25": [
-        1500,
-        1950
+        1130,
+        1910
       ],
       "ncd30": [
-        1400,
-        1820
+        1060,
+        1780
       ],
       "ncd38": [
-        1230,
-        1600
+        930,
+        1570
       ],
       "ncd45": [
-        1100,
-        1430
+        830,
+        1400
       ],
       "ncd55": [
-        900,
-        1170
+        680,
+        1140
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        900,
-        1170
+        680,
+        1140
       ],
       "pantaiTimur": [
-        850,
-        1100
+        640,
+        1070
       ],
       "borneo": [
-        860,
-        1120
+        650,
+        1090
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM72,000 (1.5 GLX). Harga sebenar ikut tahun, unit CBU vs tempatan dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM55,000–RM72,000 (Swift lama 1.5 dan 1.4; bukan Swift Sport), julat −10% hingga +20%. Harga sebenar ikut tahun, unit CBU vs tempatan dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim Swift jarang — volume rendah di jalan raya. Claim biasa ialah calar bumper bandar dan cermin depan. Parts Suzuki berpatutan tetapi availability boleh jadi isu — repair kadang tertangguh menunggu parts.",
     "theftRiskDetail": "Risiko kecurian rendah — Swift bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
     "floodRiskNote": "Ground clearance hatchback yang rendah. Jika parkir di kawasan banjir kilat, special perils RM35–RM65/tahun adalah wajib.",
     "modelYearNotes": [
       {
-        "range": "2005–2017 (Gen 1–2, 1.5/1.6)",
+        "range": "2005–2012 (1.5)",
         "note": "Unit lama nilai rendah ikut nilai pasaran semasa (semak harga used di pasaran). Kira third-party vs comprehensive untuk unit paling lama."
       },
       {
-        "range": "2018–kini (Gen 3, 1.5 GLX)",
-        "note": "Hanya satu varian — sum insured ikut harga beli. Volume rendah jadi cari insurer yang biasa handle Suzuki."
+        "range": "2013–2016 (1.4 GL/GLX, termasuk facelift 2015)",
+        "note": "Generasi terakhir Swift biasa yang dijual baharu di Malaysia — jualan kereta Suzuki berhenti Januari 2016. Sum insured ikut nilai pasaran semasa; cari panel yang biasa handle Suzuki."
+      },
+      {
+        "range": "2021–2025 (Swift Sport 1.4 turbo, CBU Jepun)",
+        "note": "Satu-satunya Swift dijual baharu sejak Suzuki kembali melalui Naza: RM139,900 pada April 2021, Final Edition RM137,900 pada Ogos 2025. Nilainya jauh di atas julat anggaran halaman ini — sum insured dan premium Swift Sport lebih tinggi."
       }
     ],
     "windscreenPrice": "RM450–RM800; cermin hatchback standard — tiada ADAS, gantian mudah",
@@ -5929,7 +5950,7 @@
     ],
     "modelFAQs": [
       {
-        "q": "Swift hanya satu varian 1.5 GLX — sum insured ikut apa?",
+        "q": "Swift saya model lama (1.5 atau 1.4) — sum insured ikut apa?",
         "a": "Ikut harga pasaran semasa unit anda — tahun dan kondisi menentukan. Jangan insure ikut harga beli baru dulu (over-insure) atau terlalu rendah (under-insure, claim kena penalty average clause). Minta ejen semak nilai pasaran semasa."
       },
       {
@@ -5956,6 +5977,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Suzuki NZ — spesifikasi Swift Sport (K14C 1,373cc)",
+        "url": "https://www.suzuki.co.nz/Specifications/Swift-Sport",
+        "retrieved": "2026-11-12"
       }
     ],
     "factChecked": "2026-09-10",
@@ -5968,7 +5994,7 @@
     "model": "3 Series",
     "fullName": "BMW 3 Series",
     "variants": [
-      "318i Sport",
+      "318i Luxury (F30)",
       "320i Sport",
       "330i M Sport",
       "330e M Sport (PHEV)"
@@ -5979,12 +6005,12 @@
     "marketValueRange": "RM200,000 – RM320,000",
     "marketValueMin": 200000,
     "marketValueMax": 320000,
-    "premiumNCD0": "RM6,500 – RM11,000",
-    "premiumNCD55": "RM2,930 – RM4,950",
-    "premiumNCD0Min": 6500,
-    "premiumNCD0Max": 11000,
-    "premiumNCD55Min": 2930,
-    "premiumNCD55Max": 4950,
+    "premiumNCD0": "RM4,930 – RM10,360",
+    "premiumNCD55": "RM2,220 – RM4,660",
+    "premiumNCD0Min": 4930,
+    "premiumNCD0Max": 10360,
+    "premiumNCD55Min": 2220,
+    "premiumNCD55Max": 4660,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6032,45 +6058,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 318i 1.5 Turbo (1,499cc) RM90; 2.0 Turbo (1,998cc) RM379 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        6500,
-        11000
+        4930,
+        10360
       ],
       "ncd25": [
-        4880,
-        8250
+        3700,
+        7770
       ],
       "ncd30": [
-        4550,
-        7700
+        3450,
+        7250
       ],
       "ncd38": [
-        4010,
-        6780
+        3040,
+        6390
       ],
       "ncd45": [
-        3580,
-        6050
+        2710,
+        5700
       ],
       "ncd55": [
-        2930,
-        4950
+        2220,
+        4660
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        2930,
-        4950
+        2220,
+        4660
       ],
       "pantaiTimur": [
-        2750,
-        4650
+        2090,
+        4380
       ],
       "borneo": [
-        2810,
-        4750
+        2130,
+        4470
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM200,000–RM320,000 (318i hingga 330e PHEV). Harga sebenar ikut varian, tahun (F30 vs G20) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM200,000–RM320,000 (318i hingga 330e PHEV), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (F30 vs G20) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim 3 Series sederhana tetapi bil antara tertinggi — sekali accident kecil pun boleh cecah RM10,000+ kerana parts import Jerman, panel aluminium dan sensor premium. Claim cermin dengan HUD paling ditakuti pemilik.",
     "theftRiskDetail": "Risiko kecurian tinggi — sedan premium Jerman sasaran utama (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berpagar sangat disarankan.",
@@ -6155,7 +6181,7 @@
     "variants": [
       "sDrive18i",
       "sDrive20i",
-      "xDrive20i"
+      "sDrive20i xLine"
     ],
     "engineCC": "1.5L Turbo / 2.0L Turbo",
     "yearRange": "2015 – kini (U11: 2023+)",
@@ -6163,12 +6189,12 @@
     "marketValueRange": "RM210,000 – RM280,000",
     "marketValueMin": 210000,
     "marketValueMax": 280000,
-    "premiumNCD0": "RM7,000 – RM10,000",
-    "premiumNCD55": "RM3,150 – RM4,500",
-    "premiumNCD0Min": 7000,
-    "premiumNCD0Max": 10000,
-    "premiumNCD55Min": 3150,
-    "premiumNCD55Max": 4500,
+    "premiumNCD0": "RM5,170 – RM9,110",
+    "premiumNCD55": "RM2,330 – RM4,100",
+    "premiumNCD0Min": 5170,
+    "premiumNCD0Max": 9110,
+    "premiumNCD55Min": 2330,
+    "premiumNCD55Max": 4100,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6201,7 +6227,7 @@
       "X1 entry-level BMW tapi jangan underestimate kos repair — masih sangat mahal.",
       "U11 (2023+) ada banyak sensor dan tech — ADAS cover sangat penting.",
       "Windscreen BMW X1 mahal — RM2,000+ untuk replace. Wajib ambil windscreen cover.",
-      "Consider sama ada RM7,000-10,000/tahun untuk insurans sustainable untuk budget anda."
+      "Consider sama ada RM5,170-9,110/tahun untuk insurans sustainable untuk budget anda."
     ],
     "description": "BMW X1 adalah entry SUV premium BMW. Premium tinggi walaupun entry-level kerana kos repair BMW standard.",
     "relatedModels": [
@@ -6215,45 +6241,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: sDrive18i 1.5 Turbo (1,499cc) RM120; sDrive20i 2.0 Turbo (1,998cc) RM439.20 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        7000,
-        10000
+        5170,
+        9110
       ],
       "ncd25": [
-        5250,
-        7500
+        3880,
+        6830
       ],
       "ncd30": [
-        4900,
-        7000
+        3620,
+        6380
       ],
       "ncd38": [
-        4320,
-        6170
+        3190,
+        5620
       ],
       "ncd45": [
-        3850,
-        5500
+        2840,
+        5010
       ],
       "ncd55": [
-        3150,
-        4500
+        2330,
+        4100
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        3150,
-        4500
+        2330,
+        4100
       ],
       "pantaiTimur": [
-        2960,
-        4230
+        2190,
+        3850
       ],
       "borneo": [
-        3020,
-        4320
+        2240,
+        3940
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM210,000–RM280,000 (sDrive18i hingga xDrive20i). Harga sebenar ikut varian, tahun (F48 vs U11) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM210,000–RM280,000 (sDrive18i hingga sDrive20i xLine), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (F48 vs U11) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim X1 rendah ke sederhana tetapi bil BMW penuh — body SUV besar dengan parts import dan sensor premium. Claim cermin besar dan bumper biasa; sekali accident, kos panel dan sensor menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV premium sasaran pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS disarankan.",
@@ -6297,12 +6323,12 @@
     ],
     "modelFAQs": [
       {
-        "q": "X1 sDrive18i vs sDrive20i vs xDrive20i — beza premium?",
-        "a": "Beza sederhana, ikut sum insured — xDrive20i sekitar RM30,000–RM50,000 lebih tinggi dari sDrive18i, jadi premium beza RM400–RM800/tahun. Kos repair xDrive juga lebih tinggi kerana drivetrain tambahan."
+        "q": "X1 sDrive18i vs sDrive20i — beza premium?",
+        "a": "Beza sederhana, ikut sum insured — sDrive20i (2.0 turbo) nilainya lebih tinggi dari sDrive18i (1.5 turbo, F48), jadi premium lebih tinggi. Sejak 2015, X1 petrol rasmi di Malaysia hanya versi sDrive (pacuan roda depan); tiada xDrive20i dijual rasmi di sini. Insure ikut varian sebenar dalam geran."
       },
       {
         "q": "X1 entry-level BMW — kos repair pun entry-level?",
-        "a": "Tidak. X1 termurah dalam keluarga BMW tetapi kos repair masih BMW penuh — parts import Jerman, sensor premium, panel complex. Bajet insurans RM3,150–RM4,500/tahun (NCD 55%) dan penyelenggaraan sewajarnya sebelum beli."
+        "a": "Tidak. X1 termurah dalam keluarga BMW tetapi kos repair masih BMW penuh — parts import Jerman, sensor premium, panel complex. Bajet insurans RM2,330–RM4,100/tahun (NCD 55%) dan penyelenggaraan sewajarnya sebelum beli."
       },
       {
         "q": "BMW used — market value atau agreed value?",
@@ -6346,12 +6372,12 @@
     "marketValueRange": "RM230,000 – RM370,000",
     "marketValueMin": 230000,
     "marketValueMax": 370000,
-    "premiumNCD0": "RM7,500 – RM13,000",
-    "premiumNCD55": "RM3,380 – RM5,850",
-    "premiumNCD0Min": 7500,
-    "premiumNCD0Max": 13000,
-    "premiumNCD55Min": 3380,
-    "premiumNCD55Max": 5850,
+    "premiumNCD0": "RM5,630 – RM11,920",
+    "premiumNCD55": "RM2,530 – RM5,360",
+    "premiumNCD0Min": 5630,
+    "premiumNCD0Max": 11920,
+    "premiumNCD55Min": 2530,
+    "premiumNCD55Max": 5360,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6399,45 +6425,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: C200 1.5 (1,496cc) RM90; C300 / C350e 2.0 (1,999cc) RM379.50 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        7500,
-        13000
+        5630,
+        11920
       ],
       "ncd25": [
-        5630,
-        9750
+        4220,
+        8940
       ],
       "ncd30": [
-        5250,
-        9100
+        3940,
+        8340
       ],
       "ncd38": [
-        4630,
-        8020
+        3470,
+        7350
       ],
       "ncd45": [
-        4130,
-        7150
+        3100,
+        6560
       ],
       "ncd55": [
-        3380,
-        5850
+        2530,
+        5360
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        3380,
-        5850
+        2530,
+        5360
       ],
       "pantaiTimur": [
-        3180,
-        5500
+        2380,
+        5040
       ],
       "borneo": [
-        3240,
-        5620
+        2430,
+        5150
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM230,000–RM370,000 (C200 hingga C350e PHEV). Harga sebenar ikut varian, tahun (W205 vs W206) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM230,000–RM370,000 (C200 hingga C350e PHEV), julat −10% hingga +20%. Harga sebenar ikut varian, tahun (W205 vs W206) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim C-Class rendah ke sederhana tetapi bil tertinggi dalam senarai — sekali accident kecil pun boleh cecah RM10,000+ kerana parts import, skrin MBUX dan sensor premium. Claim cermin ber-tech paling ditakuti pemilik.",
     "theftRiskDetail": "Risiko kecurian tinggi — Mercedes sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berpagar sangat disarankan.",
@@ -6529,12 +6555,12 @@
     "marketValueRange": "RM250,000 – RM320,000",
     "marketValueMin": 250000,
     "marketValueMax": 320000,
-    "premiumNCD0": "RM8,000 – RM11,500",
-    "premiumNCD55": "RM3,600 – RM5,180",
-    "premiumNCD0Min": 8000,
-    "premiumNCD0Max": 11500,
-    "premiumNCD55Min": 3600,
-    "premiumNCD55Max": 5180,
+    "premiumNCD0": "RM6,070 – RM10,360",
+    "premiumNCD55": "RM2,730 – RM4,660",
+    "premiumNCD0Min": 6070,
+    "premiumNCD0Max": 10360,
+    "premiumNCD55Min": 2730,
+    "premiumNCD55Max": 4660,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6581,45 +6607,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: GLB200 1.3 (1,332cc) RM100; GLB250 2.0 (1,991cc) RM436.40 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        8000,
-        11500
+        6070,
+        10360
       ],
       "ncd25": [
-        6000,
-        8630
+        4550,
+        7770
       ],
       "ncd30": [
-        5600,
-        8050
+        4250,
+        7250
       ],
       "ncd38": [
-        4930,
-        7090
+        3740,
+        6390
       ],
       "ncd45": [
-        4400,
-        6330
+        3340,
+        5700
       ],
       "ncd55": [
-        3600,
-        5180
+        2730,
+        4660
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        3600,
-        5180
+        2730,
+        4660
       ],
       "pantaiTimur": [
-        3380,
-        4870
+        2570,
+        4380
       ],
       "borneo": [
-        3460,
-        4970
+        2620,
+        4470
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM250,000–RM320,000 (GLB200 vs GLB250 4MATIC). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM250,000–RM320,000 (GLB200 vs GLB250 4MATIC), julat −10% hingga +20%. Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim GLB rendah tetapi bil Mercedes penuh — SUV 7-seater dengan parts import dan sensor premium. Claim cermin besar dan bumper biasa; sekali accident, kos panel dan MBUX menaikkan bil dengan cepat.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV premium sasaran pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS disarankan.",
@@ -6701,12 +6727,12 @@
     "brand": "Honda",
     "model": "Jazz / City Hatchback",
     "fullName": "Honda City Hatchback",
-    "titleOverride": "Insurans Honda City Hatchback (Jazz): RM990–RM1,490 (NCD 55%)",
-    "descriptionOverride": "Insurans Honda Jazz / City Hatchback 2026: premium RM990–RM1,490 (NCD 55%) hingga RM2,200–RM3,300 (tanpa NCD). Bandingkan Etiqa, Allianz, Tokio Marine. Tips jimat dan add-ons terbaik.",
+    "titleOverride": "Insurans Honda City Hatchback (Jazz): RM750–RM1,530 (NCD 55%)",
+    "descriptionOverride": "Insurans Honda Jazz / City Hatchback 2026: premium RM750–RM1,530 (NCD 55%) hingga RM1,660–RM3,390 (tanpa NCD). Bandingkan Etiqa, Allianz, Tokio Marine. Tips jimat dan add-ons terbaik.",
     "faqSchemaItems": [
       {
         "question": "Berapa harga insurans Honda Jazz di Malaysia?",
-        "answer": "Harga insurans Honda Jazz (Honda City Hatchback) bergantung pada NCD dan tahun kereta. Dengan NCD 55%, anggaran premium komprehensif adalah RM990 – RM1,490 setahun. Tanpa NCD, boleh mencecah RM2,200 – RM3,300 setahun. Bandingkan quotation dari pelbagai syarikat kerana harga boleh berbeza."
+        "answer": "Harga insurans Honda Jazz (Honda City Hatchback) bergantung pada NCD dan tahun kereta. Dengan NCD 55%, anggaran premium komprehensif adalah RM750 – RM1,530 setahun. Tanpa NCD, boleh mencecah RM1,660 – RM3,390 setahun. Bandingkan quotation dari pelbagai syarikat kerana harga boleh berbeza."
       },
       {
         "question": "Insurans komprehensif atau TPO lebih baik untuk Honda Jazz?",
@@ -6729,12 +6755,12 @@
     "marketValueRange": "RM60,000 – RM98,000",
     "marketValueMin": 60000,
     "marketValueMax": 98000,
-    "premiumNCD0": "RM2,200 – RM3,300",
-    "premiumNCD55": "RM990 – RM1,490",
-    "premiumNCD0Min": 2200,
-    "premiumNCD0Max": 3300,
-    "premiumNCD55Min": 990,
-    "premiumNCD55Max": 1490,
+    "premiumNCD0": "RM1,660 – RM3,390",
+    "premiumNCD55": "RM750 – RM1,530",
+    "premiumNCD0Min": 1660,
+    "premiumNCD0Max": 3390,
+    "premiumNCD55Min": 750,
+    "premiumNCD55Max": 1530,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6781,45 +6807,45 @@
     "roadtaxNote": "Roadtax Semenanjung, kereta salun persendirian: 1.5 (1,498cc) RM90 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2200,
-        3300
+        1660,
+        3390
       ],
       "ncd25": [
-        1650,
-        2480
+        1250,
+        2540
       ],
       "ncd30": [
-        1540,
-        2310
+        1160,
+        2370
       ],
       "ncd38": [
-        1360,
-        2040
+        1020,
+        2090
       ],
       "ncd45": [
-        1210,
-        1820
+        910,
+        1860
       ],
       "ncd55": [
-        990,
-        1490
+        750,
+        1530
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        990,
-        1490
+        750,
+        1530
       ],
       "pantaiTimur": [
-        930,
-        1400
+        710,
+        1440
       ],
       "borneo": [
-        950,
-        1430
+        720,
+        1470
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback RS petrol; RS e:HEV sekitar RM107,000–RM110,000, di luar julat). Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback RS petrol; RS e:HEV sekitar RM107,000–RM110,000, di luar julat), julat −10% hingga +20%. Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan tracker GPS atau immobiliser tambahan jika parkir di kawasan terbuka.",
@@ -6902,21 +6928,21 @@
     "model": "Raize",
     "fullName": "Toyota Raize",
     "variants": [
-      "1.0T",
-      "1.2 (NA)"
+      "1.0 Turbo (import)",
+      "1.2 (import)"
     ],
-    "engineCC": "1.0L Turbo / 1.2L",
-    "yearRange": "2023 – kini",
+    "engineCC": "1.0L Turbo / 1.2L (spesifikasi ikut negara asal)",
+    "yearRange": "Tidak dijual baharu di Malaysia (unit import persendirian sahaja)",
     "segment": "SUV A",
     "marketValueRange": "RM68,000 – RM85,000",
     "marketValueMin": 68000,
     "marketValueMax": 85000,
-    "premiumNCD0": "RM2,400 – RM3,200",
-    "premiumNCD55": "RM1,080 – RM1,440",
-    "premiumNCD0Min": 2400,
-    "premiumNCD0Max": 3200,
-    "premiumNCD55Min": 1080,
-    "premiumNCD55Max": 1440,
+    "premiumNCD0": "RM1,810 – RM2,950",
+    "premiumNCD55": "RM810 – RM1,330",
+    "premiumNCD0Min": 1810,
+    "premiumNCD0Max": 2950,
+    "premiumNCD55Min": 810,
+    "premiumNCD55Max": 1330,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -6943,15 +6969,15 @@
       "theftRate": "Rendah",
       "repairCost": "Sederhana",
       "claimFrequency": "Rendah ke sederhana",
-      "notes": "Compact SUV entry-level Toyota (platform Daihatsu/Perodua). Baru masuk market Malaysia. Parts mungkin ada delay kerana model baru. Ada ADAS standard."
+      "notes": "Compact SUV Toyota atas platform Daihatsu DNGA, sama seperti Perodua Ativa. Tidak dilancarkan secara rasmi oleh UMW Toyota, jadi unit di Malaysia ialah import persendirian — parts khusus Raize mungkin perlu ditempah dari luar negara."
     },
     "tips": [
-      "Raize share platform dengan Perodua Ativa — sesetengah parts boleh interchange.",
-      "Model baru di Malaysia — data claims masih terhad, premium mungkin slightly higher.",
-      "ADAS standard — ambil calibration cover.",
-      "1.0 Turbo vs 1.2 NA — perbezaan premium kecil tapi kos maintenance turbo lebih tinggi."
+      "Raize tidak dijual baharu oleh UMW Toyota — jika mahu SUV ini secara rasmi dengan waranti tempatan, kembarnya ialah Perodua Ativa.",
+      "Raize anda unit import? Beritahu syarikat insurans sejak awal dan minta mereka sahkan cara sum insured ditentukan (nilai pasaran atau agreed value).",
+      "Raize share platform DNGA dengan Perodua Ativa — sama ada parts tertentu boleh interchange, sahkan dengan panel bengkel.",
+      "Ada ADAS — tanya sama ada calibration sensor selepas tukar cermin termasuk dalam claim."
     ],
-    "description": "Toyota Raize adalah compact SUV entry-level yang share platform dengan Perodua Ativa. Premium berpatutan dengan kos repair sederhana.",
+    "description": "Toyota Raize tidak dijual baharu oleh UMW Toyota di Malaysia — unit di jalan raya ialah import persendirian. Kembarnya yang dijual secara rasmi ialah Perodua Ativa, dibina atas platform Daihatsu DNGA yang sama. Jika anda memiliki Raize import, sahkan sum insured dan ketersediaan parts dengan syarikat insurans sebelum renew.",
     "relatedModels": [
       "perodua-ativa",
       "proton-x50",
@@ -6963,56 +6989,56 @@
     "roadtaxNote": "Roadtax Semenanjung, kenderaan bukan salun persendirian: 1.0T (998cc) RM20; 1.2 (1,198cc) RM85 setahun, ikut jadual JPJ",
     "premiumByNCD": {
       "ncd0": [
-        2400,
-        3200
+        1810,
+        2950
       ],
       "ncd25": [
-        1800,
-        2400
+        1360,
+        2210
       ],
       "ncd30": [
-        1680,
-        2240
+        1270,
+        2070
       ],
       "ncd38": [
-        1480,
-        1970
+        1120,
+        1820
       ],
       "ncd45": [
-        1320,
-        1760
+        1000,
+        1620
       ],
       "ncd55": [
-        1080,
-        1440
+        810,
+        1330
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
-        1080,
-        1440
+        810,
+        1330
       ],
       "pantaiTimur": [
-        1020,
-        1350
+        760,
+        1250
       ],
       "borneo": [
-        1040,
-        1380
+        780,
+        1280
       ]
     },
-    "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM85,000 (1.0T vs 1.2 NA). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM68,000–RM85,000 (unit import 1.0T dan 1.2), julat −10% hingga +20%. Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
-    "claimFrequencyNote": "Claim Raize masih rendah kerana model baru — data claims terhad. Jangkaan claim biasa ialah cermin depan dan calar bumper parking. Sesetengah parts dikongsi dengan Ativa, tetapi parts khusus Toyota mungkin ambil masa.",
+    "claimFrequencyNote": "Data tuntutan tempatan untuk Raize hampir tiada kerana ia tidak dijual baharu di Malaysia. Jangkaan claim biasa ialah cermin depan dan calar bumper parking. Sesetengah parts mekanikal mungkin dikongsi dengan Ativa, tetapi parts khusus Toyota mungkin perlu ditempah dari luar negara.",
     "theftRiskDetail": "Risiko kecurian rendah — Raize bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
-    "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM35–RM70/tahun disarankan — sensor ASA mahal jika masuk air.",
+    "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM35–RM70/tahun disarankan — sensor ADAS mahal jika masuk air.",
     "modelYearNotes": [
       {
-        "range": "2023–kini (Gen 1, 1.0T/1.2)",
-        "note": "Model baru di Malaysia — data claims masih terhad, premium antara syarikat boleh berbeza. Kongsi platform dengan Ativa; sama ada sesetengah parts boleh interchange, sahkan dengan pengedar/panel bengkel."
+        "range": "2019–kini (import persendirian, 1.0T/1.2)",
+        "note": "Tidak dijual baharu oleh UMW Toyota; Perodua Ativa ialah model rasmi atas platform yang sama. Data claim tempatan untuk Raize hampir tiada, jadi sebut harga antara syarikat boleh berbeza — sahkan sum insured, parts dan sama ada syarikat menerima risiko kereta import sebelum bayar."
       }
     ],
-    "windscreenPrice": "RM550–RM1,000; ada ASA standard — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
+    "windscreenPrice": "RM550–RM1,000; sesetengah unit import ada kamera ADAS — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
     "addOnsDetail": [
       {
         "name": "Windscreen cover",
@@ -7024,7 +7050,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM100–RM200/tahun",
         "verdict": "berbaloi",
-        "whyBM": "ASA standard — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sesetengah unit import ada sensor ADAS — calibration boleh cecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -7041,16 +7067,20 @@
     ],
     "modelFAQs": [
       {
+        "q": "Toyota Raize dijual secara rasmi di Malaysia?",
+        "a": "Tidak. UMW Toyota tidak melancarkan Raize di Malaysia; model setara yang dijual secara rasmi ialah Perodua Ativa, dibina atas platform Daihatsu DNGA yang sama. Raize di Malaysia ialah import persendirian, jadi beritahu syarikat insurans bahawa kereta anda import dan minta mereka sahkan sum insured serta sumber parts sebelum renew."
+      },
+      {
         "q": "Raize 1.0 Turbo vs 1.2 NA — beza premium?",
         "a": "Beza kecil, ikut sum insured — 1.0T sedikit lebih tinggi dengan kos turbo, jadi premium naik sekitar RM50–RM150/tahun. Kos maintenance turbo pula lebih tinggi jangka panjang; itu penyelenggaraan, bukan insurans."
       },
       {
         "q": "Raize kongsi platform Ativa — parts lebih murah?",
-        "a": "Sesetengah parts mekanikal mungkin boleh interchange — sahkan dengan pengedar/panel bengkel, tetapi body, sensor ASA dan parts khusus Toyota tetap ikut harga Toyota. Jangan bajet repair macam Ativa sepenuhnya."
+        "a": "Sesetengah parts mekanikal mungkin boleh interchange dengan Perodua Ativa — sahkan dengan panel bengkel. Body, sensor ADAS dan parts khusus Raize tidak dijual oleh UMW Toyota, jadi mungkin perlu ditempah dari luar negara. Jangan bajet repair macam Ativa sepenuhnya."
       },
       {
-        "q": "Raize ada ASA — cermin retak, calibration cover?",
-        "a": "Windscreen cover bayar gantian cermin, tetapi calibration sensor ASA tidak semestinya termasuk. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin, atau ambil ADAS calibration cover. Claim cermin tidak usik NCD."
+        "q": "Raize ada ADAS — cermin retak, calibration cover?",
+        "a": "Windscreen cover bayar gantian cermin, tetapi calibration sensor ADAS tidak semestinya termasuk. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin, atau ambil ADAS calibration cover. Claim cermin tidak usik NCD."
       }
     ],
     "sources": [
@@ -7068,6 +7098,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "PCauto — kenapa Raize tidak dijual di Malaysia",
+        "url": "https://www.pcauto.com/my/news/toyota-raize-vs-perodua-ativa-why-is-the-raize-not-available-in-malaysia-17845",
+        "retrieved": "2026-11-12"
       }
     ],
     "factChecked": "2026-09-10",
