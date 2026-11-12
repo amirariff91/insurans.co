@@ -12,6 +12,12 @@ const topMotorInsurers = companies.filter(c => c.products.includes('car')).slice
 const popularCars = carModels.filter(car => ['perodua-axia', 'perodua-myvi', 'proton-saga', 'toyota-vios', 'honda-city', 'honda-civic'].includes(car.slug));
 const exampleModel = carModels.find((car) => car.slug === 'perodua-axia') ?? carModels[0];
 const companyCount = companies.length;
+// Hero lead figures read from the same data as the Axia and Myvi model pages.
+const leadNum = (value: number) => value.toLocaleString('en-MY');
+const leadAxia = carModels.find((car) => car.slug === 'perodua-axia')!;
+const leadMyvi = carModels.find((car) => car.slug === 'perodua-myvi')!;
+const leadSmall55 = `RM${leadNum(leadAxia.premiumNCD55Min)}–RM${leadNum(leadMyvi.premiumNCD55Max)}`;
+const leadSmall0 = `RM${leadNum(leadAxia.premiumNCD0Min)}–RM${leadNum(leadMyvi.premiumNCD0Max)}`;
 const carModelCount = carModels.length;
 const comparisonCount = comparisons.length;
 
@@ -118,7 +124,7 @@ const faqSchema = {
           Tak pasti NCD? Kira NCD saya →
         </a>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-700">
-          Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar RM550–RM1,000 setahun dengan NCD 55%, dan RM1,200–RM2,200 tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
+          Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar {leadSmall55} setahun dengan NCD 55%, dan {leadSmall0} tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
         </p>
       </div>
     </div>

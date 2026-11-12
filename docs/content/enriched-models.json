@@ -1,5 +1,5 @@
 {
-  "methodologyNote": "Semua `premiumByNCD` diterbitkan daripada medan sedia ada dalam `car-models.json` — `ncd0` dan `ncd55` diambil bulat-bulat daripada `premiumNCD0Min/Max` dan `premiumNCD55Min/Max` fail tersebut; tier perantaraan = `premiumNCD0 × (1 − NCD%)` dengan tangga NCD standard Malaysia (25% / 30% / 38.33% / 45%), dibundar ke RM10 terdekat. `premiumByRegion`: Lembah Klang = julat NCD55 asal; Pantai Timur = asas × 0.94 (≈6% lebih rendah); Borneo = asas × 0.96 (≈4% lebih rendah), dibundar ke RM10. Semua angka ialah anggaran polisi komprehensif 2026, bukan sebut harga.",
+  "methodologyNote": "Medan pengayaan disalin daripada src/data/car-models.json pada 2026-11-12 selepas semakan kedua. `premiumByNCD`: julat tanpa NCD ialah anggaran editorial; setiap tahap NCD = julat tanpa NCD × baki selepas diskaun (0.75 / 0.70 / 0.6167 / 0.55 / 0.45), dibundarkan separuh-ke-atas ke RM10. `premiumByRegion`: Lembah Klang = julat NCD 55%; Pantai Timur = × 0.94; Borneo = × 0.96, dibundarkan separuh-ke-atas ke RM10. Semua angka ialah anggaran polisi komprehensif, bukan sebut harga.",
   "generated": "2026-09-10",
   "status": "39 of 39 models fact-checked for years/variants (premiums not assessed); unverifiable market figures removed",
   "records": [
@@ -27,26 +27,26 @@
           880
         ],
         "ncd55": [
-          550,
-          750
+          540,
+          720
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          600,
-          750
+          540,
+          720
         ],
         "pantaiTimur": [
-          550,
-          700
+          510,
+          680
         ],
         "borneo": [
-          580,
-          730
+          520,
+          690
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM22,000–RM38,000. Harga sebenar ikut umur kereta, lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak Mac 2026.",
-      "premiumReviewed": "2026-03-01",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM22,000–RM38,000. Harga sebenar ikut umur kereta, lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak Mac 2026. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Axia paling kerap ialah cermin depan (batu di lebuh raya) dan calar bumper bandar. Claim enjin jarang; claim banjir naik setiap monsun untuk kereta parkir di kawasan rendah Klang/Shah Alam.",
       "theftRiskDetail": "Risiko kecurian rendah — Axia bukan sasaran utama pencuri (rujuk nota risiko semasa). Pasang immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance Axia rendah (±160mm). Jika parkir di kawasan banjir kilat (Klang, Subang, Kota Bharu), special perils RM25–RM50/tahun adalah wajib — kos enjin banjir RM3,000–RM15,000.",
@@ -96,19 +96,24 @@
         },
         {
           "q": "Windscreen Axia retak sikit — claim atau bayar sendiri?",
-          "a": "Jika ada windscreen cover, claim cermin tidak usik NCD — claim sahaja. Jika tiada cover dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM650–RM850/tahun)."
+          "a": "Jika ada windscreen cover, claim cermin tidak usik NCD — claim sahaja. Jika tiada cover dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM660–RM880/tahun)."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-03-01"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-03-01"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
+        },
+        {
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -138,26 +143,26 @@
           1210
         ],
         "ncd55": [
-          700,
-          1000
+          680,
+          990
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          700,
-          1000
+          680,
+          990
         ],
         "pantaiTimur": [
-          660,
-          940
+          640,
+          930
         ],
         "borneo": [
-          670,
-          960
+          650,
+          950
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM38,000–RM58,000. Harga sebenar ikut umur kereta, varian (1.3 vs 1.5 AV), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM38,000–RM58,000. Harga sebenar ikut umur kereta, varian (1.3 vs 1.5 AV), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Myvi ialah kereta paling banyak di jalan raya, jadi claim kemalangan bandar (bumper, fender, cermin sisi) paling kerap — bukan kerana kereta bermasalah, tetapi kerana jumlah unit. Claim cermin depan akibat batu di lebuh raya juga biasa.",
       "theftRiskDetail": "Risiko kecurian sederhana. Myvi bukan sasaran utama pecah masuk seperti Honda, tetapi unit yang banyak bermakna kes kecurian masih dilaporkan — kunci stereng atau immobiliser standard sudah memadai untuk kebanyakan pemilik.",
       "floodRiskNote": "Ground clearance Myvi rendah seperti hatchback biasa. Jika parkir di kawasan banjir kilat (Klang, Shah Alam, Kota Bharu), special perils RM30–RM60/tahun adalah wajib — kos repair enjin banjir boleh cecah RM3,000–RM15,000.",
@@ -199,7 +204,7 @@
           "name": "NCD protector",
           "priceBM": "RM200–RM350/tahun",
           "verdict": "berbaloi jika NCD 45–55%",
-          "whyBM": "NCD 55% jimat RM800–RM1,200/tahun — sekali claim kecil tanpa protector, rugi besar."
+          "whyBM": "NCD 55% jimat RM820–RM1,210/tahun — sekali claim kecil tanpa protector, rugi besar."
         }
       ],
       "modelFAQs": [
@@ -218,19 +223,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Perodua — laman model rasmi",
-          "url": "https://www.perodua.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -260,26 +265,26 @@
           1160
         ],
         "ncd55": [
-          700,
-          980
+          680,
+          950
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          700,
-          980
+          680,
+          950
         ],
         "pantaiTimur": [
-          660,
-          920
+          640,
+          890
         ],
         "borneo": [
-          670,
-          940
+          650,
+          910
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM35,000–RM52,000. Harga sebenar ikut tahun (BH awal vs facelift), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM35,000–RM52,000. Harga sebenar ikut tahun (BH awal vs facelift), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Persona paling kerap ialah perlanggaran belakang dan calar parking — sedan keluarga yang banyak dipandu harian di bandar. Claim gearbox atau enjin jarang; isu CVT adalah kos penyelenggaraan, bukan claim insurans.",
       "theftRiskDetail": "Risiko kecurian rendah — Persona bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Jika parkir di kawasan banjir kilat atau balik kampung ke Pantai Timur setiap monsun, special perils RM30–RM60/tahun adalah wajib.",
@@ -334,19 +339,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -376,26 +381,26 @@
           1820
         ],
         "ncd55": [
-          1000,
-          1550
+          990,
+          1490
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1000,
-          1550
+          990,
+          1490
         ],
         "pantaiTimur": [
-          940,
-          1460
+          930,
+          1400
         ],
         "borneo": [
-          960,
-          1490
+          950,
+          1430
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback RS petrol; RS e:HEV sekitar RM107,000–RM110,000, di luar julat). Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback RS petrol; RS e:HEV sekitar RM107,000–RM110,000, di luar julat). Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan tracker GPS atau immobiliser tambahan jika parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance hatchback yang rendah. Special perils RM40–RM75/tahun sangat disarankan — komponen elektrik dan sensor Honda mahal jika masuk air.",
@@ -439,7 +444,7 @@
       "modelFAQs": [
         {
           "q": "Jazz GK lama vs City Hatchback baru — beza insurans?",
-          "a": "Besar — Jazz GK used sum insured RM43,000–RM55,000, premium NCD 55% sekitar RM700–RM1,000; City Hatchback RS petrol baru sekitar RM88,000, RS e:HEV hybrid RM107,000+ dengan premium seperti dalam jadual. Jangan insure Jazz lama ikut harga baru — itu over-insure, claim tetap bayar ikut nilai pasaran."
+          "a": "Besar — Jazz GK used sum insured RM43,000–RM55,000; City Hatchback RS petrol baru sekitar RM88,000, RS e:HEV hybrid RM107,000+, iaitu di luar julat anggaran di halaman ini. Jangan insure Jazz lama ikut harga baru — itu over-insure, claim tetap bayar ikut nilai pasaran."
         },
         {
           "q": "Varian RS e:HEV hybrid — bateri rosak boleh claim?",
@@ -452,19 +457,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -494,26 +499,26 @@
           3190
         ],
         "ncd55": [
-          2000,
-          2800
+          1890,
+          2610
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          2000,
-          2800
+          1890,
+          2610
         ],
         "pantaiTimur": [
-          1880,
-          2630
+          1780,
+          2450
         ],
         "borneo": [
-          1920,
-          2690
+          1810,
+          2510
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM155,000 (varian petrol vs Hybrid). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM155,000 (varian petrol vs Hybrid). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim jarang tetapi mahal — SUV crossover dengan banyak sensor. Claim paling biasa ialah cermin depan besar dan calar bumper parking. Sekali accident depan, kos sensor Toyota Safety Sense menaikkan bil repair dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana. Bukan sasaran utama seperti Hilux, tetapi nilai tinggi bermakna comprehensive wajib dan kereta elok dipasang dashcam + parkir berkunci.",
       "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir — ECU dan sensor bawah masih terdedah. Special perils RM55–RM100/tahun disarankan, terutamanya di Lembah Klang.",
@@ -557,7 +562,7 @@
       "modelFAQs": [
         {
           "q": "Corolla Cross Hybrid vs petrol biasa — beza premium?",
-          "a": "Hybrid 15–20% lebih tinggi kerana sum insured lebih mahal serta kos bateri dan motor elektrik. Contoh kasar: jika petrol NCD 55% sekitar RM2,000–RM2,400, Hybrid sekitar RM2,400–RM2,800. Bezanya ikut quotation syarikat — bandingkan 2–3 sebelum renew."
+          "a": "Hybrid 15–20% lebih tinggi kerana sum insured lebih mahal serta kos bateri dan motor elektrik. Bezanya ikut quotation syarikat — bandingkan 2–3 sebelum renew."
         },
         {
           "q": "Tukar cermin Corolla Cross — kenapa bengkel caj calibration?",
@@ -570,19 +575,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -612,26 +617,26 @@
           3190
         ],
         "ncd55": [
-          1800,
-          2800
+          1710,
+          2610
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1800,
-          2800
+          1710,
+          2610
         ],
         "pantaiTimur": [
-          1690,
-          2630
+          1610,
+          2450
         ],
         "borneo": [
-          1730,
-          2690
+          1640,
+          2510
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM165,000 (2.4 E hingga 2.8 Rogue). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM165,000 (2.4 E hingga 2.8 Rogue). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Hilux yang memang digunakan lasak.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — pickup popular untuk dicuri (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berkunci sangat disarankan, terutamanya varian Rogue.",
       "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir — air masuk snorkel/enjin diesel tetap memusnahkan enjin. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
@@ -683,7 +688,7 @@
         },
         {
           "q": "Hilux 2.4 vs 2.8 Rogue — beza premium dan roadtax?",
-          "a": "Roadtax diesel bukan salun lebih tinggi daripada sedan biasa — sekitar RM760/tahun di Semenanjung untuk 2.4 (RM470 di Sabah/Sarawak), sama untuk 2.4 atau 2.8. Premium pula ikut sum insured: Rogue (RM150,000+) boleh RM500–RM800/tahun lebih mahal dari 2.4 E. Beza enjin bukan faktor utama — beza nilai kereta yang tentukan premium."
+          "a": "Roadtax ikut kapasiti enjin. Mengikut jadual JPJ untuk kenderaan bukan salun persendirian di Semenanjung, 2.4 (2,393cc) dikenakan RM754.40 setahun dan 2.8 (2,755cc) RM1,248 setahun. Premium pula ikut sum insured: Rogue (RM150,000+) boleh RM500–RM800/tahun lebih mahal dari 2.4 E. Beza enjin bukan faktor utama — beza nilai kereta yang tentukan premium."
         },
         {
           "q": "Hilux guna untuk kerja tapak bina / angkat barang niaga — polisi biasa cover?",
@@ -692,19 +697,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -734,26 +739,26 @@
           1540
         ],
         "ncd55": [
-          950,
-          1350
+          900,
+          1260
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          950,
-          1350
+          900,
+          1260
         ],
         "pantaiTimur": [
-          890,
-          1270
+          850,
+          1180
         ],
         "borneo": [
-          910,
-          1300
+          860,
+          1210
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM75,000. Harga sebenar ikut varian (X, H dan AV dengan ASA 3.0), umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM75,000. Harga sebenar ikut varian (X, H dan AV dengan ASA 3.0), umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana — SUV yang banyak dipandu keluarga muda. Claim paling biasa ialah calar bumper dan cermin. Claim sensor ADAS (bumper depan dengan radar ASA) jarang tetapi mahal bila berlaku.",
       "theftRiskDetail": "Risiko kecurian rendah ke sederhana. Bukan sasaran utama pencuri; immobiliser standard dan parkir biasa sudah memadai.",
       "floodRiskNote": "Ground clearance 200mm — paling tinggi dalam segmen kompak — membantu dalam air cetek dan banjir kilat ringan. Tetapi masih sedan-ubah-SUV: special perils RM35–RM70/tahun disarankan jika parkir di kawasan banjir.",
@@ -805,24 +810,24 @@
         },
         {
           "q": "Kenapa premium Ativa mahal sikit dari Myvi?",
-          "a": "Tiga sebab: sum insured lebih tinggi (RM55,000–RM75,000 vs RM38,000–RM58,000), enjin turbo lebih mahal dibaiki, dan sensor ADAS menaikkan kos claim. Bezanya sekitar RM250–RM350/tahun pada NCD 55% — setimpal dengan saiz dan ciri SUV."
+          "a": "Tiga sebab: sum insured lebih tinggi (RM55,000–RM75,000 vs RM38,000–RM58,000), enjin turbo lebih mahal dibaiki, dan sensor ADAS menaikkan kos claim. Anggaran premium Ativa lebih tinggi daripada Myvi pada setiap tahap NCD; bandingkan jadual harga kedua-dua halaman."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Perodua — laman model rasmi",
-          "url": "https://www.perodua.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -852,26 +857,26 @@
           990
         ],
         "ncd55": [
-          600,
-          850
+          590,
+          810
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          600,
-          850
+          590,
+          810
         ],
         "pantaiTimur": [
-          560,
-          800
+          550,
+          760
         ],
         "borneo": [
-          580,
-          820
+          570,
+          780
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM28,000–RM42,000. Harga sebenar ikut tahun (VVT awal vs MC2), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM28,000–RM42,000. Harga sebenar ikut tahun (VVT awal vs MC2), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana — kebanyakannya calar parking dan perlanggaran belakang ringan. Parts Saga antara paling murah di Malaysia, jadi banyak kerosakan kecil diselesaikan cash tanpa claim untuk jaga NCD.",
       "theftRiskDetail": "Risiko kecurian rendah — Saga bukan sasaran pencuri. Immobiliser standard sudah memadai; tidak perlu belanja tracker.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM25–RM55/tahun sangat murah untuk Saga — ambil sahaja jika parkir di mana-mana kawasan banjir kilat.",
@@ -926,19 +931,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -968,26 +973,26 @@
           1050
         ],
         "ncd55": [
-          600,
-          880
+          590,
+          860
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          600,
-          880
+          590,
+          860
         ],
         "pantaiTimur": [
-          560,
-          830
+          550,
+          810
         ],
         "borneo": [
-          580,
-          840
+          570,
+          830
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM30,000–RM48,000. Harga sebenar ikut varian (1.0 vs 1.3 AV), tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM30,000–RM48,000. Harga sebenar ikut varian (1.0 vs 1.3 AV), tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim rendah ke sederhana — pemandu Bezza biasanya berhemah dan parts kongsi platform Axia (murah). Claim paling biasa ialah perlanggaran belakang di bandar dan calar bumper boot yang panjang.",
       "theftRiskDetail": "Risiko kecurian rendah — Bezza bukan sasaran utama. Immobiliser standard sudah memadai.",
       "floodRiskNote": "Sedan rendah seperti Axia. Special perils RM25–RM55/tahun adalah wajib jika parkir di kawasan banjir kilat — enjin banjir boleh cecah RM15,000, jauh lebih mahal dari premium tambahannya.",
@@ -1033,24 +1038,24 @@
         },
         {
           "q": "Bumper belakang Bezza kemek kena sondol — claim atau cash?",
-          "a": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (nilai RM400–RM600/tahun ke atas), bayar cash lebih jimat — sekali claim, NCD reset ke 0% dan premium naik RM600+ tahun depan."
+          "a": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (diskaun bernilai kira-kira RM580–RM1,040 setahun mengikut anggaran di halaman ini), bayar tunai biasanya lebih jimat — selepas satu tuntutan, NCD kembali ke 0% dan premium tahun depan naik sebanyak nilai diskaun itu."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Perodua — laman model rasmi",
-          "url": "https://www.perodua.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1081,25 +1086,25 @@
         ],
         "ncd55": [
           900,
-          1400
+          1260
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
           900,
-          1400
+          1260
         ],
         "pantaiTimur": [
           850,
-          1320
+          1180
         ],
         "borneo": [
           860,
-          1340
+          1210
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000. Harga sebenar ikut generasi (NCP150 vs AC100 DNGA baru), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000. Harga sebenar ikut generasi (NCP150 vs AC100 DNGA baru), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana — Vios dipandu ramai termasuk pemandu muda dan e-hailing, jadi claim bumper dan cermin biasa. Reliability Toyota bermakna claim mekanikal hampir tiada; purata kos claim terkawal kerana parts mudah didapati.",
       "theftRiskDetail": "Risiko kecurian sederhana. Sedan Toyota popular — bukan sasaran utama seperti Hilux, tetapi unit banyak. Comprehensive wajib; pertimbangkan immobiliser tambahan jika parkir terbuka setiap malam.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM35–RM70/tahun disarankan — Vios banyak parkir di perumahan bandar yang kerap banjir kilat.",
@@ -1156,19 +1161,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1198,26 +1203,26 @@
           1430
         ],
         "ncd55": [
-          850,
-          1200
+          810,
+          1170
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          850,
-          1200
+          810,
+          1170
         ],
         "pantaiTimur": [
-          800,
-          1130
+          760,
+          1100
         ],
         "borneo": [
-          820,
-          1150
+          780,
+          1120
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM50,000–RM72,000. Harga sebenar ikut tahun (Gen 1 vs Gen 2 2022+), varian (X vs H vs AV) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM50,000–RM72,000. Harga sebenar ikut tahun (Gen 1 vs Gen 2 2022+), varian (X vs H vs AV) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Alza paling kerap ialah calar bumper parking dan perlanggaran belakang — MPV keluarga yang selalu penuh dan dipandu harian di bandar. Claim besar jarang; kos repair Perodua masih antara paling murah.",
       "theftRiskDetail": "Risiko kecurian rendah — Alza bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance MPV sederhana, lebih tinggi sedikit dari sedan. Jika parkir di kawasan banjir kilat atau selalu balik kampung ke Pantai Timur waktu monsun, special perils RM35–RM65/tahun adalah wajib.",
@@ -1248,8 +1253,8 @@
         {
           "name": "Passenger liability",
           "priceBM": "RM30–RM60/tahun",
-          "verdict": "wajib jika selalu penuh 7 orang",
-          "whyBM": "Alza hampir selalu bawa ramai penumpang; cover penumpang tambahan murah berbanding risiko."
+          "verdict": "berguna jika selalu bawa penumpang bukan keluarga",
+          "whyBM": "Meliputi tuntutan penumpang seperti kawan atau rakan sekerja. Tidak meliputi ahli keluarga yang tinggal sebumbung; untuk mereka, tanya tentang PA pemandu dan penumpang."
         },
         {
           "name": "Breakdown towing",
@@ -1269,24 +1274,24 @@
         },
         {
           "q": "Alza selalu bawa 7 penumpang — perlu passenger liability cover?",
-          "a": "Sangat disarankan. Polisi standard ada had liabiliti penumpang; dengan Alza yang hampir selalu penuh, add-on passenger liability RM30–RM60/tahun itu murah untuk ketenangan fikiran — terutamanya jika selalu bawa anak-anak atau orang tua."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability (RM30–RM60/tahun) meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Perodua — laman model rasmi",
-          "url": "https://www.perodua.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1316,26 +1321,26 @@
           1050
         ],
         "ncd55": [
-          650,
-          900
+          630,
+          860
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          650,
-          900
+          630,
+          860
         ],
         "pantaiTimur": [
-          610,
-          850
+          590,
+          810
         ],
         "borneo": [
-          620,
-          860
+          600,
+          830
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM32,000–RM48,000. Harga sebenar ikut tahun, varian (1.3 vs 1.6 Premium) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM32,000–RM48,000. Harga sebenar ikut tahun, varian (1.3 vs 1.6 Premium) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Iriz paling kerap ialah calar parking dan perlanggaran kecil bandar — hatchback harian yang lincah di kawasan sempit. Claim besar jarang; parts Proton murah dan mudah didapati.",
       "theftRiskDetail": "Risiko kecurian rendah — Iriz bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance hatchback yang rendah. Jika parkir di kawasan banjir kilat, special perils RM30–RM55/tahun adalah wajib — kos repair enjin banjir boleh cecah RM3,000–RM15,000.",
@@ -1381,24 +1386,24 @@
         },
         {
           "q": "Iriz lama bawah RM15,000 — masih perlu comprehensive?",
-          "a": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri, third-party mungkin memadai. Tetapi jika Iriz masih kereta harian utama tanpa simpanan repair, comprehensive RM650–RM900/tahun (NCD 55%) masih berbaloi."
+          "a": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri, third-party mungkin memadai. Tetapi jika Iriz masih kereta harian utama tanpa simpanan repair, comprehensive RM630–RM860/tahun (NCD 55%) masih berbaloi."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1428,26 +1433,26 @@
           2090
         ],
         "ncd55": [
-          1200,
-          1800
+          1130,
+          1710
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1200,
-          1800
+          1130,
+          1710
         ],
         "pantaiTimur": [
-          1130,
-          1690
+          1060,
+          1610
         ],
         "borneo": [
-          1150,
-          1730
+          1080,
+          1640
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM70,000–RM105,000 (1.5T Standard hingga 1.5 TGDi Flagship). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM70,000–RM105,000 (1.5T Standard hingga 1.5 TGDi Flagship). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim X50 jarang tetapi mahal — SUV turbo dengan banyak sensor. Claim paling biasa ialah cermin depan dan calar bumper parking. Sekali accident depan, kos radar dan kamera ADAS menaikkan bil repair dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana — SUV popular tetapi bukan sasaran utama seperti Honda. Comprehensive wajib; parkir berkunci dan dashcam disarankan untuk varian Flagship.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi bukan kalis banjir — ECU dan sensor bawah masih terdedah. Special perils RM40–RM80/tahun disarankan, terutamanya di Lembah Klang.",
@@ -1504,19 +1509,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1546,26 +1551,26 @@
           2640
         ],
         "ncd55": [
-          1500,
-          2300
+          1440,
+          2160
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1500,
-          2300
-        ],
-        "pantaiTimur": [
-          1410,
+          1440,
           2160
         ],
+        "pantaiTimur": [
+          1350,
+          2030
+        ],
         "borneo": [
-          1440,
-          2210
+          1380,
+          2070
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM125,000 (1.5 TGDi Standard hingga Flagship). Harga sebenar ikut varian, tahun (1.8T awal vs 1.5T) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM125,000 (1.5 TGDi Standard hingga Flagship). Harga sebenar ikut varian, tahun (1.8T awal vs 1.5T) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim X70 jarang tetapi bil antara tertinggi untuk jenama nasional — SUV segmen C dengan parts Geely import. Claim cermin besar dan sensor ADAS paling biasa. Sekali accident depan, kos radar dan lampu LED menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana — nilai tinggi tetapi bukan sasaran utama pencuri. Comprehensive wajib; tracker GPS berbaloi untuk varian Flagship yang parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah tetap terdedah. Special perils RM50–RM90/tahun disarankan — komponen elektrik X70 mahal jika masuk air.",
@@ -1622,19 +1627,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1664,26 +1669,26 @@
           1320
         ],
         "ncd55": [
-          800,
-          1150
+          770,
+          1080
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          800,
-          1150
-        ],
-        "pantaiTimur": [
-          750,
+          770,
           1080
         ],
+        "pantaiTimur": [
+          720,
+          1020
+        ],
         "borneo": [
-          770,
-          1100
+          740,
+          1040
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM40,000–RM62,000 (1.6 Turbo Executive vs Premium). Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM40,000–RM62,000 (1.6 Turbo Executive vs Premium). Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Exora jarang tetapi libatkan MPV penuh — calar bumper parking dan perlanggaran belakang paling biasa. Enjin turbo CFE pula isu penyelenggaraan, bukan claim insurans.",
       "theftRiskDetail": "Risiko kecurian rendah — Exora bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Badan MPV besar tetapi clearance sederhana. Jika parkir di kawasan banjir kilat atau balik kampung ke Pantai Timur setiap monsun, special perils RM30–RM60/tahun adalah wajib.",
@@ -1714,8 +1719,8 @@
         {
           "name": "Passenger liability",
           "priceBM": "RM30–RM55/tahun",
-          "verdict": "wajib jika selalu penuh 7 orang",
-          "whyBM": "Exora hampir selalu bawa keluarga besar."
+          "verdict": "berguna jika selalu bawa penumpang bukan keluarga",
+          "whyBM": "Meliputi tuntutan penumpang seperti kawan atau rakan sekerja. Tidak meliputi ahli keluarga yang tinggal sebumbung; untuk mereka, tanya tentang PA pemandu dan penumpang."
         },
         {
           "name": "Breakdown towing",
@@ -1735,24 +1740,24 @@
         },
         {
           "q": "Exora selalu bawa 7 orang — perlu passenger liability?",
-          "a": "Ya, sangat disarankan. Dengan MPV yang hampir selalu penuh, add-on RM30–RM55/tahun itu murah untuk perlindungan penumpang tambahan — terutamanya jika selalu bawa anak-anak dan orang tua balik kampung."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability (RM30–RM55/tahun) meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Proton — laman model rasmi",
-          "url": "https://www.proton.com",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1782,26 +1787,26 @@
           1760
         ],
         "ncd55": [
-          1000,
-          1500
+          990,
+          1440
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1000,
-          1500
+          990,
+          1440
         ],
         "pantaiTimur": [
-          940,
-          1410
+          930,
+          1350
         ],
         "borneo": [
-          960,
-          1440
+          950,
+          1380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM95,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM95,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim paling kerap ialah cermin depan dan calar bumper bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — parts Honda lebih mahal dari Perodua/Proton dan lampu depan varian V/RS boleh cecah ribuan ringgit seunit.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive adalah wajib; pertimbangkan kunci stereng tambahan jika parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM40–RM75/tahun sangat disarankan — komponen elektrik dan sensor Honda mahal jika masuk air.",
@@ -1845,7 +1850,7 @@
       "modelFAQs": [
         {
           "q": "City 1.5 S/E/V vs RS e:HEV — beza premium?",
-          "a": "Besar — RS e:HEV sum insured sekitar RM15,000–RM25,000 lebih tinggi dengan kos bateri dan motor elektrik, jadi premium 15–20% lebih mahal. Contoh kasar: jika V sekitar RM1,000–RM1,300 (NCD 55%), e:HEV sekitar RM1,200–RM1,500. Bandingkan 2–3 quotation sebelum renew."
+          "a": "Besar — RS e:HEV sum insured sekitar RM15,000–RM25,000 lebih tinggi dengan kos bateri dan motor elektrik, jadi premium 15–20% lebih mahal. Bandingkan 2–3 quotation sebelum renew."
         },
         {
           "q": "City buat Grab/e-hailing — polisi biasa cover?",
@@ -1858,19 +1863,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -1900,26 +1905,26 @@
           3030
         ],
         "ncd55": [
-          1800,
-          2800
+          1580,
+          2480
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1800,
-          2800
+          1580,
+          2480
         ],
         "pantaiTimur": [
-          1690,
-          2630
+          1490,
+          2330
         ],
         "borneo": [
-          1730,
-          2690
+          1520,
+          2380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM155,000 (1.5 TC-P hingga 2.0 RS e:HEV). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM155,000 (1.5 TC-P hingga 2.0 RS e:HEV). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — sedan segmen C dengan enjin turbo dan sensor penuh. Claim cermin dan bumper biasa; sekali accident depan, kos lampu LED, radar Honda Sensing dan intercooler turbo menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian tinggi — Civic antara sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng + tracker GPS sangat disarankan.",
       "floodRiskNote": "Ground clearance sedan yang rendah dengan komponen turbo dan elektrik mahal. Special perils RM50–RM100/tahun adalah wajib — bukan pilihan — untuk Civic.",
@@ -1963,7 +1968,7 @@
       "modelFAQs": [
         {
           "q": "Civic 1.5 TC-P vs 2.0 RS e:HEV — beza premium?",
-          "a": "Besar — 2.0 e:HEV sum insured sekitar RM30,000 lebih tinggi dengan kos bateri hybrid, jadi premium 15–20% lebih mahal. Jika TC-P NCD 55% sekitar RM1,800–RM2,300, e:HEV sekitar RM2,200–RM2,800. Bandingkan quotation sebelum renew."
+          "a": "Besar — 2.0 e:HEV sum insured sekitar RM30,000 lebih tinggi dengan kos bateri hybrid, jadi premium 15–20% lebih mahal. Bandingkan quotation sebelum renew."
         },
         {
           "q": "Civic sasaran pencuri — apa patut buat selain comprehensive?",
@@ -1976,19 +1981,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2018,26 +2023,26 @@
           2750
         ],
         "ncd55": [
-          1500,
-          2400
+          1440,
+          2250
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1500,
-          2400
+          1440,
+          2250
         ],
         "pantaiTimur": [
-          1410,
-          2260
+          1350,
+          2120
         ],
         "borneo": [
-          1440,
-          2300
+          1380,
+          2160
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM90,000–RM140,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun (Gen 2 vs Gen 3) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM90,000–RM140,000 (1.5 S hingga RS e:HEV). Harga sebenar ikut varian hybrid, tahun (Gen 2 vs Gen 3) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana tetapi mahal — SUV segmen B dengan cermin besar dan sensor penuh. Claim cermin depan dan calar bumper parking paling biasa. Sekali accident, kos panel SUV dan sensor Honda Sensing menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV Honda berisiko (rujuk nota risiko semasa dan garis panduan VTREC/ciri anti-kecurian). Comprehensive wajib; kunci stereng tambahan disarankan.",
       "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM50–RM90/tahun disarankan, terutamanya di Lembah Klang.",
@@ -2094,19 +2099,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2136,26 +2141,26 @@
           2090
         ],
         "ncd55": [
-          1300,
-          1800
+          1260,
+          1710
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1300,
-          1800
+          1260,
+          1710
         ],
         "pantaiTimur": [
-          1220,
-          1690
+          1180,
+          1610
         ],
         "borneo": [
-          1250,
-          1730
+          1210,
+          1640
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM80,000–RM105,000 (1.5 E vs V). Harga sebenar ikut tahun (Gen 1 vs Gen 2 2022+), varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM80,000–RM105,000 (1.5 E vs V). Harga sebenar ikut tahun, varian dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim BR-V paling kerap ialah calar bumper parking dan perlanggaran belakang — 7-seater keluarga yang selalu penuh di bandar. Claim besar jarang; kos repair ikut standard Honda.",
       "theftRiskDetail": "Risiko kecurian sederhana — jenama Honda berisiko tetapi BR-V bukan sasaran utama seperti Civic. Comprehensive wajib; immobiliser standard plus kunci stereng sudah memadai.",
       "floodRiskNote": "Ground clearance crossover membantu sedikit, tetapi bukan kalis banjir. Special perils RM45–RM80/tahun disarankan — komponen elektrik Honda mahal jika masuk air.",
@@ -2186,8 +2191,8 @@
         {
           "name": "Passenger liability",
           "priceBM": "RM35–RM65/tahun",
-          "verdict": "wajib jika selalu penuh 7 orang",
-          "whyBM": "BR-V hampir selalu bawa keluarga besar."
+          "verdict": "berguna jika selalu bawa penumpang bukan keluarga",
+          "whyBM": "Meliputi tuntutan penumpang seperti kawan atau rakan sekerja. Tidak meliputi ahli keluarga yang tinggal sebumbung; untuk mereka, tanya tentang PA pemandu dan penumpang."
         },
         {
           "name": "Breakdown towing",
@@ -2203,7 +2208,7 @@
         },
         {
           "q": "BR-V selalu bawa 7 orang — perlu passenger liability?",
-          "a": "Ya, sangat disarankan. Dengan 7-seater yang hampir selalu penuh, add-on RM35–RM65/tahun itu murah untuk perlindungan penumpang tambahan — terutamanya jika selalu bawa anak-anak balik kampung."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability (RM35–RM65/tahun) meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         },
         {
           "q": "BR-V vs Alza — mana lagi murah insurans?",
@@ -2212,19 +2217,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2255,25 +2260,25 @@
         ],
         "ncd55": [
           900,
-          1350
+          1260
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
           900,
-          1350
+          1260
         ],
         "pantaiTimur": [
           850,
-          1270
+          1180
         ],
         "borneo": [
           860,
-          1300
+          1210
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM78,000 (1.5 J hingga G). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM78,000 (1.5 J hingga G). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Yaris paling kerap ialah calar bumper bandar dan cermin depan akibat batu di highway. Claim besar jarang — Toyota reliability bermakna kurang claim mekanikal, dan parts mudah didapati.",
       "theftRiskDetail": "Risiko kecurian rendah ke sederhana — Yaris bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
       "floodRiskNote": "Ground clearance hatchback yang rendah. Jika parkir di kawasan banjir kilat, special perils RM35–RM65/tahun adalah wajib — kos repair enjin banjir boleh cecah RM3,000–RM15,000.",
@@ -2315,7 +2320,7 @@
         },
         {
           "q": "Yaris vs Vios sedan — mana lagi murah insurans?",
-          "a": "Hampir sama — kongsi platform dan enjin. Yaris hatchback biasanya sedikit lebih murah kerana sum insured sedikit lebih rendah. Bezanya sekitar RM50–RM100/tahun — pilih ikut bentuk badan yang anda suka."
+          "a": "Hampir sama — kongsi platform dan enjin, dan anggaran premium kami untuk kedua-duanya sama. Beza sebenar ikut sum insured unit anda. Pilih ikut bentuk badan yang anda suka."
         },
         {
           "q": "Yaris buat e-hailing — polisi biasa cover?",
@@ -2324,19 +2329,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi Tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2366,37 +2371,37 @@
           2860
         ],
         "ncd55": [
-          1800,
-          2500
+          1710,
+          2340
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1800,
-          2500
+          1710,
+          2340
         ],
         "pantaiTimur": [
-          1690,
-          2350
+          1610,
+          2200
         ],
         "borneo": [
-          1730,
-          2400
+          1640,
+          2250
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM140,000 (1.8 G vs 1.8 E Hybrid). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM140,000 (1.8 E hingga 1.8 GR Sport). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Corolla jarang tetapi mahal bila berlaku — sedan segmen C dengan sensor penuh. Claim paling biasa ialah cermin depan dan calar bumper parking. Sekali accident depan, kos Toyota Safety Sense menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana — nilai tinggi tetapi bukan sasaran utama seperti Hilux. Comprehensive wajib; parkir berkunci disarankan.",
       "floodRiskNote": "Ground clearance sedan yang rendah dengan ECU dan sensor mahal. Special perils RM50–RM90/tahun disarankan — komponen elektrik Corolla mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2019–2021 (Gen 12 awal)",
-          "note": "{\"range\":\"2019–2022 (Gen 12 / E210, TNGA)\",\"note\":\"2019–2022 (Gen 12 / E210, TNGA) — Varian 1.8 E dan 1.8 G petrol (2ZR-FE, CVT). Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Toyota Safety Sense hanya pada 1.8G & GR Sport — sahkan varian sebelum pilih ADAS calibration cover.\"}"
+          "range": "2019–2022 (Gen 12 / E210, TNGA)",
+          "note": "Varian 1.8 E dan 1.8 G petrol (2ZR-FE, CVT). Jika beli unit facelift baru, sum insured ikut harga beli penuh (RM130,000+). Toyota Safety Sense hanya pada 1.8G & GR Sport — sahkan varian sebelum pilih ADAS calibration cover."
         },
         {
-          "range": "2022–kini (facelift)",
-          "note": "{\"range\":\"2023–kini (facelift + GR Sport)\",\"note\":\"2023–kini (facelift Ogos 2023 + GR Sport) — TSS kekal pada 1.8G & GR Sport sahaja.\"}"
+          "range": "2023–kini (facelift + GR Sport)",
+          "note": "TSS kekal pada 1.8G & GR Sport sahaja."
         }
       ],
       "windscreenPrice": "RM700–RM1,400; varian 1.8G & GR Sport ada Toyota Safety Sense — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
@@ -2410,8 +2415,8 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM130–RM250/tahun",
-          "verdict": "{\"name\":\"ADAS calibration cover\",\"priceBM\":\"RM130–RM250/tahun\",\"verdict\":\"wajib untuk 1.8G & GR Sport\",\"whyBM\":\"Toyota Safety Sense (kamera/radar) hanya pada 1.8G & GR Sport — calibration selepas tukar cermin boleh cecah ratusan ringgit.\"}",
-          "whyBM": "Toyota Safety Sense standard — calibration selepas tukar cermin boleh cecah ratusan ringgit."
+          "verdict": "wajib untuk 1.8G & GR Sport",
+          "whyBM": "Toyota Safety Sense (kamera/radar) hanya pada 1.8G & GR Sport — calibration selepas tukar cermin boleh cecah ratusan ringgit."
         },
         {
           "name": "Special perils (banjir)",
@@ -2428,33 +2433,33 @@
       ],
       "modelFAQs": [
         {
-          "q": "Corolla 1.8 G vs 1.8 E Hybrid — beza premium?",
-          "a": "{\"q\":\"Corolla 1.8 E vs 1.8 G — beza premium?\",\"a\":\"Beza ikut sum insured — 1.8G lebih tinggi kerana kit dan Toyota Safety Sense tambahan. Tiada varian hybrid untuk Corolla Altis di Malaysia. Bandingkan 2–3 quotation sebelum renew.\"}"
+          "q": "Corolla 1.8 E vs 1.8 G — beza premium?",
+          "a": "Beza ikut sum insured — 1.8G lebih tinggi kerana kit dan Toyota Safety Sense tambahan. Tiada varian hybrid untuk Corolla Altis di Malaysia. Bandingkan 2–3 quotation sebelum renew."
         },
         {
           "q": "Corolla vs Civic — mana lagi murah insurans?",
-          "a": "Corolla biasanya sedikit lebih murah — risiko kecurian Civic lebih tinggi dan parts Honda mahal. Bezanya sekitar RM100–RM300/tahun pada NCD sama. Reliability Toyota juga bermakna NCD lebih mudah dijaga."
+          "a": "Tiada jawapan tetap. Anggaran kami untuk kedua-dua model bertindih, dan premium sebenar ikut sum insured, varian dan rekod tuntutan anda. Dapatkan sebut harga untuk kedua-duanya sebelum membuat keputusan."
         },
         {
-          "q": "Bateri hybrid Corolla rosak sendiri — insurans cover?",
-          "a": "{\"q\":\"Bateri kereta rosak sendiri — insurans cover?\",\"a\":\"Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika kerosakan akibat accident yang dilindungi. Semak waranti pengilang dan jangan jadikan insurans sebagai ganti waranti.\"}"
+          "q": "Bateri kereta rosak sendiri — insurans cover?",
+          "a": "Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika kerosakan akibat accident yang dilindungi. Semak waranti pengilang dan jangan jadikan insurans sebagai ganti waranti."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2484,33 +2489,33 @@
           1980
         ],
         "ncd55": [
-          1300,
-          1700
+          1260,
+          1620
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1300,
-          1700
+          1260,
+          1620
         ],
         "pantaiTimur": [
-          1220,
-          1600
+          1180,
+          1520
         ],
         "borneo": [
-          1250,
-          1630
+          1210,
+          1560
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM98,000 (1.5 AT). Harga sebenar ikut tahun, aksesori dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM85,000–RM98,000 (1.5 AT). Harga sebenar ikut tahun, aksesori dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Veloz masih rendah kerana model baru — data claims terhad. Jangkaan claim biasa ialah calar bumper parking dan cermin depan, seperti MPV 7-seater lain yang selalu penuh.",
       "theftRiskDetail": "Risiko kecurian rendah — Veloz bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
       "floodRiskNote": "Ground clearance MPV sederhana, lebih tinggi sedikit dari sedan. Special perils RM40–RM75/tahun disarankan — sensor Toyota Safety Sense mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2022–kini (Gen 1, satu varian 1.5 AT)",
-          "note": "{\"range\":\"2022–kini (Gen 1 / W100, satu varian 1.5 CVT)\",\"note\":\"Hanya satu varian (1.5 CVT, platform DNGA / W100) — sum insured ikut harga beli (RM85,000–RM98,000). Model baru jadi data claims terhad; premium antara syarikat boleh berbeza.\"}"
+          "range": "2022–kini (Gen 1 / W100, satu varian 1.5 CVT)",
+          "note": "Hanya satu varian (1.5 CVT, platform DNGA / W100) — sum insured ikut harga beli (RM85,000–RM98,000). Model baru jadi data claims terhad; premium antara syarikat boleh berbeza."
         }
       ],
       "windscreenPrice": "RM600–RM1,100; ada Toyota Safety Sense — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
@@ -2530,8 +2535,8 @@
         {
           "name": "Passenger liability",
           "priceBM": "RM35–RM60/tahun",
-          "verdict": "wajib jika selalu penuh 7 orang",
-          "whyBM": "Veloz hampir selalu bawa keluarga besar."
+          "verdict": "berguna jika selalu bawa penumpang bukan keluarga",
+          "whyBM": "Meliputi tuntutan penumpang seperti kawan atau rakan sekerja. Tidak meliputi ahli keluarga yang tinggal sebumbung; untuk mereka, tanya tentang PA pemandu dan penumpang."
         },
         {
           "name": "ADAS calibration cover",
@@ -2547,7 +2552,7 @@
         },
         {
           "q": "Veloz selalu bawa 7 penumpang — perlu passenger liability?",
-          "a": "Ya, sangat disarankan. Add-on RM35–RM60/tahun itu murah untuk perlindungan penumpang tambahan — terutamanya jika selalu bawa anak-anak dan orang tua."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability (RM35–RM60/tahun) meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         },
         {
           "q": "Veloz model baru, data claims terhad — kesan pada premium?",
@@ -2556,19 +2561,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2598,26 +2603,26 @@
           1540
         ],
         "ncd55": [
-          950,
-          1350
+          900,
+          1260
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          950,
-          1350
+          900,
+          1260
         ],
         "pantaiTimur": [
-          890,
-          1270
+          850,
+          1180
         ],
         "borneo": [
-          910,
-          1300
+          860,
+          1210
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000 (1.0 Turbo VL hingga VLT). Harga sebenar ikut varian, tahun (Gen 1 vs Gen 2 2020+) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM80,000 (1.0 Turbo VL hingga VLT). Harga sebenar ikut varian, tahun (Gen 1 vs Gen 2 2020+) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Almera paling kerap ialah calar bumper bandar dan cermin depan. Claim besar jarang; enjin 1.0 turbo baru masih dalam pemerhatian jangka panjang tetapi setakat ini tiada corak claim luar biasa.",
       "theftRiskDetail": "Risiko kecurian rendah — Almera bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance sedan yang rendah. Jika parkir di kawasan banjir kilat, special perils RM35–RM65/tahun adalah wajib — kos repair turbo banjir sangat mahal.",
@@ -2668,19 +2673,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Nissan — laman model rasmi",
-          "url": "https://www.nissan.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2710,37 +2715,37 @@
           1650
         ],
         "ncd55": [
-          1000,
-          1450
+          990,
+          1350
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1000,
-          1450
+          990,
+          1350
         ],
         "pantaiTimur": [
-          940,
-          1360
+          930,
+          1270
         ],
         "borneo": [
-          960,
-          1390
+          950,
+          1300
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM85,000 (1.5 Sedan vs Hatchback). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM60,000–RM85,000 (1.5 Sedan vs Hatchback). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Mazda 2 jarang — volume rendah di jalan raya. Bila berlaku, bil lebih tinggi dari segmennya kerana parts import dan kurang bengkel pakar. Claim cermin dan calar bumper paling biasa.",
       "theftRiskDetail": "Risiko kecurian rendah — Mazda 2 bukan sasaran utama pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance sedan/hatchback yang rendah. Special perils RM40–RM70/tahun disarankan — parts elektrik Mazda import dan mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2014–2019 (awal)",
-          "note": "{\"range\":\"2015–2019 (Gen 2 / DJ)\",\"note\":\"Dilancarkan Januari 2015 (CBU Thailand). Sum insured ikut harga pasaran semasa. Parts import — sahkan panel bengkel biasa handle Mazda.\"}"
+          "range": "2015–2019 (Gen 2 / DJ)",
+          "note": "Dilancarkan Januari 2015 (CBU Thailand). Sum insured ikut harga pasaran semasa. Parts import — sahkan panel bengkel biasa handle Mazda."
         },
         {
-          "range": "2020–kini (facelift)",
-          "note": "{\"range\":\"2020–kini (facelift 2020; kemas kini Dis 2023)\",\"note\":\"Facelift Mac 2020, kemas kini lagi Dis 2023. Pastikan sum insured ikut varian Sedan vs Hatchback sebenar dalam geran.\"}"
+          "range": "2020–kini (facelift 2020; kemas kini Dis 2023)",
+          "note": "Facelift Mac 2020, kemas kini lagi Dis 2023. Pastikan sum insured ikut varian Sedan vs Hatchback sebenar dalam geran."
         }
       ],
       "windscreenPrice": "RM500–RM950; cermin standard — varian tinggi sahkan dengan panel sama ada sensor terlibat",
@@ -2780,19 +2785,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mazda — laman model rasmi",
-          "url": "https://www.mazda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2822,37 +2827,37 @@
           2860
         ],
         "ncd55": [
-          1700,
-          2500
+          1620,
+          2340
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1700,
-          2500
+          1620,
+          2340
         ],
         "pantaiTimur": [
-          1600,
-          2350
+          1520,
+          2200
         ],
         "borneo": [
-          1630,
-          2400
+          1560,
+          2250
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM145,000 (1.5 Sedan hingga 2.0 Hatchback). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM145,000 (1.5 Sedan hingga 2.0 Hatchback). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Mazda 3 jarang tetapi mahal — body panel complex dan parts import dari Jepun. Claim cermin dan bumper biasa; sekali accident, kos lampu LED dan panel Kodo design menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian rendah ke sederhana — bukan sasaran utama pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS berbaloi jika parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance sedan yang rendah dengan komponen elektrik mahal. Special perils RM50–RM90/tahun disarankan — parts import mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2014–2018 (Gen 3)",
-          "note": "{\"range\":\"2014–2019 (Gen 3 / BM)\",\"note\":\"Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru.\"}"
+          "range": "2014–2019 (Gen 3 / BM)",
+          "note": "Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru."
         },
         {
-          "range": "2019–kini (Gen 4, 1.5/2.0 + i-Activsense)",
-          "note": "{\"range\":\"2019–kini (Gen 4 / BP, 1.5/2.0 + i-Activsense)\",\"note\":\"2019–kini (Gen 4 / BP, 1.5/2.0) — i-Activsense standard pada varian High Plus (2.0 High Plus 2019–2024; 1.5 High Plus dilancarkan semula Nov 2025). Cermin perlu calibration. Cat Soul Red mahal dibaiki — cat calar kecil pun boleh kos tinggi.\"}"
+          "range": "2019–kini (Gen 4 / BP, 1.5/2.0 + i-Activsense)",
+          "note": "I-Activsense standard pada varian High Plus (2.0 High Plus 2019–2024; 1.5 High Plus dilancarkan semula Nov 2025). Cermin perlu calibration. Cat Soul Red mahal dibaiki — cat calar kecil pun boleh kos tinggi."
         }
       ],
       "windscreenPrice": "RM700–RM1,400; Gen 4 varian High Plus ada i-Activsense — gantian cermin wajib calibration kamera, sahkan dengan panel bengkel",
@@ -2885,7 +2890,7 @@
       "modelFAQs": [
         {
           "q": "Mazda 3 1.5 vs 2.0 vs Hatchback — beza premium?",
-          "a": "{\"q\":\"Mazda 3 1.5 vs 2.0 vs Hatchback — beza premium?\",\"a\":\"Ketara — 2.0 sum insured lebih tinggi dari 1.5, jadi premium beza ikut quotation syarikat. Hatchback 2.0 paling mahal. Pilih ikut kuasa yang anda mahu.\"}"
+          "a": "Ketara — 2.0 sum insured lebih tinggi dari 1.5, jadi premium beza ikut quotation syarikat. Hatchback 2.0 paling mahal. Pilih ikut kuasa yang anda mahu."
         },
         {
           "q": "Cat Soul Red Mazda mahal dibaiki — insurans cover?",
@@ -2898,19 +2903,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mazda — laman model rasmi",
-          "url": "https://www.mazda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -2940,26 +2945,26 @@
           3580
         ],
         "ncd55": [
-          2000,
-          3200
+          1890,
+          2930
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          2000,
-          3200
+          1890,
+          2930
         ],
         "pantaiTimur": [
-          1880,
-          3010
+          1780,
+          2750
         ],
         "borneo": [
-          1920,
-          3070
+          1810,
+          2810
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM110,000–RM175,000 (2.0 GL hingga 2.5 Turbo). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM110,000–RM175,000 (2.0 GL hingga 2.5 Turbo). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim CX-5 jarang tetapi antara termahal dalam segmennya — SUV besar dengan panel complex dan parts import. Claim cermin besar dan bumper biasa; sekali accident, kos lampu LED dan sensor i-Activsense menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian rendah ke sederhana — nilai tinggi tetapi bukan sasaran utama. Comprehensive wajib; tracker GPS berbaloi untuk varian 2.5 Turbo.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM60–RM110/tahun disarankan — parts import mahal jika masuk air.",
@@ -3016,19 +3021,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mazda — laman model rasmi",
-          "url": "https://www.mazda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3058,37 +3063,37 @@
           3850
         ],
         "ncd55": [
-          2400,
-          3400
+          2250,
+          3150
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          2400,
-          3400
+          2250,
+          3150
         ],
         "pantaiTimur": [
-          2260,
-          3200
+          2120,
+          2960
         ],
         "borneo": [
-          2300,
-          3260
+          2160,
+          3020
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM140,000–RM185,000 (1.5 TC-P 2WD vs AWD). Harga sebenar ikut varian, tahun (Gen 5 vs Gen 6) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM140,000–RM185,000 (1.5 Turbo 2WD vs AWD). Harga sebenar ikut varian, tahun (Gen 5 vs Gen 6) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim CR-V sederhana tetapi bil antara tertinggi untuk SUV Jepun — body besar, enjin turbo dan Honda Sensing penuh. Claim cermin besar paling biasa; sekali accident depan, kos radar, lampu LED dan intercooler menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana — CR-V bukan antara paling banyak dicuri (Hilux/Proton Wira lebih kerap). Comprehensive wajib; kunci stereng + tracker GPS disarankan untuk keyless.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM60–RM110/tahun adalah wajib — komponen turbo dan elektrik Honda mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2017–2023 (Gen 5, 1.5 TC-P)",
-          "note": "{\"range\":\"2017–2023 (Gen 5 / RW, 1.5 TC-P)\",\"note\":\"Honda Sensing eksklusif varian TC-P (facelift 2020: TC-P 2WD & 4WD) — sum insured ikut harga pasaran semasa.\"}"
+          "range": "2017–2023 (Gen 5 / RW, 1.5 TC-P)",
+          "note": "Honda Sensing eksklusif varian TC-P (facelift 2020: TC-P 2WD & 4WD) — sum insured ikut harga pasaran semasa."
         },
         {
-          "range": "2024–kini (Gen 6)",
-          "note": "{\"range\":\"2024–kini (Gen 6, lancar Dis 2023)\",\"note\":\"Dilancarkan 14 Dis 2023 — varian 1.5 Turbo S/E/V dan 2.0 e:HEV RS. Honda Sensing standard semua varian.\"}"
+          "range": "2024–kini (Gen 6, lancar Dis 2023)",
+          "note": "Dilancarkan 14 Dis 2023 — varian 1.5 Turbo S/E/V dan 2.0 e:HEV RS. Honda Sensing standard semua varian."
         }
       ],
       "windscreenPrice": "RM900–RM1,800; Honda Sensing standard pada varian TC-P (Gen 5 facelift) dan semua varian Gen 6 — gantian cermin wajib calibration kamera/radar, sahkan kos dengan panel bengkel",
@@ -3102,8 +3107,8 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM180–RM350/tahun",
-          "verdict": "{\"name\":\"ADAS calibration cover\",\"priceBM\":\"RM180–RM350/tahun\",\"verdict\":\"wajib untuk varian dengan Honda Sensing\",\"whyBM\":\"Honda Sensing pada TC-P dan semua varian Gen 6 — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit.\"}",
-          "whyBM": "Honda Sensing penuh — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+          "verdict": "wajib untuk varian dengan Honda Sensing",
+          "whyBM": "Honda Sensing pada TC-P dan semua varian Gen 6 — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
         },
         {
           "name": "Special perils (banjir)",
@@ -3120,12 +3125,12 @@
       ],
       "modelFAQs": [
         {
-          "q": "CR-V 1.5 TC-P 2WD vs AWD — beza premium?",
-          "a": "{\"q\":\"CR-V 1.5 Turbo 2WD vs AWD — beza premium?\",\"a\":\"Beza sederhana, ikut sum insured — AWD lebih tinggi dari 2WD, jadi premium naik. Kos repair AWD juga lebih tinggi kerana drivetrain tambahan.\"}"
+          "q": "CR-V 1.5 Turbo 2WD vs AWD — beza premium?",
+          "a": "Beza sederhana, ikut sum insured — AWD lebih tinggi dari 2WD, jadi premium naik. Kos repair AWD juga lebih tinggi kerana drivetrain tambahan."
         },
         {
-          "q": "CR-V sasaran pencuri — apa patut buat selain comprehensive?",
-          "a": "{\"q\":\"CR-V — apa patut buat selain comprehensive?\",\"a\":\"Comprehensive adalah asas. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko — tambah kunci stereng yang nampak, parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan.\"}"
+          "q": "CR-V — apa patut buat selain comprehensive?",
+          "a": "Comprehensive adalah asas. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko — tambah kunci stereng yang nampak, parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan."
         },
         {
           "q": "Tukar cermin CR-V — kenapa jumlah claim cecah RM2,000?",
@@ -3134,19 +3139,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Honda — laman model rasmi",
-          "url": "https://www.honda.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3176,41 +3181,41 @@
           3030
         ],
         "ncd55": [
-          1700,
-          2600
+          1620,
+          2480
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1700,
-          2600
+          1620,
+          2480
         ],
         "pantaiTimur": [
-          1600,
-          2440
+          1520,
+          2330
         ],
         "borneo": [
-          1630,
-          2500
+          1560,
+          2380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM160,000 (2.4 VGT AT hingga Adventure X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM160,000 (2.4 VGT AT hingga Adventure X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Triton yang memang digunakan lasak.",
       "theftRiskDetail": "Risiko kecurian sederhana — pickup popular tetapi Triton kurang disasarkan dari Hilux. Comprehensive wajib; tracker GPS disarankan jika selalu parkir di tapak kerja terbuka.",
       "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir — air masuk enjin diesel tetap memusnahkan enjin. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
       "modelYearNotes": [
         {
-          "range": "2005–2018 (Gen 4–5)",
-          "note": "{\"range\":\"2005–2015 (Gen 4)\",\"note\":\"2005–2015 (Gen 4) — Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat.\"}"
+          "range": "2005–2015 (Gen 4)",
+          "note": "Kira comprehensive vs TPFT — jika masih guna untuk kerja berat harian, comprehensive masih selamat."
         },
         {
-          "range": "2019–2023 (Gen 5 facelift, Adventure X)",
-          "note": "{\"range\":\"2015–2023 (Gen 5; facelift Jan 2019)\",\"note\":\"2015–2018 pra-facelift (VGT); facelift Jan 2019 dengan muka Dynamic Shield — varian VGT, Premium dan Adventure X (Athlete menyusul 2021).\"}"
+          "range": "2015–2023 (Gen 5; facelift Jan 2019)",
+          "note": "2015–2018 pra-facelift (VGT); facelift Jan 2019 dengan muka Dynamic Shield — varian VGT, Premium dan Adventure X (Athlete menyusul 2021)."
         },
         {
-          "range": "2024–kini (Gen 6)",
-          "note": "{\"range\":\"2024–kini (Gen 6, lancar Okt 2024)\",\"note\":\"Dilancarkan 16 Okt 2024 — varian Single Cab, MT, AT GL, AT Premium dan Athlete; ADAS (FCM/ACC/LDW) pada Premium & Athlete. Sum insured ikut harga beli penuh. Semak sama ada didaftar persendirian atau komersial kerana ia menjejaskan jenis polisi.\"}"
+          "range": "2024–kini (Gen 6, lancar Okt 2024)",
+          "note": "Dilancarkan 16 Okt 2024 — varian Single Cab, MT, AT GL, AT Premium dan Athlete; ADAS (FCM/ACC/LDW) pada Premium & Athlete. Sum insured ikut harga beli penuh. Semak sama ada didaftar persendirian atau komersial kerana ia menjejaskan jenis polisi."
         }
       ],
       "windscreenPrice": "RM600–RM1,200; cermin pickup besar — varian tinggi (Adventure X / Gen 6 Premium & Athlete) dengan ADAS perlu calibration, sahkan dengan panel bengkel",
@@ -3256,19 +3261,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mitsubishi — laman model rasmi",
-          "url": "https://www.mitsubishi-motors.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3298,37 +3303,37 @@
           1760
         ],
         "ncd55": [
-          1100,
-          1550
+          1080,
+          1440
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1100,
-          1550
+          1080,
+          1440
         ],
         "pantaiTimur": [
-          1030,
-          1460
+          1020,
+          1350
         ],
         "borneo": [
-          1060,
-          1490
+          1040,
+          1380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM92,000 (1.5 MT vs AT). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM92,000 (1.5 AT). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Xpander rendah ke sederhana — MPV 7-seater yang selalu penuh tetapi dipandu cara keluarga. Claim biasa ialah calar bumper parking dan perlanggaran belakang di bandar.",
       "theftRiskDetail": "Risiko kecurian rendah — Xpander bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance Xpander antara tertinggi dalam kelas MPV — kelebihan dalam air cetek. Tetapi bukan kalis banjir; special perils RM40–RM70/tahun masih disarankan.",
       "modelYearNotes": [
         {
-          "range": "2020–2022 (awal CBU/CKD)",
-          "note": "{\"range\":\"2020–2023 (CKD sahaja)\",\"note\":\"2020–2023 (CKD sahaja, Pekan) — tiada fasa CBU di Malaysia; dilancarkan dengan 1.5 dan automasi 4-kelajuan. Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru.\"}"
+          "range": "2020–2023 (CKD sahaja)",
+          "note": "Tiada fasa CBU di Malaysia; dilancarkan dengan 1.5 dan automasi 4-kelajuan. Sum insured ikut harga pasaran semasa — jangan insure ikut harga beli baru."
         },
         {
-          "range": "2023–kini (facelift)",
-          "note": "{\"range\":\"2024–kini (facelift, lancar Sep 2024)\",\"note\":\"Facelift dilancarkan 19 Sep 2024 — varian Base dan Plus. Pastikan sum insured ikut varian sebenar dalam geran.\"}"
+          "range": "2024–kini (facelift, lancar Sep 2024)",
+          "note": "Facelift dilancarkan 19 Sep 2024 — varian Base dan Plus. Pastikan sum insured ikut varian sebenar dalam geran."
         }
       ],
       "windscreenPrice": "RM550–RM950; cermin MPV besar tetapi tiada ADAS penuh — gantian mudah di panel Mitsubishi",
@@ -3348,8 +3353,8 @@
         {
           "name": "Passenger liability",
           "priceBM": "RM35–RM60/tahun",
-          "verdict": "wajib jika selalu penuh 7 orang",
-          "whyBM": "Xpander hampir selalu bawa keluarga besar."
+          "verdict": "berguna jika selalu bawa penumpang bukan keluarga",
+          "whyBM": "Meliputi tuntutan penumpang seperti kawan atau rakan sekerja. Tidak meliputi ahli keluarga yang tinggal sebumbung; untuk mereka, tanya tentang PA pemandu dan penumpang."
         },
         {
           "name": "Breakdown towing",
@@ -3360,12 +3365,12 @@
       ],
       "modelFAQs": [
         {
-          "q": "Xpander 1.5 MT vs AT — beza premium?",
-          "a": "{\"q\":\"Xpander 1.5 AT — beza premium antara unit?\",\"a\":\"Beza kecil, ikut sum insured — Xpander di Malaysia hanya ada enjin 1.5 dengan transmisi automatik (4AT), tiada varian manual. Premium ikut tahun dan sum insured; bandingkan 2–3 quotation sebelum renew.\"}"
+          "q": "Xpander 1.5 AT — beza premium antara unit?",
+          "a": "Beza kecil, ikut sum insured — Xpander di Malaysia hanya ada enjin 1.5 dengan transmisi automatik (4AT), tiada varian manual. Premium ikut tahun dan sum insured; bandingkan 2–3 quotation sebelum renew."
         },
         {
           "q": "Xpander selalu bawa 7 orang — perlu passenger liability?",
-          "a": "Ya, sangat disarankan. Add-on RM35–RM60/tahun itu murah untuk perlindungan penumpang tambahan — terutamanya jika selalu bawa anak-anak dan orang tua."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability (RM35–RM60/tahun) meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         },
         {
           "q": "Ground clearance Xpander tinggi — masih perlu special perils?",
@@ -3374,19 +3379,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mitsubishi — laman model rasmi",
-          "url": "https://www.mitsubishi-motors.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3416,33 +3421,33 @@
           3030
         ],
         "ncd55": [
-          1700,
-          2600
+          1620,
+          2480
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1700,
-          2600
+          1620,
+          2480
         ],
         "pantaiTimur": [
-          1600,
-          2440
+          1520,
+          2330
         ],
         "borneo": [
-          1630,
-          2500
+          1560,
+          2380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM155,000 (2.5 V hingga PRO-4X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM100,000–RM155,000 (2.5 V hingga PRO-4X). Harga sebenar ikut varian, aksesori yang diisytihar dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim sederhana tetapi bil tinggi — body besar dan enjin diesel bermakna sekali accident, panel dan parts mahal. Claim cermin dan calar tapak kerja biasa untuk Navara yang digunakan lasak.",
       "theftRiskDetail": "Risiko kecurian sederhana — pickup berisiko tetapi Navara kurang disasarkan dari Hilux. Comprehensive wajib; tracker GPS disarankan jika parkir di kawasan terbuka.",
       "floodRiskNote": "Ground clearance pickup yang tinggi membantu meredah air cetek, tetapi bukan lesen redah banjir. Special perils RM50–RM90/tahun disarankan; kos repair diesel banjir sangat tinggi.",
       "modelYearNotes": [
         {
           "range": "2015–2020 (D23 awal)",
-          "note": "2015–2020 (D23 awal) — Suspensi multi-link belakang (selesa; Single Cab leaf spring). Unit lama nilai RM50,000–RM80,000 — kira comprehensive vs TPFT."
+          "note": "Suspensi multi-link belakang (selesa; Single Cab leaf spring). Unit lama nilai RM50,000–RM80,000 — kira comprehensive vs TPFT."
         },
         {
           "range": "2021–kini (facelift, PRO-4X)",
@@ -3492,19 +3497,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Nissan — laman model rasmi",
-          "url": "https://www.nissan.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3534,37 +3539,37 @@
           3300
         ],
         "ncd55": [
-          2000,
-          2900
+          1890,
+          2700
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          2000,
-          2900
+          1890,
+          2700
         ],
         "pantaiTimur": [
-          1880,
-          2730
+          1780,
+          2540
         ],
         "borneo": [
-          1920,
-          2780
+          1810,
+          2590
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM165,000 (2.0 Executive hingga 1.6 Turbo). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM115,000–RM165,000 (2.0 Executive hingga 1.6 Turbo). Harga sebenar ikut varian, tahun (Gen 3 vs Gen 4) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Tucson jarang tetapi mahal — panel parametric complex dan parts import Korea. Claim cermin besar dan bumper biasa; sekali accident, kos lampu LED dan sensor SmartSense menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian rendah — Tucson bukan sasaran utama pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib tetapi berbaloi.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM55–RM100/tahun disarankan — parts Korea mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2015–2020 (Gen 3)",
-          "note": "{\"range\":\"2016–2021 (Gen 3 / TL)\",\"note\":\"Dilancarkan Nov 2015 sebagai 2016MY; facelift 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 4.\"}"
+          "range": "2016–2021 (Gen 3 / TL)",
+          "note": "Dilancarkan Nov 2015 sebagai 2016MY; facelift 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 4."
         },
         {
-          "range": "2022–kini (Gen 4, SmartSense)",
-          "note": "{\"range\":\"2024–kini (Gen 4 / NX4, lancar Nov 2023)\",\"note\":\"Rekaan parametric futuristik — panel complex dan mahal. SmartSense penuh hanya pada varian 1.6T Plus/Max — sahkan varian sebelum pilih ADAS calibration cover.\"}"
+          "range": "2024–kini (Gen 4 / NX4, lancar Nov 2023)",
+          "note": "Rekaan parametric futuristik — panel complex dan mahal. SmartSense penuh hanya pada varian 1.6T Plus/Max — sahkan varian sebelum pilih ADAS calibration cover."
         }
       ],
       "windscreenPrice": "RM800–RM1,500; Gen 4 varian 1.6T Plus/Max ada SmartSense — gantian cermin mungkin perlu calibration kamera, sahkan dengan panel bengkel",
@@ -3578,8 +3583,8 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM150–RM280/tahun",
-          "verdict": "{\"name\":\"ADAS calibration cover\",\"priceBM\":\"RM150–RM280/tahun\",\"verdict\":\"wajib untuk varian 1.6T Plus/Max\",\"whyBM\":\"SmartSense penuh pada varian tersebut — calibration boleh cecah ratusan ringgit.\"}",
-          "whyBM": "SmartSense standard — calibration boleh cecah ratusan ringgit."
+          "verdict": "wajib untuk varian 1.6T Plus/Max",
+          "whyBM": "SmartSense penuh pada varian tersebut — calibration boleh cecah ratusan ringgit."
         },
         {
           "name": "Special perils (banjir)",
@@ -3604,25 +3609,25 @@
           "a": "Polisi tetap bayar ikut syarat, tetapi risiko sebenar ialah kereta tersadai menunggu parts. Pilih panel yang biasa handle Hyundai, tanya anggaran masa repair, dan pertimbangkan loss-of-use cover jika kereta harian utama."
         },
         {
-          "q": "Waranti Hyundai 5 tahun — masih perlu comprehensive penuh?",
-          "a": "{\"q\":\"Waranti Hyundai — masih perlu comprehensive penuh?\",\"a\":\"Ya — waranti cover defect kilang, insurans cover accident, kecurian dan bencana. Dua benda berbeza. Jangan keliru: waranti tidak bayar bila anda langgar atau banjir.\"}"
+          "q": "Waranti Hyundai — masih perlu comprehensive penuh?",
+          "a": "Ya — waranti cover defect kilang, insurans cover accident, kecurian dan bencana. Dua benda berbeza. Jangan keliru: waranti tidak bayar bila anda langgar atau banjir."
         }
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Hyundai — laman model rasmi",
-          "url": "https://www.hyundai.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3652,37 +3657,37 @@
           2640
         ],
         "ncd55": [
-          1700,
-          2300
+          1580,
+          2160
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1700,
-          2300
-        ],
-        "pantaiTimur": [
-          1600,
+          1580,
           2160
         ],
+        "pantaiTimur": [
+          1490,
+          2030
+        ],
         "borneo": [
-          1630,
-          2210
+          1520,
+          2070
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM130,000 (1.6 Executive vs Premium). Harga sebenar ikut varian, tahun (Gen 6 vs Gen 7) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM95,000–RM130,000 (1.6 Executive vs Premium). Harga sebenar ikut varian, tahun (Gen 6 vs Gen 7) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Elantra jarang — volume rendah di jalan raya. Bila berlaku, bil lebih tinggi dari segmennya kerana panel parametric unik dan parts import Korea. Claim cermin dan bumper paling biasa.",
       "theftRiskDetail": "Risiko kecurian rendah — Elantra bukan sasaran pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance sedan yang rendah dengan komponen elektrik mahal. Special perils RM50–RM85/tahun disarankan — parts import mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2017–2020 (Gen 6)",
-          "note": "{\"range\":\"2017–2020 (Gen 6 / AD; facelift 2019)\",\"note\":\"Dilancarkan Jun 2017 (2.0 Executive/Dynamic, 1.6 Turbo); facelift April 2019 — varian tunggal 2.0 Executive. Rekaan konvensional — kos panel lebih rendah.\"}"
+          "range": "2017–2020 (Gen 6 / AD; facelift 2019)",
+          "note": "Dilancarkan Jun 2017 (2.0 Executive/Dynamic, 1.6 Turbo); facelift April 2019 — varian tunggal 2.0 Executive. Rekaan konvensional — kos panel lebih rendah."
         },
         {
-          "range": "2021–kini (Gen 7, SmartSense)",
-          "note": "{\"range\":\"2021–kini (Gen 7 / CN7, lancar Dis 2020)\",\"note\":\"Rekaan parametric — panel unik dan mahal replace. Varian asal (Premium) dengan SmartSense penuh; varian Executive ditambah kemudian — sahkan ciri ADAS sebelum pilih ADAS calibration cover.\"}"
+          "range": "2021–kini (Gen 7 / CN7, lancar Dis 2020)",
+          "note": "Rekaan parametric — panel unik dan mahal replace. Varian asal (Premium) dengan SmartSense penuh; varian Executive ditambah kemudian — sahkan ciri ADAS sebelum pilih ADAS calibration cover."
         }
       ],
       "windscreenPrice": "RM600–RM1,200; Gen 7 ada SmartSense — gantian cermin mungkin perlu calibration, sahkan dengan panel bengkel",
@@ -3696,8 +3701,8 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM130–RM250/tahun",
-          "verdict": "{\"name\":\"ADAS calibration cover\",\"priceBM\":\"RM130–RM250/tahun\",\"verdict\":\"disarankan untuk Gen 7\",\"whyBM\":\"SmartSense standard pada varian Premium (asal); sahkan varian Executive — calibration boleh cecah ratusan ringgit.\"}",
-          "whyBM": "SmartSense standard — calibration boleh cecah ratusan ringgit."
+          "verdict": "disarankan untuk Gen 7",
+          "whyBM": "SmartSense standard pada varian Premium (asal); sahkan varian Executive — calibration boleh cecah ratusan ringgit."
         },
         {
           "name": "Special perils (banjir)",
@@ -3715,11 +3720,11 @@
       "modelFAQs": [
         {
           "q": "Elantra Executive vs Premium — beza premium?",
-          "a": "{\"q\":\"Elantra Executive vs Premium — beza premium?\",\"a\":\"Beza sederhana, ikut sum insured — Premium lebih tinggi dari Executive, jadi premium naik. Pilih ikut ciri yang anda mahu.\"}"
+          "a": "Beza sederhana, ikut sum insured — Premium lebih tinggi dari Executive, jadi premium naik. Pilih ikut ciri yang anda mahu."
         },
         {
           "q": "Elantra vs Civic/Corolla — mana lagi murah insurans?",
-          "a": "{\"q\":\"Elantra vs Civic/Corolla — mana lagi murah insurans?\",\"a\":\"Tiada jawapan muktamad — ikut sum insured, risiko dan quotation syarikat. Volume Elantra rendah bermakna kurang persaingan quotation — bandingkan lebih banyak syarikat.\"}"
+          "a": "Tiada jawapan muktamad — ikut sum insured, risiko dan quotation syarikat. Volume Elantra rendah bermakna kurang persaingan quotation — bandingkan lebih banyak syarikat."
         },
         {
           "q": "Panel parametric Elantra mahal — calar kecil patut claim?",
@@ -3728,19 +3733,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Hyundai — laman model rasmi",
-          "url": "https://www.hyundai.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3770,37 +3775,37 @@
           3190
         ],
         "ncd55": [
-          2100,
-          2800
+          1980,
+          2610
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          2100,
-          2800
+          1980,
+          2610
         ],
         "pantaiTimur": [
-          1970,
-          2630
+          1860,
+          2450
         ],
         "borneo": [
-          2020,
-          2690
+          1900,
+          2510
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM120,000–RM155,000 (2.0 EX vs GT-Line). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM120,000–RM155,000 (2.0 hingga 1.6T High AWD). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Sportage jarang — model baru dengan volume masih rendah. Bila berlaku, bil tinggi kerana panel futuristik complex dan parts import Korea. Claim cermin besar dan bumper paling biasa.",
       "theftRiskDetail": "Risiko kecurian rendah — Sportage bukan sasaran pencuri. Comprehensive wajib kerana nilai tinggi; tracker GPS tidak wajib tetapi berbaloi.",
       "floodRiskNote": "Ground clearance SUV membantu dalam air cetek, tetapi ECU dan sensor bawah masih terdedah. Special perils RM55–RM100/tahun disarankan — parts Korea mahal jika masuk air.",
       "modelYearNotes": [
         {
-          "range": "2016–2021 (Gen 4)",
-          "note": "{\"range\":\"2016–2024 (Gen 4 / QL)\",\"note\":\"Dilancarkan Mei 2016; facelift Nov 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 5.\"}"
+          "range": "2016–2024 (Gen 4 / QL)",
+          "note": "Dilancarkan Mei 2016; facelift Nov 2018. Rekaan konvensional — kos panel lebih rendah dari Gen 5."
         },
         {
-          "range": "2022–kini (Gen 5, Drive Wise)",
-          "note": "{\"range\":\"2024–kini (Gen 5 / NQ5, lancar Dis 2024)\",\"note\":\"CKD Inokom, varian 2.0G, 2.0G High, 1.6T High, 1.6T High AWD — tiada GT-Line di Malaysia. Drive Wise (ADAS) pada varian High. Sum insured ikut harga beli penuh — ADAS calibration cover disarankan untuk varian berADAS.\"}"
+          "range": "2024–kini (Gen 5 / NQ5, lancar Dis 2024)",
+          "note": "CKD Inokom, varian 2.0G, 2.0G High, 1.6T High, 1.6T High AWD — tiada GT-Line di Malaysia. Drive Wise (ADAS) pada varian High. Sum insured ikut harga beli penuh — ADAS calibration cover disarankan untuk varian berADAS."
         }
       ],
       "windscreenPrice": "RM800–RM1,500; Gen 5 varian High ada Drive Wise — gantian cermin mungkin perlu calibration kamera, sahkan dengan panel bengkel",
@@ -3814,8 +3819,8 @@
         {
           "name": "ADAS calibration cover",
           "priceBM": "RM150–RM280/tahun",
-          "verdict": "{\"name\":\"ADAS calibration cover\",\"priceBM\":\"RM150–RM280/tahun\",\"verdict\":\"berbaloi untuk varian berADAS\",\"whyBM\":\"Drive Wise standard pada varian High — calibration boleh cecah ratusan ringgit.\"}",
-          "whyBM": "Drive Wise standard — calibration boleh cecah ratusan ringgit."
+          "verdict": "berbaloi untuk varian berADAS",
+          "whyBM": "Drive Wise standard pada varian High — calibration boleh cecah ratusan ringgit."
         },
         {
           "name": "Special perils (banjir)",
@@ -3832,12 +3837,12 @@
       ],
       "modelFAQs": [
         {
-          "q": "Sportage 2.0 EX vs GT-Line — beza premium?",
-          "a": "{\"q\":\"Sportage 2.0 vs 1.6T — beza premium?\",\"a\":\"Beza sederhana, ikut sum insured — 1.6T High lebih tinggi dari 2.0, jadi premium naik. Tiada varian EX atau GT-Line untuk Gen 5 di Malaysia. Pilih ikut penampilan dan kuasa yang anda mahu.\"}"
+          "q": "Sportage 2.0 vs 1.6T — beza premium?",
+          "a": "Beza sederhana, ikut sum insured — 1.6T High lebih tinggi dari 2.0, jadi premium naik. Tiada varian EX atau GT-Line untuk Gen 5 di Malaysia. Pilih ikut penampilan dan kuasa yang anda mahu."
         },
         {
           "q": "Sportage vs Tucson — mana lagi murah insurans?",
-          "a": "{\"q\":\"Sportage vs Tucson — mana lagi murah insurans?\",\"a\":\"Seumpama — kongsi platform dan julat harga. Bezanya ikut quotation syarikat pada NCD sama. Pilih ikut rekaan dan tawaran waranti, bukan beza premium.\"}"
+          "a": "Seumpama — kongsi platform dan julat harga. Bezanya ikut quotation syarikat pada NCD sama. Pilih ikut rekaan dan tawaran waranti, bukan beza premium."
         },
         {
           "q": "Parts Kia lambat sampai — kereta tersadai lama, siapa tanggung?",
@@ -3846,19 +3851,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Kia — laman model rasmi",
-          "url": "https://www.kia.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -3888,26 +3893,26 @@
           1430
         ],
         "ncd55": [
-          950,
-          1250
+          900,
+          1170
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          950,
-          1250
+          900,
+          1170
         ],
         "pantaiTimur": [
-          890,
-          1180
+          850,
+          1100
         ],
         "borneo": [
-          910,
-          1200
+          860,
+          1120
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM72,000 (1.5 GLX). Harga sebenar ikut tahun, unit CBU vs tempatan dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM55,000–RM72,000 (1.5 GLX). Harga sebenar ikut tahun, unit CBU vs tempatan dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Swift jarang — volume rendah di jalan raya. Claim biasa ialah calar bumper bandar dan cermin depan. Parts Suzuki berpatutan tetapi availability boleh jadi isu — repair kadang tertangguh menunggu parts.",
       "theftRiskDetail": "Risiko kecurian rendah — Swift bukan sasaran pencuri. Immobiliser standard sudah memadai; tracker GPS tidak wajib.",
       "floodRiskNote": "Ground clearance hatchback yang rendah. Jika parkir di kawasan banjir kilat, special perils RM35–RM65/tahun adalah wajib.",
@@ -3958,19 +3963,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Suzuki — laman model rasmi",
-          "url": "https://www.suzuki.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -4000,26 +4005,26 @@
           6050
         ],
         "ncd55": [
-          3200,
-          5500
+          2930,
+          4950
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          3200,
-          5500
+          2930,
+          4950
         ],
         "pantaiTimur": [
-          3010,
-          5170
+          2750,
+          4650
         ],
         "borneo": [
-          3070,
-          5280
+          2810,
+          4750
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM200,000–RM320,000 (318i hingga 330e PHEV). Harga sebenar ikut varian, tahun (F30 vs G20) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM200,000–RM320,000 (318i hingga 330e PHEV). Harga sebenar ikut varian, tahun (F30 vs G20) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim 3 Series sederhana tetapi bil antara tertinggi — sekali accident kecil pun boleh cecah RM10,000+ kerana parts import Jerman, panel aluminium dan sensor premium. Claim cermin dengan HUD paling ditakuti pemilik.",
       "theftRiskDetail": "Risiko kecurian tinggi — sedan premium Jerman sasaran utama (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berpagar sangat disarankan.",
       "floodRiskNote": "Sedan rendah dengan elektronik paling mahal dalam senarai ini. Special perils RM80–RM150/tahun adalah wajib — sekali ECU dan modul BMW masuk air, bil boleh cecah puluhan ribu.",
@@ -4076,19 +4081,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BMW — laman model rasmi",
-          "url": "https://www.bmw.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -4118,26 +4123,26 @@
           5500
         ],
         "ncd55": [
-          3400,
-          4800
+          3150,
+          4500
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          3400,
-          4800
+          3150,
+          4500
         ],
         "pantaiTimur": [
-          3200,
-          4510
+          2960,
+          4230
         ],
         "borneo": [
-          3260,
-          4610
+          3020,
+          4320
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM210,000–RM280,000 (sDrive18i hingga xDrive20i). Harga sebenar ikut varian, tahun (F48 vs U11) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM210,000–RM280,000 (sDrive18i hingga xDrive20i). Harga sebenar ikut varian, tahun (F48 vs U11) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim X1 rendah ke sederhana tetapi bil BMW penuh — body SUV besar dengan parts import dan sensor premium. Claim cermin besar dan bumper biasa; sekali accident, kos panel dan sensor menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV premium sasaran pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS disarankan.",
       "floodRiskNote": "Ground clearance SUV membantu sedikit, tetapi elektronik BMW tetap terdedah. Special perils RM80–RM140/tahun adalah wajib — bil masuk air boleh cecah puluhan ribu.",
@@ -4185,7 +4190,7 @@
         },
         {
           "q": "X1 entry-level BMW — kos repair pun entry-level?",
-          "a": "Tidak. X1 termurah dalam keluarga BMW tetapi kos repair masih BMW penuh — parts import Jerman, sensor premium, panel complex. Bajet insurans RM3,400–RM4,800/tahun (NCD 55%) dan penyelenggaraan sewajarnya sebelum beli."
+          "a": "Tidak. X1 termurah dalam keluarga BMW tetapi kos repair masih BMW penuh — parts import Jerman, sensor premium, panel complex. Bajet insurans RM3,150–RM4,500/tahun (NCD 55%) dan penyelenggaraan sewajarnya sebelum beli."
         },
         {
           "q": "BMW used — market value atau agreed value?",
@@ -4194,19 +4199,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BMW — laman model rasmi",
-          "url": "https://www.bmw.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -4236,26 +4241,26 @@
           7150
         ],
         "ncd55": [
-          3600,
-          6500
+          3380,
+          5850
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          3600,
-          6500
+          3380,
+          5850
         ],
         "pantaiTimur": [
-          3380,
-          6110
+          3180,
+          5500
         ],
         "borneo": [
-          3460,
-          6240
+          3240,
+          5620
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM230,000–RM370,000 (C200 hingga C350e PHEV). Harga sebenar ikut varian, tahun (W205 vs W206) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM230,000–RM370,000 (C200 hingga C350e PHEV). Harga sebenar ikut varian, tahun (W205 vs W206) dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim C-Class rendah ke sederhana tetapi bil tertinggi dalam senarai — sekali accident kecil pun boleh cecah RM10,000+ kerana parts import, skrin MBUX dan sensor premium. Claim cermin ber-tech paling ditakuti pemilik.",
       "theftRiskDetail": "Risiko kecurian tinggi — Mercedes sasaran utama pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS dan parkir berpagar sangat disarankan.",
       "floodRiskNote": "Sedan rendah dengan elektronik paling mahal. Special perils RM90–RM170/tahun adalah wajib — sekali modul dan MBUX masuk air, bil boleh cecah puluhan ribu.",
@@ -4312,19 +4317,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mercedes-Benz — laman model rasmi",
-          "url": "https://www.mercedes-benz.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -4354,26 +4359,26 @@
           6330
         ],
         "ncd55": [
-          3800,
-          5500
+          3600,
+          5180
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          3800,
-          5500
+          3600,
+          5180
         ],
         "pantaiTimur": [
-          3570,
-          5170
+          3380,
+          4870
         ],
         "borneo": [
-          3650,
-          5280
+          3460,
+          4970
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM250,000–RM320,000 (GLB200 vs GLB250 4MATIC). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM250,000–RM320,000 (GLB200 vs GLB250 4MATIC). Harga sebenar ikut varian, tahun dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim GLB rendah tetapi bil Mercedes penuh — SUV 7-seater dengan parts import dan sensor premium. Claim cermin besar dan bumper biasa; sekali accident, kos panel dan MBUX menaikkan bil dengan cepat.",
       "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — SUV premium sasaran pencuri (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Comprehensive wajib; tracker GPS disarankan.",
       "floodRiskNote": "Ground clearance SUV membantu sedikit, tetapi elektronik Mercedes tetap terdedah. Special perils RM90–RM160/tahun adalah wajib — bil masuk air boleh cecah puluhan ribu.",
@@ -4421,7 +4426,7 @@
         },
         {
           "q": "GLB ada 7 tempat duduk — perlu passenger liability?",
-          "a": "Ya, disarankan. Dengan SUV yang boleh bawa 7 orang, add-on passenger liability murah berbanding risiko — terutamanya jika selalu bawa keluarga besar. Tanya ejen jumlah yang sesuai untuk nilai Mercedes."
+          "a": "Bergantung pada siapa penumpangnya. Polisi asas tidak meliputi liabiliti anda terhadap penumpang kereta sendiri. Add-on passenger liability meliputi tuntutan penumpang seperti kawan, jiran atau rakan sekerja, tetapi tidak meliputi ahli keluarga yang tinggal sebumbung dengan anda (pasangan, anak, ibu bapa, adik-beradik). Untuk keluarga sendiri, tanya tentang perlindungan kemalangan diri (PA) pemandu dan penumpang."
         },
         {
           "q": "GLB200 enjin 1.3T kongsi Renault — parts lebih murah?",
@@ -4430,19 +4435,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Mercedes-Benz — laman model rasmi",
-          "url": "https://www.mercedes-benz.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
@@ -4472,26 +4477,26 @@
           1760
         ],
         "ncd55": [
-          1100,
-          1500
+          1080,
+          1440
         ]
       },
       "premiumByRegion": {
         "lembahKlang": [
-          1100,
-          1500
+          1080,
+          1440
         ],
         "pantaiTimur": [
-          1030,
-          1410
+          1020,
+          1350
         ],
         "borneo": [
-          1060,
-          1440
+          1040,
+          1380
         ]
       },
-      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM85,000 (1.0T vs 1.2 NA). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10.",
-      "premiumReviewed": "2026-09-10",
+      "premiumMethodology": "Anggaran polisi komprehensif 2026 berdasarkan sum insured RM68,000–RM85,000 (1.0T vs 1.2 NA). Harga sebenar ikut varian, umur kereta dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
+      "premiumReviewed": "2026-11-11",
       "claimFrequencyNote": "Claim Raize masih rendah kerana model baru — data claims terhad. Jangkaan claim biasa ialah cermin depan dan calar bumper parking. Sesetengah parts dikongsi dengan Ativa, tetapi parts khusus Toyota mungkin ambil masa.",
       "theftRiskDetail": "Risiko kecurian rendah — Raize bukan sasaran utama pencuri. Immobiliser standard sudah memadai untuk kebanyakan pemilik.",
       "floodRiskNote": "Ground clearance crossover membantu dalam air cetek, tetapi bukan kalis banjir. Special perils RM35–RM70/tahun disarankan — sensor ASA mahal jika masuk air.",
@@ -4544,19 +4549,19 @@
       ],
       "sources": [
         {
-          "label": "PIAM — panduan insurans motor",
-          "url": "https://www.piam.org.my",
-          "retrieved": "2026-09-10"
+          "label": "PIAM — NCD dan pemindahan antara kereta sendiri",
+          "url": "https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "BNM — liberalisasi tarif motor 2017",
-          "url": "https://www.bnm.gov.my",
-          "retrieved": "2026-09-10"
+          "label": "Etiqa — pecahan premium asas dan NCD",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+          "retrieved": "2026-10-10"
         },
         {
-          "label": "Toyota — laman model rasmi",
-          "url": "https://www.toyota.com.my",
-          "retrieved": "2026-09-10"
+          "label": "MyCarInfo — semakan NCD",
+          "url": "https://www.mycarinfo.com.my/ncdcheck/online",
+          "retrieved": "2026-10-10"
         }
       ],
       "factChecked": "2026-09-10",
