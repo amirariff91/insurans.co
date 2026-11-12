@@ -1,14 +1,14 @@
 # Insurans.co
 
-> Malaysia's BM-first (Bahasa Malaysia) insurance guide with real prices, company comparisons, and practical guides. Written for ordinary Malaysians — not agents or brokers.
+> Malaysia's BM-first (Bahasa Malaysia) insurance guide with calculated premium estimates (not quotes), company profiles and practical guides. Written for ordinary Malaysians — not agents or brokers.
 
 Insurans.co is a comprehensive insurance information resource for Malaysia. The site is primarily written in Bahasa Malaysia (BM) to serve everyday Malaysians looking for insurance information in their own language. It covers all major insurance types: car, motorcycle, health, life, home, personal accident, takaful (Islamic insurance), and travel insurance.
 
 The site's key value proposition:
-- **Real price estimates** — not vague ranges, but actual premium estimates based on popular car models
-- **Company comparisons** — honest pros/cons for 12 major insurers operating in Malaysia
+- **Premium estimates** — calculated ranges for 39 popular car models at each NCD level. They are estimates worked out from market value and the NCD scale, not quotes, and have not been matched against real quotations
+- **Company profiles** — legal entities, products, claim hotlines and sources for 12 insurers operating in Malaysia. No star ratings or rankings
 - **Practical guides** — step-by-step instructions for claims, renewals, and understanding insurance concepts
-- **BM-first content** — written in Bahasa Malaysia for ordinary Malaysians, not industry jargon
+- **BM-first content** — written in Bahasa Malaysia for ordinary Malaysians
 
 ---
 
@@ -30,22 +30,22 @@ The site's key value proposition:
 - **Keywords:** insurans kereta, car insurance malaysia, motor insurance
 
 #### Car Insurance Premium Estimates (with 55% NCD)
-These are estimated annual premiums for comprehensive coverage with maximum NCD (55% No-Claim Discount):
+These are calculated estimates of the annual basic premium, worked out from the 2015 Motor Tariff schedule (−10% to +20%), for comprehensive cover with maximum NCD (55% No-Claim Discount). They are not quotes. They exclude service tax, stamp duty and add-ons:
 
 | Car Model | Engine (cc) | Estimated Premium (55% NCD) |
 |-----------|------------|----------------------------|
-| Perodua Axia | 1,000 | RM550 – RM750 |
-| Proton Saga | 1,300 | RM600 – RM850 |
-| Perodua Myvi | 1,300–1,500 | RM700 – RM1,000 |
-| Toyota Vios | 1,500 | RM900 – RM1,400 |
-| Honda City | 1,500 | RM1,000 – RM1,500 |
-| Honda Civic | 1,500–1,800 | RM1,800 – RM2,800 |
-| Toyota Hilux | 2,400–2,800 | RM1,800 – RM2,600 |
+| Perodua Axia | 1,000 | RM330 – RM670 |
+| Proton Saga | 1,300–1,500 | RM400 – RM740 |
+| Perodua Myvi | 1,300–1,500 | RM500 – RM970 |
+| Toyota Vios | 1,500 | RM690 – RM1,270 |
+| Honda City | 1,500 | RM750 – RM1,490 |
+| Honda Civic | 1,500–2,000 | RM1,110 – RM2,340 |
+| Toyota Hilux | 2,400–2,800 | RM1,190 – RM2,500 |
 
 *Note: Actual premiums vary by insurer, driver age, location, car age, and claims history.*
 
 #### Types of Car Insurance in Malaysia
-1. **Comprehensive (Komprehensif):** Covers own damage + third-party. Most popular choice. Covers accidents, theft, fire, flood, and third-party liability.
+1. **Comprehensive (Komprehensif):** Covers own damage + third-party. Most popular choice. Covers accidents, theft, fire and third-party liability. Flood and other natural perils are NOT included; they need the paid special perils add-on.
 2. **Third-Party, Fire & Theft (Pihak Ketiga, Kebakaran & Kecurian):** Covers damage to others + fire + theft of your own car. Does NOT cover own accident damage.
 3. **Third-Party Only (Pihak Ketiga Sahaja):** Minimum legal requirement. Only covers damage/injury to others. Cheapest but least protection.
 
@@ -65,13 +65,13 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 - **URL:** https://insurans.co/motorcycle-insurance/
 - **Purpose:** Guide to motorcycle insurance in Malaysia
 - **Content:** Types of motorcycle coverage, typical premiums, how to renew, comparison of insurers for motorcycles
-- **Key facts:** Motorcycle insurance is mandatory in Malaysia. Third-party coverage starts from as low as RM60-80/year for small bikes. Comprehensive coverage available for higher-value motorcycles.
+- **Key facts:** Motorcycle insurance is mandatory in Malaysia. Comprehensive coverage available for higher-value motorcycles.
 
 ### Health Insurance (Insurans Kesihatan)
 - **URL:** https://insurans.co/health-insurance/
 - **Purpose:** Guide to health insurance and medical cards in Malaysia
 - **Content:** Types of health plans, medical card benefits, panel hospitals, how to choose
-- **Key facts:** Medical card (kad perubatan) is the most popular form of health insurance in Malaysia. Top providers include AIA (largest hospital panel — 200+ hospitals), Great Eastern, Prudential, and AIA. Plans range from basic (RM100-200/month) to comprehensive (RM500+/month). Important features: annual limit, lifetime limit, room & board rate, co-payment/deductible.
+- **Key facts:** Medical card (kad perubatan) is the most popular form of health insurance in Malaysia. Important features: annual limit, lifetime limit, room & board rate, co-payment/deductible.
 
 ### Life Insurance (Insurans Nyawa)
 - **URL:** https://insurans.co/life-insurance/
@@ -89,7 +89,7 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 - **URL:** https://insurans.co/personal-accident/
 - **Purpose:** Guide to PA insurance in Malaysia
 - **Content:** What PA insurance covers, who needs it, how it differs from life/health insurance
-- **Key facts:** Covers accidental death, permanent disability, temporary disability, medical expenses from accidents. Does NOT cover illness. Affordable — typically RM100-300/year. Good supplement to health and life insurance.
+- **Key facts:** Covers accidental death, permanent disability, temporary disability, medical expenses from accidents. Does NOT cover illness. Good supplement to health and life insurance.
 
 ### Takaful
 - **URL:** https://insurans.co/takaful/
@@ -117,212 +117,116 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 ### All Companies Directory
 - **URL:** https://insurans.co/companies/
 - **Purpose:** Directory of all major insurance companies operating in Malaysia
-- **Content:** List of 12 profiled companies with quick comparison
+- **Content:** List of 12 profiled companies. Profiles state facts from each insurer's own documents; the site gives no star ratings, rankings, or pros and cons lists
 
 ### Etiqa
 - **URL:** https://insurans.co/companies/etiqa/
 - **Full name:** Etiqa General Insurance Berhad
 - **Type:** Conventional + Takaful (Etiqa General Takaful Berhad)
 - **Parent:** Maybank Group
-- **Founded:** 1963
-- **HQ:** Kuala Lumpur
 - **Website:** https://www.etiqa.com.my
-- **Claim line:** 1300-88-1007
-- **Products:** Car, motorcycle, health, life, travel, home, personal accident
-- **Rating:** 4.2/5
-- **Key fact:** Part of the Maybank Group; sells both conventional insurance and takaful (Etiqa General Insurance Berhad / Etiqa General Takaful Berhad).
-- **Description:** One of Malaysia's largest insurance and takaful providers, under Maybank Group. Known for competitive motor insurance pricing and strong digital presence.
-- **Pros:** Cheapest car insurance rates, easy online purchase/renewal, backed by Maybank, wide panel workshop network, e-hailing package for Grab drivers
-- **Cons:** Customer service can be slow during peak season, claim processing sometimes takes long
-- **Verdict (BM):** Pilihan ramai untuk insurans kereta — murah dan senang renew online.
+- **Claim line:** 1300-88-1007 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, health, life, travel, home, personal accident
 
 ### Allianz
 - **URL:** https://insurans.co/companies/allianz/
 - **Full name:** Allianz General Insurance Company (Malaysia) Berhad
-- **Type:** Conventional only
-- **Parent:** Allianz Group (Germany)
-- **Founded:** 1890
-- **HQ:** Kuala Lumpur
+- **Type:** Conventional
+- **Parent:** Allianz Group (Jerman)
 - **Website:** https://www.allianz.com.my
-- **Claim line:** 1800 22 5542
-- **Products:** Car, motorcycle, health, life, travel, home, personal accident
-- **Rating:** 4.3/5
-- **Key fact:** Allianz Group (founded 1890, Germany) operates in 70+ countries. Malaysian operations since 2001 (acquired Malaysia British Assurance).
-- **Description:** Global German insurer. Excellent coverage options but premiums slightly higher than local players.
-- **Pros:** Global brand with strong financials, wide customizable coverage, best-in-class medical card benefits, Road Warrior add-on (towing, battery, etc.)
-- **Cons:** No takaful operator in Malaysia; premiums vary by quote
-- **Verdict (BM):** Coverage tiptop, tapi kena bayar lebih sikit. Sesuai kalau nak peace of mind.
+- **Claim line:** 1800 22 5542 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, health, life, travel, home, personal accident
 
 ### Tokio Marine
 - **URL:** https://insurans.co/companies/tokio-marine/
-- **Full name:** Tokio Marine Insurance (Malaysia) Berhad
-- **Type:** Conventional only
-- **Parent:** Tokio Marine Holdings (Japan)
-- **Founded:** 1879
-- **HQ:** Kuala Lumpur
+- **Full name:** Tokio Marine Insurans (Malaysia) Berhad
+- **Type:** Conventional
+- **Parent:** Tokio Marine Holdings (Jepun)
 - **Website:** https://www.tokiomarine.com/my
-- **Claim line:** 1800-88-0812
-- **Products:** Car, motorcycle, health, travel, home, personal accident
-- **Rating:** 4.1/5
-- **Key fact:** Tokio Marine group founded 1879. Non-life underwriting in Malaysia since 1957.
-- **Description:** Japan's oldest insurance company. Known for efficient claims processing — one of the fastest in the industry.
-- **Pros:** Fastest claims processing in Malaysia, quality panel workshops, competitive pricing for a Japanese brand, strong financial rating
-- **Cons:** Less popular among younger generation, online portal could be improved
-- **Verdict (BM):** Kalau claim cepat penting untuk anda, Tokio Marine antara yang terbaik.
+- **Claim line:** 1800-88-0812 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, health, travel, home, personal accident
 
 ### AIA
 - **URL:** https://insurans.co/companies/aia/
 - **Full name:** AIA Bhd
 - **Type:** Conventional + Takaful (AIA PUBLIC Takaful Bhd)
 - **Parent:** AIA Group (Hong Kong)
-- **Founded:** 1948
-- **HQ:** Kuala Lumpur
 - **Website:** https://www.aia.com.my
-- **Claim line:** 1300-88-1899
-- **Products:** Health, life, personal accident (NO car/motor insurance)
-- **Rating:** 4.4/5
-- **Key fact:** AIA has 200+ panel hospitals in Malaysia. Their medical card is among the easiest to claim.
-- **Description:** One of Asia's largest life insurance groups. THE name for health insurance and medical cards in Malaysia.
-- **Pros:** Best medical card coverage, largest hospital panel in Malaysia, flexible life insurance plans, AIA Vitality rewards program
-- **Cons:** No car insurance, premium can be expensive for high coverage
-- **Verdict (BM):** Raja medical card. Kalau nak insurans kesihatan, AIA antara pilihan pertama.
+- **Claim line:** 1300-88-1899 (checked 2026-09-10)
+- **Products covered on the site:** car, health, life, personal accident
 
 ### Great Eastern
 - **URL:** https://insurans.co/companies/great-eastern/
 - **Full name:** Great Eastern Life Assurance (Malaysia) Berhad
-- **Type:** Conventional only
-- **Parent:** OCBC Group (Singapore)
-- **Founded:** 1908
-- **HQ:** Kuala Lumpur
+- **Type:** Conventional + Takaful (Great Eastern Takaful Berhad)
+- **Parent:** OCBC Group (Singapura)
 - **Website:** https://www.greateasternlife.com/my
-- **Claim line:** 1300-13-1088
-- **Products:** Health, life, personal accident (NO car/motor insurance)
-- **Rating:** 4.2/5
-- **Key fact:** Founded 1908 — older than Malaysia itself. Under OCBC Group.
-- **Description:** The oldest life insurance company in Malaysia and Singapore. Very established, reliable but not the cheapest.
-- **Pros:** 100+ year reputation, very strong financial rating, proven life insurance plans, Great Eastern GO app
-- **Cons:** No motor insurance, can be conservative with claims
-- **Verdict (BM):** Brand legacy — dipercayai lebih 100 tahun. Kalau nak yang proven dan stabil.
+- **Claim line:** 1300-13-1088 (checked 2026-09-10)
+- **Products covered on the site:** health, life, personal accident
 
 ### Zurich
 - **URL:** https://insurans.co/companies/zurich/
 - **Full name:** Zurich General Insurance Malaysia Berhad
 - **Type:** Conventional + Takaful (Zurich General Takaful Malaysia Berhad)
 - **Parent:** Zurich Insurance Group (Switzerland)
-- **Founded:** 1872
-- **HQ:** Kuala Lumpur
 - **Website:** https://www.zurich.com.my
-- **Claim line:** 1-300-88-5566
-- **Products:** Car, motorcycle, health, life, travel, home
-- **Rating:** 4.0/5
-- **Key fact:** Zurich acquired MAA Takaful in 2016. Now one of the largest takaful operators in Malaysia.
-- **Description:** Swiss insurer offering both conventional insurance and takaful. Formerly known as MAA Takaful.
-- **Pros:** Both conventional and takaful products, Swiss financial backing, decent online platform, competitive motor pricing
-- **Cons:** Some people still confused by MAA rebranding, customer service varies by branch
-- **Verdict (BM):** Pilihan yang solid kalau nak ada option insurans DAN takaful dari satu syarikat.
+- **Claim line:** 1-300-888-622 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, health, life, travel, home
 
 ### Prudential
 - **URL:** https://insurans.co/companies/prudential/
 - **Full name:** Prudential Assurance Malaysia Berhad
 - **Type:** Conventional + Takaful (Prudential BSN Takaful Berhad)
 - **Parent:** Prudential plc (UK)
-- **Founded:** 1924
-- **HQ:** Kuala Lumpur
 - **Website:** https://www.prudential.com.my
-- **Claim line:** 03-2771 0228
-- **Products:** Health, life, personal accident (NO car/motor insurance)
-- **Rating:** 4.3/5
-- **Key fact:** Pulse by Prudential app has 5+ million downloads in Malaysia. Check coverage, claims, and health assessments.
-- **Description:** Major life insurer with the best digital experience in Malaysian insurance (Pulse app). Partnership with BSN for takaful.
-- **Pros:** Excellent Pulse app UX, flexible medical plans, large agent network, strong BSN Takaful partnership
-- **Cons:** No motor insurance products, premium can be expensive for top coverage
-- **Verdict (BM):** App Pulse dia memang smooth. Untuk life insurance, Prudential antara top choice.
+- **Claim line:** 03-2771 0228 (checked 2026-09-10)
+- **Products covered on the site:** health, life, personal accident
 
 ### Takaful Malaysia
 - **URL:** https://insurans.co/companies/takaful-malaysia/
 - **Full name:** Syarikat Takaful Malaysia Keluarga Berhad
-- **Type:** Takaful (100% Shariah-compliant)
-- **Parent:** Takaful Malaysia (Bursa-listed)
-- **Founded:** 1984
-- **HQ:** Kuala Lumpur
+- **Type:** Takaful
+- **Parent:** Takaful Malaysia (Bursa listed)
 - **Website:** https://www.takaful-malaysia.com.my
-- **Claim line:** 1-300 88 252 385
-- **Products:** Car, motorcycle, health, life, home, personal accident
-- **Rating:** 4.1/5
-- **Key fact:** Founded 1984 — Malaysia's first takaful operator. Listed on Bursa Malaysia.
-- **Description:** Malaysia's original Shariah-compliant insurer. The OG of takaful.
-- **Pros:** First takaful operator — experience since 1984, 100% Shariah-compliant, competitive motor takaful pricing, surplus shared with participants
-- **Cons:** Online platform can be slow, branch experience varies by location
-- **Verdict (BM):** OG takaful Malaysia. Untuk yang nak patuh Syariah 100%, ini pilihan utama.
+- **Claim line:** 1-300 88 252 385 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, health, life, home, personal accident
 
 ### Berjaya Sompo
 - **URL:** https://insurans.co/companies/berjaya-sompo/
 - **Note:** Not related to the Kurnia brand, which is now under Liberty General Insurance Berhad.
 - **Full name:** Berjaya Sompo Insurance Berhad
-- **Type:** Conventional only
-- **Parent:** Berjaya Group + Sompo Holdings (Japan)
-- **Founded:** 1974
-- **HQ:** Kuala Lumpur
+- **Type:** Conventional
+- **Parent:** Berjaya Corporation + Sompo Holdings (Jepun)
 - **Website:** https://www.berjayasompo.com.my
-- **Claim line:** 1 800 88 9933
-- **Products:** Car, motorcycle, travel, home, personal accident (NO health/life)
-- **Rating:** 4.0/5
-- **Key fact:** Berjaya Sompo Insurance Berhad — joint venture of Berjaya Group and Sompo Holdings (Japan); history dates to 1974.
-- **Description:** General insurer offering motor, motorcycle, travel, home and personal accident cover. Not related to the Kurnia brand.
-- **Pros:** 24-hour breakdown assistance line, MySOMPO app, covers cars and motorcycles
-- **Cons:** No life, health or takaful products
-- **Verdict (BM):** Pilihan insurans am untuk kereta dan motosikal; bandingkan sebut harga sebenar sebelum membeli.
+- **Claim line:** 1 800 88 9933 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, travel, home, personal accident
 
 ### MSIG
 - **URL:** https://insurans.co/companies/msig/
 - **Full name:** MSIG Insurance (Malaysia) Bhd
-- **Type:** Conventional only
-- **Parent:** MS&AD Insurance Group (Japan)
-- **Founded:** 2001
-- **HQ:** Kuala Lumpur
+- **Type:** Conventional
+- **Parent:** Mitsui Sumitomo Insurance (MS&AD) dan Hong Leong Financial Group
 - **Website:** https://www.msig.com.my
-- **Claim line:** 1-300-880-833
-- **Products:** Car, motorcycle, travel, home, personal accident
-- **Rating:** 4.0/5
-- **Key fact:** Part of MS&AD Insurance Group (Japan); Hong Leong Financial Group holds 30% of MSIG Malaysia.
-- **Description:** Japanese insurer particularly popular for travel insurance. Motor insurance is mid-range pricing.
-- **Pros:** Best travel insurance in Malaysia, easy online purchase, Japanese precision and service, user-friendly TakeItEasy platform
-- **Cons:** Less recognized brand vs Etiqa/Allianz, smaller panel workshop network
-- **Verdict (BM):** Solid untuk travel insurance. Motor insurance pun okay — middle ground.
+- **Claim line:** 1-300-880-833 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, travel, home, personal accident
 
 ### RHB Insurance
 - **URL:** https://insurans.co/companies/rhi/
 - **Full name:** RHB Insurance Berhad
-- **Type:** Conventional only
+- **Type:** Conventional
 - **Parent:** RHB Banking Group
-- **Founded:** 1982
-- **HQ:** Kuala Lumpur
 - **Website:** https://rhbgroup.com/insurance
-- **Claim line:** 1300 880 881
-- **Products:** Car, motorcycle, home, personal accident, travel
-- **Rating:** 3.8/5
-- **Key fact:** The only Malaysian bank that still owns its own general insurance company (most have sold theirs).
-- **Description:** Part of RHB Banking Group. Good option for existing RHB customers — bundle discounts available.
-- **Pros:** Convenient for RHB account holders, competitive motor pricing, monthly premium payments via RHB
-- **Cons:** Fewer product options than larger insurers, online experience needs improvement
-- **Verdict (BM):** Sesuai untuk customer RHB yang nak senang manage insurans sekali dengan banking.
+- **Claim line:** 1300 880 881 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, home, personal accident, travel
 
 ### Lonpac
 - **URL:** https://insurans.co/companies/lonpac/
 - **Full name:** Lonpac Insurance Bhd
-- **Type:** Conventional only
+- **Type:** Conventional
 - **Parent:** LPI Capital Bhd (Public Bank Group)
-- **Founded:** 1963
-- **HQ:** Kuala Lumpur
 - **Website:** https://www.lonpac.com
-- **Claim line:** 03-2723 7899
-- **Products:** Car, motorcycle, home, personal accident, travel
-- **Rating:** 3.9/5
-- **Key fact:** Under LPI Capital owned by Public Bank. One of Malaysia's most profitable general insurers but most people don't know it.
-- **Description:** Under the Public Bank umbrella. Flies under the radar but is actually one of the most profitable general insurers in Malaysia.
-- **Pros:** Extremely strong financials, backed by Public Bank Group, competitive motor pricing, consistent profit track record
-- **Cons:** Low brand recognition among general public, minimal marketing, basic online portal
-- **Verdict (BM):** Under the radar tapi sangat solid dari segi kewangan. Pilihan yang safe.
+- **Claim line:** 03-2723 7899 (checked 2026-09-10)
+- **Products covered on the site:** car, motorcycle, home, personal accident, travel
 
 ---
 
@@ -336,9 +240,9 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 1. **Pastikan keselamatan (Ensure safety):** Move to safe location, check for injuries, call ambulance if needed
 2. **Buat laporan polis (Make police report):** Must be made within 24 hours at nearest police station. Bring IC, driving license, and car details.
 3. **Hubungi syarikat insurans (Contact your insurer):** Call the claim hotline. They'll assign an adjuster and guide next steps.
-4. **Hantar kereta ke bengkel panel (Send car to panel workshop):** Use an authorized panel workshop for cashless repairs. Non-panel = you pay first, claim later.
+4. **Hantar kereta ke bengkel panel (Send car to panel workshop):** Use an authorized panel workshop for cashless repairs. Check your policy before using a non-panel workshop: unauthorised repairs can affect the claim.
 5. **Isi borang claim (Fill claim form):** Complete the claim form with details of the accident, photos, and police report number.
-6. **Tunggu kelulusan (Wait for approval):** Insurer reviews claim. Panel workshop repairs typically start within 1-3 days.
+6. **Tunggu kelulusan (Wait for approval):** Insurer reviews claim.
 7. **Ambil kereta (Collect car):** Once repairs done, inspect and collect your car.
 
 #### Important Claim Tips:
@@ -381,14 +285,14 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 - **NCD reset:** If you make a claim, your NCD resets to 0%. You start building again from scratch.
 - **NCD transfer:** NCD belongs to the policyholder, NOT the car. You can transfer it to a new car.
 - **NCD protection:** Some insurers offer NCD protection add-on — your NCD won't reset even if you claim (usually limited to 1 claim per year).
-- **Third-party claims:** If the OTHER driver was at fault and you claim against THEIR insurance (knock-for-knock), your NCD is still affected. However, you may recover NCD through the Knock-for-Knock Agreement between insurers.
+- **Not your fault:** If the other driver was at fault, you can claim against their insurer (a third-party claim), or claim from your own insurer under Own Damage Knock-for-Knock (OD-KfK). A qualifying OD-KfK claim does not affect your NCD. Conditions apply, for example a comprehensive policy, no injury, and the other vehicle identified and insured in Malaysia. Source: PIAM.
 - **Windscreen claims:** Windscreen claims under a separate windscreen cover do NOT affect your NCD.
 - **How to check NCD:** Contact your current insurer, check your policy document, or use online insurance quote tools.
 
 #### NCD Example Calculation:
-- Base premium for a Myvi: ~RM1,600/year
-- With 55% NCD: RM1,600 × (1 - 0.55) = RM720/year
-- Savings: RM880/year — that's why NCD matters!
+- Example basic premium without NCD (upper estimate for a Perodua Axia): RM1,480/year
+- With 55% NCD: RM1,480 × (1 - 0.55) = RM666/year (shown as RM670 after rounding to RM10)
+- Discount: about RM810/year
 
 ### How to Renew Car Insurance (Cara Renew Insurans Kereta)
 - **URL:** https://insurans.co/guides/renew-car-insurance/
@@ -409,7 +313,7 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 - [ ] Check if road tax renewal is included
 
 #### Important Renewal Tips:
-- **Renew before expiry:** If your policy lapses, you lose your NCD and it's illegal to drive without insurance
+- **Renew before expiry:** Driving without insurance is illegal, and a gap in cover can reduce your NCD. Check the rules with your insurer
 - **Can I switch insurers?** Yes! Your NCD follows you, not the insurer. Shop around each year.
 - **Road tax + insurance:** Most online platforms offer road tax renewal together with insurance
 - **When to renew:** Best to start comparing 2-4 weeks before expiry
@@ -423,7 +327,7 @@ These are estimated annual premiums for comprehensive coverage with maximum NCD 
 **Yes.** Under the Road Transport Act 1987, all motor vehicles in Malaysia must have at minimum third-party insurance coverage. Driving without insurance is illegal and carries penalties including fines up to RM1,000 and/or jail time up to 3 months.
 
 ### What's the difference between comprehensive and third-party insurance?
-- **Comprehensive:** Covers own damage + third-party damage. Includes accidents, theft, fire, flood. Most Malaysians choose this.
+- **Comprehensive:** Covers own damage + third-party damage. Includes accidents, theft and fire. Flood needs the special perils add-on.
 - **Third-Party Only:** Only covers damage/injury you cause to others. Does NOT cover your own car. Cheapest option but risky.
 - **Third-Party Fire & Theft:** Middle ground — covers third-party + fire/theft of your own car but NOT own accident damage.
 

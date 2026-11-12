@@ -1,6 +1,20 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import carModels from '../../data/car-models.json';
+
+// Comprehensive-premium figures on this page read from car-models.json, the same data the model
+// pages and the car-insurance hub use, so the guide cannot drift from them.
+const bySlug = Object.fromEntries(carModels.map((car) => [car.slug, car])) as Record<string, (typeof carModels)[number]>;
+const num = (value: number) => value.toLocaleString('en-MY');
+const range = (min: number, max: number) => `RM${num(min)} – RM${num(max)}`;
+const tightRange = (min: number, max: number) => `RM${num(min)}–RM${num(max)}`;
+const myvi = bySlug['perodua-myvi'];
+const city = bySlug['honda-city'];
+const corollaCross = bySlug['toyota-corolla-cross'];
+// Span of the NCD 55% estimates across every model in the data, for the comparison table.
+const lowest55 = carModels.reduce((a, b) => (b.premiumNCD55Min < a.premiumNCD55Min ? b : a));
+const highest55 = carModels.reduce((a, b) => (b.premiumNCD55Max > a.premiumNCD55Max ? b : a));
 
 const schema = {
   "@context": "https://schema.org",
@@ -11,7 +25,7 @@ const schema = {
       "description": "Perbezaan antara insurans komprehensif dan pihak ketiga. Mana yang lebih sesuai untuk kereta anda? Panduan lengkap dalam Bahasa Malaysia.",
       "url": "https://insurans.co/guides/insurans-komprehensif-vs-pihak-ketiga/",
       "datePublished": "2026-01-15",
-      "dateModified": "2026-03-01",
+      "dateModified": "2026-11-12",
       "inLanguage": "ms",
       "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
       "author": { "@type": "Organization", "name": "Insurans.co" }
@@ -34,7 +48,7 @@ const schema = {
   schema={schema}
   ogType="article"
   publishedTime="2026-01-15"
-  modifiedTime="2026-03-01"
+  modifiedTime="2026-11-12"
 >
   <!-- Breadcrumb + Header -->
   <section class="bg-white border-b border-stone-200">
@@ -50,8 +64,8 @@ const schema = {
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Komprehensif vs Pihak Ketiga: Mana Lebih Baik untuk Anda?
       </h1>
-      <Byline dateModified="2026-03-01" />
-      <p class="text-sm text-stone-500 mb-4">Dikemaskini: Mac 2026</p>
+      <Byline dateModified="2026-11-12" />
+      <p class="text-sm text-stone-500 mb-4">Dikemaskini: November 2026</p>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Dua jenis insurans kereta yang paling asas — tapi ramai yang masih keliru nak pilih yang mana.
         Ini panduan jujur dari kami untuk bantu anda buat keputusan yang betul.
@@ -141,10 +155,10 @@ const schema = {
                 <td class="text-red-500 font-bold">✗</td>
               </tr>
               <tr>
-                <td class="font-medium">Harga premium (anggaran)</td>
-                <td class="font-semibold text-stone-900">RM700 – RM2,000+</td>
-                <td class="font-semibold text-stone-900">RM300 – RM700</td>
-                <td class="font-semibold text-stone-900">RM250 – RM500</td>
+                <td class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</td>
+                <td class="font-semibold text-stone-900">{range(lowest55.premiumNCD55Min, highest55.premiumNCD55Max)}</td>
+                <td class="font-semibold text-stone-900">Minta sebut harga</td>
+                <td class="font-semibold text-stone-900">Minta sebut harga</td>
               </tr>
             </tbody>
           </table>
@@ -191,22 +205,21 @@ const schema = {
             ramai sangka. Untuk kereta seperti Perodua Myvi:
           </p>
           <ul>
-            <li><strong>Komprehensif (NCD 55%):</strong> ~RM700 – RM1,000 setahun</li>
-            <li><strong>TPFT:</strong> ~RM350 – RM550 setahun</li>
-            <li><strong>Pihak Ketiga:</strong> ~RM280 – RM420 setahun</li>
+            <li><strong>Komprehensif (NCD 55%):</strong> ~{range(myvi.premiumNCD55Min, myvi.premiumNCD55Max)} setahun</li>
+            <li><strong>TPFT dan pihak ketiga:</strong> lebih murah, tetapi kami belum mengesahkan angkanya. Minta sebut harga untuk kereta anda.</li>
           </ul>
 
           <div class="not-prose bg-blue-50 border border-blue-200 rounded-lg p-4 my-6">
-            <p class="font-semibold text-blue-800 mb-2">Contoh Kos: Perodua Myvi 2020</p>
+            <p class="font-semibold text-blue-800 mb-2">Contoh Kos: {myvi.fullName}</p>
             <ul class="text-blue-700 text-sm space-y-1">
-              <li>• <strong>Komprehensif:</strong> ~RM900–RM1,200/tahun (termasuk special perils)</li>
-              <li>• <strong>Pihak Ketiga:</strong> ~RM280–RM380/tahun</li>
-              <li>• <strong>Perbezaan:</strong> ~RM600–RM800/tahun untuk perlindungan penuh</li>
-              <li>• Nilai pasaran Myvi 2020: ~RM45,000–RM52,000</li>
+              <li>• <strong>Komprehensif (NCD 55%):</strong> ~{tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}/tahun (belum termasuk special perils)</li>
+              <li>• <strong>Komprehensif (tanpa NCD):</strong> ~{tightRange(myvi.premiumNCD0Min, myvi.premiumNCD0Max)}/tahun</li>
+              <li>• <strong>Pihak Ketiga:</strong> minta sebut harga; kami belum mengesahkan angkanya</li>
+              <li>• Nilai pasaran {myvi.fullName}: {myvi.marketValueRange}</li>
             </ul>
           </div>
           <p>
-            Perbezaan antara komprehensif dan pihak ketiga untuk Myvi hanya ~RM300-400 setahun.
+            Beza antara komprehensif dan pihak ketiga untuk Myvi biasanya beberapa ratus ringgit setahun; minta sebut harga untuk angka tepat.
             Tapi kalau kereta kena curi atau accident teruk, anda boleh rugi RM20,000 – RM50,000.
             Untuk kereta yang masih bernilai, komprehensif sangat berbaloi.
           </p>
@@ -244,16 +257,16 @@ const schema = {
           <p class="text-sm text-stone-600 mb-4">Nak tahu harga insurans komprehensif untuk kereta anda? Semak anggaran untuk model popular:</p>
           <ul class="space-y-3">
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
-              <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold hover:underline">Perodua Myvi 1.5</a>
-              <span class="text-sm text-stone-500">NCD 55%: RM700–RM1,000</span>
+              <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold hover:underline">{myvi.fullName}</a>
+              <span class="text-sm text-stone-500">NCD 55%: {tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}</span>
             </li>
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
-              <a href="/car-insurance/honda-city/" class="text-hijau-700 font-semibold hover:underline">Honda City 1.5</a>
-              <span class="text-sm text-stone-500">NCD 55%: RM1,000–RM1,500</span>
+              <a href="/car-insurance/honda-city/" class="text-hijau-700 font-semibold hover:underline">{city.fullName}</a>
+              <span class="text-sm text-stone-500">NCD 55%: {tightRange(city.premiumNCD55Min, city.premiumNCD55Max)}</span>
             </li>
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
               <a href="/car-insurance/toyota-corolla-cross/" class="text-hijau-700 font-semibold hover:underline">Toyota Corolla Cross</a>
-              <span class="text-sm text-stone-500">NCD 55%: RM1,100–RM1,700</span>
+              <span class="text-sm text-stone-500">NCD 55%: {tightRange(corollaCross.premiumNCD55Min, corollaCross.premiumNCD55Max)}</span>
             </li>
           </ul>
         </div>
@@ -267,7 +280,7 @@ const schema = {
             <ul class="space-y-3 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-hijau-600 font-bold flex-shrink-0">✓</span>
-                <span><strong>Komprehensif</strong> — cover semua, termasuk kereta sendiri</span>
+                <span><strong>Komprehensif</strong> — lindungi kereta sendiri dan pihak ketiga; banjir perlukan add-on special perils</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-stone-400 flex-shrink-0">~</span>

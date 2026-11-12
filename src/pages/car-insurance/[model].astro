@@ -47,6 +47,12 @@ const pageTitle = model.titleOverride
   ? model.titleOverride
   : (premiumTitle || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`);
 const description = `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
+// JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
+const rmExact = (n: number) => {
+  const hasSen = Math.round(n * 100) % 100 !== 0;
+  return `RM\u00a0${n.toLocaleString('ms-MY', { minimumFractionDigits: hasSen ? 2 : 0, maximumFractionDigits: 2 })}`;
+};
+const roadtaxHasSen = [model.roadtaxMin, model.roadtaxMax].some((n: number) => Number.isFinite(n) && Math.round(n * 100) % 100 !== 0);
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
 const repairHeadline = model.riskProfile.repairCost.split('—')[0].trim();
@@ -150,8 +156,8 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
               <span class="text-stone-600">Roadtax</span>
               <span class="numeric font-semibold text-stone-900">
                 {model.roadtaxMin === model.roadtaxMax
-                  ? rm(model.roadtaxMin)
-                  : `${rm(model.roadtaxMin)} – ${rm(model.roadtaxMax)}`}
+                  ? rmExact(model.roadtaxMin)
+                  : `${rmExact(model.roadtaxMin)} – ${rmExact(model.roadtaxMax)}`}
               </span>
             </div>
             <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 bg-hijau-50 px-3 py-3">
@@ -159,7 +165,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
               <span class="numeric font-bold text-hijau-700">{rm(model.premiumNCD55Min + model.roadtaxMin)} – {rm(model.premiumNCD55Max + model.roadtaxMax)}</span>
             </div>
           </div>
-          <p class="mt-3 text-sm leading-5 text-stone-600">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-ons.</p>
+          <p class="mt-3 text-sm leading-5 text-stone-600">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-ons.{roadtaxHasSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>
         </section>
       )}
 
@@ -371,7 +377,8 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
                 <summary>{model.model} patut ambil comprehensive atau third-party?</summary>
                 <p>
                   Kalau {model.model} anda masih bernilai (lebih RM15,000), <strong>comprehensive</strong> biasanya memberi perlindungan lebih luas.
-                  Ia boleh melindungi kerosakan kereta sendiri, kereta orang lain, kecurian dan bencana alam mengikut polisi.
+                  Ia boleh melindungi kerosakan kereta sendiri, kereta orang lain dan kecurian, mengikut polisi.
+                  Banjir dan bencana alam lain tidak termasuk dalam polisi asas: ia perlukan add-on special perils dengan premium tambahan.
                   Third-party hanya melindungi liabiliti kepada pihak ketiga.
                   <a href="/car-insurance/" class="text-hijau-700 underline">Baca perbandingan jenis coverage →</a>
                 </p>
