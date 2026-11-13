@@ -120,7 +120,7 @@ const schema = {
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      {card.planName} oleh {card.insurer}. Analisis manfaat dikemaskini pada {card.analysisAsAt}.
+      {card.planName} oleh {card.insurer}. Analisis manfaat dikemaskini pada {card.analysisAsAt}.{' '}
       {analysis.facts.find((fact) => fact.label === 'Struktur pelan')?.value}
     </p>
 

@@ -1,6 +1,6 @@
-import home from '../data/home-insurance.json';
-
-const tariff = home.tariff;
+// Named import: this module ships to the browser, and Vite 8 (Rolldown) does not
+// tree-shake unused properties of a default-imported JSON object.
+import { tariff } from '../data/home-insurance.json';
 
 export type PropertyType = 'landed' | 'flat';
 export type ConstructionClass = '1A' | '1B';
