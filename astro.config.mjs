@@ -9,6 +9,11 @@ export default defineConfig({
     preact(),
   ],
   output: 'static',
+  build: {
+    // The whole site uses one ~6.8 KB (gzip) stylesheet; inlining it removes the only
+    // render-blocking request on every page.
+    inlineStylesheets: 'always',
+  },
   redirects: {
     '/sitemap.xml': '/sitemap-index.xml',
     '/companies/kurnia': '/companies/berjaya-sompo/',

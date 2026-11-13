@@ -190,6 +190,9 @@ const initialLabel = compact ? `Contoh · ${model} · NCD 55%` : initialTier ===
       };
 
       controls.forEach((control) => control.addEventListener('change', () => update(control)));
+      // The selector is visible before this script runs; apply a tier picked in that window.
+      const preChecked = controls.find((control) => control.checked);
+      if (preChecked && !preChecked.defaultChecked) update(preChecked);
       selector.hidden = false;
     });
   </script>

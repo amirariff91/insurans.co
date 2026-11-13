@@ -3,6 +3,8 @@ import '../styles/global.css';
 import { withAuthor } from '../lib/schema';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ThirdPartyScripts from '../components/ThirdPartyScripts.astro';
+import { ADSENSE_CLIENT } from '../lib/third-party';
 interface Props {
   title: string;
   description: string;
@@ -93,8 +95,9 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Fonts -->
-  <link rel="preload" as="font" href="/fonts/fraunces-600-latin.woff2" type="font/woff2" crossorigin />
   <link rel="preload" as="font" href="/fonts/source-sans-3-400-latin.woff2" type="font/woff2" crossorigin />
+  <!-- Fraunces 500 sets the above-the-fold price ranges; preloading it avoids a late swap that re-wraps them. -->
+  <link rel="preload" as="font" href="/fonts/fraunces-500-latin.woff2" type="font/woff2" crossorigin />
   {resolvedSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   )}
@@ -126,20 +129,28 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
     gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500,region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});
   </script>
 
-  <!-- Google Tag Manager -->
-  <script is:inline>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-T3LMP78G');
-  </script>
-  <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager and AdSense: loading policy lives in src/lib/third-party.ts -->
+  <ThirdPartyScripts ads={ads !== false && !noindex} />
 
-  <!-- Google AdSense -->
-  {ads !== false && !noindex && (
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6126092270142355" crossorigin="anonymous"></script>
-  )}
+  <!-- AdSense site ownership, independent of when adsbygoogle.js loads -->
+  <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+
+  <!-- Prefetch a same-origin page when the visitor starts to open it (pointer/touch down;
+       conservative, so scrolling on mobile prefetches nothing). Non-HTML files are excluded. -->
+  <script type="speculationrules" is:inline set:html={JSON.stringify({
+    prefetch: [{
+      where: {
+        and: [
+          { href_matches: '/*' },
+          { not: { href_matches: '/*.xml' } },
+          { not: { href_matches: '/*.txt' } },
+          { not: { href_matches: '/*.pdf' } },
+          { not: { selector_matches: '[rel~=nofollow], [download]' } },
+        ],
+      },
+      eagerness: 'conservative',
+    }],
+  })} />
 </head>
 <body class="min-h-screen flex flex-col" data-page-type={pageType}>
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>
