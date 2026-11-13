@@ -2050,7 +2050,7 @@
       "honda-civic",
       "honda-hrv",
       "toyota-vios",
-      "mazda-2"
+      "toyota-corolla"
     ],
     "roadtaxMin": 90,
     "roadtaxMax": 90,
@@ -2783,7 +2783,7 @@
       "toyota-yaris",
       "honda-city",
       "nissan-almera",
-      "mazda-2"
+      "toyota-corolla"
     ],
     "roadtaxMin": 90,
     "roadtaxMax": 90,
@@ -3264,7 +3264,7 @@
     "brand": "Toyota",
     "model": "Corolla Cross",
     "fullName": "Toyota Corolla Cross",
-    "descriptionOverride": "Insurans Toyota Corolla Cross 2026 – Bandingkan harga insurans komprehensif vs TPO. Dapatkan sebut harga percuma untuk Corolla Cross anda.",
+    "titleName": "Corolla Cross",
     "faqSchemaItems": [
       {
         "question": "Berapa harga insurans Toyota Corolla Cross di Malaysia?",
@@ -6361,6 +6361,7 @@
     "brand": "Mercedes-Benz",
     "model": "C-Class",
     "fullName": "Mercedes-Benz C-Class",
+    "titleName": "Mercedes C-Class",
     "variants": [
       "C200 Avantgarde",
       "C300 AMG Line",
@@ -6727,8 +6728,8 @@
     "brand": "Honda",
     "model": "Jazz / City Hatchback",
     "fullName": "Honda City Hatchback",
-    "titleOverride": "Insurans Honda City Hatchback (Jazz): RM750–RM1,530 (NCD 55%)",
-    "descriptionOverride": "Insurans Honda Jazz / City Hatchback 2026: premium RM750–RM1,530 (NCD 55%) hingga RM1,660–RM3,390 (tanpa NCD). Bandingkan Etiqa, Allianz, Tokio Marine. Tips jimat dan add-ons terbaik.",
+    "titleName": "Honda Jazz/City HB",
+    "searchName": "Honda City Hatchback (Jazz)",
     "faqSchemaItems": [
       {
         "question": "Berapa harga insurans Honda Jazz di Malaysia?",
