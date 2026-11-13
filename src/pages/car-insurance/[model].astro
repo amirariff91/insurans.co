@@ -29,30 +29,68 @@ const relatedCars = model.relatedModels
 const initialArticleDate = '2026-02-14';
 const articleDate = model.premiumReviewed > initialArticleDate ? model.premiumReviewed : initialArticleDate;
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
-// Base appends the site name; the NCD 55% condition must always accompany the discounted range.
-const titleSuffix = ' | Insurans.co';
-const rangeText = hasPremiumRange
-  ? `${rm(model.premiumNCD55Min).replace('\u00a0', '')}–${rm(model.premiumNCD55Max).replace('\u00a0', '')}`
-  : '';
-const titleCandidates = hasPremiumRange
-  ? [
-      `Insurans ${model.fullName} 2026: ${rangeText} Setahun (NCD 55%)`,
-      `Insurans ${model.fullName} 2026: ${rangeText}/tahun (NCD 55%)`,
-      `Insurans ${model.fullName}: ${rangeText}/tahun (NCD 55%)`,
-      `Insurans ${model.fullName}: ${rangeText} (NCD 55%)`,
-    ]
-  : [];
-const premiumTitle = titleCandidates.find((t) => t.length + titleSuffix.length <= 60) ?? titleCandidates.at(-1) ?? '';
-const pageTitle = model.titleOverride
-  ? model.titleOverride
-  : (premiumTitle || `Harga Insurans ${model.fullName} 2026 | Semak & Bandingkan — Insurans.co`);
-const description = `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
+const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
 const rmExact = (n: number) => {
   const hasSen = Math.round(n * 100) % 100 !== 0;
   return `RM\u00a0${n.toLocaleString('ms-MY', { minimumFractionDigits: hasSen ? 2 : 0, maximumFractionDigits: 2 })}`;
 };
+
+// Search snippet: insurance + roadtax = yearly total at NCD 55%, with the same figures and rounding as the
+// "Kos tahunan anggaran" box below. Compact form for the head tags: "RM350–690"; one value when min = max.
+const searchName: string = model.searchName ?? model.fullName;
+const compactRange = (min: number, max: number, format: (n: number) => string) => {
+  const a = format(min).replace(/^RM\s/, '');
+  const b = format(max).replace(/^RM\s/, '');
+  return a === b ? `RM${a}` : `RM${a}–${b}`;
+};
+const insuranceText = hasPremiumRange ? compactRange(model.premiumNCD55Min, model.premiumNCD55Max, rm) : '';
+const roadtaxText = hasRoadtax ? compactRange(model.roadtaxMin, model.roadtaxMax, rmExact) : '';
+const totalText = hasPremiumRange && hasRoadtax
+  ? compactRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)
+  : '';
+// Engine sizes in the form people type them: "1.0", "1.3 & 1.5", "1.4, 1.5 & 1.6".
+const engineSizes = [...new Set<string>(model.engineCC.match(/\d\.\d(?=\s*L)/g) ?? [])]
+  .sort((a, b) => Number(a) - Number(b));
+const engineText = engineSizes.length > 1
+  ? `${engineSizes.slice(0, -1).join(', ')} & ${engineSizes.at(-1)}`
+  : (engineSizes[0] ?? '');
+const nameWithEngine = engineText ? `${searchName} ${engineText}` : searchName;
+
+// Roadtax with sen (e.g. RM754.40) makes the whole-ringgit total an approximation: show "≈", not "=".
 const roadtaxHasSen = [model.roadtaxMin, model.roadtaxMax].some((n: number) => Number.isFinite(n) && Math.round(n * 100) % 100 !== 0);
+const totalSign = roadtaxHasSen ? '≈' : '=';
+// A shorter name for the title only (e.g. "Mercedes C-Class"); the H1 and description keep the full name.
+const titleName: string = model.titleName ?? searchName;
+
+// Title within 60 characters, no site suffix. Every form keeps "Anggaran": full form, then without the year,
+// then the short title name with and without the year.
+const titleCandidates = totalText
+  ? [
+      `Insurans & Roadtax ${searchName} 2026: Anggaran ${totalText}`,
+      `Insurans & Roadtax ${searchName}: Anggaran ${totalText}`,
+      `Insurans & Roadtax ${titleName} 2026: Anggaran ${totalText}`,
+      `Insurans & Roadtax ${titleName}: Anggaran ${totalText}`,
+    ]
+  : [];
+const pageTitle = titleCandidates.find((t) => t.length <= 60)
+  ?? titleCandidates.at(-1)
+  ?? `Harga Insurans ${searchName} 2026: Anggaran Ikut NCD`;
+// Roadtax and the total use Peninsular (Semenanjung) JPJ rates; say so whenever it fits.
+const descriptionSums = `insurans ${insuranceText} + roadtax ${roadtaxText} ${totalSign} ${totalText}`;
+const descriptionCandidates = totalText
+  ? [
+      `Insurance price & roadtax ${nameWithEngine} (anggaran, Semenanjung): ${descriptionSums} setahun pada NCD 55%. Semak ikut NCD 0–55%.`,
+      `Insurance price & roadtax ${nameWithEngine} (anggaran, Semenanjung): ${descriptionSums} setahun pada NCD 55%.`,
+      `Insurance price & roadtax ${nameWithEngine} (anggaran, Semenanjung): ${descriptionSums}/tahun, NCD 55%.`,
+      `Insurance price & roadtax ${nameWithEngine} (anggaran): ${descriptionSums}/tahun, NCD 55%.`,
+    ]
+  : [];
+const description = descriptionCandidates.find((d) => d.length <= 155)
+  ?? descriptionCandidates.at(-1)
+  ?? `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
+const formatRange = (min: number, max: number, format: (n: number) => string) =>
+  format(min) === format(max) ? format(min) : `${format(min)} – ${format(max)}`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
 const repairHeadline = model.riskProfile.repairCost.split('—')[0].trim();
@@ -99,9 +137,17 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
   modifiedTime={articleDate}
   ogImage={`/og/car-insurance/${model.slug}.png`}
   ogImageAlt={`Insurans ${model.fullName}: NCD 55% ${rm(model.premiumNCD55Min)}–${rm(model.premiumNCD55Max)} setahun; tanpa NCD ${rm(model.premiumNCD0Min)}–${rm(model.premiumNCD0Max)}.`}
+  siteSuffix={false}
 >
-  <Hero title={`Harga insurans ${model.fullName}`}>
+  <Hero title={`Harga insurans & roadtax ${searchName} 2026`}>
     <Byline slot="byline" dateModified={articleDate} />
+    {totalText && (
+      <p slot="description" class="mt-4 max-w-2xl text-lg leading-7 text-stone-700">
+        Anggaran setahun (Semenanjung) untuk {nameWithEngine}: insurans <span class="numeric">{formatRange(model.premiumNCD55Min, model.premiumNCD55Max, rm)}</span> (NCD 55%)
+        + roadtax <span class="numeric">{formatRange(model.roadtaxMin, model.roadtaxMax, rmExact)}</span>
+        {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
+      </p>
+    )}
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

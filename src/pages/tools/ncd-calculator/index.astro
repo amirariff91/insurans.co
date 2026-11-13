@@ -41,8 +41,9 @@ const modelReferences = Object.fromEntries(
 ---
 
 <Base
-  title="Kalkulator NCD Insurans Kereta — Kira Diskaun & Jimat Premium"
-  description="Kira NCD insurans kereta anda dalam beberapa saat. Masukkan premium anda, pilih NCD, dan tengok berapa anda boleh jimat. Termasuk kalkulator 'patut ke claim?'"
+  title="Jadual NCD Kereta 2026 (0–55%) & Kalkulator Insurans NCD"
+  description="Jadual NCD kereta: 0%, 25%, 30%, 38.33%, 45% & 55% selepas 5 tahun tanpa claim. Kira premium selepas NCD, semak di MyCarInfo & kira patut claim atau tidak."
+  siteSuffix={false}
   schema={schema}
   pageType="tool"
 >
@@ -58,7 +59,7 @@ const modelReferences = Object.fromEntries(
       </nav>
       <p class="label mb-3">Free Tool</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Kalkulator NCD Insurans Kereta
+        Jadual NCD &amp; Kalkulator NCD Insurans Kereta 2026
       </h1>
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Masukkan premium asal anda, pilih NCD semasa — dan tengok berapa sebenarnya anda jimat.
@@ -72,6 +73,66 @@ const modelReferences = Object.fromEntries(
 
       <!-- Main: Calculators -->
       <div class="lg:col-span-2 space-y-10">
+
+        <!-- ── NCD Table (first: searchers want the rates by year) ── -->
+        <section aria-label="Jadual NCD kereta">
+        <div class="prose-editorial">
+          <h2>Jadual NCD Kereta Persendirian Malaysia 2026</h2>
+          <p>NCD meningkat mengikut tempoh insurans tanpa tuntutan, sehingga maksimum 55% untuk kereta persendirian. Rujuk <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">jadual Zurich Malaysia</a>.</p>
+        </div>
+
+        <div class="overflow-x-auto mt-6">
+          <table class="table-editorial">
+            <caption class="sr-only">Jadual NCD kereta persendirian Malaysia 2026</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tahun Tanpa Claim</th>
+                <th scope="col">NCD</th>
+                <th scope="col">Contoh: Premium Asas RM2,000</th>
+                <th scope="col">Baki premium asas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="border-b border-stone-100 !font-normal">Tiada NCD yang layak</th>
+                <td class="font-semibold">0%</td>
+                <td>Tiada diskaun</td>
+                <td class="font-bold text-stone-900">RM2,000</td>
+              </tr>
+              <tr>
+                <th scope="row" class="border-b border-stone-100 !font-normal">1 tahun tanpa claim</th>
+                <td class="font-semibold">25%</td>
+                <td>Diskaun RM500</td>
+                <td class="font-bold text-hijau-700">RM1,500</td>
+              </tr>
+              <tr>
+                <th scope="row" class="border-b border-stone-100 !font-normal">2 tahun tanpa claim</th>
+                <td class="font-semibold">30%</td>
+                <td>Diskaun RM600</td>
+                <td class="font-bold text-hijau-700">RM1,400</td>
+              </tr>
+              <tr>
+                <th scope="row" class="border-b border-stone-100 !font-normal">3 tahun tanpa claim</th>
+                <td class="font-semibold">38.33%</td>
+                <td>Diskaun RM767</td>
+                <td class="font-bold text-hijau-700">RM1,233</td>
+              </tr>
+              <tr>
+                <th scope="row" class="border-b border-stone-100 !font-normal">4 tahun tanpa claim</th>
+                <td class="font-semibold">45%</td>
+                <td>Diskaun RM900</td>
+                <td class="font-bold text-hijau-700">RM1,100</td>
+              </tr>
+              <tr class="bg-hijau-50">
+                <th scope="row" class="font-semibold">5+ tahun tanpa claim</th>
+                <td class="font-semibold text-hijau-700">55% (Max)</td>
+                <td>Diskaun RM1,100</td>
+                <td class="font-bold text-hijau-700 text-lg">RM900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </section>
 
         <!-- ── CALCULATOR 1: NCD Savings ── -->
         <div class="bg-white border-2 border-stone-900 p-6 sm:p-8">
@@ -248,63 +309,6 @@ const modelReferences = Object.fromEntries(
             Kiraan tidak meramal kenaikan semula NCD selepas tahun pertama, perubahan harga atau keputusan tuntutan. OD-KfK yang layak dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Semak pengecualian dalam <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">kontrak Etiqa</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a> sebelum menggunakan hasil untuk membuat keputusan.
           </p>
         </section>
-
-        <!-- ── NCD Table ── -->
-        <div class="prose-editorial">
-          <h2>Jadual NCD Kereta Persendirian Malaysia 2026</h2>
-          <p>NCD meningkat mengikut tempoh insurans tanpa tuntutan, sehingga maksimum 55% untuk kereta persendirian. Rujuk <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">jadual Zurich Malaysia</a>.</p>
-        </div>
-
-        <div class="overflow-x-auto my-6">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Tahun Tanpa Claim</th>
-                <th>NCD</th>
-                <th>Contoh: Premium Asas RM2,000</th>
-                <th>Baki premium asas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tiada NCD yang layak</td>
-                <td class="font-semibold">0%</td>
-                <td>Tiada diskaun</td>
-                <td class="font-bold text-stone-900">RM2,000</td>
-              </tr>
-              <tr>
-                <td>1 tahun tanpa claim</td>
-                <td class="font-semibold">25%</td>
-                <td>Diskaun RM500</td>
-                <td class="font-bold text-hijau-700">RM1,500</td>
-              </tr>
-              <tr>
-                <td>2 tahun tanpa claim</td>
-                <td class="font-semibold">30%</td>
-                <td>Diskaun RM600</td>
-                <td class="font-bold text-hijau-700">RM1,400</td>
-              </tr>
-              <tr>
-                <td>3 tahun tanpa claim</td>
-                <td class="font-semibold">38.33%</td>
-                <td>Diskaun RM767</td>
-                <td class="font-bold text-hijau-700">RM1,233</td>
-              </tr>
-              <tr>
-                <td>4 tahun tanpa claim</td>
-                <td class="font-semibold">45%</td>
-                <td>Diskaun RM900</td>
-                <td class="font-bold text-hijau-700">RM1,100</td>
-              </tr>
-              <tr class="bg-hijau-50">
-                <td class="font-semibold">5+ tahun tanpa claim</td>
-                <td class="font-semibold text-hijau-700">55% (Max)</td>
-                <td>Diskaun RM1,100</td>
-                <td class="font-bold text-hijau-700 text-lg">RM900</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
         <!-- Content -->
         <article class="prose-editorial">

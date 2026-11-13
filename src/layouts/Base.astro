@@ -19,6 +19,8 @@ interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   pageType?: string;
+  /** Append " | Insurans.co" to the title. Off where the query words need the full 60 characters. */
+  siteSuffix?: boolean;
 }
 
 const {
@@ -35,11 +37,12 @@ const {
   publishedTime,
   modifiedTime,
   pageType = 'page',
+  siteSuffix = true,
 } = Astro.props;
 
 const siteName = 'Insurans.co';
 const trimmedTitle = title.trim();
-const fullTitle = trimmedTitle.toLowerCase().endsWith(siteName.toLowerCase())
+const fullTitle = !siteSuffix || trimmedTitle.toLowerCase().endsWith(siteName.toLowerCase())
   ? trimmedTitle
   : `${trimmedTitle} | ${siteName}`;
 const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://insurans.co').href;
