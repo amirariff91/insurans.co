@@ -206,7 +206,7 @@ const schema = {
             aria-atomic="true"
             class="hidden mt-6 border border-hijau-200 bg-hijau-50 p-5"
           >
-            <p class="text-sm text-stone-500">Jurang coverage kasar anda:</p>
+            <p class="text-sm text-stone-600">Jurang coverage kasar anda:</p>
             <p id="result-gap" class="mt-0.5 font-serif text-4xl font-bold text-hijau-700"></p>
             <div id="result-breakdown" class="mt-5 space-y-2 border-t border-hijau-200 pt-4"></div>
             <p id="result-interpretation" class="mt-5 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-700"></p>
@@ -386,7 +386,7 @@ const schema = {
     breakdownEl.innerHTML = `
       <div class="flex items-start justify-between gap-4 text-sm">
         <span class="text-stone-600">Gantian pendapatan</span>
-        <span class="text-right font-semibold text-stone-900">${rm(result.incomeReplacement)} <span class="block text-xs font-normal text-stone-500">(${rm(values.monthlyIncome)} × 12 × ${values.yearsSupport} tahun)</span></span>
+        <span class="text-right font-semibold text-stone-900">${rm(result.incomeReplacement)} <span class="block text-xs font-normal text-stone-600">(${rm(values.monthlyIncome)} × 12 × ${values.yearsSupport} tahun)</span></span>
       </div>
       <div class="flex items-start justify-between gap-4 border-t border-hijau-100 pt-2 text-sm">
         <span class="text-stone-600">(+) Hutang &amp; belanja khas</span>

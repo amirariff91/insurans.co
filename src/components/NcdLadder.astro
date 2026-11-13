@@ -18,8 +18,13 @@ const {
 } = Astro.props;
 ---
 
+{mode === 'selector' && initiallyHidden && (
+  /* The selector only works with JavaScript. It is rendered visible so the script does not
+     push the content below it down after first paint (layout shift); without JS it is hidden here. */
+  <noscript><style is:inline>[data-ncd-selector][data-js-only]{display:none}</style></noscript>
+)}
 {mode === 'selector' ? (
-  <fieldset id={id} data-ncd-selector hidden={initiallyHidden} class="mt-6">
+  <fieldset id={id} data-ncd-selector data-js-only={initiallyHidden ? '' : undefined} class="mt-6">
     <legend class="mb-3 text-base font-semibold text-stone-900">Pilih NCD — contoh bermula 55%</legend>
     <div class="grid grid-cols-3 gap-2">
       {NCD_TIERS.map((tier) => {

@@ -28,11 +28,14 @@ const tableRows = ['perodua-axia', 'perodua-myvi', 'proton-saga', 'proton-x50', 
 });
 const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
 
+const pageTitle = `Harga Insurans & Roadtax Kereta 2026: ${carModels.length} Model`;
+const pageDescription = 'Pilih model kereta anda (Perodua, Proton, Honda, Toyota & lain-lain) untuk anggaran insurans ikut NCD 0–55% dan roadtax setahun. Bukan quotation.';
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Panduan Insurans Kereta Malaysia: Harga, NCD & Cara Renew",
-  "description": "Harga insurans kereta ikut model (Myvi, Vios, Axia), jadual NCD 25–55%, beza comprehensive vs third-party, dan langkah renew insurans kereta online 2026.",
+  "headline": pageTitle,
+  "description": pageDescription,
   "url": "https://insurans.co/car-insurance/",
   "datePublished": "2026-01-15",
   "dateModified": "2026-11-12",
@@ -53,8 +56,8 @@ const schema = {
 ---
 
 <Base
-  title="Insurans Kereta Malaysia 2026 — Harga Ikut Model, NCD & Cara Renew"
-  description="Harga insurans kereta ikut model (Myvi, Vios, Axia), jadual NCD 25–55%, beza comprehensive vs third-party, dan langkah renew insurans kereta online 2026."
+  title={pageTitle}
+  description={pageDescription}
   schema={schema}
   ogType="article"
   publishedTime="2026-01-15"
@@ -64,13 +67,13 @@ const schema = {
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
       <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
         <span class="mx-2">›</span>
         <span class="text-stone-700">Insurans Kereta</span>
       </nav>
       <p class="label mb-3">Panduan Lengkap</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
-        Panduan Insurans Kereta Malaysia: Harga, NCD & Cara Renew
+        {pageTitle}
       </h1>
       <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
