@@ -922,15 +922,15 @@
     "engineCC": "1.3L (1,332cc) / 1.5L (1,499cc)",
     "yearRange": "1985 – kini (generasi ke-4 1.5: Nov 2025+)",
     "segment": "Sedan A",
-    "marketValueRange": "RM28,000 – RM42,000",
+    "marketValueRange": "RM28,000 – RM50,000",
     "marketValueMin": 28000,
-    "marketValueMax": 42000,
-    "premiumNCD0": "RM880 – RM1,650",
-    "premiumNCD55": "RM400 – RM740",
+    "marketValueMax": 50000,
+    "premiumNCD0": "RM880 – RM1,900",
+    "premiumNCD55": "RM400 – RM860",
     "premiumNCD0Min": 880,
-    "premiumNCD0Max": 1650,
+    "premiumNCD0Max": 1900,
     "premiumNCD55Min": 400,
-    "premiumNCD55Max": 740,
+    "premiumNCD55Max": 860,
     "popularAddOns": [
       {
         "name": "Windscreen cover",
@@ -972,45 +972,45 @@
     "premiumByNCD": {
       "ncd0": [
         880,
-        1650
+        1900
       ],
       "ncd25": [
         660,
-        1240
+        1430
       ],
       "ncd30": [
         620,
-        1160
+        1330
       ],
       "ncd38": [
         540,
-        1020
+        1170
       ],
       "ncd45": [
         480,
-        910
+        1050
       ],
       "ncd55": [
         400,
-        740
+        860
       ]
     },
     "premiumByRegion": {
       "lembahKlang": [
         400,
-        740
+        860
       ],
       "pantaiTimur": [
         380,
-        700
+        810
       ],
       "borneo": [
         380,
-        710
+        830
       ]
     },
-    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM28,000–RM42,000, julat −10% hingga +20%. Harga sebenar ikut tahun (1.3 hingga 1.5 generasi ke-4), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026.",
-    "premiumReviewed": "2026-11-11",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM28,000–RM50,000, julat −10% hingga +20%. Harga sebenar ikut tahun (1.3 hingga 1.5 generasi ke-4), lokasi dan syarikat selepas liberalisasi tarif 2017. Disemak 2026-09-10. Tahap NCD dikira semula 11 Nov 2026. Had atas nilai pasaran dinaikkan ke RM50,000 pada 13 Nov 2026 untuk meliputi Saga 1.5 Premium baharu (RM49,990).",
+    "premiumReviewed": "2026-11-13",
     "claimFrequencyNote": "Claim sederhana — kebanyakannya calar parking dan perlanggaran belakang ringan. Parts Saga antara paling murah di Malaysia, jadi banyak kerosakan kecil diselesaikan cash tanpa claim untuk jaga NCD.",
     "theftRiskDetail": "Risiko kecurian rendah — Saga bukan sasaran pencuri. Immobiliser standard sudah memadai; tidak perlu belanja tracker.",
     "floodRiskNote": "Ground clearance sedan yang rendah. Special perils RM25–RM55/tahun sangat murah untuk Saga — ambil sahaja jika parkir di mana-mana kawasan banjir kilat.",
