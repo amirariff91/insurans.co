@@ -1,0 +1,109 @@
+---
+/**
+ * Loads Google Tag Manager and AdSense according to THIRD_PARTY_LOADING in
+ * src/lib/third-party.ts. Must be rendered in <head> after the consent defaults.
+ */
+import { ADSENSE_CLIENT, GTM_ID, THIRD_PARTY_LOADING } from '../lib/third-party';
+
+interface Props {
+  /** Whether this page may carry AdSense at all (false on noindex and ads-off pages). */
+  ads: boolean;
+}
+
+const { ads } = Astro.props;
+const adsenseSrc = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+const adsMode = ads ? THIRD_PARTY_LOADING.ads : null;
+const cfg = {
+  analytics: THIRD_PARTY_LOADING.analytics,
+  // An eager AdSense tag is rendered as plain HTML below so the preload scanner finds it, as before.
+  ads: adsMode === 'eager' ? null : adsMode,
+  fallbackDelayMs: THIRD_PARTY_LOADING.fallbackDelayMs,
+  idleTimeoutMs: THIRD_PARTY_LOADING.idleTimeoutMs,
+  gtmSrc: `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`,
+  // Only pages that may carry ads get the AdSense URL at all.
+  adsenseSrc: adsMode && adsMode !== 'eager' ? adsenseSrc : null,
+};
+---
+
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+{ads && <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />}
+
+<!-- Google Tag Manager (loader: see src/lib/third-party.ts) -->
+<script is:inline define:vars={{ cfg }}>
+  var w = window, d = document;
+  // The gtm.js start event is queued now, first, exactly as in Google's snippet, so
+  // anything pushed to dataLayer before the script arrives is processed after it, in order.
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+  // Injects one script. `isLoaded` says whether it actually ran, so a request that was
+  // cut off (tab hidden, page frozen into the back/forward cache) is retried on restore.
+  function loader(src, cors, isLoaded) {
+    var el = null, ok = false, requested = false;
+    function inject() {
+      if (ok || isLoaded()) return;
+      requested = true;
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+      el = d.createElement('script');
+      el.async = true;
+      el.src = src;
+      if (cors) el.crossOrigin = 'anonymous';
+      el.onload = function () { ok = true; };
+      el.onerror = function () { el = null; };
+      d.head.appendChild(el);
+    }
+    // Restored from bfcache without the script having run: request it again.
+    w.addEventListener('pageshow', function (e) {
+      if (e.persisted && requested && !ok && !isLoaded()) inject();
+    });
+    return inject;
+  }
+
+  function schedule(mode, run) {
+    var started = false;
+    function go() {
+      if (started) return;
+      started = true;
+      d.removeEventListener('visibilitychange', onHidden);
+      run();
+    }
+    // Best effort for short visits: if the tab is hidden before the script was requested,
+    // request it now. Removes itself after it fires (or once the script is requested).
+    function onHidden() {
+      if (d.visibilityState === 'hidden') go();
+    }
+    function idle() {
+      if ('requestIdleCallback' in w) w.requestIdleCallback(go, { timeout: cfg.idleTimeoutMs });
+      else setTimeout(go, 1);
+    }
+    function arm() {
+      if (mode === 'eager') return go();
+      d.addEventListener('visibilitychange', onHidden);
+      // Timed from DOMContentLoaded, not `load`: an eager AdSense tag (or any slow
+      // subresource) holds back `load` by seconds, and GA4 must not wait for it.
+      function ready() {
+        if (mode === 'idle') idle();
+        else setTimeout(idle, cfg.fallbackDelayMs);
+      }
+      if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', ready, { once: true });
+      else ready();
+      if (mode === 'interaction') {
+        ['pointerdown', 'keydown', 'touchstart', 'scroll', 'wheel'].forEach(function (type) {
+          // Run after the interaction's own work so it does not delay the response to it.
+          w.addEventListener(type, function () { setTimeout(go, 0); }, { capture: true, passive: true, once: true });
+        });
+      }
+    }
+    // A prerendered page (speculation rules, omnibox) only counts once the visitor opens it.
+    if (d.prerendering) d.addEventListener('prerenderingchange', arm, { once: true });
+    else arm();
+  }
+
+  schedule(cfg.analytics, loader(cfg.gtmSrc, false, function () { return !!w.google_tag_manager; }));
+  if (cfg.ads) schedule(cfg.ads, loader(cfg.adsenseSrc, true, function () { return !!(w.adsbygoogle && w.adsbygoogle.loaded); }));
+</script>
+<!-- End Google Tag Manager -->
+
+{adsMode === 'eager' && (
+  <script is:inline async src={adsenseSrc} crossorigin="anonymous"></script>
+)}

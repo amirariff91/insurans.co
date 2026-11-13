@@ -50,9 +50,9 @@ const modelReferences = Object.fromEntries(
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
       <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="hover:text-hijau-700 text-stone-500">Utama</a>
+        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
         <span class="mx-2">›</span>
-        <a href="/tools/" class="hover:text-hijau-700 text-stone-500">Tools</a>
+        <a href="/tools/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Tools</a>
         <span class="mx-2">›</span>
         <span class="text-stone-700">Kalkulator NCD</span>
       </nav>
@@ -85,7 +85,7 @@ const modelReferences = Object.fromEntries(
                 Premium Asas (sebelum NCD) — RM
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
                 <input
                   type="number"
                   id="base-premium"
@@ -95,7 +95,7 @@ const modelReferences = Object.fromEntries(
                   class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
                 />
               </div>
-              <p class="text-xs text-stone-400 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
+              <p class="text-xs text-stone-500 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
             </div>
 
             <!-- NCD selector -->
@@ -112,7 +112,7 @@ const modelReferences = Object.fromEntries(
                   </button>
                 ))}
               </div>
-              <p class="text-xs text-stone-400 mt-1.5">
+              <p class="text-xs text-stone-500 mt-1.5">
                 Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">Rujukan Zurich</a>.
               </p>
             </div>
@@ -122,11 +122,11 @@ const modelReferences = Object.fromEntries(
           <div id="ncd-result" class="hidden mt-6 p-5 bg-hijau-50 border border-hijau-200">
             <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
               <div>
-                <p class="text-sm text-stone-500">Anggaran premium asas selepas NCD</p>
+                <p class="text-sm text-stone-600">Anggaran premium asas selepas NCD</p>
                 <p id="result-premium" class="font-serif text-4xl font-bold text-hijau-700 mt-0.5"></p>
               </div>
               <div class="text-right">
-                <p class="text-sm text-stone-500">Jimat berbanding 0% NCD</p>
+                <p class="text-sm text-stone-600">Jimat berbanding 0% NCD</p>
                 <p id="result-saving" class="font-serif text-2xl font-bold text-stone-900 mt-0.5"></p>
               </div>
             </div>
@@ -154,7 +154,7 @@ const modelReferences = Object.fromEntries(
                 Premium Asas Semasa (selepas NCD) — RM
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
                 <input
                   type="number"
                   id="current-premium"
@@ -164,7 +164,7 @@ const modelReferences = Object.fromEntries(
                   class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
                 />
               </div>
-              <p class="text-xs text-stone-400 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
+              <p class="text-xs text-stone-500 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
             </div>
 
             <!-- Current NCD % for claim calc -->
@@ -188,7 +188,7 @@ const modelReferences = Object.fromEntries(
                 Anggaran Kos Repair — RM
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
                 <input
                   type="number"
                   id="repair-cost"
@@ -206,7 +206,7 @@ const modelReferences = Object.fromEntries(
                 Excess Polisi Anda — RM
               </label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-medium text-sm">RM</span>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
                 <input
                   type="number"
                   id="excess"
@@ -480,15 +480,15 @@ const modelReferences = Object.fromEntries(
     resultPremiumEl.textContent = rm(afterNCD);
     resultSavingEl.textContent = rm(saving);
 
-    breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-500 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
+    breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-600 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
     NCD_TIERS.forEach((rate) => {
       const premium = simulate(base, base, rate.value).min;
       const tierSaving = base - premium;
       const isActive = rate.value === selectedNCD;
       breakdownEl.innerHTML += `
         <div class="flex justify-between items-center py-1.5 ${isActive ? 'font-bold text-hijau-700' : 'text-stone-600'} text-sm border-b border-hijau-100 last:border-0">
-          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-400">(${rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
-          <span>${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-400">(jimat ' + rm(tierSaving) + ')</span>' : ''}</span>
+          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-600">(${rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
+          <span>${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-600">(jimat ' + rm(tierSaving) + ')</span>' : ''}</span>
         </div>`;
     });
     track('ncd_calculate', {
@@ -568,7 +568,7 @@ const modelReferences = Object.fromEntries(
 
     if (!currentPremium || isNaN(ncdPct) || !repairCost) {
       resultEl.classList.remove('hidden');
-      resultEl.innerHTML = '<p class="text-sm text-red-600 p-4 bg-red-50 border border-red-200">Sila isi semua maklumat di atas.</p>';
+      resultEl.innerHTML = '<p class="text-sm text-red-700 p-4 bg-red-50 border border-red-200">Sila isi semua maklumat di atas.</p>';
       return;
     }
 
@@ -614,7 +614,7 @@ const modelReferences = Object.fromEntries(
           </div>
           <div class="flex justify-between">
             <span class="text-stone-600">Tolak excess polisi</span>
-            <strong class="text-red-600">− ${rm(Math.round(excess))}</strong>
+            <strong class="text-red-700">− ${rm(Math.round(excess))}</strong>
           </div>
           <div class="flex justify-between border-t border-stone-200 pt-2">
             <span class="text-stone-600">Net payout dari insurans</span>
@@ -622,7 +622,7 @@ const modelReferences = Object.fromEntries(
           </div>
           <div class="flex justify-between">
             <span class="text-stone-600">Tambahan premium asas tahun pertama (NCD 0%)</span>
-            <strong class="text-red-600">+ ${rm(Math.round(premiumExtraPerYear))}</strong>
+            <strong class="text-red-700">+ ${rm(Math.round(premiumExtraPerYear))}</strong>
           </div>
           ${!shouldClaim ? `
           <div class="flex justify-between border-t border-stone-200 pt-2">
