@@ -1,4 +1,6 @@
-import rates from '../data/roadtax-rates.json';
+// Named import: this module ships to the browser, and Vite 8 (Rolldown) does not
+// tree-shake unused properties of a default-imported JSON object.
+import { rates } from '../data/roadtax-rates.json';
 
 export type RoadtaxRegion = 'semenanjung' | 'sabahSarawak';
 export type RoadtaxBody = 'saloon' | 'nonSaloon';
@@ -20,7 +22,7 @@ export function calcRoadtax(region: RoadtaxRegion, body: RoadtaxBody, cc: number
     throw new RangeError('Kapasiti enjin mesti lebih daripada 0cc.');
   }
 
-  const bands = rates.rates[region][body] as readonly RoadtaxBand[];
+  const bands = rates[region][body] as readonly RoadtaxBand[];
   const band = bands.find(
     (candidate) =>
       cc >= candidate.minCc && (candidate.maxCc === 99999 || cc <= candidate.maxCc),

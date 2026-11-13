@@ -9,6 +9,11 @@ export default defineConfig({
     preact(),
   ],
   output: 'static',
+  // Astro 7 changed the default to 'jsx', which drops whitespace between text,
+  // inline elements and expressions on separate lines (251 lost spaces on 81
+  // pages here). Keep the Astro 6 HTML whitespace rules until the templates are
+  // migrated; see docs/astro-7-upgrade.md.
+  compressHTML: true,
   redirects: {
     '/sitemap.xml': '/sitemap-index.xml',
     '/companies/kurnia': '/companies/berjaya-sompo/',

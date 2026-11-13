@@ -1,4 +1,6 @@
-import rates from '../data/roadtax-motorcycle.json';
+// Named import: this module ships to the browser, and Vite 8 (Rolldown) does not
+// tree-shake unused properties of a default-imported JSON object.
+import { rates } from '../data/roadtax-motorcycle.json';
 
 export type MotorcycleRegion = 'semenanjung' | 'sabahSarawak';
 
@@ -25,7 +27,7 @@ export function calcMotorcycleRoadtax(region: MotorcycleRegion, cc: number): Mot
   // between band boundaries (e.g. 150.5) resolve deterministically instead of
   // falling through every band.
   const engineCc = Math.floor(cc);
-  const bands = rates.rates[region] as readonly MotorcycleBand[];
+  const bands = rates[region] as readonly MotorcycleBand[];
   const band = bands.find(
     (candidate) => engineCc >= candidate.minCc && (candidate.maxCc === 99999 || engineCc <= candidate.maxCc),
   );
