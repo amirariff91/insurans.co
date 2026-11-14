@@ -1,0 +1,154 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import { EDITORIAL_AUTHOR, PUBLISHER, EDITORIAL_POLICY_URL } from '../../lib/schema';
+
+const dateModified = '2026-11-15';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Kaedah Editorial — Insurans.co",
+  "url": EDITORIAL_POLICY_URL,
+  "description": "Cara Insurans.co mengira anggaran harga, sumber yang dirujuk, penggunaan alat AI, pemisahan iklan dan kandungan, serta log pembetulan.",
+  "inLanguage": "ms",
+  "dateModified": dateModified,
+  "author": EDITORIAL_AUTHOR,
+  "publisher": PUBLISHER
+};
+
+const corrections = [
+  {
+    date: '15 Nov 2026',
+    items: [
+      'Harga perlindungan special perils (banjir dan bencana alam) dibetulkan kepada 0.2% hingga 0.5% daripada jumlah diinsuranskan.',
+      'Nama pelan Prudential dibetulkan supaya sepadan dengan nama rasmi syarikat.',
+      'Penerangan pelepasan cukai insurans nyawa dibetulkan.',
+      'Statistik yang tiada sumber dibuang.',
+    ],
+  },
+  {
+    date: '14 Nov 2026',
+    items: [
+      'Jawapan tentang NCD bagi claim knock-for-knock (OD-KfK) dibetulkan mengikut PIAM: NCD anda kekal jika pihak lain yang bersalah.',
+      'Julat anggaran premium Proton Saga dinaikkan kepada RM400 hingga RM860.',
+    ],
+  },
+  {
+    date: '12 Nov 2026',
+    items: [
+      'Anggaran premium kereta dikira semula berasaskan Jadual Tarif Motor 2015.',
+    ],
+  },
+];
+---
+
+<Base
+  title="Kaedah Editorial"
+  description="Cara Insurans.co mengira anggaran harga insurans, sumber yang dirujuk, penggunaan alat AI, pemisahan iklan dan kandungan, serta log pembetulan."
+  canonical={EDITORIAL_POLICY_URL}
+  schema={schema}
+  ads={false}
+>
+  <article class="bg-white border-b border-stone-200">
+    <div class="border-b border-stone-200">
+      <div class="container-article py-10 sm:py-14">
+        <p class="label mb-4">Dasar Laman</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+          Kaedah editorial
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed mb-4">
+          Halaman ini menerangkan cara kami mengira anggaran harga, dari mana maklumat datang, bagaimana kami membetulkan kesilapan, dan bagaimana laman ini mendapat pendapatan.
+        </p>
+        <Byline dateModified={dateModified} />
+      </div>
+    </div>
+
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial max-w-none">
+
+        <h2 id="siapa">Siapa yang menulis</h2>
+        <p>
+          Insurans.co ialah laman panduan bebas yang dikendalikan oleh seorang editor, <a href="/penulis/amir-ariff/">Amir Ariff</a>. Kami bukan ejen, bukan broker dan tidak menjual polisi. Amir bukan ejen insurans atau takaful berlesen dan bukan penasihat kewangan berlesen. Kandungan laman ini belum disemak oleh penasihat kewangan berlesen.
+        </p>
+
+        <h2 id="metodologi">Cara kami mengira anggaran harga</h2>
+        <p>
+          Angka premium kereta di Insurans.co ialah anggaran kiraan, bukan sebut harga. Ia memberi gambaran kasar supaya anda boleh menilai sama ada sebut harga yang anda terima nampak munasabah.
+        </p>
+        <ul>
+          <li><strong>Titik mula:</strong> julat nilai pasaran model itu, yang kami guna sebagai jumlah diinsuranskan (sum insured).</li>
+          <li><strong>Premium asas:</strong> dikira dengan Jadual Tarif Motor 2015 untuk kereta persendirian, polisi komprehensif, kadar Semenanjung Malaysia.</li>
+          <li><strong>Julat:</strong> −10% hingga +20% daripada tarif. Julat ini datang daripada contoh premium asas dalam helaian pendedahan produk (PDS) beberapa syarikat insurans, yang semuanya jatuh dalam lingkungan itu.</li>
+          <li><strong>NCD:</strong> harga ditunjukkan pada setiap tahap NCD kereta persendirian: 0%, 25%, 30%, 38.33%, 45% dan 55%. Contohnya, pada NCD 55% harganya ialah 45% daripada julat tanpa NCD.</li>
+          <li><strong>Roadtax:</strong> dikira daripada jadual kadar Lesen Kenderaan Motor (LKM) rasmi JPJ, kadar Semenanjung, dan ditunjukkan berasingan daripada premium.</li>
+        </ul>
+        <p>
+          Sejak 1 Julai 2017, harga polisi komprehensif tidak lagi ditetapkan oleh tarif; setiap syarikat insurans dan pengendali takaful menetapkan harga sendiri. Jadual 2015 ialah tarif terakhir, jadi kami guna ia sebagai titik rujukan sahaja. Anggaran tidak termasuk perlindungan tambahan (cermin, special perils, tunda), cukai perkhidmatan, duti setem, atau loading dan diskaun ikut profil pemandu. Harga anda boleh jatuh di luar julat ini.
+        </p>
+
+        <h2 id="sumber">Sumber</h2>
+        <p>
+          Kami merujuk sumber primer:
+        </p>
+        <ul>
+          <li>Helaian pendedahan produk (PDS), dokumen polisi dan laman rasmi syarikat insurans dan pengendali takaful</li>
+          <li>Persatuan Insurans Am Malaysia (PIAM)</li>
+          <li>Bank Negara Malaysia (BNM)</li>
+          <li>Jabatan Pengangkutan Jalan (JPJ), untuk kadar roadtax</li>
+          <li>Lembaga Hasil Dalam Negeri (LHDN), untuk pelepasan cukai</li>
+        </ul>
+        <p>
+          Di mana boleh, setiap fakta mempunyai pautan sumber dan tarikh sumber itu dibaca. Jika kami tidak dapat mengesahkan sesuatu, kami tidak meneka angkanya.
+        </p>
+
+        <h2 id="semakan">Tarikh semakan</h2>
+        <p>
+          Setiap halaman menunjukkan tarikh kemaskini, dan di mana berkenaan, tarikh sumber dibaca. Fakta produk dan talian tuntutan disemak semula apabila syarikat mengemas kini dokumennya. Anggaran premium dikira semula apabila kaedah berubah. Perubahan penting dicatat dalam <a href="#log-pembetulan">log pembetulan</a> di bawah.
+        </p>
+
+        <h2 id="ai">Penggunaan alat AI</h2>
+        <p>
+          Draf kandungan disediakan dengan bantuan alat AI, kemudian disemak dengan sumber primer dan disunting oleh Amir sebelum diterbitkan. Amir bertanggungjawab ke atas semua kandungan yang diterbitkan. Kami tidak menerbitkan testimoni, penilaian, nama pakar atau angka yang direka.
+        </p>
+
+        <h2 id="iklan">Iklan dan kebebasan editorial</h2>
+        <p>
+          Laman ini memaparkan iklan melalui Google AdSense. Pengiklan tidak memilih, menyemak atau mempengaruhi kandungan kami. Kami tidak menerima bayaran untuk menulis tentang, menyenaraikan atau menyusun kedudukan mana-mana syarikat atau produk.
+        </p>
+        <p>
+          Insurans.co tiada pautan afiliasi, tajaan atau hubungan berbayar dengan mana-mana syarikat insurans, takaful atau platform. Pautan ke platform luar seperti Bjak dan PolicyStreet bukan pautan berbayar.
+        </p>
+
+        <h2 id="pembetulan">Cara melaporkan kesilapan</h2>
+        <p>
+          Jika anda menemui kesilapan, e-mel <a href="mailto:hello@insurans.co">hello@insurans.co</a> dengan pautan halaman, bahagian yang perlu disemak dan sumber rujukan jika ada. Kami menyemak setiap laporan. Jika kesilapan disahkan, kami membetulkan kandungan, mengemas kini tarikh halaman dan mencatat perubahan penting dalam log di bawah. Kami biasanya membalas dalam masa 2 hingga 5 hari bekerja.
+        </p>
+
+        <h2 id="log-pembetulan">Log pembetulan</h2>
+        <p>
+          Pembetulan dan perubahan penting terkini, yang terbaru dahulu.
+        </p>
+        <dl>
+          {corrections.map((entry) => (
+            <>
+              <dt><strong>{entry.date}</strong></dt>
+              <dd>
+                <ul>
+                  {entry.items.map((item) => <li>{item}</li>)}
+                </ul>
+              </dd>
+            </>
+          ))}
+        </dl>
+
+        <div class="divider" />
+
+        <p class="text-sm text-stone-500">
+          Semua kandungan ialah maklumat am dan bukan nasihat kewangan. Lihat juga: <a href="/about/">Tentang Kami</a>, <a href="/terms/">Terma Penggunaan</a> dan <a href="/privacy/">Dasar Privasi</a>.
+        </p>
+
+      </div>
+    </div>
+  </article>
+</Base>

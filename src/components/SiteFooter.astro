@@ -50,19 +50,31 @@
             <li><a href="/literasi-kewangan/" class="inline-flex min-h-11 items-center transition-colors hover:text-hijau-700">Literasi kewangan</a></li>
             <li><a href="/panduan/" class="inline-flex min-h-11 items-center transition-colors hover:text-hijau-700">Panduan &amp; checklist</a></li>
             <li><a href="/takaful/" class="inline-flex min-h-11 items-center transition-colors hover:text-hijau-700">Takaful</a></li>
-            <li><a href="/about/#metodologi" class="inline-flex min-h-11 items-center transition-colors hover:text-hijau-700">Metodologi</a></li>
+            <li><a href="/kaedah-editorial/" class="inline-flex min-h-11 items-center transition-colors hover:text-hijau-700">Kaedah editorial</a></li>
           </ul>
         </nav>
       </div>
     </div>
     <div class="mt-8 flex flex-col justify-between gap-3 border-t border-stone-300 pt-6 text-xs text-stone-600 sm:flex-row">
       <p>© 2026 Insurans.co</p>
-      <nav aria-label="Pautan undang-undang" class="flex gap-4">
+      <nav aria-label="Pautan undang-undang" class="flex flex-wrap gap-x-4">
         <a href="/privacy/" class="inline-flex min-h-11 items-center transition-colors hover:text-stone-900">Dasar Privasi</a>
         <a href="/terms/" class="inline-flex min-h-11 items-center transition-colors hover:text-stone-900">Terma Penggunaan</a>
         <a href="/about/" class="inline-flex min-h-11 items-center transition-colors hover:text-stone-900">Tentang Kami</a>
         <a href="/hubungi/" class="inline-flex min-h-11 items-center transition-colors hover:text-stone-900">Hubungi Kami</a>
+        <button type="button" data-privacy-settings class="inline-flex min-h-11 cursor-pointer items-center bg-transparent p-0 text-left text-xs text-stone-600 underline-offset-2 transition-colors hover:text-stone-900 hover:underline">Tetapan privasi</button>
       </nav>
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  // Reopens the Funding Choices consent message. Does nothing when the CMP is not loaded (pages without ads).
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!(target instanceof Element) || !target.closest('[data-privacy-settings]')) return;
+    try {
+      window.googlefc && window.googlefc.showRevocationMessage && window.googlefc.showRevocationMessage();
+    } catch (e) {}
+  });
+</script>
