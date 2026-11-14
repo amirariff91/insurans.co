@@ -95,7 +95,7 @@ function probeFirstScreen({ H, selSrc }) {
     for (const s of document.styleSheets) { try { walk(s.cssRules, ''); } catch {} }
     o.h1rules = rules.slice(-4);
   }
-  const ans = document.querySelector('.mod:has(.mod-bar), [data-section="page-answer"], .ea-price, [data-price]');
+  const ans = document.querySelector('.mod:has(.mod-bar), .et-panel, [data-section="page-answer"], .ea-price, [data-price]');
   o.answerTop = ans ? Math.round(ans.getBoundingClientRect().top + scrollY) : null;
   o.answerSel = ans ? sel(ans) : null;
   const btns = [...document.querySelectorAll('.ea .ea-btn')].filter((b) => b.getBoundingClientRect().height);
