@@ -125,8 +125,11 @@ export function structure(dist, pages, idsByFile) {
     }
     const ld = jsonLd(root);
     for (const e of ld.errors) errs.push({ check: 'JSON-LD does not parse', value: e });
-    const vis = norm(visible).toLowerCase();
-    const strip = (s) => norm(decode(String(s || '').replace(/<[^>]+>/g, ' '))).toLowerCase();
+    // Inline tags next to punctuation leave a stray space once tags are stripped ("lain</em>." -> "lain .");
+    // compare with spaces around punctuation removed on both sides.
+    const tight = (s) => s.replace(/\s+([.,;:!?)\]])/g, '$1').replace(/([(\[])\s+/g, '$1');
+    const vis = tight(norm(visible).toLowerCase());
+    const strip = (s) => tight(norm(decode(String(s || '').replace(/<[^>]+>/g, ' '))).toLowerCase());
     for (const b of ld.blocks.flatMap((b) => (b['@graph'] ? b['@graph'] : [b]))) {
       if (b['@type'] !== 'FAQPage') continue;
       for (const q of b.mainEntity || []) {

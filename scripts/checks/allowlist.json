@@ -50,6 +50,21 @@
       "field": "rm",
       "url": "^/tools/kalkulator-roadtax/$",
       "reason": "Worked example for a 1,800cc saloon in Semenanjung: RM200 + RM0.40 x 200cc = RM280.00. Verified against the page's JPJ rate data by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "FAQPage\\.mainEntity\\[\\d+\\]\\.(@type|acceptedAnswer\\.@type)$",
+      "reason": "FAQPage JSON-LD is now generated from the 7 visible FAQ items (was 5 separately worded items that did not match the page)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/literasi-kewangan/36-penyakit-kritikal-bnm/$",
+      "reason": "Correction: Zurich Early Care recovery benefit is 12% in total, paid as 1% a month for 12 months (per src/data/critical-illness.json and its worked example). Live wrongly says 12% a month."
     }
   ]
 }
