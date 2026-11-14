@@ -47,7 +47,9 @@ export default defineConfig({
       filter: (page) => !/\/negeri\/[^/]+\/$/.test(new URL(page).pathname),
       serialize(item) {
         const date = pageContentDate(item.url);
-        return date ? { ...item, lastmod: date } : item;
+        // Content dates are Malaysian calendar dates: midnight MYT, not midnight UTC, so a page
+        // dated today is never stamped eight hours in the future.
+        return date ? { ...item, lastmod: `${date}T00:00:00+08:00` } : item;
       },
     }),
     preact(),
