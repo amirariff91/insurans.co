@@ -62,7 +62,13 @@ const relatedCars = model.relatedModels
   .filter(Boolean)
   .slice(0, 4);
 const initialArticleDate = '2026-02-14';
-const articleDate = model.premiumReviewed > initialArticleDate ? model.premiumReviewed : initialArticleDate;
+// Last content revision across all model pages (no-"wajib" verdicts, special-perils estimate).
+const contentRevised = '2026-11-15';
+const articleDate = [initialArticleDate, model.premiumReviewed, contentRevised].filter(Boolean).sort().at(-1);
+const roundRm10 = (n: number) => Math.round(n / 10) * 10;
+const specialPerilsEstimate = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax) && model.marketValueRange
+  ? ` (untuk sum insured ${model.marketValueRange}: sekitar RM${roundRm10(model.marketValueMin * 0.002).toLocaleString('en-MY')}–RM${roundRm10(model.marketValueMax * 0.005).toLocaleString('en-MY')} setahun, sebelum cukai)`
+  : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
@@ -134,7 +140,7 @@ const addOnsDetail = isEnriched && Array.isArray(model.addOnsDetail) ? model.add
 const modelFaqs = isEnriched && Array.isArray(model.modelFAQs) ? model.modelFAQs : [];
 const faqSchemaItems = modelFaqs.length > 0
   ? modelFaqs.map((faq: any) => ({ question: faq.q, answer: faq.a }))
-  : (model.faqSchemaItems ?? []);
+  : [];
 
 const schema = {
   "@context": "https://schema.org",
@@ -330,7 +336,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
               <article class="border border-stone-200 bg-white p-4 sm:p-5">
                 <h3 class="font-semibold text-stone-900">{addon.name} · {addon.verdict}</h3>
                 <p class="mt-1 text-base leading-6 text-stone-700">{addon.whyBM}</p>
-                <p class="mt-2 text-sm leading-5 text-stone-600">Anggaran: {addon.priceBM}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
+                <p class="mt-2 text-sm leading-5 text-stone-600">Anggaran: {addon.priceBM}{/special perils/i.test(addon.name) ? specialPerilsEstimate : ''}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
               </article>
             ))}
           </div>
