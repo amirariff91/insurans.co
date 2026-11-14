@@ -13,7 +13,8 @@
     "assets:og": "bun scripts/generate-og.mjs",
     "data:merge-enriched": "bun scripts/merge-enriched-models.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:site": "node scripts/checks/run.mjs"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.6",

@@ -1,0 +1,41 @@
+{
+ "_doc": "Allowed differences from the baseline (check 1). Each entry matches a diff when every field given matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|description|canonical|robots|ads|rm|pct|phones|jsonld), url (regex on the page path), path (regex on the JSON-LD path), value (regex). Every entry needs a reason. See docs/checks.md.",
+ "entries": [
+  {
+   "check": "contract",
+   "kind": "changed",
+   "field": "jsonld",
+   "path": "\\.logo(\\.url)?$",
+   "value": "-> https://insurans\\.co/icon-512\\.png$",
+   "reason": "Organization logo now points at /icon-512.png (Edisi brand assets)."
+  },
+  {
+   "check": "contract",
+   "kind": "pageAdded",
+   "url": "^/kredit-foto/$",
+   "reason": "New photo credits page for the car photos."
+  },
+  {
+   "check": "contract",
+   "kind": "added",
+   "field": "rm",
+   "url": "^/car-insurance/$",
+   "reason": "Derived display: the 39 NCD-55% ranges in the model list."
+  },
+  {
+   "check": "contract",
+   "kind": "added",
+   "field": "rm",
+   "url": "^/$|^/car-insurance/[^/]+/$",
+   "reason": "Derived display: per-NCD-step premiums, savings and their roadtax totals (NCD control), and per-model special-perils estimates; all computed from src/data/car-models.json."
+  },
+  {
+   "check": "contract",
+   "kind": "added",
+   "field": "pct",
+   "url": "^/$",
+   "value": "^(0|25|30|38\\.33|45)%$",
+   "reason": "Homepage NCD control step labels (0/25/30/38.33/45%), derived display beside the existing 55%."
+  }
+ ]
+}
