@@ -641,8 +641,9 @@ const modelReferences = Object.fromEntries(
     });
 
     const verdictColor = shouldClaim ? 'hijau' : 'stone';
-    const verdictBg = shouldClaim ? 'bg-hijau-50 border-hijau-300' : 'bg-amber-50 border-amber-300';
-    const verdictText = shouldClaim ? 'text-hijau-800' : 'text-amber-800';
+    // Shared note classes by meaning: a payout above the threshold is an explanation, below it a warning.
+    const verdictBg = shouldClaim ? 'note-info' : 'note-warn';
+    const verdictText = 'text-stone-900';
     const verdictTitle = shouldClaim ? '✓ Bayaran bersih melebihi ambang dua tahun' : '⚠ Bayaran bersih tidak melebihi ambang dua tahun';
     const verdictDesc = shouldClaim
       ? `Dalam andaian NCD menjadi 0%, bayaran bersih anggaran (${rm(Math.round(netPayout))}) melebihi dua kali tambahan premium asas tahun pertama (${rm(Math.round(premiumExtraPerYear * 2))}). Sahkan kategori tuntutan dengan syarikat sebelum membuat keputusan.`
@@ -650,10 +651,10 @@ const modelReferences = Object.fromEntries(
 
     resultEl.classList.remove('hidden');
     resultEl.innerHTML = `
-      <div class="p-5 border-2 ${verdictBg}">
+      <div class="${verdictBg}">
         <p class="font-bold text-lg ${verdictText} mb-2">${verdictTitle}</p>
         <p class="text-sm ${verdictText} mb-4">${verdictDesc}</p>
-        <div class="space-y-2 text-sm border-t ${shouldClaim ? 'border-hijau-200' : 'border-amber-200'} pt-4">
+        <div class="space-y-2 text-sm border-t border-stone-300 pt-4">
           <div class="flex justify-between">
             <span class="text-stone-600">Kos repair</span>
             <strong>${rm(Math.round(repairCost))}</strong>

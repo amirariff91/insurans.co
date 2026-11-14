@@ -50,22 +50,21 @@ const corrections = [
   schema={schema}
   ads={false}
 >
-  <article class="bg-white border-b border-stone-200">
-    <div class="border-b border-stone-200">
-      <div class="container-article py-10 sm:py-14">
-        <p class="label mb-4">Dasar Laman</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <article class="bg-white">
+    <div>
+      <div class="container-article pt-6 pb-4 sm:pt-8">
+        <h1 class="ea-h1 mb-3">
           Kaedah editorial
         </h1>
-        <p class="text-lg text-stone-600 leading-relaxed mb-4">
+        <Byline dateModified={dateModified} />
+        <p class="text-lg text-stone-700 leading-relaxed mb-4">
           Halaman ini menerangkan cara kami mengira anggaran harga, dari mana maklumat datang, bagaimana kami membetulkan kesilapan, dan bagaimana laman ini mendapat pendapatan.
         </p>
-        <Byline dateModified={dateModified} />
       </div>
     </div>
 
     <div class="container-article py-10 sm:py-14">
-      <div class="prose-editorial max-w-none">
+      <div class="prose-editorial prose-bars max-w-none">
 
         <h2 id="siapa">Siapa yang menulis</h2>
         <p>

@@ -29,16 +29,15 @@ const schema = {
   description="Tools percuma untuk bantu anda faham insurans Malaysia. Kalkulator NCD, panduan claim, dan lebih banyak lagi."
   schema={schema}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-2 sm:pt-8">
+      <nav class="text-sm text-stone-700 mb-5">
+        <a href="/" class="inline-flex min-h-11 items-center text-stone-700 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
         <span class="mx-2">›</span>
         <span class="text-stone-700">Tools</span>
       </nav>
-      <p class="label mb-3">Percuma</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">Tools Insurans</h1>
-      <p class="text-lg text-stone-600 max-w-2xl">Kalkulator dan tools percuma untuk bantu anda buat keputusan insurans yang lebih bijak.</p>
+      <h1 class="ea-h1 mb-3">Tools Insurans</h1>
+      <p class="text-lg text-stone-700 max-w-2xl">Kalkulator dan tools percuma untuk bantu anda buat keputusan insurans yang lebih bijak.</p>
     </div>
   </section>
 
@@ -65,33 +64,34 @@ const schema = {
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="/tools/ncd-calculator/" class="et-card group">
-        <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 class="et-bar-t">Kalkulator NCD</h2></div>
+        <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 class="et-bar-t">Kira kesan NCD pada premium kereta anda</h2></div>
+        <p class="et-kicker">Kalkulator NCD</p>
         <p class="text-sm text-stone-600">Gunakan alat ini sebelum renew untuk mengira kesan NCD pada premium kereta anda. Masukkan premium asas dan kadar NCD yang berkaitan, kemudian semak anggaran penjimatan. Jika anda sedang menimbang tuntutan kerosakan kecil, gunakan bahagian "patut ke claim?" untuk membandingkan kos pembaikan dengan kesan kehilangan NCD, sambil merujuk syarat tuntutan polisi anda.</p>
-        <p class="et-go">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang <Ikon name="i-kanan" size={16} class="inline" /></p>
       </a>
       <a href="/tools/kalkulator-coverage-nyawa/" class="et-card group">
-        <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 class="et-bar-t">Kalkulator Coverage Nyawa</h2></div>
-        <p class="et-kicker">Life</p>
+        <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 class="et-bar-t">Anggarkan jurang perlindungan nyawa untuk keluarga</h2></div>
+        <p class="et-kicker">Kalkulator Coverage Nyawa</p>
         <p class="text-sm text-stone-600">Gunakan alat ini apabila anda mahu menganggarkan jurang perlindungan nyawa untuk keluarga. Sediakan angka pendapatan, hutang, simpanan dan coverage sedia ada supaya pengiraan tidak bergantung pada tekaan. Hasilnya membantu anda menyusun perbincangan tentang keperluan tanggungan; ia bukan keputusan bahawa anda mesti membeli jumlah perlindungan tersebut atau cadangan produk tertentu.</p>
-        <p class="et-go">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang <Ikon name="i-kanan" size={16} class="inline" /></p>
       </a>
       <a href="/tools/kalkulator-roadtax/" class="et-card group">
-        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Kalkulator Roadtax</h2></div>
-        <p class="et-kicker">Motor</p>
+        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Asingkan kos roadtax kereta daripada premium insurans</h2></div>
+        <p class="et-kicker">Kalkulator Roadtax</p>
         <p class="text-sm text-stone-600">Gunakan kalkulator ini apabila anda mahu mengasingkan kos roadtax kereta daripada premium insurans semasa renew. Pilih kapasiti enjin dalam cc, wilayah dan jenis badan kereta persendirian yang betul. Semak butiran pada dokumen kenderaan, kerana pilihan kategori yang salah boleh menghasilkan kadar yang tidak sesuai walaupun kapasiti enjin nampak hampir sama.</p>
-        <p class="et-go">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang <Ikon name="i-kanan" size={16} class="inline" /></p>
       </a>
       <a href="/tools/kalkulator-roadtax-motosikal/" class="et-card group">
-        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Kalkulator Roadtax Motosikal</h2></div>
-        <p class="et-kicker">Motosikal</p>
+        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Semak kadar roadtax motosikal persendirian</h2></div>
+        <p class="et-kicker">Kalkulator Roadtax Motosikal</p>
         <p class="text-sm text-stone-600">Gunakan alat ini untuk menyemak kadar roadtax motosikal persendirian sebelum menyediakan bajet tahunan. Masukkan kapasiti enjin dan pilih wilayah yang berkaitan dengan kenderaan anda. Pengiraan ini untuk cukai jalan motosikal, bukan premium insurans atau jumlah bayaran renew keseluruhan; asingkan sebut harga perlindungan serta apa-apa caj perkhidmatan dalam bajet anda.</p>
-        <p class="et-go">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang <Ikon name="i-kanan" size={16} class="inline" /></p>
       </a>
       <a href="/tools/kalkulator-insurans-rumah/" class="et-card group">
-        <div class="et-bar"><Ikon name="i-utama" size={24} /><h2 class="et-bar-t">Kalkulator Insurans Rumah</h2></div>
-        <p class="et-kicker">Rumah</p>
+        <div class="et-bar"><Ikon name="i-utama" size={24} /><h2 class="et-bar-t">Anggaran awal premium houseowner atau householder</h2></div>
+        <p class="et-kicker">Kalkulator Insurans Rumah</p>
         <p class="text-sm text-stone-600">Gunakan alat ini sebagai anggaran awal premium houseowner atau householder sebelum meminta sebut harga. Pengiraan menggunakan kadar tarif kebakaran dan jumlah diinsuranskan, jadi semak dahulu nilai perlindungan yang anda masukkan. Bandingkan hasil dengan skop bangunan atau kandungan yang hendak dilindungi, kemudian semak tambahan, pengecualian dan jumlah akhir dalam sebut harga penyedia.</p>
-        <p class="et-go">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang <Ikon name="i-kanan" size={16} class="inline" /></p>
       </a>
     </div>
 
@@ -163,3 +163,9 @@ const schema = {
     </section>
   </div>
 </Base>
+
+<style>
+  /* Tool name above each card's finding: sentence case, not tracked caps (critique 27). */
+  .et :global(.et-kicker) { text-transform: none; letter-spacing: 0; font-size: 0.875rem; }
+  .et :global(.et-go) { display: flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; }
+</style>

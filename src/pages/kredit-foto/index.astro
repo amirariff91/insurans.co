@@ -27,12 +27,11 @@ const schema = {
 ---
 
 <Base title={title} description={description} schema={schema} ads={false}>
-  <article class="bg-white border-b border-stone-200">
-    <div class="border-b border-stone-200">
-      <div class="container-article py-10 sm:py-14">
-        <p class="label mb-4">Dasar Laman</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">Kredit foto kereta</h1>
-        <p class="text-lg text-stone-600 leading-relaxed">
+  <article class="bg-white">
+    <div>
+      <div class="container-article pt-6 pb-4 sm:pt-8">
+        <h1 class="ea-h1 mb-3">Kredit foto kereta</h1>
+        <p class="text-lg text-stone-700 leading-relaxed">
           Setiap foto ialah karya pengarangnya di Wikimedia Commons, dan hanya foto kereta pasaran Malaysia digunakan.
           Kami membuang latar, menukar ke hitam putih dan, jika kelihatan, menutup nombor plat. Versi yang diubah suai
           di laman ini tersedia di bawah lesen yang sama dengan foto asalnya, seperti yang tertulis bagi setiap foto di
@@ -43,7 +42,7 @@ const schema = {
     </div>
 
     <div class="container-article py-10 sm:py-14">
-      <div class="prose-editorial max-w-none">
+      <div class="prose-editorial prose-bars max-w-none">
         <h2 id="alat-ai">Foto yang disunting dengan alat AI</h2>
         <p>
           {aiPhotos.length} foto ({aiPhotos.map((p) => nameOf(p.slug)).join(', ')}) disunting dengan alat AI untuk
@@ -94,7 +93,7 @@ const schema = {
         ))}
       </ol>
 
-      <div class="prose-editorial max-w-none mt-10">
+      <div class="prose-editorial prose-bars max-w-none mt-10">
         <h2 id="tiada-foto">Model tanpa foto</h2>
         <p>
           {noPhoto.length} model belum ada foto kereta pasaran Malaysia di Wikimedia Commons: {noPhoto.join(', ')}.

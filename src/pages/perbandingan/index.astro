@@ -1,4 +1,5 @@
 ---
+import Ikon from '../../components/Ikon.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
@@ -36,14 +37,14 @@ function getCompanyName(slug: string) {
 
 >
   <!-- Breadcrumb + Header -->
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan' }]} />
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ea-h1 mb-3">
         Perbandingan Syarikat Insurans Kereta Malaysia 2026
       </h1>
       <Byline />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Bandingkan pilihan insurans kereta, kesihatan dan hayat sebelum minta sebut harga.
         Semak jenis perlindungan, cara tuntutan dan urusan digital yang sesuai dengan keperluan anda.
       </p>
@@ -69,20 +70,21 @@ function getCompanyName(slug: string) {
                 {c2?.name ?? comp.company2}
               </span>
             </div>
-            <div class="flex gap-2 text-xs text-stone-500">
-              {c1?.takaful && <span class="bg-emas-50 text-emas-700 px-2 py-0.5">Takaful</span>}
-              <span class="text-stone-300">·</span>
-              {c2?.takaful && <span class="bg-emas-50 text-emas-700 px-2 py-0.5">Takaful</span>}
-            </div>
-            <p class="text-xs text-hijau-700 font-medium mt-3 group-hover:underline">
-              Lihat perbandingan →
+            {(c1?.takaful || c2?.takaful) && (
+              <p class="text-sm text-stone-700">
+                <span class="bg-emas-50 text-emas-700 px-2 py-0.5">Takaful</span>{' '}
+                {[c1, c2].filter((c) => c?.takaful).map((c) => c?.name).join(', ')}
+              </p>
+            )}
+            <p class="text-sm text-hijau-700 font-medium mt-3 group-hover:underline">
+              Lihat perbandingan <Ikon name="i-kanan" size={16} class="inline" />
             </p>
           </a>
         );
       })}
     </div>
 
-    <section aria-labelledby="pilih-syarikat" class="prose-editorial mt-12 border-t border-stone-200 pt-10">
+    <section aria-labelledby="pilih-syarikat" class="prose-editorial prose-bars mt-12">
       <h2 id="pilih-syarikat">Cara memilih syarikat insurans</h2>
       <p>
         Mulakan dengan jenis perlindungan yang anda perlukan, bukan nama syarikat atau premium paling rendah.

@@ -15,7 +15,6 @@ interface Props {
 }
 
 const {
-  articleDate,
   premiumReviewed,
   sources = [],
   sourcesLabel = 'Sumber harga',
@@ -43,35 +42,28 @@ const generalRefs = sources.filter((source) => source.label && isRootUrl(source.
 const linkClass = 'inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600';
 ---
 
-<div data-editorial-stamp class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">
-  {articleDate && (
-    <p data-editorial-article-date>Oleh Amir Ariff (Editor) · Tarikh artikel: {formatDate(articleDate)}</p>
-  )}
+<!-- Every page that renders this stamp also renders <Byline>, so the author and article date live there only
+     (articleDate stays accepted for compatibility). Sources are a plain list, not a middle-dot run. -->
+<div data-editorial-stamp class="text-sm leading-5 text-stone-600">
   {showReviewed && premiumReviewed && (
     <p data-editorial-price-reviewed>{reviewedLabel}: {formatDate(premiumReviewed)}</p>
   )}
   {priceSources.length > 0 && (
     <p data-editorial-sources>
-      <span>{sourcesLabel}:</span>{' '}
-      <span data-editorial-source-links>
-        {priceSources.map((source, index) => (
-          <span>
-            {index > 0 && <span aria-hidden="true"> · </span>}
-            <a href={source.url || source.href} class={linkClass}>{source.label}</a>
-          </span>
-        ))}
-      </span>
+      <span>{sourcesLabel}:</span>
     </p>
+    <ul data-editorial-source-links class="flex flex-wrap gap-x-4">
+      {priceSources.map((source) => (
+        <li><a href={source.url || source.href} class={linkClass}>{source.label}</a></li>
+      ))}
+    </ul>
   )}
   {generalRefs.length > 0 && (
-    <p data-editorial-general-refs>
-      Rujukan umum:
-      {generalRefs.map((source, index) => (
-        <span>
-          {index > 0 && <span aria-hidden="true"> · </span>}
-          <a href={source.url || source.href} class={linkClass}>{source.label}</a>
-        </span>
+    <p data-editorial-general-refs class="mt-1">Rujukan umum:</p>
+    <ul class="flex flex-wrap gap-x-4">
+      {generalRefs.map((source) => (
+        <li><a href={source.url || source.href} class={linkClass}>{source.label}</a></li>
       ))}
-    </p>
+    </ul>
   )}
 </div>
