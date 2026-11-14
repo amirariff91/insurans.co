@@ -867,7 +867,8 @@ th > a,
 @media print { .mod-bar, .prose-bars h2, .h2-bar { background: #fff; color: #000; border-bottom: 2px solid #000; } }
 
 /* Long unbroken runs (e.g. "RM100,000/200,000/300,000") wrap instead of pushing the page sideways at 320px. */
-main :where(p, li, dd, dt, h1, h2, h3, figcaption, blockquote, a, summary) { overflow-wrap: anywhere; }
+main :where(p, li, dd, dt, h1, h2, h3, figcaption, blockquote, a, summary, cite) { overflow-wrap: anywhere; }
 main :where(.grid) > * { min-width: 0; }
 /* Source markers [n]: never under 14px. */
 main sup { font-size: 0.875rem; line-height: 0; }
+main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0.25rem; }

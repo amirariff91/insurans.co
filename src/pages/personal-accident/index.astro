@@ -282,7 +282,7 @@ const schema = {
                     </dl>
 
                     <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
-                      Analisis dikemas kini pada {record.analysisAsAt}.
+                      Analisis dikemas kini pada {tarikh(record.analysisAsAt)}.
                     </p>
                     <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
                   </a>
@@ -324,7 +324,7 @@ const schema = {
                         <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a>
                       </span>
                     ))}</p>
-                    <p class="mt-1"><strong>Tarikh analisis:</strong> {record.analysisAsAt}</p>
+                    <p class="mt-1"><strong>Tarikh analisis:</strong> {tarikh(record.analysisAsAt)}</p>
                   </div>
                 </div>
               );

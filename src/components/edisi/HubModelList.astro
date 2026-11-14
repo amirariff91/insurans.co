@@ -15,7 +15,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   <h2 class="hm-bar" id="harga-ikut-model">Harga ikut model</h2>
   <p class="hm-cap">Anggaran setahun, NCD 55%</p>
   <ul class="hm-groups">
-    {groups.map((g) => (
+    {groups.slice(0, 1).map((g) => (
       <li class="hm-g">
         <h3 class="hm-gh">{g.brand}</h3>
         <ul class="hm-list">
@@ -32,9 +32,43 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
       </li>
     ))}
   </ul>
+  <details class="hm-more">
+    <summary>Semua {carModels.length} model</summary>
+    <ul class="hm-groups">
+      {groups.slice(1).map((g) => (
+      <li class="hm-g">
+        <h3 class="hm-gh">{g.brand}</h3>
+        <ul class="hm-list">
+          {g.models.map((c) => (
+            <li>
+              <a href={`/car-insurance/${c.slug}/`}>
+                <span class="hm-name">{c.model}</span>
+                <span class="hm-pill">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span>
+                <svg class="hm-chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
+      ))}
+    </ul>
+  </details>
 </section>
 
 <style>
+  /* The first brand group shows; the rest sit in one <details> so the hub's answer stays near the top. */
+  .hm-more { border-top: 1px solid rgb(0 0 0 / 0.12); }
+  .hm-more > summary {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.3rem 0.9rem;
+    font: 700 1rem/1.2 var(--f);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .hm-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+
   .hm {
     border: 2px solid var(--ink);
     border-radius: var(--r-2);
