@@ -99,14 +99,17 @@ const schema = {
   <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
+        <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
         <section id="calculator" aria-labelledby="calculator-heading" class="et-panel" data-tint="pink">
           <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 id="calculator-heading" class="et-bar-t">Kira roadtax motosikal anda</h2></div>
           <p class="label">Kalkulator percuma</p>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan kapasiti enjin dalam geran/VOC dan pilih wilayah pendaftaran.</p>
 
-          <form id="motor-roadtax-form" class="mt-6 space-y-5">
+          <noscript><p class="mt-4 note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda.</p></noscript>
+          <form id="motor-roadtax-form" method="dialog" class="mt-6 space-y-5">
             <div>
               <label for="engine-cc" class="mb-1.5 block text-sm font-semibold text-stone-700">Kapasiti enjin (cc)</label>
+              <p id="engine-cc-hint" class="et-hint">cth: 150</p>
               <input
                 type="number"
                 id="engine-cc"
@@ -115,8 +118,7 @@ const schema = {
                 min="1"
                 step="1"
                 required
-                placeholder="cth: 150"
-                aria-describedby="engine-cc-help"
+                aria-describedby="engine-cc-hint engine-cc-help"
                 class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
               />
               <p id="engine-cc-help" class="mt-1.5 text-xs text-stone-500">Tengok dalam geran/VOC motosikal anda.</p>

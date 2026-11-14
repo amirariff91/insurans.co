@@ -128,3 +128,10 @@
 .et .et-kicker { font-size: var(--et-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
 .et .et-go { margin-top: auto !important; padding: 0.9rem 0 1rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .et .et-card:hover .et-go { text-decoration-color: var(--kick); }
+
+/* Examples under a label ("cth: ..."), visible text instead of a placeholder. #4A4A4A: 6.6:1 on the pink tint. */
+.et .et-hint { margin: 0 0 0.375rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-2); }
+/* Placeholders that remain only repeat visible text; same ink as the hints so they pass 4.5:1. */
+.et input::placeholder { color: var(--ink-2); opacity: 1; }
+/* Quick-example chips (motorcycle roadtax): 44px tall. */
+.et .motor-chip { min-height: 2.75rem; }

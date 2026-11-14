@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import carModels from '../../../data/car-models.json';
 import { NCD_TIERS } from '../../../lib/ncd';
 import Ikon from '../../../components/Ikon.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 
 // The worked example in the NCD table (premium asas RM2,000). Copy and numbers unchanged from the previous table.
@@ -60,16 +61,17 @@ const modelReferences = Object.fromEntries(
   pageType="tool"
 >
   <div class="et">
+  <noscript><style is:inline>.et .et-wait, #ncd-result, #claim-calc-btn { display: none; }</style></noscript>
   <!-- Header -->
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-600 mb-5" aria-label="Jejak navigasi">
-        <a href="/" class="text-stone-700 underline decoration-stone-400 underline-offset-2">Utama</a>
-        <span class="mx-2" aria-hidden="true">›</span>
-        <a href="/tools/" class="text-stone-700 underline decoration-stone-400 underline-offset-2">Tools</a>
-        <span class="mx-2" aria-hidden="true">›</span>
-        <span class="text-stone-900">Kalkulator NCD</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { label: 'Utama', href: '/' },
+          { label: 'Tools', href: '/tools/' },
+          { label: 'Kalkulator NCD' },
+        ]}
+      />
       <p class="label mb-3">Free Tool</p>
       <h1 class="ncd-h1 text-stone-900 mb-4">
         Jadual NCD &amp; Kalkulator NCD Insurans Kereta 2026
@@ -132,7 +134,7 @@ const modelReferences = Object.fromEntries(
               ))}
             </div>
           </fieldset>
-          <p class="et-next" id="ncd-next" aria-live="polite">Pilih berapa tahun anda tak claim. Setiap tahun tanpa claim menaikkan NCD satu anak tangga, sehingga 55%. Claim atas polisi sendiri, diskaun kembali ke 0%.</p>
+          <p class="et-next" id="ncd-next" aria-live="polite">Pilih berapa tahun anda tak claim. Setiap tahun tanpa claim menaikkan NCD satu anak tangga, sehingga 55%. Tuntutan own damage biasa boleh menjadikan NCD 0% pada pembaharuan seterusnya. OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD.</p>
           <p class="text-sm leading-5 text-stone-700">
             Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">Rujukan Zurich</a>.
           </p>
@@ -142,21 +144,22 @@ const modelReferences = Object.fromEntries(
         <section class="et-panel" data-tint="pink" id="kalkulator" aria-labelledby="kalk-h">
           <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 id="kalk-h" class="et-bar-t">Kira Premium Selepas NCD</h2></div>
           <p class="text-stone-900 text-base">Anggaran premium asas selepas potongan NCD. NCD ikut pilihan pada tangga di atas.</p>
+          <noscript><p class="note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda, atau rujuk jadual di halaman ini.</p></noscript>
 
           <div class="mt-4">
             <label for="base-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
               Premium Asas (sebelum NCD) — RM
             </label>
+            <p id="base-premium-hint" class="et-hint">cth: 2000</p>
             <div class="rm">
               <span aria-hidden="true">RM</span>
               <input
                 type="number"
                 id="base-premium"
                 inputmode="decimal"
-                placeholder="cth: 2000"
                 min="100"
                 max="50000"
-                aria-describedby="base-premium-help ncd-msg"
+                aria-describedby="base-premium-hint base-premium-help ncd-msg"
               />
             </div>
             <p id="base-premium-help" class="text-sm text-stone-700 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
@@ -200,15 +203,17 @@ const modelReferences = Object.fromEntries(
         <section class="et-panel" aria-labelledby="claim-h">
           <div class="et-bar"><Ikon name="i-claim" size={24} /><h2 id="claim-h" class="et-bar-t">Patut Ke Claim?</h2></div>
           <p class="text-stone-900 text-base">Accident kecil? Kira sama ada worth it untuk claim atau bayar sendiri.</p>
+          <noscript><p class="note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda.</p></noscript>
 
           <div class="space-y-5 mt-5">
             <div>
               <label for="current-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
                 Premium Asas Semasa (selepas NCD) — RM
               </label>
+              <p id="current-premium-hint" class="et-hint">cth: 900</p>
               <div class="rm">
                 <span aria-hidden="true">RM</span>
-                <input type="number" id="current-premium" inputmode="decimal" placeholder="cth: 900" min="100" max="50000" aria-describedby="current-premium-help" />
+                <input type="number" id="current-premium" inputmode="decimal" min="100" max="50000" aria-describedby="current-premium-hint current-premium-help" />
               </div>
               <p id="current-premium-help" class="text-sm text-stone-700 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
             </div>
@@ -228,9 +233,10 @@ const modelReferences = Object.fromEntries(
               <label for="repair-cost" class="block text-base font-semibold text-stone-900 mb-1.5">
                 Anggaran Kos Repair — RM
               </label>
+              <p id="repair-cost-hint" class="et-hint">cth: 800</p>
               <div class="rm">
                 <span aria-hidden="true">RM</span>
-                <input type="number" id="repair-cost" inputmode="decimal" placeholder="cth: 800" min="0" max="100000" />
+                <input type="number" id="repair-cost" inputmode="decimal" min="0" max="100000" aria-describedby="repair-cost-hint" />
               </div>
             </div>
 
@@ -509,7 +515,7 @@ const modelReferences = Object.fromEntries(
     });
     selectedNCD = value;
     const nextEl = document.getElementById('ncd-next');
-    if (nextEl && NEXT_STEP[value]) nextEl.textContent = `${NEXT_STEP[value]} Claim atas polisi sendiri, diskaun kembali ke 0%.`;
+    if (nextEl && NEXT_STEP[value]) nextEl.textContent = `${NEXT_STEP[value]} Tuntutan own damage biasa boleh menjadikan NCD 0% pada pembaharuan seterusnya. OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD.`;
   }
 
   document.querySelectorAll<HTMLInputElement>('#ncd-selector input[name="ncd"]').forEach((radio) => {
@@ -547,6 +553,15 @@ const modelReferences = Object.fromEntries(
       invalidParams.push('NCD');
     }
   }
+
+  // A level already checked when the script starts (back button, reload, or a click before the module ran):
+  // use it unless a valid ?ncd= set the level above. Recalculate if the premium was restored too.
+  if (selectedNCD === null) {
+    const checked = document.querySelector<HTMLInputElement>('#ncd-selector input[name="ncd"]:checked');
+    const checkedValue = checked ? Number(checked.value) : Number.NaN;
+    if (isNcdTier(checkedValue)) selectNCD(checkedValue);
+  }
+  if ((document.getElementById('base-premium') as HTMLInputElement | null)?.value) updateNCDResult();
 
   const referenceEl = document.getElementById('model-reference');
   const referenceNameEl = document.getElementById('model-reference-name');

@@ -99,12 +99,14 @@ const schema = {
   <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
+        <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
         <section id="calculator" aria-labelledby="calculator-heading" class="et-panel" data-tint="pink">
           <div class="et-bar"><Ikon name="i-utama" size={24} /><h2 id="calculator-heading" class="et-bar-t">Kira premium insurans rumah</h2></div>
           <p class="label">Kalkulator percuma</p>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan kos pembinaan semula bangunan dan/atau nilai isi rumah. Bukan harga pasaran atau harga tanah.</p>
 
-          <form id="fire-form" class="mt-6 space-y-5">
+          <noscript><p class="mt-4 note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda, atau rujuk jadual di halaman ini.</p></noscript>
+          <form id="fire-form" method="dialog" class="mt-6 space-y-5">
             <fieldset>
               <legend class="mb-2 block text-sm font-semibold text-stone-700">Jenis kediaman</legend>
               <div class="grid gap-2 sm:grid-cols-2">
@@ -136,6 +138,7 @@ const schema = {
 
             <div>
               <label for="building-si" class="mb-1.5 block text-sm font-semibold text-stone-700">Jumlah diinsuranskan bangunan (RM)</label>
+              <p id="building-si-hint" class="et-hint">cth: 200000</p>
               <input
                 type="number"
                 id="building-si"
@@ -143,8 +146,7 @@ const schema = {
                 inputmode="numeric"
                 min="0"
                 step="any"
-                placeholder="cth: 200000"
-                aria-describedby="building-si-help"
+                aria-describedby="building-si-hint building-si-help"
                 class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
               />
               <p id="building-si-help" class="mt-1.5 text-xs text-stone-500">Kos pembinaan semula, bukan harga rumah. Biar kosong jika hanya insurans isi rumah.</p>
@@ -152,6 +154,7 @@ const schema = {
 
             <div>
               <label for="contents-si" class="mb-1.5 block text-sm font-semibold text-stone-700">Jumlah diinsuranskan isi rumah (RM) — pilihan</label>
+              <p id="contents-si-hint" class="et-hint">cth: 50000</p>
               <input
                 type="number"
                 id="contents-si"
@@ -159,8 +162,7 @@ const schema = {
                 inputmode="numeric"
                 min="0"
                 step="any"
-                placeholder="cth: 50000"
-                aria-describedby="contents-si-help"
+                aria-describedby="contents-si-hint contents-si-help"
                 class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
               />
               <p id="contents-si-help" class="mt-1.5 text-xs text-stone-500">Perabot, elektrik, pakaian dan barang peribadi (householder).</p>

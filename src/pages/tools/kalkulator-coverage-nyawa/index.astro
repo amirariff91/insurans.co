@@ -84,12 +84,14 @@ const schema = {
   <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
+        <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
         <section id="calculator" aria-labelledby="calculator-heading" class="et-panel" data-tint="pink">
           <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 id="calculator-heading" class="et-bar-t">Kira jurang coverage keluarga</h2></div>
           <p class="label">Kalkulator percuma</p>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan nombor anda sendiri. Untuk jumlah yang tiada, masukkan 0.</p>
 
-          <form id="coverage-form" class="mt-6 space-y-5">
+          <noscript><p class="mt-4 note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda.</p></noscript>
+          <form id="coverage-form" method="dialog" class="mt-6 space-y-5">
             <div>
               <label for="monthly-income" class="mb-1.5 block text-sm font-semibold text-stone-700">
                 Gaji bersih sebulan (RM) — cth: 4,000
