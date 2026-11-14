@@ -65,6 +65,14 @@
       "field": "pct",
       "url": "^/literasi-kewangan/36-penyakit-kritikal-bnm/$",
       "reason": "Correction: Zurich Early Care recovery benefit is 12% in total, paid as 1% a month for 12 months (per src/data/critical-illness.json and its worked example). Live wrongly says 12% a month."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-jazz/$",
+      "value": "^RM(107,000|107,000–110,000|43,000–55,000|88,000)$",
+      "reason": "Correction (15 Nov 2026): the City Hatchback FAQ quoted RM88,000 and RM107,000+; Honda Malaysia's price list says RS petrol RM100,900 and RS e:HEV RM112,900. The unsourced used-Jazz range RM43,000–55,000 was removed."
     }
   ]
 }
