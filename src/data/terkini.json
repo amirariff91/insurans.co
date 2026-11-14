@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "roadtax-kereta-elektrik-ikut-kw",
+    "date": "2026-11-15",
+    "effectiveDate": "2026-01-01",
+    "kind": "peraturan",
+    "title": "Roadtax kereta elektrik kini ikut kuasa motor (kW)",
+    "summary": "Pengecualian penuh roadtax kereta elektrik (EV) tamat pada 31 Disember 2025, dan kereta elektrik kini membayar mengikut kuasa motor, dari RM20 setahun bagi 50 kW ke bawah.",
+    "body": [
+      "Pengecualian penuh roadtax bagi kereta elektrik (EV) berlaku dari 1 Januari 2022 hingga 31 Disember 2025, menurut siaran media Kementerian Pengangkutan pada 14 Februari 2022. Kadar baharu berkuat kuasa 1 Januari 2026, menurut Buletin MOT Edisi 01/2024 terbitan Kementerian Pengangkutan. Tarikh itu diumumkan Menteri Pengangkutan pada 4 Jun 2024, seperti yang dilaporkan RTM.",
+      "Kadar kini ditetapkan dalam Pekeliling JPJ Bil.01 Tahun 2026 bertarikh 1 April 2026. Setiap band kuasa motor dikenakan kadar rata setahun, contohnya RM120 bagi lebih 120 hingga 130 kW. Semenanjung, Sabah dan Sarawak menggunakan kadar yang sama, manakala kenderaan yang didaftar dan digunakan di Langkawi atau Labuan membayar 50%.",
+      "Kami menerbitkan [kalkulator roadtax kereta elektrik](/tools/kalkulator-roadtax-ev/) bersama jadual penuh pekeliling itu. Kami juga membetulkan nota motosikal elektrik pada [kalkulator roadtax motosikal](/tools/kalkulator-roadtax-motosikal/): band mengikut watt sudah ada dalam garis panduan JPJ yang lebih awal. Pekeliling 2026 menyatakan pengecualian 50% kadar asas; garis panduan terdahulu tidak menyebutnya."
+    ],
+    "sources": [
+      {
+        "label": "JPJ, Pekeliling Bahagian Pelesenan Kenderaan Bil.01 Tahun 2026: Garis Panduan Kadar LKM bagi Kenderaan Motor Elektrik (ZEVs)",
+        "url": "https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-B-01.04.2026-Garis-Panduan-Kadar-LKM-Bagi-Kenderaan-Motor-Elektrik-ZEVs.pdf"
+      },
+      {
+        "label": "Kementerian Pengangkutan, siaran media 14 Februari 2022: pengecualian LKM kenderaan elektrik",
+        "url": "https://www.mot.gov.my/en/Kenyataan%20Media/Year%202022/SIARAN%20MEDIA%20YBM%20MOT%20PADA%2014%20FEBRUARI%202022%20-%20PENGECUALIAN%20LKM%20BAGI%20KENDERAAN%20OKU%20DAN%20KENDERAAN%20ELEKTRIK%20DI%20BAWAH%20BAJET%202022%20.pdf"
+      },
+      {
+        "label": "Kementerian Pengangkutan, Buletin MOT Edisi 01/2024, halaman 14: kadar fi LKM ZEV berkuat kuasa 1 Januari 2026",
+        "url": "https://www.mot.gov.my/my/Buletin/Buletin%20MOT%202024%20Edisi%2001.pdf"
+      },
+      {
+        "label": "Berita RTM, 4 Jun 2024: pengumuman Menteri Pengangkutan",
+        "url": "https://berita.rtm.gov.my/?p=100360"
+      }
+    ],
+    "updates": [
+      {
+        "label": "Kalkulator roadtax kereta elektrik",
+        "href": "/tools/kalkulator-roadtax-ev/"
+      },
+      {
+        "label": "Kalkulator roadtax motosikal",
+        "href": "/tools/kalkulator-roadtax-motosikal/"
+      },
+      {
+        "label": "Kalkulator roadtax kereta",
+        "href": "/tools/kalkulator-roadtax/"
+      }
+    ]
+  },
+  {
+    "slug": "harga-special-perils-dibetulkan",
+    "date": "2026-11-15",
+    "kind": "pembetulan",
+    "title": "Harga special perils dibetulkan kepada 0.2%–0.5% sum insured",
+    "summary": "Anggaran kos add-on special perils (banjir dan bencana alam) kini dinyatakan sebagai sekitar 0.2% hingga 0.5% daripada sum insured setahun.",
+    "body": [
+      "Kami membetulkan anggaran harga perlindungan special perils, iaitu add-on untuk kerosakan akibat banjir dan bencana alam. Kadar lazim kini dinyatakan sebagai sekitar 0.2% hingga 0.5% daripada sum insured setahun.",
+      "Contohnya, bagi sum insured RM50,000, kosnya sekitar RM100 hingga RM250 setahun. Kadar dan tahap perlindungan (penuh atau separa) berbeza mengikut syarikat insurans.",
+      "Angka yang dibetulkan digunakan dalam panduan insurans kereta banjir, bahagian add-on di halaman harga insurans kereta, dan nota risiko banjir di halaman model kereta."
+    ],
+    "sources": [
+      {
+        "label": "Kurnia, Special Perils Coverage",
+        "url": "https://www.kurnia.com/blog/special-perils-coverage"
+      }
+    ],
+    "updates": [
+      {
+        "label": "Insurans kereta banjir",
+        "href": "/guides/insurans-kereta-banjir/"
+      },
+      {
+        "label": "Harga insurans kereta: add-on",
+        "href": "/car-insurance/#add-ons"
+      },
+      {
+        "label": "Halaman model kereta, contohnya Perodua Axia",
+        "href": "/car-insurance/perodua-axia/"
+      }
+    ]
+  },
+  {
+    "slug": "manfaat-pemulihan-zurich-early-care-dibetulkan",
+    "date": "2026-11-15",
+    "kind": "pembetulan",
+    "title": "Manfaat pemulihan Zurich Early Care Critical Illness dibetulkan",
+    "summary": "Manfaat pemulihan rider Zurich Early Care Critical Illness ialah 12% keseluruhan, dibayar 1% sebulan selama 12 bulan, bukan 12% sebulan.",
+    "body": [
+      "Kami membetulkan penerangan manfaat pemulihan rider Zurich Early Care Critical Illness. Menurut brosur Zurich, manfaat ini berjumlah 12% daripada jumlah diinsuranskan rider, dibayar 1% sebulan selama 12 bulan selepas diagnosis pertama yang diluluskan. Teks lama kami menyebut 12% sebulan.",
+      "Artikel [36 penyakit kritikal BNM](/literasi-kewangan/36-penyakit-kritikal-bnm/) telah dibetulkan, dan halaman [pelan Zurich Early Care Critical Illness](/critical-illness/zurich-early-care-critical-illness/) menyatakan angka yang sama."
+    ],
+    "sources": [
+      {
+        "label": "Zurich Life Insurance Malaysia Berhad, brosur Zurich Early Care Critical Illness",
+        "url": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/brochures/zlimb-zurich-early-care-critical-illness.pdf"
+      }
+    ],
+    "updates": [
+      {
+        "label": "36 penyakit kritikal BNM",
+        "href": "/literasi-kewangan/36-penyakit-kritikal-bnm/"
+      },
+      {
+        "label": "Zurich Early Care Critical Illness",
+        "href": "/critical-illness/zurich-early-care-critical-illness/"
+      }
+    ]
+  },
+  {
+    "slug": "ncd-od-kfk-dan-julat-proton-saga",
+    "date": "2026-11-14",
+    "kind": "pembetulan",
+    "title": "NCD claim OD-KfK dibetulkan; julat Proton Saga kini RM400–860",
+    "summary": "Jawapan tentang kesan claim knock-for-knock (OD-KfK) pada NCD dibetulkan mengikut PIAM, dan julat anggaran premium Proton Saga dinaikkan.",
+    "body": [
+      "Jawapan tentang NCD bagi claim knock-for-knock (OD-KfK) dibetulkan mengikut PIAM. NCD kekal bagi claim OD-KfK yang layak apabila pihak lain bersalah, tertakluk kepada syarat PIAM dan polisi. Claim own damage biasa pula boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya.",
+      "Julat anggaran premium Proton Saga pada NCD 55% dinaikkan kepada RM400 hingga RM860 setahun. Had atas nilai pasaran yang kami guna sebagai sum insured dinaikkan kepada RM50,000 supaya meliputi Saga 1.5 Premium baharu."
+    ],
+    "sources": [
+      {
+        "label": "PIAM, perlindungan motor dan manfaat OD-KfK",
+        "url": "https://piam.org.my/insurance-101/individual/motor/"
+      },
+      {
+        "label": "Etiqa, helaian pendedahan produk insurans kereta persendirian (pecahan premium asas dan NCD)",
+        "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf"
+      }
+    ],
+    "updates": [
+      {
+        "label": "Harga insurans kereta",
+        "href": "/car-insurance/"
+      },
+      {
+        "label": "Insurans Proton Saga",
+        "href": "/car-insurance/proton-saga/"
+      }
+    ]
+  }
+]

@@ -8,6 +8,7 @@ import Ikon from '../../components/Ikon.astro';
 import ModelAnswer from '../../components/edisi/ModelAnswer.astro';
 import ModelRail from '../../components/edisi/ModelRail.astro';
 import ToolsRail from '../../components/edisi/ToolsRail.astro';
+import TerkiniRail from '../../components/edisi/TerkiniRail.astro';
 import '../../styles/edisi-answer.css';
 import NcdLadder from '../../components/NcdLadder.astro';
 import carModels from '../../data/car-models.json';
@@ -461,6 +462,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
     <aside class="ep-tools" aria-label="Alat">
       <ToolsRail model={model} related={relatedCars} calculatorUrl={primaryCalculatorUrl} />
+      <TerkiniRail />
     </aside>
 
     <div class="ep-models">

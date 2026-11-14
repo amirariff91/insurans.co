@@ -24,6 +24,8 @@ interface Props {
   pageType?: string;
   /** Append " | Insurans.co" to the title. Off where the query words need the full 60 characters. */
   siteSuffix?: boolean;
+  /** RSS feed to advertise with <link rel="alternate">. Terkini pages only. */
+  rss?: { href: string; title: string };
   /** Preload one above-the-fold image (e.g. a model page's car photo); srcset and sizes must match the <img>. */
   preloadImage?: { href: string; srcset: string; sizes: string };
 }
@@ -44,6 +46,7 @@ const {
   modifiedTime,
   pageType = 'page',
   siteSuffix = true,
+  rss,
   preloadImage,
 } = Astro.props;
 
@@ -103,6 +106,7 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <link rel="icon" type="image/x-icon" href="/favicon.ico?v=edisi-2026-11" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=edisi-2026-11" />
   <link rel="manifest" href="/site.webmanifest?v=edisi-2026-11" />
+  {rss && <link rel="alternate" type="application/rss+xml" title={rss.title} href={rss.href} />}
 
   <!-- Fonts -->
   <!-- Two variable files cover every weight: Figtree (all text) and Gabarito (prices, headings).
