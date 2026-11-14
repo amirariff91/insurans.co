@@ -24,6 +24,8 @@ interface Props {
   pageType?: string;
   /** Append " | Insurans.co" to the title. Off where the query words need the full 60 characters. */
   siteSuffix?: boolean;
+  /** Preload one above-the-fold image (e.g. a model page's car photo); srcset and sizes must match the <img>. */
+  preloadImage?: { href: string; srcset: string; sizes: string };
 }
 
 const {
@@ -42,6 +44,7 @@ const {
   modifiedTime,
   pageType = 'page',
   siteSuffix = true,
+  preloadImage,
 } = Astro.props;
 
 const siteName = 'Insurans.co';
@@ -106,6 +109,9 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
        Preloading Gabarito avoids a late swap that re-wraps the above-the-fold price ranges. -->
   <link rel="preload" as="font" href="/fonts/figtree-var-latin.woff2" type="font/woff2" crossorigin />
   <link rel="preload" as="font" href="/fonts/gabarito-var-latin.woff2" type="font/woff2" crossorigin />
+  {preloadImage && (
+    <link rel="preload" as="image" href={preloadImage.href} imagesrcset={preloadImage.srcset} imagesizes={preloadImage.sizes} fetchpriority="high" />
+  )}
   {resolvedSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   )}
@@ -116,7 +122,7 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
     "@type": "Organization",
     "name": "Insurans.co",
     "url": "https://insurans.co",
-    "logo": "https://insurans.co/logo-mark.svg",
+    "logo": "https://insurans.co/icon-512.png",
     "publishingPrinciples": "https://insurans.co/kaedah-editorial/",
     "correctionsPolicy": "https://insurans.co/kaedah-editorial/#pembetulan",
     "contactPoint": {

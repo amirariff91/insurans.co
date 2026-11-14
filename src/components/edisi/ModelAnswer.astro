@@ -2,13 +2,14 @@
 /**
  * Edisi answer block for a car model page: H1, the big price, one support line, the yellow yearly
  * total with roadtax, the NCD control (six native radios; prices follow it through CSS :has(), so it
- * works without JavaScript), the car photo, the next steps, and the working ("kiraan").
+ * works without JavaScript), the two next-step buttons, the car photo, and the working ("kiraan").
  */
 import CarPhoto from '../CarPhoto.astro';
 import Ikon from '../Ikon.astro';
 import Px from './Px.astro';
 import { STEPS, carSteps, span } from './steps';
 import { rm } from '../../lib/ncd';
+import { MODEL_PHOTO_SIZES } from './photo';
 
 interface Props {
   model: any;
@@ -66,16 +67,18 @@ const kiraanId = `kiraan-${model.slug}`;
     <p class="ea-save"><Px v={s.saving} class="px-w" /></p>
   </fieldset>
 
-  <CarPhoto slug={model.slug} eager sizes="(min-width: 48rem) 26rem, calc(100vw - 2rem)" class="ea-photo" />
-
   <div class="ea-cta" data-section="quotation">
-    <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-p">Kira NCD saya <Ikon name="i-kanan" size={20} /></a>
+    <div class="ea-btns">
+      <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-p">Kira NCD saya <Ikon name="i-kanan" size={20} /></a>
+      <a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list" class="ea-btn ea-btn-o">Lihat senarai beli online</a>
+    </div>
     <p class="ea-quote">
-      Untuk sebut harga sebenar, minta terus daripada syarikat insurans
-      (<a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list">lihat senarai beli online</a>).
+      Untuk sebut harga sebenar, minta terus daripada syarikat insurans.
       Tiada hubungan berbayar atau affiliate dengan mana-mana syarikat.
     </p>
   </div>
+
+  <CarPhoto slug={model.slug} eager sizes={MODEL_PHOTO_SIZES} class="ea-photo" />
 
   <section class="ix ix-pink" id={kiraanId} aria-labelledby={`${kiraanId}-t`}>
     <div class="ix-bar"><Ikon name="i-kalkulator" size={24} class="ix-i" /><h2 class="ix-t" id={`${kiraanId}-t`}><Px v={s.title} class="px-w" /></h2></div>

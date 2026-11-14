@@ -57,7 +57,9 @@
 /* Very large text (rem follows the root size here, so this only fires when the text is enlarged): let figures
    and the NCD legend wrap instead of pushing the page sideways. At normal size the narrowest column is 18rem. */
 @container ea (width < 16rem) {
-  .ea .px, .ea-sum-b { white-space: normal; }
+  .ea .px, .ea-sum-b, .ea-mark { white-space: normal; }
+  .ea-sum { display: grid; justify-content: start; }
+  .ea-sum > span { min-width: 0; overflow-wrap: anywhere; }
   .ea-ncd legend { flex-wrap: wrap; }
 }
 .ep-models, .ep-tools { container: eprail / inline-size; }
@@ -123,10 +125,20 @@
 
 .ea-photo { max-width: 36rem; }
 @media (min-width: 48rem) { .ea-photo { max-width: 26rem; } }
+/* The cut-out sits on a pale blue plate with an ink border; on phones it is capped low so the buttons above
+   it stay in the first screen. */
+.ea-photo .cp-img { box-sizing: border-box; max-block-size: 9rem; padding: 0.4rem 0.75rem; background: var(--tint-sky); border: 2px solid var(--ink); border-radius: var(--r-2); }
+@media (min-width: 48rem) { .ea-photo .cp-img { max-block-size: 12rem; } }
 .ea-cta { display: grid; gap: 0.6rem; max-width: 36rem; }
+.ea-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ea-btns > .ea-btn { flex: 1 1 auto; }
 .ea-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 3rem; padding: 0.6rem 1.1rem; border-radius: var(--r-2); font: 700 1.0625rem/1.2 var(--fd); text-decoration: none; }
 .ea-btn-p { background: var(--kick); color: var(--kick-ink); }
 .ea-btn-p:hover { background: #A50C58; }
+/* Second action: outline, so the page keeps one magenta button per screen. */
+.ea-btn-o { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+.ea-btn-o:hover { background: var(--tray); }
+.ea-btn { text-align: center; }
 .ea-btn:focus-visible, .ea a:focus-visible, .mod a:focus-visible, .ep a:focus-visible, .ep summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .ea-quote { font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
 .ea a:not(.ea-btn), .ep-main a:not([class*="btn"]), .mod a:not(.ea-btn) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
@@ -140,7 +152,7 @@
 .ix-t, .mod-bar h2, .mod-bar { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
 .ix-t { flex: 1; }
 .ix-i { flex: none; }
-.ix-body, .mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
+.ix-body, .mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); overflow-wrap: break-word; }
 .ix-s { font-size: 1rem; line-height: 1.5; max-width: 62ch; }
 .ix-src { font-size: 0.875rem; color: var(--ink-2); padding-top: 0.6rem; border-top: 1px solid rgb(0 0 0 / 0.18); }
 .ix-pink .ix-src, .mod[data-tint] .ix-src { color: var(--ink); }
@@ -183,6 +195,10 @@
 .mlist-g { display: flex; justify-content: space-between; padding: 0.4rem 0.75rem; background: var(--tray); font-weight: 700; font-size: 0.875rem; border-top: 1px solid rgb(0 0 0 / 0.15); }
 .mlist a { display: flex; justify-content: space-between; gap: 0.75rem; align-items: center; min-height: 2.75rem; padding: 0.3rem 0.75rem; border-top: 1px solid rgb(0 0 0 / 0.1); color: var(--ink); text-decoration: none; font-size: 0.9375rem; }
 .mlist a:hover { background: var(--tray); text-decoration: underline; }
+/* The rail is a .mod, and `.mod a:not(.ea-btn)` (link colour, underline) is more specific than `.mlist a`:
+   restate the list's own look at the same weight, after it. */
+.mod .mlist a { color: var(--ink); text-decoration: none; }
+.mod .mlist a:hover { text-decoration: underline; }
 .mlist a[aria-current="page"] { background: var(--mark); font-weight: 700; }
 .mlist .mp { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .mod-cap { font-size: 0.875rem; color: var(--ink-2); padding: 0.6rem 0.75rem 0.5rem; }
@@ -196,3 +212,5 @@
 .ep-crumbs nav { margin: 0; }
 /* Model page: the breadcrumb comes first in the DOM (and in tab order) but shows below the answer. */
 .ep-main > .ep-crumbs + .ea { order: -1; }
+/* Very large text: long words in collapsed lists and rows break inside their module instead of being clipped. */
+.baca-in > *, .rows li > div { min-width: 0; overflow-wrap: break-word; }

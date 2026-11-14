@@ -11,8 +11,16 @@ const valueOf = (el: Element | null, k: string): string => {
   return (el as HTMLElement).dataset[`p${k}`] ?? '';
 };
 
+// The masthead's knob follows the step: 55% is the resting logo (stop 0); each lower step lifts it one stop.
+const LOGO_STOPS = ['55', '45', '38', '30', '25', '0'];
+const seatLogo = (k: string) => {
+  const i = LOGO_STOPS.indexOf(k);
+  document.documentElement.style.setProperty('--ins-stop', String(Math.max(i, 0)));
+};
+
 const apply = (r: HTMLInputElement, announce: boolean) => {
   const k = r.value;
+  seatLogo(k);
   document.querySelectorAll<HTMLAnchorElement>('[data-calculator-link]').forEach((link) => {
     const url = new URL(link.href, location.href);
     url.searchParams.set('ncd', r.dataset.tier ?? k);

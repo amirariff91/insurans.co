@@ -655,25 +655,28 @@
   },
   {
     "slug": "honda-jazz",
-    "hasPhoto": true,
-    "src400": "/images/kereta/honda-jazz-400.webp",
-    "src800": "/images/kereta/honda-jazz-800.webp",
-    "width": 800,
-    "height": 351,
-    "alt": "Honda City Hatchback, foto pasaran Malaysia",
-    "credit": {
-      "title": "Honda City 1.5 i-VTEC V (VIII) – f 13032025",
-      "author": "M 93",
-      "copyrightNotice": "© M 93",
-      "licence": "CC BY-SA 3.0 de",
-      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-      "source": "https://commons.wikimedia.org/wiki/File:Honda_City_1.5_i-VTEC_V_(VIII)_%E2%80%93_f_13032025.jpg",
-      "sourceSite": "Wikimedia Commons",
-      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih, nombor plat ditutup."
+    "hasPhoto": false,
+    "unusedPhoto": {
+      "src400": "/images/kereta/honda-jazz-400.webp",
+      "src800": "/images/kereta/honda-jazz-800.webp",
+      "width": 800,
+      "height": 351,
+      "alt": "Honda City Hatchback, foto pasaran Malaysia",
+      "credit": {
+        "title": "Honda City 1.5 i-VTEC V (VIII) – f 13032025",
+        "author": "M 93",
+        "copyrightNotice": "© M 93",
+        "licence": "CC BY-SA 3.0 de",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Honda_City_1.5_i-VTEC_V_(VIII)_%E2%80%93_f_13032025.jpg",
+        "sourceSite": "Wikimedia Commons",
+        "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih, nombor plat ditutup."
+      },
+      "modifications": "latar dibuang, hitam putih, nombor plat ditutup.",
+      "platesCovered": 1,
+      "aiRetouched": false
     },
-    "modifications": "latar dibuang, hitam putih, nombor plat ditutup.",
-    "platesCovered": 1,
-    "aiRetouched": false
+    "unusedReason": "The photo is a Honda City Hatchback, not a Jazz."
   },
   {
     "slug": "toyota-raize",

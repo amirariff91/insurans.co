@@ -18,8 +18,9 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 
 <!--
   Edisi masthead. The wordmark is the slider "i" (round4/logo-slider, study D), inlined so its
-  colours come from the page tokens. In this step it is static: the knob rests seated (NCD 55%,
-  the true logo) and is not a control yet. A tap anywhere on the wordmark goes home.
+  colours come from the page tokens. The knob rests seated at NCD 55% (the true logo) and rises 80 units
+  per lower step of the reader's remembered NCD (`edisi.ncd`), never down into the stem (logo-slider
+  README, six stops). It is not a control. A tap anywhere on the wordmark goes home.
 -->
 <header class="mast">
   <div class="mast-in">
@@ -41,6 +42,10 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
           </g>
       </svg>
     </a>
+    <script is:inline>
+      // Before first paint: seat the knob at the remembered NCD step (no storage: the resting logo).
+      try { var k = localStorage.getItem('edisi.ncd'), i = ['55', '45', '38', '30', '25', '0'].indexOf(k); if (i > 0) document.documentElement.style.setProperty('--ins-stop', String(i)); } catch (e) {}
+    </script>
     {currentPath !== '/' && <p class="mast-tag">Bukan ejen. Bukan broker.</p>}
     <button
       id="mobile-menu-btn"
@@ -114,7 +119,12 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .wm-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
   .wm-svg { display: block; height: var(--wm-h); width: auto; overflow: visible; }
   .ins-word { fill: var(--ink); }
-  .ins-knob { fill: var(--knob); }
+  .ins-knob {
+    fill: var(--knob);
+    transform: translateY(calc(var(--ins-stop, 0) * -80px));
+    transition: transform 220ms var(--ease-out);
+  }
+  @media (prefers-reduced-motion: reduce) { .ins-knob { transition: none; } }
   .mast-tag { display: none; }
 
   .menu-btn {
