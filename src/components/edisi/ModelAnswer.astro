@@ -98,7 +98,7 @@ const kiraanId = `kiraan-${model.slug}`;
           {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
         </p>
       )}
-      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-ons.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
+      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
       <details class="baca">
         <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: jadual {model.fullName} ikut tahap NCD</span></summary>
         <div class="baca-in">

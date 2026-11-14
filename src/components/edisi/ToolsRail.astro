@@ -21,14 +21,14 @@ const s = carSteps(model);
 const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
 ---
 <section class="mod" data-tint="pink" aria-labelledby="patut-claim">
-  <h2 class="mod-bar" id="patut-claim"><Ikon name="i-neraca" size={22} /> Sebelum claim, bandingkan kos repair dengan diskaun yang hilang</h2>
+  <h2 class="mod-bar" id="patut-claim"><Ikon name="i-neraca" size={22} /> Sebelum claim, bandingkan kos baiki dengan diskaun yang hilang</h2>
   <div class="mod-in">
     <p class="ix-s">Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD.</p>
     <dl class="kb">
       <div class="kb-r"><dt>{hooks ? <span data-f="rail-name">{model.model}</span> : model.model} pada NCD <Px v={s.pct} data-f={f('pct')} /></dt><dd><Px v={s.ins} data-f={f('rail-ins')} /></dd></div>
       <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd data-f={f('rail-zero')}>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
     </dl>
-    <a class="ea-btn ea-btn-o" href={calculatorUrl} data-calculator-link data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
+    <a class="ea-btn ea-btn-o" href={calculatorUrl} data-calculator-link data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos baiki anda <Ikon name="i-kanan" size={20} /></a>
   </div>
 </section>
 
