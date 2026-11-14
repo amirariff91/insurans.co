@@ -20,15 +20,15 @@ const sources = [{ label: 'BNM', url: 'https://www.bnm.gov.my/-/mhit-req-en' }];
 const faqs = [
   {
     q: 'Deductible bayar tiap kali masuk hospital ke, atau sekali setahun?',
-    a: 'Ikut polisi — ada “per disability” (setiap kes atau penyakit, contoh deductible RM300 SmartMedic Shield), ada “per rider/certificate year” (sekali setahun, contoh A-Plus Health360). Dua makna berbeza, kesan besar pada kos — semak frasa tepat dalam PDS.',
+    a: 'Ikut polisi — ada “per disability” (setiap kes atau penyakit, contoh deductible RM300 SmartMedic Shield), ada “per rider/certificate year” (sekali setahun, contoh A-Plus Health360). Dua makna berbeza, dengan kesan besar pada kos — semak frasa tepat dalam PDS.',
   },
   {
     q: 'Co-insurance 5% — ada had maksimum tak?',
-    a: 'Selalunya ada cap (contoh “dihadkan atas RM500”). Tanpa cap, 5% dari bil RM100,000 = RM5,000. Sentiasa tanya dua-dua: peratus dan cap. Kalau tiada cap bertulis, anggap risiko terbuka.',
+    a: 'Selalunya ada had atau cap (contoh “dihadkan atas RM500”). Tanpa cap, 5% daripada bil RM100,000 = RM5,000. Sentiasa tanya kedua-duanya: peratus dan cap. Jika tiada cap bertulis, anggap risikonya terbuka.',
   },
   {
     q: 'Betul ke plan co-payment lagi murah?',
-    a: 'Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah sebab anda kongsi risiko. Tapi murah pada caruman, mahal masa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.',
+    a: 'Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah kerana anda berkongsi risiko. Tetapi murah pada caruman, mahal semasa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.',
   },
 ];
 
@@ -98,8 +98,8 @@ const schema = {
   <div class="container-article py-8 sm:py-12">
     <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
-        <strong>Deductible</strong> ialah jumlah anda bayar dulu setiap kali claim. <strong>Co-insurance atau co-payment</strong>
-        pula ialah peratus anda kongsi daripada baki. Jadi “bayar dulu, lepas tu kongsi” menentukan jumlah sebenar yang keluar
+        <strong>Deductible</strong> ialah jumlah yang anda bayar dulu setiap kali claim. <strong>Co-insurance atau co-payment</strong>
+        pula ialah peratus yang anda kongsi daripada baki. Jadi “bayar dulu, kemudian kongsi” menentukan jumlah sebenar yang keluar
         dari poket — bukan angka premium bulanan sahaja.
       </p>
       <p class="note-plain text-sm leading-6">
@@ -110,67 +110,67 @@ const schema = {
       <h2 id="maksud">Dua perkataan, satu idea: anda kongsi bil</h2>
       <ul>
         <li>
-          <strong>Deductible (deduktibel)</strong> — jumlah anda bayar dulu setiap kali claim. Bil RM10,000, deductible RM500
+          <strong>Deductible (deduktibel)</strong> — jumlah yang anda bayar dulu setiap kali claim. Bil RM10,000, deductible RM500
           → insurer kira baki RM9,500.
         </li>
         <li>
-          <strong>Co-insurance / co-payment / co-takaful</strong> — peratus anda kongsi dari baki. Baki RM9,500 × 5% = RM475
+          <strong>Co-insurance / co-payment / co-takaful</strong> — peratus yang anda kongsi daripada baki. Baki RM9,500 × 5% = RM475
           anda bayar lagi.
         </li>
       </ul>
       <p>
-        Jumlah keluar poket: RM500 + RM475 = <strong>RM975</strong>. Insurer bayar RM9,025. Itu saja — “bayar dulu, lepas tu
+        Jumlah keluar poket: RM500 + RM475 = <strong>RM975</strong>. Insurer bayar RM9,025. Itu sahaja — “bayar dulu, kemudian
         kongsi”.
       </p>
 
-      <h2 id="contoh">Contoh penuh dengan angka dari plan sebenar</h2>
+      <h2 id="contoh">Contoh penuh dengan angka daripada plan sebenar</h2>
       <p>
         Ambil struktur sebenar (bukan rekaan): A-Plus Health360 ada opsyen deductible RM500, RM1,000 atau RM3,000 per rider
         year dengan co-insurance 5% dihadkan atas RM500. Contoh bil RM20,000 dengan deductible RM1,000:
       </p>
       <ol>
         <li>Tolak deductible: RM20,000 − RM1,000 = RM19,000.</li>
-        <li>Co-insurance 5% atas baki = RM950 — tapi dihadkan (cap) RM500, jadi anda bayar RM500 saja.</li>
+        <li>Co-insurance 5% atas baki = RM950 — tetapi dihadkan (cap) pada RM500, jadi anda bayar RM500 sahaja.</li>
         <li>Keluar poket: RM1,000 + RM500 = <strong>RM1,500</strong>. Cap itu penting — tanpanya anda bayar RM950.</li>
       </ol>
       <p>
         Contoh lain: Takaful Malaysia myMedik guna Co-Takaful 5% atau 10% dihadkan atas RM500 atau RM1,000 per certificate
-        year — dan dikecualikan kalau dirawat di hospital kerajaan. Sentiasa baca dua angka: <strong>peratus dan cap</strong>.
+        year — dan dikecualikan jika dirawat di hospital kerajaan. Sentiasa baca dua angka: <strong>peratus dan cap</strong>.
       </p>
 
       <h2 id="bnm">Kenapa wujud? Peraturan BNM 1 September 2024</h2>
       <p>
-        Fakta awam BNM (6 Jul 2024): mulai <strong>1 September 2024 semua pengendali insurans atau takaful mesti tawarkan
-        produk dengan opsyen co-payment</strong>. Produk co-payment dilaporkan 19%–68% lebih murah. Logiknya telus: anda janji
-        kongsi bil → caruman lebih rendah. Co-payment juga dikecualikan untuk kecemasan, follow-up kanser atau dialisis, dan
-        rawatan hospital kerajaan. Jadi deductible tinggi bukan “plan murah tipu” — ia pilihan sah: bayar kurang tiap bulan,
-        bayar lebih masa claim.
+        Fakta awam BNM (6 Jul 2024): mulai <strong>1 September 2024 semua pengendali insurans atau takaful mesti menawarkan
+        produk dengan opsyen co-payment</strong>. Produk co-payment dilaporkan 19%–68% lebih murah. Logiknya telus: anda berjanji
+        berkongsi bil → caruman lebih rendah. Co-payment juga dikecualikan untuk kecemasan, follow-up kanser atau dialisis, dan
+        rawatan hospital kerajaan. Jadi deductible tinggi bukan “plan murah tipu” — ia pilihan sah: bayar kurang setiap bulan,
+        bayar lebih semasa claim.
       </p>
 
       <h3 id="bilik">Perangkap sebenar: naik taraf bilik</h3>
       <p>
-        Punca claim “kurang dari jangka” paling biasa: pilih bilik melebihi kelayakan (contoh kelayakan RM250 sehari, ambil
-        RM400). Anda bayar perbezaan bilik, dan sesetengah polisi kenakan co-insurance atas baki bil (contoh GREAT MedCare:
-        perbezaan + 20% co-insurance atas bil lain). Tanya sebelum warded: “bilik ini dalam kelayakan saya?”
+        Satu punca claim “kurang daripada jangkaan”: memilih bilik melebihi kelayakan (contoh kelayakan RM250 sehari, ambil
+        RM400). Anda bayar perbezaan bilik, dan sesetengah polisi mengenakan co-insurance atas baki bil (contoh GREAT MedCare:
+        perbezaan + 20% co-insurance atas bil lain). Tanya sebelum dimasukkan ke wad: “bilik ini dalam kelayakan saya?”
       </p>
 
       <h2 id="pilih">Cara pilih deductible anda</h2>
       <ul>
         <li>
-          Aliran tunai ketat, simpanan nipis → deductible rendah (RM300–500), sebab anda tak mampu keluar RM5,000 tiba-tiba.
+          Aliran tunai ketat, simpanan nipis → deductible rendah (RM300–500), kerana anda tidak mampu mengeluarkan RM5,000 secara tiba-tiba.
           Contoh: varian deductible RM300 wujud (Great Eastern SmartMedic Shield).
         </li>
         <li>
-          Simpanan kukuh, nak caruman rendah → deductible tinggi (RM5,000–10,000 — contoh Tokio Marine Medic Plus direka
+          Simpanan kukuh, mahu caruman rendah → deductible tinggi (RM5,000–10,000 — contoh Tokio Marine Medic Plus direka
           sebagai top-up dengan deductible RM10,000) berfungsi sebagai cover kedua atas polisi majikan.
         </li>
         <li>
-          Peraturan ibu jari: deductible maksimum = jumlah anda boleh bayar esok pagi tanpa korek dana kecemasan sampai kosong.
+          Panduan kasar: deductible maksimum = jumlah yang anda boleh bayar esok pagi tanpa mengosongkan dana kecemasan.
         </li>
       </ul>
       <p>
-        Buka PDS, cari dua baris: “deductible” dan “co-insurance atau co-payment” — kalau ejen tak boleh tunjuk dua ayat itu
-        bertulis, jangan sign dulu.
+        Buka PDS, cari dua baris: “deductible” dan “co-insurance atau co-payment” — jika ejen tidak boleh menunjukkan dua ayat itu
+        secara bertulis, jangan tandatangan dulu.
       </p>
     </article>
 

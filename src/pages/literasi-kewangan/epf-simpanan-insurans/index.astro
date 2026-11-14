@@ -23,15 +23,15 @@ const sources = [
 const faqs = [
   {
     q: 'Boleh guna duit EPF untuk beli insurans ke?',
-    a: 'Boleh untuk produk tersenarai di i-Lindung dalam app KWSP — contoh disahkan: Etiqa Critical Care Plus dan Critical Care Takaful. Terma dan had ikut produk masing-masing, dan pengeluaran mengurangkan baki persaraan. Semak produk aktif masa apply.',
+    a: 'Boleh untuk produk yang tersenarai di i-Lindung dalam aplikasi KWSP — contoh disahkan: Etiqa Critical Care Plus dan Critical Care Takaful. Terma dan had ikut produk masing-masing, dan pengeluaran mengurangkan baki persaraan. Semak produk yang aktif semasa memohon.',
   },
   {
     q: 'Ada cover majikan — masih perlu medical card sendiri?',
-    a: 'Bergantung angka: bandingkan had tahunan majikan dengan kos hospital swasta di bandar anda dan risiko pertukaran kerja (cover majikan berhenti bila anda berhenti). Ramai guna majikan sebagai asas + top-up swasta deductible-tinggi sebagai jaring kedua.',
+    a: 'Bergantung pada angka: bandingkan had tahunan cover majikan dengan kos hospital swasta di bandar anda dan risiko pertukaran kerja (cover majikan berhenti apabila anda berhenti kerja). Ada yang menggunakan cover majikan sebagai asas, dengan top-up swasta deductible tinggi sebagai jaring kedua.',
   },
   {
     q: 'mySalam dengan CI swasta — bertindih ke?',
-    a: 'Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 one-off + RM50/hari hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta bayar lump sum ikut sum assured untuk ganti pendapatan dan hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang — kira, jangan assume cukup atau assume perlu.',
+    a: 'Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 sekali bayar + RM50/hari di hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta membayar sekali gus (lump sum) ikut sum assured untuk menggantikan pendapatan dan membayar hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang — kira dulu; jangan anggap sudah cukup, dan jangan anggap perlu.',
   },
 ];
 
@@ -102,7 +102,7 @@ const schema = {
     <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
         Turutan asas yang selamat ialah <strong>penampan tunai → audit percuma atau sedia ada → i-Lindung → top-up swasta
-        untuk jurang</strong>. Tujuannya bukan cari produk paling banyak, tetapi tahu apa yang runtuh dulu kalau musibah datang
+        untuk jurang</strong>. Tujuannya bukan mencari produk paling banyak, tetapi mengetahui apa yang runtuh dulu jika musibah datang
         bulan ini.
       </p>
       <p class="note-plain text-sm leading-6">
@@ -112,61 +112,61 @@ const schema = {
 
       <h2 id="turutan">Kenapa turutan penting</h2>
       <p>
-        Perlindungan yang dibeli sebelum asas kukuh selalu jadi beban: caruman bulanan makan dana kecemasan, lepas tu polisi
-        lapse bila kereta rosak atau kena buang kerja. Turutan betul bukan soal produk terbaik — soal <strong>apa runtuh dulu
-        kalau musibah datang bulan ini.</strong>
+        Perlindungan yang dibeli sebelum asas kukuh selalu menjadi beban: caruman bulanan memakan dana kecemasan, kemudian polisi
+        luput (lapse) apabila kereta rosak atau anda dibuang kerja. Turutan yang betul bukan soal produk terbaik — tetapi soal <strong>apa yang runtuh dulu
+        jika musibah datang bulan ini.</strong>
       </p>
 
       <h2 id="dana-kecemasan">Langkah 1: Dana kecemasan (3–6 bulan perbelanjaan asas)</h2>
       <p>
-        Ini duit tunai, asing dari akaun belanja. Bukan pelaburan, bukan EPF — sebab EPF tak boleh keluar suka hati. Sasaran:
-        3 bulan perbelanjaan keperluan minimum (makan, rumah, transport). Kalau RM1,500 sebulan, sasaran awal RM4,500.
+        Ini wang tunai, berasingan daripada akaun belanja. Bukan pelaburan, bukan EPF — kerana EPF tidak boleh dikeluarkan sesuka hati. Sasaran:
+        3 bulan perbelanjaan keperluan minimum (makan, rumah, pengangkutan). Jika RM1,500 sebulan, sasaran awal RM4,500.
       </p>
       <p>
-        Belum cukup? Tak apa — mula dengan RM1,000 sebagai penampan, sambil tutup pembelian komitmen baru. Dana ini yang elak
-        anda surrender polisi atau swipe kad kredit bila tayar pecah serentak dengan bil perubatan.
+        Belum cukup? Tidak apa — mula dengan RM1,000 sebagai penampan, sambil berhenti menambah komitmen baharu. Dana inilah yang mengelakkan
+        anda daripada menyerahkan (surrender) polisi atau menggunakan kad kredit apabila tayar pecah serentak dengan bil perubatan.
       </p>
 
-      <h2 id="skim-sedia-ada">Langkah 2: EPF + skim sedia ada (yang dah tolak gaji)</h2>
-      <p>Sebelum tambah apa-apa, audit apa anda DAH ada — ramai tak sedar:</p>
+      <h2 id="skim-sedia-ada">Langkah 2: EPF + skim sedia ada (yang sudah dipotong daripada gaji)</h2>
+      <p>Sebelum menambah apa-apa, audit apa yang anda SUDAH ada — sesetengahnya mungkin tidak anda sedari:</p>
       <ul>
         <li>
-          <strong>EPF</strong> — caruman wajib + dividen; ini asas persaraan, bukan dana perubatan. Tapi simpanan EPF boleh
+          <strong>EPF</strong> — caruman wajib + dividen; ini asas persaraan, bukan dana perubatan. Tetapi simpanan EPF boleh
           ditolak dalam kiraan jurang coverage (keperluan kasar tolak simpanan sedia ada).
         </li>
         <li>
-          <strong>PERKESO</strong> — Skim Keilatan beri pencen atau elaun bulanan untuk hilang upaya kekal (bukan bayaran
-          sekaligus macam CI swasta). Pekerja berdaftar dah dilindungi — semak, bukan beli ganti.
+          <strong>PERKESO</strong> — Skim Keilatan memberi pencen atau elaun bulanan untuk hilang upaya kekal (bukan bayaran
+          sekali gus seperti CI swasta). Pekerja berdaftar sudah dilindungi — semak dulu, bukan beli pengganti.
         </li>
         <li>
-          <strong>Cover majikan</strong> — panel klinik, had hospital tahunan. Tahu angkanya: kalau majikan cover RM50,000
-          setahun, top-up swasta anda cuma perlu tampung lebihan, bukan bermula dari sifar.
+          <strong>Cover majikan</strong> — panel klinik, had hospital tahunan. Ketahui angkanya: jika majikan melindungi RM50,000
+          setahun, top-up swasta anda hanya perlu menampung bakinya, bukan bermula dari sifar.
         </li>
         <li>
-          <strong>mySalam</strong> — skim percuma untuk penerima STR (kerajaan + Great Eastern Holdings): RM8,000 tunai one-off
+          <strong>mySalam</strong> — skim percuma untuk penerima STR (kerajaan + Great Eastern Holdings): RM8,000 tunai sekali bayar
           untuk 50 penyakit kritikal + RM50/hari pendapatan hospital (mesti bermalam; hospital kerajaan/universiti/tentera
-          panel), maksimum 14 hari setahun (RM700). Penerima layak tak perlu beli ganti benda yang sama.
+          panel), maksimum 14 hari setahun (RM700). Penerima yang layak tidak perlu membeli perlindungan yang sama sekali lagi.
         </li>
       </ul>
 
-      <h2 id="i-lindung">Langkah 3: i-Lindung (guna duit EPF, tapi ingat itu duit anda)</h2>
+      <h2 id="i-lindung">Langkah 3: i-Lindung (guna duit EPF, tetapi ingat itu duit anda)</h2>
       <p>
-        i-Lindung ialah <strong>saluran</strong>, bukan produk — beli perlindungan guna dana Akaun EPF melalui app KWSP.
+        i-Lindung ialah <strong>saluran</strong>, bukan produk — beli perlindungan guna dana Akaun EPF melalui aplikasi KWSP.
         Produk yang disahkan dalam data kami: Etiqa Critical Care Plus (42 kondisi) dan Etiqa Critical Care Takaful (39
-        kondisi), plus barisan FWD i-Lindung (term, CI, medical). Kelebihannya: tak usik aliran tunai bulanan. Amaran
-        jujurnya: ia tetap mengurangkan baki persaraan — semak had umur dan jumlah cover setiap produk dalam app sebelum apply,
+        kondisi), serta barisan FWD i-Lindung (term, CI, medical). Kelebihannya: tidak menjejaskan aliran tunai bulanan. Amaran
+        jujurnya: ia tetap mengurangkan baki persaraan — semak had umur dan jumlah cover setiap produk dalam aplikasi sebelum memohon,
         dan jangan anggap “duit EPF” maksudnya percuma.
       </p>
 
-      <h2 id="top-up">Langkah 4: Top-up swasta (tutup jurang saja)</h2>
+      <h2 id="top-up">Langkah 4: Top-up swasta (tutup jurang sahaja)</h2>
       <p>
-        Baru di sini beli dari poket sendiri — dan hanya sebesar jurang: keperluan kasar tolak simpanan tolak coverage sedia
+        Hanya pada langkah ini anda membeli dengan wang sendiri — dan hanya sebesar jurang: keperluan kasar tolak simpanan tolak coverage sedia
         ada. Ada cover majikan RM50,000 + bajet hospital swasta bandar besar? Mungkin top-up deductible-tinggi (<a href="/literasi-kewangan/deductible-co-insurance/">baca artikel deductible dan co-insurance</a>) memadai. Tiada tanggungan? Mungkin CI kecil dahulu, bukan medical besar. Prinsipnya:
-        <strong>setiap ringgit caruman mesti tutup jurang yang dah dikenal pasti, bukan risiko yang ejen kenal pasti.</strong>
+        <strong>setiap ringgit caruman mesti menutup jurang yang sudah dikenal pasti, bukan risiko yang ejen kenal pasti.</strong>
       </p>
       <p>
         Susunan ringkas: penampan tunai → audit percuma atau sedia ada → i-Lindung untuk asas murah → top-up swasta untuk
-        baki jurang. Ikut turutan ini, anda takkan bayar dua kali untuk perlindungan yang sama.
+        baki jurang. Dengan turutan ini, anda tidak akan membayar dua kali untuk perlindungan yang sama.
       </p>
     </article>
 

@@ -23,7 +23,7 @@ const sources = [
 const faqs = [
   {
     q: 'Bila patut mula renew?',
-    a: '2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau polisi lapse, anda tak boleh drive legally dan NCD boleh terjejas. Peringatan kalendar + folder PDF tahunan jadikan ini automatik.',
+    a: '2–4 minggu sebelum tamat. Jangan tunggu saat akhir — jika polisi luput (lapse), anda tidak sah memandu di jalan raya dan NCD boleh terjejas. Peringatan kalendar dan folder PDF tahunan menjadikan proses ini automatik.',
   },
   {
     q: 'Renew guna MyEG atau Bjak?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Sum insured ikut apa sebenarnya?',
-    a: 'Nilai pasaran semasa kereta — bukan harga beli, bukan baki loan. Terlalu tinggi = premium membazir; terlalu rendah = claim dikurangkan (under-insurance). Semak angka auto-detect aggregator dengan harga pasaran semasa sebelum bayar.',
+    a: 'Nilai pasaran semasa kereta — bukan harga beli, bukan baki pinjaman. Terlalu tinggi = premium membazir; terlalu rendah = claim dikurangkan (under-insurance). Semak angka yang dikesan secara automatik oleh aggregator dengan harga pasaran semasa sebelum bayar.',
   },
 ];
 
@@ -110,42 +110,42 @@ const schema = {
 
       <h2 id="panik">Kenapa jadi panik (dan cara matikannya)</h2>
       <p>
-        Panik renew datang dari satu punca: buat semuanya minggu terakhir, serentak. Ubatnya ritual berturutan — mula 2–4
-        minggu awal, ikut susunan yang betul. Jangan langkau langkah 1.
+        Panik renew datang daripada satu punca: membuat semuanya pada minggu terakhir, serentak. Ubatnya ialah ritual berturutan — mula 2–4
+        minggu awal dan ikut susunan yang betul. Jangan langkau langkah 1.
       </p>
 
       <h2 id="ncd">Langkah 1: Semak NCD anda (jangan langkau)</h2>
       <p>
-        NCD (No Claim Discount) tentukan harga premium — 0% hingga 55% ikut rekod tanpa claim. Semak di MyEG atau tanya
-        syarikat insurans semasa, screenshot angkanya. NCD salah = quotation salah = bayar lebih atau polisi bermasalah. Kalau
-        baru accident, kira dulu “patut ke claim?” — ada kalkulator untuk itu sebelum anda reset NCD bertahun-tahun.
+        NCD (diskaun tanpa tuntutan) menentukan harga premium — 0% hingga 55% ikut rekod tanpa claim. Semak di MyEG atau tanya
+        syarikat insurans semasa, dan simpan tangkapan skrin angkanya. NCD salah = quotation salah = bayar lebih atau polisi bermasalah. Jika
+        baru mengalami kemalangan, kira dulu “patut ke claim?” — ada kalkulator untuk itu, sebelum NCD yang anda kumpul bertahun-tahun ditetapkan semula.
       </p>
 
       <h2 id="sum-insured">Langkah 2: Semak sum insured (nilai pasaran, bukan harga beli)</h2>
       <p>
         Sum insured patut ikut <strong>nilai pasaran semasa</strong>, bukan harga anda beli dulu. Terlalu tinggi = bayar premium
-        lebih untuk nilai yang insurer takkan bayar penuh (mereka bayar ikut pasaran masa claim). Terlalu rendah = under-insured,
-        claim dikurangkan. Sistem aggregator biasa auto-detect, tapi semak sendiri — kereta 5 tahun nilainya jauh beza dari
-        geran asal.
+        lebih untuk nilai yang insurer tidak akan bayar penuh (mereka bayar ikut nilai pasaran semasa claim). Terlalu rendah = under-insured,
+        claim dikurangkan. Sistem aggregator biasanya mengesan nilai secara automatik, tetapi semak sendiri — nilai kereta berusia 5 tahun jauh berbeza daripada
+        nilai pada geran asal.
       </p>
 
-      <h2 id="quotation">Langkah 3: Banding 2–3 quotation + add-on perlu saja</h2>
+      <h2 id="quotation">Langkah 3: Banding 2–3 quotation + add-on yang perlu sahaja</h2>
       <p>
         Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama
-        (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>) — senarai itu bukan ranking editorial sesiapa. Lepas tu add-on perlu saja: cermin (kereta selalu highway), banjir atau special perils (kawasan rendah — baca
-        panduan banjir kami), tolak yang tak perlu. Nota integriti: JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk
+        (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>) — senarai itu bukan kedudukan editorial sesiapa. Selepas itu, pilih add-on yang perlu sahaja: cermin (jika kereta selalu di lebuh raya), banjir atau special perils (kawasan rendah — baca
+        panduan banjir kami), dan tolak yang tidak perlu. Nota integriti: JPJ menyatakan (Mei 2024) Bjak tiada kebenaran rasmi untuk
         renew roadtax dan tiada integrasi MySikap — untuk roadtax guna saluran rasmi (MyJPJ atau MyEG).
       </p>
 
       <h2 id="bayar">Langkah 4: Bayar → e-cover note → roadtax → fail PDF</h2>
       <ol>
-        <li>Bayar online (FPX atau kad; sesetengah terima ansuran).</li>
-        <li>E-cover note masuk email — <strong>simpan PDF terus</strong>, ini bukti insurans sah.</li>
+        <li>Bayar dalam talian (FPX atau kad; sesetengah insurer terima ansuran).</li>
+        <li>E-cover note dihantar melalui e-mel — <strong>simpan PDF itu terus</strong>, ini bukti insurans sah.</li>
         <li>Renew roadtax: MyEG (ada yuran servis RM2.50 + SST 8% + pos kurier), Pos Malaysia, JPJ atau MyJPJ untuk kes khas.</li>
-        <li>Buat folder “Renew 2027”: PDF polisi + e-cover note + resit roadtax + screenshot NCD. Set peringatan kalendar 3 minggu sebelum tamat tahun depan. Jumlah belanja tahun ini = premium (selepas NCD) + roadtax — dua angka, satu folder.</li>
+        <li>Buat folder “Renew 2027”: PDF polisi + e-cover note + resit roadtax + tangkapan skrin NCD. Set peringatan kalendar 3 minggu sebelum tamat tahun depan. Jumlah belanja tahun ini = premium (selepas NCD) + roadtax — dua angka, satu folder.</li>
       </ol>
       <p>
-        Ritual ini ambil 15 minit kalau dibuat awal, 15 hari tekanan kalau dibuat lewat. Tahun depan, folder PDF anda akan
+        Ritual ini mengambil masa 15 minit jika dibuat awal, 15 hari tekanan jika dibuat lewat. Tahun depan, folder PDF anda akan
         berterima kasih kepada diri anda hari ini.
       </p>
     </article>
