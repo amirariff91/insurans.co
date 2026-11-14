@@ -1,11 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
-import AnswerCard from '../../components/AnswerCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
-import Hero from '../../components/Hero.astro';
+import Ikon from '../../components/Ikon.astro';
+import ModelAnswer from '../../components/edisi/ModelAnswer.astro';
+import ModelRail from '../../components/edisi/ModelRail.astro';
+import ToolsRail from '../../components/edisi/ToolsRail.astro';
+import '../../styles/edisi-answer.css';
 import NcdLadder from '../../components/NcdLadder.astro';
 import carModels from '../../data/car-models.json';
 import companies from '../../data/companies.json';
@@ -164,6 +167,13 @@ const schema = {
   }
 };
 
+const addonIcon = (name: string) =>
+  /windscreen|cermin/i.test(name) ? 'i-cermin'
+  : /special perils|banjir|flood/i.test(name) ? 'i-banjir'
+  : /tunda|tow|rescue/i.test(name) ? 'i-tunda'
+  : /kunci|key/i.test(name) ? 'i-kunci'
+  : /pihak|liabil|legal|driver|pemandu/i.test(name) ? 'i-pihak-ketiga'
+  : 'i-tambah';
 const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`;
 ---
 
@@ -179,277 +189,211 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
   siteSuffix={false}
   ads={passesUniqueness}
 >
-  <Hero title={`Harga insurans & roadtax ${searchName} 2026`}>
-    <Byline slot="byline" dateModified={articleDate} />
-    {totalText && (
-      <p slot="description" class="mt-4 max-w-2xl text-lg leading-7 text-stone-700">
-        Anggaran setahun (Semenanjung) untuk {nameWithEngine}: insurans <span class="numeric">{formatRange(model.premiumNCD55Min, model.premiumNCD55Max, rm)}</span> (NCD 55%)
-        + roadtax <span class="numeric">{formatRange(model.roadtaxMin, model.roadtaxMax, rmExact)}</span>
-        {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
-      </p>
-    )}
-    <Breadcrumbs
-      slot="breadcrumbs"
-      items={[
-        { label: 'Utama', href: '/' },
-        { label: 'Insurans Kereta', href: '/car-insurance/' },
-        { label: model.fullName },
-      ]}
-    />
-    <AnswerCard
-      slug={model.slug}
-      model={model.fullName}
-      year="2026"
-      premium0={{ min: model.premiumNCD0Min, max: model.premiumNCD0Max }}
-      premium55={{ min: model.premiumNCD55Min, max: model.premiumNCD55Max }}
-    />
-    <div class="mt-4 mr-2">
-      <EditorialStamp
-        articleDate={schema.dateModified}
-        premiumReviewed={model.premiumReviewed}
-        sources={model.sources}
-      />
-    </div>
-  </Hero>
+  <div class="ep">
+    <div class="ep-main">
+      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl} />
 
-  <div class="container-article py-8 sm:py-12">
-    <div class="space-y-10 sm:space-y-14">
+      <div class="ep-crumbs">
+        <Breadcrumbs
+          items={[
+            { label: 'Utama', href: '/' },
+            { label: 'Insurans Kereta', href: '/car-insurance/' },
+            { label: model.fullName },
+          ]}
+        />
+        <Byline dateModified={articleDate} />
+        <div class="mt-4">
+          <EditorialStamp
+            articleDate={schema.dateModified}
+            premiumReviewed={model.premiumReviewed}
+            sources={model.sources}
+          />
+        </div>
+      </div>
+
       <!-- Apa yang termasuk? -->
-      <article class="prose-editorial">
-        <p class="text-lg text-stone-700">{model.description}</p>
-        <h2 id="harga">Apa yang termasuk?</h2>
-        <p>
-          Anggaran di atas ialah untuk polisi <strong>komprehensif</strong> {model.fullName}.
-          Perlindungan ini biasanya merangkumi kerosakan kereta sendiri, liabiliti pihak ketiga,
-          kecurian dan kebakaran, tetapi butiran sebenar bergantung pada polisi dan syarikat.
-        </p>
-        <p>
-          Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}.
-          Roadtax dan perlindungan tambahan ditunjukkan berasingan supaya julat premium kekal jelas.
-        </p>
-      </article>
-
-      <!-- Kos Tahunan Anggaran -->
-      {model.roadtaxMin !== undefined && (
-        <section id="kos-tahunan" class="border border-stone-200 bg-krim-100 p-5 sm:p-6">
-          <h2 class="font-serif text-headline-sm text-stone-900">Kos tahunan anggaran</h2>
-          <div class="mt-4 space-y-3 text-base">
-            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-stone-200 py-2">
-              <span class="text-stone-600">Insurans · NCD 55%</span>
-              <span class="numeric font-semibold text-stone-900">{rm(model.premiumNCD55Min)} – {rm(model.premiumNCD55Max)}</span>
-            </div>
-            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-stone-200 py-2">
-              <span class="text-stone-600">Roadtax</span>
-              <span class="numeric font-semibold text-stone-900">
-                {model.roadtaxMin === model.roadtaxMax
-                  ? rmExact(model.roadtaxMin)
-                  : `${rmExact(model.roadtaxMin)} – ${rmExact(model.roadtaxMax)}`}
-              </span>
-            </div>
-            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 bg-hijau-50 px-3 py-3">
-              <span class="font-semibold text-stone-900">Jumlah anggaran</span>
-              <span class="numeric font-bold text-hijau-700">{rm(model.premiumNCD55Min + model.roadtaxMin)} – {rm(model.premiumNCD55Max + model.roadtaxMax)}</span>
-            </div>
-          </div>
-          <p class="mt-3 text-sm leading-5 text-stone-600">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-ons.{roadtaxHasSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>
-        </section>
-      )}
+      <section class="mod" aria-labelledby="harga">
+        <h2 class="mod-bar" id="harga"><Ikon name="i-lindung" size={22} /> Harga ini lindung 4 perkara. Banjir tak termasuk.</h2>
+        <div class="mod-in">
+          <p class="ix-s">{model.description}</p>
+          <p class="ix-s">
+            Anggaran di atas ialah untuk polisi <strong>komprehensif</strong> {model.fullName}.
+            Perlindungan ini biasanya merangkumi kerosakan kereta sendiri, liabiliti pihak ketiga,
+            kecurian dan kebakaran, tetapi butiran sebenar bergantung pada polisi dan syarikat.
+          </p>
+          <h3 class="rows-h">Dilindungi</h3>
+          <ul class="rows">
+            <li><Ikon name="i-kemalangan" size={24} /><div><b>Kerosakan kereta sendiri</b></div></li>
+            <li><Ikon name="i-pihak-ketiga" size={24} /><div><b>Liabiliti pihak ketiga</b></div></li>
+            <li><Ikon name="i-kunci" size={24} /><div><b>Kecurian</b></div></li>
+            <li><Ikon name="i-api" size={24} /><div><b>Kebakaran</b></div></li>
+          </ul>
+          <h3 class="rows-h">Kena tambah, setahun</h3>
+          <ul class="rows">
+            <li><Ikon name="i-banjir" size={24} /><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
+            {model.windscreenPrice && (
+              <li><Ikon name="i-cermin" size={24} /><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan calibration dengan panel bengkel sebelum memilih windscreen cover.</p></div></li>
+            )}
+          </ul>
+          <p class="ix-s">
+            Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}.
+            Roadtax dan perlindungan tambahan ditunjukkan berasingan supaya julat premium kekal jelas.
+          </p>
+        </div>
+      </section>
 
       <!-- Butiran model -->
-      <details class="border-y border-stone-300 py-2">
-        <summary class="flex min-h-12 cursor-pointer items-center font-semibold text-stone-900 hover:text-hijau-700">Butiran model &amp; andaian harga</summary>
-        <div class="pb-4 pt-3">
-          <dl class="grid gap-3 text-base sm:grid-cols-2">
-            <div>
-              <dt class="text-stone-600">Enjin / kapasiti</dt>
-              <dd class="font-semibold text-stone-900">{model.engineCC}</dd>
-            </div>
-            <div>
-              <dt class="text-stone-600">Varian</dt>
-              <dd class="font-semibold text-stone-900">{model.variants.join(', ')}</dd>
-            </div>
-            <div>
-              <dt class="text-stone-600">Tahun model</dt>
-              <dd class="font-semibold text-stone-900">{model.yearRange}</dd>
-            </div>
-            <div>
-              <dt class="text-stone-600">Segmen</dt>
-              <dd class="font-semibold text-stone-900">{model.segment}</dd>
-            </div>
-            <div class="sm:col-span-2">
-              <dt class="text-stone-600">Nilai pasaran</dt>
-              <dd class="font-semibold text-stone-900">{model.marketValueRange}</dd>
-            </div>
+      <section class="mod" aria-labelledby="butiran">
+        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Butiran model &amp; andaian harga</h2>
+        <div class="mod-in">
+          <dl class="facts">
+            <div><dt>Enjin / kapasiti</dt><dd>{model.engineCC}</dd></div>
+            <div><dt>Varian</dt><dd>{model.variants.join(', ')}</dd></div>
+            <div><dt>Tahun model</dt><dd>{model.yearRange}</dd></div>
+            <div><dt>Segmen</dt><dd>{model.segment}</dd></div>
+            <div><dt>Nilai pasaran</dt><dd>{model.marketValueRange}</dd></div>
           </dl>
-          <p class="mt-5 text-sm leading-5 text-stone-600">
-            {model.premiumMethodology || 'Harga ialah anggaran premium polisi komprehensif; umur kereta, lokasi, varian, rekod pemanduan dan syarikat boleh mengubah quotation.'}
-          </p>
-
-          {modelYearNotes.length > 0 && (
-            <div class="mt-6 border-t border-stone-200 pt-5">
-              <h3 class="font-serif text-headline-sm text-stone-900">Nota mengikut tahun</h3>
-              <ul class="mt-3 space-y-3">
-                {modelYearNotes.map((item: any) => (
-                  <li class="text-base leading-6 text-stone-700">
-                    <strong class="text-stone-900">{item.range}:</strong> {item.note}
-                  </li>
-                ))}
-              </ul>
+          <details class="baca">
+            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: cara harga dianggar{modelYearNotes.length > 0 && ' & nota mengikut tahun'}</span></summary>
+            <div class="baca-in">
+              <p>{model.premiumMethodology || 'Harga ialah anggaran premium polisi komprehensif; umur kereta, lokasi, varian, rekod pemanduan dan syarikat boleh mengubah quotation.'}</p>
+              {modelYearNotes.length > 0 && (
+                <>
+                  <h3 class="rows-h">Nota mengikut tahun</h3>
+                  <ul class="rows">
+                    {modelYearNotes.map((item: any) => (
+                      <li><Ikon name="i-kalendar" size={22} /><div><b>{item.range}:</b> {item.note}</div></li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
-          )}
+          </details>
         </div>
-      </details>
+      </section>
 
       <!-- NCD Section -->
-      <section id="ncd">
-        <div class="prose-editorial">
-          <h2>NCD: dari 0% hingga 55%</h2>
-          <p>
+      <section id="ncd" class="mod" data-tint="sky" aria-labelledby="ncd-h">
+        <h2 class="mod-bar" id="ncd-h"><Ikon name="i-tangga" size={22} /> NCD: dari 0% hingga 55%</h2>
+        <div class="mod-in">
+          <p class="ix-s">
             NCD (diskaun tanpa tuntutan) mengurangkan premium asas selepas tahun-tahun tanpa tuntutan.
             Jadual di bawah membezakan kadar diskaun daripada baki premium asas.
           </p>
+          <details class="baca">
+            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: tangga NCD</span></summary>
+            <div class="baca-in"><NcdLadder mode="diagram" selectedTier={55} /></div>
+          </details>
+          <p class="ix-s"><strong>Nota NCD:</strong> Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.</p>
+          <p><a href="/guides/ncd-explained/" class="inline-flex min-h-11 items-center">Panduan NCD →</a></p>
         </div>
-        <NcdLadder mode="diagram" selectedTier={55} />
-        <div class="info-box mt-6">
-          <p class="text-base leading-6 text-stone-700">
-            <strong>Nota NCD:</strong> Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.
-          </p>
-        </div>
-        <a href="/guides/ncd-explained/" class="mt-4 inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Panduan NCD →</a>
       </section>
 
       <!-- Add-ons Section -->
-      <section id="addons">
-        <div class="prose-editorial">
-          <h2>Add-ons untuk {model.fullName}</h2>
-          <p>
+      <section id="addons" class="mod" aria-labelledby="addons-h">
+        <h2 class="mod-bar" id="addons-h"><Ikon name="i-tambah" size={22} /> Add-ons untuk {model.fullName}</h2>
+        <div class="mod-in">
+          <p class="ix-s">
             Perlindungan tambahan bukan automatik untuk semua polisi. Pilih berdasarkan penggunaan kereta,
             lokasi dan kos yang anda sanggup tanggung sendiri.
           </p>
+          {addOnsDetail.length > 0 ? (
+            <ul class="rows">
+              {addOnsDetail.map((addon: any) => (
+                <li>
+                  <Ikon name={addonIcon(addon.name)} size={24} />
+                  <div>
+                    <b>{addon.name} · {addon.verdict}</b>
+                    <p>Anggaran: {addon.priceBM}{/special perils/i.test(addon.name) ? specialPerilsEstimate : ''}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
+                    <details class="baca"><summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh</span></summary><div class="baca-in"><p>{addon.whyBM}</p></div></details>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul class="rows">
+              {model.popularAddOns.map((addon: any) => (
+                <li>
+                  <Ikon name={addonIcon(addon.name)} size={24} />
+                  <div>
+                    <b>{addon.name} — {addon.recommended ? 'RECOMMENDED' : 'BERGANTUNG'}</b>
+                    <p>{addon.price} setahun untuk {model.model}.</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-
-        {addOnsDetail.length > 0 ? (
-          <div class="mt-6 space-y-3">
-            {addOnsDetail.map((addon: any) => (
-              <article class="border border-stone-200 bg-white p-4 sm:p-5">
-                <h3 class="font-semibold text-stone-900">{addon.name} · {addon.verdict}</h3>
-                <p class="mt-1 text-base leading-6 text-stone-700">{addon.whyBM}</p>
-                <p class="mt-2 text-sm leading-5 text-stone-600">Anggaran: {addon.priceBM}{/special perils/i.test(addon.name) ? specialPerilsEstimate : ''}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div class="mt-6 space-y-3">
-            {model.popularAddOns.map((addon: any) => (
-              <article class={`flex items-start gap-3 border p-4 ${addon.recommended ? 'border-hijau-200 bg-hijau-50' : 'border-stone-200 bg-stone-50'}`}>
-                <span class={`mt-0.5 shrink-0 text-sm font-bold ${addon.recommended ? 'text-hijau-700' : 'text-stone-600'}`} aria-hidden="true">{addon.recommended ? '✓' : '~'}</span>
-                <div>
-                  <h3 class="font-semibold text-stone-900">{addon.name} — {addon.recommended ? 'RECOMMENDED' : 'BERGANTUNG'}</h3>
-                  <p class="mt-1 text-base leading-6 text-stone-700">{addon.price} setahun untuk {model.model}.</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
-
-        {model.windscreenPrice && (
-          <p class="mt-5 text-base leading-6 text-stone-700">
-            Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan calibration dengan panel bengkel sebelum memilih windscreen cover.
-          </p>
-        )}
       </section>
 
       <!-- Risk Profile -->
-      <section id="risiko">
-        <div class="prose-editorial">
-          <h2>Profil risiko {model.fullName}</h2>
-          <p>
-            Setiap model mempunyai faktor risiko yang berbeza. Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.
-          </p>
-        </div>
-        <div class="mt-6 grid gap-4 sm:grid-cols-2">
-          <article class="card-editorial">
-            <h3 class="font-semibold text-stone-900">Risiko kecurian</h3>
-            <p class="mt-2 font-serif text-lg text-stone-900">{model.theftRiskDetail || model.riskProfile.theftRate}</p>
-          </article>
-          <article class="card-editorial">
-            <h3 class="font-semibold text-stone-900">Kos repair</h3>
-            <p class="mt-2 font-serif text-lg text-stone-900">{repairHeadline}</p>
-            <p class="mt-1 text-sm leading-5 text-stone-600">{model.riskProfile.repairCost}</p>
-          </article>
-          <article class="card-editorial">
-            <h3 class="font-semibold text-stone-900">Kekerapan tuntutan</h3>
-            <p class="mt-2 font-serif text-lg text-stone-900">{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p>
-          </article>
-          <article class="card-editorial sm:col-span-2">
-            <h3 class="font-semibold text-stone-900">Nota banjir dan had data</h3>
-            <p class="mt-2 text-base leading-6 text-stone-700">{model.floodRiskNote || model.riskProfile.notes}</p>
-          </article>
+      <section id="risiko" class="mod" aria-labelledby="risiko-h">
+        <h2 class="mod-bar" id="risiko-h"><Ikon name="i-amaran" size={22} /> Profil risiko {model.fullName}</h2>
+        <div class="mod-in">
+          <p class="ix-s">Setiap model mempunyai faktor risiko yang berbeza. Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.</p>
+          <ul class="rows">
+            <li><Ikon name="i-kunci" size={24} /><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
+            <li><Ikon name="i-sepana" size={24} /><div><b>Kos repair: {repairHeadline}</b><p>{model.riskProfile.repairCost}</p></div></li>
+            <li><Ikon name="i-claim" size={24} /><div><b>Kekerapan tuntutan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
+            <li><Ikon name="i-banjir" size={24} /><div><b>Nota banjir dan had data</b><p>{model.floodRiskNote || model.riskProfile.notes}</p></div></li>
+          </ul>
         </div>
       </section>
 
       <!-- Tips Section -->
-      <section id="tips">
-        <div class="prose-editorial">
-          <h2>Tips jimat insurans {model.fullName}</h2>
-          <p>Beberapa perkara praktikal untuk pemilik {model.model}:</p>
+      <section id="tips" class="mod" aria-labelledby="tips-h">
+        <h2 class="mod-bar" id="tips-h"><Ikon name="i-dompet" size={22} /> Tips jimat insurans {model.fullName}</h2>
+        <div class="mod-in">
+          <p class="ix-s">Beberapa perkara praktikal untuk pemilik {model.model}:</p>
+          <details class="baca">
+            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: {model.tips.length} tips</span></summary>
+            <ol class="baca-in list-decimal pl-5">
+              {model.tips.map((tip: string) => <li>{tip}</li>)}
+            </ol>
+          </details>
         </div>
-        <ol class="mt-6 space-y-3">
-          {model.tips.map((tip: string, index: number) => (
-            <li class="flex items-start gap-3 border border-stone-200 bg-white p-4">
-              <span class="shrink-0 font-serif text-lg text-stone-600">{index + 1}.</span>
-              <p class="text-base leading-6 text-stone-700">{tip}</p>
-            </li>
-          ))}
-        </ol>
       </section>
 
       <!-- Neutral company directory -->
-      <section>
-        <div class="prose-editorial">
-          <h2>Syarikat insurans</h2>
-          <p>
+      <section class="mod" aria-labelledby="syarikat-h">
+        <h2 class="mod-bar" id="syarikat-h"><Ikon name="i-cop" size={22} /> Syarikat insurans</h2>
+        <div class="mod-in">
+          <p class="ix-s">
             Harga dan ciri polisi boleh berbeza antara syarikat untuk {model.model}.
             Gunakan direktori ini sebagai titik mula, kemudian semak syarat dan quotation sebenar.
           </p>
+          <ul class="grid gap-x-8 sm:grid-cols-2">
+            {carInsurers.map((company) => (
+              <li><a href={`/companies/${company.slug}/`} class="inline-flex min-h-11 items-center font-semibold">{company.name}</a></li>
+            ))}
+          </ul>
+          <p><a href="/perbandingan/" class="inline-flex min-h-11 items-center">Lihat perbandingan syarikat →</a></p>
         </div>
-        <ul class="mt-5 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-          {carInsurers.map((company) => (
-            <li>
-              <a href={`/companies/${company.slug}/`} class="inline-flex min-h-11 items-center text-base font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{company.name}</a>
-            </li>
-          ))}
-        </ul>
-        <a href="/perbandingan/" class="mt-4 inline-flex min-h-11 items-center text-base text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Lihat perbandingan syarikat →</a>
+      </section>
 
-            </section>
-
-<nav aria-label="Panduan berkaitan" class="text-base">
-        <p class="font-semibold text-stone-900">Panduan berkaitan</p>
+      <nav aria-label="Panduan berkaitan" class="text-base">
+        <p class="font-semibold">Panduan berkaitan</p>
         <ul class="mt-2 flex flex-wrap gap-x-6 gap-y-1">
-          <li><a href="/guides/renew-car-insurance/" class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Cara renew insurans kereta online →</a></li>
-          <li><a href="/guides/how-to-claim/" class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Cara buat claim →</a></li>
-          <li><a href="/car-insurance/" class="inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Semua model →</a></li>
+          <li><a href="/guides/renew-car-insurance/" class="inline-flex min-h-11 items-center">Cara renew insurans kereta online →</a></li>
+          <li><a href="/guides/how-to-claim/" class="inline-flex min-h-11 items-center">Cara buat claim →</a></li>
+          <li><a href="/car-insurance/" class="inline-flex min-h-11 items-center">Semua model →</a></li>
         </ul>
       </nav>
 
       <!-- FAQ -->
-      <section id="faq">
-        <div class="prose-editorial">
-          <h2>Soalan lazim — Insurans {model.fullName}</h2>
-        </div>
-
-        <div class="mt-5">
+      <section id="faq" class="mod" aria-labelledby="faq-h">
+        <h2 class="mod-bar" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim — Insurans {model.fullName}</h2>
+        <div class="mod-in">
           {modelFaqs.length > 0 ? (
-            modelFaqs.map((faq: any, index: number) => (
-              <details class="faq-item" open={index === 0}>
+            modelFaqs.map((faq: any) => (
+              <details class="faq-item">
                 <summary>{faq.q}</summary>
                 <p>{faq.a}</p>
               </details>
             ))
           ) : (
             <>
-              <details class="faq-item" open>
+              <details class="faq-item">
                 <summary>Berapa harga insurans {model.model} sebulan?</summary>
                 <p>
                   Jika dibahagi secara bulanan, insurans {model.model} sekitar
@@ -458,7 +402,6 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
                   Ini setara tahunan ÷ 12, bukan pelan ansuran.
                 </p>
               </details>
-
               <details class="faq-item">
                 <summary>{model.model} patut ambil comprehensive atau third-party?</summary>
                 <p>
@@ -466,17 +409,15 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
                   Ia boleh melindungi kerosakan kereta sendiri, kereta orang lain dan kecurian, mengikut polisi.
                   Banjir dan bencana alam lain tidak termasuk dalam polisi asas: ia perlukan add-on special perils dengan premium tambahan.
                   Third-party hanya melindungi liabiliti kepada pihak ketiga.
-                  <a href="/car-insurance/" class="text-hijau-700 underline">Baca perbandingan jenis coverage →</a>
+                  <a href="/car-insurance/">Baca perbandingan jenis coverage →</a>
                 </p>
               </details>
-
               <details class="faq-item">
                 <summary>Boleh ke saya tukar syarikat insurans untuk {model.model} saya?</summary>
                 <p>
                   Ya. NCD ikut pemilik dan kereta, bukan syarikat. Masa renew, anda boleh membandingkan syarikat insurans berlesen dan memilih polisi yang sesuai.
                 </p>
               </details>
-
               <details class="faq-item">
                 <summary>Kenapa harga insurans {model.model} saya berbeza dari kawan?</summary>
                 <p>
@@ -485,13 +426,12 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
                   Dua orang dengan {model.model} yang sama boleh menerima quotation yang berbeza.
                 </p>
               </details>
-
               <details class="faq-item">
                 <summary>Apa add-on yang sesuai untuk {model.model}?</summary>
                 <p>
                   Windscreen cover dan special perils boleh dipertimbangkan berdasarkan penggunaan dan lokasi anda.
                   Semak had, pengecualian dan syarat claim sebelum memilih.
-                  <a href="/car-insurance/#addons" class="text-hijau-700 underline">Baca panduan add-ons lengkap →</a>
+                  <a href="/car-insurance/#addons">Baca panduan add-ons lengkap →</a>
                 </p>
               </details>
             </>
@@ -499,42 +439,20 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
         </div>
       </section>
 
-      <!-- Related Cars -->
-      {relatedCars.length > 0 && (
-        <section>
-          <div class="prose-editorial">
-            <h2>Model berkaitan</h2>
-            <p>Bandingkan model lain yang mungkin sesuai dengan keperluan anda:</p>
-          </div>
-          <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            {relatedCars.map((related: any) => (
-              <article class="card-editorial">
-                <h3 class="font-semibold text-stone-900">
-                  <a href={`/car-insurance/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{related.fullName}</a>
-                </h3>
-                <p class="mt-1 text-sm text-stone-600">{related.segment} · {related.engineCC}</p>
-                <dl class="mt-4 space-y-2 text-sm">
-                  <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
-                    <dt class="text-stone-600">NCD 55%</dt>
-                    <dd class="numeric font-semibold text-hijau-800">{rm(related.premiumNCD55Min)} – {rm(related.premiumNCD55Max)}</dd>
-                  </div>
-                  <div class="flex flex-wrap justify-between gap-x-3 gap-y-1">
-                    <dt class="text-stone-600">NCD 0%</dt>
-                    <dd class="numeric font-semibold text-stone-900">{rm(related.premiumNCD0Min)} – {rm(related.premiumNCD0Max)}</dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-
       <CtaBand
         heading={`Kira NCD dan semak quotation ${model.fullName}`}
         body="Masukkan premium asal daripada polisi anda. Kalkulator ini tidak menganggap julat editorial sebagai quotation sebenar."
         primary={{ label: 'Kira NCD saya →', href: primaryCalculatorUrl }}
         disclosure="Untuk sebut harga sebenar, minta terus daripada syarikat insurans (lihat senarai beli online di /insurans-online/). Tiada hubungan berbayar atau affiliate; pembelian dibuat di laman syarikat, bukan di sini."
       />
+    </div>
+
+    <aside class="ep-tools" aria-label="Alat">
+      <ToolsRail model={model} related={relatedCars} calculatorUrl={primaryCalculatorUrl} />
+    </aside>
+
+    <div class="ep-models">
+      <ModelRail current={model.slug} />
     </div>
   </div>
 

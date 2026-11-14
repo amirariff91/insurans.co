@@ -1,0 +1,48 @@
+---
+/**
+ * Right rail: "Patut ke claim?" (the NCD rule already stated on main, applied to this car's own
+ * figures; no new logic, the calculator does the sum) and related models.
+ */
+import Ikon from '../Ikon.astro';
+import Px from './Px.astro';
+import { carSteps } from './steps';
+import { rm } from '../../lib/ncd';
+
+interface Props { model: any; related: any[]; calculatorUrl: string }
+const { model, related, calculatorUrl } = Astro.props;
+const s = carSteps(model);
+const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
+---
+<section class="mod" data-tint="pink" aria-labelledby="patut-claim">
+  <h2 class="mod-bar" id="patut-claim"><Ikon name="i-neraca" size={22} /> Patut ke claim?</h2>
+  <div class="mod-in">
+    <p class="ix-s">Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD.</p>
+    <dl class="kb">
+      <div class="kb-r"><dt>{model.model} pada NCD <Px v={s.pct} /></dt><dd><Px v={s.ins} /></dd></div>
+      <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
+    </dl>
+    <p class="ix-s">Bandingkan kos repair dengan diskaun yang hilang sebelum claim.</p>
+    <a class="ea-btn ea-btn-p" href={calculatorUrl} data-cta="rail-claim">Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
+  </div>
+</section>
+
+{related.length > 0 && (
+  <section class="mod" aria-labelledby="model-berkaitan">
+    <h2 class="mod-bar" id="model-berkaitan">Model berkaitan</h2>
+    <div class="mod-in">
+      <p class="ix-s">Bandingkan model lain yang mungkin sesuai dengan keperluan anda:</p>
+      <ul class="rel">
+        {related.map((r: any) => (
+          <li>
+            <a href={`/car-insurance/${r.slug}/`}>{r.fullName}</a>
+            <p class="ix-src" style="border:0;padding:0">{r.segment} · {r.engineCC}</p>
+            <dl>
+              <div><dt>NCD 55%</dt><dd>{formatRange(r.premiumNCD55Min, r.premiumNCD55Max)}</dd></div>
+              <div><dt>NCD 0%</dt><dd>{formatRange(r.premiumNCD0Min, r.premiumNCD0Max)}</dd></div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
