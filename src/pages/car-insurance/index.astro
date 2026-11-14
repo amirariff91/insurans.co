@@ -4,6 +4,9 @@ import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import HubModelList from '../../components/edisi/HubModelList.astro';
 import HubTiles from '../../components/edisi/HubTiles.astro';
+import Dock from '../../components/edisi/Dock.astro';
+import Ikon from '../../components/Ikon.astro';
+import { rmRange } from '../../components/edisi/steps';
 import '../../styles/edisi-answer.css';
 import companies from '../../data/companies.json';
 import carModels from '../../data/car-models.json';
@@ -19,7 +22,7 @@ carModels.forEach((car) => {
 // Premium figures in the lead, price table and sidebar read from the same data as the model pages.
 const bySlug = Object.fromEntries(carModels.map((car) => [car.slug, car])) as Record<string, any>;
 const num = (value: number) => value.toLocaleString('en-MY');
-const range = (min: number, max: number) => `RM${num(min)} – RM${num(max)}`;
+const range = (min: number, max: number) => rmRange(min, max, (n) => `RM${num(n)}`);
 const leadSmall55 = `RM${num(bySlug['perodua-axia'].premiumNCD55Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD55Max)}`;
 const leadSmall0 = `RM${num(bySlug['perodua-axia'].premiumNCD0Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD0Max)}`;
 const leadMid55 = `RM${num(Math.min(bySlug['honda-city'].premiumNCD55Min, bySlug['toyota-vios'].premiumNCD55Min))}–RM${num(Math.max(bySlug['honda-city'].premiumNCD55Max, bySlug['toyota-vios'].premiumNCD55Max))}`;
@@ -90,13 +93,12 @@ const schema = {
         <span aria-hidden="true">›</span>
         <span>Insurans Kereta</span>
       </nav>
-      <p class="label">Panduan lengkap</p>
       <h1 class="ea-h1">
         {pageTitle}
       </h1>
       <!-- Quick summary card -->
       <section class="mod hub-sum" aria-labelledby="ringkasan">
-        <h2 class="mod-bar" id="ringkasan">Ringkasan: wajib third-party, NCD sehingga 55%</h2>
+        <h2 class="mod-bar" id="ringkasan">Wajib third-party, NCD sehingga 55%</h2>
         <dl class="text-sm">
           <div>
             <dt class="text-stone-500">Wajib?</dt>
@@ -148,7 +150,7 @@ const schema = {
           </p>
 
           <!-- Harga Section -->
-          <h2 id="harga" class="mod-bar hub-bar">Harga ikut nilai kereta, NCD, coverage dan syarikat</h2>
+          <h2 id="harga" class="mod-bar hub-bar mod-lab">Harga ikut nilai kereta, NCD, coverage dan syarikat</h2>
 
           <p>
             Harga bergantung pada beberapa faktor: <strong>nilai pasaran kereta</strong>, <strong>NCD anda</strong>,
@@ -225,7 +227,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">2. Third-Party Only</h3>
-              <span class="verdict bg-stone-100 text-stone-600">Minimum undang-undang</span>
+              <span class="verdict border border-edisi-ink bg-edisi-card text-edisi-ink">Minimum undang-undang</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Hanya melindungi kerosakan harta dan kecederaan <strong>orang lain</strong>. Kereta anda sendiri langsung tidak dilindungi.
@@ -240,7 +242,7 @@ const schema = {
           <div class="card-editorial">
             <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">3. Third-Party, Fire & Theft (TPFT)</h3>
-              <span class="verdict bg-emas-50 text-emas-700">Tengah-tengah</span>
+              <span class="verdict border border-edisi-ink bg-edisi-card text-edisi-ink">Tengah-tengah</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Seperti polisi pihak ketiga, tetapi dengan tambahan perlindungan untuk <strong>kecurian</strong> dan <strong>kebakaran</strong>.
@@ -314,8 +316,9 @@ const schema = {
           </table>
         </div>
 
-        <div class="info-box mb-6">
-          <p class="text-sm text-stone-700">
+        <div class="hub-warn mb-6">
+          <Ikon name="i-amaran" size={24} />
+          <p class="text-sm text-edisi-ink">
             <strong>Hati-hati:</strong> Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Pengecualiannya termasuk claim OD-KfK yang layak apabila pihak satu lagi bersalah, dan claim windscreen di bawah add-on windscreen (lihat <a href="/guides/ncd-explained/">panduan NCD</a>).
             Katakan kereta anda calar sedikit dan kos baiki RM500. Jika anda claim ketika NCD anda 55%,
             anda mungkin membayar RM1,000+ lebih untuk premium tahun depan.
@@ -341,7 +344,7 @@ const schema = {
         <article class="prose-editorial">
 
           <!-- Cara Renew -->
-          <h2 id="renew" class="mod-bar hub-bar">Renew online dalam 4 langkah</h2>
+          <h2 id="renew" class="mod-bar hub-bar mod-lab">Renew online dalam 4 langkah</h2>
 
           <p>
             Anda tidak perlu ke pejabat atau menunggu panggilan ejen. Ikut 4 langkah ini:
@@ -378,29 +381,29 @@ const schema = {
         </article>
 
         <div class="space-y-3 my-8">
-          <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
-            <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
+          <div class="hub-addon">
+            <span aria-hidden="true">✓</span>
             <div>
               <p class="font-semibold text-sm text-stone-900">Windscreen cover — pertimbangkan</p>
               <p class="text-sm text-stone-600">Harga add-on dan kos menukar cermin depan berbeza mengikut syarikat dan model kereta; minta sebut harga.</p>
             </div>
           </div>
-          <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
-            <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
+          <div class="hub-addon">
+            <span aria-hidden="true">✓</span>
             <div>
               <p class="font-semibold text-sm text-stone-900">Special perils (banjir & ribut) — pertimbangkan jika kawasan berisiko</p>
               <p class="text-sm text-stone-600">Lazimnya sekitar 0.2%–0.5% daripada sum insured setahun (contoh: RM100–250 untuk sum insured RM50,000). Wajar dipertimbangkan jika anda tinggal di kawasan yang kerap banjir.</p>
             </div>
           </div>
-          <div class="flex items-start gap-3 p-4 bg-emas-50 border border-emas-200">
-            <span class="text-emas-700 font-bold text-sm mt-0.5">~</span>
+          <div class="hub-addon">
+            <span aria-hidden="true">~</span>
             <div>
               <p class="font-semibold text-sm text-stone-900">Breakdown towing — bergantung pada penggunaan</p>
               <p class="text-sm text-stone-600">Lebih relevan untuk kereta lama atau perjalanan jauh. Semak dahulu sama ada waranti pengeluar sudah termasuk bantuan tunda.</p>
             </div>
           </div>
-          <div class="flex items-start gap-3 p-4 bg-stone-50 border border-stone-200">
-            <span class="text-stone-400 font-bold text-sm mt-0.5">~</span>
+          <div class="hub-addon">
+            <span aria-hidden="true">~</span>
             <div>
               <p class="font-semibold text-sm text-stone-900">NCD protector — semak syarat dan kos dahulu</p>
               <p class="text-sm text-stone-600">Harga dan syarat berbeza mengikut syarikat; minta sebut harga dan baca syaratnya sebelum membeli.</p>
@@ -493,7 +496,7 @@ const schema = {
 
         <article class="prose-editorial">
           <!-- Istilah penting -->
-          <h2 id="istilah" class="mod-bar hub-bar">Enam istilah penting, dari sum insured hingga betterment</h2>
+          <h2 id="istilah" class="mod-bar hub-bar mod-lab">Enam istilah penting, dari sum insured hingga betterment</h2>
         </article>
 
         <details class="hub-fold my-6">
@@ -602,7 +605,7 @@ const schema = {
 
         <!-- Car Models by Brand -->
         <article class="prose-editorial">
-          <h2 id="semua-model" class="mod-bar hub-bar">Harga NCD 55% setiap model, ikut jenama</h2>
+          <h2 id="semua-model" class="mod-bar hub-bar mod-lab">Harga NCD 55% setiap model, ikut jenama</h2>
           <p>
             Mahu tahu harga insurans untuk model kereta anda?
             Pilih model kereta di bawah untuk panduan lengkap — termasuk harga premium,
@@ -681,6 +684,7 @@ const schema = {
       </aside>
     </div>
   </div>
+  <Dock answer=".hub-sum" control="#ncd" />
 </Base>
 
 <style>
@@ -716,9 +720,11 @@ const schema = {
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
-  .hub-top-in .label {
-    margin-bottom: -0.75rem;
-  }
+  /* Warnings: white, ink border, the warning icon (colour roles: pink is for prices, yellow for totals and terms). */
+  .hub-warn { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem; border: 1.5px solid var(--ink); border-radius: var(--r-2); background: var(--card); color: var(--ink); }
+  .hub-warn > :global(svg) { flex: none; }
+  .hub-addon { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border: 1px solid var(--rule); border-radius: var(--r-2); background: var(--card); }
+  .hub-addon > span { font-weight: 700; font-size: 0.875rem; margin-top: 0.125rem; color: var(--ink); }
   .hub-lead {
     font-size: 1.0625rem;
     line-height: 1.55;
@@ -739,6 +745,8 @@ const schema = {
     scroll-margin-top: 5rem;
   }
   .hub-body :global(.prose-editorial > h2.hub-bar:first-child) { margin-top: 0.5rem; }
+  /* Topic labels (no finding to state): the quiet heading, so the black bars left each carry a finding. */
+  .hub-body :global(h2.hub-bar.mod-lab) { padding: 0.75rem 0 0; border-top: 2px solid var(--ink); border-radius: 0; background: none; color: var(--ink); font-size: 1.1875rem; }
   .hub-fold > summary {
     display: flex; align-items: center; min-height: 3rem; padding: 0.5rem 0.9rem; cursor: pointer;
     border: 2px solid var(--ink); border-radius: var(--r-2); font: 750 1.0625rem/1.25 var(--fd); color: var(--ink);

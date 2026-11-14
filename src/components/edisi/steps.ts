@@ -23,6 +23,14 @@ export type Values = Record<StepKey, string>;
 export const num = (n: number) => rm(n).replace(/^RM\s/, '');
 /** "330–670", or one value when both ends round the same. */
 export const span = (min: number, max: number) => (num(min) === num(max) ? num(min) : `${num(min)}–${num(max)}`);
+/**
+ * The one range format on car pages: "RM330–670" (RM once, en dash, no spaces), or one value when both ends
+ * print the same. `f` is any RM formatter (rm, an exact-sen one); only its "RM" prefix is dropped.
+ */
+export const rmRange = (min: number, max: number, f: (n: number) => string = rm) => {
+  const a = f(min).replace(/^RM\s?/, ''), b = f(max).replace(/^RM\s?/, '');
+  return a === b ? `RM${a}` : `RM${a}–${b}`;
+};
 /** JPJ roadtax can carry sen (RM793.60): exact, as on main. */
 export const rtNum = (n: number) => {
   const hasSen = Math.round(n * 100) % 100 !== 0;

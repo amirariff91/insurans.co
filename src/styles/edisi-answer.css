@@ -141,7 +141,12 @@
 .ea-btn { text-align: center; }
 .ea-btn:focus-visible, .ea a:focus-visible, .mod a:focus-visible, .ep a:focus-visible, .ep summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .ea-quote { font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
-.ea a:not(.ea-btn), .ep-main a:not([class*="btn"]), .mod a:not(.ea-btn) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+.ea a:not(.ea-btn), .ep-main a:not([class*="btn"]), .mod a:not([class*="btn"]) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+/* Buttons inside a module keep their own colours. `.mod a:not(.ea-btn)` (link colour, underline; also in
+   global.css) would turn the magenta button's text black (4.0:1, 2.8:1 on hover): restated at higher weight. */
+.mod a.btn-hijau:not(.ea-btn), .mod a.btn-hijau:not(.ea-btn):hover, .mod a.btn-hijau:not(.ea-btn):focus-visible { color: #fff; text-decoration: none; }
+.mod a.btn-outline:not(.ea-btn) { color: var(--ink); text-decoration: none; }
+.mod a.btn-outline:not(.ea-btn):hover { color: #fff; }
 
 /* ------------------------------------------------------------ titled modules (black title bars) */
 .ix, .mod { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); min-width: 0; }
@@ -151,6 +156,15 @@
 .ix-bar, .mod-bar { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.55rem 0.9rem; background: #000; color: #fff; margin: 0; }
 .ix-t, .mod-bar h2, .mod-bar { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
 .ix-t { flex: 1; }
+/* Quiet section label: where a bar would only name the topic (no finding to state), the module gets a plain
+   heading instead of a black bar, so the black bars that remain each carry a finding. */
+.mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.85rem 0.9rem 0; font: 800 1.0625rem/1.25 var(--fd); }
+/* A disclosure is not a heading: folded bars get the tray ground, a lighter weight and a ringed chevron. */
+.mod details > summary.mod-bar { background: var(--tray); color: var(--ink); font-weight: 700; cursor: pointer; box-shadow: inset 0 -1px 0 var(--rule); }
+.mod details > summary.mod-bar :is(h2, h3) { font-weight: 700; }
+.mod details > summary.mod-bar .hp-fold-i { flex: none; box-sizing: content-box; padding: 0.15rem; border: 1.5px solid var(--ink); border-radius: 50%; }
+.mod details > summary.mod-bar:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+@media (hover: hover) and (pointer: fine) { .mod details > summary.mod-bar:hover { background: var(--chip); } }
 .ix-i { flex: none; }
 .ix-body, .mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); overflow-wrap: break-word; }
 .ix-s { font-size: 1rem; line-height: 1.5; max-width: 62ch; }
@@ -195,7 +209,7 @@
 .mlist-g { display: flex; justify-content: space-between; padding: 0.4rem 0.75rem; background: var(--tray); font-weight: 700; font-size: 0.875rem; border-top: 1px solid rgb(0 0 0 / 0.15); }
 .mlist a { display: flex; justify-content: space-between; gap: 0.75rem; align-items: center; min-height: 2.75rem; padding: 0.3rem 0.75rem; border-top: 1px solid rgb(0 0 0 / 0.1); color: var(--ink); text-decoration: none; font-size: 0.9375rem; }
 .mlist a:hover { background: var(--tray); text-decoration: underline; }
-/* The rail is a .mod, and `.mod a:not(.ea-btn)` (link colour, underline) is more specific than `.mlist a`:
+/* The rail is a .mod, and `.mod a:not([class*="btn"])` (link colour, underline) is more specific than `.mlist a`:
    restate the list's own look at the same weight, after it. */
 .mod .mlist a { color: var(--ink); text-decoration: none; }
 .mod .mlist a:hover { text-decoration: underline; }

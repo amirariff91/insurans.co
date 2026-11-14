@@ -4,6 +4,7 @@ import CtaBand from '../components/CtaBand.astro';
 import EditorialStamp from '../components/EditorialStamp.astro';
 import Ikon from '../components/Ikon.astro';
 import HomeAnswer from '../components/edisi/HomeAnswer.astro';
+import Dock from '../components/edisi/Dock.astro';
 import ModelRail from '../components/edisi/ModelRail.astro';
 import ToolsRail from '../components/edisi/ToolsRail.astro';
 import '../styles/edisi-answer.css';
@@ -146,7 +147,7 @@ const faqSchema = {
       <!-- Main actions -->
       <div class="hp-grid">
         <section class="mod" aria-labelledby="popular">
-          <h2 class="mod-bar" id="popular"><Ikon name="i-kereta" size={22} /> Range premium ikut model: NCD 0% vs 55%</h2>
+          <h2 class="mod-bar mod-lab" id="popular"><Ikon name="i-kereta" size={22} /> Range premium ikut model: NCD 0% vs 55%</h2>
           <div class="mod-in">
             <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
             <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model popular di bawah <Ikon name="i-bawah" size={18} /></a>
@@ -163,7 +164,7 @@ const faqSchema = {
         </section>
 
         <section class="mod" aria-labelledby="banding">
-          <h2 class="mod-bar" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan: harga dan claim line, head-to-head</h2>
+          <h2 class="mod-bar mod-lab" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan: harga dan claim line, head-to-head</h2>
           <div class="mod-in">
             <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, harga dan talian claim.</p>
             <ul class="hp-links">
@@ -288,7 +289,7 @@ const faqSchema = {
 
       <!-- Other verticals -->
       <section class="mod" aria-labelledby="jenis">
-        <h2 class="mod-bar" id="jenis"><Ikon name="i-lindung" size={22} /> Selain kereta: kesihatan, nyawa, rumah dan lain-lain</h2>
+        <h2 class="mod-bar mod-lab" id="jenis"><Ikon name="i-lindung" size={22} /> Selain kereta: kesihatan, nyawa, rumah dan lain-lain</h2>
         <div class="mod-in">
           <ul class="hp-vert">
             <li><a href="/car-insurance/"><Ikon name="i-kereta" size={24} /><b>Insurans Kereta</b><span>Motor & motosikal</span></a></li>
@@ -311,7 +312,7 @@ const faqSchema = {
     <aside class="ep-tools" aria-label="Alat">
       <ToolsRail model={exampleModel} related={[]} calculatorUrl={`/tools/ncd-calculator/?model=${exampleModel.slug}`} hooks />
       <nav class="mod" aria-labelledby="kalkulator">
-        <h2 class="mod-bar" id="kalkulator"><Ikon name="i-kalkulator" size={22} /> {calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
+        <h2 class="mod-bar mod-lab" id="kalkulator"><Ikon name="i-kalkulator" size={22} /> {calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
         <ul class="hp-calc">
           {calculators.map((c) => (
             <li><a href={c.href}><Ikon name={c.icon} size={22} /><span>{c.label}</span></a></li>
@@ -328,6 +329,7 @@ const faqSchema = {
 
   {/* Inject FAQ schema separately */}
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Dock answer="[data-ea]" control=".ea-ncd" name={'[data-ha] [data-f="short"]'} />
 </Base>
 
 <style>

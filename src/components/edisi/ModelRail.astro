@@ -11,7 +11,7 @@ const ordered = [...brandOrder.filter((b) => brands.includes(b)), ...brands.filt
 const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => c.brand === brand).sort((a, b) => a.model.localeCompare(b.model)) }));
 ---
 <nav class="mod" aria-labelledby="tukar-model">
-  <h2 class="mod-bar" id="tukar-model">Tukar model</h2>
+  <h2 class="mod-bar mod-lab" id="tukar-model">Tukar model</h2>
   <p class="mod-cap">Insurans setahun, NCD 55%</p>
   <ul class="mlist">
     {groups.map((g) => (

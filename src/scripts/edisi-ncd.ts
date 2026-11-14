@@ -13,14 +13,20 @@ const valueOf = (el: Element | null, k: string): string => {
 
 // The masthead's knob follows the step: 55% is the resting logo (stop 0); each lower step lifts it one stop.
 const LOGO_STOPS = ['55', '45', '38', '30', '25', '0'];
-const seatLogo = (k: string) => {
+const seatLogo = (k: string, chosen: boolean) => {
   const i = LOGO_STOPS.indexOf(k);
   document.documentElement.style.setProperty('--ins-stop', String(Math.max(i, 0)));
+  const tag = document.querySelector<HTMLElement>('[data-wm-ncd]');
+  if (!tag || !chosen || i < 0) return;
+  const p = `${k === '38' ? '38.33' : k}%`;
+  tag.querySelector('[data-wm-ncd-v]')!.textContent = p;
+  tag.querySelector('[data-wm-ncd-sr]')!.textContent = `NCD pilihan anda: ${p}`;
+  tag.hidden = false;
 };
 
-const apply = (r: HTMLInputElement, announce: boolean) => {
+const apply = (r: HTMLInputElement, announce: boolean, chosen = announce) => {
   const k = r.value;
-  seatLogo(k);
+  seatLogo(k, chosen);
   document.querySelectorAll<HTMLAnchorElement>('[data-calculator-link]').forEach((link) => {
     const url = new URL(link.href, location.href);
     url.searchParams.set('ncd', r.dataset.tier ?? k);
@@ -48,7 +54,7 @@ if (hasSupport && root && radios.length) {
   if (pre) pre.checked = true;
   // The HTML links carry no ?ncd= (so they are never wrong without JavaScript); add the current step.
   const cur = pre ?? radios.find((r) => r.checked);
-  if (cur) apply(cur, false);
+  if (cur) apply(cur, false, Boolean(pre));
   radios.forEach((r) => r.addEventListener('change', () => {
     try { localStorage.setItem(KEY, r.value); } catch { /* storage blocked */ }
     apply(r, true);

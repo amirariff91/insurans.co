@@ -5,7 +5,7 @@
  */
 import Ikon from '../Ikon.astro';
 import Px from './Px.astro';
-import { carSteps } from './steps';
+import { carSteps, rmRange } from './steps';
 import { rm } from '../../lib/ncd';
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 const { model, related, calculatorUrl, hooks = false } = Astro.props;
 const f = (key: string) => (hooks ? key : undefined);
 const s = carSteps(model);
-const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
+const formatRange = (min: number, max: number) => rmRange(min, max, rm);
 ---
 <section class="mod" data-tint="pink" aria-labelledby="patut-claim">
   <h2 class="mod-bar" id="patut-claim"><Ikon name="i-neraca" size={22} /> Sebelum claim, bandingkan kos baiki dengan diskaun yang hilang</h2>
@@ -34,14 +34,14 @@ const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
 
 {related.length > 0 && (
   <section class="mod" aria-labelledby="model-berkaitan">
-    <h2 class="mod-bar" id="model-berkaitan">Model lain yang mungkin sesuai</h2>
+    <h2 class="mod-bar mod-lab" id="model-berkaitan">Model lain yang mungkin sesuai</h2>
     <div class="mod-in">
       <p class="ix-s">Bandingkan model lain yang mungkin sesuai dengan keperluan anda:</p>
       <ul class="rel">
         {related.map((r: any) => (
           <li>
             <a href={`/car-insurance/${r.slug}/`}>{r.fullName}</a>
-            <p class="ix-src" style="border:0;padding:0">{r.segment} · {r.engineCC}</p>
+            <p class="ix-src" style="border:0;padding:0">{r.segment}, {r.engineCC}</p>
             <dl>
               <div><dt>NCD 55%</dt><dd>{formatRange(r.premiumNCD55Min, r.premiumNCD55Max)}</dd></div>
               <div><dt>NCD 0%</dt><dd>{formatRange(r.premiumNCD0Min, r.premiumNCD0Max)}</dd></div>

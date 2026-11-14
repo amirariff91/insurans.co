@@ -5,6 +5,7 @@ import { NCD_TIERS, rm, simulate } from '../../../lib/ncd';
 import '../../../styles/edisi-answer.css';
 import Ikon from '../../../components/Ikon.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Dock from '../../../components/edisi/Dock.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 
 // The result panel shows this worked example (the table's premium) until the reader enters a premium.
@@ -82,11 +83,12 @@ const modelReferences = Object.fromEntries(
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
 
       <!-- Main: Calculators -->
-      <div class="lg:col-span-2 space-y-8 min-w-0">
+      <div class="lg:col-span-3 space-y-8 min-w-0 et-main">
 
         <!-- ── CALCULATOR 1: NCD Savings (first: the control answers straight away) ── -->
         <section class="et-panel et-calc" id="kalkulator" aria-labelledby="kalk-h">
           <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 id="kalk-h" class="et-bar-t">NCD 55% memberi potongan RM1,100 daripada RM2,000</h2></div>
+          <p class="et-hint"><span class="sr-only">Cara Guna: </span>1. Masukkan <strong>premium asas sebelum NCD</strong> daripada pecahan sebut harga. 2. Pilih <strong>NCD semasa</strong> anda. 3. Tengok anggaran premium asas dan <strong>berapa anda jimat</strong>.</p>
           <fieldset class="ea-ncd et-ncd" id="ncd-selector" data-ex>
             <legend><span>NCD Semasa Anda</span><span class="ea-mark" aria-hidden="true"><span class="mk-c">Contoh</span></span></legend>
             <div class="ea-bars">
@@ -263,14 +265,15 @@ const modelReferences = Object.fromEntries(
             </button>
           </div>
 
-          <div class="et-out" style="min-height:20rem">
+          <div class="et-out">
             <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
             <div id="claim-result" class="hidden" aria-live="polite"></div>
           </div>
         </section>
 
-        <section class="prose-editorial" aria-labelledby="cara-kiraan">
-          <h2 id="cara-kiraan">Cara kiraan ini dibuat</h2>
+        <section class="et-panel" aria-labelledby="cara-kiraan">
+          <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 id="cara-kiraan" class="et-bar-t">Cara kiraan ini dibuat</h2></div>
+          <div class="prose-editorial et-prose">
           <p>
             Kalkulator ini menggunakan premium asas sebelum NCD dan kadar yang anda pilih. Masukkan angka premium asas daripada pecahan sebut harga, kemudian pilih NCD yang layak digunakan. Potongan dikira dengan formula <strong>premium asas × NCD ÷ 100</strong>. Baki premium asas ialah <strong>premium asas × (1 − NCD ÷ 100)</strong>. <a href="https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf" target="_blank" rel="noopener noreferrer">PDS Etiqa</a> menunjukkan premium asas ditolak NCD sebelum perlindungan tambahan dan bayaran lain.
           </p>
@@ -286,11 +289,13 @@ const modelReferences = Object.fromEntries(
           <p>
             Kiraan tidak meramal kenaikan semula NCD selepas tahun pertama, perubahan harga atau keputusan tuntutan. OD-KfK yang layak dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Semak pengecualian dalam <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">kontrak Etiqa</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a> sebelum menggunakan hasil untuk membuat keputusan.
           </p>
+          </div>
         </section>
 
         <!-- Content -->
-        <article class="prose-editorial">
-          <h2>Apa yang berlaku kepada NCD kalau saya claim?</h2>
+        <section class="et-panel" aria-labelledby="claim-apa">
+          <div class="et-bar"><Ikon name="i-claim" size={24} /><h2 id="claim-apa" class="et-bar-t">Apa yang berlaku kepada NCD kalau saya claim?</h2></div>
+          <div class="prose-editorial et-prose">
           <p>
             Tuntutan <strong>own damage biasa</strong> boleh menjadikan NCD <strong>0% pada pembaharuan seterusnya</strong>.
             OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Rujuk <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C dan Endorsement 89 kontrak Etiqa</a>.
@@ -311,10 +316,12 @@ const modelReferences = Object.fromEntries(
             Contoh ini mengasingkan kesan NCD sahaja. Gunakan kos baiki dan excess sebenar, kemudian sahkan kategori tuntutan dengan syarikat.
           </p>
 
-          <h2>Soalan lazim tentang NCD</h2>
-        </article>
+          </div>
+        </section>
 
-        <div class="my-6 space-y-0">
+        <section class="et-panel" aria-labelledby="soalan-ncd">
+          <div class="et-bar"><Ikon name="i-info" size={24} /><h2 id="soalan-ncd" class="et-bar-t">Soalan lazim tentang NCD</h2></div>
+        <div class="et-faq">
           <details class="faq-item" open>
             <summary>Boleh ke pindah NCD ke kereta lain?</summary>
             <p>
@@ -343,33 +350,36 @@ const modelReferences = Object.fromEntries(
             </p>
           </details>
         </div>
+        </section>
 
-        <!-- Related tools CTA -->
-        <div class="bg-stone-50 border border-stone-200 p-6">
-          <p class="text-sm font-semibold text-stone-700 mb-3">Langkah seterusnya</p>
+        <!-- Related tools, model links and the NCD-check notes: one fold instead of five boxes -->
+        <details class="et-more">
+          <summary>Langkah seterusnya</summary>
+          <div class="et-more-in">
+        <div class="et-more-g">
           <div class="grid sm:grid-cols-2 gap-3">
             <a href="/car-insurance/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan Insurans Kereta →</p>
-              <p class="text-xs text-stone-500 mt-0.5">Harga, jenis coverage, cara renew</p>
+              <p class="text-sm text-stone-700 mt-0.5">Harga, jenis coverage, cara renew</p>
             </a>
             <a href="/guides/ncd-explained/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Panduan NCD Lengkap →</p>
-              <p class="text-xs text-stone-500 mt-0.5">Semua yang anda perlu tahu tentang NCD</p>
+              <p class="text-sm text-stone-700 mt-0.5">Semua yang anda perlu tahu tentang NCD</p>
             </a>
             <a href="/companies/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Bandingkan Syarikat →</p>
-              <p class="text-xs text-stone-500 mt-0.5">Lihat profil syarikat insurans</p>
+              <p class="text-sm text-stone-700 mt-0.5">Lihat profil syarikat insurans</p>
             </a>
             <a href="/guides/how-to-claim/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Cara Buat Claim →</p>
-              <p class="text-xs text-stone-500 mt-0.5">Langkah-langkah buat tuntutan insurans</p>
+              <p class="text-sm text-stone-700 mt-0.5">Langkah-langkah buat tuntutan insurans</p>
             </a>
           </div>
         </div>
 
         <!-- Car model quick links -->
-        <div class="bg-white border border-stone-200 p-6">
-          <p class="text-sm font-semibold text-stone-700 mb-3">Semak harga premium untuk kereta anda</p>
+        <div class="et-more-g">
+          <h3 class="et-more-h">Semak harga premium untuk kereta anda</h3>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
             <a href="/car-insurance/perodua-myvi/" class="text-sm text-hijau-700 hover:text-hijau-600 font-medium p-2 border border-stone-100 hover:border-hijau-300 transition-colors">Perodua Myvi</a>
             <a href="/car-insurance/honda-city/" class="text-sm text-hijau-700 hover:text-hijau-600 font-medium p-2 border border-stone-100 hover:border-hijau-300 transition-colors">Honda City</a>
@@ -378,34 +388,10 @@ const modelReferences = Object.fromEntries(
             <a href="/car-insurance/toyota-corolla-cross/" class="text-sm text-hijau-700 hover:text-hijau-600 font-medium p-2 border border-stone-100 hover:border-hijau-300 transition-colors">Toyota Corolla Cross</a>
             <a href="/car-insurance/honda-civic/" class="text-sm text-hijau-700 hover:text-hijau-600 font-medium p-2 border border-stone-100 hover:border-hijau-300 transition-colors">Honda Civic</a>
           </div>
-          <a href="/car-insurance/" class="block mt-3 text-xs text-stone-500 hover:text-hijau-700 font-medium">Lihat semua model kereta →</a>
+          <a href="/car-insurance/" class="block mt-3 text-sm text-stone-700 hover:text-hijau-700 font-medium">Lihat semua model kereta →</a>
         </div>
-
-      </div>
-
-      <!-- Sidebar -->
-      <aside class="lg:col-span-1">
-        <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Cara Guna</h3>
-            <ol class="space-y-3 text-sm text-stone-600">
-              <li class="flex gap-2.5">
-                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">1</span>
-                <span>Masukkan <strong>premium asas sebelum NCD</strong> daripada pecahan sebut harga</span>
-              </li>
-              <li class="flex gap-2.5">
-                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">2</span>
-                <span>Pilih <strong>NCD semasa</strong> anda</span>
-              </li>
-              <li class="flex gap-2.5">
-                <span class="flex-shrink-0 w-5 h-5 bg-stone-900 text-white text-xs font-bold flex items-center justify-center">3</span>
-                <span>Tengok anggaran premium asas dan <strong>berapa anda jimat</strong></span>
-              </li>
-            </ol>
-          </div>
-
-          <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Nak tahu NCD anda?</h3>
+          <div class="et-more-g">
+            <h3 class="et-more-h">Nak tahu NCD anda?</h3>
             <p class="text-sm text-stone-600 mb-3">Semak NCD secara online melalui:</p>
             <ul class="space-y-2 text-sm">
               <li>
@@ -416,19 +402,23 @@ const modelReferences = Object.fromEntries(
             </ul>
           </div>
 
-          <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-2">Tip penting</h3>
+          <div class="et-more-g">
+            <h3 class="et-more-h">Tip penting</h3>
             <p class="text-sm text-stone-600">
               Bandingkan <strong>kos baiki, excess dan kesan NCD</strong> dengan syarikat sebelum claim.
               Semak jenis tuntutan dalam <a href="/guides/ncd-explained/" class="text-hijau-700 underline">panduan NCD</a>.
             </p>
           </div>
-        </div>
-      </aside>
+          </div>
+        </details>
+
+      </div>
+
 
     </div>
   </div>
   </div>
+  <Dock answer="#kalkulator" control="#ncd-selector" />
 </Base>
 
 <script>

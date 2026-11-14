@@ -1,0 +1,106 @@
+---
+/**
+ * Phone dock (below 48rem): once the answer block has scrolled out of view, a bar at the bottom repeats the
+ * current context in one line ("Axia, NCD 55%: RM330–670") with one action that goes back to the NCD control.
+ * Every value is read from what the page already shows for the chosen step (the same Px data attributes the
+ * NCD control switches): the dock never computes a price. Rendered `hidden`: without JavaScript it never shows.
+ */
+interface Props {
+  /** The block whose leaving the screen shows the dock. */
+  answer: string;
+  /** Where "Tukar" goes: the NCD control. */
+  control: string;
+  /** Element whose text is the car's short name (home and model pages). */
+  name?: string;
+  /** The car's short name when it never changes on the page (model pages). */
+  car?: string;
+}
+const { answer, control, name = '', car = '' } = Astro.props;
+---
+<div class="dock" data-dock data-answer={answer} data-control={control} data-name={name} data-car={car} hidden>
+  <p class="dock-t" data-dock-t></p>
+  <button type="button" class="dock-b" data-dock-b>Tukar</button>
+</div>
+
+<style is:global>
+  .dock {
+    position: fixed; z-index: 30; left: var(--gutter); right: var(--gutter); bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 0.5rem; max-width: 30rem; margin: 0 auto; padding: 0.3rem 0.3rem 0.3rem 0.9rem;
+    border-radius: var(--r-pill); color: var(--ink); background: var(--glass);
+    box-shadow: 0 0 0 1px var(--glass-edge), 0 12px 28px -14px rgb(var(--shade) / 0.5), inset 0 1px 0 var(--glass-spec);
+    transform: translateY(calc(100% + 1rem)); visibility: hidden;
+    transition: transform 200ms var(--ease-out), visibility 0s linear 200ms;
+  }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .dock { background: var(--glass-t); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); }
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .dock { background: var(--card) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 1.5px var(--ink); }
+  }
+  html.dock-on .dock { transform: none; visibility: visible; transition: transform 200ms var(--ease-out); }
+  html.dock-on body { padding-bottom: calc(var(--dock-h, 3.5rem) + 1rem + env(safe-area-inset-bottom)); }
+  html.dock-on { scroll-padding-bottom: calc(var(--dock-h, 3.5rem) + 1.5rem + env(safe-area-inset-bottom)); }
+  .dock-t {
+    flex: 1; min-width: 0; margin: 0; font: 750 1rem/1.2 var(--fd); font-variant-numeric: tabular-nums;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .dock-b {
+    flex: none; min-height: 2.75rem; min-width: 2.75rem; padding: 0 1.1rem; border: 0; border-radius: var(--r-pill);
+    background: var(--kick); color: var(--kick-ink); font: 700 1rem/1 var(--fd); cursor: pointer;
+  }
+  .dock-b:hover { background: #A50C58; }
+  .dock-b:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .dock[hidden] { display: none; }
+  @media (min-width: 48rem) { .dock { display: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .dock, html.dock-on .dock { transition: none; } }
+  @media print { .dock { display: none !important; } }
+</style>
+
+<script>
+  const dock = document.querySelector<HTMLElement>('[data-dock]');
+  const answer = dock && document.querySelector<HTMLElement>(dock.dataset.answer!);
+  const phone = matchMedia('(max-width: 47.99rem)');
+  if (dock && answer && 'IntersectionObserver' in window) {
+    const html = document.documentElement;
+    const text = dock.querySelector<HTMLElement>('[data-dock-t]')!;
+    let past = false;
+    // Read what the page shows now: the checked step, the car's name and (on car pages) the price of that step.
+    const fill = () => {
+      const r = document.querySelector<HTMLInputElement>('input[name="ncd"]:checked');
+      let pct = r ? r.dataset.tier ?? r.value : '';
+      if (!pct) { try { const k = localStorage.getItem('edisi.ncd'); pct = k === '38' ? '38.33' : k ?? ''; } catch { /* storage blocked */ } }
+      const name = dock.dataset.car || (dock.dataset.name ? document.querySelector(dock.dataset.name)?.textContent?.trim() : '');
+      const px = document.querySelector<HTMLElement>('[data-ea] .ea-pnum');
+      const k = r?.value ?? '55';
+      const price = px && r ? (k === '55' ? px.querySelector('.pv')?.textContent : px.dataset[`p${k}`]) : '';
+      text.textContent = `${name ? `${name}, ` : ''}NCD ${pct || '55'}%${price ? `: RM${price}` : ''}`;
+    };
+    // Hide while a consent message (Funding Choices) or any open dialog is on the page.
+    const blocked = () => Boolean(document.querySelector('.fc-consent-root, .fc-dialog-container, dialog[open]'));
+    const set = () => {
+      const on = past && phone.matches && !blocked();
+      if (on) { fill(); html.style.setProperty('--dock-h', `${dock.offsetHeight / 16}rem`); }
+      html.classList.toggle('dock-on', on);
+    };
+    dock.hidden = false;
+    new IntersectionObserver(([e]) => { past = !e.isIntersecting && e.boundingClientRect.top < 0; set(); }).observe(answer);
+    new MutationObserver(set).observe(document.body, { childList: true });
+    phone.addEventListener('change', set);
+    document.addEventListener('change', () => past && fill());
+    // Never cover the focused element.
+    document.addEventListener('focusin', (ev) => {
+      const t = ev.target as HTMLElement;
+      if (!html.classList.contains('dock-on') || dock.contains(t)) return;
+      const over = t.getBoundingClientRect().bottom - dock.getBoundingClientRect().top + 8;
+      if (over > 0) scrollBy(0, over);
+    });
+    dock.querySelector('[data-dock-b]')!.addEventListener('click', () => {
+      const c = document.querySelector<HTMLElement>(dock.dataset.control!);
+      if (!c) return;
+      c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      const f = c.querySelector<HTMLElement>('input:checked') ?? c;
+      if (f === c && !c.hasAttribute('tabindex')) c.tabIndex = -1;
+      f.focus({ preventScroll: true });
+    });
+  }
+</script>

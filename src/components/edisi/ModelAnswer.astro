@@ -7,7 +7,7 @@
 import CarPhoto from '../CarPhoto.astro';
 import Ikon from '../Ikon.astro';
 import Px from './Px.astro';
-import { STEPS, carSteps, span } from './steps';
+import { STEPS, carSteps, span, rmRange } from './steps';
 import { rm } from '../../lib/ncd';
 import { MODEL_PHOTO_SIZES } from './photo';
 
@@ -25,7 +25,7 @@ const reviewedText = reviewed
   ? new Date(`${reviewed}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
   : '';
 const priceVars = STEPS.map((st) => `--u${st.k}:${s.units[st.k]}`).join(';') + `;--umin:${s.umin}`;
-const formatRange = (min: number, max: number, f: (n: number) => string) => (f(min) === f(max) ? f(min) : `${f(min)} – ${f(max)}`);
+const formatRange = rmRange;
 const rmExact = (n: number) => {
   const hasSen = Math.round(n * 100) % 100 !== 0;
   return `RM ${n.toLocaleString('ms-MY', { minimumFractionDigits: hasSen ? 2 : 0, maximumFractionDigits: 2 })}`;
@@ -39,7 +39,7 @@ const kiraanId = `kiraan-${model.slug}`;
     <span class="ea-fit">
       <span class="ea-price" style={priceVars} data-price><span class="ea-cur">RM</span><Px v={s.price} class="ea-pnum" data-tick /></span>
     </span>
-    <span class="ea-sub">setahun · NCD <Px v={s.pct} /> (<Px v={s.long} class="px-w" />). Anggaran{reviewedText && <>, disemak <time datetime={reviewed}>{reviewedText}</time></>}.</span>
+    <span class="ea-sub">setahun, NCD <Px v={s.pct} /> (<Px v={s.long} class="px-w" />). Anggaran{reviewedText && <>, disemak <time datetime={reviewed}>{reviewedText}</time></>}.</span>
     {s.hasRt && (
       <span class="ea-sum">
         <span>Campur roadtax <b>{s.roadtaxText}</b> (Semenanjung):</span>
@@ -69,8 +69,8 @@ const kiraanId = `kiraan-${model.slug}`;
 
   <div class="ea-cta" data-section="quotation">
     <div class="ea-btns">
-      <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-p">Kira NCD saya <Ikon name="i-kanan" size={20} /></a>
-      <a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list" class="ea-btn ea-btn-o">Lihat senarai beli online</a>
+      <a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list" class="ea-btn ea-btn-p">Lihat senarai beli online <Ikon name="i-kanan" size={20} /></a>
+      <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-o">Kira NCD saya <Ikon name="i-kalkulator" size={20} /></a>
     </div>
     <p class="ea-quote">
       Untuk sebut harga sebenar, minta terus daripada syarikat insurans.
@@ -98,7 +98,7 @@ const kiraanId = `kiraan-${model.slug}`;
           {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
         </p>
       )}
-      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote} · Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
+      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote.replace(/\.?\s*$/, '.')} Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
       <details class="baca">
         <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: jadual {model.fullName} ikut tahap NCD</span></summary>
         <div class="baca-in">

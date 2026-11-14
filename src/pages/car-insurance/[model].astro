@@ -14,6 +14,8 @@ import carModels from '../../data/car-models.json';
 import companies from '../../data/companies.json';
 import { monthly, rm } from '../../lib/ncd';
 import { modelPhotoPreload } from '../../components/edisi/photo';
+import Dock from '../../components/edisi/Dock.astro';
+import { rmRange } from '../../components/edisi/steps';
 
 export function getStaticPaths() {
   return carModels.map((car) => ({
@@ -132,8 +134,6 @@ const descriptionCandidates = totalText
 const description = descriptionCandidates.find((d) => d.length <= 155)
   ?? descriptionCandidates.at(-1)
   ?? `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
-const formatRange = (min: number, max: number, format: (n: number) => string) =>
-  format(min) === format(max) ? format(min) : `${format(min)} – ${format(max)}`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
 const repairHeadline = model.riskProfile.repairCost.split('—')[0].trim();
@@ -310,9 +310,9 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
                 <li>
                   <Ikon name={addonIcon(addon.name)} size={24} />
                   <div>
-                    <b>{addon.name} · {addon.verdict}</b>
+                    <b>{addon.name}, {addon.verdict}</b>
                     <p>Anggaran: {addon.priceBM}.{/special perils/i.test(addon.name) && specialPerilsEstimate && <> <a href="#nota-banjir">Anggaran untuk {model.model}: lihat nota banjir di atas</a>.</>} Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
-                    <details class="baca"><summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh</span></summary><div class="baca-in"><p>{addon.whyBM}</p></div></details>
+                    <details class="baca" open={/special perils/i.test(addon.name)}><summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh</span></summary><div class="baca-in"><p>{addon.whyBM}</p></div></details>
                   </div>
                 </li>
               ))}
@@ -349,7 +349,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Tips Section -->
       <section id="tips" class="mod" aria-labelledby="tips-h">
-        <h2 class="mod-bar" id="tips-h"><Ikon name="i-dompet" size={22} /> {model.tips.length} tips praktikal jimat insurans {model.model}</h2>
+        <h2 class="mod-bar mod-lab" id="tips-h"><Ikon name="i-dompet" size={22} /> {model.tips.length} tips praktikal jimat insurans {model.model}</h2>
         <div class="mod-in">
           <p class="ix-s">Beberapa perkara praktikal untuk pemilik {model.model}:</p>
           <details class="baca">
@@ -389,23 +389,23 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- FAQ -->
       <section id="faq" class="mod" aria-labelledby="faq-h">
-        <h2 class="mod-bar" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim — Insurans {model.fullName}</h2>
+        <h2 class="mod-bar mod-lab" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim — Insurans {model.fullName}</h2>
         <div class="mod-in">
           {modelFaqs.length > 0 ? (
-            modelFaqs.map((faq: any) => (
-              <details class="faq-item">
+            modelFaqs.map((faq: any, i: number) => (
+              <details class="faq-item" open={i === 0}>
                 <summary>{faq.q}</summary>
                 <p>{faq.a}</p>
               </details>
             ))
           ) : (
             <>
-              <details class="faq-item">
+              <details class="faq-item" open>
                 <summary>Berapa harga insurans {model.model} sebulan?</summary>
                 <p>
                   Jika dibahagi secara bulanan, insurans {model.model} sekitar
-                  <strong>{rm(initialMonthly.min)} – {rm(initialMonthly.max)}</strong> sebulan dengan NCD 55%.
-                  Tanpa NCD, sekitar <strong>{rm(zeroMonthly.min)} – {rm(zeroMonthly.max)}</strong> sebulan.
+                  <strong>{rmRange(initialMonthly.min, initialMonthly.max)}</strong> sebulan dengan NCD 55%.
+                  Tanpa NCD, sekitar <strong>{rmRange(zeroMonthly.min, zeroMonthly.max)}</strong> sebulan.
                   Ini setara tahunan ÷ 12, bukan pelan ansuran.
                 </p>
               </details>
@@ -447,11 +447,14 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
       </section>
 
       <CtaBand
+        quiet
         heading={`Kira NCD dan semak quotation ${model.fullName}`}
         body="Masukkan premium asal daripada polisi anda. Kalkulator ini tidak menganggap julat editorial sebagai quotation sebenar."
         primary={{ label: 'Kira NCD saya →', href: primaryCalculatorUrl }}
-        disclosure="Untuk sebut harga sebenar, minta terus daripada syarikat insurans (lihat senarai beli online di /insurans-online/). Tiada hubungan berbayar atau affiliate; pembelian dibuat di laman syarikat, bukan di sini."
-      />
+      >
+        <Fragment slot="disclosure">Untuk sebut harga sebenar, minta terus daripada syarikat insurans (lihat <a href="/insurans-online/">senarai beli online</a>). Tiada hubungan berbayar atau affiliate; pembelian dibuat di laman syarikat, bukan di sini.</Fragment>
+      </CtaBand>
+      <Dock answer="[data-ea]" control=".ea-ncd" car={model.model} />
     </div>
 
     <aside class="ep-tools" aria-label="Alat">

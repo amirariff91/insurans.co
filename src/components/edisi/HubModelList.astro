@@ -82,8 +82,9 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     min-height: 3rem;
     display: flex;
     align-items: center;
-    background: #000;
-    color: #fff;
+    /* A topic label, not a finding: the quiet heading instead of a black bar. */
+    background: var(--card);
+    color: var(--ink);
     font: 800 1.375rem/1.15 var(--fd);
   }
   .hm-cap {
@@ -171,5 +172,13 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     .hm-groups {
       columns: 3;
     }
+    /* The open group is one brand: lay its models in three columns so the box is filled, not a third of it. */
+    .hm > .hm-groups { columns: auto; }
+    .hm > .hm-groups > .hm-g { border-right: 0; }
+    .hm > .hm-groups .hm-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .hm > .hm-groups .hm-list li { border-right: 1px solid rgb(0 0 0 / 0.12); }
+    .hm > .hm-groups .hm-list li:nth-child(3n) { border-right: 0; }
+    .hm > .hm-groups .hm-list li:nth-child(-n + 3) a { border-top: 0; }
+    .hm > .hm-groups .hm-list li:nth-child(n + 4) a { border-top: 1px solid rgb(0 0 0 / 0.12); }
   }
 </style>

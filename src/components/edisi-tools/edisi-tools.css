@@ -104,7 +104,7 @@
 .et .bar:has(input:checked) .bar-p { color: var(--ink); font-weight: 650; }
 .et .bar:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
 .et .bars-base { grid-column: 1 / -1; height: 3px; background: var(--ink); border-radius: 2px; order: -1; }
-.et .et-next { min-height: 3rem; margin-top: 0.75rem; font-weight: 600; }
+.et .et-next { min-height: 3rem; margin-top: 0.75rem; font-weight: 400; }
 
 /* RM input */
 .et .rm { display: flex; align-items: center; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--card); max-width: 24rem; }
@@ -168,3 +168,30 @@
 .et .et-ex[hidden] { display: block; visibility: hidden; }
 .et .et-break { margin-top: 1rem; }
 .et .et-break-h { margin: 0 0 0.35rem; font-size: 0.875rem; font-weight: 650; color: var(--ink); }
+
+/* NCD page, lower half: modules with title bars, not ruled H2s. */
+.et .et-hint { font-size: 0.9375rem; line-height: 1.45; color: var(--ink); max-width: 62ch; }
+.et .et-hint strong { font-weight: 650; }
+.et .et-prose > :first-child { margin-top: 0; }
+.et .et-prose > :last-child { margin-bottom: 0; }
+.et .et-faq > .faq-item:first-child { border-top: 0; }
+/* A table inside a tinted module sits on the module, not in a second white card. */
+.et .et-panel[data-tint] .overflow-x-auto:has(> table) { border: 0; border-radius: 0; background: transparent; }
+/* The leftover link boxes, folded into one disclosure. */
+.et .et-more { border: 1px solid var(--rule); border-radius: var(--r-2); background: var(--card); }
+.et .et-more > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: 3rem; padding: 0.5rem 1rem;
+  font: 750 1.0625rem/1.25 var(--fd); color: var(--ink); cursor: pointer; list-style: none; background: var(--tray); border-radius: var(--r-2);
+}
+.et .et-more > summary::-webkit-details-marker { display: none; }
+.et .et-more > summary::after { content: ""; flex: none; width: 0.55rem; height: 0.55rem; margin-right: 0.3rem; border: solid var(--ink); border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -0.15rem; }
+.et .et-more[open] > summary::after { rotate: 225deg; translate: 0 0.15rem; }
+.et .et-more[open] > summary { border-radius: var(--r-2) var(--r-2) 0 0; box-shadow: inset 0 -1px 0 var(--rule); }
+.et .et-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.et .et-more-in { display: grid; gap: 1.25rem; padding: 1rem; }
+.et .et-more-h { font: 750 1rem/1.25 var(--fd); color: var(--ink); margin: 0 0 0.6rem; }
+.et .et-main { max-width: 52rem; }
+
+/* Roadtax: the page's own worked example sits under the input, so the first screen shows a figure. */
+.et .et-worked { margin-top: 0.6rem; padding: 0.6rem 0.75rem; border-left: 3px solid var(--ink); background: var(--tray); font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.et .et-worked strong { font-variant-numeric: tabular-nums; }
