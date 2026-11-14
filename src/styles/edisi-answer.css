@@ -95,13 +95,14 @@ html:not(:has(#ncd-55:checked)) .mk-p { display: inline; }
 .ea-save { margin-top: 0.5rem; font-size: 0.9375rem; color: var(--ink); font-weight: 600; }
 
 .ea-photo { max-width: 36rem; }
+@media (min-width: 48rem) { .ea-photo { max-width: 26rem; } }
 .ea-cta { display: grid; gap: 0.6rem; max-width: 36rem; }
 .ea-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 3rem; padding: 0.6rem 1.1rem; border-radius: var(--r-2); font: 700 1.0625rem/1.2 var(--fd); text-decoration: none; }
 .ea-btn-p { background: var(--kick); color: var(--kick-ink); }
 .ea-btn-p:hover { background: #A50C58; }
 .ea-btn:focus-visible, .ea a:focus-visible, .mod a:focus-visible, .ep a:focus-visible, .ep summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .ea-quote { font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
-.ea a:not(.ea-btn), .ep-main a:not([class*="btn"]), .mod a { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+.ea a:not(.ea-btn), .ep-main a:not([class*="btn"]), .mod a:not(.ea-btn) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
 
 /* ------------------------------------------------------------ titled modules (black title bars) */
 .ix, .mod { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); min-width: 0; }
