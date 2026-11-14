@@ -70,8 +70,12 @@ const initialArticleDate = '2026-02-14';
 const contentRevised = '2026-11-15';
 const articleDate = [initialArticleDate, model.premiumReviewed, contentRevised].filter(Boolean).sort().at(-1);
 const roundRm10 = (n: number) => Math.round(n / 10) * 10;
+// Market value through the one range format (RM22,000–38,000); the raw marketValueRange string only when min/max are missing.
+const marketValueText = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax)
+  ? rmRange(model.marketValueMin, model.marketValueMax)
+  : model.marketValueRange;
 const specialPerilsEstimate = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax) && model.marketValueRange
-  ? ` (untuk sum insured ${model.marketValueRange}: sekitar RM${roundRm10(model.marketValueMin * 0.002).toLocaleString('en-MY')}–RM${roundRm10(model.marketValueMax * 0.005).toLocaleString('en-MY')} setahun, sebelum cukai)`
+  ? ` (untuk sum insured ${marketValueText}: sekitar ${rmRange(roundRm10(model.marketValueMin * 0.002), roundRm10(model.marketValueMax * 0.005))} setahun, sebelum cukai)`
   : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
@@ -243,7 +247,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             </>
           )}
           <p class="ix-s">
-            Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}.
+            Nilai pasaran {model.fullName} dianggarkan {marketValueText}.
             Roadtax dan perlindungan tambahan ditunjukkan berasingan supaya julat premium kekal jelas.
           </p>
         </div>
@@ -251,14 +255,14 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Butiran model -->
       <section class="mod" aria-labelledby="butiran">
-        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}</h2>
+        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Nilai pasaran {model.fullName} dianggarkan {marketValueText}</h2>
         <div class="mod-in">
           <dl class="facts">
             <div><dt>Enjin / kapasiti</dt><dd>{model.engineCC}</dd></div>
             <div><dt>Varian</dt><dd>{model.variants.join(', ')}</dd></div>
             <div><dt>Tahun model</dt><dd>{model.yearRange}</dd></div>
             <div><dt>Segmen</dt><dd>{model.segment}</dd></div>
-            <div><dt>Nilai pasaran</dt><dd>{model.marketValueRange}</dd></div>
+            <div><dt>Nilai pasaran</dt><dd>{marketValueText}</dd></div>
           </dl>
           <details class="baca">
             <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: cara harga dianggar{modelYearNotes.length > 0 && ' & nota mengikut tahun'}</span></summary>
@@ -341,7 +345,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
           <ul class="rows">
             <li><Ikon name="i-kunci" size={24} /><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
             <li><Ikon name="i-sepana" size={24} /><div><b>Kos repair: {repairHeadline}</b><p>{model.riskProfile.repairCost}</p></div></li>
-            <li><Ikon name="i-claim" size={24} /><div><b>Kekerapan tuntutan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
+            <li><Ikon name="i-claim" size={24} /><div><b>Contoh risiko kerosakan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
             <li><Ikon name="i-banjir" size={24} /><div><b>Nota banjir dan had data</b><p>{model.floodRiskNote ? <a href="#nota-banjir">Lihat nota banjir {model.model} di atas</a> : model.riskProfile.notes}</p></div></li>
           </ul>
         </div>

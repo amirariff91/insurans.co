@@ -40,6 +40,7 @@ const kiraanId = `kiraan-${model.slug}`;
       <span class="ea-price" style={priceVars} data-price><span class="ea-cur">RM</span><Px v={s.price} class="ea-pnum" data-tick /></span>
     </span>
     <span class="ea-sub">setahun, NCD <Px v={s.pct} /> (<Px v={s.long} class="px-w" />). Anggaran{reviewedText && <>, disemak <time datetime={reviewed}>{reviewedText}</time></>}.</span>
+    {model.estimateScope && <span class="ea-sub ea-scope" data-estimate-scope>{model.estimateScope}</span>}
     {s.hasRt && (
       <span class="ea-sum">
         <span>Campur roadtax <b>{s.roadtaxText}</b> (Semenanjung):</span>
@@ -80,7 +81,7 @@ const kiraanId = `kiraan-${model.slug}`;
 
   <CarPhoto slug={model.slug} eager sizes={MODEL_PHOTO_SIZES} class="ea-photo" />
 
-  <section class="ix ix-pink" id={kiraanId} aria-labelledby={`${kiraanId}-t`}>
+  <section class="ix ix-pink" id="kos-tahunan" aria-labelledby={`${kiraanId}-t`}>
     <div class="ix-bar"><Ikon name="i-kalkulator" size={24} class="ix-i" /><h2 class="ix-t" id={`${kiraanId}-t`}><Px v={s.title} class="px-w" /></h2></div>
     <div class="ix-body">
       <dl class="kb">
