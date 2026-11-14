@@ -311,7 +311,7 @@
       {
         "name": "glass-capsule",
         "value": "0 0 0 1px rgb(0 0 0 / 0.16), 0 12px 28px -14px rgb(0 0 0 / 0.5), inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 0 0 1px rgb(255 255 255 / 0.85)",
-        "purpose": "Desktop section tabs only; blur(16px) saturate(180%) from 70rem where supported."
+        "purpose": "Desktop section tabs and the phone dock; blur(16px) saturate(180%) where supported (tabs from 70rem), solid --glass white otherwise, solid card with prefers-reduced-transparency or prefers-contrast: more."
       },
       {
         "name": "menu-drop",
@@ -404,7 +404,7 @@
       "name": "Answer Box",
       "kind": "card",
       "refersTo": "title-bar",
-      "description": "PageAnswer: black finding bar and two to four label/value rows (.mod.pa).",
+      "description": "PageAnswer: black finding bar, then any of an optional lead numeral (.pa-lead), one sentence (.pa-sent) and label/value rows (.pa-rows).",
       "html": "<section class=\"ds-mod\"><p class=\"ds-bar\">Diskaun 55% potong lebih separuh harga</p><dl class=\"ds-rows\"><div class=\"ds-r\"><dt>Anggaran setahun</dt><dd><span class=\"ds-v ds-price\">RM1,060 – RM1,400</span></dd></div><div class=\"ds-r\"><dt>Had NCD</dt><dd><span class=\"ds-v ds-term\">55%</span></dd></div></dl></section>",
       "css": ".ds-mod{max-width:40rem;border:1px solid #767676;border-radius:8px;overflow:clip;background:#fff;font-family:Figtree,system-ui,sans-serif;color:#000}.ds-bar{margin:0;display:flex;align-items:center;min-height:3rem;padding:.55rem .9rem;background:#000;color:#fff;font:800 1.125rem/1.2 Gabarito,system-ui,sans-serif}.ds-rows{margin:0;padding:.35rem .9rem .5rem}.ds-r{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.15rem 1rem;padding:.55rem 0;border-bottom:1px solid rgb(0 0 0/.2)}.ds-r:last-child{border-bottom:0}.ds-r dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}.ds-v{display:inline-block;padding:.1rem .45rem;border-radius:6px}.ds-price{background:#FBD3E4}.ds-term{background:#FFF3B0}"
     },
@@ -436,7 +436,7 @@
       "name": "Section Tabs",
       "kind": "nav",
       "refersTo": "",
-      "description": "Desktop navigation capsule; the only glass in the system.",
+      "description": "Desktop navigation capsule; glass, shared only with the phone dock.",
       "html": "<nav class=\"ds-tabs\"><a aria-current=\"page\" href=\"#\">Kereta</a><a href=\"#\">Kesihatan</a><a href=\"#\">Alat</a></nav>",
       "css": ".ds-tabs{display:inline-flex;gap:2px;padding:4px;border-radius:999px;background:rgb(255 255 255/.97);box-shadow:0 0 0 1px rgb(0 0 0/.16),0 12px 28px -14px rgb(0 0 0/.5)}.ds-tabs a{display:flex;align-items:center;min-height:2.75rem;padding:0 .95rem;border-radius:999px;color:#000;text-decoration:none;font:600 1rem Figtree,system-ui,sans-serif;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-tabs a:hover:not([aria-current]){background:rgb(0 0 0/.08)}.ds-tabs a[aria-current=page]{background:#000;color:#fff}.ds-tabs a:focus-visible{outline:3px solid #000;outline-offset:-3px}"
     }

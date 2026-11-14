@@ -67,7 +67,7 @@ Insurance prices are "your money or your life" content, so:
 ## Ads
 
 - AdSense is opt-in per page: `Base.astro` takes `ads` and it defaults to `false`. A page passes `ads={true}` only if it meets the content gate. Noindex pages never load ads.
-- The gate: at least 700 words of main text, and a 5-word-sequence similarity under 0.35 with its nearest sibling page in the same family. `scripts/ads-gate-audit.py <dist>` measures every family and reports pages that load ads while failing the gate.
+- The gate: at least 700 words of main text, and a 5-word-sequence similarity under 0.35 with its nearest sibling page in the same family. `python3 scripts/ads-gate-audit.py dist /tmp/ads-gate.json` (build folder, then the JSON report it writes) measures every family and reports pages that load ads while failing the gate.
 - Ads are Auto ads: the templates hold no manual ad units. `adsbygoogle.js` loads eagerly while the account is under review (`src/lib/third-party.ts`).
 - AdSense site status is "needs attention". The site was rejected on 9 Oct 2026; the content-accuracy and ads opt-in release went live on 14 Nov 2026 (`4dd50a3`). Resubmit about three days after the next deploy.
 
