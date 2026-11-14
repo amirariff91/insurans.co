@@ -3129,7 +3129,7 @@
     "tips": [
       "Corolla di Malaysia hanya dijual dengan enjin petrol 1.8 — tiada varian hybrid. Sahkan varian dalam geran sebelum pilih add-on.",
       "Toyota Safety Sense ada pada 1.8G dan GR Sport — untuk varian itu, ADAS calibration cover patut dipertimbangkan.",
-      "Kerosakan mekanikal biasa tidak dilindungi polisi motor; NCD bergantung pada claim yang anda buat, bukan kebolehpercayaan enjin.",
+      "Kerosakan mekanikal biasa tidak dilindungi polisi motor. NCD bergantung pada tuntutan yang menjejaskan polisi anda, termasuk tuntutan pihak ketiga, bukan kebolehpercayaan enjin.",
       "Bandingkan sebut harga dengan Civic — anggaran premium kedua-dua model bertindih, jadi varian dan sum insured yang menentukan."
     ],
     "description": "Toyota Corolla ialah sedan segmen C yang boleh diharap. Premiumnya sederhana ke tinggi; Toyota Safety Sense ada pada varian 1.8G dan GR Sport.",
@@ -3253,6 +3253,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Etiqa — kontrak polisi insurans kereta persendirian",
+        "url": "https://www.etiqa.com.my/pdfs/en/insurance/Private_Car_Insurance_Policy_Contract.pdf",
+        "retrieved": "2026-11-15"
       }
     ],
     "factChecked": "2026-09-10",
@@ -4025,7 +4030,7 @@
     "tips": [
       "Alat ganti Mazda diimport dan boleh mengambil masa — pastikan ada kenderaan gantian jika membuat claim.",
       "Volume jualan rendah bermakna insurans kurang kompetitif — bandingkan lebih banyak quotation.",
-      "Enjin SkyActiv boleh diharap, tetapi kerosakan mekanikal biasa tidak dilindungi polisi motor."
+      "Kerosakan mekanikal biasa tidak dilindungi polisi motor."
     ],
     "description": "Mazda 2 ialah sedan/hatchback premium dengan teknologi SkyActiv. Premiumnya sedikit lebih tinggi kerana alat ganti diimport.",
     "relatedModels": [
@@ -4142,6 +4147,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Etiqa — kontrak polisi insurans kereta persendirian",
+        "url": "https://www.etiqa.com.my/pdfs/en/insurance/Private_Car_Insurance_Policy_Contract.pdf",
+        "retrieved": "2026-11-15"
       }
     ],
     "factChecked": "2026-09-10",
@@ -4200,7 +4210,7 @@
     },
     "tips": [
       "Panel badan Mazda 3 sangat rumit — calar kecil pun boleh mahal untuk cat semula pada bahagian yang calar.",
-      "i-Activsense (ADAS) ialah kelengkapan standard pada varian High Plus — ADAS calibration cover wajar dipertimbangkan.",
+      "Kelengkapan i-Activsense bergantung pada tahun dan varian. Semak spesifikasi kereta anda sebelum memilih perlindungan penentukuran ADAS.",
       "Alat ganti diimport, jadi pembaikan boleh mengambil masa 2-4 minggu — pertimbangkan rent car cover.",
       "Mazda 3 hatchback lebih cantik, tetapi bumper belakangnya lebih mahal untuk dibaiki."
     ],
@@ -4281,7 +4291,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM130–RM250/tahun",
         "verdict": "pertimbangkan untuk Gen 4",
-        "whyBM": "i-Activsense ialah kelengkapan standard pada varian High Plus — penentukuran boleh mencecah ratusan ringgit."
+        "whyBM": "Kelengkapan i-Activsense bergantung pada tahun dan varian. Semak spesifikasi kereta anda sebelum memilih perlindungan penentukuran ADAS."
       },
       {
         "name": "Special perils (banjir)",
@@ -4325,6 +4335,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Mazda Malaysia — brosur Mazda3",
+        "url": "https://kentico.mazda.com.my/Brochure/Mazda3_Brochure.pdf",
+        "retrieved": "2026-11-15"
       }
     ],
     "factChecked": "2026-09-10",
@@ -4385,7 +4400,7 @@
     "tips": [
       "Premium CX-5 Turbo boleh 20-30% lebih tinggi daripada 2.0 — ambil kira perkara ini semasa memilih varian.",
       "Alat ganti diimport dari Jepun — pembaikan boleh mengambil masa lama. Pastikan ada pengangkutan ganti.",
-      "i-Activsense ialah kelengkapan standard pada varian GLS ke atas — ADAS calibration cover wajar dipertimbangkan.",
+      "Bagi CX-5 facelift 2024, varian 2.0 High dan ke atas mempunyai ciri i-Activsense yang dinyatakan oleh Mazda. Untuk tahun lain, semak spesifikasi varian sebelum memilih perlindungan penentukuran ADAS.",
       "Cat Soul Red Mazda terkenal cantik tetapi mahal untuk dibaiki — warna lain mungkin sedikit lebih murah."
     ],
     "description": "Mazda CX-5 ialah SUV premium. Premiumnya tinggi kerana kos baiki dan alat ganti diimport.",
@@ -4450,10 +4465,10 @@
       },
       {
         "range": "2017–kini (Gen 2, termasuk 2.5 Turbo)",
-        "note": "2017–kini (Gen 2 / KF, termasuk 2.5 Turbo 2019+). i-Activsense standard pada varian GLS ke atas (base 2.0GL tiada) — kamera pada cermin perlu ditentukur. Premium varian 2.5 Turbo 20–30% lebih tinggi daripada 2.0 — kos baiki dan sum insured jauh lebih tinggi."
+        "note": "2017–kini (Gen 2 / KF, termasuk 2.5 Turbo 2019+). Bagi CX-5 facelift 2024, varian 2.0 High dan ke atas mempunyai ciri i-Activsense yang dinyatakan oleh Mazda; untuk tahun lain, semak spesifikasi varian. Kamera pada cermin perlu ditentukur. Premium varian 2.5 Turbo 20–30% lebih tinggi daripada 2.0 — kos baiki dan sum insured jauh lebih tinggi."
       }
     ],
-    "windscreenPrice": "RM800–RM1,600; Gen 2 varian GLS ke atas ada i-Activsense — gantian cermin memerlukan penentukuran kamera, sahkan dengan panel bengkel",
+    "windscreenPrice": "RM800–RM1,600; varian yang ada i-Activsense (bagi facelift 2024, 2.0 High dan ke atas) — gantian cermin memerlukan penentukuran kamera, sahkan dengan panel bengkel",
     "addOnsDetail": [
       {
         "name": "Windscreen cover",
@@ -4465,7 +4480,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM300/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "i-Activsense ialah kelengkapan standard pada varian GLS ke atas — penentukuran boleh mencecah ratusan ringgit."
+        "whyBM": "Bagi CX-5 facelift 2024, varian 2.0 High dan ke atas mempunyai ciri i-Activsense yang dinyatakan oleh Mazda. Untuk tahun lain, semak spesifikasi varian sebelum memilih perlindungan penentukuran ADAS."
       },
       {
         "name": "Special perils (banjir)",
@@ -4509,6 +4524,11 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Mazda Malaysia — CX-5 facelift 2024 dan i-Activsense",
+        "url": "https://mazda.com.my/news-and-events/news-and-events-content/news-and-events/the-new-mazda-cx-5-refined-elegant",
+        "retrieved": "2026-11-15"
       }
     ],
     "factChecked": "2026-09-10",
@@ -6727,7 +6747,7 @@
       "1.5 RS e:HEV"
     ],
     "engineCC": "1.5L / 1.5L e:HEV Hybrid",
-    "yearRange": "2002 – kini (rebranded City Hatchback 2022+)",
+    "yearRange": "2002 – kini (City Hatchback 2021+)",
     "segment": "Hatchback B",
     "marketValueRange": "RM60,000 – RM98,000",
     "marketValueMin": 60000,
@@ -6822,7 +6842,7 @@
         1470
       ]
     },
-    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM60,000–RM98,000 (Jazz GK used hingga City Hatchback RS petrol; RS e:HEV sekitar RM107,000–RM110,000, di luar julat), julat −10% hingga +20%. Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 10 Sep 2026. Tahap NCD dikira semula 11 Nov 2026.",
+    "premiumMethodology": "Anggaran asas dikira daripada Jadual Tarif Motor 2015 untuk sum insured RM60,000–RM98,000, julat −10% hingga +20%. City Hatchback RS baharu di luar julat ini: harga runcit Honda Malaysia ialah RM100,900 (RS petrol) dan RM112,900 (RS e:HEV), disemak 15 Nov 2026. Harga sebenar ikut tahun, varian hybrid dan syarikat selepas liberalisasi tarif 2017. Disemak 10 Sep 2026. Tahap NCD dikira semula 11 Nov 2026.",
     "premiumReviewed": "2026-11-11",
     "claimFrequencyNote": "Risiko kerosakan termasuk cermin depan dan calar bumper di bandar. Claim besar jarang, tetapi bila berlaku kosnya tinggi — alat ganti Honda lebih mahal daripada Perodua/Proton dan lampu depan varian V/RS boleh mencecah ribuan ringgit seunit.",
     "theftRiskDetail": "Risiko kecurian sederhana ke tinggi — jenama Honda berisiko (rujuk nota risiko semasa dan garis panduan VTAP/ciri anti-kecurian). Komprehensif wajar diutamakan; pertimbangkan tracker GPS atau immobiliser tambahan jika parkir di kawasan terbuka.",
@@ -6830,11 +6850,11 @@
     "modelYearNotes": [
       {
         "range": "2014–2021 (Jazz GK)",
-        "note": "Generasi Jazz terakhir sebelum dijenamakan semula. Sum insured ikut nilai pasaran semasa (semak harga kereta terpakai di pasaran), bukan harga beli baru dulu."
+        "note": "Generasi Jazz terakhir sebelum Honda Malaysia melancarkan City Hatchback pada Disember 2021. Sum insured ikut nilai pasaran semasa (semak harga kereta terpakai di pasaran), bukan harga beli baru dulu."
       },
       {
-        "range": "2022–kini (City Hatchback GN5)",
-        "note": "Jazz dijenamakan semula sebagai City Hatchback. Varian RS e:HEV ialah hybrid — premium 15–20% lebih tinggi kerana kos bateri dan motor elektrik. Pastikan sum insured ikut harga beli (RM80,000+)."
+        "range": "2021–kini (City Hatchback GN5)",
+        "note": "City Hatchback ialah model City dalam bentuk hatchback, dilancarkan Honda Malaysia pada 7 Disember 2021; ia bukan Jazz yang ditukar nama. Varian RS e:HEV menyusul pada awal 2022. Varian RS e:HEV ialah hybrid — premium 15–20% lebih tinggi kerana kos bateri dan motor elektrik. Pastikan sum insured ikut harga beli (RM80,000+)."
       }
     ],
     "windscreenPrice": "RM500–RM1,000; City Hatchback RS e:HEV dengan Honda Sensing — gantian cermin perlu penentukuran kamera, sahkan dengan panel bengkel",
@@ -6867,7 +6887,7 @@
     "modelFAQs": [
       {
         "q": "Jazz GK lama vs City Hatchback baru — beza insurans?",
-        "a": "Besar — sum insured Jazz GK terpakai RM43,000–RM55,000; City Hatchback RS petrol baru sekitar RM88,000, RS e:HEV hybrid RM107,000+, iaitu di luar julat anggaran di halaman ini. Jangan insuranskan Jazz lama ikut harga baru — itu over-insure, dan claim tetap dibayar ikut nilai pasaran."
+        "a": "Besar. Harga runcit disyorkan Honda Malaysia untuk City Hatchback baharu (atas jalan tanpa insurans, Semenanjung, disemak 15 Nov 2026) ialah RM100,900 bagi RS petrol dan RM112,900 bagi RS e:HEV. Kedua-duanya di luar julat anggaran di halaman ini. Harga belian ini bukan sum insured Jazz GK terpakai: nilainya bergantung pada tahun dan keadaan; semak nilai pasaran semasa dengan insurer. Jangan insuranskan Jazz lama ikut harga baru — itu over-insure, dan claim tetap dibayar ikut nilai pasaran."
       },
       {
         "q": "Varian RS e:HEV hybrid — bateri rosak boleh claim?",
@@ -6893,6 +6913,21 @@
         "label": "MyCarInfo — semakan NCD",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
+      },
+      {
+        "label": "Honda Malaysia — City Hatchback baharu, harga atas jalan tanpa insurans",
+        "url": "https://www.honda.com.my/press-release/view/859/elevated-design-meets-uncompromised-utility-honda-malaysia-launches-the-new-city-hatchback",
+        "retrieved": "2026-11-15"
+      },
+      {
+        "label": "Honda Malaysia — harga City Hatchback",
+        "url": "https://www.honda.com.my/model/city-hatchback/pricing",
+        "retrieved": "2026-11-15"
+      },
+      {
+        "label": "Honda Malaysia — pelancaran City Hatchback, 7 Dis 2021",
+        "url": "https://www.honda.com.my/press-release/view/781/honda-malaysia-launches-the-sporty-and-stylish-all-new-city-hatchback",
+        "retrieved": "2026-11-15"
       }
     ],
     "factChecked": "2026-09-10",
