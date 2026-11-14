@@ -14,7 +14,7 @@ const canonicalUrl = 'https://insurans.co/tools/kalkulator-insurans-rumah/';
 const description =
   'Kira anggaran premium insurans rumah (houseowner/householder) dari kadar tariff kebakaran × jumlah diinsuranskan. Kadar awam, bukan quotation insurer.';
 const intro =
-  'Masukkan jumlah diinsuranskan (kos pembinaan semula) untuk melihat anggaran premium houseowner dan householder ikut kadar tariff kebakaran. Ini kiraan dari kadar awam, bukan quotation. Bukan ejen, bukan broker.';
+  'Masukkan jumlah diinsuranskan (kos pembinaan semula) untuk melihat anggaran premium houseowner dan householder ikut kadar tarif kebakaran. Ini kiraan daripada kadar awam, bukan quotation. Bukan ejen, bukan broker.';
 
 const rateSources = [
   'https://www.berjayasompo.com.my/product/houseowner-householder',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'Adakah angka ini muktamad?',
-    a: 'Tidak. Ia anggaran dari kadar tariff awam. Bank Negara sedang meliberalisasikan tariff kebakaran, jadi harga bukan tariff atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.',
+    a: 'Tidak. Ia anggaran daripada kadar tarif awam. Bank Negara sedang meliberalisasikan tarif kebakaran, jadi harga bukan tarif atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.',
   },
 ];
 
@@ -218,7 +218,7 @@ const introRest = introMore.join(' ');
 
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Disclaimer:</strong> Anggaran dari kadar tariff kebakaran awam (disemak {readerDate(home.asAt)}). Bukan quotation insurer. Kami bukan ejen, bukan broker.
+              <strong>Penafian:</strong> Anggaran daripada kadar tarif kebakaran awam (disemak {readerDate(home.asAt)}). Bukan quotation insurer. Kami bukan ejen, bukan broker.
             </p>
             <div class="mt-3 text-sm leading-5 text-stone-700">
               <strong>Sumber kadar:</strong>

@@ -165,8 +165,8 @@ const modelReferences = Object.fromEntries(
         <script id="model-reference-data" type="application/json" set:html={JSON.stringify(modelReferences)}></script>
 
         <p class="text-base leading-7 text-stone-900 max-w-2xl">
-          Masukkan premium asal anda, pilih NCD semasa — dan tengok berapa sebenarnya anda jimat.
-          Termasuk kalkulator <strong>"patut ke claim?"</strong> supaya anda tak rugi lepas accident kecil.
+          Masukkan premium asal anda dan pilih NCD semasa untuk melihat berapa yang anda jimat.
+          Termasuk kalkulator <strong>"patut ke claim?"</strong> supaya anda tidak rugi selepas kemalangan kecil.
         </p>
 
         <!-- ── NCD Table (first: searchers want the rates by year) ── -->
@@ -201,7 +201,7 @@ const modelReferences = Object.fromEntries(
         <!-- ── Staircase: choose the NCD level ── -->
         <section class="et-panel" aria-labelledby="tangga-h">
           <div class="et-bar"><Ikon name="i-naik" size={24} /><h2 id="tangga-h" class="et-bar-t">Makin lama tanpa claim, makin murah</h2></div>
-          <p class="et-next" id="ncd-next" aria-live="polite">Pilih berapa tahun anda tak claim. Setiap tahun tanpa claim menaikkan NCD satu anak tangga, sehingga 55%. Tuntutan own damage biasa boleh menjadikan NCD 0% pada pembaharuan seterusnya. OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD.</p>
+          <p class="et-next" id="ncd-next" aria-live="polite">Pilih berapa tahun anda tidak claim. Setiap tahun tanpa claim menaikkan NCD satu anak tangga, sehingga 55%. Tuntutan own damage biasa boleh menjadikan NCD 0% pada pembaharuan seterusnya. OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD.</p>
           <p class="text-sm leading-5 text-stone-700">
             Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">Rujukan Zurich</a>.
           </p>
@@ -209,8 +209,8 @@ const modelReferences = Object.fromEntries(
 
         <!-- ── CALCULATOR 2: Should I Claim? ── -->
         <section class="et-panel" aria-labelledby="claim-h">
-          <div class="et-bar"><Ikon name="i-claim" size={24} /><h2 id="claim-h" class="et-bar-t">Accident kecil? Bayar sendiri boleh lebih murah daripada claim</h2></div>
-          <p class="text-stone-900 text-base">Accident kecil? Kira sama ada worth it untuk claim atau bayar sendiri.</p>
+          <div class="et-bar"><Ikon name="i-claim" size={24} /><h2 id="claim-h" class="et-bar-t">Kemalangan kecil? Bayar sendiri boleh lebih murah daripada claim</h2></div>
+          <p class="text-stone-900 text-base">Kemalangan kecil? Kira sama ada berbaloi untuk claim atau bayar sendiri.</p>
           <noscript><p class="note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda.</p></noscript>
 
           <div class="space-y-5 mt-5">
@@ -281,7 +281,7 @@ const modelReferences = Object.fromEntries(
             Jadual di sini untuk kereta persendirian. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">Zurich Malaysia</a> menerbitkan skala berasingan untuk motosikal dan menyediakan pautan semakan MyCarInfo. Kalkulator ini tidak menyemak rekod polisi atau menentukan kelayakan NCD anda. Sahkan kadar dengan syarikat sebelum renew. Premium asas juga boleh berubah mengikut nilai diinsuranskan, model, umur pemohon, pengalaman tuntutan dan pengunderaitan, seperti diterangkan dalam PDS Etiqa.
           </p>
           <p>
-            Bahagian “Patut Ke Claim?” menganggarkan premium sebelum NCD melalui <strong>premium asas selepas NCD ÷ (1 − NCD ÷ 100)</strong>. Bayaran bersih anggaran ialah kos repair ditolak excess, dengan minimum RM0. Kiraan mengandaikan tuntutan own damage biasa menjadikan NCD 0% pada pembaharuan seterusnya dan premium asas kekal sama. Petunjuknya membandingkan bayaran bersih dengan dua kali tambahan premium asas tahun pertama. Ambang dua tahun ini ialah kaedah perbandingan alat, bukan syarat tuntutan syarikat.
+            Bahagian “Patut Ke Claim?” menganggarkan premium sebelum NCD melalui <strong>premium asas selepas NCD ÷ (1 − NCD ÷ 100)</strong>. Bayaran bersih anggaran ialah kos baiki ditolak excess, dengan minimum RM0. Kiraan mengandaikan tuntutan own damage biasa menjadikan NCD 0% pada pembaharuan seterusnya dan premium asas kekal sama. Petunjuknya membandingkan bayaran bersih dengan dua kali tambahan premium asas tahun pertama. Ambang dua tahun ini ialah kaedah perbandingan alat, bukan syarat tuntutan syarikat.
           </p>
           <p>
             Kiraan tidak meramal kenaikan semula NCD selepas tahun pertama, perubahan harga atau keputusan tuntutan. OD-KfK yang layak dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Semak pengecualian dalam <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">kontrak Etiqa</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a> sebelum menggunakan hasil untuk membuat keputusan.
@@ -296,19 +296,19 @@ const modelReferences = Object.fromEntries(
             OD-KfK yang memenuhi syarat dan tuntutan cermin di bawah perlindungan tambahan berkenaan boleh mengekalkan NCD. Rujuk <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C dan Endorsement 89 kontrak Etiqa</a>.
           </p>
           <p>
-            Bandingkan kos repair, excess dan kesan NCD sebelum memilih cara tuntutan. Tuntutan pihak ketiga terhadap polisi anda juga boleh menjejaskan NCD walaupun anda membayar repair sendiri, mengikut <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C kontrak Etiqa</a>.
+            Bandingkan kos baiki, excess dan kesan NCD sebelum memilih cara tuntutan. Tuntutan pihak ketiga terhadap polisi anda juga boleh menjejaskan NCD walaupun anda membayar sendiri kos baiki, mengikut <a href="https://www.etiqa.com.my/pdfs/en/insurance/Private+Car+Insurance+Policy+Contract.pdf" target="_blank" rel="noopener noreferrer">Seksyen C kontrak Etiqa</a>.
           </p>
 
           <h3>Contoh kiraan own damage biasa:</h3>
           <p>
-            Andaikan kos repair <strong>RM600</strong>, excess RM0, NCD <strong>55%</strong> dan premium asas <strong>RM2,000</strong> yang kekal sama pada pembaharuan seterusnya.
+            Andaikan kos baiki <strong>RM600</strong>, excess RM0, NCD <strong>55%</strong> dan premium asas <strong>RM2,000</strong> yang kekal sama pada pembaharuan seterusnya.
           </p>
           <ul>
-            <li>Kalau <strong>claim dan NCD menjadi 0%</strong>: Bayaran repair RM600, tetapi premium asas tahun depan menjadi RM2,000 berbanding RM900 jika NCD kekal. Tambahan premium asas: <strong>RM1,100</strong>.</li>
-            <li>Kalau <strong>bayar sendiri dan NCD kekal 55%</strong>: Keluar RM600 untuk repair. Dalam perbandingan tahun pertama ini, kosnya <strong>RM500 lebih rendah</strong> daripada tambahan premium asas RM1,100.</li>
+            <li>Jika <strong>claim dan NCD menjadi 0%</strong>: Bayaran pembaikan RM600, tetapi premium asas tahun depan menjadi RM2,000 berbanding RM900 jika NCD kekal. Tambahan premium asas: <strong>RM1,100</strong>.</li>
+            <li>Jika <strong>bayar sendiri dan NCD kekal 55%</strong>: Anda keluarkan RM600 untuk kos baiki. Dalam perbandingan tahun pertama ini, kosnya <strong>RM500 lebih rendah</strong> daripada tambahan premium asas RM1,100.</li>
           </ul>
           <p>
-            Contoh ini mengasingkan kesan NCD sahaja. Gunakan kos repair dan excess sebenar, kemudian sahkan kategori tuntutan dengan syarikat.
+            Contoh ini mengasingkan kesan NCD sahaja. Gunakan kos baiki dan excess sebenar, kemudian sahkan kategori tuntutan dengan syarikat.
           </p>
 
           <h2>Soalan lazim tentang NCD</h2>
@@ -337,7 +337,7 @@ const modelReferences = Object.fromEntries(
             </p>
           </details>
           <details class="faq-item">
-            <summary>Boleh ke ada NCD untuk insurans kereta lagi dari satu?</summary>
+            <summary>Boleh ke ada NCD untuk lebih daripada satu insurans kereta?</summary>
             <p>
               Setiap kenderaan mempunyai rekod NCD sendiri. NCD boleh dipindahkan antara kenderaan milik anda selepas penarikan daripada polisi asal; satu rekod NCD tidak digunakan serentak untuk dua kereta. Rujuk <a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">penerangan PIAM</a>.
             </p>
@@ -358,7 +358,7 @@ const modelReferences = Object.fromEntries(
             </a>
             <a href="/companies/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Bandingkan Syarikat →</p>
-              <p class="text-xs text-stone-500 mt-0.5">Pilih syarikat insurans terbaik</p>
+              <p class="text-xs text-stone-500 mt-0.5">Lihat profil syarikat insurans</p>
             </a>
             <a href="/guides/how-to-claim/" class="block p-4 bg-white border border-stone-200 hover:border-hijau-500 transition-colors group">
               <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Cara Buat Claim →</p>
@@ -419,7 +419,7 @@ const modelReferences = Object.fromEntries(
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-2">Tip penting</h3>
             <p class="text-sm text-stone-600">
-              Bandingkan <strong>kos repair, excess dan kesan NCD</strong> dengan syarikat sebelum claim.
+              Bandingkan <strong>kos baiki, excess dan kesan NCD</strong> dengan syarikat sebelum claim.
               Semak jenis tuntutan dalam <a href="/guides/ncd-explained/" class="text-hijau-700 underline">panduan NCD</a>.
             </p>
           </div>

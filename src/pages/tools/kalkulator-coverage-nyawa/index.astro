@@ -9,7 +9,7 @@ import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-coverage-nyawa/';
 const description = 'Kira jurang coverage nyawa berdasarkan gaji, tahun sokongan, hutang, belanja khas, simpanan dan coverage sedia ada — tanpa anggaran produk.';
-const intro = 'Jawab 6 soalan tentang nombor anda sendiri. Kami tak tanya nama, tak jual apa-apa — cuma kira jurang kasar supaya anda ada angka sebelum bercakap dengan sesiapa.';
+const intro = 'Jawab 6 soalan tentang nombor anda sendiri. Kami tidak bertanya nama dan tidak menjual apa-apa; kami hanya mengira jurang kasar supaya anda ada angka sebelum bercakap dengan sesiapa.';
 const faqs = [
   {
     q: 'Apa maksud jurang coverage kasar?',
@@ -233,7 +233,7 @@ const introRest = introMore.join(' ');
           </ul>
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Disclaimer:</strong> Alat pendidikan dari nombor anda sendiri. Bukan cadangan produk, bukan quote premium, bukan nasihat kewangan. Kami tak jual polisi. Untuk nasihat peribadi, jumpa perancang kewangan berlesen.
+              <strong>Penafian:</strong> Alat pendidikan berdasarkan nombor anda sendiri. Bukan cadangan produk, bukan sebut harga premium, bukan nasihat kewangan. Kami tidak menjual polisi. Untuk nasihat peribadi, jumpa perancang kewangan berlesen.
             </p>
           </div>
         </article>
@@ -409,7 +409,7 @@ const introRest = introMore.join(' ');
         <span class="text-stone-900">(=) Jurang</span>
         <span class="text-hijau-700">${rm(result.gap)}</span>
       </div>`;
-    interpretationEl.innerHTML = 'Ini keperluan kasar, bukan cadangan produk dan bukan quote. Kalau jurang besar, baca <a href="/life-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan insurans nyawa</a> dulu sebelum jumpa sesiapa.';
+    interpretationEl.innerHTML = 'Ini keperluan kasar, bukan cadangan produk dan bukan sebut harga. Jika jurangnya besar, baca <a href="/life-insurance/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan insurans nyawa</a> dahulu sebelum berjumpa sesiapa.';
 
     track('coverage_calculate', {
       monthly_income: values.monthlyIncome,
