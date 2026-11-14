@@ -44,51 +44,69 @@ const schema = {
   "inLanguage": ["ms", "en"]
 };
 
+// One source for the visible FAQ and its FAQPage JSON-LD. `ld: false` keeps the first question out of the
+// JSON-LD, as before; the JSON-LD answer is the visible answer as plain text (tags removed, whitespace collapsed).
+const homeFaqs = [
+  {
+    q: 'Wajib ke beli insurans kereta?',
+    a: `Ya, memang wajib. Minimum mesti ada <strong>insurans pihak ketiga (third-party)</strong>. Tanpa insurans yang sah,
+          anda tidak boleh renew roadtax. Jika ditangkap polis memandu tanpa insurans,
+          anda boleh didenda sehingga <strong>RM1,000</strong> atau dipenjara sehingga 3 bulan.
+          Ini bukan pilihan; ia ditetapkan dalam Road Transport Act 1987 (Akta Pengangkutan Jalan).`,
+    ld: false,
+  },
+  {
+    q: 'Third-party je cukup ke, atau kena ambil comprehensive?',
+    a: `Polisi pihak ketiga hanya melindungi kerosakan kereta <em>orang lain</em>. Kereta anda sendiri langsung tidak dilindungi.
+          Jika kereta anda masih bernilai dan anda tidak mampu membayar tunai sekiranya berlaku kemalangan, polisi <strong>komprehensif</strong> wajar diutamakan.
+          Polisi pihak ketiga sesuai untuk kereta lama yang nilainya sudah sangat rendah, contohnya kereta bawah RM10,000.`,
+    ld: true,
+  },
+  {
+    q: 'Boleh ke renew insurans kereta online?',
+    a: `Boleh, dan lebih mudah daripada pergi ke pejabat. Semak NCD dahulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>, kemudian minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
+          (<a href="/insurans-online/#beli-terus">lihat senarai beli online di insurans.co/insurans-online/</a>).
+          Bayar online dan anda terus dapat e-cover note, kemudian renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
+          <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.`,
+    ld: true,
+  },
+  {
+    q: 'Apa jadi kalau NCD reset sebab claim?',
+    a: `Claim own damage biasa boleh menyebabkan NCD kembali kepada <strong>0%</strong> pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Jika NCD anda 55%, premium tahun depan boleh naik RM1,000+.
+          Sebab itu, untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik memilih untuk bayar sendiri. Jangan meneka; kira dahulu dengan
+          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa dan kos baiki, dan kalkulator akan menunjukkan sama ada berbaloi claim atau tidak.`,
+    ld: true,
+  },
+  {
+    q: 'Insurans dan takaful — sama ke beza?',
+    a: `Bezanya dari segi konsep. <strong>Takaful</strong> menggunakan prinsip saling bantu-membantu (ta'awun) dan patuh Syariah.
+          Lebihan dana dikongsi semula kepada peserta. Bagi <strong>insurans konvensional</strong>, premium masuk ke syarikat
+          dan keuntungannya milik syarikat. Dari segi perlindungan dan proses claim, kedua-duanya lebih kurang sama.
+          Jika anda mahu pilihan yang patuh Syariah, pilih takaful. Jika tidak kisah, pilih yang harga dan servisnya paling sesuai.`,
+    ld: true,
+  },
+  {
+    q: 'Apa tu "agreed value" dan "market value"?',
+    a: `<strong>Market value</strong> (nilai pasaran): syarikat membayar berdasarkan nilai kereta semasa claim. Nilai kereta susut setiap tahun,
+          jadi bayaran mungkin kurang daripada yang dijangka. <strong>Agreed value</strong> (nilai dipersetujui): anda dan syarikat bersetuju dengan satu jumlah
+          tetap semasa membeli polisi. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal.
+          Dengan agreed value, anda tahu dengan tepat berapa yang anda dapat jika total loss.`,
+    ld: true,
+  },
+];
+const plainText = (html: string) => html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Third-party je cukup ke, atau kena ambil comprehensive?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Third-party cuma cover kerosakan kereta orang lain. Kereta sendiri langsung tak dilindungi. Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil comprehensive. Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000."
-      }
+  "mainEntity": homeFaqs.filter((faq) => faq.ld).map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": plainText(faq.a),
     },
-    {
-      "@type": "Question",
-      "name": "Boleh ke renew insurans kereta online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan Kalkulator NCD, lepas tu minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my (lihat senarai beli online di insurans.co/insurans-online/). Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh: cara renew insurans kereta online."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa jadi kalau NCD reset sebab claim?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+. Sebab tu untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik pilih bayar sendiri. Jangan agak-agak — kira dulu dengan Kalkulator NCD: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Insurans dan takaful — sama ke beza?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Beza dari segi konsep. Takaful guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah. Lebihan dana dikongsi balik kepada peserta. Insurans konvensional — premium masuk syarikat, untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je. Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa tu \"agreed value\" dan \"market value\"?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Market value — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun, so payout mungkin kurang dari yang dijangka). Agreed value — anda dan syarikat setuju satu jumlah tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss. Untuk kereta baru atau kereta mahal, agreed value lagi selamat."
-      }
-    }
-  ]
+  })),
 };
 ---
 
@@ -107,7 +125,7 @@ const faqSchema = {
         <h2 class="mod-bar" id="tentang"><Ikon name="i-tanda" size={22} /> Bukan ejen. Bukan broker.</h2>
         <div class="mod-in">
           <p class="ix-s">
-            Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
+            Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Insurans.co membantu anda menyemak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
           </p>
           <div class="hp-by">
             <a href="/penulis/amir-ariff/" class="hp-by-img"><img src="/images/penulis/amir-ariff-colour-192.webp" alt="Amir Ariff" width="56" height="56" loading="lazy" decoding="async" /></a>
@@ -130,7 +148,7 @@ const faqSchema = {
         <section class="mod" aria-labelledby="popular">
           <h2 class="mod-bar" id="popular"><Ikon name="i-kereta" size={22} /> Range premium ikut model: NCD 0% vs 55%</h2>
           <div class="mod-in">
-            <p class="ix-s">Terus tengok range premium untuk Axia, Myvi, Saga, Vios, City dan model lain — termasuk NCD 0% vs 55%.</p>
+            <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
             <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model popular di bawah <Ikon name="i-bawah" size={18} /></a>
             <a href="/car-insurance/" data-cta="card_car" class="hp-more">Bandingkan ikut model <Ikon name="i-kanan" size={18} /></a>
           </div>
@@ -139,7 +157,7 @@ const faqSchema = {
         <section class="mod" data-tint="pink" aria-labelledby="kalk-ncd">
           <h2 class="mod-bar" id="kalk-ncd"><Ikon name="i-kalkulator" size={22} /> Kira dulu “patut ke claim?” sebelum NCD reset</h2>
           <div class="mod-in">
-            <p class="ix-s">Masukkan premium asal, pilih NCD level. Termasuk kira-kira “patut ke claim?” sebelum NCD reset.</p>
+            <p class="ix-s">Masukkan premium asal dan pilih tahap NCD. Termasuk kiraan “patut ke claim?” sebelum NCD hilang.</p>
             <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-o">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
           </div>
         </section>
@@ -147,11 +165,11 @@ const faqSchema = {
         <section class="mod" aria-labelledby="banding">
           <h2 class="mod-bar" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan: harga dan claim line, head-to-head</h2>
           <div class="mod-in">
-            <p class="ix-s">{comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga dan claim line.</p>
+            <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, harga dan talian claim.</p>
             <ul class="hp-links">
-              <li><a href="/perbandingan/prudential-vs-aia/">Prudential vs AIA — mana medical card lagi power?</a></li>
-              <li><a href="/perbandingan/etiqa-vs-zurich/">Etiqa vs Zurich — insurans kereta mana lagi murah?</a></li>
-              <li><a href="/perbandingan/allianz-vs-zurich/">Allianz vs Zurich — coverage premium, mana berbaloi?</a></li>
+              <li><a href="/perbandingan/prudential-vs-aia/">Prudential vs AIA — perbandingan medical card</a></li>
+              <li><a href="/perbandingan/etiqa-vs-zurich/">Etiqa vs Zurich — perbandingan harga insurans kereta</a></li>
+              <li><a href="/perbandingan/allianz-vs-zurich/">Allianz vs Zurich — perbandingan perlindungan dan premium</a></li>
             </ul>
             <a href="/perbandingan/" data-cta="card_compare" class="hp-more">Semua perbandingan <Ikon name="i-kanan" size={18} /></a>
           </div>
@@ -160,7 +178,7 @@ const faqSchema = {
         <section class="mod" aria-labelledby="takaful-q">
           <h2 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful atau konvensional: coverage lebih kurang sama</h2>
           <div class="mod-in">
-            <p class="ix-s">Coverage lebih kurang sama. Beza utama: takaful patuh Syariah, lebihan dana boleh dikongsi.</p>
+            <p class="ix-s">Perlindungan lebih kurang sama. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
             <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
           </div>
         </section>
@@ -171,11 +189,11 @@ const faqSchema = {
         <details class="hp-fold">
         <summary class="mod-bar"><h2 id="renew-h"><Ikon name="i-renew" size={22} /> Renew online dalam 4 langkah, tak perlu ke pejabat</h2><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
-          <p class="ix-s">Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
+          <p class="ix-s">Anda tidak perlu pergi ke pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
           <ol class="hp-steps">
             <li>
               <h3>Semak NCD anda</h3>
-              <p>Pergi <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau check dengan ejen. Penting sebab NCD affect harga premium.</p>
+              <p>Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau tanya ejen. Ini penting kerana NCD mempengaruhi harga premium.</p>
             </li>
             <li>
               <h3>Dapatkan quotation</h3>
@@ -183,11 +201,11 @@ const faqSchema = {
             </li>
             <li>
               <h3>Bayar &amp; dapat e-cover note</h3>
-              <p>Bayar online (FPX, kad kredit). E-cover note terus masuk email. Simpan PDF tu.</p>
+              <p>Bayar online (FPX, kad kredit). E-cover note dihantar terus ke e-mel. Simpan PDF itu.</p>
             </li>
             <li>
               <h3>Renew roadtax</h3>
-              <p>Boleh renew di JPJ, MyEG, Pos Malaysia, atau kaunter di shopping mall.</p>
+              <p>Boleh renew di JPJ, MyEG, Pos Malaysia, atau kaunter di pusat beli-belah.</p>
             </li>
           </ol>
         </div>
@@ -230,8 +248,8 @@ const faqSchema = {
         <h2 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Anggaran comprehensive setahun: {popularCars.length} model popular</h2>
         <div class="mod-in">
           <p class="ix-s">
-            Kami compile anggaran harga untuk kereta-kereta popular di Malaysia.
-            Harga di bawah adalah untuk polisi comprehensive setahun.
+            Kami kumpulkan anggaran harga untuk kereta yang popular di Malaysia.
+            Harga di bawah ialah untuk polisi komprehensif setahun.
           </p>
           <ul class="hp-cars numeric">
             {popularCars.map(car => (
@@ -248,9 +266,9 @@ const faqSchema = {
             ))}
           </ul>
           <p class="ix-src">
-            Nota: Harga di atas adalah anggaran untuk tahun 2026. Harga sebenar bergantung pada
+            Nota: Harga di atas ialah anggaran untuk tahun 2026. Harga sebenar bergantung pada
             umur kereta, lokasi, rekod pemanduan, dan syarikat insurans yang dipilih.
-            Selepas liberalisasi tarif motor 2017, setiap syarikat boleh set harga sendiri.
+            Selepas liberalisasi tarif motor 2017, setiap syarikat boleh menetapkan harga sendiri.
           </p>
         </div>
       </section>
@@ -259,63 +277,12 @@ const faqSchema = {
       <section class="mod" aria-labelledby="soalan">
         <h2 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Insurans kereta wajib: minimum third-party</h2>
         <div class="mod-in hp-faq">
-      <details class="faq-item" open>
-        <summary>Wajib ke beli insurans kereta?</summary>
-        <p>
-          Ya, memang wajib. Minimum kena ada <strong>third-party insurance</strong>. Tanpa insurans yang sah,
-          anda tak boleh renew roadtax. Kalau kena tangkap polis memandu tanpa insurans,
-          boleh kena denda sehingga <strong>RM1,000</strong> atau penjara sehingga 3 bulan.
-          Ini bukan optional — memang dalam Road Transport Act 1987.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Third-party je cukup ke, atau kena ambil comprehensive?</summary>
-        <p>
-          Third-party cuma cover kerosakan kereta <em>orang lain</em>. Kereta sendiri langsung tak dilindungi.
-          Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil <strong>comprehensive</strong>.
-          Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Boleh ke renew insurans kereta online?</summary>
-        <p>
-          Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>, lepas tu minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
-          (<a href="/insurans-online/#beli-terus">lihat senarai beli online di insurans.co/insurans-online/</a>).
-          Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
-          <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Apa jadi kalau NCD reset sebab claim?</summary>
-        <p>
-          Claim own damage biasa boleh menyebabkan NCD kembali kepada <strong>0%</strong> pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+.
-          Sebab tu untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik pilih bayar sendiri. Jangan agak-agak — kira dulu dengan
-          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Insurans dan takaful — sama ke beza?</summary>
-        <p>
-          Beza dari segi konsep. <strong>Takaful</strong> guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah.
-          Lebihan dana dikongsi balik kepada peserta. <strong>Insurans konvensional</strong> — premium masuk syarikat,
-          untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je.
-          Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Apa tu "agreed value" dan "market value"?</summary>
-        <p>
-          <strong>Market value</strong> — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun,
-          so payout mungkin kurang dari yang dijangka). <strong>Agreed value</strong> — anda dan syarikat setuju satu jumlah
-          tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss.
-          Untuk kereta baru atau kereta mahal, agreed value lagi selamat.
-        </p>
-      </details>
+      {homeFaqs.map((faq, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary>{faq.q}</summary>
+          <p set:html={faq.a} />
+        </details>
+      ))}
         </div>
       </section>
 
