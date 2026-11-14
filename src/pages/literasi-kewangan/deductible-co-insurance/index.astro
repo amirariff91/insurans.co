@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Co-insurance 5% — ada had maksimum tak?',
-    a: 'Selalunya ada had atau cap (contoh “dihadkan atas RM500”). Tanpa cap, 5% daripada bil RM100,000 = RM5,000. Sentiasa tanya kedua-duanya: peratus dan cap. Jika tiada cap bertulis, anggap risikonya terbuka.',
+    a: 'Selalunya ada had atau cap (contoh “dihadkan pada RM500”). Tanpa cap, 5% daripada bil RM100,000 = RM5,000. Sentiasa tanya kedua-duanya: peratus dan cap. Jika tiada cap bertulis, anggap risikonya terbuka.',
   },
   {
     q: 'Betul ke plan co-payment lagi murah?',
@@ -98,8 +98,8 @@ const schema = {
   <div class="container-article py-8 sm:py-12">
     <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
-        <strong>Deductible</strong> ialah jumlah yang anda bayar dulu setiap kali claim. <strong>Co-insurance atau co-payment</strong>
-        pula ialah peratus yang anda kongsi daripada baki. Jadi “bayar dulu, kemudian kongsi” menentukan jumlah sebenar yang keluar
+        <strong>Deductible</strong> ialah jumlah yang anda tanggung sendiri mengikut asas yang ditetapkan dalam polisi, seperti setiap disability atau tahun polisi. <strong>Co-insurance</strong>
+        biasanya dikira sebagai peratus; co-payment boleh berupa jumlah tetap atau peratus, mengikut pelan. Jadi “bayar dulu, kemudian kongsi” menentukan jumlah sebenar yang keluar
         dari poket — bukan angka premium bulanan sahaja.
       </p>
       <p class="note-plain text-sm leading-6">
@@ -110,11 +110,11 @@ const schema = {
       <h2 id="maksud">Dua perkataan, satu idea: anda kongsi bil</h2>
       <ul>
         <li>
-          <strong>Deductible (deduktibel)</strong> — jumlah yang anda bayar dulu setiap kali claim. Bil RM10,000, deductible RM500
+          <strong>Deductible (deduktibel)</strong> — jumlah yang anda tanggung sendiri mengikut asas yang ditetapkan dalam polisi, seperti setiap disability atau tahun polisi. Bil RM10,000, deductible RM500
           → insurer kira baki RM9,500.
         </li>
         <li>
-          <strong>Co-insurance / co-payment / co-takaful</strong> — peratus yang anda kongsi daripada baki. Baki RM9,500 × 5% = RM475
+          <strong>Co-insurance / co-payment / co-takaful</strong> — co-insurance biasanya peratus daripada baki; co-payment boleh berupa jumlah tetap atau peratus, mengikut pelan. Baki RM9,500 × 5% = RM475
           anda bayar lagi.
         </li>
       </ul>
@@ -126,7 +126,7 @@ const schema = {
       <h2 id="contoh">Contoh penuh dengan angka daripada plan sebenar</h2>
       <p>
         Ambil struktur sebenar (bukan rekaan): A-Plus Health360 ada opsyen deductible RM500, RM1,000 atau RM3,000 per rider
-        year dengan co-insurance 5% dihadkan atas RM500. Contoh bil RM20,000 dengan deductible RM1,000:
+        year dengan co-insurance 5% dihadkan pada RM500. Contoh bil RM20,000 dengan deductible RM1,000:
       </p>
       <ol>
         <li>Tolak deductible: RM20,000 − RM1,000 = RM19,000.</li>
@@ -134,7 +134,7 @@ const schema = {
         <li>Keluar poket: RM1,000 + RM500 = <strong>RM1,500</strong>. Cap itu penting — tanpanya anda bayar RM950.</li>
       </ol>
       <p>
-        Contoh lain: Takaful Malaysia myMedik guna Co-Takaful 5% atau 10% dihadkan atas RM500 atau RM1,000 per certificate
+        Contoh lain: Takaful Malaysia myMedik guna Co-Takaful 5% atau 10% dihadkan pada RM500 atau RM1,000 per certificate
         year — dan dikecualikan jika dirawat di hospital kerajaan. Sentiasa baca dua angka: <strong>peratus dan cap</strong>.
       </p>
 

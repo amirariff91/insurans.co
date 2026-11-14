@@ -215,7 +215,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">
-        <h2 class="mod-bar" id="harga"><Ikon name="i-lindung" size={22} /> Harga ini lindung 4 perkara. Banjir tak termasuk.</h2>
+        <h2 class="mod-bar" id="harga"><Ikon name="i-lindung" size={22} /> Anggaran ini ialah untuk polisi komprehensif</h2>
         <div class="mod-in">
           <p class="ix-s">{model.description}</p>
           <p class="ix-s">
@@ -251,7 +251,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Butiran model -->
       <section class="mod" aria-labelledby="butiran">
-        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Nilai pasaran {model.model}: {model.marketValueRange}</h2>
+        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}</h2>
         <div class="mod-in">
           <dl class="facts">
             <div><dt>Enjin / kapasiti</dt><dd>{model.engineCC}</dd></div>
@@ -298,7 +298,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Add-ons Section -->
       <section id="addons" class="mod" aria-labelledby="addons-h">
-        <h2 class="mod-bar" id="addons-h"><Ikon name="i-tambah" size={22} /> Add-ons bukan automatik: pilih berdasarkan penggunaan &amp; lokasi</h2>
+        <h2 class="mod-bar" id="addons-h"><Ikon name="i-tambah" size={22} /> Perlindungan tambahan bukan automatik untuk semua polisi</h2>
         <div class="mod-in">
           <p class="ix-s">
             Perlindungan tambahan bukan automatik untuk semua polisi. Pilih berdasarkan penggunaan kereta,
@@ -335,7 +335,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Risk Profile -->
       <section id="risiko" class="mod" aria-labelledby="risiko-h">
-        <h2 class="mod-bar" id="risiko-h"><Ikon name="i-amaran" size={22} /> Kos repair {model.model}: {repairHeadline.toLowerCase()}</h2>
+        <h2 class="mod-bar" id="risiko-h"><Ikon name="i-amaran" size={22} /> Faktor risiko yang berbeza</h2>
         <div class="mod-in">
           <p class="ix-s">Setiap model mempunyai faktor risiko yang berbeza. Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.</p>
           <ul class="rows">
@@ -349,7 +349,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Tips Section -->
       <section id="tips" class="mod" aria-labelledby="tips-h">
-        <h2 class="mod-bar mod-lab" id="tips-h"><Ikon name="i-dompet" size={22} /> {model.tips.length} tips praktikal jimat insurans {model.model}</h2>
+        <h2 class="mod-bar mod-lab" id="tips-h"><Ikon name="i-dompet" size={22} /> Beberapa perkara praktikal untuk pemilik {model.model}</h2>
         <div class="mod-in">
           <p class="ix-s">Beberapa perkara praktikal untuk pemilik {model.model}:</p>
           <details class="baca">

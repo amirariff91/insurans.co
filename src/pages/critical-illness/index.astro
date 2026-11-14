@@ -89,7 +89,7 @@ const schema = {
         facts={[
           { label: 'Kategori', value: 'Standalone, rider, takaful, skim' },
         ]}
-        note={`Tiada anggaran premium direka. Data dikemas kini ${tarikh(ci.asAt)}.`}
+        note={`Tiada anggaran premium direka. Data dikemas kini ${tarikh(updatedAt)}.`}
       />
       <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
@@ -186,7 +186,7 @@ const schema = {
 
           <h2 id="rider-standalone">Rider vs standalone vs term</h2>
           <p>
-            Rider menempel pada polisi asas dan payout boleh mengurangkan sum assured polisi atau rider tersebut. Contohnya,
+            Rider ialah perlindungan tambahan yang dilekatkan pada polisi asas. Payout boleh mengurangkan sum assured polisi atau rider tersebut. Contohnya,
             Prudential Crisis Cover Benefit direkodkan sebagai rider atas pelan asas, manakala Great Eastern SMART Early
             Payout CriticalCare mesti dilekatkan dengan IL Critical Illness Benefit Rider. Standalone dibeli sebagai
             perlindungan tersendiri; Etiqa Critical Care Plus direkodkan dalam kategori ini. Term pula menerangkan tempoh

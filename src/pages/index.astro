@@ -59,13 +59,12 @@ const homeFaqs = [
   {
     q: 'Third-party je cukup ke, atau kena ambil comprehensive?',
     a: `Polisi pihak ketiga hanya melindungi kerosakan kereta <em>orang lain</em>. Kereta anda sendiri langsung tidak dilindungi.
-          Jika kereta anda masih bernilai dan anda tidak mampu membayar tunai sekiranya berlaku kemalangan, polisi <strong>komprehensif</strong> wajar diutamakan.
-          Polisi pihak ketiga sesuai untuk kereta lama yang nilainya sudah sangat rendah, contohnya kereta bawah RM10,000.`,
+          Bandingkan polisi pihak ketiga dan <strong>komprehensif</strong> bersama nilai kereta, syarat pinjaman dan kemampuan anda menanggung kerugian.`,
     ld: true,
   },
   {
     q: 'Boleh ke renew insurans kereta online?',
-    a: `Boleh, dan lebih mudah daripada pergi ke pejabat. Semak NCD dahulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>, kemudian minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
+    a: `Boleh, dan lebih mudah daripada pergi ke pejabat. Semak NCD sebenar di MyCarInfo atau dengan syarikat insurans. Gunakan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> untuk mengira potongan premium, kemudian minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
           (<a href="/insurans-online/#beli-terus">lihat senarai beli online di insurans.co/insurans-online/</a>).
           Bayar online dan anda terus dapat e-cover note, kemudian renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
           <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.`,
@@ -75,14 +74,14 @@ const homeFaqs = [
     q: 'Apa jadi kalau NCD reset sebab claim?',
     a: `Claim own damage biasa boleh menyebabkan NCD kembali kepada <strong>0%</strong> pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Jika NCD anda 55%, premium tahun depan boleh naik RM1,000+.
           Sebab itu, untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik memilih untuk bayar sendiri. Jangan meneka; kira dahulu dengan
-          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa dan kos baiki, dan kalkulator akan menunjukkan sama ada berbaloi claim atau tidak.`,
+          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa dan kos baiki, untuk membandingkan kos baiki, excess dan kesan terhadap NCD.`,
     ld: true,
   },
   {
     q: 'Insurans dan takaful — sama ke beza?',
     a: `Bezanya dari segi konsep. <strong>Takaful</strong> menggunakan prinsip saling bantu-membantu (ta'awun) dan patuh Syariah.
-          Lebihan dana dikongsi semula kepada peserta. Bagi <strong>insurans konvensional</strong>, premium masuk ke syarikat
-          dan keuntungannya milik syarikat. Dari segi perlindungan dan proses claim, kedua-duanya lebih kurang sama.
+          Lebihan dana boleh dikongsi mengikut syarat sijil dan nisbah yang ditetapkan. Agihan kepada peserta tidak dijamin. Bagi <strong>insurans konvensional</strong>, premium masuk ke syarikat
+          dan keuntungannya milik syarikat. Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk.
           Jika anda mahu pilihan yang patuh Syariah, pilih takaful. Jika tidak kisah, pilih yang harga dan servisnya paling sesuai.`,
     ld: true,
   },
@@ -91,7 +90,7 @@ const homeFaqs = [
     a: `<strong>Market value</strong> (nilai pasaran): syarikat membayar berdasarkan nilai kereta semasa claim. Nilai kereta susut setiap tahun,
           jadi bayaran mungkin kurang daripada yang dijangka. <strong>Agreed value</strong> (nilai dipersetujui): anda dan syarikat bersetuju dengan satu jumlah
           tetap semasa membeli polisi. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal.
-          Dengan agreed value, anda tahu dengan tepat berapa yang anda dapat jika total loss.`,
+          Dengan agreed value, jumlah yang dipersetujui menjadi asas penyelesaian total loss, tertakluk pada terma polisi.`,
     ld: true,
   },
 ];
@@ -147,10 +146,10 @@ const faqSchema = {
       <!-- Main actions -->
       <div class="hp-grid">
         <section class="mod" aria-labelledby="popular">
-          <h2 class="mod-bar mod-lab" id="popular"><Ikon name="i-kereta" size={22} /> Range premium ikut model: NCD 0% vs 55%</h2>
+          <h2 class="mod-bar mod-lab" id="popular"><Ikon name="i-kereta" size={22} /> Julat premium ikut model: NCD 0% vs 55%</h2>
           <div class="mod-in">
             <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
-            <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model popular di bawah <Ikon name="i-bawah" size={18} /></a>
+            <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model dalam panduan ini <Ikon name="i-bawah" size={18} /></a>
             <a href="/car-insurance/" data-cta="card_car" class="hp-more">Bandingkan ikut model <Ikon name="i-kanan" size={18} /></a>
           </div>
         </section>
@@ -164,9 +163,9 @@ const faqSchema = {
         </section>
 
         <section class="mod" aria-labelledby="banding">
-          <h2 class="mod-bar mod-lab" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan: harga dan claim line, head-to-head</h2>
+          <h2 class="mod-bar mod-lab" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan satu lawan satu</h2>
           <div class="mod-in">
-            <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, harga dan talian claim.</p>
+            <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, produk, talian claim dan saluran digital.</p>
             <ul class="hp-links">
               <li><a href="/perbandingan/prudential-vs-aia/">Prudential vs AIA — perbandingan medical card</a></li>
               <li><a href="/perbandingan/etiqa-vs-zurich/">Etiqa vs Zurich — perbandingan harga insurans kereta</a></li>
@@ -177,9 +176,9 @@ const faqSchema = {
         </section>
 
         <section class="mod" aria-labelledby="takaful-q">
-          <h2 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful atau konvensional: coverage lebih kurang sama</h2>
+          <h2 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful patuh Syariah, dan lebihan dana boleh dikongsi</h2>
           <div class="mod-in">
-            <p class="ix-s">Perlindungan lebih kurang sama. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
+            <p class="ix-s">Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
             <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
           </div>
         </section>
@@ -246,10 +245,10 @@ const faqSchema = {
 
       <!-- Harga sebenar -->
       <section class="mod" aria-labelledby="harga-sebenar">
-        <h2 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Anggaran comprehensive setahun: {popularCars.length} model popular</h2>
+        <h2 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Anggaran polisi komprehensif setahun</h2>
         <div class="mod-in">
           <p class="ix-s">
-            Kami kumpulkan anggaran harga untuk kereta yang popular di Malaysia.
+            Kami kumpulkan anggaran harga untuk model kereta yang disenaraikan.
             Harga di bawah ialah untuk polisi komprehensif setahun.
           </p>
           <ul class="hp-cars numeric">
@@ -276,7 +275,7 @@ const faqSchema = {
 
       <!-- FAQ -->
       <section class="mod" aria-labelledby="soalan">
-        <h2 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Insurans kereta wajib: minimum third-party</h2>
+        <h2 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Insurans kereta wajib: sekurang-kurangnya perlindungan pihak ketiga</h2>
         <div class="mod-in hp-faq">
       {homeFaqs.map((faq, i) => (
         <details class="faq-item" open={i === 0}>
@@ -303,7 +302,7 @@ const faqSchema = {
             <li><a href="/travel-insurance/"><Ikon name="i-luar" size={24} /><b>Insurans Perjalanan</b><span>Travel insurance</span></a></li>
             <li><a href="/insurans-online/"><Ikon name="i-cari" size={24} /><b>Insurans Online</b><span>Banding & beli online</span></a></li>
             <li><a href="/home-insurance/"><Ikon name="i-utama" size={24} /><b>Insurans Rumah</b><span>Fire, houseowner & householder</span></a></li>
-            <li><a href="/motorcycle-insurance/"><Ikon name="i-tayar" size={24} /><b>Insurans Motosikal</b><span>Roadtax & coverage</span></a></li>
+            <li><a href="/motorcycle-insurance/"><Ikon name="i-tayar" size={24} /><b>Insurans Motosikal</b><span>Roadtax & perlindungan</span></a></li>
           </ul>
         </div>
       </section>

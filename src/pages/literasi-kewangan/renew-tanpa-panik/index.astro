@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Sum insured ikut apa sebenarnya?',
-    a: 'Nilai pasaran semasa kereta — bukan harga beli, bukan baki pinjaman. Terlalu tinggi = premium membazir; terlalu rendah = claim dikurangkan (under-insurance). Semak angka yang dikesan secara automatik oleh aggregator dengan harga pasaran semasa sebelum bayar.',
+    a: 'Semak sama ada polisi menggunakan nilai pasaran atau nilai dipersetujui. Bagi polisi nilai pasaran, gunakan penilaian semasa, bukan harga beli atau baki pinjaman. Kurang insurans boleh mengurangkan bayaran mengikut syarat polisi. Semak angka yang dikesan secara automatik oleh aggregator dengan harga pasaran semasa sebelum bayar.',
   },
 ];
 
@@ -123,10 +123,9 @@ const schema = {
 
       <h2 id="sum-insured">Langkah 2: Semak sum insured (nilai pasaran, bukan harga beli)</h2>
       <p>
-        Sum insured patut ikut <strong>nilai pasaran semasa</strong>, bukan harga anda beli dulu. Terlalu tinggi = bayar premium
-        lebih untuk nilai yang insurer tidak akan bayar penuh (mereka bayar ikut nilai pasaran semasa claim). Terlalu rendah = under-insured,
-        claim dikurangkan. Sistem aggregator biasanya mengesan nilai secara automatik, tetapi semak sendiri — nilai kereta berusia 5 tahun jauh berbeza daripada
-        nilai pada geran asal.
+        Semak sama ada polisi menggunakan nilai pasaran atau nilai dipersetujui. Bagi polisi nilai pasaran, gunakan <strong>penilaian semasa</strong>.
+        Kurang insurans boleh mengurangkan bayaran mengikut syarat polisi. Sistem aggregator biasanya mengesan nilai secara automatik, tetapi semak sendiri:
+        semak nilai pasaran semasa kereta berusia 5 tahun, bukan harga belinya dahulu.
       </p>
 
       <h2 id="quotation">Langkah 3: Banding 2–3 quotation + add-on yang perlu sahaja</h2>
@@ -145,8 +144,7 @@ const schema = {
         <li>Buat folder “Renew 2027”: PDF polisi + e-cover note + resit roadtax + tangkapan skrin NCD. Set peringatan kalendar 3 minggu sebelum tamat tahun depan. Jumlah belanja tahun ini = premium (selepas NCD) + roadtax — dua angka, satu folder.</li>
       </ol>
       <p>
-        Ritual ini mengambil masa 15 minit jika dibuat awal, 15 hari tekanan jika dibuat lewat. Tahun depan, folder PDF anda akan
-        berterima kasih kepada diri anda hari ini.
+        Mula lebih awal supaya anda ada masa menyemak dokumen dan quotation.
       </p>
     </article>
 
