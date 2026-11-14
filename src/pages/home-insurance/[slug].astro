@@ -5,6 +5,9 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import homeInsurance from '../../data/home-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
@@ -106,6 +109,18 @@ const outboundSources = sourceLinks.map((source) => ({
   href: source.url,
   relationship: 'unpaid' as const,
 }));
+// Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
+// PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
+const answerSkip: string[] = [];
+const answerAll = [{ label: 'Jenis pelan', value: typeLabel }, ...specItems.filter((spec) => !answerSkip.includes(spec.label))]
+  .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
+const answerFacts = answerAll.slice(0, 4).map((spec) => ({
+  label: spec.label,
+  value: spec.value,
+  role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+}));
+const answerRest = answerAll.slice(4);
+
 ---
 
 <Base
@@ -129,31 +144,24 @@ const outboundSources = sourceLinks.map((source) => ({
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      {record.planName} oleh {record.insurer}. Analisis perlindungan, had dan contoh rasmi dikemas kini pada {record.analysisAsAt}.
+      {record.planName} oleh {record.insurer}. Analisis perlindungan, had dan contoh rasmi dikemas kini pada {tarikh(record.analysisAsAt)}.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p class="label">Insurans rumah</p>
-          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{record.planName}</h2>
-          <p class="mt-1 text-sm leading-5 text-stone-600">{record.insurer}</p>
-        </div>
-        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
-          {typeLabel}
-        </span>
-      </div>
+    <PageAnswer slot="answer" finding={`${record.planName} oleh ${record.insurer}`} facts={answerFacts} />
+    <ProductCss />
 
-      <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Ringkasan polisi</h2>
-      <dl class="mt-4 space-y-3 text-sm">
-        {specItems.map((spec) => (
-          <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
-            <dt class="text-stone-500">{spec.label}</dt>
-            <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </div>
+    {answerRest.length > 0 && (
+      <div class="mod">
+        <dl class="pa-rows">
+          {answerRest.map((spec) => (
+            <div class="pa-r">
+              <dt>{spec.label}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )}
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -167,7 +175,7 @@ const outboundSources = sourceLinks.map((source) => ({
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Siapa yang sesuai dengan {record.planName}</h2>
         <p>{record.analysis.bestFor}</p>
 
@@ -202,7 +210,7 @@ const outboundSources = sourceLinks.map((source) => ({
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
+        <div class="prose-editorial prose-bars">
           <h2>Soalan lazim — {record.planName}</h2>
         </div>
         <div class="mt-5">
@@ -215,7 +223,7 @@ const outboundSources = sourceLinks.map((source) => ({
         </div>
       </section>
 
-      <section id="sumber" class="prose-editorial">
+      <section id="sumber" class="prose-editorial prose-bars">
         <h2>Sumber rasmi {record.planName}</h2>
         <ol>
           {sourceLinks.map((source, index) => (
@@ -229,7 +237,7 @@ const outboundSources = sourceLinks.map((source) => ({
       <CtaBand
         heading="Semak semua insurans rumah"
         body={`Lihat kedudukan ${record.planName} dalam perbandingan perlindungan bangunan dan isi rumah.`}
-        primary={{ label: 'Lihat semua insurans rumah →', href: '/home-insurance/' }}
+        primary={{ label: 'Lihat semua insurans rumah', href: '/home-insurance/' }}
         outbound={outboundSources}
         disclosure="Pautan luar membuka sumber rasmi penyedia untuk semakan lanjut. Insurans.co tidak menjual polisi; semak PDS, quotation dan terma semasa dengan penyedia."
       />

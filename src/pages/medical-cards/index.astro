@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import Ikon from '../../components/Ikon.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import medicalCards from '../../data/medical-cards.json';
@@ -92,18 +96,26 @@ const schema = {
   modifiedTime={updatedAt}
   ads={true}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
           { label: 'Medical Card' },
         ]}
       />
-      <p class="label mb-3">Panduan Data</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Medical Card Malaysia 2026</h1>
+      <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
+      <PageAnswer
+        finding="Tiada harga premium direka"
+        facts={[
+          { label: 'Bilangan rekod', value: `${cards.length} pelan`, role: 'term' },
+          { label: 'Kategori', value: 'Standalone, rider, takaful' },
+          { label: 'Data dikemas kini', value: tarikh(medicalCards.asAt) },
+          { label: 'Harga premium', value: 'Tiada anggaran' },
+        ]}
+      />
       <Byline dateModified={updatedAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Bandingkan pilihan medical card berdasarkan data manfaat yang dinyatakan dalam PDS atau brosur rasmi.
         Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia.
       </p>
@@ -113,17 +125,18 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="min-w-0 lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
             Setiap rekod memaparkan had tahunan, room &amp; board, pilihan kos sendiri, tempoh menunggu dan ciri utama
             apabila medan itu dinyatakan dalam sumber. Klik pelan untuk melihat sumber rasmi dan ringkasan penuh.
           </p>
           <h2 id="jadual-perbandingan">Jadual perbandingan medical card</h2>
           <TypeChips class="not-prose mt-5" label="Jenis pelan" groups={cardGroups.map((group) => ({ id: group.type, label: group.label }))} />
-          <div class="overflow-x-auto my-8">
+          <ProductCss />
+          <div class="pp-plans overflow-x-auto my-8">
             <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
-                Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
+                Dikemaskini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
               <thead role="rowgroup">
                 <tr role="row">
@@ -169,7 +182,9 @@ const schema = {
           </p>
         </article>
 
-        <div class="mt-8 space-y-10 sm:mt-10">
+        <details class="pp-more mt-8 sm:mt-10">
+          <summary>Butiran setiap pelan</summary>
+          <div class="mt-8 space-y-10 sm:mt-10">
           {cardGroups.map((group) => (
             <section id={group.type}>
               <div class="flex flex-wrap items-baseline justify-between gap-3">
@@ -201,16 +216,17 @@ const schema = {
                       </div>
                     </dl>
                     <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{card.standoutFeature}</p>
-                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
                   </a>
                 ))}
               </div>
             </section>
           ))}
         </div>
+        </details>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim medical card</h2>
           </div>
           <div class="mt-5">
@@ -226,27 +242,7 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="space-y-6 lg:sticky lg:top-20">
-          <div class="border-2 border-stone-900 bg-white p-5">
-            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
-            <dl class="mt-4 space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Bilangan rekod</dt>
-                <dd class="font-semibold text-stone-900">{cards.length} pelan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Kategori</dt>
-                <dd class="font-semibold text-stone-900">Standalone, rider, takaful</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{medicalCards.asAt}</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga premium</dt>
-                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
-              </div>
-            </dl>
-          </div>
+
           <div class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900">Baca juga</h2>
             <ul class="mt-3 space-y-2.5 text-sm">

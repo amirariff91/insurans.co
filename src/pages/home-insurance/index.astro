@@ -3,6 +3,10 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import Ikon from '../../components/Ikon.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import homeInsurance from '../../data/home-insurance.json';
@@ -118,18 +122,26 @@ const schema = {
   modifiedTime={updatedAt}
   ads={true}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
           { label: 'Insurans Rumah' },
         ]}
       />
-      <p class="label mb-3">Panduan Data</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Insurans Rumah Malaysia 2026</h1>
+      <h1 class="ea-h1">Insurans Rumah Malaysia 2026</h1>
+      <PageAnswer
+        finding="Fahami beza houseowner, householder dan fire-only"
+        facts={[
+          { label: 'Bilangan rekod', value: `${records.length} produk`, role: 'term' },
+          { label: 'Angka disahkan', value: `${records.filter((record) => record.figureVerified).length} rekod`, role: 'term' },
+          { label: 'Kadar asas 1A landed', value: `${formatRate(tariff.ho_landed_1A)} houseowner`, role: 'term' },
+          { label: 'Minimum / setem', value: `RM${tariff.minPremium} / RM${tariff.stamp}`, role: 'price' },
+        ]}
+      />
       <Byline dateModified={updatedAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Fahami beza houseowner, householder dan fire-only; semak kadar tariff yang dapat disahkan, asas jumlah diinsuranskan
         dan rekod produk sebelum mendapatkan quotation.
       </p>
@@ -144,9 +156,10 @@ const schema = {
 
       <section id="banding-pelan" class="mt-10">
         <h2 class="font-serif text-headline-md text-stone-900">Bandingkan pelan insurans rumah</h2>
-        <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
+        <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>.</p>
         <TypeChips class="mt-5" label="Jenis pelan" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
-        <div class="mt-6 overflow-x-auto">
+        <ProductCss />
+        <div class="pp-plans mt-6 overflow-x-auto">
           <table role="table" class="table-editorial plan-table min-w-[60rem]">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar premium dan asas perlindungan untuk {records.length} pelan insurans rumah
@@ -201,7 +214,7 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
             Rumah memerlukan dua soalan berasingan: apa yang hendak dilindungi, dan berapa jumlah yang patut diinsuranskan.
             Fire-only biasanya menjawab keperluan asas bangunan untuk pembiayaan; houseowner merujuk bangunan, manakala
@@ -232,7 +245,7 @@ const schema = {
           </p>
         </article>
 
-        <div class="mt-6 overflow-x-auto">
+        <div class="pp-plans mt-6 overflow-x-auto">
           <table role="table" class="table-editorial plan-table">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar houseowner dan householder yang direkodkan daripada sumber rasmi
@@ -279,7 +292,7 @@ const schema = {
           <CtaBand
             heading="Kalkulator insurans rumah"
             body="Gunakan kalkulator dalaman untuk memasukkan jumlah diinsuranskan dan melihat asas pengiraan. Ia bukan quotation daripada insurer. Untuk anggaran kos pembinaan semula, PIAM Building Cost Calculator ialah rujukan berasingan."
-            primary={{ label: 'Buka kalkulator insurans rumah →', href: '/tools/kalkulator-insurans-rumah/' }}
+            primary={{ label: 'Buka kalkulator insurans rumah', href: '/tools/kalkulator-insurans-rumah/' }}
             outbound={[
               {
                 label: 'PIAM Building Cost Calculator (rujukan)',
@@ -317,7 +330,9 @@ const schema = {
           </p>
         </article>
 
-        <div class="mt-8 space-y-10 sm:mt-10">
+        <details class="pp-more mt-8 sm:mt-10">
+          <summary>Butiran setiap pelan</summary>
+          <div class="mt-8 space-y-10 sm:mt-10">
           {recordGroups.map((group) => (
             <section id={group.type}>
               <div class="flex flex-wrap items-baseline justify-between gap-3">
@@ -359,13 +374,14 @@ const schema = {
                         Nama produk direkodkan, tetapi kadar dan manfaat belum disahkan daripada sumber rasmi semasa penyelidikan.
                       </p>
                     )}
-                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
                   </a>
                 ))}
               </div>
             </section>
           ))}
         </div>
+        </details>
 
         <article class="prose-editorial mt-10 sm:mt-14">
           <h2 id="banjir">Banjir: apa yang perlu disemak?</h2>
@@ -383,7 +399,7 @@ const schema = {
         </article>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim insurans rumah</h2>
           </div>
           <div class="mt-5">
@@ -403,24 +419,8 @@ const schema = {
             <h3 class="font-serif text-headline-sm text-stone-900">Ringkasan</h3>
             <dl class="mt-4 space-y-3 text-sm">
               <div>
-                <dt class="text-stone-500">Bilangan rekod</dt>
-                <dd class="font-semibold text-stone-900">{records.length} produk</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Angka disahkan</dt>
-                <dd class="font-semibold text-stone-900">{records.filter((record) => record.figureVerified).length} rekod</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Kadar asas 1A landed</dt>
-                <dd class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1A)} houseowner</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Minimum / setem</dt>
-                <dd class="font-semibold text-stone-900">RM{tariff.minPremium} / RM{tariff.stamp}</dd>
-              </div>
-              <div>
                 <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{homeInsurance.asAt}</dd>
+                <dd class="font-semibold text-hijau-700">{tarikh(homeInsurance.asAt)}</dd>
               </div>
             </dl>
           </div>

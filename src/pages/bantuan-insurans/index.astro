@@ -4,6 +4,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import schemes from '../../data/schemes.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
@@ -23,25 +25,25 @@ const pillars = [
     title: 'mySalam — skim percuma untuk penerima STR',
     description: 'RM8,000 sekali seumur hidup untuk 50 penyakit kritikal, tambah RM50 sehari apabila bermalam di hospital panel kerajaan.',
     href: '/bantuan-insurans/mysalam/',
-    label: 'Baca panduan mySalam →',
+    label: 'Baca panduan mySalam',
   },
   {
     title: 'i-Lindung — beli insurans guna KWSP sendiri',
     description: 'Saluran dalam aplikasi KWSP i-Akaun untuk membeli pelan hayat dan penyakit kritikal daripada pengendali panel.',
     href: '/i-lindung/',
-    label: 'Baca panduan i-Lindung →',
+    label: 'Baca panduan i-Lindung',
   },
   {
     title: 'Perlindungan Tenang + baucar PTV',
     description: 'Produk mikroinsurans dan mikrotakaful murah. PTV 3.0 bernilai RM30 untuk penerima STR; pusingan 2026 belum diumumkan.',
     href: '/bantuan-insurans/perlindungan-tenang/',
-    label: 'Baca panduan Tenang →',
+    label: 'Baca panduan Tenang',
   },
   {
     title: 'PERKESO — gantian pendapatan berkaitan pekerjaan',
     description: 'Skim Keilatan memberi pencen bulanan; SPS/Lindung Kendiri melindungi orang bekerja sendiri daripada bencana pekerjaan.',
     href: '/bantuan-insurans/perkeso/',
-    label: 'Baca panduan PERKESO →',
+    label: 'Baca panduan PERKESO',
   },
 ];
 const faqs = [
@@ -113,16 +115,16 @@ const schema = {
       Ada empat lapisan perlindungan yang dibiayai atau disalurkan kerajaan — dan masing-masing buat kerja berbeza. Halaman ini bantu anda bezakan mySalam, i-Lindung, Perlindungan Tenang dan PERKESO. Bukan ejen, bukan broker.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Empat lapisan, empat fungsi</h2>
-      <ul class="mt-4 space-y-3 text-sm leading-5 text-stone-700">
-        <li><strong>mySalam:</strong> wang tunai penyakit kritikal percuma untuk penerima STR.</li>
-        <li><strong>i-Lindung:</strong> pembelian insurans sendiri menggunakan Akaun Sejahtera.</li>
-        <li><strong>Tenang:</strong> produk mikro murah dengan baucar kerajaan apabila pusingan dibuka.</li>
-        <li><strong>PERKESO:</strong> gantian pendapatan dan faedah berkaitan pekerjaan.</li>
-      </ul>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Empat lapisan, empat fungsi"
+      facts={[
+        { label: 'mySalam', value: 'wang tunai penyakit kritikal percuma untuk penerima STR.' },
+        { label: 'i-Lindung', value: 'pembelian insurans sendiri menggunakan Akaun Sejahtera.' },
+        { label: 'Tenang', value: 'produk mikro murah dengan baucar kerajaan apabila pusingan dibuka.' },
+        { label: 'PERKESO', value: 'gantian pendapatan dan faedah berkaitan pekerjaan.' },
+      ]}
+    />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -137,7 +139,7 @@ const schema = {
   <div class="container-wide py-8 sm:py-12">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
             Ada empat lapisan perlindungan yang dibiayai atau disalurkan kerajaan — dan masing-masing buat kerja berbeza. mySalam bagi wang tunai penyakit kritikal percuma kepada penerima STR. i-Lindung pula saluran beli insurans sendiri guna duit KWSP. Perlindungan Tenang ialah produk mikro murah dengan baucar kerajaan. PERKESO pula ganti pendapatan bila tak boleh kerja. Halaman ini terangkan mana satu untuk siapa, supaya tak tertukar.
           </p>
@@ -181,7 +183,7 @@ const schema = {
         </article>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim bantuan insurans</h2>
           </div>
           <div class="mt-5">

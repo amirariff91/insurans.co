@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import Ikon from '../../components/Ikon.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import platforms from '../../data/platforms.json';
 import directOnline from '../../data/direct-online.json';
@@ -115,38 +119,44 @@ const schema = {
   modifiedTime={updatedAt}
   ads={false}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-2 sm:pt-8 sm:pb-4">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
           { label: 'Insurans Online' },
         ]}
       />
-      <p class="label mb-3">Panduan platform</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">
-        Compare Insurance Malaysia &amp; Beli Insurance Online
-      </h1>
+      <h1 class="ea-h1">Compare Insurance Malaysia &amp; Beli Insurance Online</h1>
+      <PageAnswer
+        finding="Senarai ini bukan kedudukan atau cadangan"
+        facts={[
+          { label: 'Beli terus daripada syarikat insurans', value: `${directOnline.records.length} syarikat`, role: 'term' },
+          { label: 'Bilangan platform', value: `${platforms.records.length} platform`, role: 'term' },
+          { label: 'Harga quotation', value: 'Tiada anggaran' },
+        ]}
+      />
       <Byline dateModified={updatedAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
         Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
       </p>
     </div>
   </section>
 
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide pt-4 pb-10 sm:pt-6 sm:pb-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
+        <ProductCss />
         <section id="beli-terus" class="scroll-mt-24 rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6" data-section="direct-insurer">
-          <h2 class="font-serif text-headline-md text-stone-900">Beli terus daripada syarikat insurans</h2>
+          <h2 class="h2-bar -mx-5 !-mt-5 !mb-0 sm:-mx-6 sm:!-mt-6">Beli terus daripada syarikat insurans</h2>
           <p class="mt-2 text-sm leading-5 text-stone-700">
             Syarikat insurans dan takaful di bawah menjual insurans kereta secara online melalui saluran mereka sendiri.
             Senarai ini bukan kedudukan atau cadangan. Semak PDS dan harga akhir sebelum membayar. Insurans.co tiada
             hubungan berbayar dengan mana-mana syarikat.
           </p>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
-          <div class="mt-4 overflow-x-auto">
+          <div class="pp-plans mt-4 overflow-x-auto">
             <table role="table" class="table-editorial plan-table min-w-[40rem]">
               <thead role="rowgroup">
                 <tr role="row">
@@ -192,7 +202,7 @@ const schema = {
           </p>
         </section>
 
-        <article class="prose-editorial mt-10 sm:mt-14">
+        <article class="prose-editorial prose-bars mt-10 sm:mt-14">
           <p class="text-lg leading-7 text-stone-700">
             Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Salurannya berbeza.
             <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
@@ -213,7 +223,7 @@ const schema = {
 
         <div class="info-box mt-8 sm:mt-10">
           <p>
-            <strong>Flow:</strong> banding → bayar FPX/kad → e-policy → renew roadtax. Insurans.co bukan ejen, broker atau
+            <strong>Aliran:</strong> banding, bayar FPX/kad, e-policy, renew roadtax. Insurans.co bukan ejen, broker atau
             affiliate; pautan platform ialah rujukan untuk semakan sendiri, bukan ranking.
           </p>
         </div>
@@ -243,7 +253,7 @@ const schema = {
                     </div>
                     <p class="mt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
                     <div class="mt-4 border-t border-stone-200 pt-3">
-                      <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Produk / urusan</p>
+                      <p class="text-sm font-semibold text-stone-600">Produk dan urusan</p>
                       <p class="mt-1 text-sm leading-5 text-stone-600">
                         {platform.products.map((product) => productLabels[product] ?? product).join(' · ')}
                       </p>
@@ -251,8 +261,8 @@ const schema = {
                     <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
                       <span class="font-semibold text-stone-900">Perhatian:</span> {platform.caveat}
                     </p>
-                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">
-                      {['kaotim', 'fwd', 'shopee'].includes(platform.slug) ? 'Baca semakan' : 'Butiran platform'} {platform.name} →
+                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">
+                      {['kaotim', 'fwd', 'shopee'].includes(platform.slug) ? 'Baca semakan' : 'Butiran platform'} {platform.name} <Ikon name="i-kanan" size={16} />
                     </span>
                   </a>
                 ))}
@@ -262,7 +272,7 @@ const schema = {
         </div>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim insurans online Malaysia</h2>
           </div>
           <div class="mt-5">
@@ -285,20 +295,12 @@ const schema = {
             <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
             <dl class="mt-4 space-y-3 text-sm">
               <div>
-                <dt class="text-stone-500">Bilangan platform</dt>
-                <dd class="font-semibold text-stone-900">{platforms.records.length} platform</dd>
-              </div>
-              <div>
                 <dt class="text-stone-500">Model</dt>
                 <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ</dd>
               </div>
               <div>
                 <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{platforms.asAt}</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga quotation</dt>
-                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
+                <dd class="font-semibold text-hijau-700">{tarikh(platforms.asAt)}</dd>
               </div>
             </dl>
           </div>

@@ -4,6 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
+import { tarikh } from '../../../components/edisi/ProductFormat';
 import schemes from '../../../data/schemes.json';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
@@ -90,24 +92,15 @@ const schema = {
       Perlindungan Tenang ialah inisiatif Bank Negara sejak 2017 untuk produk mikroinsurans dan mikrotakaful yang murah dan mudah difahami. Baucar Perlindungan Tenang (PTV) 3.0 bernilai RM30 untuk penerima STR; pusingan 2026 belum diumumkan.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Insurans mikro, bukan skim percuma</h2>
-      <dl class="mt-4 space-y-3 text-sm">
-        <div>
-          <dt class="text-stone-500">Inisiatif</dt>
-          <dd class="font-semibold text-stone-900">BNM sejak 2017</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">PTV 3.0</dt>
-          <dd class="font-semibold text-hijau-700">RM30 mulai 1 September 2025</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">PTV 2026</dt>
-          <dd class="font-semibold text-stone-900">Belum diumumkan setakat {asAt}</dd>
-        </div>
-      </dl>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Insurans mikro, bukan skim percuma"
+      facts={[
+        { label: 'Inisiatif', value: 'BNM sejak 2017' },
+        { label: 'PTV 3.0', value: 'RM30 mulai 1 September 2025', role: 'term' },
+        { label: 'PTV 2026', value: `Belum diumumkan setakat ${tarikh(asAt)}` },
+      ]}
+    />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -121,7 +114,7 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <p class="text-lg leading-7 text-stone-700">
           Perlindungan Tenang ialah inisiatif Bank Negara sejak 2017 untuk produk mikroinsurans dan mikrotakaful yang murah dan mudah difahami — hayat, kemalangan diri, kebakaran dan motor. Caruman bermula daripada beberapa ringgit sebulan, diperbaharui setiap tahun, dan tuntutan boleh dibayar dalam lima hari bekerja dengan dokumen lengkap.
         </p>
@@ -160,7 +153,7 @@ const schema = {
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
+        <div class="prose-editorial prose-bars">
           <h2>Soalan lazim — Perlindungan Tenang</h2>
         </div>
         <div class="mt-5">

@@ -4,6 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
+import { tarikh } from '../../../components/edisi/ProductFormat';
 import schemes from '../../../data/schemes.json';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
@@ -90,23 +92,15 @@ const schema = {
       mySalam diteruskan untuk 2026. Penerima Sumbangan Tunai Rahmah (STR) layak automatik: RM8,000 tunai sekali seumur hidup apabila disahkan salah satu daripada 50 penyakit kritikal, tambah RM50 sehari untuk kemasukan hospital panel. Tiada pendaftaran dan tiada caruman.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Manfaat utama</p>
-      <dl class="mt-4 space-y-3 text-sm">
-        <div>
-          <dt class="text-stone-500">Penyakit kritikal</dt>
-          <dd class="font-semibold text-stone-900">RM8,000 one-off seumur hidup · 50 penyakit</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">Hospitalisasi</dt>
-          <dd class="font-semibold text-stone-900">RM50 sehari · maksimum 14 hari setahun</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">Kos</dt>
-          <dd class="font-semibold text-hijau-700">Percuma untuk penerima yang layak</dd>
-        </div>
-      </dl>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="mySalam diteruskan untuk 2026."
+      facts={[
+        { label: 'Penyakit kritikal', value: 'RM8,000 one-off seumur hidup · 50 penyakit', role: 'term' },
+        { label: 'Hospitalisasi', value: 'RM50 sehari · maksimum 14 hari setahun', role: 'term' },
+        { label: 'Kos', value: 'Percuma untuk penerima yang layak' },
+      ]}
+    />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -120,7 +114,7 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <p class="text-lg leading-7 text-stone-700">
           mySalam diteruskan untuk 2026. Penerima Sumbangan Tunai Rahmah (STR) layak automatik: RM8,000 tunai sekali seumur hidup bila disahkan salah satu 50 penyakit kritikal, tambah RM50 sehari (maksimum 14 hari atau RM700 setahun) untuk kemasukan hospital panel. Tiada pendaftaran, tiada caruman. Semak kelayakan dan buat tuntutan di <a href="https://www.mysalam.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">portal rasmi mysalam.com.my</a>.
         </p>
@@ -177,7 +171,7 @@ const schema = {
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
+        <div class="prose-editorial prose-bars">
           <h2>Soalan lazim — mySalam</h2>
         </div>
         <div class="mt-5">

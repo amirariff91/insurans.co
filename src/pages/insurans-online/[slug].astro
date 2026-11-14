@@ -5,6 +5,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
 import companies from '../../data/companies.json';
 import platforms from '../../data/platforms.json';
 
@@ -157,6 +159,15 @@ const schema = {
     ],
   },
 };
+// Page answer (Edisi): the rows of the old platform box (model, platform, parent company); key fact as the note.
+const answerFacts = [
+  { label: 'Model', value: modelLabel },
+  ...(platform.digitalPlatform ? [{ label: 'Platform', value: platform.digitalPlatform }] : []),
+  ...(parentCompany && parentCompanySlug
+    ? [{ label: 'Syarikat induk', value: parentCompany.name, href: `/companies/${parentCompanySlug}/` }]
+    : []),
+];
+
 ---
 
 <Base
@@ -183,27 +194,8 @@ const schema = {
       Kenali produk {platform.name}, cara pembelian online, bayaran dan perkara penting sebelum memilih perlindungan.
     </p>
 
-    <div class="rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p class="label">Platform online</p>
-          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{platform.name}</h2>
-          <p class="mt-1 text-sm leading-5 text-stone-600">{platform.digitalPlatform}</p>
-        </div>
-        <span class="inline-flex w-fit rounded-full bg-edisi-ink px-3 py-1 text-xs font-semibold text-white">
-          {modelLabel}
-        </span>
-      </div>
-      <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
-      {parentCompany && parentCompanySlug && (
-        <p class="mt-3 text-sm leading-5 text-stone-600">
-          Syarikat induk:{' '}
-          <a href={`/companies/${parentCompanySlug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
-            {parentCompany.name}
-          </a>
-        </p>
-      )}
-    </div>
+    <PageAnswer slot="answer" finding={platform.name} facts={answerFacts} note={platform.keyFact} />
+    <ProductCss />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -217,7 +209,7 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <p class="text-lg text-stone-700">{platform.keyFact}</p>
 
         <h2 id="produk">Apa boleh buat di sini?</h2>
@@ -479,7 +471,7 @@ const schema = {
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
+        <div class="prose-editorial prose-bars">
           <h2>Soalan lazim — {platform.name}</h2>
         </div>
         <div class="mt-5">
@@ -495,7 +487,7 @@ const schema = {
       <CtaBand
         heading={`Laman rasmi ${platform.name}`}
         body="Pautan ini membuka laman atau saluran rasmi platform untuk semakan lanjut; ia bukan ranking atau pengesyoran."
-        primary={{ label: 'Kembali ke hub insurans online →', href: '/insurans-online/' }}
+        primary={{ label: 'Kembali ke hub insurans online', href: '/insurans-online/' }}
         outbound={[{ label: platform.name, href: platformRoot, relationship: 'unpaid' }]}
         disclosure="Insurans.co bukan ejen atau broker dan tiada hubungan berbayar atau affiliate. Sahkan quotation, PDS dan syarat terkini di laman penyedia sebelum membuat keputusan."
       />
