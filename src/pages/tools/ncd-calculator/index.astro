@@ -2,6 +2,18 @@
 import Base from '../../../layouts/Base.astro';
 import carModels from '../../../data/car-models.json';
 import { NCD_TIERS } from '../../../lib/ncd';
+import Ikon from '../../../components/Ikon.astro';
+import '../../../components/edisi-tools/edisi-tools.css';
+
+// The worked example in the NCD table (premium asas RM2,000). Copy and numbers unchanged from the previous table.
+const ncdTableRows = [
+  { years: 'Tiada NCD yang layak', pct: 0, label: '0%', discount: 'Tiada diskaun', after: 'RM2,000' },
+  { years: '1 tahun tanpa claim', pct: 25, label: '25%', discount: 'Diskaun RM500', after: 'RM1,500' },
+  { years: '2 tahun tanpa claim', pct: 30, label: '30%', discount: 'Diskaun RM600', after: 'RM1,400' },
+  { years: '3 tahun tanpa claim', pct: 38.33, label: '38.33%', discount: 'Diskaun RM767', after: 'RM1,233' },
+  { years: '4 tahun tanpa claim', pct: 45, label: '45%', discount: 'Diskaun RM900', after: 'RM1,100' },
+  { years: '5+ tahun tanpa claim', pct: 55, label: '55% (Max)', discount: 'Diskaun RM1,100', after: 'RM900' },
+];
 
 const schema = {
   "@context": "https://schema.org",
@@ -47,21 +59,22 @@ const modelReferences = Object.fromEntries(
   schema={schema}
   pageType="tool"
 >
+  <div class="et">
   <!-- Header -->
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/tools/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Tools</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Kalkulator NCD</span>
+      <nav class="text-sm text-stone-600 mb-5" aria-label="Jejak navigasi">
+        <a href="/" class="text-stone-700 underline decoration-stone-400 underline-offset-2">Utama</a>
+        <span class="mx-2" aria-hidden="true">›</span>
+        <a href="/tools/" class="text-stone-700 underline decoration-stone-400 underline-offset-2">Tools</a>
+        <span class="mx-2" aria-hidden="true">›</span>
+        <span class="text-stone-900">Kalkulator NCD</span>
       </nav>
       <p class="label mb-3">Free Tool</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ncd-h1 text-stone-900 mb-4">
         Jadual NCD &amp; Kalkulator NCD Insurans Kereta 2026
       </h1>
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Masukkan premium asal anda, pilih NCD semasa — dan tengok berapa sebenarnya anda jimat.
         Termasuk kalkulator <strong>"patut ke claim?"</strong> supaya anda tak rugi lepas accident kecil.
       </p>
@@ -72,224 +85,175 @@ const modelReferences = Object.fromEntries(
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
 
       <!-- Main: Calculators -->
-      <div class="lg:col-span-2 space-y-10">
+      <div class="lg:col-span-2 space-y-8 min-w-0">
 
         <!-- ── NCD Table (first: searchers want the rates by year) ── -->
-        <section aria-label="Jadual NCD kereta">
-        <div class="prose-editorial">
-          <h2>Jadual NCD Kereta Persendirian Malaysia 2026</h2>
-          <p>NCD meningkat mengikut tempoh insurans tanpa tuntutan, sehingga maksimum 55% untuk kereta persendirian. Rujuk <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer">jadual Zurich Malaysia</a>.</p>
-        </div>
+        <section class="et-panel" data-tint="sky" aria-labelledby="jadual-h">
+          <div class="et-bar"><Ikon name="i-tangga" size={24} /><h2 id="jadual-h" class="et-bar-t">Jadual NCD Kereta Persendirian Malaysia 2026</h2></div>
+          <p class="text-base leading-6 text-stone-900 max-w-[60ch]">NCD meningkat mengikut tempoh insurans tanpa tuntutan, sehingga maksimum 55% untuk kereta persendirian. Rujuk <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">jadual Zurich Malaysia</a>.</p>
+          <div class="overflow-x-auto mt-4">
+            <table class="tg-table">
+              <caption class="sr-only">Jadual NCD kereta persendirian Malaysia 2026</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Tahun Tanpa Claim</th>
+                  <th scope="col">NCD</th>
+                  <th scope="col" class="num">Contoh: Premium Asas RM2,000</th>
+                  <th scope="col" class="num">Baki premium asas</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ncdTableRows.map((row) => (
+                  <tr class:list={[{ 'tg-max': row.pct === 55 }]}>
+                    <th scope="row">{row.years}</th>
+                    <td><span class="tg-mid"><span class="tg-bar" style={`--p:${row.pct === 0 ? 4 : row.pct / 55 * 100}`} aria-hidden="true"></span><span class="tg-pct">{row.label}</span></span></td>
+                    <td class="num">{row.discount}</td>
+                    <td class="num"><strong>{row.after}</strong></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-        <div class="overflow-x-auto mt-6">
-          <table class="table-editorial">
-            <caption class="sr-only">Jadual NCD kereta persendirian Malaysia 2026</caption>
-            <thead>
-              <tr>
-                <th scope="col">Tahun Tanpa Claim</th>
-                <th scope="col">NCD</th>
-                <th scope="col">Contoh: Premium Asas RM2,000</th>
-                <th scope="col">Baki premium asas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="border-b border-stone-100 !font-normal">Tiada NCD yang layak</th>
-                <td class="font-semibold">0%</td>
-                <td>Tiada diskaun</td>
-                <td class="font-bold text-stone-900">RM2,000</td>
-              </tr>
-              <tr>
-                <th scope="row" class="border-b border-stone-100 !font-normal">1 tahun tanpa claim</th>
-                <td class="font-semibold">25%</td>
-                <td>Diskaun RM500</td>
-                <td class="font-bold text-hijau-700">RM1,500</td>
-              </tr>
-              <tr>
-                <th scope="row" class="border-b border-stone-100 !font-normal">2 tahun tanpa claim</th>
-                <td class="font-semibold">30%</td>
-                <td>Diskaun RM600</td>
-                <td class="font-bold text-hijau-700">RM1,400</td>
-              </tr>
-              <tr>
-                <th scope="row" class="border-b border-stone-100 !font-normal">3 tahun tanpa claim</th>
-                <td class="font-semibold">38.33%</td>
-                <td>Diskaun RM767</td>
-                <td class="font-bold text-hijau-700">RM1,233</td>
-              </tr>
-              <tr>
-                <th scope="row" class="border-b border-stone-100 !font-normal">4 tahun tanpa claim</th>
-                <td class="font-semibold">45%</td>
-                <td>Diskaun RM900</td>
-                <td class="font-bold text-hijau-700">RM1,100</td>
-              </tr>
-              <tr class="bg-hijau-50">
-                <th scope="row" class="font-semibold">5+ tahun tanpa claim</th>
-                <td class="font-semibold text-hijau-700">55% (Max)</td>
-                <td>Diskaun RM1,100</td>
-                <td class="font-bold text-hijau-700 text-lg">RM900</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- ── Staircase: choose the NCD level ── -->
+        <section class="et-panel" aria-labelledby="tangga-h">
+          <div class="et-bar"><Ikon name="i-naik" size={24} /><h2 id="tangga-h" class="et-bar-t">Makin lama tanpa claim, makin murah</h2></div>
+          <fieldset class="ncd" id="ncd-selector">
+            <legend>NCD Semasa Anda</legend>
+            <div class="bars">
+              {NCD_TIERS.map((tier) => (
+                <label class="bar" style={`--h:${100 - tier.value}`}>
+                  <input type="radio" name="ncd" value={tier.value} aria-label={`${tier.value === 0 ? 'Tiada NCD yang layak' : tier.years}, NCD ${tier.label}`} />
+                  <span class="bar-col" aria-hidden="true"></span>
+                  <span class="bar-y" aria-hidden="true">{tier.yearsShort}</span>
+                  <span class="bar-p" aria-hidden="true">{tier.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <p class="et-next" id="ncd-next" aria-live="polite">Pilih berapa tahun anda tak claim. Setiap tahun tanpa claim menaikkan NCD satu anak tangga, sehingga 55%. Claim atas polisi sendiri, diskaun kembali ke 0%.</p>
+          <p class="text-sm leading-5 text-stone-700">
+            Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">Rujukan Zurich</a>.
+          </p>
         </section>
 
         <!-- ── CALCULATOR 1: NCD Savings ── -->
-        <div class="bg-white border-2 border-stone-900 p-6 sm:p-8">
-          <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Kira Premium Selepas NCD</h2>
-          <p class="text-stone-500 text-sm mb-6">Anggaran premium asas selepas potongan NCD.</p>
+        <section class="et-panel" data-tint="pink" id="kalkulator" aria-labelledby="kalk-h">
+          <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 id="kalk-h" class="et-bar-t">Kira Premium Selepas NCD</h2></div>
+          <p class="text-stone-900 text-base">Anggaran premium asas selepas potongan NCD. NCD ikut pilihan pada tangga di atas.</p>
 
-          <div class="space-y-5">
-            <!-- Premium input -->
-            <div>
-              <label for="base-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
-                Premium Asas (sebelum NCD) — RM
-              </label>
-              <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
-                <input
-                  type="number"
-                  id="base-premium"
-                  placeholder="cth: 2000"
-                  min="100"
-                  max="50000"
-                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
-                />
-              </div>
-              <p class="text-xs text-stone-500 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
+          <div class="mt-4">
+            <label for="base-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
+              Premium Asas (sebelum NCD) — RM
+            </label>
+            <div class="rm">
+              <span aria-hidden="true">RM</span>
+              <input
+                type="number"
+                id="base-premium"
+                inputmode="decimal"
+                placeholder="cth: 2000"
+                min="100"
+                max="50000"
+                aria-describedby="base-premium-help ncd-msg"
+              />
             </div>
-
-            <!-- NCD selector -->
-            <div>
-              <label class="block text-sm font-semibold text-stone-700 mb-2">NCD Semasa Anda</label>
-              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="ncd-selector">
-                {NCD_TIERS.map((tier) => (
-                  <button
-                    type="button"
-                    data-ncd={tier.value}
-                    class="ncd-btn py-3 px-1 border-2 border-stone-200 text-center text-sm font-bold text-stone-500 hover:border-hijau-500 hover:text-hijau-700 transition-colors"
-                  >
-                    {tier.label}
-                  </button>
-                ))}
-              </div>
-              <p class="text-xs text-stone-500 mt-1.5">
-                Tak tahu NCD anda? Semak di <a href="https://www.mycarinfo.com.my/ncdcheck/online" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">MyCarInfo</a> atau hubungi syarikat insurans anda. <a href="https://www.zurich.com.my/knowledge-hub/articles/2023/getting-to-know-ncd-no-claim-discount" target="_blank" rel="noopener noreferrer" class="text-hijau-700 underline">Rujukan Zurich</a>.
-              </p>
-            </div>
+            <p id="base-premium-help" class="text-sm text-stone-700 mt-1.5">Gunakan premium asas sebelum NCD, tanpa perlindungan tambahan, cukai, duti atau roadtax.</p>
+            <p id="ncd-msg" class="et-msg" aria-live="polite"></p>
           </div>
 
-          <!-- Result -->
-          <div id="ncd-result" class="hidden mt-6 p-5 bg-hijau-50 border border-hijau-200">
-            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+          <!-- Result: always laid out, so nothing moves when numbers arrive -->
+          <div id="ncd-result" class="mt-3 p-5 border-[1.5px] border-stone-900 bg-white" aria-live="polite">
+            <div class="flex items-end justify-between flex-wrap gap-3 mb-4">
               <div>
-                <p class="text-sm text-stone-600">Anggaran premium asas selepas NCD</p>
-                <p id="result-premium" class="font-serif text-4xl font-bold text-hijau-700 mt-0.5"></p>
+                <p class="text-sm text-stone-700">Anggaran premium asas selepas NCD</p>
+                <p id="result-premium" class="big mt-1 text-stone-900">RM —</p>
               </div>
               <div class="text-right">
-                <p class="text-sm text-stone-600">Jimat berbanding 0% NCD</p>
-                <p id="result-saving" class="font-serif text-2xl font-bold text-stone-900 mt-0.5"></p>
+                <p class="text-sm text-stone-700">Jimat berbanding 0% NCD</p>
+                <p id="result-saving" class="mt-1 text-2xl font-bold text-stone-900">RM —</p>
               </div>
             </div>
-            <div id="result-breakdown" class="border-t border-hijau-200 pt-4 space-y-2"></div>
+            <div id="result-breakdown" class="border-t border-stone-300 pt-4 space-y-0">
+              <p class="text-xs font-semibold text-stone-700 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>
+              {NCD_TIERS.map((rate) => (
+                <div class="flex justify-between items-center py-1.5 text-stone-700 text-sm border-b border-stone-200 last:border-0">
+                  <span>{rate.label} NCD <span class="text-xs font-normal text-stone-700">({rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
+                  <span>RM —</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <p id="model-reference" hidden class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
+          <p id="model-reference" hidden class="mt-5 border-t border-stone-400 pt-4 text-sm leading-5 text-stone-900">
             <span class="font-semibold text-stone-900">Julat rujukan</span>
             <span id="model-reference-name"></span>:
             <span id="model-reference-range" class="numeric"></span> (NCD 0%)
           </p>
-          <p id="handoff-note" hidden class="mt-3 border border-emas-800 bg-emas-50 p-3 text-sm leading-5 text-stone-800"></p>
-        </div>
+          <p id="handoff-note" hidden class="mt-3 border border-stone-900 bg-emas-50 p-3 text-sm leading-5 text-stone-900"></p>
+          <p class="et-src mt-4">Potongan = premium asas × NCD ÷ 100. Paparan dibundar ke ringgit terdekat.</p>
+        </section>
         <script id="model-reference-data" type="application/json" set:html={JSON.stringify(modelReferences)}></script>
 
 
         <!-- ── CALCULATOR 2: Should I Claim? ── -->
-        <div class="bg-white border-2 border-stone-200 p-6 sm:p-8">
-          <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Patut Ke Claim?</h2>
-          <p class="text-stone-500 text-sm mb-6">Accident kecil? Kira sama ada worth it untuk claim atau bayar sendiri.</p>
+        <section class="et-panel" aria-labelledby="claim-h">
+          <div class="et-bar"><Ikon name="i-claim" size={24} /><h2 id="claim-h" class="et-bar-t">Patut Ke Claim?</h2></div>
+          <p class="text-stone-900 text-base">Accident kecil? Kira sama ada worth it untuk claim atau bayar sendiri.</p>
 
-          <div class="space-y-5">
-            <!-- Current premium (after NCD) -->
+          <div class="space-y-5 mt-5">
             <div>
-              <label for="current-premium" class="block text-sm font-semibold text-stone-700 mb-1.5">
+              <label for="current-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
                 Premium Asas Semasa (selepas NCD) — RM
               </label>
-              <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
-                <input
-                  type="number"
-                  id="current-premium"
-                  placeholder="cth: 900"
-                  min="100"
-                  max="50000"
-                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
-                />
+              <div class="rm">
+                <span aria-hidden="true">RM</span>
+                <input type="number" id="current-premium" inputmode="decimal" placeholder="cth: 900" min="100" max="50000" aria-describedby="current-premium-help" />
               </div>
-              <p class="text-xs text-stone-500 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
+              <p id="current-premium-help" class="text-sm text-stone-700 mt-1.5">Asingkan perlindungan tambahan dan bayaran lain daripada jumlah bil sebelum mengisi angka ini.</p>
             </div>
 
-            <!-- Current NCD % for claim calc -->
             <div>
-              <label for="current-ncd-pct" class="block text-sm font-semibold text-stone-700 mb-1.5">
+              <label for="current-ncd-pct" class="block text-base font-semibold text-stone-900 mb-1.5">
                 NCD Semasa (%)
               </label>
-              <select
-                id="current-ncd-pct"
-                class="w-full px-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-base transition-colors bg-white"
-              >
+              <select id="current-ncd-pct" class="w-full max-w-[24rem] px-3 text-base font-medium">
                 {[...NCD_TIERS].reverse().map((tier) => (
                   <option value={tier.value}>{tier.label} ({tier.value === 0 ? 'Tiada NCD yang layak' : tier.years})</option>
                 ))}
               </select>
             </div>
 
-            <!-- Repair cost -->
             <div>
-              <label for="repair-cost" class="block text-sm font-semibold text-stone-700 mb-1.5">
+              <label for="repair-cost" class="block text-base font-semibold text-stone-900 mb-1.5">
                 Anggaran Kos Repair — RM
               </label>
-              <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
-                <input
-                  type="number"
-                  id="repair-cost"
-                  placeholder="cth: 800"
-                  min="0"
-                  max="100000"
-                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
-                />
+              <div class="rm">
+                <span aria-hidden="true">RM</span>
+                <input type="number" id="repair-cost" inputmode="decimal" placeholder="cth: 800" min="0" max="100000" />
               </div>
             </div>
 
-            <!-- Excess -->
             <div>
-              <label for="excess" class="block text-sm font-semibold text-stone-700 mb-1.5">
+              <label for="excess" class="block text-base font-semibold text-stone-900 mb-1.5">
                 Excess Polisi Anda — RM
               </label>
-              <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 font-medium text-sm">RM</span>
-                <input
-                  type="number"
-                  id="excess"
-                  value="400"
-                  min="0"
-                  max="5000"
-                  class="w-full pl-10 pr-4 py-3 border border-stone-300 focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100 outline-none text-stone-900 font-medium text-lg transition-colors"
-                />
+              <div class="rm">
+                <span aria-hidden="true">RM</span>
+                <input type="number" id="excess" inputmode="decimal" value="400" min="0" max="5000" />
               </div>
             </div>
 
-            <button
-              id="claim-calc-btn"
-              class="w-full py-3.5 bg-stone-900 text-white font-semibold text-sm hover:bg-stone-800 transition-colors"
-            >
+            <button id="claim-calc-btn" type="button" class="et-btn sm:max-w-[24rem]">
               Kira — Patut Claim Tak?
             </button>
           </div>
 
-          <!-- Claim Result -->
-          <div id="claim-result" class="hidden mt-6"></div>
-        </div>
+          <div class="et-out" style="min-height:20rem">
+            <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
+            <div id="claim-result" class="hidden" aria-live="polite"></div>
+          </div>
+        </section>
 
         <section class="prose-editorial" aria-labelledby="cara-kiraan">
           <h2 id="cara-kiraan">Cara kiraan ini dibuat</h2>
@@ -450,15 +414,8 @@ const modelReferences = Object.fromEntries(
 
     </div>
   </div>
+  </div>
 </Base>
-
-<style>
-  .ncd-btn.active {
-    border-color: #16a34a;
-    background-color: #f0fdf4;
-    color: #15803d;
-  }
-</style>
 
 <script>
   import { basePremiumFromCurrent, isNcdTier, NCD_TIERS, rm, simulate } from '../../../lib/ncd';
@@ -466,35 +423,69 @@ const modelReferences = Object.fromEntries(
 
   let selectedNCD: number | null = null;
 
+  const PLACEHOLDER = 'RM —';
+
+  function setMessage(text: string): void {
+    const msgEl = document.getElementById('ncd-msg');
+    if (msgEl) msgEl.textContent = text;
+  }
+
+  function renderBreakdown(base: number | null): void {
+    const breakdownEl = document.getElementById('result-breakdown');
+    if (!breakdownEl) return;
+    breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-700 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
+    NCD_TIERS.forEach((rate) => {
+      const isActive = rate.value === selectedNCD;
+      let value = PLACEHOLDER;
+      if (base !== null) {
+        const premium = simulate(base, base, rate.value).min;
+        const tierSaving = base - premium;
+        value = `${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-700">(jimat ' + rm(tierSaving) + ')</span>' : ''}`;
+      }
+      breakdownEl.innerHTML += `
+        <div class="flex justify-between items-center py-1.5 ${isActive && base !== null ? 'font-bold text-stone-900' : 'text-stone-700'} text-sm border-b border-stone-200 last:border-0">
+          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-700">(${rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
+          <span>${value}</span>
+        </div>`;
+    });
+  }
+
+  function clearResult(): void {
+    const resultPremiumEl = document.getElementById('result-premium');
+    const resultSavingEl = document.getElementById('result-saving');
+    if (resultPremiumEl) resultPremiumEl.textContent = PLACEHOLDER;
+    if (resultSavingEl) resultSavingEl.textContent = PLACEHOLDER;
+    renderBreakdown(null);
+  }
+
   function updateNCDResult(): void {
     const baseInput = document.getElementById('base-premium') as HTMLInputElement | null;
     const base = baseInput ? parseFloat(baseInput.value) : Number.NaN;
-    if (!base || base < 100 || selectedNCD === null) return;
+    if (!base || base < 100 || selectedNCD === null) {
+      clearResult();
+      if (!base) {
+        setMessage(selectedNCD === null
+          ? 'Masukkan premium asas sebelum NCD (minimum RM100), kemudian pilih NCD anda pada tangga di atas.'
+          : 'Masukkan premium asas sebelum NCD (minimum RM100).');
+      } else if (base < 100) {
+        setMessage('Premium asas mesti sekurang-kurangnya RM100. Semak angka premium asas dalam sebut harga anda.');
+      } else {
+        setMessage('Pilih NCD semasa anda pada tangga di atas untuk melihat anggaran.');
+      }
+      return;
+    }
+    setMessage('');
 
     const afterNCD = simulate(base, base, selectedNCD).min;
     const saving = base - afterNCD;
 
-    const resultEl = document.getElementById('ncd-result');
     const resultPremiumEl = document.getElementById('result-premium');
     const resultSavingEl = document.getElementById('result-saving');
-    const breakdownEl = document.getElementById('result-breakdown');
-    if (!resultEl || !resultPremiumEl || !resultSavingEl || !breakdownEl) return;
+    if (!resultPremiumEl || !resultSavingEl) return;
 
-    resultEl.classList.remove('hidden');
     resultPremiumEl.textContent = rm(afterNCD);
     resultSavingEl.textContent = rm(saving);
-
-    breakdownEl.innerHTML = '<p class="text-xs font-semibold text-stone-600 uppercase tracking-wide mb-2">Perbandingan semua peringkat NCD</p>';
-    NCD_TIERS.forEach((rate) => {
-      const premium = simulate(base, base, rate.value).min;
-      const tierSaving = base - premium;
-      const isActive = rate.value === selectedNCD;
-      breakdownEl.innerHTML += `
-        <div class="flex justify-between items-center py-1.5 ${isActive ? 'font-bold text-hijau-700' : 'text-stone-600'} text-sm border-b border-hijau-100 last:border-0">
-          <span>${rate.label} NCD <span class="text-xs font-normal text-stone-600">(${rate.value === 0 ? 'Tiada NCD yang layak' : rate.years})</span></span>
-          <span>${rm(premium)} ${tierSaving > 0 ? '<span class="text-xs text-stone-600">(jimat ' + rm(tierSaving) + ')</span>' : ''}</span>
-        </div>`;
-    });
+    renderBreakdown(base);
     track('ncd_calculate', {
       base_premium: base,
       ncd_pct: selectedNCD,
@@ -503,16 +494,27 @@ const modelReferences = Object.fromEntries(
     });
   }
 
+  const NEXT_STEP: Record<number, string> = {
+    0: 'NCD 0%: tahun pertama atau selepas claim. Setahun lagi tanpa claim: naik ke 25%.',
+    25: 'NCD 25%. Setahun lagi tanpa claim: naik ke 30%.',
+    30: 'NCD 30%. Setahun lagi tanpa claim: naik ke 38.33%.',
+    38.33: 'NCD 38.33%. Setahun lagi tanpa claim: naik ke 45%.',
+    45: 'NCD 45%. Setahun lagi tanpa claim: naik ke 55%.',
+    55: 'NCD 55%, tahap maksimum. Tiada claim lagi: kekal 55%.',
+  };
+
   function selectNCD(value: number): void {
-    document.querySelectorAll<HTMLElement>('.ncd-btn').forEach((button) => {
-      button.classList.toggle('active', Number(button.dataset.ncd) === value);
+    document.querySelectorAll<HTMLInputElement>('#ncd-selector input[name="ncd"]').forEach((radio) => {
+      radio.checked = Number(radio.value) === value;
     });
     selectedNCD = value;
+    const nextEl = document.getElementById('ncd-next');
+    if (nextEl && NEXT_STEP[value]) nextEl.textContent = `${NEXT_STEP[value]} Claim atas polisi sendiri, diskaun kembali ke 0%.`;
   }
 
-  document.querySelectorAll<HTMLElement>('.ncd-btn').forEach((button) => {
-    button.addEventListener('click', () => {
-      const value = Number(button.dataset.ncd);
+  document.querySelectorAll<HTMLInputElement>('#ncd-selector input[name="ncd"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const value = Number(radio.value);
       if (!isNcdTier(value)) return;
       selectNCD(value);
       updateNCDResult();
@@ -572,7 +574,7 @@ const modelReferences = Object.fromEntries(
 
     if (!currentPremium || isNaN(ncdPct) || !repairCost) {
       resultEl.classList.remove('hidden');
-      resultEl.innerHTML = '<p class="text-sm text-red-700 p-4 bg-red-50 border border-red-200">Sila isi semua maklumat di atas.</p>';
+      resultEl.innerHTML = '<p class="text-base font-semibold text-stone-900 p-4 bg-white border-[1.5px] border-stone-900">Sila isi semua maklumat di atas.</p>';
       return;
     }
 

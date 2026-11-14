@@ -1,4 +1,6 @@
 ---
+import Ikon from '../../../components/Ikon.astro';
+import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -94,12 +96,12 @@ const schema = {
     </div>
   </Hero>
 
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <section id="calculator" aria-labelledby="calculator-heading" class="border-2 border-stone-900 bg-white p-6 sm:p-8">
+        <section id="calculator" aria-labelledby="calculator-heading" class="et-panel" data-tint="pink">
+          <div class="et-bar"><Ikon name="i-utama" size={24} /><h2 id="calculator-heading" class="et-bar-t">Kira premium insurans rumah</h2></div>
           <p class="label">Kalkulator percuma</p>
-          <h2 id="calculator-heading" class="mt-2 font-serif text-headline-md text-stone-900">Kira premium insurans rumah</h2>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan kos pembinaan semula bangunan dan/atau nilai isi rumah. Bukan harga pasaran atau harga tanah.</p>
 
           <form id="fire-form" class="mt-6 space-y-5">
@@ -169,7 +171,9 @@ const schema = {
             </button>
           </form>
 
-          <div
+          <div class="et-out" style="min-height:16rem">
+<p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
+<div
             id="fire-result"
             role="status"
             aria-live="polite"
@@ -180,6 +184,7 @@ const schema = {
             <p id="fire-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
             <div id="fire-breakdown" class="mt-4 space-y-1.5 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></div>
           </div>
+</div>
 
           <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
             Perlu anggaran kos pembinaan semula? Rujuk

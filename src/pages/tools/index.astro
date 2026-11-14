@@ -1,4 +1,6 @@
 ---
+import Ikon from '../../components/Ikon.astro';
+import '../../components/edisi-tools/edisi-tools.css';
 import Base from '../../layouts/Base.astro';
 
 const schema = {
@@ -40,7 +42,7 @@ const schema = {
     </div>
   </section>
 
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide py-10 sm:py-14 et">
     <section aria-labelledby="pilih-alat" class="info-box mb-8">
       <h2 id="pilih-alat" class="mb-3 font-serif text-headline-sm text-stone-900">Alat mana patut anda gunakan?</h2>
       <p class="text-base leading-7 text-stone-700">
@@ -62,35 +64,34 @@ const schema = {
       </p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <a href="/tools/ncd-calculator/" class="card-editorial group block">
-        <div class="text-3xl mb-3">🧮</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator NCD</h2>
+      <a href="/tools/ncd-calculator/" class="et-card group">
+        <div class="et-bar"><Ikon name="i-kalkulator" size={24} /><h2 class="et-bar-t">Kalkulator NCD</h2></div>
         <p class="text-sm text-stone-600">Gunakan alat ini sebelum renew untuk mengira kesan NCD pada premium kereta anda. Masukkan premium asas dan kadar NCD yang berkaitan, kemudian semak anggaran penjimatan. Jika anda sedang menimbang tuntutan kerosakan kecil, gunakan bahagian "patut ke claim?" untuk membandingkan kos pembaikan dengan kesan kehilangan NCD, sambil merujuk syarat tuntutan polisi anda.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang →</p>
       </a>
-      <a href="/tools/kalkulator-coverage-nyawa/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Life</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Coverage Nyawa</h2>
+      <a href="/tools/kalkulator-coverage-nyawa/" class="et-card group">
+        <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 class="et-bar-t">Kalkulator Coverage Nyawa</h2></div>
+        <p class="et-kicker">Life</p>
         <p class="text-sm text-stone-600">Gunakan alat ini apabila anda mahu menganggarkan jurang perlindungan nyawa untuk keluarga. Sediakan angka pendapatan, hutang, simpanan dan coverage sedia ada supaya pengiraan tidak bergantung pada tekaan. Hasilnya membantu anda menyusun perbincangan tentang keperluan tanggungan; ia bukan keputusan bahawa anda mesti membeli jumlah perlindungan tersebut atau cadangan produk tertentu.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang →</p>
       </a>
-      <a href="/tools/kalkulator-roadtax/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motor</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax</h2>
+      <a href="/tools/kalkulator-roadtax/" class="et-card group">
+        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Kalkulator Roadtax</h2></div>
+        <p class="et-kicker">Motor</p>
         <p class="text-sm text-stone-600">Gunakan kalkulator ini apabila anda mahu mengasingkan kos roadtax kereta daripada premium insurans semasa renew. Pilih kapasiti enjin dalam cc, wilayah dan jenis badan kereta persendirian yang betul. Semak butiran pada dokumen kenderaan, kerana pilihan kategori yang salah boleh menghasilkan kadar yang tidak sesuai walaupun kapasiti enjin nampak hampir sama.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang →</p>
       </a>
-      <a href="/tools/kalkulator-roadtax-motosikal/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motosikal</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax Motosikal</h2>
+      <a href="/tools/kalkulator-roadtax-motosikal/" class="et-card group">
+        <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 class="et-bar-t">Kalkulator Roadtax Motosikal</h2></div>
+        <p class="et-kicker">Motosikal</p>
         <p class="text-sm text-stone-600">Gunakan alat ini untuk menyemak kadar roadtax motosikal persendirian sebelum menyediakan bajet tahunan. Masukkan kapasiti enjin dan pilih wilayah yang berkaitan dengan kenderaan anda. Pengiraan ini untuk cukai jalan motosikal, bukan premium insurans atau jumlah bayaran renew keseluruhan; asingkan sebut harga perlindungan serta apa-apa caj perkhidmatan dalam bajet anda.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang →</p>
       </a>
-      <a href="/tools/kalkulator-insurans-rumah/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Rumah</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Insurans Rumah</h2>
+      <a href="/tools/kalkulator-insurans-rumah/" class="et-card group">
+        <div class="et-bar"><Ikon name="i-utama" size={24} /><h2 class="et-bar-t">Kalkulator Insurans Rumah</h2></div>
+        <p class="et-kicker">Rumah</p>
         <p class="text-sm text-stone-600">Gunakan alat ini sebagai anggaran awal premium houseowner atau householder sebelum meminta sebut harga. Pengiraan menggunakan kadar tarif kebakaran dan jumlah diinsuranskan, jadi semak dahulu nilai perlindungan yang anda masukkan. Bandingkan hasil dengan skop bangunan atau kandungan yang hendak dilindungi, kemudian semak tambahan, pengecualian dan jumlah akhir dalam sebut harga penyedia.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
+        <p class="et-go">Cuba sekarang →</p>
       </a>
     </div>
 
