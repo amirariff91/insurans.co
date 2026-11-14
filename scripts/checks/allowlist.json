@@ -429,8 +429,8 @@
       "field": "description",
       "url": "^/life-insurance/$",
       "old": "Panduan insurans nyawa Malaysia 2026: berapa coverage yang anda perlu, beza term life, whole life dan ILP, anggaran harga, dan senarai syarikat. Dalam BM.",
-      "new": "Panduan insurans nyawa Malaysia 2026: berapa perlindungan yang anda perlu, beza term life, whole life dan ILP, anggaran harga, dan senarai syarikat. Dalam BM.",
-      "reason": "Terminology: generic English \"coverage\" replaced with \"perlindungan\" in the meta description, nothing else changed (release re-check finding 10)."
+      "new": "Panduan insurans nyawa Malaysia 2026: berapa perlindungan yang anda perlu, beza term life, whole life dan ILP, cara membandingkan sebut harga, dan senarai syarikat. Dalam BM.",
+      "reason": "Terminology: generic English \"coverage\" replaced with \"perlindungan\" in the meta description, nothing else changed (release re-check finding 10). Also: \"anggaran harga\" replaced with \"cara membandingkan sebut harga\" because the unsourced premium table was removed (re-check finding 1); the page no longer gives price estimates."
     },
     {
       "check": "contract",
