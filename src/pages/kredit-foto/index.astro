@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import carPhotos from '../../data/car-photos.json';
+import carModels from '../../data/car-models.json';
+import { PUBLISHER } from '../../lib/schema';
+
+const title = 'Kredit Foto Kereta — Insurans.co';
+const description =
+  'Kredit setiap foto kereta di Insurans.co: pengarang, lesen Creative Commons, pautan sumber di Wikimedia Commons, dan cara foto itu diubah suai.';
+
+const nameOf = (slug: string) => carModels.find((m) => m.slug === slug)?.fullName ?? slug;
+const byName = (a: { slug: string }, b: { slug: string }) => nameOf(a.slug).localeCompare(nameOf(b.slug), 'ms');
+
+const photos = carPhotos.filter((p) => p.hasPhoto).sort(byName);
+const noPhoto = carPhotos.filter((p) => !p.hasPhoto).sort(byName).map((p) => nameOf(p.slug));
+const aiPhotos = photos.filter((p) => p.aiRetouched);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: 'https://insurans.co/kredit-foto/',
+  description,
+  inLanguage: 'ms',
+  publisher: PUBLISHER,
+};
+---
+
+<Base title={title} description={description} schema={schema} ads={false}>
+  <article class="bg-white border-b border-stone-200">
+    <div class="border-b border-stone-200">
+      <div class="container-article py-10 sm:py-14">
+        <p class="label mb-4">Dasar Laman</p>
+        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">Kredit foto kereta</h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+          Setiap foto ialah karya pengarangnya di Wikimedia Commons, dan hanya foto kereta pasaran Malaysia digunakan.
+          Kami membuang latar, menukar ke hitam putih dan, jika kelihatan, menutup nombor plat. Versi yang diubah suai
+          ini dikongsi di bawah lesen yang sama dengan foto asal.
+        </p>
+      </div>
+    </div>
+
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial max-w-none">
+        <h2 id="alat-ai">Foto yang disunting dengan alat AI</h2>
+        <p>
+          {aiPhotos.length} foto ({aiPhotos.map((p) => nameOf(p.slug)).join(', ')}) disunting dengan alat AI untuk
+          membuang halangan di sekeliling kereta. Ubah suai setiap satu, seperti yang tertulis dalam kreditnya:
+        </p>
+        <ul>
+          {aiPhotos.map((p) => (
+            <li>
+              <a href={`#${p.slug}`}><strong>{nameOf(p.slug)}</strong></a>: {p.modifications}
+              {p.aiRetouch?.reconstructedParts && ` Pada ${nameOf(p.slug)}, bahagian kereta yang terlindung dibina semula dengan AI.`}
+            </li>
+          ))}
+        </ul>
+
+        <h2 id="senarai">{photos.length} foto yang digunakan</h2>
+      </div>
+
+      <ol class="mt-6 divide-y divide-stone-200 border-y border-stone-200">
+        {photos.map((p) => (
+          <li id={p.slug} class="flex flex-col sm:flex-row gap-4 py-5 scroll-mt-24">
+            <img
+              src={p.src400}
+              width={p.width}
+              height={p.height}
+              alt={p.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-40 h-auto shrink-0 self-start"
+            />
+            <div class="text-sm leading-relaxed text-stone-700 min-w-0">
+              <h3 class="font-semibold text-base text-stone-900 mb-1">{nameOf(p.slug)}</h3>
+              <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+                <dt class="text-stone-500">Pengarang</dt>
+                <dd>{p.credit!.author}</dd>
+                <dt class="text-stone-500">Lesen</dt>
+                <dd><a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a></dd>
+                <dt class="text-stone-500">Sumber</dt>
+                <dd class="break-words"><a class="underline" href={p.credit!.source} rel="noopener">Wikimedia Commons</a></dd>
+                <dt class="text-stone-500">Ubah suai</dt>
+                <dd>{p.modifications}{p.aiRetouched && <strong class="ml-1">(alat AI)</strong>}</dd>
+              </dl>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="prose-editorial max-w-none mt-10">
+        <h2 id="tiada-foto">Model tanpa foto</h2>
+        <p>
+          {noPhoto.length} model belum ada foto kereta pasaran Malaysia di Wikimedia Commons: {noPhoto.join(', ')}.
+          Halaman model itu memaparkan kad nama model; kami tidak guna foto kereta pasaran lain.
+        </p>
+
+        <h2 id="lapor">Lapor kesilapan kredit</h2>
+        <p>
+          Jika anda pengarang foto, atau anda nampak kredit, lesen atau pautan yang salah, e-mel
+          <a href="mailto:hello@insurans.co">hello@insurans.co</a> dengan nama model dan butiran pembetulan. Kami akan
+          membetulkan kredit itu atau membuang foto tersebut.
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>

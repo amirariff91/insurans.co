@@ -1,0 +1,129 @@
+---
+/**
+ * A car model's cut-out photo (Malaysian-market, from Wikimedia Commons) with its short credit line,
+ * or, for a model without a photo, a name card in the same slot. Data: src/data/car-photos.json.
+ * Colours read the Edisi tokens when present and fall back to fixed values before the token port.
+ */
+import carPhotos from '../data/car-photos.json';
+import carModels from '../data/car-models.json';
+
+interface Props {
+  slug: string;
+  /** Load immediately (above the fold). Default: lazy. */
+  eager?: boolean;
+  /** The `sizes` attribute for the srcset. */
+  sizes?: string;
+  class?: string;
+}
+
+const { slug, eager = false, sizes = '(min-width: 48rem) 24rem, 90vw', class: className } = Astro.props;
+
+const photo = carPhotos.find((p) => p.slug === slug);
+const model = carModels.find((m) => m.slug === slug);
+if (!photo || !model) {
+  throw new Error(`CarPhoto: unknown car slug "${slug}"`);
+}
+
+const shortName = model.model.length > 2 ? model.model : model.fullName;
+const bodyType = model.segment.split(' ')[0];
+const creditHref = `/kredit-foto/#${slug}`;
+const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace(/\.$/, '') : null;
+---
+
+{photo.hasPhoto ? (
+  <figure class:list={['cp', className]}>
+    <img
+      class="cp-img"
+      src={photo.src400}
+      srcset={`${photo.src400} 400w, ${photo.src800} 800w`}
+      sizes={sizes}
+      width={photo.width}
+      height={photo.height}
+      alt={photo.alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={eager ? 'high' : undefined}
+    />
+    <figcaption class="cp-credit">
+      Foto: <a href={photo.credit!.source} rel="noopener">{photo.credit!.author}</a>,{' '}
+      <a href={photo.credit!.licenceUrl} rel="license noopener">{photo.credit!.licence}</a>,{' '}
+      {aiNote ? (
+        <>Wikimedia Commons. <a href={creditHref}>{aiNote}</a></>
+      ) : (
+        <a href={creditHref}>diubah suai</a>
+      )}
+    </figcaption>
+  </figure>
+) : (
+  <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName}>
+    <span class="cp-card-brand">{model.brand}</span>
+    <span class="cp-card-name">{shortName}</span>
+    <span class="cp-card-type">{bodyType}</span>
+  </div>
+)}
+
+<style>
+  .cp {
+    margin: 0;
+    inline-size: 100%;
+  }
+  .cp-img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+  }
+  .cp-credit {
+    margin-block-start: 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--edisi-muted, #57534e);
+  }
+  .cp-credit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .cp-credit a:hover {
+    color: var(--edisi-ink, #1c1917);
+  }
+
+  /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box. */
+  .cp-card {
+    container-type: inline-size;
+    display: grid;
+    grid-template: 'b g' auto 'n n' 1fr / minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 0.25rem 0.75rem;
+    aspect-ratio: 2 / 1;
+    padding: 0.8rem 1rem 0.9rem;
+    border-radius: var(--edisi-radius, 0.75rem);
+    background: var(--edisi-plate, #ffd9e8);
+    color: var(--edisi-plate-ink, #4a0526);
+    overflow: hidden;
+  }
+  .cp-card-brand {
+    grid-area: b;
+    align-self: start;
+    font-size: 0.8125rem;
+    font-weight: 650;
+    line-height: 1.15;
+  }
+  .cp-card-type {
+    grid-area: g;
+    align-self: start;
+    font-size: 0.8125rem;
+    line-height: 1.15;
+    opacity: 0.8;
+  }
+  .cp-card-name {
+    grid-area: n;
+    min-width: 0;
+    font-family: var(--edisi-display, inherit);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 16cqi, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
+  }
+</style>
