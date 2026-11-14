@@ -1,0 +1,23 @@
+{
+  "checked": "2026-11-15",
+  "product": "motor",
+  "note": "Hanya saluran insurans/takaful kereta yang disahkan boleh dibeli online terus daripada syarikat (status buy-online). Bukan kedudukan atau cadangan.",
+  "source": "https://www.bnm.gov.my/regulations/fsp-directory",
+  "records": [
+    { "company": "Etiqa General Insurance / Etiqa General Takaful", "licence": "insurans + takaful", "channel": "Etiqa online / aplikasi Etiqa+", "url": "https://www.etiqa.com.my/kereta", "conditions": null, "checked": "2026-11-15", "source": "https://www.etiqa.com.my/car/comprehensive-car-insurance" },
+    { "company": "Allianz General Insurance", "licence": "insurans", "channel": "Allianz online quote", "url": "https://getquote.allianz.com.my/motor-online/get-info", "conditions": null, "checked": "2026-11-15", "source": "https://www.allianz.com.my/personal/home-motor-and-travel/car-and-motorcycle/car-and-motor-comprehensive-cover.html" },
+    { "company": "Zurich General Insurance Malaysia", "licence": "insurans", "channel": "Zurich Buy Online (Z-Driver)", "url": "https://www.zurich.com.my/online-products", "conditions": null, "checked": "2026-11-15", "source": "https://www.zurich.com.my/online-products" },
+    { "company": "Zurich General Takaful Malaysia", "licence": "takaful", "channel": "Zurich Buy Online (Z-Driver Takaful)", "url": "https://www.zurich.com.my/online-products", "conditions": null, "checked": "2026-11-15", "source": "https://www.zurich.com.my/online-products" },
+    { "company": "Syarikat Takaful Malaysia Am", "licence": "takaful", "channel": "Kaotim Car", "url": "https://kaotim.my/", "urlNote": "landing page", "conditions": null, "checked": "2026-11-15", "source": "https://www.takaful-malaysia.com.my/" },
+    { "company": "Tokio Marine Insurans (Malaysia)", "licence": "insurans", "channel": "Tokio Marine Buy Online", "url": "https://www.tokiomarine.com/my/en/online/products/motor-insurance.html", "conditions": null, "checked": "2026-11-15", "source": "https://www.tokiomarine.com/my/en/online.html" },
+    { "company": "Berjaya Sompo Insurance", "licence": "insurans", "channel": "SOMPO Motor", "url": "https://online.berjayasompo.com.my/SompoMotor/", "conditions": "Umur 26–75 tahun, kegunaan persendirian, tidak lebih 1 claim dalam 3 tahun", "checked": "2026-11-15", "source": "https://online.berjayasompo.com.my/SompoMotor/" },
+    { "company": "MSIG Insurance (Malaysia)", "licence": "insurans", "channel": "MSIG Online", "url": "https://www.msig.com.my/", "urlNote": "landing page", "conditions": null, "checked": "2026-11-15", "source": "https://www.msig.com.my/" },
+    { "company": "Liberty General Insurance", "licence": "insurans", "channel": "Liberty online (auto365)", "url": "https://www.libertyinsurance.com.my/car-insurance", "conditions": null, "checked": "2026-11-15", "source": "https://www.libertyinsurance.com.my/car-insurance" },
+    { "company": "Generali Insurance Malaysia", "licence": "insurans", "channel": "Generali Direct", "url": "https://direct.generali.com.my/products/motor-insurance/get-quote", "conditions": "Komprehensif sahaja secara online", "checked": "2026-11-15", "source": "https://direct.generali.com.my/products/motor-insurance/get-quote" },
+    { "company": "RHB Insurance", "licence": "insurans", "channel": "RHB Insurance Online / aplikasi RHB Insurance", "url": "https://www.rhbgroup.com/rhbi-caronline/index.html", "conditions": "Komprehensif sahaja secara online", "checked": "2026-11-15", "source": "https://www.rhbgroup.com/rhbi-caronline/index.html" },
+    { "company": "Pacific & Orient Insurance", "licence": "insurans", "channel": "POI2U (web + aplikasi)", "url": "https://www.poi2u.com/", "conditions": null, "checked": "2026-11-15", "source": "https://www.poi2u.com/" },
+    { "company": "Lonpac Insurance", "licence": "insurans", "channel": "Motor ezSecure", "url": "https://ezsecure.lonpac.com/online/motor-ezsecure/start?PID=1", "conditions": "Pembeli 25 tahun ke atas, kereta tidak lebih 15 tahun", "checked": "2026-11-15", "source": "https://ezsecure.lonpac.com/online/motor-ezsecure/start?PID=1" },
+    { "company": "Tune Insurance Malaysia (Tune Protect)", "licence": "insurans", "channel": "Tune Protect shop (Motor Easy)", "url": "https://shop.tuneprotect.com/car-insurance", "conditions": null, "checked": "2026-11-15", "source": "https://shop.tuneprotect.com/car-insurance" },
+    { "company": "Takaful Ikhlas General", "licence": "takaful", "channel": "Portal IKHLAS GO", "url": "https://www.takaful-ikhlas.com.my/category/car-takaful", "conditions": null, "checked": "2026-11-15", "source": "https://www.takaful-ikhlas.com.my/category/car-takaful" }
+  ]
+}

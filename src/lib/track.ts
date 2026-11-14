@@ -1,6 +1,4 @@
 const partnerNames: Record<string, string> = {
-  'bjak.my': 'bjak',
-  'policystreet.com': 'policystreet',
   'myeg.com.my': 'myeg',
 };
 
@@ -39,6 +37,14 @@ export function initGlobalTracking(): void {
     if (hostname === 'insurans.co') return;
 
     const partnerHost = hostname.replace(/^www\./, '');
+    const directInsurer = link.dataset.directInsurer;
+    if (directInsurer) {
+      track('direct_insurer_click', {
+        company: directInsurer,
+        outbound_url: url.href,
+        location: link.closest<HTMLElement>('[data-section]')?.dataset.section ?? 'body',
+      });
+    }
     track('outbound_click', {
       partner: partnerNames[partnerHost] ?? hostname,
       outbound_url: url.href,

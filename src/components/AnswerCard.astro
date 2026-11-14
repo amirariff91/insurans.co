@@ -29,10 +29,7 @@ const {
   selectedTier = 55,
   compact = false,
   calculatorUrl = compact ? `/car-insurance/${slug}/` : `/tools/ncd-calculator/?model=${slug}&ncd=${selectedTier}`,
-  quotationLinks = [
-    { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'unpaid' },
-    { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'unpaid' },
-  ],
+  quotationLinks = [],
 } = Astro.props;
 
 const initialTier = compact ? 55 : selectedTier;
@@ -95,6 +92,17 @@ const initialLabel = compact ? `Contoh · ${model} · NCD 55%` : initialTier ===
   >
     {compact ? 'Semak harga model ini →' : 'Kira NCD saya →'}
   </a>
+
+  {!compact && quotationLinks.length === 0 && (
+    <div class="mt-6 border-t border-stone-300 pt-5" data-section="quotation">
+      <h2 class="text-base font-semibold text-stone-900">Dapatkan sebut harga sebenar</h2>
+      <p class="mt-2 text-sm leading-5 text-stone-700">
+        Minta sebut harga terus daripada syarikat insurans
+        (<a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">lihat senarai beli online</a>).
+        Tiada hubungan berbayar atau affiliate dengan mana-mana syarikat.
+      </p>
+    </div>
+  )}
 
   {!compact && quotationLinks.length > 0 && (
     <div class="mt-6 border-t border-stone-300 pt-5" data-section="quotation">
