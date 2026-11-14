@@ -143,8 +143,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Towing luar bandar mahal; dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Towing di luar bandar mahal; di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -314,7 +314,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM50–RM90/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Myvi kerap retak akibat batu di highway; gantian RM350+ tanpa cover."
+        "whyBM": "Cermin Myvi kerap retak akibat batu di lebuh raya; gantian RM350+ tanpa cover."
       },
       {
         "name": "Special perils (banjir)",
@@ -325,14 +325,14 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip; di highway luar bandar towing mahal."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan; di lebuh raya luar bandar, towing mahal."
       },
       {
         "name": "NCD protector",
         "priceBM": "RM200–RM350/tahun",
         "verdict": "berbaloi jika NCD 45–55%",
-        "whyBM": "NCD 55% jimat RM610–RM1,180/tahun — sekali claim kecil tanpa protector, rugi besar."
+        "whyBM": "NCD 55% menjimatkan RM610–RM1,180/tahun — sekali claim kecil tanpa protector, rugi besar."
       }
     ],
     "modelFAQs": [
@@ -502,8 +502,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
-        "verdict": "berbaloi jika buat e-hailing jauh",
-        "whyBM": "Bezza e-hailing yang selalu jalan malam dan jauh elok ada towing; kereta keluarga bandar boleh skip."
+        "verdict": "berbaloi jika memandu e-hailing jarak jauh",
+        "whyBM": "Bezza e-hailing yang selalu memandu waktu malam dan jarak jauh elok ada towing; kereta keluarga di bandar boleh mengabaikannya."
       }
     ],
     "modelFAQs": [
@@ -673,7 +673,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM100–RM200/tahun",
         "verdict": "pertimbangkan untuk varian AV",
-        "whyBM": "ASA 3.0 bergantung pada kamera dan radar — calibration selepas repair depan boleh cecah ratusan ringgit."
+        "whyBM": "ASA 3.0 bergantung pada kamera dan radar — calibration selepas pembaikan bahagian depan boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -684,7 +684,7 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika out of warranty",
+        "verdict": "berbaloi jika waranti sudah tamat",
         "whyBM": "Enjin turbo luar waranti mahal dibaiki di tepi jalan — towing ke bengkel panel lebih selamat."
       }
     ],
@@ -867,7 +867,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
         "verdict": "berbaloi jika selalu balik kampung jauh",
-        "whyBM": "Dalam bandar boleh skip; di highway luar bandar towing mahal."
+        "whyBM": "Di dalam bandar boleh diabaikan; di lebuh raya luar bandar, towing mahal."
       }
     ],
     "modelFAQs": [
@@ -1038,7 +1038,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM50–RM80/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Murah tetapi kerap digunakan — batu highway retakkan cermin Saga sama seperti kereta lain."
+        "whyBM": "Murah tetapi kerap digunakan — batu di lebuh raya meretakkan cermin Saga sama seperti kereta lain."
       },
       {
         "name": "Special perils (banjir)",
@@ -1049,8 +1049,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
-        "verdict": "skip jika bandar",
-        "whyBM": "Saga bandar jarang tersadai jauh; ambil jika selalu balik kampung jauh."
+        "verdict": "tidak perlu jika di bandar",
+        "whyBM": "Saga yang dipandu di bandar jarang tersadai jauh; ambil jika selalu balik kampung jauh."
       }
     ],
     "modelFAQs": [
@@ -1230,7 +1230,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
         "verdict": "berbaloi jika selalu balik kampung jauh",
-        "whyBM": "Persona 1.6 banyak jalan highway; towing luar bandar mahal."
+        "whyBM": "Persona 1.6 banyak dipandu di lebuh raya; towing di luar bandar mahal."
       }
     ],
     "modelFAQs": [
@@ -1389,7 +1389,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM50–RM85/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Iriz kerap retak akibat batu di highway; gantian RM350+ tanpa cover."
+        "whyBM": "Cermin Iriz kerap retak akibat batu di lebuh raya; gantian RM350+ tanpa cover."
       },
       {
         "name": "Special perils (banjir)",
@@ -1400,8 +1400,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM20–RM40/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip; di highway luar bandar towing mahal."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan; di lebuh raya luar bandar, towing mahal."
       }
     ],
     "modelFAQs": [
@@ -1573,7 +1573,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM120–RM250/tahun",
         "verdict": "pertimbangkan untuk Flagship (2020–2024) dan Premium/Flagship (2025+)",
-        "whyBM": "Radar dan kamera X50 mahal — calibration selepas tukar cermin boleh cecah ratusan ringgit."
+        "whyBM": "Radar dan kamera X50 mahal — calibration selepas tukar cermin boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -1584,8 +1584,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM30–RM50/tahun",
-        "verdict": "berbaloi jika selalu outstation",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika kerap ke luar kawasan",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -1757,7 +1757,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM300/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Sensor X70 mahal — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+        "whyBM": "Sensor X70 mahal — calibration selepas tukar cermin atau kemalangan di bahagian depan boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -1768,8 +1768,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM30–RM50/tahun",
-        "verdict": "berbaloi jika selalu outstation",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika kerap ke luar kawasan",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -1950,7 +1950,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Enjin CFE berusia — towing memberi peace of mind untuk jalan jauh."
+        "whyBM": "Enjin CFE sudah berusia — towing memberi ketenangan fikiran untuk perjalanan jauh."
       }
     ],
     "modelFAQs": [
@@ -2116,7 +2116,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM70–RM120/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Honda besar dan mahal; varian ber-Honda Sensing perlu calibration tambahan."
+        "whyBM": "Cermin Honda besar dan mahal; varian yang ada Honda Sensing perlu calibration tambahan."
       },
       {
         "name": "Special perils (banjir)",
@@ -2128,13 +2128,13 @@
         "name": "Key replacement",
         "priceBM": "RM50–RM80/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Honda mahal diganti — sekali hilang tanpa cover, keluar poket sendiri."
+        "whyBM": "Smart key Honda mahal untuk diganti — sekali hilang tanpa cover, kosnya keluar daripada poket sendiri."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -2307,7 +2307,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM300/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Honda Sensing standard — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+        "whyBM": "Honda Sensing ialah kelengkapan standard — calibration selepas tukar cermin atau kemalangan di bahagian depan boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -2319,7 +2319,7 @@
         "name": "Key replacement",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Civic mahal diganti dengan programming."
+        "whyBM": "Smart key Civic mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -2491,7 +2491,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM280/tahun",
         "verdict": "pertimbangkan untuk Gen 3",
-        "whyBM": "Honda Sensing standard — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Honda Sensing ialah kelengkapan standard — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -2503,7 +2503,7 @@
         "name": "Key replacement",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Honda mahal diganti."
+        "whyBM": "Smart key Honda mahal untuk diganti."
       }
     ],
     "modelFAQs": [
@@ -2666,7 +2666,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM70–RM120/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin 7-seater besar; tanpa cover gantian RM600+."
+        "whyBM": "Cermin kereta 7 tempat duduk besar; tanpa cover gantian RM600+."
       },
       {
         "name": "Special perils (banjir)",
@@ -2684,7 +2684,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM30–RM50/tahun",
         "verdict": "berbaloi jika selalu balik kampung jauh",
-        "whyBM": "Dalam bandar boleh skip."
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -2849,7 +2849,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Vios kerap retak di highway; varian G dengan sensor perlu calibration tambahan."
+        "whyBM": "Cermin Vios kerap retak di lebuh raya; varian G yang ada sensor perlu calibration tambahan."
       },
       {
         "name": "Special perils (banjir)",
@@ -2860,14 +2860,14 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "skip jika kereta baru",
-        "whyBM": "Reliability Toyota + waranti pengeluar bermakna towing jarang diperlukan untuk unit baru; ambil jika selalu outstation jauh."
+        "verdict": "tidak perlu jika kereta baru",
+        "whyBM": "Toyota tahan lasak dan ada waranti pengeluar, jadi towing jarang diperlukan untuk unit baru; ambil jika selalu membuat perjalanan jauh."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM50–RM80/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Toyota mahal diganti dan diprogram."
+        "whyBM": "Smart key Toyota mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -3026,7 +3026,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Yaris kerap retak akibat batu di highway; gantian RM450+ tanpa cover."
+        "whyBM": "Cermin Yaris kerap retak akibat batu di lebuh raya; gantian RM450+ tanpa cover."
       },
       {
         "name": "Special perils (banjir)",
@@ -3037,8 +3037,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Toyota jarang breakdown — dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Toyota jarang rosak di jalan — di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -3209,7 +3209,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM130–RM250/tahun",
         "verdict": "pertimbangkan untuk 1.8G & GR Sport",
-        "whyBM": "Toyota Safety Sense (kamera/radar) hanya pada 1.8G & GR Sport — calibration selepas tukar cermin boleh cecah ratusan ringgit."
+        "whyBM": "Toyota Safety Sense (kamera/radar) hanya ada pada 1.8G & GR Sport — calibration selepas tukar cermin boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -3221,7 +3221,7 @@
         "name": "Key replacement",
         "priceBM": "RM60–RM90/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Toyota mahal diganti dengan programming."
+        "whyBM": "Smart key Toyota mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -3393,7 +3393,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM280/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Toyota Safety Sense standard — calibration kamera/radar selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+        "whyBM": "Toyota Safety Sense ialah kelengkapan standard — calibration kamera/radar selepas tukar cermin atau kemalangan di bahagian depan boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -3404,8 +3404,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM30–RM55/tahun",
-        "verdict": "berbaloi jika selalu outstation",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika kerap ke luar kawasan",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -3581,7 +3581,7 @@
         "name": "Accessories cover (canopy, bull bar)",
         "priceBM": "RM100–RM250/tahun",
         "verdict": "pertimbangkan jika ada aksesori",
-        "whyBM": "Canopy + bull bar boleh cecah RM5,000–RM10,000 — tanpa declare dan cover, claim tidak bayar aksesori."
+        "whyBM": "Canopy + bull bar boleh mencecah RM5,000–RM10,000 — jika tidak diisytiharkan dan dilindungi, claim tidak membayar aksesori."
       },
       {
         "name": "Special perils (banjir)",
@@ -3593,7 +3593,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM40–RM70/tahun",
         "verdict": "pertimbangkan jika kerja luar bandar",
-        "whyBM": "Towing pickup dari ladang atau tapak bina jauh sangat mahal."
+        "whyBM": "Towing pikap dari ladang atau tapak bina yang jauh sangat mahal."
       }
     ],
     "modelFAQs": [
@@ -3769,7 +3769,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM100–RM200/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Toyota Safety Sense standard — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Toyota Safety Sense ialah kelengkapan standard — calibration boleh mencecah ratusan ringgit."
       }
     ],
     "modelFAQs": [
@@ -3928,7 +3928,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin depan kerap retak di highway; gantian RM450+ tanpa cover."
+        "whyBM": "Cermin depan kerap retak di lebuh raya; gantian RM450+ tanpa cover."
       },
       {
         "name": "Special perils (banjir)",
@@ -3939,8 +3939,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -4104,12 +4104,12 @@
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik import mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik import mahal jika masuk air."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
+        "verdict": "berbaloi jika selalu memandu jauh",
         "whyBM": "Panel Mazda kurang — towing ke bengkel pakar boleh jauh."
       }
     ],
@@ -4281,19 +4281,19 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM130–RM250/tahun",
         "verdict": "pertimbangkan untuk Gen 4",
-        "whyBM": "i-Activsense standard — calibration boleh cecah ratusan ringgit."
+        "whyBM": "i-Activsense ialah kelengkapan standard — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik import mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik import mahal jika masuk air."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Mazda mahal diganti dengan programming."
+        "whyBM": "Smart key Mazda mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -4465,19 +4465,19 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM300/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "i-Activsense standard — calibration boleh cecah ratusan ringgit."
+        "whyBM": "i-Activsense ialah kelengkapan standard — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik import mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik import mahal jika masuk air."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM35–RM60/tahun",
-        "verdict": "berbaloi jika selalu outstation",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika kerap ke luar kawasan",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -4650,7 +4650,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM180–RM350/tahun",
         "verdict": "pertimbangkan untuk varian dengan Honda Sensing",
-        "whyBM": "Honda Sensing pada TC-P dan semua varian Gen 6 — calibration selepas tukar cermin atau accident depan boleh cecah ratusan ringgit."
+        "whyBM": "Honda Sensing ada pada TC-P dan semua varian Gen 6 — calibration selepas tukar cermin atau kemalangan di bahagian depan boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -4662,7 +4662,7 @@
         "name": "Key replacement",
         "priceBM": "RM70–RM120/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key CR-V mahal diganti dengan programming."
+        "whyBM": "Smart key CR-V mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -4836,7 +4836,7 @@
         "name": "Accessories cover (canopy, bull bar)",
         "priceBM": "RM100–RM250/tahun",
         "verdict": "pertimbangkan jika ada aksesori",
-        "whyBM": "Canopy + bull bar boleh cecah RM5,000–RM10,000 — tanpa declare dan cover, claim tidak bayar aksesori."
+        "whyBM": "Canopy + bull bar boleh mencecah RM5,000–RM10,000 — jika tidak diisytiharkan dan dilindungi, claim tidak membayar aksesori."
       },
       {
         "name": "Special perils (banjir)",
@@ -4848,7 +4848,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM40–RM70/tahun",
         "verdict": "pertimbangkan jika kerja luar bandar",
-        "whyBM": "Towing pickup dari ladang atau tapak bina jauh sangat mahal."
+        "whyBM": "Towing pikap dari ladang atau tapak bina yang jauh sangat mahal."
       }
     ],
     "modelFAQs": [
@@ -5198,7 +5198,7 @@
         "name": "Accessories cover (kit PRO-4X, canopy)",
         "priceBM": "RM100–RM250/tahun",
         "verdict": "pertimbangkan jika ada aksesori",
-        "whyBM": "Kit off-road dan canopy mahal — tanpa declare dan cover, claim tidak bayar aksesori."
+        "whyBM": "Kit off-road dan canopy mahal — jika tidak diisytiharkan dan dilindungi, claim tidak membayar aksesori."
       },
       {
         "name": "Special perils (banjir)",
@@ -5210,7 +5210,7 @@
         "name": "Breakdown towing",
         "priceBM": "RM40–RM70/tahun",
         "verdict": "pertimbangkan jika kerja luar bandar",
-        "whyBM": "Towing pickup dari lokasi jauh sangat mahal."
+        "whyBM": "Towing pikap dari lokasi yang jauh sangat mahal."
       }
     ],
     "modelFAQs": [
@@ -5381,18 +5381,18 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM280/tahun",
         "verdict": "pertimbangkan untuk varian 1.6T Plus/Max",
-        "whyBM": "SmartSense penuh pada varian tersebut — calibration boleh cecah ratusan ringgit."
+        "whyBM": "SmartSense penuh ada pada varian tersebut — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik Korea mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik Korea mahal jika masuk air."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM30–RM55/tahun",
-        "verdict": "berbaloi jika selalu outstation",
+        "verdict": "berbaloi jika kerap ke luar kawasan",
         "whyBM": "Panel Hyundai kurang — towing ke bengkel pakar boleh jauh."
       }
     ],
@@ -5563,19 +5563,19 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM130–RM250/tahun",
         "verdict": "disarankan untuk Gen 7",
-        "whyBM": "SmartSense standard pada varian Premium (asal); sahkan varian Executive — calibration boleh cecah ratusan ringgit."
+        "whyBM": "SmartSense ialah kelengkapan standard pada varian Premium (asal); sahkan untuk varian Executive — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik import mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik import mahal jika masuk air."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM50–RM90/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key mahal diganti dengan programming."
+        "whyBM": "Smart key mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -5746,19 +5746,19 @@
       {
         "name": "ADAS calibration cover",
         "priceBM": "RM150–RM280/tahun",
-        "verdict": "berbaloi untuk varian berADAS",
-        "whyBM": "Drive Wise standard pada varian High — calibration boleh cecah ratusan ringgit."
+        "verdict": "berbaloi untuk varian yang ada ADAS",
+        "whyBM": "Drive Wise ialah kelengkapan standard pada varian High — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Parts elektrik Korea mahal jika masuk air."
+        "whyBM": "Alat ganti elektrik Korea mahal jika masuk air."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM30–RM55/tahun",
-        "verdict": "berbaloi jika selalu outstation",
+        "verdict": "berbaloi jika kerap ke luar kawasan",
         "whyBM": "Panel Kia kurang — towing ke bengkel pakar boleh jauh."
       }
     ],
@@ -5923,7 +5923,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM60–RM100/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin kerap retak di highway; gantian RM450+ tanpa cover."
+        "whyBM": "Cermin kerap retak di lebuh raya; gantian RM450+ tanpa cover."
       },
       {
         "name": "Special perils (banjir)",
@@ -5934,7 +5934,7 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
+        "verdict": "berbaloi jika selalu memandu jauh",
         "whyBM": "Panel Suzuki kurang — towing ke bengkel pakar boleh jauh."
       }
     ],
@@ -6107,25 +6107,25 @@
         "name": "Windscreen cover",
         "priceBM": "RM150–RM300/tahun",
         "verdict": "pertimbangkan; semak had perlindungan",
-        "whyBM": "Cermin BMW dengan HUD boleh cecah RM3,000–RM5,000 — pastikan limit cover cukup."
+        "whyBM": "Cermin BMW dengan HUD boleh mencecah RM3,000–RM5,000 — pastikan had perlindungan cukup."
       },
       {
         "name": "ADAS calibration cover",
         "priceBM": "RM250–RM500/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Sensor premium BMW mahal — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sensor premium BMW mahal — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Elektronik BMW masuk air — bil puluhan ribu."
+        "whyBM": "Jika elektronik BMW masuk air, bilnya puluhan ribu."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM100–RM200/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Kunci BMW dengan programming sangat mahal diganti."
+        "whyBM": "Kunci BMW sangat mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -6290,25 +6290,25 @@
         "name": "Windscreen cover",
         "priceBM": "RM150–RM280/tahun",
         "verdict": "pertimbangkan; semak had perlindungan",
-        "whyBM": "Cermin X1 boleh cecah RM2,000+ — pastikan limit cover cukup."
+        "whyBM": "Cermin X1 boleh mencecah RM2,000+ — pastikan had perlindungan cukup."
       },
       {
         "name": "ADAS calibration cover",
         "priceBM": "RM250–RM450/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Sensor premium mahal — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sensor premium mahal — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Elektronik BMW masuk air — bil puluhan ribu."
+        "whyBM": "Jika elektronik BMW masuk air, bilnya puluhan ribu."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM100–RM180/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Kunci BMW dengan programming sangat mahal diganti."
+        "whyBM": "Kunci BMW sangat mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -6475,25 +6475,25 @@
         "name": "Windscreen cover",
         "priceBM": "RM180–RM350/tahun",
         "verdict": "pertimbangkan; semak had perlindungan",
-        "whyBM": "Cermin Mercedes boleh cecah RM3,000–RM6,000 — pastikan limit cover cukup."
+        "whyBM": "Cermin Mercedes boleh mencecah RM3,000–RM6,000 — pastikan had perlindungan cukup."
       },
       {
         "name": "ADAS calibration cover",
         "priceBM": "RM300–RM600/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Sensor premium mahal — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sensor premium mahal — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Elektronik dan MBUX masuk air — bil puluhan ribu."
+        "whyBM": "Jika elektronik dan MBUX masuk air, bilnya puluhan ribu."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM120–RM250/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Kunci Mercedes dengan programming sangat mahal diganti."
+        "whyBM": "Kunci Mercedes sangat mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -6657,25 +6657,25 @@
         "name": "Windscreen cover",
         "priceBM": "RM180–RM320/tahun",
         "verdict": "pertimbangkan; semak had perlindungan",
-        "whyBM": "Cermin GLB besar dan ber-tech — pastikan limit cover cukup."
+        "whyBM": "Cermin GLB besar dan berteknologi tinggi — pastikan had perlindungan cukup."
       },
       {
         "name": "ADAS calibration cover",
         "priceBM": "RM280–RM550/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Sensor premium mahal — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sensor premium mahal — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
         "priceBM": "0.2%–0.5% daripada sum insured setahun",
         "verdict": "pertimbangkan jika di kawasan banjir",
-        "whyBM": "Elektronik Mercedes masuk air — bil puluhan ribu."
+        "whyBM": "Jika elektronik Mercedes masuk air, bilnya puluhan ribu."
       },
       {
         "name": "Key replacement",
         "priceBM": "RM120–RM230/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Kunci Mercedes dengan programming sangat mahal diganti."
+        "whyBM": "Kunci Mercedes sangat mahal untuk diganti dan diprogram."
       }
     ],
     "modelFAQs": [
@@ -6843,7 +6843,7 @@
         "name": "Windscreen cover",
         "priceBM": "RM70–RM120/tahun",
         "verdict": "pertimbangkan",
-        "whyBM": "Cermin Honda besar dan mahal; varian ber-Honda Sensing perlu calibration tambahan."
+        "whyBM": "Cermin Honda besar dan mahal; varian yang ada Honda Sensing perlu calibration tambahan."
       },
       {
         "name": "Special perils (banjir)",
@@ -6855,13 +6855,13 @@
         "name": "Key replacement",
         "priceBM": "RM50–RM80/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Smart key Honda mahal diganti — sekali hilang tanpa cover, keluar poket sendiri."
+        "whyBM": "Smart key Honda mahal untuk diganti — sekali hilang tanpa cover, kosnya keluar daripada poket sendiri."
       },
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
@@ -7027,7 +7027,7 @@
         "name": "ADAS calibration cover",
         "priceBM": "RM100–RM200/tahun",
         "verdict": "berbaloi",
-        "whyBM": "Sesetengah unit import ada sensor ADAS — calibration boleh cecah ratusan ringgit."
+        "whyBM": "Sesetengah unit import ada sensor ADAS — calibration boleh mencecah ratusan ringgit."
       },
       {
         "name": "Special perils (banjir)",
@@ -7038,8 +7038,8 @@
       {
         "name": "Breakdown towing",
         "priceBM": "RM25–RM45/tahun",
-        "verdict": "berbaloi jika selalu long-distance",
-        "whyBM": "Dalam bandar boleh skip."
+        "verdict": "berbaloi jika selalu memandu jauh",
+        "whyBM": "Di dalam bandar boleh diabaikan."
       }
     ],
     "modelFAQs": [
