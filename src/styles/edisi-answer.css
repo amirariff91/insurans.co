@@ -175,7 +175,7 @@
 .work { width: 100%; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; background: var(--card); }
 .work caption { text-align: left; font-weight: 650; padding-bottom: 0.4rem; }
 .work th, .work td { text-align: left; padding: 0.45rem 0.4rem; border-bottom: 1px solid rgb(0 0 0 / 0.15); vertical-align: top; }
-.work .yrs { display: block; font-weight: 400; font-size: 0.8125rem; color: var(--ink-2); }
+.work .yrs { display: block; font-weight: 400; font-size: 0.875rem; color: var(--ink-2); }
 
 /* ------------------------------------------------------------ explainer rows with icons */
 .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
