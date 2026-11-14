@@ -89,7 +89,27 @@ const answerFacts = dims.flatMap((dimension) => {
   if (!valueA || !valueB) return [];
   return [{ label: dimension.label, value: `${nameA}: ${valueA} / ${nameB}: ${valueB}` }];
 });
-const finding = comp.summary.split(/(?<=\.)\s/)[0];
+// Title bar: the concrete difference the page's own criteria text states for this pair, about 60 characters,
+// no verdict. Each phrase is in that pair's criteria cards or summary below. A pair without an entry falls back
+// to the first sentence of its neutral summary.
+const FINDINGS: Record<string, string> = {
+  'etiqa-vs-allianz': 'Etiqa: tunda percuma hingga 200 km. Allianz: Road Rangers 24/7.',
+  'tokio-marine-vs-msig': 'Tokio Marine: AutoPro. MSIG: telematik EZ-Mile dan Microtag.',
+  'allianz-vs-zurich': 'Allianz: Road Rangers 24/7. Zurich: beberapa entiti takaful.',
+  'aia-vs-great-eastern': 'AIA: AIA+ dan A-Life. Great Eastern: perubatan kumpulan.',
+  'etiqa-vs-tokio-marine': 'Etiqa: tunda percuma hingga 200 km. Tokio Marine: tunda tanpa had.',
+  'msig-vs-zurich': 'MSIG: Smart Towing. Zurich: bantuan jalan melalui MyZurich.',
+  'allianz-vs-aia': 'Allianz: Road Rangers 24/7. AIA: aplikasi kesihatan AIA+.',
+  'etiqa-vs-msig': 'Etiqa: tunda percuma hingga 200 km. MSIG: Smart Towing.',
+  'berjaya-sompo-vs-lonpac': 'Berjaya Sompo: talian kerosakan 24 jam. Lonpac: AM Best A.',
+  'prudential-vs-aia': 'Prudential: tanpa motor am. AIA: motor melalui AIA General.',
+  'tokio-marine-vs-allianz': 'Tokio Marine: AutoPro, tunda tanpa had. Allianz: Road Rangers 24/7.',
+  'etiqa-vs-zurich': 'Etiqa: tunda percuma hingga 200 km. Zurich: jejak bantuan di MyZurich.',
+  'takaful-malaysia-vs-etiqa': 'Takaful Malaysia: Tele Bantuan. Etiqa: tunda hingga 200 km.',
+  'great-eastern-vs-msig': 'Great Eastern: aplikasi GEC korporat. MSIG: Smart Towing.',
+  'aia-vs-msig': 'AIA: aplikasi kesihatan AIA+. MSIG: telematik dan Smart Towing.',
+};
+const finding = FINDINGS[comp.slug] ?? comp.summary.split(/(?<=\.)\s/)[0];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -135,7 +155,7 @@ const schema = {
 >
   <Hero title={comparisonTitle}>
     <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan', href: '/perbandingan/' }, { label: `${nameA} vs ${nameB}` }]} />
-    <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt), role: 'term' }]} />
+    <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt) }]} />
     <Byline slot="byline" dateModified={comp.asAt} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-700">{comp.summary}</p>
   </Hero>
@@ -144,7 +164,7 @@ const schema = {
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
         <section class="prose-editorial prose-bars mb-8">
-          <h2>Skop perbandingan</h2>
+          <h2 class="h2-quiet">Skop perbandingan</h2>
           <p>
             Semak siapa mengeluarkan polisi, pilihan takaful, manfaat motor, saluran tuntutan dan urusan
             digital bagi setiap penyedia. Untuk produk yang anda pertimbangkan, minta jadual manfaat
@@ -162,7 +182,7 @@ const schema = {
             </p>
           </div>
           <div class="compare-rows">
-            {dims.map((dimension) => (
+            {dims.map((dimension, index) => (
               <article class="compare-row">
                 <h3 class="compare-row-t">{dimension.label}</h3>
                 <div class="compare-cols">
@@ -176,7 +196,7 @@ const schema = {
                   </div>
                 </div>
                 <p class="compare-note">
-                  <strong>Cara membaca perbezaan ini:</strong> {buyerCopy(dimension.note)}
+                  {index === 0 ? <strong>Cara membaca perbezaan ini:</strong> : <span class="sr-only-x">Cara membaca perbezaan ini:</span>} {buyerCopy(dimension.note)}
                 </p>
               </article>
             ))}
@@ -217,7 +237,7 @@ const schema = {
 
         <section aria-labelledby="faq-heading" class="mb-12">
           <div class="prose-editorial prose-bars mb-5">
-            <h2 id="faq-heading">Soalan lazim tentang {nameA} vs {nameB}</h2>
+            <h2 class="h2-quiet" id="faq-heading">Soalan lazim tentang {nameA} vs {nameB}</h2>
           </div>
           <div>
             {comp.faqs.map((faq: { q: string; a: string }, index: number) => (
@@ -231,7 +251,7 @@ const schema = {
 
         <section aria-labelledby="sources-heading" class="mb-10">
           <div class="prose-editorial prose-bars mb-4">
-            <h2 id="sources-heading">Sumber</h2>
+            <h2 class="h2-quiet" id="sources-heading">Sumber</h2>
             <p>Sumber rasmi dan rujukan yang digunakan untuk fakta di atas. Tarikh semakan: {formatDate(comp.asAt)}.</p>
           </div>
           <ul class="tap-links list-disc pl-5 space-y-2 text-sm">
@@ -257,7 +277,7 @@ const schema = {
         {related.length > 0 && (
           <section aria-labelledby="related-heading">
             <div class="prose-editorial prose-bars mb-4">
-              <h2 id="related-heading">Perbandingan lain</h2>
+              <h2 class="h2-quiet" id="related-heading">Perbandingan lain</h2>
             </div>
             <div class="space-y-3">
               {related.map((r: { slug: string; company1: string; company2: string }) => (
@@ -275,23 +295,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <section class="bg-white border-2 border-stone-900 p-5">
-            <h2 class="font-serif text-lg text-stone-900 mb-4">Ringkasan perbandingan</h2>
-            <div class="space-y-4 text-sm">
-              <div>
-                <p class="font-semibold text-stone-900 mb-1">Syarikat dalam perbandingan</p>
-                <ul class="text-stone-600 space-y-1">
-                  <li>{nameA}</li>
-                  <li>{nameB}</li>
-                </ul>
-              </div>
-              <div class="border-t border-stone-100 pt-4">
-                <p class="font-semibold text-stone-900 mb-1">Tarikh semakan</p>
-                <p class="text-stone-600">{formatDate(comp.asAt)}</p>
-              </div>
-            </div>
-          </section>
-
           <section class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900 mb-3">Halaman syarikat</h2>
             <div class="space-y-2">

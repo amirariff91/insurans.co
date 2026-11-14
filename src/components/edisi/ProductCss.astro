@@ -19,10 +19,12 @@
     .pp-plans table.plan-table > tbody > tr > [data-sub] { color: var(--ink-2); }
     .pp-plans table.plan-table > tbody > tr > [data-chip] > .plan-chip { background: var(--chip); border: 1px solid var(--ink); }
     .pp-plans table.plan-table > tbody > tr > :first-child a:focus-visible { outline: 3px solid var(--focus); }
-    .pp-plans table.plan-table > tbody > tr > :is(:first-child, [data-sub], [data-chip]) + td:not([data-sub], [data-chip]),
-    .pp-plans table.plan-table.table-editorial > tbody > tr > :is(:first-child, [data-sub], [data-chip]) + td:not([data-sub], [data-chip]) {
-      border-top: 2px solid var(--ink);
+    /* The 2px ink rule under the bar runs the full card width: a flex item of its own between bar and facts. */
+    .pp-plans table.plan-table > tbody > tr::before {
+      content: ''; order: 1; flex: 0 0 100%; height: 2px; background: var(--ink);
     }
+    .pp-plans table.plan-table > tbody > tr > :is(:first-child, [data-sub], [data-chip]) { order: 0; }
+    .pp-plans table.plan-table > tbody > tr > td:not([data-sub], [data-chip]) { order: 2; }
   }
   /* Older card list folded under the plan cards ("Butiran setiap pelan"). */
   .pp-more > summary {

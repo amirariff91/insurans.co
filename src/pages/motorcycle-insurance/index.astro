@@ -129,17 +129,15 @@ const schema = {
       <h1 class="ea-h1">Insurans Motosikal Malaysia 2026</h1>
       <PageAnswer
         finding="Roadtax JPJ ikut cc dan wilayah; premium perlu quotation"
-        note="Rujukan neutral, bukan ejen."
+        lead={sompoExample?.workedExample && sompoExample.figureVerified ? { value: sompoExample.workedExample.split(' — ')[0], label: `Berjaya Sompo, contoh PDS: ${sompoExample.workedExample.split(' — ').slice(1).join(' — ')}`, role: 'price' } : undefined}
         facts={[
-          { label: 'Bilangan rekod', value: `${records.length} produk`, role: 'term' },
           { label: 'Jadual roadtax', value: 'JPJ ikut cc dan wilayah' },
-          { label: 'Premium motosikal', value: 'Perlu quotation' },
-          { label: 'Data dikemas kini', value: tarikh(asAt) },
         ]}
+        note="Rujukan neutral, bukan ejen. Contoh untuk pemboleh ubah yang dinyatakan, bukan jadual harga atau quotation untuk semua motosikal."
       />
       <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
-        Rujukan neutral, bukan ejen: semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang benar-benar
+        Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang benar-benar
         diterbitkan dan pautan quotation rasmi. Tiada jadual premium motosikal mengikut cc direka.
       </p>
       <div class="mt-4 max-w-2xl">

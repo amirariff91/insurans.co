@@ -102,8 +102,14 @@ const schema = {
 };
 // Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
 // PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
-const answerSkip: string[] = [];
-const answerAll = [{ label: 'Jenis pelan', value: typeLabel }, ...specItems.filter((spec) => !answerSkip.includes(spec.label))]
+// Lead: the annual limit as a loud number only when the record states one single figure ("RM3,000,000");
+// the full "Had tahunan" fact row then moves to the details list under the box. The plan type sits in the bar.
+const leadValue = /^RM[\d,]+$/.test(card.annualLimit ?? '') ? card.annualLimit : undefined;
+const lead = leadValue ? { value: leadValue, label: 'Had tahunan', role: 'term' as const } : undefined;
+const insurerName = card.insurer.replace(/\.$/, '');
+const finding = `${typeLabel} oleh ${insurerName}`;
+const answerSkip: string[] = lead ? ['Had tahunan'] : [];
+const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
 // Rows whose value is a paragraph (over 160 characters) move to the details list below, so the box ends inside the
 // first phone screen; short facts keep their order.
@@ -113,7 +119,10 @@ const answerFacts = answerTop.map((spec) => ({
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
 }));
-const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
+const answerRest = [
+  ...specItems.filter((spec) => answerSkip.includes(spec.label)),
+  ...answerAll.filter((spec) => !answerTop.includes(spec)),
+];
 
 ---
 
@@ -138,11 +147,11 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      {card.planName} oleh {card.insurer.replace(/\.$/, '')}. Analisis manfaat dikemaskini pada {tarikh(card.analysisAsAt)}.{' '}
+      Analisis manfaat dikemas kini pada {tarikh(card.analysisAsAt)}.{' '}
       {analysis.facts.find((fact) => fact.label === 'Struktur pelan')?.value}
     </p>
 
-    <PageAnswer slot="answer" finding={`${card.planName} oleh ${card.insurer}`} facts={answerFacts} />
+    <PageAnswer slot="answer" finding={finding} lead={lead} facts={answerFacts} />
     <ProductCss />
 
     {answerRest.length > 0 && (

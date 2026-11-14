@@ -107,18 +107,12 @@ const schema = {
       <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
       <PageAnswer
         finding={`${cards.length} pelan medical card: standalone, rider, takaful`}
+        sentence="Mulakan dengan had tahunan, kemudian semak room & board, co-payment atau deductible dan tempoh menunggu."
         note="Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia."
-        facts={[
-          { label: 'Bilangan rekod', value: `${cards.length} pelan`, role: 'term' },
-          { label: 'Kategori', value: 'Standalone, rider, takaful' },
-          { label: 'Data dikemas kini', value: tarikh(medicalCards.asAt) },
-          { label: 'Harga premium', value: 'Tiada anggaran' },
-        ]}
       />
       <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Bandingkan pilihan medical card berdasarkan data manfaat yang dinyatakan dalam PDS atau brosur rasmi.
-        Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia.
       </p>
     </div>
   </section>
@@ -137,7 +131,7 @@ const schema = {
           <div class="pp-plans overflow-x-auto my-8">
             <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
-                Dikemaskini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
+                Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
               <thead role="rowgroup">
                 <tr role="row">

@@ -132,9 +132,8 @@ const schema = {
         finding={`Beli terus daripada ${directOnline.records.length} syarikat insurans atau ${platforms.records.length} platform`}
         note="Senarai ini bukan kedudukan atau cadangan."
         facts={[
-          { label: 'Beli terus daripada syarikat insurans', value: `${directOnline.records.length} syarikat`, role: 'term' },
-          { label: 'Bilangan platform', value: `${platforms.records.length} platform`, role: 'term' },
-          { label: 'Harga quotation', value: 'Tiada anggaran' },
+          { label: 'Model', value: 'Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ' },
+          { label: 'Data dikemas kini', value: tarikh(platforms.asAt) },
         ]}
       />
       <Byline dateModified={updatedAt} />
@@ -148,6 +147,7 @@ const schema = {
         <section id="beli-terus" class="scroll-mt-24 rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6" data-section="direct-insurer">
           <h2 class="h2-bar -mx-5 !-mt-5 !mb-0 sm:-mx-6 sm:!-mt-6">Beli terus daripada syarikat insurans</h2>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
+          <p class="mt-1 text-sm text-stone-700">Syarat yang tidak disenaraikan: semak di laman syarikat.</p>
           <div class="pp-plans mt-4 overflow-x-auto">
             <table role="table" class="table-editorial plan-table min-w-[40rem]">
               <thead role="rowgroup">
@@ -165,8 +165,8 @@ const schema = {
                     <th role="rowheader" scope="row">{row.company}</th>
                     <td role="cell" data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
                     <td role="cell" data-label="Beli online" data-wide>Kereta · {row.channel}</td>
-                    <td role="cell" data-label="Syarat" data-wide>{row.conditions ?? 'Semak di laman syarikat'}</td>
-                    <td role="cell" data-label="Pautan rasmi" data-wide>
+                    <td role="cell" data-label="Syarat" data-wide data-empty={row.conditions ? undefined : ''}>{row.conditions ?? ''}</td>
+                    <td role="cell" data-label="Pautan rasmi" data-wide data-nolabel>
                       <a
                         href={row.url}
                         target="_blank"
@@ -292,19 +292,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="space-y-6 lg:sticky lg:top-20">
-          <div class="rounded-lg border border-edisi-rule bg-edisi-card p-5">
-            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
-            <dl class="mt-4 space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Model</dt>
-                <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{tarikh(platforms.asAt)}</dd>
-              </div>
-            </dl>
-          </div>
           <div class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900">Nota kebebasan editorial</h2>
             <p class="mt-3 text-sm leading-5 text-stone-600">

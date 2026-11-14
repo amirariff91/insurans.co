@@ -1,21 +1,27 @@
 ---
 /**
  * The page answer: one module directly under the H1 on every content template (Edisi "one answer block").
- * A black title bar states the page's finding; two to four label/value rows hold the facts.
+ * A black title bar states the page's finding; an optional loud number (lead) or one sentence answers it;
+ * zero to four label/value rows hold the facts.
  * Every word must already be on the page (usually the old "Ringkasan" box or the lead paragraph).
  *
  *   <PageAnswer
  *     finding="Panduan kasar: 10 kali pendapatan tahunan"
+ *     lead={{ value: 'RM80–150', label: 'Anggaran term life sebulan, umur 30', role: 'price' }}
  *     facts={[
- *       { label: 'Anggaran term life (umur 30)', value: 'RM80 – RM150/bulan', role: 'price' },
  *       { label: 'Pelepasan cukai', value: 'RM3,000/tahun', role: 'term' },
  *       { label: 'Senarai syarikat', value: 'Lihat semua', href: '/companies/' },
  *     ]}
  *     note="Optional one-line caveat already on the page."
  *   />
  *
+ *   <PageAnswer finding="10 pelan medical card" sentence="Bandingkan had tahunan, room & board ..." />
+ *
  * role: 'price' = pink (a price or premium); 'term' = yellow (a total, limit or policy term); omitted = plain.
- * Styles: global.css, block "Edisi shared modules" (.mod, .mod-bar, .pa-*).
+ * Never put a role on a date or a count.
+ * lead: one decisive number already stated on the page, as a large Gabarito numeral; it wraps at a dash.
+ * sentence: one plain sentence for pages with no decisive fact (use it instead of a table of filler).
+ * Styles: global.css, blocks "Edisi shared modules" (.mod, .mod-bar, .pa-*) and "Page answer: lead and sentence".
  */
 interface Fact {
   label: string;
@@ -24,30 +30,51 @@ interface Fact {
   role?: 'price' | 'term';
 }
 
+interface Lead {
+  value: string;
+  label: string;
+  role?: 'price' | 'term';
+}
+
 interface Props {
   finding: string;
-  facts: Fact[];
+  facts?: Fact[];
   note?: string;
   /** Optional anchor id. The bar is a <p> so the page outline keeps its own H1/H2s. */
   id?: string;
+  /** Optional loud number between the bar and the rows. */
+  lead?: Lead;
+  /** Optional single sentence under the bar (or under the lead). */
+  sentence?: string;
 }
 
-const { finding, facts, note, id } = Astro.props;
+const { finding, facts = [], note, id, lead, sentence } = Astro.props;
 // Highlight (pink/yellow) is for short totals and terms. A value longer than ~40 characters is a sentence:
 // it drops the highlight and sits as plain text under its label (data-long). Plan templates cap the rows at four.
 const LONG = 40;
 const rows = facts.map((f) => ({ ...f, long: f.value.length > LONG }));
+// The lead numeral may break after a dash (en dash or hyphen) and nowhere else.
+const leadParts = lead ? lead.value.split(/(?<=[–-])/) : [];
 ---
 
 <section class="mod pa" aria-label={finding} id={id} data-section="page-answer">
   <p class="mod-bar">{finding}</p>
-  <dl class="pa-rows">
-    {rows.map((f) => (
-      <div class="pa-r" data-role={f.long ? undefined : f.role} data-long={f.long ? '' : undefined}>
-        <dt>{f.label}</dt>
-        <dd>{f.href ? <a href={f.href}>{f.value}</a> : <span class="pa-v">{f.value}</span>}</dd>
-      </div>
-    ))}
-  </dl>
+  {lead && (
+    <div class="pa-lead" data-role={lead.role}>
+      <p class="pa-lead-v">{leadParts.map((p) => <span class="pa-lead-p">{p}</span>)}</p>
+      <p class="pa-lead-l">{lead.label}</p>
+    </div>
+  )}
+  {sentence && <p class="pa-sent">{sentence}</p>}
+  {rows.length > 0 && (
+    <dl class="pa-rows">
+      {rows.map((f) => (
+        <div class="pa-r" data-role={f.long ? undefined : f.role} data-long={f.long ? '' : undefined}>
+          <dt>{f.label}</dt>
+          <dd>{f.href ? <a href={f.href}>{f.value}</a> : <span class="pa-v">{f.value}</span>}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
   {note && <p class="pa-note">{note}</p>}
 </section>

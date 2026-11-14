@@ -90,18 +90,12 @@ const schema = {
       <h1 class="ea-h1">Travel Insurance Malaysia 2026</h1>
       <PageAnswer
         finding={`${plans.length} pelan travel insurance: single dan annual`}
-        note="Ringkasan manfaat yang dinyatakan dalam rekod rasmi."
-        facts={[
-          { label: 'Bilangan rekod', value: `${plans.length} pelan`, role: 'term' },
-          { label: 'Jenis perjalanan', value: 'Single dan annual' },
-          { label: 'Data dikemas kini', value: tarikh(updatedAt) },
-          { label: 'Harga premium', value: 'Tiada anggaran' },
-        ]}
+        sentence="Mulakan dengan destinasi dan jenis perjalanan, kemudian semak had perubatan, pengecualian, claim window dan proses bantuan."
+        note="Tiada harga premium, had atau syarat yang tidak dinyatakan dalam data ini direka; semak quotation dan PDS terkini dengan penyedia."
       />
       <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
-        Bandingkan insurans perjalanan berdasarkan manfaat yang dinyatakan dalam sumber rasmi. Tiada harga premium,
-        had atau syarat yang tidak dinyatakan dalam data ini direka; semak quotation dan PDS terkini dengan penyedia.
+        Bandingkan insurans perjalanan berdasarkan manfaat yang dinyatakan dalam sumber rasmi.
       </p>
     </div>
   </section>
@@ -121,7 +115,7 @@ const schema = {
           <div class="pp-plans overflow-x-auto my-8">
             <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
-                Dikemaskini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
+                Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
               <thead role="rowgroup">
                 <tr role="row">
