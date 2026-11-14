@@ -15,15 +15,15 @@ const canonicalUrl = 'https://insurans.co/panduan/renew-insurans-roadtax/';
 const faqs = [
   {
     q: 'Renew di mana paling murah — aggregator, direct, atau ejen?',
-    a: 'Tiada jawapan tetap; harga premium post-liberalisasi 2017 ditetapkan setiap syarikat. Cara betul: semak NCD dahulu, banding 2–3 quotation sebagai rujukan, kemudian pilih saluran yang bagi nilai terbaik untuk kes anda. Baca langkah penuh di /guides/renew-car-insurance/ →.',
+    a: 'Tiada jawapan tetap; harga premium selepas liberalisasi 2017 ditetapkan oleh setiap syarikat. Cara yang betul: semak NCD dahulu, banding 2–3 quotation sebagai rujukan, kemudian pilih saluran yang memberi nilai terbaik untuk kes anda. Baca langkah penuh di /guides/renew-car-insurance/ →.',
   },
   {
-    q: 'Bila patut renew — awal atau last minute?',
-    a: '2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau lapse, NCD boleh terjejas dan anda tak boleh memandu secara sah.',
+    q: 'Bila patut renew — awal atau saat akhir?',
+    a: '2–4 minggu sebelum tamat. Jangan tunggu saat akhir — jika polisi luput (lapse), NCD boleh terjejas dan anda tidak boleh memandu secara sah.',
   },
   {
-    q: 'Lepas accident kecil, patut claim atau bayar sendiri?',
-    a: 'Bergantung pada kos baiki vs NCD yang akan reset. Guna semakan "patut ke claim?" dalam /tools/ncd-calculator/ → dan baca /guides/ncd-explained/ → sebelum buat keputusan — claim kecil kadang lebih mahal jangka panjang bila NCD jatuh.',
+    q: 'Selepas kemalangan kecil, patut claim atau bayar sendiri?',
+    a: 'Bergantung pada kos baiki berbanding NCD yang akan ditetapkan semula. Guna semakan "patut ke claim?" dalam /tools/ncd-calculator/ → dan baca /guides/ncd-explained/ → sebelum membuat keputusan — claim kecil kadangkala lebih mahal dalam jangka panjang apabila NCD jatuh.',
   },
 ];
 
@@ -86,7 +86,7 @@ const faqSchema = {
       <h1 class="ea-h1 mb-3">Renew Insurans + Roadtax Online — 7 Langkah Tanpa Panik</h1>
       <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
-        Ini ritual tahunan setiap pemilik kereta — ikut turutan, jangan langkau langkah 1 (NCD). Dalam 10–15 minit semua boleh settle online. Kami bukan ejen, bukan broker: kami tunjuk alirannya, anda pilih sendiri di mana nak beli.
+        Ini ritual tahunan setiap pemilik kereta — ikut turutan, jangan langkau langkah 1 (NCD). Dalam 10–15 minit semuanya boleh diselesaikan dalam talian. Kami bukan ejen, bukan broker: kami tunjukkan alirannya, anda pilih sendiri di mana mahu membeli.
       </p>
     </div>
   </section>
@@ -95,51 +95,51 @@ const faqSchema = {
     <article class="prose-editorial">
       <ol class="list-none space-y-8 pl-0">
         <li class="guide-step border-b border-stone-200 pb-8">
-          <h2 class="mt-0 text-headline-sm">Langkah 1 — Semak NCD anda (No Claim Discount).</h2>
+          <h2 class="mt-0 text-headline-sm">Langkah 1 — Semak NCD anda (diskaun tanpa tuntutan).</h2>
           <p>
-            Pergi MyEG atau hubungi syarikat insurans semasa dan screenshot NCD semasa. NCD yang menentukan harga premium — tangga NCD bermula 0% dan naik ikut tahun tanpa claim (25% → 30% → 38.33% → 45% → 55%). Salah nyatakan NCD melambatkan urusan, jadi sahkan dahulu sebelum minta quotation. Kalau NCD anda tinggi, itu penjimatan terbesar anda tahun ini — semak dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
+            Pergi ke MyEG atau hubungi syarikat insurans semasa dan ambil tangkapan skrin NCD semasa. NCD menentukan harga premium — tangga NCD bermula 0% dan naik ikut tahun tanpa claim (25% → 30% → 38.33% → 45% → 55%). Salah nyatakan NCD melambatkan urusan, jadi sahkan dahulu sebelum minta quotation. Jika NCD anda tinggi, itu penjimatan terbesar anda tahun ini — semak dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 2 — Semak nilai pasaran kereta (sum insured).</h2>
           <p>
-            Sum insured patut ikut nilai pasaran semasa, bukan harga beli dulu. Kereta susut nilai setiap tahun — sum insured yang terlalu tinggi bermakna anda terlebih bayar; terlalu rendah bermakna risiko under-insurance masa claim. Sistem aggregator biasanya auto-detect model dan nilai pasaran bila anda masukkan nombor plat — semak angka itu masuk akal sebelum teruskan.
+            Sum insured patut ikut nilai pasaran semasa, bukan harga beli dulu. Kereta susut nilai setiap tahun — sum insured yang terlalu tinggi bermakna anda terlebih bayar; terlalu rendah bermakna risiko under-insurance semasa claim. Sistem aggregator biasanya mengesan model dan nilai pasaran secara automatik apabila anda memasukkan nombor plat — semak sama ada angka itu munasabah sebelum meneruskan.
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 3 — Banding 2–3 quotation.</h2>
           <p>
-            Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>). Senarai itu bukan ranking editorial kami. Kalau nak kekal dengan syarikat sama, renew terus di laman syarikat itu (contoh: Etiqa, Allianz, Tokio Marine) — kadang ada diskaun renewal direct. Prinsipnya: tahu harga pasaran dulu, baru decide. Butiran penuh di <a href="/guides/renew-car-insurance/">panduan renew insurans kereta</a>.
+            Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>). Senarai itu bukan kedudukan editorial kami. Jika mahu kekal dengan syarikat yang sama, renew terus di laman syarikat itu (contoh: Etiqa, Allianz, Tokio Marine) — kadangkala ada diskaun untuk renewal terus. Prinsipnya: ketahui harga pasaran dulu, kemudian buat keputusan. Butiran penuh di <a href="/guides/renew-car-insurance/">panduan renew insurans kereta</a>.
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
-          <h2 class="mt-0 text-headline-sm">Langkah 4 — Pilih add-on yang perlu saja.</h2>
+          <h2 class="mt-0 text-headline-sm">Langkah 4 — Pilih add-on yang perlu sahaja.</h2>
           <p>
-            Comprehensive disyorkan untuk kebanyakan kereta; third-party memadai dalam kes tertentu (baca <a href="/guides/insurans-komprehensif-vs-pihak-ketiga/">komprehensif vs pihak ketiga</a> — pautan berkaitan: <a href="/guides/insurans-kereta-banjir/">insurans kereta dan banjir</a> untuk special perils banjir, <a href="/guides/cara-turun-premium-insurans-kereta/">cara turun premium insurans kereta</a> untuk 10 cara turunkan premium). Add-on biasa: cermin (windscreen), special perils/banjir, perlindungan penumpang. Tolak yang tak perlu — setiap add-on tambah kos. Orang yang tinggal di kawasan banjir dan yang parkir bawah bumbung setiap hari tidak ada keperluan yang sama.
+            Bandingkan komprehensif dengan pihak ketiga; pihak ketiga memadai dalam kes tertentu (baca <a href="/guides/insurans-komprehensif-vs-pihak-ketiga/">komprehensif vs pihak ketiga</a> — pautan berkaitan: <a href="/guides/insurans-kereta-banjir/">insurans kereta dan banjir</a> untuk special perils banjir, <a href="/guides/cara-turun-premium-insurans-kereta/">cara turun premium insurans kereta</a> untuk 10 cara turunkan premium). Add-on biasa: cermin (windscreen), special perils/banjir, perlindungan penumpang. Tolak yang tidak perlu — setiap add-on menambah kos. Orang yang tinggal di kawasan banjir dan yang meletak kereta di bawah bumbung setiap hari tidak mempunyai keperluan yang sama.
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 5 — Bayar dan simpan e-cover note.</h2>
           <p>
-            Bayar online dengan FPX (online banking) atau kad kredit/debit; sesetengah syarikat terima ansuran. E-cover note terus masuk email — simpan PDF itu, itu bukti insurans anda sah. Jangan tutup tab sebelum fail PDF tersimpan dalam folder khas (contoh: folder "Renew 2027" dalam Google Drive).
+            Bayar dalam talian dengan FPX (perbankan dalam talian) atau kad kredit/debit; sesetengah syarikat terima ansuran. E-cover note terus dihantar ke e-mel — simpan PDF itu, kerana itulah bukti insurans anda sah. Jangan tutup tab sebelum fail PDF tersimpan dalam folder khas (contoh: folder "Renew 2027" dalam Google Drive).
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 6 — Renew roadtax.</h2>
           <p>
-            Dah ada e-cover note, baru boleh renew roadtax. Pilihan sedia ada: MyEG online (roadtax dihantar ke rumah, ada caj penghantaran), kaunter Pos Malaysia (biasa siap dalam 15 minit), JPJ untuk kes khas (tukar nama, kereta lama), atau kaunter UTC/mall berdekatan. Nak semak angka roadtax ikut cc dan wilayah? Guna <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax</a> — kiraan ikut jadual kadar JPJ awam (formula: kadar asas band + kadar per-cc atas cc tambahan; berbeza Semenanjung vs Sabah &amp; Sarawak).
+            Selepas ada e-cover note, barulah anda boleh renew roadtax. Pilihan sedia ada: MyEG dalam talian (roadtax dihantar ke rumah, ada caj penghantaran), kaunter Pos Malaysia (biasanya siap dalam 15 minit), JPJ untuk kes khas (tukar nama, kereta lama), atau kaunter UTC/pusat beli-belah berdekatan. Mahu semak angka roadtax ikut cc dan wilayah? Guna <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax</a> — kiraan ikut jadual kadar JPJ awam (formula: kadar asas band + kadar per-cc atas cc tambahan; berbeza Semenanjung vs Sabah &amp; Sarawak).
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
-          <h2 class="mt-0 text-headline-sm">Langkah 7 — Set peringatan tahun depan.</h2>
+          <h2 class="mt-0 text-headline-sm">Langkah 7 — Tetapkan peringatan untuk tahun depan.</h2>
           <p>
-            Renew 2–4 minggu sebelum tamat — jangan tunggu last minute; kalau polisi lapse, anda tak boleh drive secara sah dan NCD boleh terjejas. Set peringatan kalendar sebulan sebelum tarikh tamat + simpan dalam folder yang sama: PDF polisi, e-cover note, resit roadtax, screenshot NCD.
+            Renew 2–4 minggu sebelum tamat — jangan tunggu saat akhir; jika polisi luput (lapse), anda tidak boleh memandu secara sah dan NCD boleh terjejas. Tetapkan peringatan kalendar sebulan sebelum tarikh tamat + simpan dalam folder yang sama: PDF polisi, e-cover note, resit roadtax, tangkapan skrin NCD.
           </p>
         </li>
       </ol>
