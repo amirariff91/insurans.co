@@ -55,6 +55,27 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
       </svg>
       <span aria-hidden="true">Menu</span>
     </button>
+    <noscript>
+      <!-- Without JavaScript the button above cannot open the panel: a native disclosure takes its place, closed by default. -->
+      <style is:inline>#mobile-menu-btn { display: none !important; } .mast-in > noscript { display: contents; }</style>
+      <details class="menu-nojs">
+        <summary class="menu-btn" aria-label="Buka menu">
+          <svg class="menu-i" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true" focusable="false">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <span aria-hidden="true">Menu</span>
+        </summary>
+        <nav aria-label="Navigasi utama mudah alih" class="menu-panel">
+          <ul>
+            {navLinks.map((link) => (
+              <li>
+                <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </details>
+    </noscript>
   </div>
 
   <nav class="tabs" aria-label="Navigasi utama">
@@ -79,17 +100,6 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     </nav>
   </div>
 
-  <noscript>
-    <nav aria-label="Navigasi utama mudah alih" class="menu-panel menu-panel-nojs">
-      <ul>
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </noscript>
 </header>
 
 <style>
@@ -128,13 +138,22 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 
   .tabs { display: none; }
 
+  /* No-JS menu: a <details> in the button's place; its panel overlays the page instead of pushing it down. */
+  .menu-nojs { grid-column: 3; align-self: center; }
+  .menu-nojs > summary { list-style: none; }
+  .menu-nojs > summary::-webkit-details-marker { display: none; }
+  .menu-nojs[open] > summary { background: var(--ink); color: #fff; }
+  .menu-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .menu-nojs > .menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.4); }
+  @media (max-width: 47.99rem) { .mast { position: relative; z-index: 41; } }
+
   @media (min-width: 48rem) {
     .mast-in { --wm-h: 4.25rem; grid-template-columns: auto auto 1fr; padding: 0.35rem var(--gutter) 0.6rem; }
     .mast-tag {
       display: block; grid-column: 2; margin: 0 0 0.55rem 0.25rem; padding-left: 1rem;
       border-left: 1.5px solid var(--rule); font-weight: 600; line-height: 1.2; color: var(--ink);
     }
-    .menu-btn, .menu-panel { display: none; }
+    .menu-btn, .menu-panel, .menu-nojs { display: none; }
 
     /* Section tabs: a strip on tablet, a glass capsule on desktop (glass only on navigation). */
     .tabs { display: block; padding: 0 var(--gutter) 0.6rem; }

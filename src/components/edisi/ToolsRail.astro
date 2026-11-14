@@ -8,8 +8,15 @@ import Px from './Px.astro';
 import { carSteps } from './steps';
 import { rm } from '../../lib/ncd';
 
-interface Props { model: any; related: any[]; calculatorUrl: string }
-const { model, related, calculatorUrl } = Astro.props;
+interface Props {
+  model: any;
+  related: any[];
+  calculatorUrl: string;
+  /** Front page only: hooks so its car picker can swap this module's figures in place. */
+  hooks?: boolean;
+}
+const { model, related, calculatorUrl, hooks = false } = Astro.props;
+const f = (key: string) => (hooks ? key : undefined);
 const s = carSteps(model);
 const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
 ---
@@ -18,11 +25,11 @@ const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
   <div class="mod-in">
     <p class="ix-s">Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD.</p>
     <dl class="kb">
-      <div class="kb-r"><dt>{model.model} pada NCD <Px v={s.pct} /></dt><dd><Px v={s.ins} /></dd></div>
-      <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
+      <div class="kb-r"><dt>{hooks ? <span data-f="rail-name">{model.model}</span> : model.model} pada NCD <Px v={s.pct} data-f={f('pct')} /></dt><dd><Px v={s.ins} data-f={f('rail-ins')} /></dd></div>
+      <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd data-f={f('rail-zero')}>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
     </dl>
     <p class="ix-s">Bandingkan kos repair dengan diskaun yang hilang sebelum claim.</p>
-    <a class="ea-btn ea-btn-p" href={calculatorUrl} data-cta="rail-claim">Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
+    <a class="ea-btn ea-btn-p" href={calculatorUrl} data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
   </div>
 </section>
 

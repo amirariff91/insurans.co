@@ -126,4 +126,21 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     letter-spacing: -0.03em;
     overflow-wrap: anywhere;
   }
+
+  /* Wider slots (tablet and desktop): a capped, compact plate. The name sits large on the left;
+     brand and body type stack small on the right, so the card never reads as an empty image box. */
+  @media (min-width: 48rem) {
+    .cp-card {
+      grid-template: 'n b' auto 'n g' auto / minmax(0, 1fr) auto;
+      align-items: end;
+      align-content: end;
+      aspect-ratio: auto;
+      min-block-size: 6.5rem;
+      max-block-size: 9rem;
+      padding: 1rem 1.1rem;
+    }
+    .cp-card-brand { align-self: end; text-align: right; font-size: 0.875rem; }
+    .cp-card-type { align-self: start; text-align: right; font-size: 0.875rem; opacity: 1; }
+    .cp-card-name { align-self: end; font-size: clamp(2.25rem, 13cqi, 3.75rem); overflow-wrap: normal; word-break: normal; }
+  }
 </style>
