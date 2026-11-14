@@ -105,7 +105,7 @@ const schema = {
           </p>
           <h2 id="jadual-perbandingan">Jadual perbandingan insurans perjalanan</h2>
           <div class="overflow-x-auto my-8">
-            <table class="table-editorial min-w-[60rem]">
+            <table class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
               </caption>
@@ -126,12 +126,12 @@ const schema = {
                     <th scope="row">
                       <a href={`/travel-insurance/${plan.slug}/`}>{plan.planName || '—'}</a>
                     </th>
-                    <td>{plan.insurer || '—'}</td>
-                    <td>{plan.duration || '—'}</td>
-                    <td>{plan.covidCovered || '—'}</td>
-                    <td>{plan.tripCancellation || '—'}</td>
-                    <td>{plan.standoutFeature || '—'}</td>
-                    <td>
+                    <td data-label="Penyedia" data-sub>{plan.insurer || '—'}</td>
+                    <td data-label="Tempoh perjalanan" data-wide>{plan.duration || '—'}</td>
+                    <td data-label="COVID-19" data-wide>{plan.covidCovered || '—'}</td>
+                    <td data-label="Pembatalan perjalanan" data-wide>{plan.tripCancellation || '—'}</td>
+                    <td data-label="Ciri utama" data-wide>{plan.standoutFeature || '—'}</td>
+                    <td data-label="Sumber" data-wide>
                       {plan.sources[0] ? <a href={plan.sources[0]}>Sumber rasmi</a> : '—'}
                     </td>
                   </tr>

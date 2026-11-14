@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TypeChips from '../../components/edisi/TypeChips.astro';
 import Byline from '../../components/Byline.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
@@ -144,8 +145,9 @@ const schema = {
       <section id="banding-pelan" class="mt-10">
         <h2 class="font-serif text-headline-md text-stone-900">Bandingkan pelan insurans rumah</h2>
         <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
+        <TypeChips class="mt-5" label="Jenis pelan" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
         <div class="mt-6 overflow-x-auto">
-          <table class="table-editorial min-w-[60rem]">
+          <table class="table-editorial plan-table min-w-[60rem]">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar premium dan asas perlindungan untuk {records.length} pelan insurans rumah
             </caption>
@@ -166,11 +168,11 @@ const schema = {
                     <a href={`/home-insurance/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
                     <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
                   </th>
-                  <td class="align-top">{typeLabels[record.type] ?? record.type ?? '—'}</td>
-                  <td class="min-w-64 align-top">{record.tariffRates ?? '—'}</td>
-                  <td class="align-top">{record.minPremium ?? '—'}</td>
-                  <td class="min-w-64 align-top">{record.sumInsuredBasis ?? '—'}</td>
-                  <td class="align-top">
+                  <td class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
+                  <td class="min-w-64 align-top" data-label="Kadar / contoh premium" data-wide>{record.tariffRates ?? '—'}</td>
+                  <td class="align-top" data-label="Premium minimum" data-wide>{record.minPremium ?? '—'}</td>
+                  <td class="min-w-64 align-top" data-label="Asas jumlah diinsuranskan" data-wide>{record.sumInsuredBasis ?? '—'}</td>
+                  <td class="align-top" data-label="Sumber" data-wide>
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
                         {record.sources.map((url) => (
@@ -231,7 +233,7 @@ const schema = {
         </article>
 
         <div class="mt-6 overflow-x-auto">
-          <table class="table-editorial">
+          <table class="table-editorial plan-table">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar houseowner dan householder yang direkodkan daripada sumber rasmi
             </caption>
@@ -247,17 +249,17 @@ const schema = {
             <tbody>
               <tr>
                 <th scope="row" class="font-medium text-stone-900">Houseowner</th>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1A)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_flat_1A)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_landed_1B)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.ho_flat_1B)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.ho_landed_1A)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.ho_flat_1A)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.ho_landed_1B)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.ho_flat_1B)}</td>
               </tr>
               <tr>
                 <th scope="row" class="font-medium text-stone-900">Householder</th>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1A)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1A)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1B)}</td>
-                <td class="font-semibold text-hijau-700">{formatRate(tariff.hh_1B)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.hh_1A)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.hh_1A)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.hh_1B)}</td>
+                <td class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.hh_1B)}</td>
               </tr>
             </tbody>
           </table>
@@ -334,7 +336,7 @@ const schema = {
                         <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
                     </div>
                     {record.figureVerified ? (
                       <>

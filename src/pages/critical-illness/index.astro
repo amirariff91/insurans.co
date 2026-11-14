@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TypeChips from '../../components/edisi/TypeChips.astro';
 import ci from '../../data/critical-illness.json';
 import verticalFaqs from '../../data/vertical-faqs.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -98,8 +99,9 @@ const schema = {
             definisi dan syarat tuntutan tetap bergantung pada produk.
           </p>
           <h2 id="jadual-perbandingan">Jadual perbandingan penyakit kritikal</h2>
+          <TypeChips class="not-prose mt-5" label="Jenis" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
           <div class="overflow-x-auto my-8">
-            <table class="table-editorial min-w-[60rem]">
+            <table class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
               </caption>
@@ -120,12 +122,12 @@ const schema = {
                     <th scope="row">
                       <a href={`/critical-illness/${record.slug}/`}>{record.planName || '—'}</a>
                     </th>
-                    <td>{record.insurer || '—'}</td>
-                    <td>{typeLabels[record.type] ?? '—'}</td>
-                    <td>{record.conditionsCovered || '—'}</td>
-                    <td>{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : '—'}</td>
-                    <td>{record.payoutStructure || '—'}</td>
-                    <td>
+                    <td data-label="Penyedia" data-sub>{record.insurer || '—'}</td>
+                    <td data-label="Jenis" data-chip><span class="plan-chip">{typeLabels[record.type] ?? '—'}</span></td>
+                    <td data-label="Kondisi dilindungi">{record.conditionsCovered || '—'}</td>
+                    <td data-label="Peringkat awal">{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : '—'}</td>
+                    <td data-label="Struktur bayaran" data-wide>{record.payoutStructure || '—'}</td>
+                    <td data-label="Sumber" data-wide>
                       {record.sources[0] ? <a href={record.sources[0]}>Sumber rasmi</a> : '—'}
                     </td>
                   </tr>
@@ -227,7 +229,7 @@ const schema = {
                           <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h3>
                           <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                         </div>
-                        <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                        <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
                       </div>
                       {(record.conditionsCovered || earlyStageLabel) && (
                         <dl class="mt-5 space-y-2 text-sm">

@@ -535,3 +535,173 @@
   /* Form controls take the chosen-state colour (magenta), not the hijau-700 text shade (ink). */
   .accent-hijau-700 { accent-color: var(--sel); }
 }
+
+/* ==== W4 hubs: plan cards on phones (begin) ====
+ * A table with .plan-table stays a table from 48rem up. Below that each body row becomes a card:
+ * the first cell is a black title bar, [data-sub] and [data-chip] cells join the bar (provider, type chip),
+ * every other cell shows its column name from data-label and sits in a two-up grid; [data-wide] spans both.
+ * Same DOM, same text; only the column names are repeated, as CSS generated content. */
+@media (max-width: 47.99rem) {
+  .overflow-x-auto:has(> table.plan-table) {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  table.plan-table,
+  table.plan-table.table-editorial {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  table.plan-table > caption {
+    display: block;
+    padding: 0 0 0.75rem;
+  }
+  table.plan-table > thead {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  table.plan-table > tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  table.plan-table > tbody > tr {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--ink);
+    border-radius: var(--r-2);
+    overflow: hidden;
+    background: var(--card);
+  }
+  table.plan-table > tbody > tr > :is(th, td) {
+    display: block;
+    flex: 1 1 50%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+    overflow-wrap: anywhere;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  /* The shared table rule drops the first body row's top rules; cards need them back between facts. */
+  table.plan-table.table-editorial > tbody > tr:first-child > td:not([data-sub], [data-chip], :first-child) {
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+  }
+  table.plan-table > tbody > tr > [data-wide] {
+    flex-basis: 100%;
+  }
+  table.plan-table > tbody > tr > td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink-2);
+  }
+  /* Title bar: plan name (and provider when it sits in the same cell), white on black. */
+  table.plan-table > tbody > tr > :first-child {
+    flex: 1 1 100%;
+    background: var(--ink);
+    color: #FFFFFF;
+    border-top: 0;
+    font-family: var(--fd);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    padding: 0.75rem 1rem 0.6rem;
+  }
+  table.plan-table > tbody > tr > :first-child::before { content: none; }
+  table.plan-table > tbody > tr > :first-child :is(a, span) { color: #FFFFFF; }
+  table.plan-table > tbody > tr > :first-child span { color: rgb(255 255 255 / 0.82); font-family: var(--f); }
+  table.plan-table > tbody > tr > :first-child:has(+ [data-chip]) { flex-basis: 0; flex-grow: 1; }
+  table.plan-table > tbody > tr > [data-sub],
+  table.plan-table > tbody > tr > [data-chip] {
+    background: var(--ink);
+    color: rgb(255 255 255 / 0.82);
+    border-top: 0;
+    font-size: 0.875rem;
+  }
+  /* Provider fills the bar line beside the chip (55% + chip at most 45%), so facts always start a new line. */
+  table.plan-table > tbody > tr > [data-sub] { flex: 1 1 55%; padding-top: 0; }
+  table.plan-table > tbody > tr > [data-sub]::before,
+  table.plan-table > tbody > tr > [data-chip]::before { content: none; }
+  table.plan-table > tbody > tr > [data-chip] {
+    flex: 0 0 auto;
+    max-width: 45%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: 0.25rem;
+  }
+  table.plan-table > tbody > tr > [data-chip] > .plan-chip {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--r-pill);
+    background: #FFFFFF;
+    color: var(--ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+  }
+  /* Bar cells after a chip (provider under the name) start a new line in the bar. */
+  table.plan-table > tbody > tr > [data-chip] + [data-sub] { flex-basis: 100%; }
+  table.plan-table > tbody > tr > :first-child + [data-sub] + [data-chip] { padding-top: 0; }
+  /* Links: 44px targets; white focus ring on the black bar. */
+  table.plan-table > tbody > tr a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  table.plan-table > tbody > tr > :first-child a {
+    min-height: 0;
+    padding: 0.6rem 0;
+    margin: -0.6rem 0;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  table.plan-table > tbody > tr > :first-child a:focus-visible {
+    outline: 2px solid var(--focus-on-dark);
+    outline-offset: 2px;
+  }
+  table.plan-table > tbody > tr > :first-child span.block { margin-top: 0.3rem; }
+  table.plan-table > tbody > tr > td ul { margin: 0; }
+  table.plan-table > tbody > tr > td ul > li + li { margin-top: 0; }
+}
+
+/* Type jump chips (anchor links to the grouped sections; no script). */
+.type-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.type-chips a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out);
+}
+.type-chips a:hover { border-color: var(--ink); background: var(--tray); }
+.type-chips a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+/* ==== W4 hubs: plan cards on phones (end) ==== */

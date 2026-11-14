@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TypeChips from '../../components/edisi/TypeChips.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import motorcycleInsurance from '../../data/motorcycle-insurance.json';
@@ -271,6 +272,8 @@ const schema = {
           </p>
         </article>
 
+        <TypeChips class="mt-5" label="Senarai produk" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
+
         <div class="mt-6 space-y-10">
           {recordGroups.map((group) => (
             <section id={group.type}>
@@ -290,7 +293,7 @@ const schema = {
                         <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
                         {group.label}
                       </span>
                     </div>

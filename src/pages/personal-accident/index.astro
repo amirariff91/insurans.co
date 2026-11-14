@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TypeChips from '../../components/edisi/TypeChips.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import personalAccident from '../../data/personal-accident.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -131,8 +132,9 @@ const schema = {
       <section id="banding-pelan" class="mt-10">
         <h2 class="font-serif text-headline-md text-stone-900">Bandingkan pelan PA</h2>
         <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
+        <TypeChips class="mt-5" label="Jenis pelan" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
         <div class="mt-6 overflow-x-auto">
-          <table class="table-editorial min-w-[60rem]">
+          <table class="table-editorial plan-table min-w-[60rem]">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Had manfaat dan premium untuk {records.length} pelan kemalangan diri
             </caption>
@@ -152,10 +154,10 @@ const schema = {
                     <a href={`/personal-accident/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
                     <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
                   </th>
-                  <td class="align-top">{typeLabels[record.type] ?? record.type ?? '—'}</td>
-                  <td class="min-w-64 align-top">{record.plansAndBenefits ?? '—'}</td>
-                  <td class="min-w-64 align-top">{record.premiumPublished ?? '—'}</td>
-                  <td class="align-top">
+                  <td class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
+                  <td class="min-w-64 align-top" data-label="Had &amp; manfaat" data-wide>{record.plansAndBenefits ?? '—'}</td>
+                  <td class="min-w-64 align-top" data-label="Premium diterbitkan" data-wide>{record.premiumPublished ?? '—'}</td>
+                  <td class="align-top" data-label="Sumber" data-wide>
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
                         {record.sources.map((url) => (
@@ -228,7 +230,7 @@ const schema = {
                         <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h3>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
                     </div>
 
                     <dl class="mt-5 space-y-2 text-sm">
@@ -319,7 +321,7 @@ const schema = {
             <p>Ketiga-tiganya boleh melengkapi, tetapi pencetus tuntutan dan bentuk bayaran tidak sama.</p>
           </div>
           <div class="mt-6 overflow-x-auto">
-            <table class="table-editorial">
+            <table class="table-editorial plan-table">
               <thead>
                 <tr>
                   <th scope="col">Aspek</th>
@@ -330,28 +332,28 @@ const schema = {
               </thead>
               <tbody>
                 <tr>
-                  <td class="font-medium text-stone-900">Pencetus utama</td>
-                  <td>Kemalangan yang memenuhi polisi, termasuk AD atau PPD mengikut takrif</td>
-                  <td>Rawatan hospital atau day surgery yang layak kerana sakit atau kemalangan</td>
-                  <td>Kematian mengikut terma polisi dan pengecualian</td>
+                  <td class="font-medium text-stone-900" data-label="Aspek">Pencetus utama</td>
+                  <td data-label="PA" data-wide>Kemalangan yang memenuhi polisi, termasuk AD atau PPD mengikut takrif</td>
+                  <td data-label="Medical card" data-wide>Rawatan hospital atau day surgery yang layak kerana sakit atau kemalangan</td>
+                  <td data-label="Life insurance" data-wide>Kematian mengikut terma polisi dan pengecualian</td>
                 </tr>
                 <tr>
-                  <td class="font-medium text-stone-900">Bentuk manfaat</td>
-                  <td>Lump sum dan manfaat tambahan seperti yang dinyatakan</td>
-                  <td>Bayaran bil rawatan yang layak, tertakluk pada had dan kos sendiri</td>
-                  <td>Lump sum kepada benefisiari atau penama mengikut polisi</td>
+                  <td class="font-medium text-stone-900" data-label="Aspek">Bentuk manfaat</td>
+                  <td data-label="PA" data-wide>Lump sum dan manfaat tambahan seperti yang dinyatakan</td>
+                  <td data-label="Medical card" data-wide>Bayaran bil rawatan yang layak, tertakluk pada had dan kos sendiri</td>
+                  <td data-label="Life insurance" data-wide>Lump sum kepada benefisiari atau penama mengikut polisi</td>
                 </tr>
                 <tr>
-                  <td class="font-medium text-stone-900">Sakit biasa</td>
-                  <td>Tidak menjadi pencetus PA</td>
-                  <td>Boleh dilindungi untuk rawatan yang layak</td>
-                  <td>Bukan manfaat rawatan; pencetusnya ialah manfaat kematian</td>
+                  <td class="font-medium text-stone-900" data-label="Aspek">Sakit biasa</td>
+                  <td data-label="PA" data-wide>Tidak menjadi pencetus PA</td>
+                  <td data-label="Medical card" data-wide>Boleh dilindungi untuk rawatan yang layak</td>
+                  <td data-label="Life insurance" data-wide>Bukan manfaat rawatan; pencetusnya ialah manfaat kematian</td>
                 </tr>
                 <tr>
-                  <td class="font-medium text-stone-900">Semak dahulu</td>
-                  <td>Jadual PPD, pengecualian, kelas pekerjaan dan tuntutan</td>
-                  <td>Had tahunan, room &amp; board, deductible dan waiting period</td>
-                  <td>Jumlah perlindungan, tempoh, premium dan pengecualian</td>
+                  <td class="font-medium text-stone-900" data-label="Aspek">Semak dahulu</td>
+                  <td data-label="PA" data-wide>Jadual PPD, pengecualian, kelas pekerjaan dan tuntutan</td>
+                  <td data-label="Medical card" data-wide>Had tahunan, room &amp; board, deductible dan waiting period</td>
+                  <td data-label="Life insurance" data-wide>Jumlah perlindungan, tempoh, premium dan pengecualian</td>
                 </tr>
               </tbody>
             </table>

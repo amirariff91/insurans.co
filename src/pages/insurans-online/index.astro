@@ -138,7 +138,7 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <section id="beli-terus" class="scroll-mt-24 border-2 border-stone-900 bg-white p-5 sm:p-6" data-section="direct-insurer">
+        <section id="beli-terus" class="scroll-mt-24 rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6" data-section="direct-insurer">
           <h2 class="font-serif text-headline-md text-stone-900">Beli terus daripada syarikat insurans</h2>
           <p class="mt-2 text-sm leading-5 text-stone-700">
             Syarikat insurans dan takaful di bawah menjual insurans kereta secara online melalui saluran mereka sendiri.
@@ -147,24 +147,24 @@ const schema = {
           </p>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
           <div class="mt-4 overflow-x-auto">
-            <table class="w-full min-w-[40rem] border-collapse text-left text-sm">
+            <table class="table-editorial plan-table min-w-[40rem]">
               <thead>
-                <tr class="border-b-2 border-stone-900 text-stone-900">
-                  <th scope="col" class="py-2 pr-3 font-semibold">Syarikat</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Insurans/takaful</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Beli online</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Syarat</th>
-                  <th scope="col" class="py-2 font-semibold">Pautan rasmi</th>
+                <tr>
+                  <th scope="col">Syarikat</th>
+                  <th scope="col">Insurans/takaful</th>
+                  <th scope="col">Beli online</th>
+                  <th scope="col">Syarat</th>
+                  <th scope="col">Pautan rasmi</th>
                 </tr>
               </thead>
               <tbody>
                 {directOnline.records.map((row) => (
-                  <tr class="border-b border-stone-200 align-top">
-                    <th scope="row" class="py-2 pr-3 font-semibold text-stone-900">{row.company}</th>
-                    <td class="py-2 pr-3 text-stone-700">{row.licence}</td>
-                    <td class="py-2 pr-3 text-stone-700">Kereta · {row.channel}</td>
-                    <td class="py-2 pr-3 text-stone-700">{row.conditions ?? 'Semak di laman syarikat'}</td>
-                    <td class="py-2">
+                  <tr>
+                    <th scope="row">{row.company}</th>
+                    <td data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
+                    <td data-label="Beli online" data-wide>Kereta · {row.channel}</td>
+                    <td data-label="Syarat" data-wide>{row.conditions ?? 'Semak di laman syarikat'}</td>
+                    <td data-label="Pautan rasmi" data-wide>
                       <a
                         href={row.url}
                         target="_blank"
@@ -237,7 +237,7 @@ const schema = {
                         <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{platform.name}</h3>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{platform.digitalPlatform}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
                         {platform.model.startsWith('insurer-langsung') ? 'Insurer-langsung' : platform.model}
                       </span>
                     </div>
@@ -281,7 +281,7 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="space-y-6 lg:sticky lg:top-20">
-          <div class="border-2 border-stone-900 bg-white p-5">
+          <div class="rounded-lg border border-edisi-rule bg-edisi-card p-5">
             <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
             <dl class="mt-4 space-y-3 text-sm">
               <div>
