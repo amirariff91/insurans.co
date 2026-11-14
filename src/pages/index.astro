@@ -7,6 +7,7 @@ import HomeAnswer from '../components/edisi/HomeAnswer.astro';
 import Dock from '../components/edisi/Dock.astro';
 import ModelRail from '../components/edisi/ModelRail.astro';
 import ToolsRail from '../components/edisi/ToolsRail.astro';
+import TerkiniRail from '../components/edisi/TerkiniRail.astro';
 import '../styles/edisi-answer.css';
 import companies from '../data/companies.json';
 import carModels from '../data/car-models.json';
@@ -30,6 +31,7 @@ const calculators = [
   { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD', icon: 'i-peratus' },
   { href: '/tools/kalkulator-roadtax/', label: 'Kalkulator roadtax kereta', icon: 'i-roadtax' },
   { href: '/tools/kalkulator-roadtax-motosikal/', label: 'Kalkulator roadtax motosikal', icon: 'i-roadtax' },
+  { href: '/tools/kalkulator-roadtax-ev/', label: 'Kalkulator roadtax kereta elektrik', icon: 'i-roadtax' },
   { href: '/tools/kalkulator-insurans-rumah/', label: 'Kalkulator insurans rumah', icon: 'i-utama' },
   { href: '/tools/kalkulator-coverage-nyawa/', label: 'Kalkulator coverage nyawa', icon: 'i-orang' },
 ];
@@ -319,6 +321,7 @@ const faqSchema = {
           <li><a href="/tools/"><Ikon name="i-kanan" size={22} /><span>Semua alat</span></a></li>
         </ul>
       </nav>
+      <TerkiniRail />
     </aside>
 
     <div class="ep-models">

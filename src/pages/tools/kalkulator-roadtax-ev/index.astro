@@ -1,0 +1,435 @@
+---
+import Ikon from '../../../components/Ikon.astro';
+import '../../../components/edisi-tools/edisi-tools.css';
+import Base from '../../../layouts/Base.astro';
+import Byline from '../../../components/Byline.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
+import { readerDate } from '../../../components/edisi-tools/labels';
+import ev from '../../../data/roadtax-ev.json';
+import { EV_BANDS, calcEvRoadtax, checkEvData } from '../../../lib/roadtax-ev';
+
+// Fails the build if the bands have a gap or overlap, or a test case no longer matches.
+checkEvData();
+
+const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax-ev/';
+const pageTitle = 'Roadtax Kereta Elektrik (EV) 2026: Kadar kW & Kalkulator';
+const description =
+  'Roadtax kereta elektrik (EV) kini ikut kuasa motor (kW), dari RM20 setahun bagi 50 kW ke bawah. Kalkulator dan jadual penuh Pekeliling JPJ Bil.01/2026.';
+
+const circular = ev.sources.find((s) => s.id === 'circular2026')!;
+const rtm = ev.sources.find((s) => s.id === 'rtm20240604')!;
+const motBuletin = ev.sources.find((s) => s.id === 'motBuletin2024')!;
+const mot = ev.sources.find((s) => s.id === 'mot2022')!;
+const faqJpj = ev.sources.find((s) => s.id === 'myjpjFaq')!;
+
+const num = (n: number) => n.toLocaleString('en-MY');
+const rm = (n: number) => `RM${Number.isInteger(n) ? num(n) : n.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const kw = (w: number) => num(w / 1000);
+
+const rows = EV_BANDS.map((b, i) => ({
+  kwText: i === 0 ? `${kw(b.maxW!)} ke bawah` : b.maxW === null ? `lebih ${kw(b.minW - 1)}` : `lebih ${kw(b.minW - 1)} hingga ${kw(b.maxW)}`,
+  wText: b.maxW === null ? `Melebihi ${num(b.minW)}` : `${num(b.minW)} hingga ${num(b.maxW)}`,
+  full: b.annualRM,
+  half: Math.round(b.annualRM * 50) / 100,
+}));
+
+const exampleKw = [50, 130, 150, 160, 220, 390];
+// Worked example under the input: one row of the table below, 130 kW in Semenanjung.
+const worked = calcEvRoadtax(130, 'semenanjung');
+const examples = exampleKw.map((k) => ({ k, r: calcEvRoadtax(k, 'semenanjung').rate }));
+
+const motoRows = ev.motorcycle.bands.map((b, i) => ({
+  wText: i === 0 ? `${num(b.maxW!)} ke bawah` : b.maxW === null ? `Melebihi ${num(b.minW - 1)}` : `${num(b.minW)} hingga ${num(b.maxW)}`,
+  rate: b.annualRM,
+  note: i === 0 ? 'kadar tetap' : 'kadar asas',
+}));
+
+const faqs = [
+  {
+    q: 'Adakah roadtax kereta elektrik masih percuma?',
+    a: 'Tidak. Pengecualian penuh roadtax kereta elektrik berlaku dari 1 Januari 2022 hingga 31 Disember 2025, menurut Kementerian Pengangkutan. Kadar mengikut kuasa motor berkuat kuasa 1 Januari 2026, menurut Buletin MOT Edisi 01/2024 terbitan Kementerian Pengangkutan, dan kadarnya tercatat dalam Pekeliling JPJ Bil.01 Tahun 2026.',
+  },
+  {
+    q: 'Berapa roadtax kereta elektrik 130 kW atau 150 kW?',
+    a: 'Ikut jadual pekeliling JPJ, 130 kW berada dalam band 120,001 hingga 130,000 watt dan dikenakan RM120 setahun. 150 kW dikenakan RM160 setahun. Had atas band termasuk dalam band itu, jadi 150.1 kW sudah masuk band seterusnya, iaitu RM180 setahun.',
+  },
+  {
+    q: 'Adakah kereta elektrik di Sabah dan Sarawak membayar kadar lebih rendah?',
+    a: 'Tidak menurut pekeliling JPJ. Jadual kereta elektrik dalam pekeliling itu ialah satu jadual untuk Semenanjung, Sabah dan Sarawak, dengan kadar yang sama bagi ketiga-tiganya.',
+  },
+  {
+    q: 'Berapa roadtax kereta elektrik di Langkawi dan Labuan?',
+    a: 'Bagi kenderaan yang didaftar dan digunakan di Pulau Langkawi dan Pulau Labuan, kadarnya separuh (50%) daripada kadar Semenanjung, Sabah dan Sarawak. Contohnya, kereta elektrik 130 kW dikenakan RM60 setahun.',
+  },
+  {
+    q: 'Adakah kereta hibrid dan PHEV menggunakan jadual kW ini?',
+    a: 'Tidak. Jadual kereta elektrik meliputi kenderaan elektrik sepenuhnya, iaitu yang dikuasakan bateri atau sel bahan api sahaja. Kereta hibrid dan hibrid plug-in (PHEV) dikecualikan daripada jadual ini.',
+  },
+  {
+    q: 'Berapa roadtax motosikal elektrik?',
+    a: 'Motosikal elektrik 7,500 watt ke bawah dikenakan kadar tetap RM2 setahun, dan di atasnya kadar asas RM9 hingga RM42 mengikut kuasa motor. Pekeliling yang sama memperuntukkan pengecualian 50% daripada kadar asas, tetapi tidak menyatakan amaun bersih bagi setiap band, jadi sahkan amaun yang perlu dibayar dengan JPJ.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Kalkulator Roadtax Kereta Elektrik (EV)',
+      description,
+      url: canonicalUrl,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'MYR' },
+      inLanguage: 'ms',
+      dateModified: ev.asAt,
+      isBasedOn: circular.url,
+      publisher: { '@type': 'Organization', name: 'Insurans.co', url: 'https://insurans.co' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://insurans.co/tools/' },
+        { '@type': 'ListItem', position: 3, name: 'Kalkulator Roadtax Kereta Elektrik', item: canonicalUrl },
+      ],
+    },
+  ],
+};
+
+const link = 'text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600';
+---
+
+<Base
+  title={pageTitle}
+  siteSuffix={false}
+  description={description}
+  canonical={canonicalUrl}
+  schema={schema}
+  pageType="tool"
+  ads={false}
+>
+  <ToolOpening title="Roadtax kereta elektrik (EV) 2026: kadar ikut kuasa motor">
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { label: 'Utama', href: '/' },
+        { label: 'Tools', href: '/tools/' },
+        { label: 'Kalkulator Roadtax Kereta Elektrik' },
+      ]}
+    />
+    <p class="et-lede">Kereta elektrik kini membayar roadtax mengikut kuasa motor dalam kW, dari RM20 setahun bagi 50 kW ke bawah.</p>
+  </ToolOpening>
+
+  <div class="container-wide py-10 sm:py-14 et">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
+      <div class="lg:col-span-2">
+        <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
+        <section id="calculator" aria-labelledby="calculator-heading" class="et-panel et-calc">
+          <div class="et-bar"><Ikon name="i-roadtax" size={24} /><h2 id="calculator-heading" class="et-bar-t">Roadtax kereta elektrik ikut kuasa motor: 130 kW di Semenanjung {rm(worked.rate)} setahun</h2></div>
+          <p class="mt-2 text-sm leading-5 text-stone-700">Masukkan kuasa motor dalam kW dan pilih wilayah kenderaan didaftar dan digunakan.</p>
+
+          <noscript><p class="mt-4 note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda, atau cari kadar kereta anda dalam <a href="#jadual">jadual penuh di bawah</a>.</p></noscript>
+          <form id="ev-form" method="dialog" class="mt-6 space-y-5" novalidate>
+            <div>
+              <label for="ev-kw" class="mb-1.5 block text-sm font-semibold text-stone-700">Kuasa motor (kW)</label>
+              <p id="ev-kw-hint" class="et-hint">cth: 130 atau 130 kW</p>
+              <input
+                type="text"
+                id="ev-kw"
+                name="kw"
+                inputmode="decimal"
+                autocomplete="off"
+                required
+                aria-describedby="ev-kw-hint ev-kw-help ev-kw-msg"
+                class="w-full px-4 py-3 text-lg font-medium text-stone-900"
+              />
+              <p id="ev-kw-help" class="mt-1.5 text-sm text-stone-700">Semak geran/VOC atau tanya pengedar. Boleh tulis 130, 130 kW atau 130,5.</p>
+              <p class="et-worked">Contoh: kereta elektrik 130 kW berada dalam band lebih 120 hingga 130 kW (120,001 hingga 130,000 watt), iaitu <strong>{rm(worked.rate)} setahun</strong> di Semenanjung, Sabah dan Sarawak.</p>
+              <p id="ev-kw-msg" class="et-msg" aria-live="polite"></p>
+            </div>
+
+            <div>
+              <label for="ev-region" class="mb-1.5 block text-sm font-semibold text-stone-700">Wilayah pendaftaran dan penggunaan</label>
+              <select id="ev-region" name="region" class="min-h-11 w-full px-4 py-3 text-base text-stone-900">
+                {ev.regions.map((r) => (
+                  <option value={r.id}>{r.label}{r.factor !== 1 ? ' (50%)' : ''}</option>
+                ))}
+              </select>
+            </div>
+
+            <button type="submit" class="min-h-11 w-full bg-stone-900 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800">
+              Kira Roadtax EV
+            </button>
+          </form>
+
+          <div class="et-out" style="min-height:10rem">
+<p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
+<div id="ev-result" role="status" aria-live="polite" aria-atomic="true" class="mt-6 hidden p-5">
+              <p id="ev-value" class="font-serif text-4xl font-bold"></p>
+              <p id="ev-breakdown" class="mt-4 border-t border-stone-900/20 pt-4 text-sm leading-5"></p>
+            </div>
+</div>
+
+          <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
+            Ini roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ.
+          </p>
+        </section>
+
+        <div class="et-after">
+          <Byline dateModified={ev.asAt} />
+          <p>Pengecualian penuh roadtax kereta elektrik (EV) tamat pada 31 Disember 2025. Kadar di halaman ini diambil daripada Pekeliling JPJ Bil.01/2026, jadual kereta elektrik bertarikh 1 April 2026.</p>
+          <p><strong>Alat percuma.</strong> Kiraan untuk kereta elektrik sepenuhnya menggunakan jadual kadar awam JPJ.</p>
+        </div>
+
+        <article class="prose-editorial mt-10">
+          <h2 id="contoh">Contoh ikut kuasa motor</h2>
+          <p>Kadar Semenanjung, Sabah dan Sarawak, terus dari jadual pekeliling JPJ. Contoh ini mengikut kuasa motor, bukan model kereta.</p>
+          <ul>
+            {examples.map((e) => <li>{e.k} kW → {rm(e.r)} setahun</li>)}
+          </ul>
+          <p>Had atas setiap band termasuk dalam band itu: 150 kW dikenakan RM160, tetapi 150.1 kW dikenakan RM180.</p>
+
+          <h2 id="jadual">Jadual penuh roadtax kereta elektrik</h2>
+          <p>Setiap band ialah kadar rata setahun, tanpa tambahan mengikut watt. Jadual yang sama digunakan bagi kereta salun dan bukan salun, milik individu atau syarikat, dan kenderaan persendirian e-hailing (kod AB, AC, AD, AE dan AH). Lajur Langkawi dan Labuan dikira 50% seperti perenggan 12 pekeliling, bagi kenderaan yang didaftar dan digunakan di Pulau Langkawi atau Pulau Labuan.</p>
+        </article>
+        <p class="mt-4 text-sm leading-5 text-stone-600">Sumber: <a href={circular.url} target="_blank" rel="noopener" class={link}>JPJ, Garis Panduan Kadar LKM bagi Kenderaan Motor Elektrik (ZEVs), Pekeliling Bil.01 Tahun 2026</a>, bertarikh 1 April 2026.</p>
+        <div class="ev-table-box mt-2 overflow-x-auto">
+          <table class="table-editorial">
+            <caption class="sr-only">Roadtax kereta elektrik setahun mengikut kuasa motor, Pekeliling JPJ Bil.01 Tahun 2026</caption>
+            <thead>
+              <tr>
+                <th scope="col">Kuasa motor (kW)</th>
+                <th scope="col">Kuasa motor (watt, teks pekeliling)</th>
+                <th scope="col" class="text-right">Semenanjung, Sabah, Sarawak</th>
+                <th scope="col" class="text-right">Langkawi, Labuan (50%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr>
+                  <td>{r.kwText}</td>
+                  <td>{r.wText}</td>
+                  <td class="text-right">{rm(r.full)}</td>
+                  <td class="text-right">{rm(r.half)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-2 text-sm leading-5 text-stone-600">Baris terakhir: teks pekeliling berbunyi "Melebihi 1,010,001" watt, jadi tepat 1,010,001 watt tidak jelas. Kami mengenakan RM20,000 bagi apa-apa kuasa melebihi 1,010 kW (1,010,000 watt), termasuk 1,010,001 watt.</p>
+
+        <article class="prose-editorial mt-10">
+          <h2 id="motosikal">Motosikal elektrik</h2>
+          <p>Pekeliling yang sama menetapkan kadar motosikal elektrik (kod AA) mengikut kuasa motor dalam watt.</p>
+        </article>
+        <div class="mt-4 overflow-x-auto">
+          <table class="table-editorial">
+            <caption class="text-sm text-stone-600">Sumber: Pekeliling JPJ Bil.01 Tahun 2026, perenggan 1.1 hingga 1.3.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Kuasa motor (watt)</th>
+                <th scope="col" class="text-right">Kadar setahun</th>
+                <th scope="col">Jenis</th>
+              </tr>
+            </thead>
+            <tbody>
+              {motoRows.map((r) => (
+                <tr><td>{r.wText}</td><td class="text-right">{rm(r.rate)}</td><td>{r.note}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <article class="prose-editorial mt-4">
+          <p>Pekeliling itu turut memperuntukkan "pengecualian 50% daripada kadar asas fi LKM" (perenggan 1.3). Ia tidak menyatakan sama ada pengecualian ini terpakai kepada kadar tetap RM2, atau amaun bersih bagi setiap band. Sahkan amaun yang perlu dibayar dengan JPJ sebelum renew. Untuk motosikal enjin, guna <a href="/tools/kalkulator-roadtax-motosikal/">kalkulator roadtax motosikal</a>.</p>
+
+          <h2 id="cari-kw">Di mana cari kW kereta anda</h2>
+          <ul>
+            <li>Semak kuasa motor pada geran (sijil pendaftaran kenderaan) atau VOC kereta anda.</li>
+            <li>Jika tiada, tanya pengedar atau syarikat yang menjual kereta itu di Malaysia.</li>
+            <li>Pekeliling menulis kuasa motor dalam watt. 1 kW = 1,000 watt, jadi 130 kW = 130,000 watt.</li>
+          </ul>
+
+          <h2 id="renew">Cara renew roadtax</h2>
+          <p>Menurut <a href={faqJpj.url} target="_blank" rel="noopener">FAQ JPJ tentang pembaharuan e-LKM melalui MyJPJ</a> (kemas kini 2 Januari 2024):</p>
+          <ul>
+            <li>Renew melalui aplikasi MyJPJ terbuka bagi kenderaan persendirian milik individu warganegara. Kereta yang didaftar atas nama syarikat tidak boleh menggunakannya.</li>
+            <li>Syaratnya: roadtax tamat dalam tempoh kurang daripada dua bulan, insurans sudah dibeli dan sah untuk enam atau 12 bulan, dan kenderaan tiada sekatan JPJ.</li>
+            <li>Roadtax digital tidak perlu dicetak atau dilekatkan pada cermin kenderaan.</li>
+            <li>Saluran lain yang disenaraikan: kaunter JPJ, Pejabat Pos, MyEG, PUSPAKOM, Kios JPJ, mySIKAP dan JPJ Mobile.</li>
+          </ul>
+          <p>FAQ itu tidak mempunyai peraturan khas bagi kereta elektrik.</p>
+
+          <h2 id="belum-disahkan">Apa yang tidak diliputi atau belum disahkan</h2>
+          <ul>
+            <li>Kadar baharu berkuat kuasa 1 Januari 2026, menurut <a href={motBuletin.url} target="_blank" rel="noopener">Buletin MOT Edisi 01/2024</a> (halaman 14) terbitan Kementerian Pengangkutan. Tarikh itu diumumkan Menteri Pengangkutan pada 4 Jun 2024, seperti yang dilaporkan <a href={rtm.url} target="_blank" rel="noopener">RTM</a>. Kadar di halaman ini diambil daripada pekeliling JPJ bertarikh 1 April 2026.</li>
+            <li>Kami tidak menyatakan roadtax bagi model kereta tertentu. JPJ tidak menyatakan angka kuasa motor mana yang digunakannya, jadi gunakan angka kuasa motor pada geran (sijil pendaftaran kenderaan) anda. Jika angka berbeza antara dokumen kereta anda, sahkan dengan JPJ.</li>
+            <li>Amaun bersih roadtax motosikal elektrik selepas pengecualian 50% belum disahkan.</li>
+            <li>Jadual ini meliputi kenderaan elektrik sepenuhnya sahaja. Kereta hibrid dan PHEV dikecualikan daripadanya; untuk kereta enjin, guna <a href="/tools/kalkulator-roadtax/">kalkulator roadtax kereta</a>.</li>
+            <li>Teks band tertinggi berbunyi "Melebihi 1,010,001" watt. Kalkulator ini mengenakan RM20,000 bagi apa-apa kuasa melebihi 1,010 kW, termasuk tepat 1,010,001 watt.</li>
+            <li>Kalkulator ini tidak meliputi kenderaan perdagangan, bas, treler atau kenderaan OKU.</li>
+          </ul>
+        </article>
+
+        <section id="faq" class="mt-10 sm:mt-14">
+          <div class="prose-editorial">
+            <h2>Soalan lazim roadtax kereta elektrik</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <article class="prose-editorial mt-10">
+          <h2 id="sumber">Sumber</h2>
+          <ul>
+            {ev.sources.map((s) => (
+              <li><a href={s.url} target="_blank" rel="noopener">{s.label}</a>, {s.dateLabel}.</li>
+            ))}
+          </ul>
+          <p class="text-sm">Pengecualian 2022 hingga 2025: <a href={mot.url} target="_blank" rel="noopener">siaran media Kementerian Pengangkutan</a>. Semua kadar disemak pada {readerDate(ev.checked)}. Kami bukan ejen dan bukan broker.</p>
+        </article>
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div class="space-y-6 lg:sticky lg:top-20">
+          <div class="border-2 border-stone-900 bg-white p-5">
+            <h2 class="font-serif text-headline-sm text-stone-900">Cara guna</h2>
+            <ol class="mt-4 space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">1</span>
+                <span>Cari <strong>kuasa motor (kW)</strong> pada geran/VOC.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">2</span>
+                <span>Pilih <strong>wilayah</strong> kenderaan didaftar dan digunakan.</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center bg-stone-900 text-xs font-bold text-white">3</span>
+                <span>Tekan <strong>Kira Roadtax EV</strong>, atau cari band dalam jadual.</span>
+              </li>
+            </ol>
+          </div>
+          <div class="card-editorial">
+            <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="/tools/kalkulator-roadtax/" class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax kereta</a></li>
+              <li><a href="/tools/kalkulator-roadtax-motosikal/" class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax motosikal</a></li>
+              <li><a href="/terkini/" class="text-hijau-700 hover:text-hijau-600">Terkini</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  })} />
+</Base>
+
+<style>
+  /* The 98-row table scrolls inside its own box so the page stays short on phones. */
+  .ev-table-box { max-height: 32rem; overflow-y: auto; }
+  .ev-table-box thead th { position: sticky; top: 0; background: var(--ink); z-index: 1; }
+</style>
+
+<script>
+  import { calcEvRoadtax, parseKw, type EvRegion } from '../../../lib/roadtax-ev';
+  import { track } from '../../../lib/track';
+
+  const input = document.getElementById('ev-kw') as HTMLInputElement | null;
+  const select = document.getElementById('ev-region') as HTMLSelectElement | null;
+  const msg = document.getElementById('ev-kw-msg');
+  const result = document.getElementById('ev-result');
+  const value = document.getElementById('ev-value');
+  const breakdown = document.getElementById('ev-breakdown');
+  const form = document.getElementById('ev-form');
+
+  const num = (n: number) => n.toLocaleString('en-MY', { maximumFractionDigits: 3 });
+  const rm = (n: number) =>
+    `RM${n.toLocaleString('en-MY', Number.isInteger(n) ? {} : { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+  function clearResult(): void {
+    if (!result || !value || !breakdown) return;
+    result.classList.add('hidden');
+    value.textContent = '';
+    breakdown.textContent = '';
+  }
+
+  function showError(text: string): void {
+    if (!input || !msg) return;
+    msg.textContent = text;
+    input.setAttribute('aria-invalid', 'true');
+    clearResult();
+  }
+
+  function run(): void {
+    if (!input || !select || !msg || !result || !value || !breakdown) return;
+    const raw = input.value;
+    if (raw.trim() === '') {
+      showError('Sila isi kuasa motor dalam kW, contohnya 130.');
+      return;
+    }
+    const parsed = parseKw(raw);
+    if (!parsed) {
+      showError(/^\s*-/.test(raw) || /^\s*0+([.,]0*)?\s*(k?w)?\s*$/i.test(raw)
+        ? 'Kuasa motor mesti lebih daripada 0 kW.'
+        : 'Tulis kuasa motor sebagai nombor, contohnya 130 atau 130,5.');
+      return;
+    }
+    input.removeAttribute('aria-invalid');
+    const region = select.value as EvRegion;
+    const r = calcEvRoadtax(parsed.kw, region);
+    const label = select.options[select.selectedIndex]?.text ?? region;
+    msg.textContent = parsed.asWatts
+      ? `Kami baca angka ini sebagai watt: ${num(parsed.kw)} kW.`
+      : `Dikira sebagai ${num(parsed.kw)} kW.`;
+    const range = r.band.maxW === null
+      ? `melebihi ${num((r.band.minW - 1) / 1000)} kW (${num(r.band.minW)} watt ke atas)`
+      : r.band.minW === 1
+        ? `${num(r.band.maxW / 1000)} kW ke bawah (1 hingga ${num(r.band.maxW)} watt)`
+        : `lebih ${num((r.band.minW - 1) / 1000)} hingga ${num(r.band.maxW / 1000)} kW (${num(r.band.minW)} hingga ${num(r.band.maxW)} watt)`;
+    result.classList.remove('hidden');
+    value.textContent = `Roadtax setahun: ${rm(r.rate)}`;
+    breakdown.textContent = r.factor === 1
+      ? `${num(parsed.kw)} kW di ${label}: band ${range}, kadar rata ${rm(r.rate)} setahun.`
+      : `${num(parsed.kw)} kW di ${label}: band ${range}, 50% daripada kadar Semenanjung, Sabah dan Sarawak (${rm(r.baseRM)}).`;
+    track('ev_roadtax_calculate', { region, kw: parsed.kw, rate: r.rate, band_min_w: r.band.minW });
+  }
+
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      run();
+    });
+  }
+  // A changed input makes the shown result stale: clear it (and any message) until the next submit.
+  input?.addEventListener('input', () => {
+    clearResult();
+    if (msg) msg.textContent = '';
+  });
+  select?.addEventListener('change', () => {
+    if (input && input.value.trim() !== '') run();
+    else clearResult();
+  });
+
+  const kwParam = new URLSearchParams(window.location.search).get('kw');
+  if (kwParam && input) {
+    input.value = kwParam;
+    run();
+  }
+</script>

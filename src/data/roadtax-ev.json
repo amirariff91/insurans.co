@@ -1,0 +1,692 @@
+{
+  "methodologyNote": "Kadar LKM kereta elektrik (ZEV: elektrik bateri dan sel bahan api) dari Lampiran A, Garis Panduan Kadar LKM bagi Kenderaan Motor Elektrik (ZEVs), Surat Pekeliling Bahagian Pelesenan Kenderaan JPJ Bil.01 Tahun 2026 bertarikh 1 April 2026. Setiap band ialah kadar rata setahun; had atas band termasuk dalam band itu. Satu jadual bagi kod AB, AC, AD, AE dan AH. Semenanjung, Sabah dan Sarawak sama; 50% bagi kenderaan yang didaftar dan digunakan di Pulau Langkawi atau Pulau Labuan (perenggan 12). Hibrid dan PHEV tidak termasuk.",
+  "asAt": "2026-11-15",
+  "checked": "2026-11-15",
+  "effectiveDate": "2026-01-01",
+  "exemptionEnd": "2025-12-31",
+  "car": {
+    "usageCodes": {
+      "AB": "Motokar Salun (Individu)",
+      "AC": "Motokar Salun (Syarikat)",
+      "AD": "Motokar Selain Salun (Individu)",
+      "AE": "Motokar Selain Salun (Syarikat)",
+      "AH": "Persendirian E-Hailing"
+    },
+    "bands": [
+      {
+        "minW": 1,
+        "maxW": 50000,
+        "annualRM": 20.0
+      },
+      {
+        "minW": 50001,
+        "maxW": 60000,
+        "annualRM": 30.0
+      },
+      {
+        "minW": 60001,
+        "maxW": 70000,
+        "annualRM": 40.0
+      },
+      {
+        "minW": 70001,
+        "maxW": 80000,
+        "annualRM": 50.0
+      },
+      {
+        "minW": 80001,
+        "maxW": 90000,
+        "annualRM": 60.0
+      },
+      {
+        "minW": 90001,
+        "maxW": 100000,
+        "annualRM": 70.0
+      },
+      {
+        "minW": 100001,
+        "maxW": 110000,
+        "annualRM": 80.0
+      },
+      {
+        "minW": 110001,
+        "maxW": 120000,
+        "annualRM": 100.0
+      },
+      {
+        "minW": 120001,
+        "maxW": 130000,
+        "annualRM": 120.0
+      },
+      {
+        "minW": 130001,
+        "maxW": 140000,
+        "annualRM": 140.0
+      },
+      {
+        "minW": 140001,
+        "maxW": 150000,
+        "annualRM": 160.0
+      },
+      {
+        "minW": 150001,
+        "maxW": 160000,
+        "annualRM": 180.0
+      },
+      {
+        "minW": 160001,
+        "maxW": 170000,
+        "annualRM": 200.0
+      },
+      {
+        "minW": 170001,
+        "maxW": 180000,
+        "annualRM": 220.0
+      },
+      {
+        "minW": 180001,
+        "maxW": 190000,
+        "annualRM": 240.0
+      },
+      {
+        "minW": 190001,
+        "maxW": 200000,
+        "annualRM": 260.0
+      },
+      {
+        "minW": 200001,
+        "maxW": 210000,
+        "annualRM": 280.0
+      },
+      {
+        "minW": 210001,
+        "maxW": 220000,
+        "annualRM": 305.0
+      },
+      {
+        "minW": 220001,
+        "maxW": 230000,
+        "annualRM": 335.0
+      },
+      {
+        "minW": 230001,
+        "maxW": 240000,
+        "annualRM": 365.0
+      },
+      {
+        "minW": 240001,
+        "maxW": 250000,
+        "annualRM": 395.0
+      },
+      {
+        "minW": 250001,
+        "maxW": 260000,
+        "annualRM": 425.0
+      },
+      {
+        "minW": 260001,
+        "maxW": 270000,
+        "annualRM": 455.0
+      },
+      {
+        "minW": 270001,
+        "maxW": 280000,
+        "annualRM": 485.0
+      },
+      {
+        "minW": 280001,
+        "maxW": 290000,
+        "annualRM": 515.0
+      },
+      {
+        "minW": 290001,
+        "maxW": 300000,
+        "annualRM": 545.0
+      },
+      {
+        "minW": 300001,
+        "maxW": 310000,
+        "annualRM": 575.0
+      },
+      {
+        "minW": 310001,
+        "maxW": 320000,
+        "annualRM": 615.0
+      },
+      {
+        "minW": 320001,
+        "maxW": 330000,
+        "annualRM": 665.0
+      },
+      {
+        "minW": 330001,
+        "maxW": 340000,
+        "annualRM": 715.0
+      },
+      {
+        "minW": 340001,
+        "maxW": 350000,
+        "annualRM": 765.0
+      },
+      {
+        "minW": 350001,
+        "maxW": 360000,
+        "annualRM": 815.0
+      },
+      {
+        "minW": 360001,
+        "maxW": 370000,
+        "annualRM": 865.0
+      },
+      {
+        "minW": 370001,
+        "maxW": 380000,
+        "annualRM": 915.0
+      },
+      {
+        "minW": 380001,
+        "maxW": 390000,
+        "annualRM": 965.0
+      },
+      {
+        "minW": 390001,
+        "maxW": 400000,
+        "annualRM": 1015.0
+      },
+      {
+        "minW": 400001,
+        "maxW": 410000,
+        "annualRM": 1065.0
+      },
+      {
+        "minW": 410001,
+        "maxW": 420000,
+        "annualRM": 1140.0
+      },
+      {
+        "minW": 420001,
+        "maxW": 430000,
+        "annualRM": 1240.0
+      },
+      {
+        "minW": 430001,
+        "maxW": 440000,
+        "annualRM": 1340.0
+      },
+      {
+        "minW": 440001,
+        "maxW": 450000,
+        "annualRM": 1440.0
+      },
+      {
+        "minW": 450001,
+        "maxW": 460000,
+        "annualRM": 1540.0
+      },
+      {
+        "minW": 460001,
+        "maxW": 470000,
+        "annualRM": 1640.0
+      },
+      {
+        "minW": 470001,
+        "maxW": 480000,
+        "annualRM": 1740.0
+      },
+      {
+        "minW": 480001,
+        "maxW": 490000,
+        "annualRM": 1840.0
+      },
+      {
+        "minW": 490001,
+        "maxW": 500000,
+        "annualRM": 1940.0
+      },
+      {
+        "minW": 500001,
+        "maxW": 510000,
+        "annualRM": 2040.0
+      },
+      {
+        "minW": 510001,
+        "maxW": 520000,
+        "annualRM": 2165.0
+      },
+      {
+        "minW": 520001,
+        "maxW": 530000,
+        "annualRM": 2315.0
+      },
+      {
+        "minW": 530001,
+        "maxW": 540000,
+        "annualRM": 2465.0
+      },
+      {
+        "minW": 540001,
+        "maxW": 550000,
+        "annualRM": 2615.0
+      },
+      {
+        "minW": 550001,
+        "maxW": 560000,
+        "annualRM": 2765.0
+      },
+      {
+        "minW": 560001,
+        "maxW": 570000,
+        "annualRM": 2915.0
+      },
+      {
+        "minW": 570001,
+        "maxW": 580000,
+        "annualRM": 3065.0
+      },
+      {
+        "minW": 580001,
+        "maxW": 590000,
+        "annualRM": 3215.0
+      },
+      {
+        "minW": 590001,
+        "maxW": 600000,
+        "annualRM": 3365.0
+      },
+      {
+        "minW": 600001,
+        "maxW": 610000,
+        "annualRM": 3515.0
+      },
+      {
+        "minW": 610001,
+        "maxW": 620000,
+        "annualRM": 3690.0
+      },
+      {
+        "minW": 620001,
+        "maxW": 630000,
+        "annualRM": 3890.0
+      },
+      {
+        "minW": 630001,
+        "maxW": 640000,
+        "annualRM": 4090.0
+      },
+      {
+        "minW": 640001,
+        "maxW": 650000,
+        "annualRM": 4290.0
+      },
+      {
+        "minW": 650001,
+        "maxW": 660000,
+        "annualRM": 4490.0
+      },
+      {
+        "minW": 660001,
+        "maxW": 670000,
+        "annualRM": 4690.0
+      },
+      {
+        "minW": 670001,
+        "maxW": 680000,
+        "annualRM": 4890.0
+      },
+      {
+        "minW": 680001,
+        "maxW": 690000,
+        "annualRM": 5090.0
+      },
+      {
+        "minW": 690001,
+        "maxW": 700000,
+        "annualRM": 5290.0
+      },
+      {
+        "minW": 700001,
+        "maxW": 710000,
+        "annualRM": 5490.0
+      },
+      {
+        "minW": 710001,
+        "maxW": 720000,
+        "annualRM": 5715.0
+      },
+      {
+        "minW": 720001,
+        "maxW": 730000,
+        "annualRM": 5965.0
+      },
+      {
+        "minW": 730001,
+        "maxW": 740000,
+        "annualRM": 6215.0
+      },
+      {
+        "minW": 740001,
+        "maxW": 750000,
+        "annualRM": 6465.0
+      },
+      {
+        "minW": 750001,
+        "maxW": 760000,
+        "annualRM": 6715.0
+      },
+      {
+        "minW": 760001,
+        "maxW": 770000,
+        "annualRM": 6965.0
+      },
+      {
+        "minW": 770001,
+        "maxW": 780000,
+        "annualRM": 7215.0
+      },
+      {
+        "minW": 780001,
+        "maxW": 790000,
+        "annualRM": 7465.0
+      },
+      {
+        "minW": 790001,
+        "maxW": 800000,
+        "annualRM": 7715.0
+      },
+      {
+        "minW": 800001,
+        "maxW": 810000,
+        "annualRM": 7965.0
+      },
+      {
+        "minW": 810001,
+        "maxW": 820000,
+        "annualRM": 8240.0
+      },
+      {
+        "minW": 820001,
+        "maxW": 830000,
+        "annualRM": 8540.0
+      },
+      {
+        "minW": 830001,
+        "maxW": 840000,
+        "annualRM": 8840.0
+      },
+      {
+        "minW": 840001,
+        "maxW": 850000,
+        "annualRM": 9140.0
+      },
+      {
+        "minW": 850001,
+        "maxW": 860000,
+        "annualRM": 9440.0
+      },
+      {
+        "minW": 860001,
+        "maxW": 870000,
+        "annualRM": 9740.0
+      },
+      {
+        "minW": 870001,
+        "maxW": 880000,
+        "annualRM": 10040.0
+      },
+      {
+        "minW": 880001,
+        "maxW": 890000,
+        "annualRM": 10340.0
+      },
+      {
+        "minW": 890001,
+        "maxW": 900000,
+        "annualRM": 10640.0
+      },
+      {
+        "minW": 900001,
+        "maxW": 910000,
+        "annualRM": 10940.0
+      },
+      {
+        "minW": 910001,
+        "maxW": 920000,
+        "annualRM": 11265.0
+      },
+      {
+        "minW": 920001,
+        "maxW": 930000,
+        "annualRM": 11615.0
+      },
+      {
+        "minW": 930001,
+        "maxW": 940000,
+        "annualRM": 11965.0
+      },
+      {
+        "minW": 940001,
+        "maxW": 950000,
+        "annualRM": 12315.0
+      },
+      {
+        "minW": 950001,
+        "maxW": 960000,
+        "annualRM": 12665.0
+      },
+      {
+        "minW": 960001,
+        "maxW": 970000,
+        "annualRM": 13015.0
+      },
+      {
+        "minW": 970001,
+        "maxW": 980000,
+        "annualRM": 13365.0
+      },
+      {
+        "minW": 980001,
+        "maxW": 990000,
+        "annualRM": 13715.0
+      },
+      {
+        "minW": 990001,
+        "maxW": 1000000,
+        "annualRM": 14065.0
+      },
+      {
+        "minW": 1000001,
+        "maxW": 1010000,
+        "annualRM": 14415.0
+      }
+    ],
+    "above": {
+      "minW": 1010001,
+      "annualRM": 20000.0,
+      "officialWording": "Melebihi 1,010,001"
+    }
+  },
+  "regions": [
+    {
+      "id": "semenanjung",
+      "label": "Semenanjung",
+      "factor": 1
+    },
+    {
+      "id": "sabah",
+      "label": "Sabah",
+      "factor": 1
+    },
+    {
+      "id": "sarawak",
+      "label": "Sarawak",
+      "factor": 1
+    },
+    {
+      "id": "langkawi",
+      "label": "Pulau Langkawi",
+      "factor": 0.5
+    },
+    {
+      "id": "labuan",
+      "label": "Pulau Labuan",
+      "factor": 0.5
+    }
+  ],
+  "motorcycle": {
+    "usageCode": "AA",
+    "bands": [
+      {
+        "minW": 0,
+        "maxW": 7500,
+        "annualRM": 2.0
+      },
+      {
+        "minW": 7501,
+        "maxW": 10000,
+        "annualRM": 9.0
+      },
+      {
+        "minW": 10001,
+        "maxW": 12500,
+        "annualRM": 12.0
+      },
+      {
+        "minW": 12501,
+        "maxW": 25000,
+        "annualRM": 30.0
+      },
+      {
+        "minW": 25001,
+        "maxW": 40000,
+        "annualRM": 40.0
+      },
+      {
+        "minW": 40001,
+        "maxW": null,
+        "annualRM": 42.0
+      }
+    ],
+    "exemption": "Perenggan 1.3: \"Pengecualian 50% daripada kadar asas fi LKM.\" Amaun bersih tidak dinyatakan; sahkan dengan JPJ."
+  },
+  "sources": [
+    {
+      "id": "circular2026",
+      "label": "JPJ, Lampiran A: Garis Panduan Kadar LKM bagi Kenderaan Motor Elektrik (ZEVs), Surat Pekeliling Bahagian Pelesenan Kenderaan Bil.01 Tahun 2026",
+      "url": "https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-B-01.04.2026-Garis-Panduan-Kadar-LKM-Bagi-Kenderaan-Motor-Elektrik-ZEVs.pdf",
+      "date": "2026-04-01",
+      "dateLabel": "bertarikh 1 Apr 2026"
+    },
+    {
+      "id": "mot2022",
+      "label": "Kementerian Pengangkutan, siaran media pengecualian LKM kenderaan OKU dan kenderaan elektrik di bawah Bajet 2022",
+      "url": "https://www.mot.gov.my/en/Kenyataan%20Media/Year%202022/SIARAN%20MEDIA%20YBM%20MOT%20PADA%2014%20FEBRUARI%202022%20-%20PENGECUALIAN%20LKM%20BAGI%20KENDERAAN%20OKU%20DAN%20KENDERAAN%20ELEKTRIK%20DI%20BAWAH%20BAJET%202022%20.pdf",
+      "date": "2022-02-14",
+      "dateLabel": "14 Feb 2022"
+    },
+    {
+      "id": "motBuletin2024",
+      "label": "Kementerian Pengangkutan, Buletin MOT Edisi 01/2024, halaman 14: pengumuman kadar fi baharu LKM bagi ZEV, \"Berkuat kuasa 1 Januari 2026\"",
+      "url": "https://www.mot.gov.my/my/Buletin/Buletin%20MOT%202024%20Edisi%2001.pdf",
+      "date": "2024-06-04",
+      "dateLabel": "pengumuman 4 Jun 2024"
+    },
+    {
+      "id": "rtm20240604",
+      "label": "Berita RTM: kadar fi LKM ZEV berkuat kuasa 1 Januari 2026 (laporan berita, bukan dokumen kementerian)",
+      "url": "https://berita.rtm.gov.my/?p=100360",
+      "date": "2024-06-04",
+      "dateLabel": "diterbitkan 4 Jun 2024"
+    },
+    {
+      "id": "jpj2022guideline",
+      "label": "JPJ, Garis Panduan Pengiraan Kadar LKM bagi Kenderaan Elektrik (v2), jadual motosikal elektrik",
+      "url": "https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-LKM-Kenderaan-Elektrik-v2.pdf",
+      "date": null,
+      "dateLabel": "dimuat naik ke laman JPJ Nov 2022"
+    },
+    {
+      "id": "myjpjFaq",
+      "label": "JPJ, FAQ Pembaharuan e-LKM dan e-LMM melalui MyJPJ (kemas kini 2 Januari 2024)",
+      "url": "https://www.jpj.gov.my/wp-content/uploads/2024/12/FAQ-Pembaharuan-eLKM-eLMM-Melalui-MyJPJ_kemaskini-02.01.2024.pdf",
+      "date": "2024-01-02",
+      "dateLabel": "kemas kini 2 Jan 2024"
+    }
+  ],
+  "testCases": [
+    {
+      "kw": 50,
+      "region": "semenanjung",
+      "expect": 20
+    },
+    {
+      "kw": 130,
+      "region": "semenanjung",
+      "expect": 120
+    },
+    {
+      "kw": 150,
+      "region": "semenanjung",
+      "expect": 160
+    },
+    {
+      "kw": 150.1,
+      "region": "semenanjung",
+      "expect": 180
+    },
+    {
+      "kw": 160,
+      "region": "sabah",
+      "expect": 180
+    },
+    {
+      "kw": 220,
+      "region": "sarawak",
+      "expect": 305
+    },
+    {
+      "kw": 390,
+      "region": "semenanjung",
+      "expect": 965
+    },
+    {
+      "kw": 1010,
+      "region": "semenanjung",
+      "expect": 14415
+    },
+    {
+      "kw": 1010.001,
+      "region": "semenanjung",
+      "expect": 20000
+    },
+    {
+      "kw": 1200,
+      "region": "semenanjung",
+      "expect": 20000
+    },
+    {
+      "kw": 130,
+      "region": "langkawi",
+      "expect": 60
+    },
+    {
+      "kw": 220,
+      "region": "labuan",
+      "expect": 152.5
+    },
+    {
+      "kw": 150.0000001,
+      "region": "semenanjung",
+      "expect": 180
+    },
+    {
+      "kw": 120,
+      "region": "semenanjung",
+      "expect": 100
+    },
+    {
+      "kw": 10000,
+      "region": "semenanjung",
+      "expect": 20000
+    }
+  ]
+}
