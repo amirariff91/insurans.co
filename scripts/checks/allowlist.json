@@ -70,16 +70,6 @@
       "kind": "changed",
       "field": "jsonld",
       "url": "^/guides/insurance-vs-takaful/$",
-      "path": "^FAQPage\\.mainEntity\\[4\\]\\.acceptedAnswer\\.text$",
-      "old": "Proses claim takaful dan insurans konvensional adalah hampir identik — anda hubungi syarikat, submit dokumen, hantar kereta ke panel bengkel. Dari perspektif pengguna, pengalaman claim hampir tiada beza. Yang berbeza adalah konsep di belakang tabir.",
-      "new": "Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tanpa mengira agama atau latar belakang. Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali. Tiada syarat agama untuk mendaftar.",
-      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
-    },
-    {
-      "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/guides/insurance-vs-takaful/$",
       "path": "^FAQPage\\.mainEntity\\[5\\]\\.name$",
       "old": null,
       "new": "Boleh pindah NCD dari insurans konvensional ke takaful?",
@@ -107,16 +97,6 @@
     },
     {
       "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/guides/insurance-vs-takaful/$",
-      "path": "^FAQPage\\.mainEntity\\[6\\]\\.acceptedAnswer\\.text$",
-      "old": null,
-      "new": "Surplus sharing ialah pengagihan lebihan dana takaful kepada peserta pada akhir tempoh polisi. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan ini dibahagikan mengikut nisbah yang ditetapkan, contohnya 70% kepada peserta dan 30% kepada syarikat. Namun, ia tidak dijamin. Ada tahun yang tiada lebihan langsung.",
-      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
-    },
-    {
-      "check": "contract",
       "kind": "added",
       "field": "pct",
       "url": "^/literasi-kewangan/36-penyakit-kritikal-bnm/$",
@@ -124,16 +104,6 @@
         "1%"
       ],
       "reason": "Correction: Zurich Early Care recovery benefit is 12% in total, paid as 1% a month for 12 months (per src/data/critical-illness.json and its worked example). Live wrongly says 12% a month."
-    },
-    {
-      "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/critical-illness/$",
-      "path": "^FAQPage\\.mainEntity\\[1\\]\\.acceptedAnswer\\.text$",
-      "old": "Standard 36 tu severe-stage — bar tinggi, contoh kanser mesti tahap tertentu. Early-stage benefit bayar awal tapi jumlah separa (accelerated) dan kurangkan sum assured, baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care): carcinoma-in-situ bayar 50% rider sum assured, campur faedah pemulihan 12% sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian bayar 100% daripada baki 50%. Early stage di situ dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula cover 180 kondisi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekaligus 100% bila didiagnos mana-mana tahap, perlindungan hingga umur 80.",
-      "new": "Standard 36 itu peringkat teruk (severe-stage) — syaratnya tinggi, contohnya kanser mesti pada tahap tertentu. Faedah early-stage membayar lebih awal tetapi jumlahnya separa (accelerated) dan mengurangkan sum assured; bakinya kekal untuk claim peringkat akhir. Contoh kiraan yang disahkan untuk Early Care Critical Illness (Zurich): bayaran untuk carcinoma-in-situ ialah 50% rider sum assured, ditambah manfaat pemulihan sebanyak 12% daripada jumlah diinsuranskan rider, dibayar pada kadar 1% sebulan selama 12 bulan, serta RM2,000 untuk pendapat perubatan kedua (sekali bagi setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian melayakkan bayaran 100% daripada baki 50%. Dalam pelan itu, early stage dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula melindungi 180 keadaan yang dilindungi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekali gus 100% apabila didiagnosis pada mana-mana tahap, dan perlindungan hingga umur 80.",
-      "reason": "Same Zurich Early Care correction in the CI hub FAQ: recovery benefit 12% in total, 1% a month for 12 months (was \"12% sebulan\"); early-stage wording qualified."
     },
     {
       "check": "contract",
@@ -432,6 +402,55 @@
         "100%"
       ],
       "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/life-insurance/$",
+      "values": [
+        "RM60–100",
+        "RM80–150",
+        "RM120–200",
+        "RM180–300",
+        "RM280–450",
+        "RM400–700",
+        "RM500–900",
+        "RM700–1,200",
+        "RM1,000–1,800",
+        "RM1,500–2,500",
+        "RM500,000"
+      ],
+      "reason": "Unsourced life premium table removed (release re-check finding 1, 15 Nov 2026)"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/life-insurance/$",
+      "old": "Panduan insurans nyawa Malaysia 2026: berapa coverage yang anda perlu, beza term life, whole life dan ILP, anggaran harga, dan senarai syarikat. Dalam BM.",
+      "new": "Panduan insurans nyawa Malaysia 2026: berapa perlindungan yang anda perlu, beza term life, whole life dan ILP, anggaran harga, dan senarai syarikat. Dalam BM.",
+      "reason": "Terminology: generic English \"coverage\" replaced with \"perlindungan\" in the meta description, nothing else changed (release re-check finding 10)."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/life-insurance/$",
+      "path": "^Article\\.description$",
+      "old": "Panduan lengkap insurans nyawa / life insurance Malaysia. Berapa coverage yang anda perlukan, jenis polisi, dan syarikat yang menawarkannya.",
+      "new": "Panduan lengkap insurans nyawa / life insurance Malaysia. Berapa perlindungan yang anda perlukan, jenis polisi, dan syarikat yang menawarkannya.",
+      "reason": "Terminology: generic English \"coverage\" replaced with \"perlindungan\" in the structured-data description, nothing else changed (release re-check finding 10)."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-hrv/$",
+      "values": [
+        "RM115,000–140,000"
+      ],
+      "reason": "Unsourced generation-specific HR-V valuation range removed from the Gen 2 vs Gen 3 FAQ; the answer now states the market-value / agreed-value rule (release re-check finding 4, 15 Nov 2026)."
     }
   ]
 }

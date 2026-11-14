@@ -31,6 +31,16 @@ export const rmRange = (min: number, max: number, f: (n: number) => string = rm)
   const a = f(min).replace(/^RM\s?/, ''), b = f(max).replace(/^RM\s?/, '');
   return a === b ? `RM${a}` : `RM${a}–${b}`;
 };
+/**
+ * Special-perils (flood) estimate for a model: 0.2% of the lowest to 0.5% of the highest market value, each end
+ * rounded to RM10, in the rmRange format. Empty when the model has no structured market value. One implementation
+ * for the model page and the site checks (scripts/checks/site-helpers.mjs).
+ */
+export const specialPerilsRange = (model: any) => {
+  if (!(Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax) && model.marketValueRange)) return '';
+  const roundRm10 = (n: number) => Math.round(n / 10) * 10;
+  return rmRange(roundRm10(model.marketValueMin * 0.002), roundRm10(model.marketValueMax * 0.005));
+};
 /** JPJ roadtax can carry sen (RM793.60): exact, as on main. */
 export const rtNum = (n: number) => {
   const hasSen = Math.round(n * 100) % 100 !== 0;

@@ -1,7 +1,7 @@
 // Static checks 1–5 (no browser). Each returns { id, name, fails: [], warns: [], passes: n }.
 import fs from 'node:fs';
 import path from 'node:path';
-import { walkHtml, loadPage, meta, jsonLd, norm, decode, snapshot, loadsAds, isRedirect, rmFigures, figureBag } from './lib.mjs';
+import { walkHtml, loadPage, meta, jsonLd, norm, decode, snapshot, loadsAds, isRedirect, rmFigures } from './lib.mjs';
 import { siteHelpers, derivedTexts } from './site-helpers.mjs';
 
 const mk = (id, name) => ({ id, name, fails: [], warns: [], passes: 0 });
@@ -27,12 +27,31 @@ export function makeAllow(entries) {
   return { allowed, unused: () => entries.filter((_, i) => !used.has(i)) };
 }
 
+// ---------- approved FAQ wording ----------
+// scripts/checks/faq-approved.json: per page URL and FAQ JSON-LD path, the exact live (old) text and the exact
+// reviewed (new) text. A changed FAQ question or answer passes check 1 only when both sides equal an approved entry,
+// so any later edit to that text (one word that flips the meaning) fails until it is reviewed and approved again.
+// Regenerate deliberately with `node scripts/checks/run.mjs --approve-faq` (never part of check:site).
+export function makeFaqApprovals(entries) {
+  const used = new Set();
+  const key = (u, p) => `${u}\u0000${p}`;
+  const by = new Map(entries.map((e, i) => [key(e.url, e.path), i]));
+  const allowed = (d) => {
+    const i = by.get(key(d.page, d.path));
+    if (i == null) return false;
+    const e = entries[i];
+    if (e.old !== d.old || e.new !== d.new) return false;
+    used.add(i);
+    return true;
+  };
+  return { allowed, unused: () => entries.filter((_, i) => !used.has(i)) };
+}
+
 // Visible-text comparison used by check 3 (FAQ JSON-LD must equal the visible FAQ): tags stripped, case and the
 // spaces next to punctuation ignored.
 const tight = (s) => s.replace(/\s+([.,;:!?)\]])/g, '$1').replace(/([(\[])\s+/g, '$1');
 const stripText = (s) => tight(norm(decode(String(s || '').replace(/<[^>]+>/g, ' '))).toLowerCase());
 const FAQ_PATH = /^FAQPage(#\d+)?\.mainEntity\[\d+\]\.(name|acceptedAnswer\.text)$/;
-const sameBag = (a, b) => { const x = figureBag(a), y = figureBag(b); return x.length === y.length && x.every((v, i) => v === y[i]); };
 
 /** The figures the NCD control and derived displays may add, per page: computed from car-models.json with the site's helpers. */
 async function derivedSets(repo) {
@@ -53,21 +72,23 @@ async function derivedSets(repo) {
 }
 
 // ---------- 1. contract against live ----------
-export async function contract(dist, baseline, allow, repo) {
+export async function contract(dist, baseline, allow, repo, faq, pending = null) {
   const r = mk(1, 'Contract against live (4dd50a3)');
   const cur = snapshot(dist, true);
   const base = baseline.pages;
   const derived = await derivedSets(repo);
-  const auto = { derived: 0, faqWording: 0 };
+  const auto = { derived: 0, faqApproved: 0 };
   const push = (d) => {
     if (allow.allowed(d)) { r.allowed = (r.allowed || 0) + 1; return; }
     // A figure the page's NCD control or derived display prints, computed from the data with the site's helpers.
     if (d.kind === 'added' && d.field === 'rm' && derived.get(d.page)?.has(d.value)) { auto.derived++; r.allowed = (r.allowed || 0) + 1; return; }
-    // FAQ wording: allowed only when the new text is the visible FAQ text AND it carries exactly the same figures.
+    // FAQ wording: allowed only by an exact reviewed entry in faq-approved.json (old and new text), and only when
+    // the new text is also the visible FAQ text.
     if (d.kind === 'changed' && d.field === 'jsonld' && FAQ_PATH.test(d.path) && d.old != null && d.new != null) {
-      const vis = tight(norm(cur[d.page].visible).toLowerCase());
-      if (vis.includes(stripText(d.new)) && sameBag(d.old, d.new)) { auto.faqWording++; r.allowed = (r.allowed || 0) + 1; return; }
-      d.why = !vis.includes(stripText(d.new)) ? 'new FAQ text is not the visible text' : `figures differ: ${figureBag(d.old).join(' ')} -> ${figureBag(d.new).join(' ')}`;
+      const visible = tight(norm(cur[d.page].visible).toLowerCase()).includes(stripText(d.new));
+      if (visible && pending) { pending.push({ url: d.page, path: d.path, old: d.old, new: d.new }); return; }
+      if (visible && faq.allowed(d)) { auto.faqApproved++; r.allowed = (r.allowed || 0) + 1; return; }
+      d.why = !visible ? 'new FAQ text is not the visible text' : 'FAQ text change not approved: review it, then node scripts/checks/run.mjs --approve-faq';
     }
     r.fails.push(d);
   };
@@ -91,7 +112,7 @@ export async function contract(dist, baseline, allow, repo) {
   }
   // Contextual figures: the highest-risk numbers checked where they are shown, not only as a page-wide set.
   await contextual(dist, cur, repo, r);
-  r.info = `auto-allowed: ${auto.derived} derived NCD figures (expected set from car-models.json), ${auto.faqWording} FAQ wording edits with identical figures; contextual: ${r.contextual}`;
+  r.info = `auto-allowed: ${auto.derived} derived NCD figures (expected set from car-models.json), ${auto.faqApproved} FAQ edits approved exactly in faq-approved.json; contextual: ${r.contextual}`;
   return { r, cur };
 }
 

@@ -24,10 +24,32 @@ const baselineFile = fs.readdirSync(HERE).find((f) => /^baseline-.+\.json$/.test
 const baseline = JSON.parse(fs.readFileSync(path.join(HERE, baselineFile), 'utf8'));
 const allowJson = JSON.parse(fs.readFileSync(process.env.ALLOWLIST || path.join(HERE, 'allowlist.json'), 'utf8'));
 const allow = S.makeAllow(allowJson.entries);
+const FAQ_FILE = path.join(HERE, 'faq-approved.json');
+const faqJson = fs.existsSync(FAQ_FILE) ? JSON.parse(fs.readFileSync(FAQ_FILE, 'utf8')) : { entries: [] };
+const faq = S.makeFaqApprovals(faqJson.entries);
+
+// --approve-faq: record every FAQ question/answer that differs from the baseline today (and is not covered by an
+// allowlist entry) as approved, old and new text exact. Deliberate only: review the printed changes first. It
+// writes scripts/checks/faq-approved.json and runs no checks; check:site never passes this flag.
+if (process.argv.includes('--approve-faq')) {
+  const pending = [];
+  const { r } = await S.contract(DIST, baseline, allow, REPO, faq, pending);
+  pending.sort((a, b) => a.url.localeCompare(b.url) || a.path.localeCompare(b.path, 'en', { numeric: true }));
+  const prev = new Map(faqJson.entries.map((e) => [`${e.url} ${e.path}`, e]));
+  for (const e of pending) {
+    const p = prev.get(`${e.url} ${e.path}`);
+    const tag = !p ? 'NEW' : p.old === e.old && p.new === e.new ? 'same' : 'CHANGED';
+    if (tag !== 'same') console.log(`${tag} ${e.url} ${e.path}\n  old: ${e.old}\n  new: ${e.new}`);
+  }
+  const out = { note: 'Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).', baseline: baseline.commit, entries: pending };
+  fs.writeFileSync(FAQ_FILE, JSON.stringify(out, null, 1) + '\n');
+  console.log(`Wrote ${pending.length} approved FAQ items to scripts/checks/faq-approved.json (${r.fails.length} other check-1 differences not affected).`);
+  process.exit(0);
+}
 
 const results = [];
 const { pages, idsByFile } = S.loadAll(DIST);
-if (want(1)) results.push((await S.contract(DIST, baseline, allow, REPO)).r);
+if (want(1)) results.push((await S.contract(DIST, baseline, allow, REPO, faq)).r);
 if (want(2)) results.push(S.adsIndexing(DIST, baseline, pages));
 if (want(3)) results.push(S.structure(DIST, pages, idsByFile));
 if (want(4)) results.push(S.copyHygiene(pages));
@@ -42,7 +64,7 @@ const status = (r) => (r.skipped ? 'SKIPPED' : r.fails.length ? 'FAIL' : 'PASS')
 const report = {
   dist: DIST, baseline: baseline.commit, runtimeSec: Math.round((Date.now() - t0) / 100) / 10,
   summary: results.map((r) => ({ id: r.id, name: r.name, status: status(r), pass: r.passes, fail: r.fails.length, warn: r.warns.length, allowed: r.allowed || 0, info: r.info, skipped: r.skipped })),
-  unusedAllowlist: want(1) ? allow.unused().map((e) => e.reason) : [],
+  unusedAllowlist: want(1) ? [...allow.unused().map((e) => e.reason), ...faq.unused().map((e) => `faq-approved.json: ${e.url} ${e.path}`)] : [],
   results,
 };
 fs.writeFileSync(path.join(HERE, 'report.json'), JSON.stringify(report, null, 1));

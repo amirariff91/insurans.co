@@ -1,0 +1,1122 @@
+{
+ "note": "Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).",
+ "baseline": "4dd50a3",
+ "entries": [
+  {
+   "url": "/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan Kalkulator NCD, lepas tu minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my (lihat senarai beli online di insurans.co/insurans-online/). Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh: cara renew insurans kereta online.",
+   "new": "Boleh, dan lebih mudah daripada pergi ke pejabat. Semak NCD sebenar di MyCarInfo atau dengan syarikat insurans. Gunakan Kalkulator NCD untuk mengira potongan premium, kemudian minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my (lihat senarai beli online di insurans.co/insurans-online/). Bayar online dan anda terus dapat e-cover note, kemudian renew roadtax di MyEG atau Pos Malaysia. Langkah penuh: cara renew insurans kereta online."
+  },
+  {
+   "url": "/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+. Sebab tu untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik pilih bayar sendiri. Jangan agak-agak — kira dulu dengan Kalkulator NCD: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak.",
+   "new": "Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Jika NCD anda 55%, premium tahun depan boleh naik RM1,000+. Sebab itu, untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik memilih untuk bayar sendiri. Jangan meneka; kira dahulu dengan Kalkulator NCD: masukkan premium asal, NCD semasa dan kos baiki, untuk membandingkan kos baiki, excess dan kesan terhadap NCD."
+  },
+  {
+   "url": "/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Beza dari segi konsep. Takaful guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah. Lebihan dana dikongsi balik kepada peserta. Insurans konvensional — premium masuk syarikat, untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je. Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai.",
+   "new": "Bezanya dari segi konsep. Takaful menggunakan prinsip saling bantu-membantu (ta'awun) dan patuh Syariah. Lebihan dana boleh dikongsi mengikut syarat sijil dan nisbah yang ditetapkan. Agihan kepada peserta tidak dijamin. Bagi insurans konvensional, premium masuk ke syarikat dan keuntungannya milik syarikat. Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk. Jika anda mahu pilihan yang patuh Syariah, pilih takaful. Jika tidak kisah, pilih yang harga dan servisnya paling sesuai."
+  },
+  {
+   "url": "/",
+   "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
+   "old": "Market value — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun, so payout mungkin kurang dari yang dijangka). Agreed value — anda dan syarikat setuju satu jumlah tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss. Untuk kereta baru atau kereta mahal, agreed value lagi selamat.",
+   "new": "Market value (nilai pasaran): syarikat membayar berdasarkan nilai kereta semasa claim. Nilai kereta susut setiap tahun, jadi bayaran mungkin kurang daripada yang dijangka. Agreed value (nilai dipersetujui): anda dan syarikat bersetuju dengan satu jumlah tetap semasa membeli polisi. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal. Dengan agreed value, jumlah yang dipersetujui menjadi asas penyelesaian total loss, tertakluk pada terma polisi."
+  },
+  {
+   "url": "/bantuan-insurans/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Duit KWSP sendiri — potongan tahunan dari Akaun Sejahtera. Akaun 1 (Persaraan) tidak terjejas. Ini bukan bantuan percuma.",
+   "new": "Duit KWSP sendiri — potongan tahunan daripada Akaun Sejahtera. Akaun 1 (Persaraan) tidak terjejas. Ini bukan bantuan percuma."
+  },
+  {
+   "url": "/bantuan-insurans/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. mySalam bayar wang tunai sekaligus dan elaun harian; medical card bayar bil hospital swasta. Dua benda berbeza dan boleh melengkapi.",
+   "new": "Tidak. mySalam membayar wang tunai sekali gus dan elaun harian; medical card membayar bil hospital swasta. Dua perkara berbeza yang boleh saling melengkapi."
+  },
+  {
+   "url": "/bantuan-insurans/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Tidak seperti polisi swasta. Skim Keilatan menilai keupayaan mencari nafkah dan membayar pencen bulanan, bukan senarai penyakit dengan bayaran sekaligus.",
+   "new": "Tidak seperti polisi swasta. Skim Keilatan menilai keupayaan mencari nafkah dan membayar pencen bulanan, bukan senarai penyakit dengan bayaran sekali gus."
+  },
+  {
+   "url": "/bantuan-insurans/perkeso/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Pencen bulanan, bukan sekaligus, mengikut formula caruman. Elaun Layanan Sentiasa RM500 sebulan boleh ditambah jika layak. Ia berbeza daripada bayaran one-off RM8,000 mySalam.",
+   "new": "Pencen bulanan, bukan sekali gus, mengikut formula caruman. Elaun Layanan Sentiasa RM500 sebulan boleh ditambah jika layak. Ia berbeza daripada bayaran tunggal RM8,000 mySalam."
+  },
+  {
+   "url": "/car-insurance/bmw-3-series/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — ikut sum insured dari RM200,000 hingga RM320,000. 330e PHEV paling mahal kerana kos bateri. Bezanya boleh RM1,000–RM2,000/tahun antara varian terbawah dan teratas. Minta quotation ikut varian sebenar dalam geran.",
+   "new": "Besar — ikut sum insured daripada RM200,000 hingga RM320,000. 330e PHEV paling mahal kerana kos bateri. Bezanya boleh RM1,000–RM2,000/tahun antara varian terbawah dan teratas. Minta quotation ikut varian sebenar dalam geran."
+  },
+  {
+   "url": "/car-insurance/bmw-3-series/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak semestinya. Sum insured ikut nilai pasaran (lebih rendah, jadi premium lebih rendah), tetapi kos repair masih BMW penuh — parts import, panel aluminium, sensor premium. Sesetengah syarikat caj loading untuk kereta kontinental berusia. Bajet RM3,000–RM5,000/tahun walaupun kereta used.",
+   "new": "Tidak semestinya. Sum insured ikut nilai pasaran (lebih rendah, jadi premium lebih rendah), tetapi kos baiki masih kos BMW penuh — alat ganti diimport, panel aluminium, sensor premium. Sesetengah syarikat mengenakan loading untuk kereta kontinental yang berusia. Bajetkan RM3,000–RM5,000/tahun walaupun kereta terpakai."
+  },
+  {
+   "url": "/car-insurance/bmw-3-series/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "BMW secondhand F30 murah — insurans pun murah?",
+   "new": "BMW F30 terpakai murah — insurans pun murah?"
+  },
+  {
+   "url": "/car-insurance/bmw-3-series/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak untuk kerosakan sendiri, degradasi atau wear — itu waranti atau kos pemilik (kos tinggi, sahkan dengan pengedar/panel bengkel). Cover hanya jika bateri rosak akibat accident yang dilindungi. Semak baki waranti bateri sebelum beli, baru atau used.",
+   "new": "Tidak untuk kerosakan sendiri, degradasi atau kehausan — itu urusan waranti atau kos pemilik (kos tinggi, sahkan dengan pengedar/panel bengkel). Bateri hanya dilindungi jika rosak akibat kemalangan yang dilindungi. Semak baki waranti bateri sebelum beli, baru atau terpakai."
+  },
+  {
+   "url": "/car-insurance/bmw-3-series/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bateri 330e PHEV rosak — insurans cover?",
+   "new": "Bateri 330e PHEV rosak — insurans lindung?"
+  },
+  {
+   "url": "/car-insurance/bmw-x1/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza sederhana, ikut sum insured — sDrive20i (2.0 turbo) nilainya lebih tinggi dari sDrive18i (1.5 turbo, F48), jadi premium lebih tinggi. Sejak 2015, X1 petrol rasmi di Malaysia hanya versi sDrive (pacuan roda depan); tiada xDrive20i dijual rasmi di sini. Insure ikut varian sebenar dalam geran.",
+   "new": "Beza sederhana, ikut sum insured — sDrive20i (2.0 turbo) nilainya lebih tinggi daripada sDrive18i (1.5 turbo, F48), jadi premium lebih tinggi. Sejak 2015, X1 petrol rasmi di Malaysia hanya versi sDrive (pacuan roda depan); tiada xDrive20i dijual secara rasmi di sini. Insuranskan ikut varian sebenar dalam geran."
+  },
+  {
+   "url": "/car-insurance/bmw-x1/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. X1 termurah dalam keluarga BMW tetapi kos repair masih BMW penuh — parts import Jerman, sensor premium, panel complex. Bajet insurans RM2,330–RM4,100/tahun (NCD 55%) dan penyelenggaraan sewajarnya sebelum beli.",
+   "new": "Tidak. X1 model paling murah dalam keluarga BMW, tetapi kos baikinya masih kos BMW penuh — alat ganti diimport dari Jerman, sensor premium, panel yang rumit. Bajetkan insurans RM2,330–RM4,100/tahun (NCD 55%) dan kos penyelenggaraan yang sewajarnya sebelum beli."
+  },
+  {
+   "url": "/car-insurance/bmw-x1/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "X1 entry-level BMW — kos repair pun entry-level?",
+   "new": "X1 BMW peringkat permulaan — kos baiki pun murah?"
+  },
+  {
+   "url": "/car-insurance/bmw-x1/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Pertimbangkan agreed value — BMW susut cepat dan market value masa claim boleh mengecewakan, sedangkan kos repair tetap mahal. Agreed value kunci jumlah pampasan dengan premium sedikit lebih tinggi. Bandingkan kedua-dua quotation.",
+   "new": "Pertimbangkan agreed value — BMW susut nilai dengan cepat dan nilai pasaran semasa claim boleh mengecewakan, sedangkan kos baiki tetap mahal. Agreed value mengunci jumlah pampasan dengan premium sedikit lebih tinggi. Bandingkan kedua-dua quotation."
+  },
+  {
+   "url": "/car-insurance/bmw-x1/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "BMW used — market value atau agreed value?",
+   "new": "BMW terpakai — nilai pasaran (market value) atau agreed value?"
+  },
+  {
+   "url": "/car-insurance/honda-brv/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Alza lebih murah — sum insured lebih rendah dan parts Perodua murah. BR-V premium sekitar RM200–RM500/tahun lebih tinggi pada NCD sama. Pilih ikut bajet keluarga dan jenama yang anda selesa.",
+   "new": "Alza lebih murah — sum insured lebih rendah dan alat ganti Perodua murah. Premium BR-V sekitar RM200–RM500/tahun lebih tinggi pada NCD yang sama. Pilih ikut bajet keluarga dan jenama yang anda selesa."
+  },
+  {
+   "url": "/car-insurance/honda-city/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — RS e:HEV sum insured sekitar RM15,000–RM25,000 lebih tinggi dengan kos bateri dan motor elektrik, jadi premium 15–20% lebih mahal. Bandingkan 2–3 quotation sebelum renew.",
+   "new": "Besar — sum insured RS e:HEV sekitar RM15,000–RM25,000 lebih tinggi dan ada kos bateri serta motor elektrik, jadi premium 15–20% lebih mahal. Bandingkan 2–3 quotation sebelum renew."
+  },
+  {
+   "url": "/car-insurance/honda-city/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Polisi persendirian standard tidak cover e-hailing. Kena declare dan ambil endorsement e-hailing — City antara model paling popular untuk e-hailing, jadi jangan renew senyap-senyap tanpa declare, claim boleh ditolak.",
+   "new": "Tidak. Polisi persendirian standard tidak melindungi penggunaan e-hailing. Anda perlu isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing. City antara model paling popular untuk e-hailing, jadi jangan renew senyap-senyap tanpa mengisytiharkannya — claim boleh ditolak."
+  },
+  {
+   "url": "/car-insurance/honda-city/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Jika ada key replacement cover, claim — tidak usik NCD. Jika tiada cover, kunci ganti Honda (dengan programming) boleh cecah RM500–RM1,000, jadi add-on RM50–RM80/tahun itu berbaloi.",
+   "new": "Jika ada key replacement cover, buat claim — ia tidak menjejaskan NCD. Jika tiada perlindungan ini, kunci ganti Honda (termasuk pemprograman kunci) boleh mencecah RM500–RM1,000, jadi add-on RM50–RM80/tahun itu berbaloi."
+  },
+  {
+   "url": "/car-insurance/honda-city/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Smart key City hilang sebiji — claim atau buat sendiri?",
+   "new": "Kunci pintar City hilang sebiji — claim atau buat sendiri?"
+  },
+  {
+   "url": "/car-insurance/honda-civic/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — 2.0 e:HEV sum insured sekitar RM30,000 lebih tinggi dengan kos bateri hybrid, jadi premium 15–20% lebih mahal. Bandingkan quotation sebelum renew.",
+   "new": "Besar — sum insured 2.0 e:HEV sekitar RM30,000 lebih tinggi dan ada kos bateri hybrid, jadi premium 15–20% lebih mahal. Bandingkan quotation sebelum renew."
+  },
+  {
+   "url": "/car-insurance/honda-civic/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Comprehensive adalah asas — tanpa itu jangan pandu Civic. Tambah kunci stereng yang nampak (deterrent visual), parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk varian RS. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan — tanya ejen.",
+   "new": "Perlindungan komprehensif wajar diutamakan. Tambah kunci stereng yang nampak (sebagai pencegah visual), parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk varian RS. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan — tanya ejen."
+  },
+  {
+   "url": "/car-insurance/honda-civic/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika bateri rosak akibat accident yang dilindungi. Semak tempoh waranti bateri sebelum beli, baru atau used.",
+   "new": "Tidak. Kegagalan bateri, kehausan dan kerosakan mekanikal bukan claim insurans — bateri hanya dilindungi jika rosak akibat kemalangan yang dilindungi. Semak tempoh waranti bateri sebelum beli, baru atau terpakai."
+  },
+  {
+   "url": "/car-insurance/honda-crv/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza sederhana, ikut sum insured — AWD lebih tinggi dari 2WD, jadi premium naik. Kos repair AWD juga lebih tinggi kerana drivetrain tambahan.",
+   "new": "Beza sederhana, ikut sum insured — AWD lebih tinggi daripada 2WD, jadi premium naik. Kos baiki AWD juga lebih tinggi kerana ada drivetrain tambahan."
+  },
+  {
+   "url": "/car-insurance/honda-crv/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Comprehensive adalah asas. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko — tambah kunci stereng yang nampak, parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan.",
+   "new": "Perlindungan komprehensif wajar diutamakan. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko — tambah kunci stereng yang nampak, parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan."
+  },
+  {
+   "url": "/car-insurance/honda-crv/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Cermin besar sekitar RM900–RM1,800 plus calibration kamera/radar Honda Sensing ratusan ringgit. Sebab itu windscreen cover + ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V — tanpa cover, sekali retak sudah cecah ribuan ringgit.",
+   "new": "Cermin besar sekitar RM900–RM1,800, ditambah penentukuran kamera/radar Honda Sensing yang kosnya ratusan ringgit. Sebab itu windscreen cover dan ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V — tanpa perlindungan ini, sekali retak sudah mencecah ribuan ringgit."
+  },
+  {
+   "url": "/car-insurance/honda-crv/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Tukar cermin CR-V — kenapa jumlah claim cecah RM2,000?",
+   "new": "Tukar cermin CR-V — kenapa jumlah claim mencecah RM2,000?"
+  },
+  {
+   "url": "/car-insurance/honda-hrv/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — RS e:HEV sum insured sekitar RM20,000–RM25,000 lebih tinggi dengan kos bateri hybrid, jadi premium 15–20% lebih mahal. Pastikan sum insured ikut varian sebenar dalam geran.",
+   "new": "Besar — sum insured RS e:HEV sekitar RM20,000–RM25,000 lebih tinggi dan ada kos bateri hybrid, jadi premium 15–20% lebih mahal. Pastikan sum insured ikut varian sebenar dalam geran."
+  },
+  {
+   "url": "/car-insurance/honda-hrv/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Ketara — Gen 2 used sum insured sekitar RM35,000–RM60,000, jadi premiumnya jauh lebih rendah daripada julat dalam jadual; Gen 3 baru RM115,000–RM140,000 dengan premium seperti dalam jadual. Jangan insure Gen 2 ikut harga baru — itu over-insure.",
+   "new": "Ketara — sum insured ikut nilai kereta anda, bukan generasinya: polisi nilai pasaran ikut nilai pasaran semasa, manakala polisi nilai dipersetujui (agreed value) guna nilai yang dipersetujui dengan insurer. Harga beli hanya rujukan. Gen 2 terpakai biasanya bernilai lebih rendah, jadi premiumnya lebih rendah daripada Gen 3 baru. Jangan insuranskan Gen 2 ikut harga baru — itu over-insure."
+  },
+  {
+   "url": "/car-insurance/honda-hrv/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak untuk kerosakan sendiri atau wear. Bateri hybrid hanya dilindungi jika rosak akibat accident yang diinsurankan. Kegagalan bateri selepas waranti adalah kos pemilik — semak tempoh waranti sebelum beli used.",
+   "new": "Tidak untuk kerosakan sendiri atau kehausan. Bateri hybrid hanya dilindungi jika rosak akibat kemalangan yang diinsuranskan. Kegagalan bateri selepas waranti ialah kos pemilik — semak tempoh waranti sebelum beli kereta terpakai."
+  },
+  {
+   "url": "/car-insurance/honda-jazz/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak untuk kerosakan sendiri atau wear. Bateri hybrid hanya dilindungi jika rosak akibat accident yang diinsurankan (contoh pelanggaran). Kegagalan bateri selepas waranti adalah kos pemilik — semak tempoh waranti bateri sebelum beli used.",
+   "new": "Tidak untuk kerosakan sendiri atau kehausan. Bateri hybrid hanya dilindungi jika rosak akibat kemalangan yang diinsuranskan (contohnya pelanggaran). Kegagalan bateri selepas waranti ialah kos pemilik — semak tempoh waranti bateri sebelum beli kereta terpakai."
+  },
+  {
+   "url": "/car-insurance/honda-jazz/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Jika ada key replacement cover, claim — tidak usik NCD. Jika tiada cover, kunci ganti Honda (dengan programming) di pusat servis rasmi boleh cecah RM600–RM1,000+ (bengkel tukang kunci luar RM350–RM600), jadi add-on RM50–RM80/tahun itu berbaloi untuk kebanyakan pemilik.",
+   "new": "Jika ada key replacement cover, buat claim — ia tidak menjejaskan NCD. Jika tiada perlindungan ini, kunci ganti Honda (termasuk pemprograman kunci) di pusat servis rasmi boleh mencecah RM600–RM1,000+ (tukang kunci luar RM350–RM600), jadi add-on RM50–RM80/tahun itu berbaloi untuk kebanyakan pemilik."
+  },
+  {
+   "url": "/car-insurance/honda-jazz/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Smart key Honda hilang sebiji — claim atau buat sendiri?",
+   "new": "Kunci pintar Honda hilang sebiji — claim atau buat sendiri?"
+  },
+  {
+   "url": "/car-insurance/hyundai-elantra/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza sederhana, ikut sum insured — Premium lebih tinggi dari Executive, jadi premium naik. Pilih ikut ciri yang anda mahu.",
+   "new": "Beza sederhana, ikut sum insured — Premium lebih tinggi daripada Executive, jadi premium naik. Pilih ikut ciri yang anda mahu."
+  },
+  {
+   "url": "/car-insurance/hyundai-elantra/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tiada jawapan muktamad — ikut sum insured, risiko dan quotation syarikat. Volume Elantra rendah bermakna kurang persaingan quotation — bandingkan lebih banyak syarikat.",
+   "new": "Tiada jawapan muktamad — ikut sum insured, risiko dan quotation syarikat. Jualan Elantra yang rendah bermakna persaingan quotation kurang — bandingkan lebih banyak syarikat."
+  },
+  {
+   "url": "/car-insurance/hyundai-elantra/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Selalunya tidak — calar kecil lebih jimat bayar cash daripada claim dan hilang NCD. NCD 55% jimat RM1,000+/tahun; sekali claim kecil tanpa NCD protector, rugi besar. Claim hanya untuk kerosakan melebihi RM2,000–RM3,000.",
+   "new": "Bergantung pada kos baiki sebenar, excess dan sama ada claim itu menjejaskan NCD. NCD 55% boleh menjimatkan RM1,000+/tahun; tanpa NCD protector, claim kecil yang menjejaskan NCD boleh berakhir lebih mahal. Sebagai panduan kasar, claim lebih munasabah untuk kerosakan melebihi RM2,000–RM3,000, tetapi kira semula untuk polisi anda."
+  },
+  {
+   "url": "/car-insurance/hyundai-tucson/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ketara — 1.6 Turbo sum insured dan kos repair lebih tinggi, jadi premium beza sekitar RM200–RM400/tahun. Enjin turbo juga perlukan servis lebih teliti; itu penyelenggaraan, bukan claim.",
+   "new": "Ketara — sum insured dan kos baiki 1.6 Turbo lebih tinggi, jadi premium beza sekitar RM200–RM400/tahun. Enjin turbo juga perlu servis yang lebih teliti; itu penyelenggaraan, bukan claim."
+  },
+  {
+   "url": "/car-insurance/hyundai-tucson/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Polisi tetap bayar ikut syarat, tetapi risiko sebenar ialah kereta tersadai menunggu parts. Pilih panel yang biasa handle Hyundai, tanya anggaran masa repair, dan pertimbangkan loss-of-use cover jika kereta harian utama.",
+   "new": "Polisi tetap membayar ikut syarat, tetapi risiko sebenar ialah kereta tersadai menunggu alat ganti. Pilih panel bengkel yang biasa mengendalikan Hyundai, tanya anggaran masa pembaikan, dan pertimbangkan loss-of-use cover jika ia kereta harian utama."
+  },
+  {
+   "url": "/car-insurance/hyundai-tucson/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Parts Hyundai import Korea dan lambat — bagaimana dengan claim?",
+   "new": "Alat ganti Hyundai diimport dari Korea dan lambat sampai — bagaimana dengan claim?"
+  },
+  {
+   "url": "/car-insurance/hyundai-tucson/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya — waranti cover defect kilang, insurans cover accident, kecurian dan bencana. Dua benda berbeza. Jangan keliru: waranti tidak bayar bila anda langgar atau banjir.",
+   "new": "Ya — waranti melindungi kecacatan kilang, insurans melindungi kemalangan, kecurian dan bencana. Dua perkara berbeza. Jangan keliru: waranti tidak membayar bila anda melanggar atau kereta dilanda banjir."
+  },
+  {
+   "url": "/car-insurance/kia-sportage/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza sederhana, ikut sum insured — 1.6T High lebih tinggi dari 2.0, jadi premium naik. Tiada varian EX atau GT-Line untuk Gen 5 di Malaysia. Pilih ikut penampilan dan kuasa yang anda mahu.",
+   "new": "Beza sederhana, ikut sum insured — 1.6T High lebih tinggi daripada 2.0, jadi premium naik. Tiada varian EX atau GT-Line untuk Gen 5 di Malaysia. Pilih ikut penampilan dan kuasa yang anda mahu."
+  },
+  {
+   "url": "/car-insurance/kia-sportage/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Seumpama — kongsi platform dan julat harga. Bezanya ikut quotation syarikat pada NCD sama. Pilih ikut rekaan dan tawaran waranti, bukan beza premium.",
+   "new": "Hampir sama — kedua-duanya berkongsi platform dan julat harga. Bezanya ikut quotation syarikat pada NCD yang sama. Pilih ikut reka bentuk dan tawaran waranti, bukan beza premium."
+  },
+  {
+   "url": "/car-insurance/kia-sportage/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Polisi standard tidak bayar kereta sewa semasa menunggu parts — kecuali anda ambil loss-of-use / rent car cover. Untuk Sportage yang volume masih rendah, add-on ini berbaloi jika kereta harian utama.",
+   "new": "Polisi standard tidak membayar kereta sewa semasa menunggu alat ganti — kecuali anda ambil loss-of-use / rent car cover. Untuk Sportage yang jualannya masih rendah, add-on ini berbaloi jika ia kereta harian utama."
+  },
+  {
+   "url": "/car-insurance/kia-sportage/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Parts Kia lambat sampai — kereta tersadai lama, siapa tanggung?",
+   "new": "Alat ganti Kia lambat sampai — kereta tersadai lama, siapa tanggung?"
+  },
+  {
+   "url": "/car-insurance/mazda-2/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Hampir tiada — sum insured seumpama, enjin sama 1.5 SkyActiv. Bezanya sekitar RM50/tahun atau kurang. Pilih ikut bentuk badan yang anda suka.",
+   "new": "Hampir tiada — sum insured serupa, enjin sama 1.5 SkyActiv. Bezanya sekitar RM50/tahun atau kurang. Pilih ikut bentuk badan yang anda suka."
+  },
+  {
+   "url": "/car-insurance/mazda-2/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Polisi tetap bayar ikut syarat, tetapi risiko sebenar ialah kereta tersadai berminggu menunggu parts. Tanya panel bengkel anggaran masa repair dan sama ada parts tersedia sebelum setuju — dan bandingkan insurer yang biasa handle Mazda.",
+   "new": "Polisi tetap membayar ikut syarat, tetapi risiko sebenar ialah kereta tersadai berminggu-minggu menunggu alat ganti. Sebelum setuju, tanya panel bengkel anggaran masa pembaikan dan sama ada alat ganti tersedia — dan bandingkan insurer yang biasa mengendalikan Mazda."
+  },
+  {
+   "url": "/car-insurance/mazda-2/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Parts Mazda import dan lambat — bagaimana dengan claim?",
+   "new": "Alat ganti Mazda diimport dan lambat sampai — bagaimana dengan claim?"
+  },
+  {
+   "url": "/car-insurance/mazda-2/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Parts import dan kurang persaingan antara insurer untuk volume rendah. Bezanya sekitar RM50–RM150/tahun — kecil berbanding kos parts yang memang lebih mahal bila claim.",
+   "new": "Alat ganti diimport dan persaingan antara insurer kurang kerana jumlah jualan rendah. Bezanya sekitar RM50–RM150/tahun — kecil berbanding kos alat ganti yang memang lebih mahal bila claim."
+  },
+  {
+   "url": "/car-insurance/mazda-3/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ketara — 2.0 sum insured lebih tinggi dari 1.5, jadi premium beza ikut quotation syarikat. Hatchback 2.0 paling mahal. Pilih ikut kuasa yang anda mahu.",
+   "new": "Ketara — sum insured 2.0 lebih tinggi daripada 1.5, jadi beza premium ikut quotation syarikat. Hatchback 2.0 paling mahal. Pilih ikut kuasa yang anda mahu."
+  },
+  {
+   "url": "/car-insurance/mazda-3/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Ya, jika calar atau kemek akibat accident yang dilindungi — termasuk kos cat semula panel. Tetapi touch-up calar kecil lebih jimat bayar cash daripada claim dan hilang NCD, kerana cat premium Mazda memang mahal.",
+   "new": "Ya, jika calar atau kemek akibat kemalangan yang dilindungi — termasuk kos cat semula panel. Untuk calar kecil, bandingkan kos cat semula sebenar dengan excess dan sama ada claim itu menjejaskan NCD sebelum memutuskan."
+  },
+  {
+   "url": "/car-insurance/mazda-3/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Cat Soul Red Mazda mahal dibaiki — insurans cover?",
+   "new": "Cat Soul Red Mazda mahal dibaiki — insurans lindung?"
+  },
+  {
+   "url": "/car-insurance/mazda-3/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Polisi standard tidak bayar kereta sewa semasa menunggu parts — kecuali anda ambil loss-of-use / rent car cover. Untuk Mazda yang parts-nya import, add-on ini berbaloi jika kereta harian utama.",
+   "new": "Polisi standard tidak membayar kereta sewa semasa menunggu alat ganti — kecuali anda ambil loss-of-use / rent car cover. Untuk Mazda yang alat gantinya diimport, add-on ini berbaloi jika ia kereta harian utama."
+  },
+  {
+   "url": "/car-insurance/mazda-3/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Parts Mazda lambat sampai — kereta tersadai lama, siapa tanggung?",
+   "new": "Alat ganti Mazda lambat sampai — kereta tersadai lama, siapa tanggung?"
+  },
+  {
+   "url": "/car-insurance/mazda-cx5/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — 2.5 Turbo sum insured sekitar RM40,000–RM60,000 lebih tinggi dari 2.0 GL dengan kos repair jauh lebih mahal, jadi premium boleh beza RM500–RM1,000/tahun. Fikirkan kos insurans ini masa pilih varian.",
+   "new": "Besar — sum insured 2.5 Turbo sekitar RM40,000–RM60,000 lebih tinggi daripada 2.0 GL dan kos baikinya jauh lebih mahal, jadi premium boleh beza RM500–RM1,000/tahun. Ambil kira kos insurans ini semasa memilih varian."
+  },
+  {
+   "url": "/car-insurance/mazda-cx5/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "X70 paling murah (jenama nasional), CX-5 dan CR-V seumpama — CR-V sedikit lebih tinggi kerana risiko kecurian Honda. Bezanya sekitar RM200–RM500/tahun pada NCD sama. Pilih ikut jenama dan ciri yang anda mahu.",
+   "new": "X70 paling murah (jenama nasional), CX-5 dan CR-V hampir sama — CR-V sedikit lebih tinggi kerana risiko kecurian Honda. Bezanya sekitar RM200–RM500/tahun pada NCD yang sama. Pilih ikut jenama dan ciri yang anda mahu."
+  },
+  {
+   "url": "/car-insurance/mazda-cx5/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Hanya jika anda ambil loss-of-use / rent car cover — polisi standard tidak bayar pengangkutan ganti semasa repair. Untuk CX-5 yang parts-nya import, add-on ini berbaloi jika kereta harian utama.",
+   "new": "Hanya jika anda ambil loss-of-use / rent car cover — polisi standard tidak membayar pengangkutan ganti semasa kereta dibaiki. Untuk CX-5 yang alat gantinya diimport, add-on ini berbaloi jika ia kereta harian utama."
+  },
+  {
+   "url": "/car-insurance/mazda-cx5/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Parts CX-5 import, repair 2–4 minggu — ada cover kereta sewa?",
+   "new": "Alat ganti CX-5 diimport, pembaikan 2–4 minggu — ada cover kereta sewa?"
+  },
+  {
+   "url": "/car-insurance/mercedes-c-class/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — ikut sum insured dari RM230,000 hingga RM370,000. C350e PHEV paling mahal kerana kos bateri. Bezanya boleh RM1,500–RM2,500/tahun antara varian terbawah dan teratas. Minta quotation ikut varian sebenar dalam geran.",
+   "new": "Besar — ikut sum insured daripada RM230,000 hingga RM370,000. C350e PHEV paling mahal kerana kos bateri. Bezanya boleh RM1,500–RM2,500/tahun antara varian terbawah dan teratas. Minta quotation ikut varian sebenar dalam geran."
+  },
+  {
+   "url": "/car-insurance/mercedes-c-class/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Premium ikut sum insured (lebih rendah), tetapi kos repair masih Mercedes penuh — parts import Jerman, MBUX, sensor premium. Sesetengah syarikat caj loading untuk kontinental berusia. Bajet RM3,500–RM6,000/tahun walaupun kereta used — dan semak rekod servis sebelum beli.",
+   "new": "Premium ikut sum insured (lebih rendah), tetapi kos baiki masih kos Mercedes penuh — alat ganti diimport dari Jerman, MBUX, sensor premium. Sesetengah syarikat mengenakan loading untuk kereta kontinental yang berusia. Bajetkan RM3,500–RM6,000/tahun walaupun kereta terpakai — dan semak rekod servis sebelum beli."
+  },
+  {
+   "url": "/car-insurance/mercedes-c-class/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Mercedes secondhand W205 bawah RM100,000 — insurans pun murah?",
+   "new": "Mercedes W205 terpakai bawah RM100,000 — insurans pun murah?"
+  },
+  {
+   "url": "/car-insurance/mercedes-c-class/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya, jika rosak akibat accident yang dilindungi — skrin tunggal besar kos ganti tinggi, sahkan dengan pengedar/panel bengkel. Tetapi jika rosak sendiri (defect atau wear), itu waranti atau kos pemilik, bukan claim insurans.",
+   "new": "Ya, jika rosak akibat kemalangan yang dilindungi — skrin tunggal yang besar mahal untuk diganti, sahkan kosnya dengan pengedar/panel bengkel. Tetapi jika rosak sendiri (kecacatan atau kehausan), itu urusan waranti atau kos pemilik, bukan claim insurans."
+  },
+  {
+   "url": "/car-insurance/mercedes-c-class/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Skrin MBUX rosak dalam accident — cover?",
+   "new": "Skrin MBUX rosak dalam kemalangan — dilindungi?"
+  },
+  {
+   "url": "/car-insurance/mercedes-glb/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza sederhana, ikut sum insured — GLB250 sekitar RM40,000–RM60,000 lebih tinggi dengan 4MATIC, jadi premium beza RM500–RM1,000/tahun. Kos repair 4MATIC juga lebih tinggi kerana drivetrain tambahan.",
+   "new": "Beza sederhana, ikut sum insured — GLB250 sekitar RM40,000–RM60,000 lebih tinggi dengan 4MATIC, jadi premium beza RM500–RM1,000/tahun. Kos baiki 4MATIC juga lebih tinggi kerana ada drivetrain tambahan."
+  },
+  {
+   "url": "/car-insurance/mercedes-glb/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Sama ada sesetengah parts enjin lebih mudah dan murah dari Mercedes biasa, sahkan dengan pengedar/panel bengkel — tetapi body, MBUX, sensor dan majoriti parts masih Mercedes penuh. Jangan bajet insurans dan penyelenggaraan macam kereta biasa.",
+   "new": "Sahkan dengan pengedar/panel bengkel sama ada sesetengah alat ganti enjin lebih mudah didapati dan lebih murah daripada alat ganti Mercedes biasa. Namun, badan, MBUX, sensor dan kebanyakan alat ganti masih Mercedes penuh. Jangan bajet insurans dan penyelenggaraan seperti kereta biasa."
+  },
+  {
+   "url": "/car-insurance/mercedes-glb/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "GLB200 enjin 1.3T kongsi Renault — parts lebih murah?",
+   "new": "GLB200 berkongsi enjin 1.3T dengan Renault — alat ganti lebih murah?"
+  },
+  {
+   "url": "/car-insurance/mitsubishi-triton/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — Triton yang digunakan untuk kerja/niaga perlu polisi komersial, bukan persendirian. Jika daftar persendirian tetapi guna angkut barang niaga, claim boleh ditolak. Declare penggunaan sebenar masa renew — ejen boleh nasihatkan kelas polisi yang betul.",
+   "new": "Besar — Triton yang digunakan untuk kerja/niaga perlu polisi komersial, bukan persendirian. Jika didaftarkan sebagai persendirian tetapi digunakan untuk mengangkut barang niaga, claim boleh ditolak. Isytiharkan penggunaan sebenar semasa renew — ejen boleh terangkan kelas polisi yang betul."
+  },
+  {
+   "url": "/car-insurance/mitsubishi-triton/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Aksesori yang tidak diisytihar dan tidak di-cover tidak dibayar masa claim — polisi hanya cover spesifikasi kilang. Declare semua aksesori, tambah accessories cover, dan simpan resit sebagai bukti nilai.",
+   "new": "Tidak. Aksesori yang tidak diisytiharkan dan tidak dilindungi tidak dibayar semasa claim — polisi hanya melindungi spesifikasi kilang. Isytiharkan semua aksesori, tambah accessories cover, dan simpan resit sebagai bukti nilai."
+  },
+  {
+   "url": "/car-insurance/mitsubishi-triton/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Hanya jika ada special perils — dan sengaja redah banjir dalam masih boleh dipertikai sebagai kecuaian. Ground clearance tinggi bukan lesen redah; jika air masuk enjin diesel, bil boleh cecah puluhan ribu. Pertimbangkan special perils dan jangan redah air melebihi had.",
+   "new": "Hanya jika ada special perils — dan sengaja meredah banjir yang dalam masih boleh dipertikaikan sebagai kecuaian. Ground clearance tinggi bukan lesen untuk meredah air; jika air masuk ke enjin diesel, bil boleh mencecah puluhan ribu. Pertimbangkan special perils dan jangan meredah air melebihi had."
+  },
+  {
+   "url": "/car-insurance/mitsubishi-triton/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Triton 4x4 redah banjir — insurans cover kerosakan?",
+   "new": "Triton 4x4 meredah banjir — insurans lindung kerosakan?"
+  },
+  {
+   "url": "/car-insurance/mitsubishi-xpander/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya. Clearance tinggi bantu dalam air cetek dan lopak, tetapi banjir kilat sebenar tetap menenggelamkan ECU dan enjin. Special perils lazimnya sekitar 0.2%–0.5% daripada sum insured setahun; bandingkan dengan kos membaiki kereta yang rosak akibat banjir.",
+   "new": "Ya. Clearance tinggi membantu dalam air cetek dan lopak, tetapi banjir kilat sebenar tetap boleh menenggelamkan ECU dan enjin. Special perils lazimnya sekitar 0.2%–0.5% daripada sum insured setahun; bandingkan dengan kos membaiki kereta yang rosak akibat banjir."
+  },
+  {
+   "url": "/car-insurance/nissan-almera/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — VLT beberapa ribu lebih tinggi, jadi premium naik sekitar RM80–RM200/tahun. Enjin sama 1.0 turbo, jadi pilih ikut ciri keselesaan, bukan risau insurans.",
+   "new": "Beza kecil, ikut sum insured — VLT beberapa ribu lebih tinggi, jadi premium naik sekitar RM80–RM200/tahun. Enjinnya sama, 1.0 turbo, jadi pilih ikut ciri keselesaan, bukan kerana risau tentang insurans."
+  },
+  {
+   "url": "/car-insurance/nissan-almera/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Kerosakan mekanikal dan wear & tear (turbo, CVT, enjin) tidak dilindungi polisi motor — insurans hanya cover accident, kecurian, kebakaran dan bencana (jika ambil special perils). Servis turbo dan CVT ikut jadual; itu penyelenggaraan.",
+   "new": "Tidak. Kerosakan mekanikal dan haus dan lusuh (turbo, CVT, enjin) tidak dilindungi polisi motor — insurans hanya melindungi kemalangan, kecurian, kebakaran dan bencana (jika ambil special perils). Servis turbo dan CVT ikut jadual; itu penyelenggaraan."
+  },
+  {
+   "url": "/car-insurance/nissan-navara/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ketara — PRO-4X sum insured sekitar RM30,000–RM50,000 lebih tinggi dari V dengan kit off-road penuh, jadi premium beza RM300–RM600/tahun. Pastikan sum insured ikut varian sebenar dalam geran.",
+   "new": "Ketara — sum insured PRO-4X sekitar RM30,000–RM50,000 lebih tinggi daripada V dengan kit off-road penuh, jadi premium beza RM300–RM600/tahun. Pastikan sum insured ikut varian sebenar dalam geran."
+  },
+  {
+   "url": "/car-insurance/nissan-navara/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Aksesori yang tidak diisytihar tidak dibayar masa claim. Declare semua kit, tambah accessories cover, dan simpan resit sebagai bukti nilai.",
+   "new": "Tidak. Aksesori yang tidak diisytiharkan tidak dibayar semasa claim. Isytiharkan semua kit, tambah accessories cover, dan simpan resit sebagai bukti nilai."
+  },
+  {
+   "url": "/car-insurance/nissan-navara/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. Jika Navara digunakan untuk kerja/niaga, perlu polisi komersial. Guna polisi persendirian untuk kerja komersial boleh menyebabkan claim ditolak — declare penggunaan sebenar masa renew.",
+   "new": "Tidak. Jika Navara digunakan untuk kerja/niaga, anda perlu polisi komersial. Menggunakan polisi persendirian untuk kerja komersial boleh menyebabkan claim ditolak — isytiharkan penggunaan sebenar semasa renew."
+  },
+  {
+   "url": "/car-insurance/perodua-alza/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — AV nilainya sekitar RM8,000–RM13,000 lebih tinggi dari X, jadi premium naik sekitar RM100–RM250/tahun. Pilih varian ikut keperluan keluarga, bukan risau pasal insurans.",
+   "new": "Beza kecil, ikut sum insured — AV nilainya sekitar RM8,000–RM13,000 lebih tinggi daripada X, jadi premium naik sekitar RM100–RM250/tahun. Pilih varian ikut keperluan keluarga, bukan kerana risau tentang insurans."
+  },
+  {
+   "url": "/car-insurance/perodua-alza/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Windscreen cover bayar gantian cermin, tetapi calibration kamera ASA tidak semestinya termasuk — ia boleh cecah beberapa ratus ringgit. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin. Claim cermin tidak usik NCD.",
+   "new": "Windscreen cover membayar gantian cermin, tetapi penentukuran kamera ASA tidak semestinya termasuk — kosnya boleh mencecah beberapa ratus ringgit. Tanya panel bengkel sama ada penentukuran termasuk dalam claim cermin. Claim cermin tidak menjejaskan NCD."
+  },
+  {
+   "url": "/car-insurance/perodua-alza/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Alza Gen 2 ada ASA — cermin retak, insurans cover calibration sensor?",
+   "new": "Alza Gen 2 ada ASA — cermin retak, insurans cover penentukuran sensor?"
+  },
+  {
+   "url": "/car-insurance/perodua-ativa/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tidak. Kegagalan turbo, wear enjin dan kerosakan mekanikal adalah penyelenggaraan — insurans hanya cover accident, kecurian, kebakaran dan bencana berdaftar. Servis ikut jadual dan jaga minyak enjin; itu pelaburan sebenar untuk enjin turbo.",
+   "new": "Tidak. Kegagalan turbo, kehausan enjin dan kerosakan mekanikal ialah soal penyelenggaraan — insurans hanya melindungi kemalangan, kecurian, kebakaran dan bencana berdaftar. Servis ikut jadual dan jaga minyak enjin; itulah pelaburan sebenar untuk enjin turbo."
+  },
+  {
+   "url": "/car-insurance/perodua-ativa/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Dua perkara: ambil windscreen cover yang cukup kerana cermin ada kamera ASA, dan tanya tentang ADAS calibration cover — setiap kali cermin ditukar atau bumper depan dibaiki, sensor perlu calibration. Tanpa cover, kos itu keluar poket sendiri.",
+   "new": "Dua perkara: ambil windscreen cover yang cukup kerana cermin ada kamera ASA, dan tanya tentang ADAS calibration cover — setiap kali cermin ditukar atau bumper depan dibaiki, sensor perlu ditentukur. Tanpa perlindungan ini, kos itu keluar daripada poket sendiri."
+  },
+  {
+   "url": "/car-insurance/perodua-ativa/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Kenapa premium Ativa mahal sikit dari Myvi?",
+   "new": "Kenapa premium Ativa mahal sedikit daripada Myvi?"
+  },
+  {
+   "url": "/car-insurance/perodua-axia/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ya jika nilai masih atas RM15,000. Axia E 2014–2016 yang nilainya RM22,000+ rugi jika third-party — sekali accident, repair bumper + lampu sudah RM2,000+. Tukar ke third-party hanya bila nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri.",
+   "new": "Ya jika nilai masih atas RM15,000. Axia E 2014–2016 yang nilainya RM22,000+ rugi jika ambil pihak ketiga sahaja — sekali kemalangan, kos baiki bumper + lampu sudah RM2,000+. Tukar ke pihak ketiga hanya bila nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung kos baiki sendiri."
+  },
+  {
+   "url": "/car-insurance/perodua-axia/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Polisi persendirian standard tidak cover e-hailing. Kena declare dan ambil endorsement e-hailing (Etiqa ada pakej e-hailing). Jika tidak declare, claim boleh ditolak walaupun accident kecil.",
+   "new": "Tidak. Polisi persendirian standard tidak melindungi penggunaan e-hailing. Anda perlu isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing (Etiqa ada pakej e-hailing). Jika tidak diisytiharkan, claim boleh ditolak walaupun kemalangan kecil."
+  },
+  {
+   "url": "/car-insurance/perodua-axia/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Jika ada windscreen cover, claim cermin tidak usik NCD — claim sahaja. Jika tiada cover dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM410–RM810/tahun).",
+   "new": "Jika ada windscreen cover, claim cermin tidak menjejaskan NCD — claim sahaja. Jika tiada perlindungan ini dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM410–RM810/tahun)."
+  },
+  {
+   "url": "/car-insurance/perodua-bezza/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tidak besar — beza sum insured sekitar RM4,000–RM6,000, premium naik lebih kurang RM50–RM150/tahun. Pilih 1.3 jika selalu penuh penumpang atau jalan highway; pilih 1.0 jika nak jimat minyak dan roadtax (RM20 vs RM70).",
+   "new": "Tidak besar — beza sum insured sekitar RM4,000–RM6,000, premium naik lebih kurang RM50–RM150/tahun. Pilih 1.3 jika selalu penuh penumpang atau kerap guna lebuh raya; pilih 1.0 jika mahu jimat minyak dan roadtax (RM20 vs RM70)."
+  },
+  {
+   "url": "/car-insurance/perodua-bezza/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Bezza ialah antara kereta Grab paling popular — declare penggunaan e-hailing dan ambil endorsement. Tanpa declare, claim boleh ditolak. Kos endorsement jauh lebih murah dari satu claim yang ditolak.",
+   "new": "Bezza ialah antara kereta Grab paling popular — isytiharkan penggunaan e-hailing dan ambil endorsement. Tanpa pengisytiharan, claim boleh ditolak. Kos endorsement jauh lebih murah daripada satu claim yang ditolak."
+  },
+  {
+   "url": "/car-insurance/perodua-bezza/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Bumper dan lampu belakang Bezza murah (parts kongsi Axia). Jika kos repair bawah RM800 dan NCD anda 45–55% (diskaun bernilai kira-kira RM420–RM980 setahun mengikut anggaran di halaman ini), bayar tunai biasanya lebih jimat — selepas satu tuntutan, NCD kembali ke 0% dan premium tahun depan naik sebanyak nilai diskaun itu.",
+   "new": "Bumper dan lampu belakang Bezza murah (alat ganti dikongsi dengan Axia). Jika kos baiki bawah RM800 dan NCD anda 45–55% (diskaun bernilai kira-kira RM420–RM980 setahun mengikut anggaran di halaman ini), bayar tunai biasanya lebih jimat — selepas satu tuntutan yang menjejaskan NCD, NCD kembali ke 0% dan premium tahun depan naik sebanyak nilai diskaun itu."
+  },
+  {
+   "url": "/car-insurance/perodua-myvi/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Windscreen cover bayar gantian cermin, tetapi calibration sensor ASA 3.0 (kamera di cermin) tidak semestinya termasuk — ia boleh cecah beberapa ratus ringgit. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin, atau ambil ADAS calibration cover jika syarikat tawarkan. Claim cermin tidak usik NCD.",
+   "new": "Windscreen cover membayar gantian cermin, tetapi penentukuran sensor ASA 3.0 (kamera di cermin) tidak semestinya termasuk — kosnya boleh mencecah beberapa ratus ringgit. Tanya panel bengkel sama ada penentukuran termasuk dalam claim cermin, atau ambil ADAS calibration cover jika syarikat menawarkannya. Claim cermin tidak menjejaskan NCD."
+  },
+  {
+   "url": "/car-insurance/perodua-myvi/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Myvi 1.5 AV ada ASA 3.0 — cermin retak, insurans cover calibration sensor?",
+   "new": "Myvi 1.5 AV ada ASA 3.0 — cermin retak, insurans cover penentukuran sensor?"
+  },
+  {
+   "url": "/car-insurance/perodua-myvi/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Polisi persendirian standard tidak cover e-hailing. Kena declare dan ambil endorsement e-hailing — jika tidak declare, claim boleh ditolak walaupun accident kecil semasa tidak bawa penumpang, kerana rekod e-hailing dikesan.",
+   "new": "Tidak. Polisi persendirian standard tidak melindungi penggunaan e-hailing. Anda perlu isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing — jika tidak diisytiharkan, claim boleh ditolak walaupun kemalangan kecil berlaku semasa tidak membawa penumpang, kerana rekod e-hailing dikesan."
+  },
+  {
+   "url": "/car-insurance/perodua-myvi/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Jika nilai masih atas RM15,000, ya. Tukar ke third-party hanya bila nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri — bumper + lampu Myvi pun sudah RM1,500–RM2,000.",
+   "new": "Jika nilai masih atas RM15,000, ya. Tukar ke pihak ketiga hanya bila nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung kos baiki sendiri — bumper + lampu Myvi pun sudah RM1,500–RM2,000."
+  },
+  {
+   "url": "/car-insurance/proton-exora/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Kerosakan mekanikal dan wear & tear (turbo, gearbox, enjin) tidak dilindungi polisi motor — insurans hanya cover accident, kecurian, kebakaran dan bencana (jika ambil special perils). Servis turbo ikut jadual; itu penyelenggaraan, bukan claim.",
+   "new": "Tidak. Kerosakan mekanikal dan haus dan lusuh (turbo, kotak gear, enjin) tidak dilindungi polisi motor — insurans hanya melindungi kemalangan, kecurian, kebakaran dan bencana (jika ambil special perils). Servis turbo ikut jadual; itu penyelenggaraan, bukan claim."
+  },
+  {
+   "url": "/car-insurance/proton-iriz/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — 1.6 Premium nilainya beberapa ribu lebih tinggi, jadi premium naik sekitar RM50–RM150/tahun. Rating 5 bintang ASEAN NCAP pula boleh jadi leverage minta quotation lebih baik dari sesetengah syarikat.",
+   "new": "Beza kecil, ikut sum insured — 1.6 Premium nilainya beberapa ribu lebih tinggi, jadi premium naik sekitar RM50–RM150/tahun. Rating 5 bintang ASEAN NCAP pula boleh membantu anda meminta quotation yang lebih baik daripada sesetengah syarikat."
+  },
+  {
+   "url": "/car-insurance/proton-iriz/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Iriz biasanya sedikit lebih murah kerana sum insured lebih rendah dan profil risiko seumpamanya. Bezanya sekitar RM50–RM150/tahun pada NCD sama — pilih ikut kereta yang anda suka, bukan beza premium yang kecil ini.",
+   "new": "Iriz biasanya sedikit lebih murah kerana sum insured lebih rendah dan profil risikonya serupa. Bezanya sekitar RM50–RM150/tahun pada NCD yang sama — pilih ikut kereta yang anda suka, bukan kerana beza premium yang kecil ini."
+  },
+  {
+   "url": "/car-insurance/proton-iriz/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung repair sendiri, third-party mungkin memadai. Tetapi jika Iriz masih kereta harian utama tanpa simpanan repair, comprehensive RM440–RM820/tahun (NCD 55%) masih berbaloi.",
+   "new": "Kira betul-betul: jika nilai bawah RM10,000–RM12,000 dan anda sanggup tanggung kos baiki sendiri, pihak ketiga mungkin memadai. Tetapi jika Iriz masih kereta harian utama dan anda tiada simpanan untuk kos baiki, komprehensif RM440–RM820/tahun (NCD 55%) masih berbaloi."
+  },
+  {
+   "url": "/car-insurance/proton-persona/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — Premium nilainya RM4,000–RM6,000 lebih tinggi, jadi premium naik sekitar RM100–RM200/tahun. Pilih varian ikut keperluan keluarga, bukan risau pasal insurans.",
+   "new": "Beza kecil, ikut sum insured — Premium nilainya RM4,000–RM6,000 lebih tinggi, jadi premium naik sekitar RM100–RM200/tahun. Pilih varian ikut keperluan keluarga, bukan kerana risau tentang insurans."
+  },
+  {
+   "url": "/car-insurance/proton-persona/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Kerosakan mekanikal dan wear & tear (CVT, enjin, wear parts) tidak dilindungi polisi motor — insurans hanya cover accident, kecurian, kebakaran dan bencana (jika ambil special perils). Bajet servis CVT ikut jadual; itu penyelenggaraan, bukan claim.",
+   "new": "Tidak. Kerosakan mekanikal dan haus dan lusuh (CVT, enjin, alat ganti yang haus) tidak dilindungi polisi motor — insurans hanya melindungi kemalangan, kecurian, kebakaran dan bencana (jika ambil special perils). Bajetkan servis CVT ikut jadual; itu penyelenggaraan, bukan claim."
+  },
+  {
+   "url": "/car-insurance/proton-persona/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Declare penggunaan e-hailing dan ambil endorsement e-hailing. Polisi persendirian standard tidak cover bawa penumpang berbayar. Persona 1.6 popular untuk e-hailing eksekutif, jadi jangan renew senyap-senyap tanpa declare — claim boleh ditolak.",
+   "new": "Isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing. Polisi persendirian standard tidak melindungi kereta yang membawa penumpang berbayar. Persona 1.6 popular untuk e-hailing eksekutif, jadi jangan renew senyap-senyap tanpa mengisytiharkannya — claim boleh ditolak."
+  },
+  {
+   "url": "/car-insurance/proton-saga/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Kecil — ikut beza sum insured sekitar RM5,000–RM8,000, premium naik lebih kurang RM50–RM150/tahun. Pilih varian ikut keselesaan (Premium ada ciri lebih), bukan risau pasal insurans.",
+   "new": "Kecil — ikut beza sum insured sekitar RM5,000–RM8,000, premium naik lebih kurang RM50–RM150/tahun. Pilih varian ikut keselesaan (Premium ada ciri lebih), bukan kerana risau tentang insurans."
+  },
+  {
+   "url": "/car-insurance/proton-saga/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Kira betul-betul: banding harga comprehensive vs third-party untuk Saga lama (semak sebut harga semasa dengan NCD anda). Jika kereta masih dipandu harian dan anda tiada simpanan cukup untuk repair sendiri, comprehensive masih selamat. Tukar ke third-party hanya bila anda sanggup tanggung total loss sendiri.",
+   "new": "Kira betul-betul: bandingkan harga komprehensif dengan pihak ketiga untuk Saga lama (semak sebut harga semasa dengan NCD anda). Jika kereta masih dipandu harian dan anda tiada simpanan yang cukup untuk membaikinya sendiri, komprehensif masih pilihan selamat. Tukar ke pihak ketiga hanya bila anda sanggup tanggung total loss sendiri."
+  },
+  {
+   "url": "/car-insurance/proton-saga/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya — sama seperti semua model. Polisi persendirian tidak cover e-hailing. Saga popular untuk Grab bajet, jadi declare dan ambil endorsement e-hailing sebelum mula bawa penumpang.",
+   "new": "Ya — sama seperti semua model. Polisi persendirian tidak melindungi penggunaan e-hailing. Saga popular untuk Grab bajet, jadi isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing sebelum mula membawa penumpang."
+  },
+  {
+   "url": "/car-insurance/proton-x50/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Besar — Flagship sum insured sekitar RM20,000–RM30,000 lebih tinggi dengan enjin TGDi, DCT dan sensor penuh, jadi premium boleh beza RM300–RM600/tahun. Pastikan sum insured ikut varian sebenar dalam geran, bukan harga varian lain.",
+   "new": "Besar — sum insured Flagship sekitar RM20,000–RM30,000 lebih tinggi dengan enjin TGDi, DCT dan sensor penuh, jadi premium boleh beza RM300–RM600/tahun. Pastikan sum insured ikut varian sebenar dalam geran, bukan harga varian lain."
+  },
+  {
+   "url": "/car-insurance/proton-x50/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Kamera ADAS duduk di cermin depan. Setiap kali cermin ditukar, sistem perlu calibration semula supaya brek kecemasan dan lane assist tepat — kosnya ratusan ringgit dan tidak semestinya termasuk dalam windscreen cover. Ambil ADAS calibration cover jika kerap jalan jauh.",
+   "new": "Kamera ADAS terletak di cermin depan. Setiap kali cermin ditukar, sistem perlu ditentukur semula supaya brek kecemasan dan lane assist tepat — kosnya ratusan ringgit dan tidak semestinya termasuk dalam windscreen cover. Pertimbangkan ADAS calibration cover jika kerap memandu jauh."
+  },
+  {
+   "url": "/car-insurance/proton-x50/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Tukar cermin X50 Flagship — kenapa bengkel caj calibration?",
+   "new": "Tukar cermin X50 Flagship — kenapa bengkel caj penentukuran?"
+  },
+  {
+   "url": "/car-insurance/proton-x50/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Itu isu bengkel dan bekalan parts, bukan coverage — polisi tetap bayar ikut syarat. Risiko sebenar ialah kereta tersadai lama menunggu parts import. Pilih panel bengkel yang biasa handle X50 dan tanya anggaran masa repair sebelum setuju.",
+   "new": "Itu isu bengkel dan bekalan alat ganti, bukan isu perlindungan — polisi tetap membayar ikut syarat. Risiko sebenar ialah kereta tersadai lama menunggu alat ganti import. Pilih panel bengkel yang biasa mengendalikan X50 dan tanya anggaran masa pembaikan sebelum setuju."
+  },
+  {
+   "url": "/car-insurance/proton-x50/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Parts X50 dari Geely susah dapat — bagaimana dengan claim?",
+   "new": "Alat ganti X50 daripada Geely susah dapat — bagaimana dengan claim?"
+  },
+  {
+   "url": "/car-insurance/proton-x70/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Unit 1.8T (2018–2024) sum insured lebih rendah kerana susut nilai, jadi premium sedikit lebih murah — tetapi kos repair dan parts import lebih mahal dan lambat. Unit 1.5T CKD (sejak Jun 2022) lebih mudah diuruskan masa claim. Bezanya sekitar RM100–RM300/tahun.",
+   "new": "Unit 1.8T (2018–2024) mempunyai sum insured lebih rendah kerana susut nilai, jadi premium sedikit lebih murah — tetapi kos baikinya lebih tinggi, manakala alat ganti import lebih mahal dan lambat sampai. Unit 1.5T CKD (sejak Jun 2022) lebih mudah diuruskan semasa claim. Bezanya sekitar RM100–RM300/tahun."
+  },
+  {
+   "url": "/car-insurance/proton-x70/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Pertimbangkan agreed value jika syarikat tawarkan — X70 susut cepat dan market value masa claim boleh mengecewakan. Agreed value kunci jumlah pampasan, tetapi premium sedikit lebih tinggi. Bandingkan kedua-dua quotation sebelum renew.",
+   "new": "Pertimbangkan agreed value jika syarikat menawarkannya — X70 susut nilai dengan cepat dan nilai pasaran semasa claim boleh mengecewakan. Agreed value mengunci jumlah pampasan, tetapi premium sedikit lebih tinggi. Bandingkan kedua-dua quotation sebelum renew."
+  },
+  {
+   "url": "/car-insurance/proton-x70/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "X70 susut nilai cepat — market value atau agreed value?",
+   "new": "X70 susut nilai cepat — nilai pasaran atau agreed value?"
+  },
+  {
+   "url": "/car-insurance/proton-x70/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya, jika rosak akibat accident yang dilindungi — termasuk kos calibration semula. Tetapi jika sensor rosak sendiri (wear atau defect), itu bukan claim insurans, itu waranti atau kos pemilik. Sebab itu ADAS calibration cover penting untuk X70.",
+   "new": "Ya, jika rosak akibat kemalangan yang dilindungi — termasuk kos penentukuran semula. Tetapi jika sensor rosak sendiri (haus atau kecacatan), itu bukan claim insurans; itu urusan waranti atau kos pemilik. Sebab itu ADAS calibration cover penting untuk X70."
+  },
+  {
+   "url": "/car-insurance/proton-x70/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Sensor ADAS X70 rosak dalam accident — cover?",
+   "new": "Sensor ADAS X70 rosak dalam kemalangan — dilindungi?"
+  },
+  {
+   "url": "/car-insurance/suzuki-swift/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ikut harga pasaran semasa unit anda — tahun dan kondisi menentukan. Jangan insure ikut harga beli baru dulu (over-insure) atau terlalu rendah (under-insure, claim kena penalty average clause). Minta ejen semak nilai pasaran semasa.",
+   "new": "Ikut harga pasaran semasa unit anda — tahun dan keadaan kereta yang menentukan. Jangan insuranskan ikut harga beli baru dulu (over-insure) atau terlalu rendah (under-insure; claim dikenakan penalti average clause). Minta ejen semak nilai pasaran semasa."
+  },
+  {
+   "url": "/car-insurance/suzuki-swift/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Polisi tetap bayar ikut syarat, tetapi kereta mungkin tersadai menunggu parts Suzuki yang volume rendah. Pilih panel yang biasa handle Suzuki dan tanya anggaran masa. Jika Swift kereta harian utama, pertimbangkan loss-of-use cover.",
+   "new": "Polisi tetap membayar ikut syarat, tetapi kereta mungkin tersadai menunggu alat ganti Suzuki yang jualannya rendah. Pilih panel bengkel yang biasa mengendalikan Suzuki dan tanya anggaran masa. Jika Swift kereta harian utama, pertimbangkan loss-of-use cover."
+  },
+  {
+   "url": "/car-insurance/suzuki-swift/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Parts Swift lambat sampai — bagaimana dengan claim?",
+   "new": "Alat ganti Swift lambat sampai — bagaimana dengan claim?"
+  },
+  {
+   "url": "/car-insurance/suzuki-swift/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Myvi lebih murah — sum insured lebih rendah, parts murah dan semua insurer biasa handle. Swift premium sekitar RM100–RM300/tahun lebih tinggi. Pilih Swift kerana pemanduan dan gaya, bukan penjimatan insurans.",
+   "new": "Myvi lebih murah — sum insured lebih rendah, alat ganti murah dan semua insurer biasa mengendalikannya. Premium Swift sekitar RM100–RM300/tahun lebih tinggi. Pilih Swift kerana pemanduan dan gaya, bukan kerana penjimatan insurans."
+  },
+  {
+   "url": "/car-insurance/toyota-corolla-cross/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Hybrid 15–20% lebih tinggi kerana sum insured lebih mahal serta kos bateri dan motor elektrik. Bezanya ikut quotation syarikat — bandingkan 2–3 sebelum renew.",
+   "new": "Hybrid 15–20% lebih tinggi kerana sum insured lebih mahal serta ada kos bateri dan motor elektrik. Bezanya ikut quotation syarikat — bandingkan 2–3 quotation sebelum renew."
+  },
+  {
+   "url": "/car-insurance/toyota-corolla-cross/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Kamera Toyota Safety Sense duduk di cermin depan. Setiap kali cermin ditukar atau bumper depan dibuka, sistem perlu calibration semula supaya brek kecemasan dan lane assist tepat — kosnya ratusan ringgit dan tidak semestinya termasuk dalam windscreen cover. Ambil ADAS calibration cover jika kerap jalan jauh.",
+   "new": "Kamera Toyota Safety Sense terletak di cermin depan. Setiap kali cermin ditukar atau bumper depan dibuka, sistem perlu ditentukur semula supaya brek kecemasan dan lane assist tepat — kosnya ratusan ringgit dan tidak semestinya termasuk dalam windscreen cover. Pertimbangkan ADAS calibration cover jika kerap memandu jauh."
+  },
+  {
+   "url": "/car-insurance/toyota-corolla-cross/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Tukar cermin Corolla Cross — kenapa bengkel caj calibration?",
+   "new": "Tukar cermin Corolla Cross — kenapa bengkel caj penentukuran?"
+  },
+  {
+   "url": "/car-insurance/toyota-corolla-cross/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika bateri rosak akibat accident yang dilindungi. Semak waranti bateri hybrid (bertahun-tahun dari Toyota) dan jangan jadikan insurans sebagai ganti waranti.",
+   "new": "Tidak. Kegagalan bateri, kehausan dan kerosakan mekanikal bukan claim insurans — bateri hanya dilindungi jika rosak akibat kemalangan yang dilindungi. Semak waranti bateri hybrid (bertahun-tahun daripada Toyota) dan jangan jadikan insurans sebagai ganti waranti."
+  },
+  {
+   "url": "/car-insurance/toyota-corolla/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. Kegagalan bateri, wear dan kerosakan mekanikal bukan claim insurans — cover hanya jika kerosakan akibat accident yang dilindungi. Semak waranti pengilang dan jangan jadikan insurans sebagai ganti waranti.",
+   "new": "Tidak. Kegagalan bateri, kehausan dan kerosakan mekanikal bukan claim insurans — kerosakan hanya dilindungi jika berpunca daripada kemalangan yang dilindungi. Semak waranti pengilang dan jangan jadikan insurans sebagai ganti waranti."
+  },
+  {
+   "url": "/car-insurance/toyota-hilux/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tidak. Aksesori tidak termasuk dalam sum insured standard — kena declare nilai aksesori dan ambil accessories cover (RM100–RM250/tahun). Simpan resit pemasangan; masa claim, adjuster hanya bayar apa yang diisytihar dalam polisi.",
+   "new": "Tidak. Aksesori tidak termasuk dalam sum insured standard — anda perlu isytiharkan nilai aksesori dan ambil accessories cover (RM100–RM250/tahun). Simpan resit pemasangan; semasa claim, adjuster hanya membayar apa yang diisytiharkan dalam polisi."
+  },
+  {
+   "url": "/car-insurance/toyota-hilux/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Roadtax ikut kapasiti enjin. Mengikut jadual JPJ untuk kenderaan bukan salun persendirian di Semenanjung, 2.4 (2,393cc) dikenakan RM754.40 setahun dan 2.8 (2,755cc) RM1,248 setahun. Premium pula ikut sum insured: Rogue (RM150,000+) boleh RM500–RM800/tahun lebih mahal dari 2.4 E. Beza enjin bukan faktor utama — beza nilai kereta yang tentukan premium.",
+   "new": "Roadtax ikut kapasiti enjin. Mengikut jadual JPJ untuk kenderaan bukan salun persendirian di Semenanjung, 2.4 (2,393cc) dikenakan RM754.40 setahun dan 2.8 (2,755cc) RM1,248 setahun. Premium pula ikut sum insured: Rogue (RM150,000+) boleh RM500–RM800/tahun lebih mahal daripada 2.4 E. Beza enjin bukan faktor utama — beza nilai kereta yang menentukan premium."
+  },
+  {
+   "url": "/car-insurance/toyota-hilux/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Hanya jika didaftar dan diinsurankan ikut penggunaan sebenar. Jika Hilux didaftarkan persendirian tetapi digunakan untuk niaga atau disewa, claim boleh dipertikai. Declare penggunaan komersial dan ambil polisi yang betul — mahal sikit, tetapi claim selamat.",
+   "new": "Hanya jika didaftarkan dan diinsuranskan ikut penggunaan sebenar. Jika Hilux didaftarkan sebagai kenderaan persendirian tetapi digunakan untuk niaga atau disewa, claim boleh dipertikaikan. Isytiharkan penggunaan komersial dan ambil polisi yang betul — mahal sedikit, tetapi claim selamat."
+  },
+  {
+   "url": "/car-insurance/toyota-raize/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tidak. UMW Toyota tidak melancarkan Raize di Malaysia; model setara yang dijual secara rasmi ialah Perodua Ativa, dibina atas platform Daihatsu DNGA yang sama. Raize di Malaysia ialah import persendirian, jadi beritahu syarikat insurans bahawa kereta anda import dan minta mereka sahkan sum insured serta sumber parts sebelum renew.",
+   "new": "Tidak. UMW Toyota tidak melancarkan Raize di Malaysia; model setara yang dijual secara rasmi ialah Perodua Ativa, dibina atas platform Daihatsu DNGA yang sama. Raize di Malaysia ialah import persendirian, jadi beritahu syarikat insurans bahawa kereta anda diimport dan minta mereka sahkan sum insured serta sumber alat ganti sebelum renew."
+  },
+  {
+   "url": "/car-insurance/toyota-raize/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — 1.0T sedikit lebih tinggi dengan kos turbo, jadi premium naik sekitar RM50–RM150/tahun. Kos maintenance turbo pula lebih tinggi jangka panjang; itu penyelenggaraan, bukan insurans.",
+   "new": "Beza kecil, ikut sum insured — 1.0T sedikit lebih tinggi kerana kos turbo, jadi premium naik sekitar RM50–RM150/tahun. Kos penyelenggaraan turbo pula lebih tinggi dalam jangka panjang; itu penyelenggaraan, bukan insurans."
+  },
+  {
+   "url": "/car-insurance/toyota-raize/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Sesetengah parts mekanikal mungkin boleh interchange dengan Perodua Ativa — sahkan dengan panel bengkel. Body, sensor ADAS dan parts khusus Raize tidak dijual oleh UMW Toyota, jadi mungkin perlu ditempah dari luar negara. Jangan bajet repair macam Ativa sepenuhnya.",
+   "new": "Sesetengah alat ganti mekanikal mungkin boleh ditukar ganti dengan Perodua Ativa — sahkan dengan panel bengkel. Badan, sensor ADAS dan alat ganti khusus Raize tidak dijual oleh UMW Toyota, jadi mungkin perlu ditempah dari luar negara. Jangan bajet kos baiki sepenuhnya seperti Ativa."
+  },
+  {
+   "url": "/car-insurance/toyota-raize/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Raize kongsi platform Ativa — parts lebih murah?",
+   "new": "Raize berkongsi platform dengan Ativa — alat ganti lebih murah?"
+  },
+  {
+   "url": "/car-insurance/toyota-raize/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Windscreen cover bayar gantian cermin, tetapi calibration sensor ADAS tidak semestinya termasuk. Tanya panel bengkel sama ada calibration termasuk dalam claim cermin, atau ambil ADAS calibration cover. Claim cermin tidak usik NCD.",
+   "new": "Windscreen cover membayar gantian cermin, tetapi penentukuran sensor ADAS tidak semestinya termasuk. Tanya panel bengkel sama ada penentukuran termasuk dalam claim cermin, atau ambil ADAS calibration cover. Claim cermin tidak menjejaskan NCD."
+  },
+  {
+   "url": "/car-insurance/toyota-veloz/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Sum insured Veloz lebih tinggi (RM85,000–RM98,000 vs Alza RM50,000–RM72,000) dan lencana Toyota membawa kos parts dan sensor lebih mahal. Bezanya sekitar RM300–RM500/tahun pada NCD sama — itu harga nilai jenama dan resale Toyota.",
+   "new": "Sum insured Veloz lebih tinggi (RM85,000–RM98,000 vs Alza RM50,000–RM72,000) dan lencana Toyota membawa kos alat ganti dan sensor yang lebih mahal. Bezanya sekitar RM300–RM500/tahun pada NCD yang sama — itulah harga nilai jenama dan nilai jualan semula Toyota."
+  },
+  {
+   "url": "/car-insurance/toyota-veloz/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya — syarikat yang kurang data historikal cenderung caj lebih selamat (lebih tinggi). Bandingkan 2–3 quotation kerana harga antara insurer boleh berbeza banyak untuk model baru seperti Veloz.",
+   "new": "Ya — syarikat yang kurang data sejarah cenderung mengenakan harga yang lebih selamat (lebih tinggi). Bandingkan 2–3 quotation kerana harga antara insurer boleh berbeza banyak untuk model baru seperti Veloz."
+  },
+  {
+   "url": "/car-insurance/toyota-vios/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Sesetengah syarikat memberi diskaun kecil untuk ciri keselamatan aktif — tanya ejen masa minta quotation. Tetapi perkara lebih penting ialah ambil windscreen dan ADAS calibration cover yang cukup, kerana calibration kamera selepas tukar cermin boleh cecah ratusan ringgit.",
+   "new": "Sesetengah syarikat memberi diskaun kecil untuk ciri keselamatan aktif — tanya ejen semasa minta quotation. Tetapi yang lebih penting ialah ambil windscreen cover dan ADAS calibration cover yang cukup, kerana penentukuran kamera selepas cermin ditukar boleh mencecah ratusan ringgit."
+  },
+  {
+   "url": "/car-insurance/toyota-vios/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Tidak. Vios antara model e-hailing paling biasa — declare penggunaan dan ambil endorsement e-hailing. Tanpa declare, claim boleh ditolak walaupun accident berlaku semasa tidak bawa penumpang.",
+   "new": "Tidak. Jika Vios digunakan untuk e-hailing, isytiharkan penggunaannya dan ambil endorsement e-hailing. Tanpa pengisytiharan, claim boleh ditolak walaupun kemalangan berlaku semasa tidak membawa penumpang."
+  },
+  {
+   "url": "/car-insurance/toyota-vios/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Besar — NCP150 used sekitar RM38,000–RM55,000 manakala AC100 baru RM89,600+. Insure ikut nilai sebenar kereta anda: over-insure membazir premium, under-insure kena penalti average clause masa claim besar.",
+   "new": "Besar — NCP150 terpakai sekitar RM38,000–RM55,000 manakala AC100 baru RM89,600+. Insuranskan ikut nilai sebenar kereta anda: over-insure membazir premium, under-insure pula dikenakan penalti average clause semasa claim besar."
+  },
+  {
+   "url": "/car-insurance/toyota-yaris/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Beza kecil, ikut sum insured — G beberapa ribu lebih tinggi dengan Toyota Safety Sense, jadi premium naik sekitar RM80–RM200/tahun. Varian E dan G ada TSS (J tiada) — perhatikan calibration cermin untuk kedua-dua varian tersebut.",
+   "new": "Beza kecil, ikut sum insured — G beberapa ribu lebih tinggi dengan Toyota Safety Sense, jadi premium naik sekitar RM80–RM200/tahun. Varian E dan G ada TSS (J tiada) — ambil perhatian tentang penentukuran cermin untuk kedua-dua varian itu."
+  },
+  {
+   "url": "/car-insurance/toyota-yaris/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Hampir sama — kongsi platform dan enjin, dan anggaran premium kami untuk kedua-duanya sama. Beza sebenar ikut sum insured unit anda. Pilih ikut bentuk badan yang anda suka.",
+   "new": "Hampir sama — kedua-duanya berkongsi platform dan enjin, dan anggaran premium kami untuk kedua-duanya sama. Beza sebenar ikut sum insured unit anda. Pilih ikut bentuk badan yang anda suka."
+  },
+  {
+   "url": "/car-insurance/toyota-yaris/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tidak. Polisi persendirian standard tidak cover e-hailing. Kena declare dan ambil endorsement e-hailing — jika tidak declare, claim boleh ditolak walaupun accident kecil.",
+   "new": "Tidak. Polisi persendirian standard tidak melindungi penggunaan e-hailing. Anda perlu isytiharkan penggunaan e-hailing dan ambil endorsement e-hailing — jika tidak diisytiharkan, claim boleh ditolak walaupun kemalangan kecil."
+  },
+  {
+   "url": "/companies/rhi/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "RHB Insurance Berhad. RHB Insurance Berhad diperbadankan pada 7 Mac 1978 dan merupakan sebahagian daripada RHB Banking Group. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "RHB Insurance Berhad. RHB Insurance Berhad diperbadankan pada 7 Mac 1978. Syarikat ini ialah sebahagian daripada RHB Banking Group. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Set 36 penyakit peringkat teruk (severe-stage) yang definisinya diseragamkan oleh Bank Negara Malaysia untuk polisi baharu/diperbaharui berkuat kuasa 1 April 2016. Contoh: strok, kanser (tahap tertentu — kanser sangat awal tidak dilindungi ikut wording standard), serangan jantung, bypass koronari, kegagalan buah pinggang, koma dan seumpamanya — senarai penuh verbatim dari PDF rasmi AIA ada dalam data kami. Nota penting: komposisi tepat boleh berbeza sikit ikut penginsurans/sijil — contoh appendix Hong Leong MSIG Takaful gantikan item tertentu dengan Full-blown AIDS dan SLE dengan komplikasi buah pinggang teruk. Nombor besar macam 180 (contoh AIA) tu expansion per produk, bukan standard 36.",
+   "new": "Set 36 penyakit peringkat teruk (severe-stage) yang definisinya diseragamkan oleh Bank Negara Malaysia untuk polisi baharu/diperbaharui berkuat kuasa 1 April 2016. Contoh: strok, kanser (tahap tertentu — kanser yang sangat awal tidak dilindungi mengikut terma standard), serangan jantung, bypass koronari, kegagalan buah pinggang, koma dan seumpamanya — senarai penuh tanpa pindaan daripada PDF rasmi AIA ada dalam data kami. Nota penting: komposisi tepat boleh berbeza sedikit mengikut penginsurans/sijil — contohnya, lampiran Hong Leong MSIG Takaful menggantikan item tertentu dengan Full-blown AIDS dan SLE dengan komplikasi buah pinggang teruk. Angka besar seperti 180 (contoh AIA) ialah perluasan bagi produk tertentu, bukan standard 36."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Early stage vs late stage critical illness — apa beza payout?",
+   "new": "Penyakit kritikal early stage vs late stage — apa beza bayarannya?"
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tujuan payout sama — wang sekaligus bila didiagnos — tapi akad berbeza: tabarru' (derma bersama), wakalah (agensi), bebas riba/gharar/maisir, dengan potensi perkongsian lebihan/muhibah; pampasan kematian boleh diserah sebagai hibah mutlak ikut IFSA 2013. Nota: mekanik akad ni dari explainer sekunder, bukan BNM. Produk takaful yang disahkan: Etiqa Critical Care Takaful cover 39 kondisi, sum covered RM50,000 dari serendah RM30 setahun, tanpa pemeriksaan perubatan (3 soalan kesihatan), beli online via EPF i-Lindung, dilesenkan bawah IFSA 2013.",
+   "new": "Tujuan bayarannya sama — wang sekali gus apabila didiagnosis — tetapi akadnya berbeza: tabarru' (derma bersama), wakalah (agensi), bebas riba/gharar/maisir, dengan potensi perkongsian lebihan/muhibah; pampasan kematian boleh diserahkan sebagai hibah mutlak mengikut IFSA 2013. Nota: penerangan tentang akad ini datang daripada sumber sekunder, bukan BNM. Produk takaful yang disahkan: Etiqa Critical Care Takaful melindungi 39 keadaan yang dilindungi, sum covered RM50,000 bermula serendah RM30 setahun, tanpa pemeriksaan perubatan (3 soalan kesihatan), boleh dibeli online melalui EPF i-Lindung, dan dilesenkan di bawah IFSA 2013."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Tak sama. Skim Keilatan PERKESO berasaskan pekerjaan (occupation-based), bukan senarai penyakit: hilang upaya kekal hingga tak mampu jana sekurang-kurangnya 1/3 pendapatan biasa, disahkan Lembaga Perubatan; faedah berbentuk pencen/elaun bulanan, elaun penjagaan sentiasa dan dialisis di fasiliti panel — untuk pekerja dengan rekod caruman cukup. Tiada bayaran sekaligus CI, tiada konsep early-stage. CI swasta/takaful bayar lump sum bila didiagnos ikut definisi polisi. mySalam pula skim percuma B40 (kerajaan dengan Great Eastern Holdings): RM8,000 tunai one-off untuk penyakit kritikal dan RM50/hari pendapatan hospital, maksimum 14 hari setahun (RM700 setahun), rawatan di hospital kerajaan — dibiayai sumbangan RM2 bilion Great Eastern ke dana amanah mySalam.",
+   "new": "Tidak sama. Skim Keilatan PERKESO berasaskan pekerjaan (occupation-based), bukan senarai penyakit: hilang upaya kekal sehingga tidak mampu menjana sekurang-kurangnya 1/3 pendapatan biasa, disahkan oleh Lembaga Perubatan; faedahnya berbentuk pencen/elaun bulanan, elaun penjagaan sentiasa dan dialisis di fasiliti panel — untuk pekerja yang rekod carumannya cukup. Tiada bayaran CI sekali gus, dan tiada konsep early-stage. CI swasta/takaful membayar lump sum apabila didiagnosis mengikut definisi polisi. mySalam pula skim percuma untuk B40 (kerajaan dengan Great Eastern Holdings): RM8,000 tunai sekali bayar untuk penyakit kritikal dan RM50/hari pendapatan hospital, maksimum 14 hari setahun (RM700 setahun), untuk rawatan di hospital kerajaan — dibiayai sumbangan RM2 bilion Great Eastern kepada dana amanah mySalam."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "SOCSO/PERKESO vs CI swasta — SOCSO dah cover kan?",
+   "new": "SOCSO/PERKESO dan CI swasta — apa bezanya?"
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
+   "old": "Rider menempel pada polisi asas dan payout-nya accelerated — tolak dari sum assured polisi asas. Contoh disahkan: Prudential Crisis Cover Benefit ialah rider (add-on) atas pelan asas macam PRUCash, bayar pendahuluan dari coverage pelan asas bila didiagnos salah satu 36 CI; Great Eastern SMART Early Payout CriticalCare ialah rider unit-deduction atas pelan investment-linked premium tetap, mesti dilekatkan dengan IL Critical Illness Benefit Rider, dan faedah mengurangkan sum assured rider itu dulu. Standalone dibeli sendiri, tak usik polisi lain — contoh Etiqa Critical Care Plus (42 kondisi, early cash payout, cancer care benefit, elaun tunai penyakit berjangkit, tanpa pemeriksaan perubatan). Rider jimat kalau dah ada polisi asas; standalone bersih kalau nak cover berdiri sendiri.",
+   "new": "Rider dilekatkan pada polisi asas; sama ada bayarannya accelerated bergantung pada terma produk. Jika accelerated, bayaran mengurangkan jumlah diinsuranskan polisi atau rider yang dinyatakan dalam terma produk, bukan semestinya polisi asas. Contoh yang disahkan: Prudential Crisis Cover Benefit ialah rider (add-on) pada pelan asas seperti PRUCash, yang membayar pendahuluan daripada perlindungan pelan asas apabila didiagnosis salah satu daripada 36 CI; Great Eastern SMART Early Payout CriticalCare ialah rider unit-deduction pada pelan investment-linked berpremium tetap, mesti dilekatkan bersama IL Critical Illness Benefit Rider, dan faedahnya mengurangkan sum assured rider itu dahulu. Standalone dibeli secara berasingan dan tidak menjejaskan polisi lain — contohnya Etiqa Critical Care Plus (42 keadaan yang dilindungi, early cash payout, cancer care benefit, elaun tunai penyakit berjangkit, tanpa pemeriksaan perubatan). Bandingkan rider dengan pelan berasingan mengikut perlindungan sedia ada, terma dan harga produk."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[5].acceptedAnswer.text",
+   "old": "Boleh untuk produk yang tersenarai. Yang disahkan dalam data kami: Etiqa Critical Care Plus Insurance (42 kondisi) daftar online via EPF i-Lindung dengan pengeluaran terus Akaun EPF; Etiqa Critical Care Takaful (39 kondisi) pun beli online via i-Lindung; FWD ada FWD i-Lindung (term/CI/medical) dalam funnel Buy Online. i-Lindung ni saluran, bukan produk — terma, had umur dan jumlah cover ikut produk masing-masing. Semak dalam app KWSP/i-Lindung produk mana aktif masa anda apply.",
+   "new": "Boleh, untuk produk yang tersenarai. Yang disahkan dalam data kami: Etiqa Critical Care Plus Insurance (42 keadaan yang dilindungi) boleh didaftarkan online melalui EPF i-Lindung dengan pengeluaran terus daripada Akaun EPF; Etiqa Critical Care Takaful (39 keadaan yang dilindungi) juga boleh dibeli online melalui i-Lindung; FWD ada FWD i-Lindung (term/CI/medical) dalam saluran Buy Online. i-Lindung ialah saluran, bukan produk — terma, had umur dan jumlah perlindungan ikut produk masing-masing. Semak dalam app KWSP/i-Lindung produk mana yang aktif semasa anda memohon."
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Takaful adalah sistem perlindungan berasaskan prinsip saling bantu-membantu (ta'awun) yang patuh Syariah Islam. Insurans konvensional pula adalah kontrak jual beli di mana anda bayar premium dan syarikat tanggung risiko. Lebihan dana dalam takaful dikongsi semula kepada peserta, manakala dalam insurans konvensional keuntungan adalah milik syarikat.",
+   "new": "Perbezaan utama takaful dan insurans terletak pada konsep dan pemilikan dana. Dalam insurans konvensional, premium yang anda bayar menjadi milik syarikat. Dalam takaful, wang anda masuk ke dana bersama peserta, yang diurus oleh syarikat takaful sebagai operator. Lebihan dana boleh dikongsi mengikut syarat sijil dan nisbah yang ditetapkan. Agihan kepada peserta tidak dijamin. Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk."
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Dari segi coverage dan proses claim, kedua-duanya hampir sama. Pilih takaful jika anda mahu produk yang patuh Syariah atau suka konsep surplus sharing. Pilih insurans konvensional jika harganya lebih murah untuk kereta anda atau syarikat yang anda mahu tiada arm takaful. Yang paling penting: bandingkan harga dan perkhidmatan, bukan sekadar label.",
+   "new": "Bergantung pada keutamaan anda. Jika patuh Syariah penting bagi anda, pilih takaful. Jika anda mahu pilihan yang paling jimat, bandingkan quotation daripada kedua-dua jenis untuk kereta anda; harga takaful boleh lebih rendah, sama atau lebih tinggi. Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk."
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Harga takaful dan insurans kereta adalah berbeza mengikut syarikat dan model kereta. Selepas liberalisasi tarif motor 2017, setiap syarikat boleh tetapkan harga sendiri — jadi ada masa takaful lebih murah, ada masa insurans konvensional lebih murah. Sentiasa bandingkan quotation dari kedua-dua jenis sebelum buat keputusan.",
+   "new": "Tiada jawapan mutlak. Selepas liberalisasi tarif motor 2017, setiap syarikat boleh menetapkan harga sendiri. Untuk kereta yang sama, takaful daripada Syarikat A mungkin lebih murah daripada insurans konvensional Syarikat B, tetapi lebih mahal daripada Syarikat C. Sentiasa bandingkan quotation untuk kereta anda daripada pelbagai syarikat."
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Beza takaful dan insurans dari segi harga?",
+   "new": "Beza takaful dan insurans dari segi harga — mana lebih murah?"
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Non-Muslim boleh ambil takaful?",
+   "new": "Perbezaan takaful dan insurans dari segi claim — susah ke senang?"
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
+   "old": "Proses claim takaful dan insurans konvensional adalah hampir identik — anda hubungi syarikat, submit dokumen, hantar kereta ke panel bengkel. Dari perspektif pengguna, pengalaman claim hampir tiada beza. Yang berbeza adalah konsep di belakang tabir.",
+   "new": "Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali. Tiada syarat agama untuk mendaftar."
+  },
+  {
+   "url": "/guides/insurance-vs-takaful/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Perbezaan takaful dan insurans dari segi claim?",
+   "new": "Non-Muslim boleh beli takaful?"
+  },
+  {
+   "url": "/guides/insurans-kereta-banjir/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Kos add-on special perils dikira sebagai peratusan daripada sum insured, lazimnya 0.2% hingga 0.5% setahun, bergantung kepada syarikat insurans dan tahap perlindungan. Contohnya, untuk kereta dengan sum insured RM50,000, premium tambahan adalah sekitar RM100 hingga RM250 setahun. Minta sebut harga untuk angka tepat.",
+   "new": "Kos add-on special perils dikira sebagai peratusan daripada sum insured, lazimnya 0.2% hingga 0.5% setahun, bergantung kepada syarikat insurans dan tahap perlindungan. Contohnya, untuk kereta dengan sum insured RM50,000, premium tambahan ialah sekitar RM100 hingga RM250 setahun. Minta sebut harga untuk angka tepat."
+  },
+  {
+   "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Bank Negara Malaysia: definisi diseragamkan untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016. Senarai verbatim dalam data kami dari PDF rasmi AIA; komposisi tepat boleh berbeza sedikit ikut penginsurans atau sijil.",
+   "new": "Bank Negara Malaysia: definisi diseragamkan untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016. Senarai verbatim dalam data kami diambil daripada PDF rasmi AIA; komposisi tepat boleh berbeza sedikit ikut penginsurans atau sijil."
+  },
+  {
+   "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Ikut wording standard 36 — kanser sangat awal (very early) dikecualikan; bar ialah “tahap tertentu”. Nak perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich) — bukan assume standard 36 bayar awal.",
+   "new": "Ikut wording standard 36 — kanser sangat awal (very early) dikecualikan; syaratnya ialah “tahap tertentu”. Jika mahu perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich) — jangan anggap standard 36 membayar pada peringkat awal."
+  },
+  {
+   "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Kanser awal cover tak?",
+   "new": "Kanser peringkat awal dilindungi tak?"
+  },
+  {
+   "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Tak sama. Skim Keilatan PERKESO berasaskan pekerjaan — hilang upaya kekal hingga tak mampu jana 1/3 pendapatan biasa, faedah berbentuk pencen atau elaun bulanan, bukan lump sum. CI swasta atau takaful bayar sekaligus bila didiagnos. Dua benda berbeza, boleh saling melengkapi.",
+   "new": "Tidak sama. Skim Keilatan PERKESO berasaskan pekerjaan — hilang upaya kekal hingga tidak mampu menjana 1/3 pendapatan biasa, dan faedahnya berbentuk pencen atau elaun bulanan, bukan bayaran sekali gus (lump sum). CI swasta atau takaful membayar sekali gus apabila didiagnos. Dua perkara berbeza yang boleh saling melengkapi."
+  },
+  {
+   "url": "/literasi-kewangan/deductible-co-insurance/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Ikut polisi — ada “per disability” (setiap kes atau penyakit, contoh deductible RM300 SmartMedic Shield), ada “per rider/certificate year” (sekali setahun, contoh A-Plus Health360). Dua makna berbeza, kesan besar pada kos — semak frasa tepat dalam PDS.",
+   "new": "Ikut polisi — ada “per disability” (setiap kes atau penyakit, contoh deductible RM300 SmartMedic Shield), ada “per rider/certificate year” (sekali setahun, contoh A-Plus Health360). Dua makna berbeza, dengan kesan besar pada kos — semak frasa tepat dalam PDS."
+  },
+  {
+   "url": "/literasi-kewangan/deductible-co-insurance/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Selalunya ada cap (contoh “dihadkan atas RM500”). Tanpa cap, 5% dari bil RM100,000 = RM5,000. Sentiasa tanya dua-dua: peratus dan cap. Kalau tiada cap bertulis, anggap risiko terbuka.",
+   "new": "Selalunya ada had atau cap (contoh “dihadkan pada RM500”). Tanpa cap, 5% daripada bil RM100,000 = RM5,000. Sentiasa tanya kedua-duanya: peratus dan cap. Jika tiada cap bertulis, anggap risikonya terbuka."
+  },
+  {
+   "url": "/literasi-kewangan/deductible-co-insurance/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah sebab anda kongsi risiko. Tapi murah pada caruman, mahal masa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.",
+   "new": "Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah kerana anda berkongsi risiko. Tetapi murah pada caruman, mahal semasa claim. Pilih ikut simpanan anda, bukan ikut harga brosur."
+  },
+  {
+   "url": "/literasi-kewangan/epf-simpanan-insurans/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Boleh untuk produk tersenarai di i-Lindung dalam app KWSP — contoh disahkan: Etiqa Critical Care Plus dan Critical Care Takaful. Terma dan had ikut produk masing-masing, dan pengeluaran mengurangkan baki persaraan. Semak produk aktif masa apply.",
+   "new": "Boleh untuk produk yang tersenarai di i-Lindung dalam aplikasi KWSP — contoh disahkan: Etiqa Critical Care Plus dan Critical Care Takaful. Terma dan had ikut produk masing-masing, dan pengeluaran mengurangkan baki persaraan. Semak produk yang aktif semasa memohon."
+  },
+  {
+   "url": "/literasi-kewangan/epf-simpanan-insurans/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Bergantung angka: bandingkan had tahunan majikan dengan kos hospital swasta di bandar anda dan risiko pertukaran kerja (cover majikan berhenti bila anda berhenti). Ramai guna majikan sebagai asas + top-up swasta deductible-tinggi sebagai jaring kedua.",
+   "new": "Bergantung pada angka: bandingkan had tahunan cover majikan dengan kos hospital swasta di bandar anda dan risiko pertukaran kerja (cover majikan berhenti apabila anda berhenti kerja). Ada yang menggunakan cover majikan sebagai asas, dengan top-up swasta deductible tinggi sebagai jaring kedua."
+  },
+  {
+   "url": "/literasi-kewangan/epf-simpanan-insurans/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 one-off + RM50/hari hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta bayar lump sum ikut sum assured untuk ganti pendapatan dan hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang — kira, jangan assume cukup atau assume perlu.",
+   "new": "Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 sekali bayar + RM50/hari di hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta membayar sekali gus (lump sum) ikut sum assured untuk menggantikan pendapatan dan membayar hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang — kira dulu; jangan anggap sudah cukup, dan jangan anggap perlu."
+  },
+  {
+   "url": "/literasi-kewangan/gaji-dan-perlindungan/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tiada jawapan universal, tapi logiknya: lindungi risiko yang boleh hapuskan simpanan dulu — biasanya kos hospital. Kalau ada anak atau ibu bapa bergantung pada gaji anda, timbang perlindungan nyawa asas. Kira siling dulu, baru pilih.",
+   "new": "Tiada jawapan universal, tetapi logiknya: lindungi dulu risiko yang boleh menghapuskan simpanan — biasanya kos hospital. Jika ada anak atau ibu bapa yang bergantung pada gaji anda, timbangkan perlindungan nyawa asas. Kira siling dulu, kemudian barulah pilih."
+  },
+  {
+   "url": "/literasi-kewangan/gaji-dan-perlindungan/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Formula tu kompas, bukan undang-undang. Kalau keperluan dah 70%, maknanya ruang perlindungan hampir tiada — fokus dana kecemasan kecil dan skim sedia ada seperti PERKESO atau cover majikan dulu. Jangan paksa komitmen bulanan baru.",
+   "new": "Formula itu panduan arah, bukan undang-undang. Jika keperluan sudah 70%, maknanya ruang untuk perlindungan hampir tiada — fokus dulu pada dana kecemasan kecil dan skim sedia ada seperti PERKESO atau cover majikan. Jangan paksa komitmen bulanan baharu."
+  },
+  {
+   "url": "/literasi-kewangan/gaji-dan-perlindungan/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Masa depan penting, tapi lapse lagi buruk — polisi yang berhenti tengah jalan sebab tak mampu bayar beri perlindungan sifar dan hanguskan caruman lepas. Ambil yang mampu bayar 10 tahun tanpa semput, bukan yang ngam-ngam tahun ini.",
+   "new": "Masa depan penting, tetapi polisi yang luput (lapse) lebih buruk — polisi yang luput boleh menghentikan perlindungan. Nilai tunai, pilihan pengembalian dan kesan terhadap bayaran terdahulu bergantung pada kontrak. Ambil yang mampu dibayar selama 10 tahun tanpa tercungap-cungap, bukan yang cukup-cukup untuk tahun ini."
+  },
+  {
+   "url": "/literasi-kewangan/renew-tanpa-panik/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau polisi lapse, anda tak boleh drive legally dan NCD boleh terjejas. Peringatan kalendar + folder PDF tahunan jadikan ini automatik.",
+   "new": "2–4 minggu sebelum tamat. Jangan tunggu saat akhir — jika polisi luput (lapse), anda tidak sah memandu di jalan raya dan NCD boleh terjejas. Peringatan kalendar dan folder PDF tahunan menjadikan proses ini automatik."
+  },
+  {
+   "url": "/literasi-kewangan/renew-tanpa-panik/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Nilai pasaran semasa kereta — bukan harga beli, bukan baki loan. Terlalu tinggi = premium membazir; terlalu rendah = claim dikurangkan (under-insurance). Semak angka auto-detect aggregator dengan harga pasaran semasa sebelum bayar.",
+   "new": "Semak sama ada polisi menggunakan nilai pasaran atau nilai dipersetujui. Bagi polisi nilai pasaran, gunakan penilaian semasa, bukan harga beli atau baki pinjaman. Kurang insurans boleh mengurangkan bayaran mengikut syarat polisi. Semak angka yang dikesan secara automatik oleh aggregator dengan harga pasaran semasa sebelum bayar."
+  },
+  {
+   "url": "/literasi-kewangan/travel-bila-perlu/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Bergantung trip: check ambang jarak (contoh Zurich domestik ≥50km dari rumah) dan apa yang dilindungi — delay, bagasi, kemasukan hospital. Trip drive dekat dengan hospital kerajaan sepanjang jalan biasanya tak berbaloi; trip domestik dengan penerbangan + hotel mahal mungkin berbaloi untuk cancellation atau delay.",
+   "new": "Bergantung pada trip: semak ambang jarak (contoh Zurich domestik ≥50km dari rumah) dan apa yang dilindungi — delay, bagasi, kemasukan hospital. Nilai kos yang mungkin tidak boleh dipulangkan, manfaat yang diperlukan dan syarat perjalanan domestik sebelum membandingkan harga."
+  },
+  {
+   "url": "/literasi-kewangan/travel-bila-perlu/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Kena check satu-satu: Zurich Z-Travel dan Etiqa TripCare 360 = add-on berbayar; Generali = rider Pandemic Cover (overseas saja); Allianz Shopee = built-in tapi divaksin penuh saja + perlu diagnosis doktor dan laporan makmal. Jangan assume auto-cover.",
+   "new": "Perlu disemak satu per satu: Zurich Z-Travel dan Etiqa TripCare 360 = add-on berbayar; Generali = rider Pandemic Cover (luar negara sahaja); Allianz Shopee = sudah termasuk dalam polisi, tetapi hanya untuk yang divaksin penuh, dan perlu diagnosis doktor serta laporan makmal. Jangan anggap COVID dilindungi secara automatik."
+  },
+  {
+   "url": "/medical-cards/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Best medical card Malaysia — yang mana patut saya ambil?",
+   "new": "“Best medical card Malaysia” — bagaimana mahu membandingkan pelan?"
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "RM338.06 setahun — contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah.. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.",
+   "new": "RM338.06 setahun — contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "RM285.49 setahun — SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51.. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.",
+   "new": "RM285.49 setahun — SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+  },
+  {
+   "url": "/panduan/checklist-medical-card/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan tersebut untuk jumlah yang terpakai — contoh dalam data kami: AIA 5% dihadkan atas RM500, myMedik co-takaful 5%/10% dihadkan atas RM500/RM1,000, GREAT MedCare co-payment tetap RM500.",
+   "new": "Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan tersebut untuk jumlah yang terpakai — contoh dalam data kami: AIA 5% dihadkan pada RM500, myMedik co-takaful 5%/10% dihadkan pada RM500/RM1,000, GREAT MedCare co-payment tetap RM500."
+  },
+  {
+   "url": "/panduan/checklist-medical-card/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Rider tumpang pada polisi life/ILP (mudah satu tempat, tapi nasib rider terikat pada polisi asas); standalone ialah polisi perubatan sahaja (contoh GREAT MedCare, OneMedical). Takaful pula pilihan patuh-Syariah (contoh myMedik, IKHLAS Medik). Pilih ikut struktur yang anda faham dan mampu kekalkan — dan semak syarat pembaharuan dalam PDS.",
+   "new": "Rider menumpang pada polisi life/ILP (mudah kerana di satu tempat, tetapi nasib rider terikat pada polisi asas); standalone ialah polisi perubatan sahaja (contoh GREAT MedCare, OneMedical). Takaful pula pilihan patuh-Syariah (contoh myMedik, IKHLAS Medik). Pilih ikut struktur yang anda faham dan mampu kekalkan — dan semak syarat pembaharuan dalam PDS."
+  },
+  {
+   "url": "/panduan/checklist-travel/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Bergantung jarak dan plan. Contoh: Zurich Travel Takaful ada tier domestik bermula ≥50km dari rumah — trip dekat bawah jarak itu tidak dilindungi. Untuk domestik jauh (flight + hotel prepaid), cancellation/delay cover masih berbaloi; untuk balik kampung naik kereta sejam, biasanya membazir.",
+   "new": "Bergantung pada jarak dan plan. Contoh: Zurich Travel Takaful ada tier domestik bermula ≥50km dari rumah — trip dekat bawah jarak itu tidak dilindungi. Nilai kos yang mungkin tidak boleh dipulangkan, manfaat yang diperlukan dan syarat perjalanan domestik sebelum membandingkan harga."
+  },
+  {
+   "url": "/panduan/checklist-travel/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Kira ikut kekerapan: kalau anda fly 3 kali atau lebih setahun, bandingkan harga satu annual (contoh varian annual Zurich, Tune Protect, Generali) dengan jumlah 3× single. Yang fly sekali setahun — single sudah memadai.",
+   "new": "Kira ikut kekerapan: jika anda terbang 3 kali atau lebih setahun, bandingkan harga satu annual (contoh varian annual Zurich, Tune Protect, Generali) dengan jumlah 3× single. Jika terbang sekali setahun, single sudah memadai."
+  },
+  {
+   "url": "/panduan/checklist-travel/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Ikut plan: Etiqa auto-payout dari lewat 2 jam; Zurich dari 6 jam. Simpan boarding pass dan notis delay bertulis syarikat penerbangan — tanpa bukti bertulis, claim delay sukar diluluskan walau melepasi threshold.",
+   "new": "Ikut plan: Etiqa membayar secara automatik mulai lewat 2 jam; Zurich mulai 6 jam. Simpan boarding pass dan notis delay bertulis daripada syarikat penerbangan — tanpa bukti bertulis, claim delay sukar diluluskan walaupun melepasi ambang."
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tiada jawapan tetap; harga premium post-liberalisasi 2017 ditetapkan setiap syarikat. Cara betul: semak NCD dahulu, banding 2–3 quotation sebagai rujukan, kemudian pilih saluran yang bagi nilai terbaik untuk kes anda. Baca langkah penuh di /guides/renew-car-insurance/ →.",
+   "new": "Tiada jawapan tetap; harga premium selepas liberalisasi 2017 ditetapkan oleh setiap syarikat. Cara yang betul: semak NCD dahulu, banding 2–3 quotation sebagai rujukan, kemudian pilih saluran yang memberi nilai terbaik untuk kes anda. Baca langkah penuh di /guides/renew-car-insurance/ →."
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau lapse, NCD boleh terjejas dan anda tak boleh memandu secara sah.",
+   "new": "2–4 minggu sebelum tamat. Jangan tunggu saat akhir — jika polisi luput (lapse), NCD boleh terjejas dan anda tidak boleh memandu secara sah."
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Bila patut renew — awal atau last minute?",
+   "new": "Bila patut renew — awal atau saat akhir?"
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Bergantung pada kos baiki vs NCD yang akan reset. Guna semakan \"patut ke claim?\" dalam /tools/ncd-calculator/ → dan baca /guides/ncd-explained/ → sebelum buat keputusan — claim kecil kadang lebih mahal jangka panjang bila NCD jatuh.",
+   "new": "Bergantung pada kos baiki berbanding NCD yang akan ditetapkan semula. Guna semakan \"patut ke claim?\" dalam /tools/ncd-calculator/ → dan baca /guides/ncd-explained/ → sebelum membuat keputusan — claim kecil kadangkala lebih mahal dalam jangka panjang apabila NCD jatuh."
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Lepas accident kecil, patut claim atau bayar sendiri?",
+   "new": "Selepas kemalangan kecil, patut claim atau bayar sendiri?"
+  },
+  {
+   "url": "/tools/kalkulator-insurans-rumah/",
+   "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
+   "old": "Tidak. Ia anggaran dari kadar tariff awam. Bank Negara sedang meliberalisasikan tariff kebakaran, jadi harga bukan tariff atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.",
+   "new": "Tidak. Ia anggaran daripada kadar tarif awam. Bank Negara sedang meliberalisasikan tarif kebakaran, jadi harga bukan tarif atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia."
+  }
+ ]
+}

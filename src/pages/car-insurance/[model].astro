@@ -15,7 +15,7 @@ import companies from '../../data/companies.json';
 import { monthly, rm } from '../../lib/ncd';
 import { modelPhotoPreload } from '../../components/edisi/photo';
 import Dock from '../../components/edisi/Dock.astro';
-import { rmRange } from '../../components/edisi/steps';
+import { rmRange, specialPerilsRange } from '../../components/edisi/steps';
 
 export function getStaticPaths() {
   return carModels.map((car) => ({
@@ -69,14 +69,12 @@ const initialArticleDate = '2026-02-14';
 // Last content revision across all model pages (no-"wajib" verdicts, special-perils estimate).
 const contentRevised = '2026-11-15';
 const articleDate = [initialArticleDate, model.premiumReviewed, contentRevised].filter(Boolean).sort().at(-1);
-const roundRm10 = (n: number) => Math.round(n / 10) * 10;
 // Market value through the one range format (RM22,000–38,000); the raw marketValueRange string only when min/max are missing.
 const marketValueText = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax)
   ? rmRange(model.marketValueMin, model.marketValueMax)
   : model.marketValueRange;
-const specialPerilsEstimate = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax) && model.marketValueRange
-  ? ` (untuk sum insured ${marketValueText}: sekitar ${rmRange(roundRm10(model.marketValueMin * 0.002), roundRm10(model.marketValueMax * 0.005))} setahun, sebelum cukai)`
-  : '';
+const specialPerils = specialPerilsRange(model);
+const specialPerilsEstimate = specialPerils ? ` (untuk sum insured ${marketValueText}: sekitar ${specialPerils} setahun, sebelum cukai)` : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.

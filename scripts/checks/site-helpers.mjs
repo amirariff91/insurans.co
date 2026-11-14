@@ -26,18 +26,11 @@ export async function siteHelpers(repo) {
   return cached;
 }
 
-/** The special-perils estimate exactly as src/pages/car-insurance/[model].astro prints it (RM10 rounding, 0.2%–0.5%). */
-export function specialPerils(m) {
-  if (!(Number.isFinite(m.marketValueMin) && Number.isFinite(m.marketValueMax) && m.marketValueRange)) return '';
-  const r10 = (n) => Math.round(n / 10) * 10;
-  return `RM${r10(m.marketValueMin * 0.002).toLocaleString('en-MY')}–RM${r10(m.marketValueMax * 0.005).toLocaleString('en-MY')}`;
-}
-
 /** Every figure the NCD control and its derived displays can print for one model, as text. */
 export function derivedTexts(h, m) {
   const s = h.carSteps(m);
   const parts = [];
   for (const k of Object.keys(s.price)) parts.push(s.ins[k], s.total[k], s.saving[k], s.monthly[k]);
-  parts.push(specialPerils(m), s.roadtaxText);
+  parts.push(h.specialPerilsRange(m), s.roadtaxText);
   return parts.filter(Boolean).join(' ; ');
 }
