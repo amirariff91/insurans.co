@@ -21,9 +21,9 @@ const schema = {
 };
 
 const riskColor: Record<string, string> = {
-  'Tinggi': 'bg-red-100 text-red-700',
-  'Sederhana': 'bg-yellow-100 text-yellow-700',
-  'Rendah': 'bg-green-100 text-green-700',
+  'Tinggi': 'risk-tinggi',
+  'Sederhana': 'risk-sederhana',
+  'Rendah': 'risk-rendah',
 };
 ---
 
@@ -41,7 +41,6 @@ const riskColor: Record<string, string> = {
         <span class="mx-2">›</span>
         <span class="text-stone-700">Negeri</span>
       </nav>
-      <p class="label mb-3">Panduan Mengikut Lokasi</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Panduan Insurans Kereta Mengikut Negeri di Malaysia
       </h1>
@@ -58,9 +57,9 @@ const riskColor: Record<string, string> = {
     <!-- Risk Legend -->
     <div class="flex flex-wrap gap-3 mb-8 text-sm">
       <span class="text-stone-500">Risiko Banjir:</span>
-      <span class="bg-red-100 text-red-700 px-3 py-1 font-medium">Tinggi</span>
-      <span class="bg-yellow-100 text-yellow-700 px-3 py-1 font-medium">Sederhana</span>
-      <span class="bg-green-100 text-green-700 px-3 py-1 font-medium">Rendah</span>
+      <span class="risk-tinggi px-3 py-1 font-medium">Tinggi</span>
+      <span class="risk-sederhana px-3 py-1 font-medium">Sederhana</span>
+      <span class="risk-rendah px-3 py-1 font-medium">Rendah</span>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

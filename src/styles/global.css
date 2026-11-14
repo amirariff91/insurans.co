@@ -241,16 +241,69 @@
     @apply border-t-2 border-stone-900 my-8;
   }
 
-  /* Category label */
+  /* Category label: quiet metadata in sentence case (Edisi drops the shouted kicker). */
   .label {
-    @apply text-xs font-sans font-bold uppercase tracking-widest text-edisi-ink;
+    @apply text-sm font-sans font-semibold text-edisi-ink-2;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   /* Card — minimal, editorial */
   .card-editorial {
     @apply bg-edisi-card border border-edisi-rule rounded-lg p-5 sm:p-6;
     @apply hover:border-edisi-ink transition-colors;
+    min-width: 0;
   }
+
+  /* A card that is a link: the border goes ink on hover and the inner title underlines. */
+  a.card-editorial:hover :is(h2, h3, .card-t) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  /* Plain link tile (state shortcuts and similar). */
+  .tile-link {
+    @apply block rounded-lg border border-edisi-rule bg-edisi-card p-4 text-center text-edisi-ink transition-colors hover:border-edisi-ink;
+  }
+
+  /*
+   * Notes. Each pastel keeps one job (system.md):
+   *   .note-warn  yellow, ink border: warnings, exclusions, terms and totals;
+   *   .note-info  blue: explanations, short answers, what is covered;
+   *   .note-price pink: price examples and working;
+   *   .note-plain tray: neutral asides and disclaimers.
+   * A soft 1px border all round replaces the old thick left bar.
+   */
+  .note-warn, .note-info, .note-price, .note-plain {
+    @apply rounded-lg p-4 sm:p-5 text-edisi-ink;
+    border: 1px solid var(--rule);
+  }
+  .note-warn { background: var(--tint-yellow); border-color: var(--ink); }
+  .note-info { background: var(--tint-sky); }
+  .note-price { background: var(--tint-pink); }
+  .note-plain { background: var(--tray); }
+  .note-t {
+    @apply font-sans font-semibold text-edisi-ink;
+    margin-bottom: 0.25rem;
+  }
+  /* Restrained red for the heading of a warning only (5.6:1 on the yellow). */
+  .note-warn > .note-t { color: var(--red); }
+  :is(.note-warn, .note-info, .note-price, .note-plain) :is(p, li) { color: var(--ink); }
+
+  /* "Not covered" marks in tables and lists: Edisi red, 6.2:1 on white. */
+  .mark-no { color: var(--red); font-weight: 700; }
+
+  /* Flood-risk chips: a flag, so red text for high, yellow for medium, plain for low. No green. */
+  .risk-tinggi, .risk-sederhana, .risk-rendah {
+    border: 1px solid var(--rule);
+    border-radius: var(--r-1);
+    color: var(--ink);
+    background: var(--card);
+  }
+  .risk-tinggi { color: var(--red); border-color: var(--red); }
+  .risk-sederhana { background: var(--tint-yellow); border-color: var(--ink); }
+  .risk-rendah { background: var(--tray); }
 
   /* Verdict badge */
   .verdict {
@@ -279,62 +332,130 @@
     margin-bottom: 0.25rem;
   }
 
-  /* Table styles */
-  .table-editorial {
+  /* Tables: black header bar, comfortable rows; the wrapper scrolls on phones, never the page. */
+  .overflow-x-auto:has(> table) {
+    position: relative; /* contains sr-only text in cells, which would otherwise widen the page */
+    max-width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-2);
+    background: var(--card);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* A grid column holding a scrolling table must be allowed to shrink, or the page scrolls sideways. */
+  .grid > :has(.overflow-x-auto > table) {
+    min-width: 0;
+  }
+
+  .table-editorial,
+  .prose-editorial table {
     @apply w-full text-sm;
+    border-collapse: collapse;
   }
 
-  .table-editorial thead {
-    @apply border-b-[1.5px] border-edisi-ink;
+  .table-editorial thead,
+  .prose-editorial table thead,
+  .overflow-x-auto > table > thead {
+    background: var(--ink);
+    color: #FFFFFF;
   }
 
-  .table-editorial th {
-    @apply text-left font-display font-bold text-edisi-ink py-3 pr-4;
+  .table-editorial th,
+  .prose-editorial table th {
+    @apply text-left font-display font-bold;
+    padding: 0.7rem 0.85rem;
+    vertical-align: top;
   }
 
-  .table-editorial td {
-    @apply py-3 pr-4 border-b border-stone-100;
+  .table-editorial thead th,
+  .prose-editorial table thead th {
+    vertical-align: bottom;
+  }
+
+  .table-editorial tbody th {
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+  }
+
+  .table-editorial caption,
+  .prose-editorial table caption {
+    padding: 0.5rem 0.85rem;
+    text-align: left;
+  }
+
+  .table-editorial thead th,
+  .prose-editorial table thead th,
+  .overflow-x-auto > table > thead th {
+    color: #FFFFFF;
+    border: 0;
+  }
+
+  .table-editorial tbody th {
+    @apply text-edisi-ink;
+  }
+
+  .table-editorial td,
+  .prose-editorial table td {
+    padding: 0.7rem 0.85rem;
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+    vertical-align: top;
     font-variant-numeric: tabular-nums;
   }
 
-  .table-editorial tbody tr:last-child td {
-    @apply border-b-0;
+  .table-editorial tbody tr:first-child td {
+    border-top: 0;
   }
 
-  /* FAQ accordion */
-  .faq-item {
-    @apply border-b border-stone-200 py-4;
+  /* FAQ and disclosures (Edisi .faq): hairline rows, a chevron on the right. */
+  .faq-item,
+  .prose-editorial details:not([class]) {
+    border-bottom: 1px solid rgb(0 0 0 / 0.25);
+    @apply py-1;
   }
 
-  .faq-item summary {
+  .faq-item summary,
+  .prose-editorial details:not([class]) > summary {
     min-height: 48px;
     display: flex;
-    align-items: flex-start;
-    @apply font-sans font-semibold text-stone-900 cursor-pointer list-none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    @apply font-sans font-semibold text-edisi-ink cursor-pointer list-none;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .faq-item summary:hover { text-decoration-line: underline; }
+    .faq-item summary:hover,
+    .prose-editorial details:not([class]) > summary:hover { text-decoration-line: underline; }
   }
 
-  .faq-item summary::-webkit-details-marker {
+  .faq-item summary::-webkit-details-marker,
+  .prose-editorial details:not([class]) > summary::-webkit-details-marker {
     display: none;
   }
 
-  .faq-item summary::before {
-    content: '+';
-    @apply inline-block w-6 text-stone-600 mr-2;
-    speak: never;
+  .faq-item summary::after,
+  .prose-editorial details:not([class]) > summary::after {
+    content: '';
+    flex: none;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-right: 0.3rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 150ms var(--ease-out);
   }
 
-  .faq-item[open] summary::before {
-    content: '−';
+  .faq-item[open] summary::after,
+  .prose-editorial details:not([class])[open] > summary::after {
+    transform: rotate(-135deg);
   }
 
   .faq-item p {
-    @apply mt-3 text-stone-600 leading-relaxed pl-0 sm:pl-8;
+    @apply mt-1 mb-3 text-edisi-ink leading-relaxed;
+    max-width: 62ch;
   }
 
   /* Button styles */
@@ -355,9 +476,11 @@
     min-height: 44px;
   }
 
-  /* Prose for article content */
+  /* Prose for article content (Edisi .prosa, penulis.html). */
   .prose-editorial {
-    @apply text-stone-800 leading-relaxed;
+    @apply text-edisi-ink;
+    font-size: 1.0625rem;
+    line-height: 1.6;
   }
 
   .prose-editorial p {
@@ -365,24 +488,46 @@
   }
 
   .prose-editorial h2 {
-    @apply font-serif text-headline-md text-stone-900 mt-10 mb-4;
+    @apply font-serif text-headline-md text-edisi-ink mt-12 mb-4;
+    padding-top: 0.75rem;
+    border-top: 2px solid var(--ink);
   }
 
   .prose-editorial h3 {
-    @apply font-serif text-headline-sm text-stone-900 mt-8 mb-3;
+    @apply font-serif text-headline-sm text-edisi-ink mt-8 mb-3;
+  }
+
+  .prose-editorial > h2:first-child {
+    margin-top: 0;
   }
 
   .prose-editorial ul, .prose-editorial ol {
-    @apply mb-4 pl-5 space-y-2;
+    @apply mb-5 pl-5 space-y-2;
   }
 
+  .prose-editorial ul:not([class]) { list-style: disc; }
+  .prose-editorial ol:not([class]) { list-style: decimal; }
+  .prose-editorial li::marker { color: var(--ink); }
+
   .prose-editorial li {
-    @apply text-stone-700;
+    @apply text-edisi-ink;
   }
 
   .prose-editorial strong {
-    @apply text-stone-900 font-semibold;
+    @apply text-edisi-ink font-semibold;
   }
+
+  /* Figures in the display face: one weight next to 750 headings, tabular digits. */
+  .figure {
+    @apply font-display;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Any display-face text without its own weight utility gets the Edisi weight (zero specificity, so a font-* utility wins). */
+:where(.font-serif, .font-display) {
+  font-weight: 750;
 }
 
 @layer utilities {

@@ -120,20 +120,20 @@ const schema = {
               <tr>
                 <td class="font-medium">Kerosakan kereta sendiri (accident)</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kecurian kereta sendiri</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kebakaran kereta sendiri</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kerosakan kereta orang lain</td>
@@ -150,8 +150,8 @@ const schema = {
               <tr>
                 <td class="font-medium">Banjir &amp; bencana alam (special perils)</td>
                 <td class="text-stone-500">Add-on</td>
-                <td class="text-red-500 font-bold">✗</td>
-                <td class="text-red-500 font-bold">✗</td>
+                <td class="mark-no">✗</td>
+                <td class="mark-no">✗</td>
               </tr>
               <tr>
                 <td class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</td>
@@ -201,9 +201,9 @@ const schema = {
             <li><strong>TPFT dan pihak ketiga:</strong> lebih murah, tetapi kami belum mengesahkan angkanya. Minta sebut harga untuk kereta anda.</li>
           </ul>
 
-          <div class="not-prose bg-blue-50 border border-blue-200 rounded-lg p-4 my-6">
-            <p class="font-semibold text-blue-800 mb-2">Contoh Kos: {myvi.fullName}</p>
-            <ul class="text-blue-700 text-sm space-y-1">
+          <div class="not-prose note-price my-6">
+            <p class="note-t mb-2">Contoh Kos: {myvi.fullName}</p>
+            <ul class="text-sm space-y-1">
               <li>• <strong>Komprehensif (NCD 55%):</strong> ~{tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}/tahun (belum termasuk special perils)</li>
               <li>• <strong>Komprehensif (tanpa NCD):</strong> ~{tightRange(myvi.premiumNCD0Min, myvi.premiumNCD0Max)}/tahun</li>
               <li>• <strong>Pihak Ketiga:</strong> minta sebut harga; kami belum mengesahkan angkanya</li>
@@ -276,7 +276,7 @@ const schema = {
                 <span><strong>TPFT</strong> — cover kecurian + kebakaran + pihak ketiga</span>
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-red-400 font-bold flex-shrink-0">✗</span>
+                <span class="mark-no flex-shrink-0">✗</span>
                 <span><strong>Pihak Ketiga</strong> — cover orang lain sahaja</span>
               </li>
             </ul>

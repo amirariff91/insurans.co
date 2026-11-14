@@ -85,9 +85,9 @@ const schema = {
       <article class="lg:col-span-2 prose-editorial">
 
         <!-- Warning box -->
-        <div class="not-prose bg-red-50 border border-red-200 rounded-lg p-5 mb-8">
-          <p class="text-sm font-semibold text-red-800 mb-1">Peringatan Penting</p>
-          <p class="text-sm text-red-700 leading-relaxed">
+        <div class="not-prose note-warn mb-8">
+          <p class="note-t text-sm">Peringatan Penting</p>
+          <p class="text-sm leading-relaxed">
             Insurans komprehensif standard TIDAK melindungi kerosakan banjir. Anda perlu tambah
             add-on <strong>Special Perils</strong> secara berasingan. Jika anda tinggal di kawasan
             banjir dan tidak ada add-on ini, anda menanggung sepenuhnya kos kerosakan banjir.
@@ -126,9 +126,9 @@ const schema = {
           Kos membaiki kereta yang rosak akibat banjir boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan. Bandingkan kos itu dengan premium tambahan special perils untuk kereta anda.
         </p>
 
-        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 my-6">
-          <p class="font-semibold text-amber-800 mb-2">Contoh Nyata: Banjir Klang 2021</p>
-          <p class="text-amber-700 text-sm">Banjir besar di Lembah Klang pada Disember 2021 merosakkan banyak kenderaan. Tanpa perlindungan <em>special perils</em>, kos membaiki kereta yang rosak akibat banjir perlu ditanggung sendiri dan boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan.</p>
+        <div class="note-warn my-6">
+          <p class="note-t mb-2">Contoh Nyata: Banjir Klang 2021</p>
+          <p class="text-sm">Banjir besar di Lembah Klang pada Disember 2021 merosakkan banyak kenderaan. Tanpa perlindungan <em>special perils</em>, kos membaiki kereta yang rosak akibat banjir perlu ditanggung sendiri dan boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan.</p>
         </div>
 
         <h2>Negeri Berisiko Tinggi Banjir</h2>
@@ -149,28 +149,28 @@ const schema = {
         </p>
 
         <div class="not-prose grid sm:grid-cols-3 gap-3 my-6">
-          <a href="/negeri/kelantan/" class="block p-4 bg-red-50 border border-red-200 rounded-lg text-center group">
-            <span class="block font-semibold text-red-800 group-hover:text-red-700">Kelantan</span>
-            <span class="text-xs text-red-700">Risiko Banjir: Tinggi</span>
+          <a href="/negeri/kelantan/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Kelantan</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
-          <a href="/negeri/terengganu/" class="block p-4 bg-red-50 border border-red-200 rounded-lg text-center group">
-            <span class="block font-semibold text-red-800 group-hover:text-red-700">Terengganu</span>
-            <span class="text-xs text-red-700">Risiko Banjir: Tinggi</span>
+          <a href="/negeri/terengganu/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Terengganu</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
-          <a href="/negeri/pahang/" class="block p-4 bg-red-50 border border-red-200 rounded-lg text-center group">
-            <span class="block font-semibold text-red-800 group-hover:text-red-700">Pahang</span>
-            <span class="text-xs text-red-700">Risiko Banjir: Tinggi</span>
+          <a href="/negeri/pahang/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Pahang</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
-          <a href="/negeri/kedah/" class="block p-4 bg-red-50 border border-red-200 rounded-lg text-center group">
-            <span class="block font-semibold text-red-800 group-hover:text-red-700">Kedah</span>
-            <span class="text-xs text-red-700">Risiko Banjir: Tinggi</span>
+          <a href="/negeri/kedah/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Kedah</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
-          <a href="/negeri/selangor/" class="block p-4 bg-red-50 border border-red-200 rounded-lg text-center group">
-            <span class="block font-semibold text-red-800 group-hover:text-red-700">Selangor</span>
-            <span class="text-xs text-red-700">Risiko Banjir: Tinggi</span>
+          <a href="/negeri/selangor/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Selangor</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
-          <a href="/negeri/" class="block p-4 bg-stone-50 border border-stone-200 rounded-lg text-center group">
-            <span class="block font-semibold text-stone-700 group-hover:text-hijau-700">Semua Negeri →</span>
+          <a href="/negeri/" class="tile-link group">
+            <span class="block font-semibold group-hover:underline">Semua Negeri →</span>
             <span class="text-xs text-stone-500">16 negeri di Malaysia</span>
           </a>
         </div>
@@ -256,13 +256,13 @@ const schema = {
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
 
-          <div class="rounded-lg border-2 border-red-200 bg-red-50 p-5">
-            <h3 class="font-semibold text-red-800 mb-2 text-sm">Perlu Special Perils?</h3>
-            <p class="text-xs text-red-700 mb-3 leading-relaxed">
+          <div class="note-warn">
+            <h3 class="note-t mb-2 text-base">Perlu Special Perils?</h3>
+            <p class="text-sm mb-3 leading-relaxed">
               Jika anda tinggal di kawasan yang kerap banjir, semak kos add-on special perils semasa renew. Lazimnya 0.2%–0.5% daripada sum insured setahun.
             </p>
             <a href="/insurans-online/#beli-terus"
-               class="block text-center text-xs bg-red-700 text-white px-4 py-2.5 rounded font-medium hover:bg-red-800 transition-colors">
+               class="btn-outline w-full justify-center text-center text-sm">
               Beli terus daripada syarikat insurans →
             </a>
           </div>
