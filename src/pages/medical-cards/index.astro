@@ -106,7 +106,8 @@ const schema = {
       />
       <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
       <PageAnswer
-        finding="Tiada harga premium direka"
+        finding={`${cards.length} pelan medical card: standalone, rider, takaful`}
+        note="Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia."
         facts={[
           { label: 'Bilangan rekod', value: `${cards.length} pelan`, role: 'term' },
           { label: 'Kategori', value: 'Standalone, rider, takaful' },

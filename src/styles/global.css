@@ -847,6 +847,13 @@ th > a,
 .pa-r[data-role] .pa-v { display: inline-block; padding: 0.1rem 0.45rem; border-radius: var(--r-1); color: var(--ink); }
 .pa-r[data-role="price"] .pa-v { background: var(--tint-pink); }
 .pa-r[data-role="term"] .pa-v { background: var(--mark); }
+.pa-r[data-long] { display: block; }
+.pa-r[data-long] dt { font-weight: 700; }
+.pa-r[data-long] dd { font-weight: 400; margin-top: 0.15rem; }
+/* Details rows under a plan answer box: paragraphs, so plain weight under a bold label. */
+.mod:not(.pa) > .pa-rows > .pa-r { display: block; }
+.mod:not(.pa) > .pa-rows > .pa-r dt { font-weight: 700; }
+.mod:not(.pa) > .pa-rows > .pa-r dd { font-weight: 400; margin-top: 0.15rem; }
 .pa-r dd a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .pa-note { margin: 0; padding: 0.6rem 0.9rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid rgb(0 0 0 / 0.15); }
 
@@ -858,3 +865,9 @@ th > a,
   margin-top: 2.5rem; margin-bottom: 1rem;
 }
 @media print { .mod-bar, .prose-bars h2, .h2-bar { background: #fff; color: #000; border-bottom: 2px solid #000; } }
+
+/* Long unbroken runs (e.g. "RM100,000/200,000/300,000") wrap instead of pushing the page sideways at 320px. */
+main :where(p, li, dd, dt, h1, h2, h3, figcaption, blockquote, a, summary) { overflow-wrap: anywhere; }
+main :where(.grid) > * { min-width: 0; }
+/* Source markers [n]: never under 14px. */
+main sup { font-size: 0.875rem; line-height: 0; }

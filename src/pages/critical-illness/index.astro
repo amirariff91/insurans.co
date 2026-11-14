@@ -84,7 +84,8 @@ const schema = {
       />
       <h1 class="ea-h1">Insurans Penyakit Kritikal Malaysia</h1>
       <PageAnswer
-        finding="Tiada anggaran premium direka"
+        finding={`${records.length} pelan dan skim, rujukan 36 kondisi severe-stage`}
+        note="Tiada anggaran premium direka."
         facts={[
           { label: 'Bilangan rekod', value: `${records.length} pelan dan skim`, role: 'term' },
           { label: 'Standard rujukan', value: '36 kondisi severe-stage', role: 'term' },

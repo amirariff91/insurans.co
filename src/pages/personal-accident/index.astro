@@ -120,7 +120,8 @@ const schema = {
       />
       <h1 class="ea-h1">Insurans Kemalangan Diri (PA) Malaysia 2026</h1>
       <PageAnswer
-        finding="Tiada harga dianggar atau dikira semula"
+        finding={`${records.length} pelan; angka diterbitkan untuk ${publishedRecords.length} rekod`}
+        note="Tiada harga dianggar atau dikira semula."
         facts={[
           { label: 'Bilangan rekod', value: `${records.length} pelan`, role: 'term' },
           { label: 'Angka diterbitkan', value: `${publishedRecords.length} rekod`, role: 'term' },

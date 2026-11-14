@@ -546,6 +546,8 @@ const modelReferences = Object.fromEntries(
   let ncdInputDebounce: number | undefined;
 
   document.getElementById('base-premium')?.addEventListener('input', () => {
+    // A typed premium means the reader's own case, so the "Contoh" mark goes (class toggle only).
+    notExample();
     window.clearTimeout(ncdInputDebounce);
     ncdInputDebounce = window.setTimeout(updateNCDResult, 500);
   });
@@ -585,7 +587,7 @@ const modelReferences = Object.fromEntries(
     if (pick && pick !== checked) notExample();
     else if (pick && !pick.defaultChecked) notExample();
   }
-  if ((document.getElementById('base-premium') as HTMLInputElement | null)?.value) updateNCDResult();
+  if ((document.getElementById('base-premium') as HTMLInputElement | null)?.value) { notExample(); updateNCDResult(); }
   else clearResult();
 
   const referenceEl = document.getElementById('model-reference');

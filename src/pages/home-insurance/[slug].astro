@@ -114,12 +114,15 @@ const outboundSources = sourceLinks.map((source) => ({
 const answerSkip: string[] = [];
 const answerAll = [{ label: 'Jenis pelan', value: typeLabel }, ...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
-const answerFacts = answerAll.slice(0, 4).map((spec) => ({
+// Rows whose value is a paragraph (over 160 characters) move to the details list below, so the box ends inside the
+// first phone screen; short facts keep their order.
+const answerTop = answerAll.filter((spec) => String(spec.value ?? '').length <= 160).slice(0, 4);
+const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
 }));
-const answerRest = answerAll.slice(4);
+const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
 ---
 
@@ -144,7 +147,7 @@ const answerRest = answerAll.slice(4);
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      {record.planName} oleh {record.insurer}. Analisis perlindungan, had dan contoh rasmi dikemas kini pada {tarikh(record.analysisAsAt)}.
+      {record.planName} oleh {record.insurer.replace(/\.$/, '')}. Analisis perlindungan, had dan contoh rasmi dikemas kini pada {tarikh(record.analysisAsAt)}.
     </p>
 
     <PageAnswer slot="answer" finding={`${record.planName} oleh ${record.insurer}`} facts={answerFacts} />

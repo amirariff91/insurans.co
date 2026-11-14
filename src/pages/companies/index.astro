@@ -80,7 +80,7 @@ const schema = {
       </table>
     </div>
     <p class="text-sm text-stone-700 mb-3">Disahkan 10 Sep 2026 dari laman rasmi</p>
-    <p class="text-sm text-stone-600 mb-10">Nak banding dua syarikat terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a> · <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> · <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
+    <p class="text-sm text-stone-600 mb-10">Nak banding dua syarikat terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a>, <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> atau <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
 
     <!-- Company list -->
     <div class="space-y-4">
@@ -104,7 +104,7 @@ const schema = {
 
                 <p class="text-sm text-stone-700 mb-2">
                   {company.fullName}
-                  {company.parent && <span> · {company.parent}</span>}
+                  {company.parent && <span>, {company.parent}</span>}
                 </p>
 
                 <p class="text-sm text-stone-600 mb-3">{company.verdictBM}</p>

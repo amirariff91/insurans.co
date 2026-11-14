@@ -33,13 +33,17 @@ interface Props {
 }
 
 const { finding, facts, note, id } = Astro.props;
+// Highlight (pink/yellow) is for short totals and terms. A value longer than ~40 characters is a sentence:
+// it drops the highlight and sits as plain text under its label (data-long). Plan templates cap the rows at four.
+const LONG = 40;
+const rows = facts.map((f) => ({ ...f, long: f.value.length > LONG }));
 ---
 
 <section class="mod pa" aria-label={finding} id={id} data-section="page-answer">
   <p class="mod-bar">{finding}</p>
   <dl class="pa-rows">
-    {facts.map((f) => (
-      <div class="pa-r" data-role={f.role}>
+    {rows.map((f) => (
+      <div class="pa-r" data-role={f.long ? undefined : f.role} data-long={f.long ? '' : undefined}>
         <dt>{f.label}</dt>
         <dd>{f.href ? <a href={f.href}>{f.value}</a> : <span class="pa-v">{f.value}</span>}</dd>
       </div>

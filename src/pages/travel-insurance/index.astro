@@ -89,7 +89,8 @@ const schema = {
       />
       <h1 class="ea-h1">Travel Insurance Malaysia 2026</h1>
       <PageAnswer
-        finding="Ringkasan manfaat yang dinyatakan dalam rekod rasmi"
+        finding={`${plans.length} pelan travel insurance: single dan annual`}
+        note="Ringkasan manfaat yang dinyatakan dalam rekod rasmi."
         facts={[
           { label: 'Bilangan rekod', value: `${plans.length} pelan`, role: 'term' },
           { label: 'Jenis perjalanan', value: 'Single dan annual' },

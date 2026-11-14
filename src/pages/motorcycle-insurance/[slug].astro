@@ -117,11 +117,13 @@ const schema = {
 };
 // Page answer (Edisi). Verified records: type plus the recorded facts (at most four rows). Unverified records:
 // only the type, with the existing honesty line as the note, so no unverified figure is promoted.
+// Rows whose value is a paragraph (over 160 characters) move to a details list under the box.
+const answerSpecs = record.figureVerified ? specItems.slice(0, 3) : [];
+const answerTop = answerSpecs.filter((spec) => String(spec.value ?? '').length <= 160);
+const answerRest = answerSpecs.filter((spec) => !answerTop.includes(spec));
 const answerFacts = [
   { label: 'Jenis', value: typeLabel },
-  ...(record.figureVerified
-    ? specItems.slice(0, 3).map((spec) => ({ label: spec.label, value: spec.value ?? "", role: spec.label === 'Contoh premium PDS' ? ('price' as const) : ('term' as const) }))
-    : []),
+  ...answerTop.map((spec) => ({ label: spec.label, value: spec.value ?? "", role: spec.label === 'Contoh premium PDS' ? ('price' as const) : ('term' as const) })),
 ];
 
 ---
@@ -159,6 +161,19 @@ const answerFacts = [
       note={record.figureVerified ? undefined : honestyLine}
     />
     <ProductCss />
+
+    {answerRest.length > 0 && (
+      <div class="mod">
+        <dl class="pa-rows">
+          {answerRest.map((spec) => (
+            <div class="pa-r">
+              <dt>{spec.label}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )}
 
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={record.asAt} sources={sourceLinks} sourcesLabel="Sumber" showReviewed={false} />

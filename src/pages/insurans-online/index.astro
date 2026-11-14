@@ -129,7 +129,8 @@ const schema = {
       />
       <h1 class="ea-h1">Compare Insurance Malaysia &amp; Beli Insurance Online</h1>
       <PageAnswer
-        finding="Senarai ini bukan kedudukan atau cadangan"
+        finding={`Beli terus daripada ${directOnline.records.length} syarikat insurans atau ${platforms.records.length} platform`}
+        note="Senarai ini bukan kedudukan atau cadangan."
         facts={[
           { label: 'Beli terus daripada syarikat insurans', value: `${directOnline.records.length} syarikat`, role: 'term' },
           { label: 'Bilangan platform', value: `${platforms.records.length} platform`, role: 'term' },
@@ -137,10 +138,6 @@ const schema = {
         ]}
       />
       <Byline dateModified={updatedAt} />
-      <p class="max-w-2xl text-lg leading-7 text-stone-600">
-        Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
-        Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
-      </p>
     </div>
   </section>
 
@@ -150,11 +147,6 @@ const schema = {
         <ProductCss />
         <section id="beli-terus" class="scroll-mt-24 rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6" data-section="direct-insurer">
           <h2 class="h2-bar -mx-5 !-mt-5 !mb-0 sm:-mx-6 sm:!-mt-6">Beli terus daripada syarikat insurans</h2>
-          <p class="mt-2 text-sm leading-5 text-stone-700">
-            Syarikat insurans dan takaful di bawah menjual insurans kereta secara online melalui saluran mereka sendiri.
-            Senarai ini bukan kedudukan atau cadangan. Semak PDS dan harga akhir sebelum membayar. Insurans.co tiada
-            hubungan berbayar dengan mana-mana syarikat.
-          </p>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
           <div class="pp-plans mt-4 overflow-x-auto">
             <table role="table" class="table-editorial plan-table min-w-[40rem]">
@@ -191,6 +183,11 @@ const schema = {
             </table>
           </div>
           <p class="mt-4 text-sm leading-5 text-stone-700">
+            Syarikat insurans dan takaful di atas menjual insurans kereta secara online melalui saluran mereka sendiri.
+            Senarai ini bukan kedudukan atau cadangan. Semak PDS dan harga akhir sebelum membayar. Insurans.co tiada
+            hubungan berbayar dengan mana-mana syarikat.
+          </p>
+          <p class="mt-2 text-sm leading-5 text-stone-700">
             <strong>Roadtax:</strong> selepas insurans aktif, roadtax boleh diperbaharui melalui MyJPJ (aplikasi rasmi JPJ) atau <a href="https://www.myeg.com.my/" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">MyEG</a>,
             yang disenaraikan sebagai rakan niaga JPJ dalam
             <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">kenyataan JPJ pada 6 Mei 2024</a>.
@@ -203,6 +200,10 @@ const schema = {
         </section>
 
         <article class="prose-editorial prose-bars mt-10 sm:mt-14">
+          <p class="text-lg leading-7 text-stone-600">
+            Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
+            Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
+          </p>
           <p class="text-lg leading-7 text-stone-700">
             Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Salurannya berbeza.
             <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
