@@ -41,7 +41,7 @@ it, add it as a devDependency.
 
 | # | Check | Guards | Fails when |
 | --- | --- | --- | --- |
-| 1 | Contract against live | The redesign must not change facts, prices, titles, structured data, ad gating or indexing. | Compared with `baseline-4dd50a3.json`, per URL: title, H1, meta description, canonical, robots meta, every JSON-LD value (flattened to `Type.path = value`), the set of RM figures and percentages in visible text (compared by value), phone numbers, and whether AdSense loads. Any difference not explained fails. Explained means: an exact `allowlist.json` entry; an added RM figure on `/`, `/car-insurance/` or a model page that is in the set the NCD control and its derived displays print (computed from `src/data/car-models.json` with the site's own `steps.ts`/`lib/ncd.ts`: six steps' ranges, totals with roadtax, monthly figures, savings, roadtax, special-perils estimate; model pages also list related models' premiums); or a changed FAQ question/answer whose new text is the visible FAQ text and carries exactly the same multiset of numbers, RM amounts and percentages. **Contextual assertions:** every model page and the homepage show, in HTML (what a reader sees without JavaScript) and in the `data-p*` attributes, the six steps' price, total and saving computed from the data; each medical-card and critical-illness plan page's lead equals its record (`annualLimit`; the count that starts "Penyakit yang dilindungi"); the `/insurans-online/` buy-direct table has one row per `direct-online.json` record linking its official URL. |
+| 1 | Contract against live | The redesign must not change facts, prices, titles, structured data, ad gating or indexing. | Compared with `baseline-4dd50a3.json`, per URL: title, H1, meta description, canonical, robots meta, every JSON-LD value (flattened to `Type.path = value`), the set of RM figures and percentages in visible text (compared by value), phone numbers, and whether AdSense loads. Any difference not explained fails. Explained means: an exact `allowlist.json` entry; an added RM figure on `/`, `/car-insurance/` or a model page that is in the set the NCD control and its derived displays print (computed from `src/data/car-models.json` with the site's own `steps.ts`/`lib/ncd.ts`: six steps' ranges, totals with roadtax, monthly figures, savings, roadtax, special-perils estimate; model pages also list related models' premiums); or a changed FAQ question/answer whose old and new text both equal an entry in `faq-approved.json` for that page and JSON-LD path, and whose new text is the visible FAQ text (see "Approving FAQ wording" below). **Contextual assertions:** every model page and the homepage show, in HTML (what a reader sees without JavaScript) and in the `data-p*` attributes, the six steps' price, total and saving computed from the data; each medical-card and critical-illness plan page's lead equals its record (`annualLimit`; the count that starts "Penyakit yang dilindungi"); the `/insurans-online/` buy-direct table has one row per `direct-online.json` record linking its official URL. |
 | 2 | Ads and indexing | AdSense review and indexing. | The set of pages loading `adsbygoogle.js` differs from the baseline (97 pages); a content page lacks the `google-adsense-account` meta; a `negeri/<state>/` page is not `noindex, follow`; the sitemap lists a noindex page or misses an indexable one. |
 | 3 | Structure | Accessibility and SEO basics. | Not exactly one `h1`; a skipped heading level; `lang` is not `ms`; an `img` without `alt`, `width` or `height`; duplicate ids; an internal link to a file that is not built, or a `#fragment` with no matching id; JSON-LD that does not parse; FAQPage question or answer text that is not visible verbatim on the page (whitespace-normalised, case-insensitive). |
 | 4 | Copy hygiene | Leaks from templates and data. | Visible "TODO", "TBD", "lorem", "undefined", "NaN", "[object", "RM —", a raw `{` or `}`, a doubled full stop, "asAt", "figureVerified"; a bjak.my, policystreet.com or fincrew link outside `/insurans-online/`. **Warnings:** English leftovers ("Free Tool", "Related tools", "Flow:", "Rule of thumb") and ISO dates in visible text. |
@@ -84,6 +84,26 @@ Every entry should be exact: `old`/`new` for a change, `values` for a figure, on
 run `ALLOWLIST=<file with "entries": []> CHECKS=1 node scripts/checks/run.mjs` and read `report.json`. Never allowlist a `removed` RM figure without the editor's sign-off:
 that is a price leaving a page.
 
+## Approving FAQ wording
+
+`scripts/checks/faq-approved.json` lists every FAQ question and answer whose text differs from the live baseline,
+per page URL and JSON-LD path (`FAQPage.mainEntity[n].name` / `.acceptedAnswer.text`), with the exact live text
+(`old`) and the exact reviewed text (`new`). Check 1 passes a changed FAQ item only when both sides equal its
+entry. Matching figures are not enough: "claim boleh ditolak" changed to "claim boleh diluluskan" has the same
+numbers and fails until approved. Entries that match nothing are printed under "Unused allowlist entries".
+
+After editing FAQ text (in the one array the page renders both the visible FAQ and its JSON-LD from), review the
+wording, then regenerate the file deliberately:
+
+```sh
+bun run build
+node scripts/checks/run.mjs --approve-faq   # prints NEW/CHANGED items, rewrites faq-approved.json, runs no checks
+git diff scripts/checks/faq-approved.json   # read every changed line before committing
+```
+
+`check:site` never passes `--approve-faq`. FAQ items added or removed outright (one side absent) are not covered by
+the file; they need an exact `allowlist.json` entry, as do FAQ changes the allowlist already names.
+
 ## Known limits
 
 - RM figures and percentages are compared as **sets per page**: a figure moved within a page, or repeated fewer times,
@@ -97,8 +117,8 @@ that is a price leaving a page.
 - FAQ matching is substring-based on normalised text: markup inside answers (links) is stripped on both sides.
 - Check 7 takes the first page (alphabetically) of each family as its representative.
 - Checks 1 and 8 compute expected figures by transpiling `src/lib/ncd.ts` and `src/components/edisi/steps.ts` with the
-  project's `typescript` at run time (`scripts/checks/site-helpers.mjs`); the special-perils estimate mirrors the
-  formula in `src/pages/car-insurance/[model].astro`, so keep the two in step.
+  project's `typescript` at run time (`scripts/checks/site-helpers.mjs`); the special-perils estimate is
+  `specialPerilsRange()` in `steps.ts`, the function the model page calls.
 - Check 9 fixtures were captured from the merged build (fx-tools review, 2026-11); if a calculator rule changes on
   purpose, update `CALC` in `scripts/checks/browser.mjs`.
 - Pre-existing problems that are also in live (4dd50a3) are reported as failures; `report.json` does not mark which
