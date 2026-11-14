@@ -25,12 +25,12 @@ const schema = {
 // One source for the visible FAQ and its FAQPage JSON-LD: the JSON-LD repeats the visible text exactly.
 const faqs = [
   { q: 'Apa beza takaful dan insurans?', a: 'Perbezaan utama takaful dan insurans terletak pada konsep dan pemilikan dana. Dalam insurans konvensional, premium yang anda bayar menjadi milik syarikat. Dalam takaful, wang anda masuk ke dana bersama peserta, yang diurus oleh syarikat takaful sebagai operator. Lebihan dana boleh dikongsi mengikut syarat sijil dan nisbah yang ditetapkan. Agihan kepada peserta tidak dijamin. Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk.' },
-  { q: 'Mana lebih baik takaful atau insurans?', a: 'Bergantung pada keutamaan anda. Jika patuh Syariah penting bagi anda, pilih takaful. Jika anda mahu pilihan yang paling jimat, bandingkan quotation daripada kedua-dua jenis untuk kereta anda; ada masanya takaful lebih murah, ada masanya insurans konvensional lebih murah. Dari segi perlindungan, kedua-duanya hampir sama.' },
+  { q: 'Mana lebih baik takaful atau insurans?', a: 'Bergantung pada keutamaan anda. Jika patuh Syariah penting bagi anda, pilih takaful. Jika anda mahu pilihan yang paling jimat, bandingkan quotation daripada kedua-dua jenis untuk kereta anda; harga takaful boleh lebih rendah, sama atau lebih tinggi. Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk.' },
   { q: 'Beza takaful dan insurans dari segi harga — mana lebih murah?', a: 'Tiada jawapan mutlak. Selepas liberalisasi tarif motor 2017, setiap syarikat boleh menetapkan harga sendiri. Untuk kereta yang sama, takaful daripada Syarikat A mungkin lebih murah daripada insurans konvensional Syarikat B, tetapi lebih mahal daripada Syarikat C. Sentiasa bandingkan quotation untuk kereta anda daripada pelbagai syarikat.' },
   { q: 'Perbezaan takaful dan insurans dari segi claim — susah ke senang?', a: 'Proses claim hampir sama: hubungi syarikat, buat laporan polis dan hantar kereta ke bengkel panel. Pengalaman sebenar bergantung pada syarikat dan jenis kerosakan, bukan pada sama ada ia takaful atau insurans. Semak ulasan pengguna untuk syarikat yang anda pertimbangkan.' },
-  { q: 'Non-Muslim boleh beli takaful?', a: 'Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tanpa mengira agama atau latar belakang. Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali. Tiada syarat agama untuk mendaftar.' },
+  { q: 'Non-Muslim boleh beli takaful?', a: 'Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali. Tiada syarat agama untuk mendaftar.' },
   { q: 'Boleh pindah NCD dari insurans konvensional ke takaful?', a: 'Ya, NCD anda boleh dibawa ke mana-mana syarikat, sama ada takaful atau insurans konvensional. Jika anda ada NCD 55% dengan syarikat konvensional dan mahu bertukar ke takaful tahun depan, NCD anda kekal 55%.' },
-  { q: 'Apa itu surplus sharing dalam takaful?', a: 'Surplus sharing ialah pengagihan lebihan dana takaful kepada peserta pada akhir tempoh polisi. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan ini dibahagikan mengikut nisbah yang ditetapkan, contohnya 70% kepada peserta dan 30% kepada syarikat. Namun, ia tidak dijamin. Ada tahun yang tiada lebihan langsung.' },
+  { q: 'Apa itu surplus sharing dalam takaful?', a: 'Surplus sharing ialah perkongsian lebihan dana takaful dengan peserta. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin. Nisbah perkongsian dinyatakan dalam sijil, contohnya 70% kepada peserta dan 30% kepada syarikat. Ada tahun yang tiada lebihan langsung.' },
 ];
 
 const faqSchema = {
@@ -61,7 +61,7 @@ const faqSchema = {
         finding="Takaful patuh Syariah; manfaat dan syarat bergantung pada produk"
         facts={[
           { label: 'Insurans konvensional', value: 'Anda bayar premium, syarikat tanggung risiko, dan keuntungan masuk syarikat.' },
-          { label: 'Takaful', value: 'Anda dan peserta lain menyumbang kepada dana bersama, risiko dikongsi secara kolektif, dan lebihan dana dikongsi semula.' },
+          { label: 'Takaful', value: 'Anda dan peserta lain menyumbang kepada dana bersama, risiko dikongsi secara kolektif. Lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin.' },
           { label: 'Yang berbeza', value: 'Konsep dan prinsip di sebaliknya' },
         ]}
       />
@@ -79,7 +79,7 @@ const faqSchema = {
     <div class="note-info my-6">
       <p class="font-semibold text-stone-900 mb-2">Apa beza takaful dan insurans? (Jawapan ringkas)</p>
       <p class="text-sm text-stone-700 leading-relaxed">
-        <strong>Takaful</strong> ialah sistem perlindungan berasaskan prinsip saling bantu-membantu (ta'awun) yang patuh Syariah Islam — peserta menyumbang kepada dana bersama dan lebihan dikongsi semula. <strong>Insurans konvensional</strong> ialah kontrak: anda membayar premium dan syarikat menanggung risiko; keuntungan menjadi milik syarikat. Dari segi <em>coverage dan proses claim</em>, kedua-duanya hampir sama.
+        <strong>Takaful</strong> ialah sistem perlindungan berasaskan prinsip saling bantu-membantu (ta'awun) yang patuh Syariah Islam — peserta menyumbang kepada dana bersama. Lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin. <strong>Insurans konvensional</strong> ialah kontrak: anda membayar premium dan syarikat menanggung risiko; keuntungan menjadi milik syarikat. Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk.
       </p>
     </div>
 
@@ -135,7 +135,7 @@ const faqSchema = {
           <tr>
             <td class="font-medium">Lebihan dana (surplus)</td>
             <td>Keuntungan syarikat</td>
-            <td>Dikongsi dengan peserta</td>
+            <td>Lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin.</td>
           </tr>
           <tr>
             <td class="font-medium">Pelaburan dana</td>
@@ -153,9 +153,9 @@ const faqSchema = {
             <td>Bergantung syarikat dan model kereta</td>
           </tr>
           <tr>
-            <td class="font-medium">Liputan (coverage)</td>
-            <td>Comprehensive, third-party, TPFT</td>
-            <td>Sama — comprehensive, third-party, TPFT</td>
+            <td class="font-medium">Jenis perlindungan</td>
+            <td>Komprehensif, pihak ketiga, TPFT</td>
+            <td>Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk.</td>
           </tr>
           <tr>
             <td class="font-medium">Proses claim</td>

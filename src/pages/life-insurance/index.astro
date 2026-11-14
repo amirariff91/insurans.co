@@ -45,8 +45,9 @@ const schema = {
       </h1>
       <PageAnswer
         finding="Panduan kasar: 10 kali pendapatan tahunan"
-        lead={{ value: 'RM80–150', label: 'Anggaran term life sebulan: lelaki 30 tahun bukan perokok yang sihat, coverage RM500,000, term 20 tahun', role: 'price' }}
+        sentence="Ini panduan kasar, bukan peraturan. Kira keperluan sebenar anda berdasarkan baki pinjaman, kos hidup keluarga, pendidikan anak dan simpanan sedia ada."
         facts={[
+          { label: 'Contoh panduan kasar', value: 'Gaji RM60,000 setahun: angka rujukan RM600,000' },
           { label: 'Term life', value: 'Perlindungan untuk tempoh tertentu (10, 20 atau 30 tahun)' },
           { label: 'Pelepasan cukai', value: 'RM3,000/tahun (tahun taksiran 2025), dikongsi dengan caruman sukarela tambahan KWSP', role: 'term' },
         ]}
@@ -69,7 +70,7 @@ const schema = {
             Jika jawapannya tidak jelas, insurans nyawa ialah salah satu cara untuk menutup jurang itu.
           </p>
 
-          <h2>Berapa coverage yang anda perlukan?</h2>
+          <h2>Berapa perlindungan yang anda perlukan?</h2>
 
           <p>
             Panduan kasar yang sering digunakan: <strong>10 kali pendapatan tahunan</strong>. Contohnya, gaji RM5,000 sebulan (RM60,000 setahun) memberi angka rujukan <strong>RM600,000</strong>. Ini bukan peraturan; kira keperluan sebenar anda seperti di bawah.
@@ -87,7 +88,7 @@ const schema = {
 
           <p>
             Jumlah: boleh jadi <strong>RM700,000 – RM1.5 juta</strong> bergantung pada situasi. 
-            Jika coverage sedia ada anda hanya RM50,000 hingga RM100,000, bandingkan dengan jumlah ini untuk melihat jurangnya.
+            Jika perlindungan sedia ada anda hanya RM50,000 hingga RM100,000, bandingkan dengan jumlah ini untuk melihat jurangnya.
           </p>
 
           <h2>Tiga jenis insurans nyawa utama</h2>
@@ -103,11 +104,10 @@ const schema = {
               Perlindungan untuk tempoh tertentu (10, 20 atau 30 tahun). Jika anda meninggal dunia dalam tempoh itu, keluarga menerima bayaran. Jika tidak, polisi tamat tanpa nilai tunai. Term life biasanya menawarkan premium lebih rendah berbanding polisi dengan komponen nilai tunai bagi jumlah perlindungan yang setara.
             </p>
             <p class="text-sm text-stone-600 mb-2">
-              Contoh: Lelaki 30 tahun, coverage RM500,000, term 20 tahun — 
-              premium sekitar <strong>RM80 – RM150/bulan</strong>.
+              Gambaran kasar premium mengikut umur ada dalam jadual di bawah; ia bukan sebut harga.
             </p>
             <p class="text-sm text-stone-500">
-              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu coverage tinggi dengan bajet terhad, terutamanya jika anda ada pinjaman rumah dan anak kecil.
+              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu perlindungan tinggi dengan bajet terhad, terutamanya jika anda ada pinjaman rumah dan anak kecil.
             </p>
           </div>
 
@@ -119,10 +119,10 @@ const schema = {
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Perlindungan seumur hidup, dengan nilai tunai yang terkumpul dari semasa ke semasa dan boleh
               dikeluarkan jika polisi diserahkan (surrender). Premiumnya beberapa kali ganda lebih tinggi
-              daripada term life untuk coverage yang sama (lihat jadual di bawah).
+              daripada term life untuk perlindungan yang sama (lihat jadual di bawah).
             </p>
             <p class="text-sm text-stone-500">
-              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu coverage seumur hidup dengan komponen nilai tunai, atau untuk perancangan harta pusaka.
+              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu perlindungan seumur hidup dengan komponen nilai tunai, atau untuk perancangan harta pusaka.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ const schema = {
 
         <article class="prose-editorial prose-bars">
           <h2>Harga insurans nyawa di Malaysia</h2>
-          <p>Anggaran premium bulanan untuk lelaki bukan perokok yang sihat:</p>
+          <p>Gambaran kasar premium bulanan untuk lelaki bukan perokok yang sihat (bukan sebut harga):</p>
         </article>
 
         <div class="overflow-x-auto my-8">
@@ -185,11 +185,11 @@ const schema = {
             </tbody>
           </table>
         </div>
-        <p class="text-sm text-stone-500 -mt-6 mb-8">Anggaran kasar untuk gambaran sahaja, bukan sebut harga. Premium sebenar bergantung pada syarikat, umur, kesihatan dan underwriting.</p>
+        <p class="text-sm text-stone-500 -mt-6 mb-8">Anggaran kasar untuk gambaran sahaja, bukan sebut harga, dan bukan daripada kadar yang diterbitkan mana-mana syarikat; dapatkan sebut harga. Premium sebenar bergantung pada syarikat, umur, kesihatan dan pengunderaitan.</p>
 
         <div class="info-box mb-8">
           <p class="text-sm text-stone-700">
-            <strong>Beza premium.</strong> Bagi lelaki 30 tahun, anggaran premium term life dengan coverage RM500,000 ialah RM80–150 sebulan, manakala whole life dengan coverage yang sama RM500–900 sebulan. Whole life ada komponen nilai tunai; term life tidak. Mana yang sesuai bergantung pada keperluan dan bajet anda. Semak dengan ejen atau penasihat kewangan berlesen.
+            <strong>Beza premium.</strong> Bagi jumlah perlindungan yang sama, premium whole life beberapa kali ganda lebih tinggi daripada term life (lihat gambaran kasar dalam jadual di atas, yang bukan sebut harga). Whole life ada komponen nilai tunai; term life tidak. Mana yang sesuai bergantung pada keperluan dan bajet anda. Semak dengan ejen atau penasihat kewangan berlesen.
           </p>
         </div>
 
@@ -223,7 +223,7 @@ const schema = {
 
           <ol class="list-decimal pl-5 space-y-3">
             <li>
-              <strong>Bandingkan term life dengan jenis lain.</strong> Term life biasanya memberi coverage lebih tinggi untuk premium yang sama;
+              <strong>Bandingkan term life dengan jenis lain.</strong> Term life biasanya memberi perlindungan lebih tinggi untuk premium yang sama;
               whole life dan ILP ada komponen nilai tunai atau pelaburan. Semak dengan ejen atau penasihat kewangan berlesen mana yang sesuai.
             </li>
             <li>
