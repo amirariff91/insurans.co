@@ -855,6 +855,8 @@ th > a,
 .mod:not(.pa) > .pa-rows > .pa-r dt { font-weight: 700; }
 .mod:not(.pa) > .pa-rows > .pa-r dd { font-weight: 400; margin-top: 0.15rem; }
 .pa-r dd a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+/* Phone numbers and short hyphenated tokens stay whole; the value drops under its label instead. */
+.pa-nw, .pa a[href^="tel:"] { white-space: nowrap; }
 .pa-note { margin: 0; padding: 0.6rem 0.9rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid rgb(0 0 0 / 0.15); }
 
 /* Section title bars for articles that opt in (class "prose-bars" next to prose-editorial). The H2 keeps its

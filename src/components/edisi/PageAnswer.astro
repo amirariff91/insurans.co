@@ -55,6 +55,21 @@ const LONG = 40;
 const rows = facts.map((f) => ({ ...f, long: f.value.length > LONG }));
 // The lead numeral may break after a dash (en dash or hyphen) and nowhere else.
 const leadParts = lead ? lead.value.split(/(?<=[–-])/) : [];
+// Phone numbers ("1-800-18-8033", "03-2723 7888") and other short hyphenated tokens must not break mid-token
+// at narrow widths; they sit in a no-wrap span and the row wraps around them instead (global.css .pa-nw).
+const NOWRAP = /\b(?:1-?[38]00|0\d{1,2})[- ]\d[\d -]{5,}\d\b|[\p{L}\p{N}+:]+(?:-[\p{L}\p{N}+:]+)+/gu;
+function parts(value: string) {
+  const out: { t: string; nw: boolean }[] = [];
+  let at = 0;
+  for (const m of value.matchAll(NOWRAP)) {
+    if (m[0].length > 20) continue;
+    if (m.index > at) out.push({ t: value.slice(at, m.index), nw: false });
+    out.push({ t: m[0], nw: true });
+    at = m.index + m[0].length;
+  }
+  if (at < value.length) out.push({ t: value.slice(at), nw: false });
+  return out;
+}
 ---
 
 <section class="mod pa" aria-label={finding} id={id} data-section="page-answer">
@@ -71,7 +86,7 @@ const leadParts = lead ? lead.value.split(/(?<=[–-])/) : [];
       {rows.map((f) => (
         <div class="pa-r" data-role={f.long ? undefined : f.role} data-long={f.long ? '' : undefined}>
           <dt>{f.label}</dt>
-          <dd>{f.href ? <a href={f.href}>{f.value}</a> : <span class="pa-v">{f.value}</span>}</dd>
+          <dd>{f.href ? <a href={f.href}><span>{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span></a> : <span class="pa-v">{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span>}</dd>
         </div>
       ))}
     </dl>
