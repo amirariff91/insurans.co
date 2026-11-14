@@ -835,7 +835,7 @@ th > a,
 .mod-bar, .mod-bar h2 { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
 .mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
 .mod a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.mod a:not(.ea-btn) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+.mod a:not([class*="btn"]) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
 
 /* Page answer (PageAnswer.astro): finding in the bar, facts as label/value rows. */
 .pa { max-width: 40rem; margin-block: 1rem; }
