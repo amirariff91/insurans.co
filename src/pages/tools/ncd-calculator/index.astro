@@ -418,12 +418,13 @@ const modelReferences = Object.fromEntries(
     </div>
   </div>
   </div>
-  <Dock answer="#kalkulator" control="#ncd-selector" />
+  <Dock answer="#kalkulator" control="#ncd-selector" result="#result-premium" />
 </Base>
 
 <script>
   import { basePremiumFromCurrent, isNcdTier, NCD_TIERS, rm, simulate } from '../../../lib/ncd';
   import { track } from '../../../lib/track';
+  import { seatLogo } from '../../../scripts/edisi-logo';
 
   let selectedNCD: number | null = null;
 
@@ -513,7 +514,10 @@ const modelReferences = Object.fromEntries(
     document.getElementById('ncd-selector')?.removeAttribute('data-ex');
   }
 
-  function selectNCD(value: number): void {
+  // chosen: the reader, the URL or an earlier visit picked this step (not the 55% example); the masthead then
+  // shows it, through the same updater as the home and model pages.
+  function selectNCD(value: number, chosen = true): void {
+    seatLogo(keyOf(value), chosen);
     document.querySelectorAll<HTMLInputElement>('#ncd-selector input[name="ncd"]').forEach((radio) => {
       radio.checked = Number(radio.value) === value;
     });
@@ -573,7 +577,7 @@ const modelReferences = Object.fromEntries(
     const remembered = saved ? document.querySelector<HTMLInputElement>(`#ncd-selector input[id="ncd-${CSS.escape(saved)}"]`) : null;
     const pick = checked && !checked.defaultChecked ? checked : (remembered ?? checked);
     const pickValue = pick ? Number(pick.value) : Number.NaN;
-    if (isNcdTier(pickValue)) selectNCD(pickValue);
+    if (isNcdTier(pickValue)) selectNCD(pickValue, Boolean(pick && (pick !== checked || !pick.defaultChecked)));
     if (pick && pick !== checked) notExample();
     else if (pick && !pick.defaultChecked) notExample();
   }

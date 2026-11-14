@@ -1,6 +1,8 @@
 // Edisi NCD control: progressive enhancement only. Prices already switch through CSS :has() on the
 // checked radio; this remembers the reader's step, plays a short tick on the changed figures,
 // keeps every calculator link on the same step and announces the new price.
+import { seatLogo } from './edisi-logo';
+
 const KEY = 'edisi.ncd';
 const root = document.querySelector<HTMLElement>('[data-ea]');
 const radios = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="ncd"]'));
@@ -9,19 +11,6 @@ const valueOf = (el: Element | null, k: string): string => {
   if (!el) return '';
   if (k === '55') return el.querySelector('.pv')?.textContent ?? '';
   return (el as HTMLElement).dataset[`p${k}`] ?? '';
-};
-
-// The masthead's knob follows the step: 55% is the resting logo (stop 0); each lower step lifts it one stop.
-const LOGO_STOPS = ['55', '45', '38', '30', '25', '0'];
-const seatLogo = (k: string, chosen: boolean) => {
-  const i = LOGO_STOPS.indexOf(k);
-  document.documentElement.style.setProperty('--ins-stop', String(Math.max(i, 0)));
-  const tag = document.querySelector<HTMLElement>('[data-wm-ncd]');
-  if (!tag || !chosen || i < 0) return;
-  const p = `${k === '38' ? '38.33' : k}%`;
-  tag.querySelector('[data-wm-ncd-v]')!.textContent = p;
-  tag.querySelector('[data-wm-ncd-sr]')!.textContent = `NCD pilihan anda: ${p}`;
-  tag.hidden = false;
 };
 
 const apply = (r: HTMLInputElement, announce: boolean, chosen = announce) => {

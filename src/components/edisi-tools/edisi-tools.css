@@ -157,6 +157,13 @@
 /* ---- NCD control on the calculator page: the answer block's bars, track and knob. */
 .et .et-ncd { max-width: 36rem; }
 .et .et-ncd .ea-bars { display: grid; }
+/* The bars show here even without :has() (the calculator needs them), so selected and focus states use the radio's
+   own siblings, not the shared :has() rules; the knob follows the step only through :has(), so it hides without it. */
+.et .et-ncd .ea-bar input:checked ~ .ea-col { background: var(--sel); box-shadow: none; }
+.et .et-ncd .ea-bar input:checked ~ .ea-p { color: var(--ink); font-weight: 650; }
+.et .et-ncd .ea-bar:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+@supports selector(:has(*)) { .et .et-ncd .ea-bar:focus-within:not(:has(input:focus-visible)) { outline: none; } }
+@supports not selector(:has(*)) { .et .et-ncd .ea-knob { display: none; } }
 .et .et-ncd .ea-mark { display: none; }
 .et .et-ncd[data-ex] .ea-mark { display: block; }
 @supports selector(:has(*)) { html:not(:has(#ncd-55:checked)) .et .et-ncd .ea-mark { display: none; } }
