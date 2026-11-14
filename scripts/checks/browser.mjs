@@ -1,8 +1,11 @@
-// Browser checks 6–10 (playwright-core + a local Chromium). Missing browser => SKIPPED, never PASS.
+// Browser checks 6–10 (playwright-core + a local Chromium). Missing browser => SKIPPED, and run.mjs fails a
+// skipped check. playwright-core: the project's own if installed, else PLAYWRIGHT_CORE, else the workstation copy.
+// Chromium: CHROME_PATH, else the workstation's Playwright Chromium. See docs/checks.md.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { createRequire } from 'node:module';
+import { siteHelpers } from './site-helpers.mjs';
 
 const BLOCK = /googletagmanager\.com|google-analytics\.com|googlesyndication\.com|fundingchoicesmessages\.google\.com|doubleclick\.net/;
 const DEFAULT_CHROME = '/home/dev/.cache/ms-playwright/chromium-1247/chrome-linux64/chrome';
@@ -13,6 +16,7 @@ const clean = (s) => (s || '').replace(/\s+/g, ' ').trim();
 function loadPlaywright(repo) {
   const req = createRequire(path.join(repo, 'package.json'));
   try { return req('playwright-core'); } catch {}
+  if (process.env.PLAYWRIGHT_CORE) { try { return createRequire(import.meta.url)(path.resolve(process.env.PLAYWRIGHT_CORE)); } catch {} }
   try { return createRequire(import.meta.url)(FALLBACK_PW); } catch {}
   return null;
 }
@@ -141,23 +145,10 @@ function probePx() {
   };
 }
 
-const fmt = (n) => n.toLocaleString('en-US');
-const r10 = (x) => Math.round(x / 10) * 10;
-function expectedStep(m, step) {
-  const hasRt = Number.isFinite(m.roadtaxMin) && Number.isFinite(m.roadtaxMax);
-  const f = step / 100;
-  const lo = step === 0 ? m.premiumNCD0Min : step === 55 ? m.premiumNCD55Min : r10(m.premiumNCD0Min * (1 - f));
-  const hi = step === 0 ? m.premiumNCD0Max : step === 55 ? m.premiumNCD55Max : r10(m.premiumNCD0Max * (1 - f));
-  return {
-    price: `${fmt(lo)}–${fmt(hi)}`,
-    total: hasRt ? `RM${fmt(Math.round(lo + m.roadtaxMin))}–${fmt(Math.round(hi + m.roadtaxMax))}` : null,
-    save: step === 0 ? 'Tiada diskaun pada tahap ini' : `Jimat RM${fmt(m.premiumNCD0Min - lo)}–${fmt(m.premiumNCD0Max - hi)} setahun berbanding tanpa NCD`,
-  };
-}
-
 // 15 calculator fixtures (from the fx-tools review run of the merged build, 2026-11).
 const CALC = [
-  { tool: 'ncd', in: [2000, 55], expect: ['RM 900', 'RM 1,100'] },
+  // Typed premium at the unchanged default tier (55%), different from the pre-rendered RM2,000 example.
+  { tool: 'ncd', in: [2400, 55], expect: ['RM 1,080', 'RM 1,320'] },
   { tool: 'ncd', in: [1234, 38.33], expect: ['RM 761', 'RM 473'] },
   { tool: 'ncd', in: [3500, 0], expect: ['RM 3,500', 'RM 0'] },
   { tool: 'claim', in: [900, 55, 800, 400], expect: ['tidak melebihi ambang dua tahun', 'RM 400'] },
@@ -179,12 +170,15 @@ const TOOLS = { 'ncd-calculator/': '#kalkulator, form', 'kalkulator-roadtax/': '
 async function runCalc(page, base, c) {
   const T = base + '/tools/';
   const txt = async (s) => clean(await page.textContent(s));
-  if (c.tool === 'ncd') { await page.goto(T + 'ncd-calculator/'); await page.fill('#base-premium', String(c.in[0])); await page.check(`#ncd-selector input[value="${c.in[1]}"]`, { force: true }); await page.waitForTimeout(400); return (await txt('#result-premium')) + ' / jimat ' + (await txt('#result-saving')); }
-  if (c.tool === 'claim') { await page.goto(T + 'ncd-calculator/'); await page.fill('#current-premium', String(c.in[0])); await page.selectOption('#current-ncd-pct', String(c.in[1])); await page.fill('#repair-cost', String(c.in[2])); await page.fill('#excess', String(c.in[3])); await page.click('#claim-calc-btn'); await page.waitForTimeout(200); return txt('#claim-result'); }
-  if (c.tool === 'roadtax') { await page.goto(T + 'kalkulator-roadtax/'); await page.fill('#engine-cc', c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.check(`input[name=body][value=${c.in[2]}]`, { force: true }); await page.click('#roadtax-form button[type=submit]'); await page.waitForTimeout(200); return txt('#roadtax-value'); }
-  if (c.tool === 'motor') { await page.goto(T + 'kalkulator-roadtax-motosikal/'); await (await page.$('#motor-roadtax-form input:not([type=radio])')).fill(c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.click('#motor-roadtax-form button[type=submit]'); await page.waitForTimeout(200); return txt('#motor-result'); }
-  if (c.tool === 'rumah') { await page.goto(T + 'kalkulator-insurans-rumah/'); await page.check(`input[name=propertyType][value="${c.in[0]}"]`, { force: true }); await page.check(`input[name=constructionClass][value="${c.in[1]}"]`, { force: true }); const ins = await page.$$('#fire-form input:not([type=radio])'); await ins[0].fill(c.in[2]); await ins[1].fill(c.in[3]); await page.click('#fire-form button[type=submit]'); await page.waitForTimeout(200); return txt('#fire-result'); }
-  if (c.tool === 'nyawa') { await page.goto(T + 'kalkulator-coverage-nyawa/'); const ins = await page.$$('#coverage-form input:not([type=radio])'); for (let i = 0; i < ins.length && i < c.in.length; i++) await ins[i].fill(c.in[i]); await page.click('#coverage-form button[type=submit]'); await page.waitForTimeout(200); return txt('#coverage-result'); }
+  // Wait for the expected output instead of a fixed pause; on timeout, return what is there (the case then fails).
+  const until = async (sel, want) => { await page.waitForFunction(([s, w]) => (document.querySelector(s)?.textContent || '').replace(/\s+/g, ' ').includes(w), [sel, want], { timeout: 4000 }).catch(() => {}); };
+  const e0 = c.expect[0];
+  if (c.tool === 'ncd') { await page.goto(T + 'ncd-calculator/'); await page.fill('#base-premium', String(c.in[0])); await page.check(`#ncd-selector input[value="${c.in[1]}"]`, { force: true }); await until('#result-premium', e0); await until('#result-saving', c.expect[1]); return (await txt('#result-premium')) + ' / jimat ' + (await txt('#result-saving')); }
+  if (c.tool === 'claim') { await page.goto(T + 'ncd-calculator/'); await page.fill('#current-premium', String(c.in[0])); await page.selectOption('#current-ncd-pct', String(c.in[1])); await page.fill('#repair-cost', String(c.in[2])); await page.fill('#excess', String(c.in[3])); await page.click('#claim-calc-btn'); await until('#claim-result', e0); return txt('#claim-result'); }
+  if (c.tool === 'roadtax') { await page.goto(T + 'kalkulator-roadtax/'); await page.fill('#engine-cc', c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.check(`input[name=body][value=${c.in[2]}]`, { force: true }); await page.click('#roadtax-form button[type=submit]'); await until('#roadtax-value', e0); return txt('#roadtax-value'); }
+  if (c.tool === 'motor') { await page.goto(T + 'kalkulator-roadtax-motosikal/'); await (await page.$('#motor-roadtax-form input:not([type=radio])')).fill(c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.click('#motor-roadtax-form button[type=submit]'); await until('#motor-result', e0); return txt('#motor-result'); }
+  if (c.tool === 'rumah') { await page.goto(T + 'kalkulator-insurans-rumah/'); await page.check(`input[name=propertyType][value="${c.in[0]}"]`, { force: true }); await page.check(`input[name=constructionClass][value="${c.in[1]}"]`, { force: true }); const ins = await page.$$('#fire-form input:not([type=radio])'); await ins[0].fill(c.in[2]); await ins[1].fill(c.in[3]); await page.click('#fire-form button[type=submit]'); await until('#fire-result', e0); return txt('#fire-result'); }
+  if (c.tool === 'nyawa') { await page.goto(T + 'kalkulator-coverage-nyawa/'); const ins = await page.$$('#coverage-form input:not([type=radio])'); for (let i = 0; i < ins.length && i < c.in.length; i++) await ins[i].fill(c.in[i]); await page.click('#coverage-form button[type=submit]'); await until('#coverage-result', e0); return txt('#coverage-result'); }
 }
 
 export async function browserChecks({ DIST, REPO, pages, want }) {
@@ -193,9 +187,7 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
   const pw = loadPlaywright(REPO);
   const exe = process.env.CHROME_PATH || DEFAULT_CHROME;
   if (!pw || !fs.existsSync(exe)) { for (const r of Object.values(R)) r.skipped = `SKIPPED: ${!pw ? 'playwright-core not found' : 'no Chromium at ' + exe}`; return Object.values(R); }
-  const srv = await serve(DIST);
-  const base = `http://127.0.0.1:${srv.address().port}`;
-  const browser = await pw.chromium.launch({ executablePath: exe });
+  let srv, browser;
   const selSrc = SEL.toString();
   const newCtx = async (opts = {}) => {
     const ctx = await browser.newContext({ reducedMotion: 'reduce', ...opts });
@@ -203,7 +195,12 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
     return ctx;
   };
   const content = pages.filter((u) => u !== '/404.html');
+  let base;
   try {
+    // Server and browser lifetimes sit inside the try, so a failed launch still closes the server.
+    srv = await serve(DIST);
+    base = `http://127.0.0.1:${srv.address().port}`;
+    browser = await pw.chromium.launch({ executablePath: exe });
     // ---- 6 + 10: every page at three widths ----
     if (R[6] || R[10]) {
       const ctxs = await Promise.all([320, 390, 1280].map((w) => newCtx({ viewport: { width: w, height: 900 } })));
@@ -230,7 +227,7 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
             for (const [k, n] of Object.entries(o.targets)) { targetAgg[k] = targetAgg[k] || { n: 0, pages: new Set() }; targetAgg[k].n += n; targetAgg[k].pages.add(u); }
             if (bad.length) R[6].fails.push(...bad); else R[6].passes++;
           }
-          if (R[10] && i === 2) { await page.waitForTimeout(150); if (errs.length) R[10].fails.push(...[...new Set(errs)].map((e) => ({ page: u, check: 'console/request', value: e }))); else R[10].passes++; }
+          if (R[10] && i === 2) { await page.waitForLoadState('networkidle', { timeout: 3000 }).catch(() => {}); if (errs.length) R[10].fails.push(...[...new Set(errs)].map((e) => ({ page: u, check: 'console/request', value: e }))); else R[10].passes++; }
         } catch (e) { (R[6] || R[10]).fails.push({ page: u, width: w, check: 'load error', value: String(e.message).slice(0, 160) }); }
         await page.close();
       });
@@ -276,32 +273,46 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
     }
 
     // ---- 8: NCD control ----
+    // JavaScript off: every model page and the homepage, all six steps (CSS shows each step's data attribute).
+    // JavaScript on: four representative pages, all six steps, plus the logo knob. Expected values come from
+    // car-models.json through the site's own carSteps(); the rendered price is waited for, not slept on.
     if (R[8]) {
+      const h = await siteHelpers(REPO);
       const models = JSON.parse(fs.readFileSync(path.join(REPO, 'src/data/car-models.json'), 'utf8'));
       const bySlug = Object.fromEntries(models.map((m) => [m.slug, m]));
-      const targets = ['/', '/car-insurance/perodua-axia/', '/car-insurance/honda-civic/', '/car-insurance/mercedes-c-class/'];
-      for (const js of [true, false]) {
-        for (const u of targets) {
-          const ctx = await newCtx({ viewport: { width: 390, height: 844 }, javaScriptEnabled: js }); // fresh storage: the step is remembered in localStorage
+      const all = ['/', ...models.map((m) => `/car-insurance/${m.slug}/`)];
+      const jsTargets = ['/', '/car-insurance/perodua-axia/', '/car-insurance/honda-civic/', '/car-insurance/mercedes-c-class/'];
+      const ORDER = ['25', '0', '30', '38', '45', '55']; // start away from 55, so every step (55 included) is a change
+      const shownPrice = (w) => { const el = document.querySelector('[data-ea] .ea-pnum'); if (!el) return false; const pv = el.querySelector('.pv'); const a = getComputedStyle(el, '::after').content; const v = pv && getComputedStyle(pv).display !== 'none' ? pv.textContent.trim() : (a || '').replace(/^"|"$/g, ''); return v === w; };
+      for (const js of [false, true]) {
+        const ctx = await newCtx({ viewport: { width: 390, height: 844 }, javaScriptEnabled: js }); // fresh storage
+        await pool(js ? jsTargets : all, 4, async (u) => {
           const page = await ctx.newPage();
-          await page.goto(base + u);
-          const o55 = await page.evaluate(probePx);
-          const m = bySlug[o55.slug];
-          if (!m) { R[8].fails.push({ page: u, js, check: 'no [data-ea] model slug' }); await ctx.close(); continue; }
-          let ok = true;
-          for (const step of [0, 25]) {
-            await page.check(`#ncd-${step}`, { force: true });
-            await page.waitForTimeout(250);
-            const o = await page.evaluate(probePx);
-            const ex = expectedStep(m, step);
-            for (const k of ['price', 'total', 'save']) if (ex[k] != null && o55[k] != null && o[k] !== ex[k]) { ok = false; R[8].fails.push({ page: u, js, step, check: `${k} at NCD ${step}%`, value: `got "${o[k]}" expected "${ex[k]}"`, source: 'src/components/edisi/steps.ts / ModelAnswer.astro / HomeAnswer.astro' }); }
-            if (o.multi) { ok = false; R[8].fails.push({ page: u, js, step, check: 'price element shows 0 or 2 values', value: `${o.multi} of ${o.nPx}`, source: 'src/styles/edisi-answer.css' }); }
-            if (js && o.knobY === o55.knobY) { ok = false; R[8].fails.push({ page: u, js, step, check: 'logo dot did not move with the step', value: `y ${o.knobY}`, source: 'src/components/SiteHeader.astro' }); }
-          }
-          if (ok) R[8].passes++;
-          await ctx.close();
-        }
+          try {
+            await page.goto(base + u);
+            const o0 = await page.evaluate(probePx);
+            const m = bySlug[o0.slug];
+            if (!m) { R[8].fails.push({ page: u, js, check: 'no [data-ea] model slug' }); return; }
+            const s = h.carSteps(m);
+            let ok = true;
+            for (const k of ORDER) {
+              const before = js ? (await page.evaluate(probePx)).knobY : null;
+              await page.check(`#ncd-${k}`, { force: true });
+              const ex = { price: s.price[k], total: s.total[k] || null, save: s.saving[k] };
+              await page.waitForFunction(shownPrice, ex.price, { timeout: 2000 }).catch(() => {});
+              if (js) await page.waitForFunction((y) => { const n = document.querySelector('.ins-knob'); return !n || Math.round(n.getBoundingClientRect().top * 10) / 10 !== y; }, before, { timeout: 1500 }).catch(() => {});
+              const o = await page.evaluate(probePx);
+              for (const f of ['price', 'total', 'save']) if (ex[f] != null && o0[f] != null && o[f] !== ex[f]) { ok = false; R[8].fails.push({ page: u, js, step: k, check: `${f} at NCD ${k}%`, value: `got "${o[f]}" expected "${ex[f]}"`, source: 'src/components/edisi/steps.ts / ModelAnswer.astro / HomeAnswer.astro / edisi-answer.css' }); }
+              if (o.multi) { ok = false; R[8].fails.push({ page: u, js, step: k, check: 'price element shows 0 or 2 values', value: `${o.multi} of ${o.nPx}`, source: 'src/styles/edisi-answer.css' }); }
+              if (js && o.knobY === before) { ok = false; R[8].fails.push({ page: u, js, step: k, check: 'logo dot did not move with the step', value: `y ${o.knobY}`, source: 'src/scripts/edisi-logo.ts' }); }
+            }
+            if (ok) R[8].passes++;
+          } catch (e) { R[8].fails.push({ page: u, js, check: 'load error', value: String(e.message).slice(0, 160) }); }
+          finally { await page.close(); }
+        });
+        await ctx.close();
       }
+      R[8].info = `${all.length} pages × 6 steps without JavaScript, ${jsTargets.length} × 6 with`;
     }
 
     // ---- 9: calculators ----
@@ -324,7 +335,7 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
         await page.goto(base + '/tools/kalkulator-roadtax/');
         await page.fill('#engine-cc', v);
         await page.click('#roadtax-form button[type=submit]');
-        await page.waitForTimeout(150);
+        await page.waitForFunction(() => (document.querySelector('#engine-cc-understood')?.textContent || '').trim() || (document.querySelector('#roadtax-value')?.textContent || '').trim(), null, { timeout: 2000 }).catch(() => {});
         const und = clean(await page.textContent('#engine-cc-understood').catch(() => ''));
         const val = clean(await page.textContent('#roadtax-value').catch(() => ''));
         const ok = exp ? und.includes(exp) && /RM\s?\d/.test(val) : !/RM\s?\d/.test(val);
@@ -340,7 +351,7 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
         navs = 0;
         const notice = await np.evaluate(() => /JavaScript/i.test(document.body.innerText));
         const btn = await np.$(`${form.split(',')[0]} button[type=submit], ${form.split(',').pop().trim()} button[type=submit]`);
-        if (btn && (await btn.isVisible())) { await btn.click({ timeout: 2000 }).catch(() => {}); await np.waitForTimeout(300); }
+        if (btn && (await btn.isVisible())) { await btn.click({ timeout: 2000 }).catch(() => {}); await np.waitForEvent('framenavigated', { timeout: 600 }).catch(() => {}); /* a navigation would be the failure */ }
         const url = np.url();
         if (notice && navs === 0 && url === base + '/tools/' + slug) R[9].passes++;
         else R[9].fails.push({ page: '/tools/' + slug, check: 'JS off: notice shown and submit does not navigate', value: `notice=${notice} navigations=${navs} url=${url.replace(base, '')}`, source: `src/pages/tools/${slug}index.astro` });
@@ -348,8 +359,8 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
       await nctx.close();
     }
   } finally {
-    await browser.close();
-    srv.close();
+    if (browser) await browser.close().catch(() => {});
+    if (srv) srv.close();
   }
   return Object.values(R);
 }

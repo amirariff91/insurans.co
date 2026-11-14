@@ -1,54 +1,48 @@
 {
-  "_doc": "Allowed differences from the baseline (check 1). Each entry matches a diff when every field given matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|description|canonical|robots|ads|rm|pct|phones|jsonld), url (regex on the page path), path (regex on the JSON-LD path), value (regex). Every entry needs a reason. See docs/checks.md.",
+  "_doc": "Allowed differences from the baseline (check 1), each exact. An entry matches a difference when every field it gives matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|h1|description|canonical|robots|ads|rm|pct|phones|jsonld), url and path (regex), value (regex on the difference text), old/new (exact sides of a change; null = absent), values (exact list of added/removed values). Figures are compared by value (ranges keep both ends; K/ribu/juta/bilion expanded). Not listed here because the check derives them: NCD figures computed from car-models.json with the site helpers, and FAQ wording edits that equal the visible FAQ and carry the same figures. Every entry needs a reason. See docs/checks.md.",
   "entries": [
     {
       "check": "contract",
       "kind": "changed",
       "field": "jsonld",
-      "path": "\\.logo(\\.url)?$",
-      "value": "-> https://insurans\\.co/icon-512\\.png$",
+      "path": "^Organization\\.logo$",
+      "old": "https://insurans.co/logo-mark.svg",
+      "new": "https://insurans.co/icon-512.png",
       "reason": "Organization logo now points at /icon-512.png (Edisi brand assets)."
     },
     {
       "check": "contract",
       "kind": "pageAdded",
+      "field": "page",
       "url": "^/kredit-foto/$",
+      "values": [
+        "/kredit-foto/"
+      ],
       "reason": "New photo credits page for the car photos."
-    },
-    {
-      "check": "contract",
-      "kind": "added",
-      "field": "rm",
-      "url": "^/car-insurance/$",
-      "reason": "Derived display: the 39 NCD-55% ranges in the model list."
-    },
-    {
-      "check": "contract",
-      "kind": "added",
-      "field": "rm",
-      "url": "^/$|^/car-insurance/[^/]+/$",
-      "reason": "Derived display: per-NCD-step premiums, savings and their roadtax totals (NCD control), and per-model special-perils estimates; all computed from src/data/car-models.json."
     },
     {
       "check": "contract",
       "kind": "added",
       "field": "pct",
       "url": "^/$",
-      "value": "^(0|25|30|38\\.33|45)%$",
-      "reason": "Homepage NCD control step labels (0/25/30/38.33/45%), derived display beside the existing 55%."
-    },
-    {
-      "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "path": "FAQPage\\.mainEntity\\[\\d+\\]\\.(name|acceptedAnswer\\.text)$",
-      "reason": "Malay language pass (Nov 2026): FAQ wording edited. Check 3 separately requires FAQ JSON-LD to equal the visible FAQ text."
+      "values": [
+        "25%",
+        "30%",
+        "38.33%",
+        "45%"
+      ],
+      "reason": "Homepage NCD control step labels (25/30/38.33/45%), beside the 0% and 55% live already shows."
     },
     {
       "check": "contract",
       "kind": "added",
       "field": "rm",
       "url": "^/tools/kalkulator-roadtax/$",
+      "values": [
+        "RM200",
+        "RM0.4",
+        "RM280"
+      ],
       "reason": "Worked example for a 1,800cc saloon in Semenanjung: RM200 + RM0.40 x 200cc = RM280.00. Verified against the page's JPJ rate data by the owner."
     },
     {
@@ -56,104 +50,348 @@
       "kind": "changed",
       "field": "jsonld",
       "url": "^/guides/insurance-vs-takaful/$",
-      "path": "FAQPage\\.mainEntity\\[\\d+\\]\\.(@type|acceptedAnswer\\.@type)$",
-      "reason": "FAQPage JSON-LD is now generated from the 7 visible FAQ items (was 5 separately worded items that did not match the page)."
+      "path": "^FAQPage\\.mainEntity\\[[56]\\]\\.(@type|acceptedAnswer\\.@type)$",
+      "old": null,
+      "value": "^\\(none\\) -> (Question|Answer)$",
+      "reason": "FAQPage JSON-LD is now generated from the 7 visible FAQ items (was 5 separately worded items that did not match the page): items 6 and 7 are new."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[3\\]\\.acceptedAnswer\\.text$",
+      "old": "Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tidak kira agama. Ramai non-Muslim pilih takaful kerana konsep surplus sharing — ada potensi dapat semula sebahagian wang jika dana takaful ada lebihan.",
+      "new": "Proses claim hampir sama: hubungi syarikat, buat laporan polis dan hantar kereta ke bengkel panel. Pengalaman sebenar bergantung pada syarikat dan jenis kerosakan, bukan pada sama ada ia takaful atau insurans. Semak ulasan pengguna untuk syarikat yang anda pertimbangkan.",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[4\\]\\.acceptedAnswer\\.text$",
+      "old": "Proses claim takaful dan insurans konvensional adalah hampir identik — anda hubungi syarikat, submit dokumen, hantar kereta ke panel bengkel. Dari perspektif pengguna, pengalaman claim hampir tiada beza. Yang berbeza adalah konsep di belakang tabir.",
+      "new": "Ya, 100% boleh. Takaful terbuka untuk semua warganegara Malaysia tanpa mengira agama atau latar belakang. Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali. Tiada syarat agama untuk mendaftar.",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[5\\]\\.name$",
+      "old": null,
+      "new": "Boleh pindah NCD dari insurans konvensional ke takaful?",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[5\\]\\.acceptedAnswer\\.text$",
+      "old": null,
+      "new": "Ya, NCD anda boleh dibawa ke mana-mana syarikat, sama ada takaful atau insurans konvensional. Jika anda ada NCD 55% dengan syarikat konvensional dan mahu bertukar ke takaful tahun depan, NCD anda kekal 55%.",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[6\\]\\.name$",
+      "old": null,
+      "new": "Apa itu surplus sharing dalam takaful?",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[6\\]\\.acceptedAnswer\\.text$",
+      "old": null,
+      "new": "Surplus sharing ialah pengagihan lebihan dana takaful kepada peserta pada akhir tempoh polisi. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan ini dibahagikan mengikut nisbah yang ditetapkan, contohnya 70% kepada peserta dan 30% kepada syarikat. Namun, ia tidak dijamin. Ada tahun yang tiada lebihan langsung.",
+      "reason": "FAQPage JSON-LD rebuilt from the 7 visible FAQ items, in page order (items 4 and 5 swap; 6 and 7 are new); item 5 carries the takaful-eligibility correction. Check 3 confirms each equals the visible FAQ."
     },
     {
       "check": "contract",
       "kind": "added",
       "field": "pct",
       "url": "^/literasi-kewangan/36-penyakit-kritikal-bnm/$",
+      "values": [
+        "1%"
+      ],
       "reason": "Correction: Zurich Early Care recovery benefit is 12% in total, paid as 1% a month for 12 months (per src/data/critical-illness.json and its worked example). Live wrongly says 12% a month."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/critical-illness/$",
+      "path": "^FAQPage\\.mainEntity\\[1\\]\\.acceptedAnswer\\.text$",
+      "old": "Standard 36 tu severe-stage — bar tinggi, contoh kanser mesti tahap tertentu. Early-stage benefit bayar awal tapi jumlah separa (accelerated) dan kurangkan sum assured, baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care): carcinoma-in-situ bayar 50% rider sum assured, campur faedah pemulihan 12% sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian bayar 100% daripada baki 50%. Early stage di situ dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula cover 180 kondisi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekaligus 100% bila didiagnos mana-mana tahap, perlindungan hingga umur 80.",
+      "new": "Standard 36 itu peringkat teruk (severe-stage) — syaratnya tinggi, contohnya kanser mesti pada tahap tertentu. Faedah early-stage membayar lebih awal tetapi jumlahnya separa (accelerated) dan mengurangkan sum assured; bakinya kekal untuk claim peringkat akhir. Contoh kiraan yang disahkan untuk Early Care Critical Illness (Zurich): bayaran untuk carcinoma-in-situ ialah 50% rider sum assured, ditambah manfaat pemulihan sebanyak 12% daripada jumlah diinsuranskan rider, dibayar pada kadar 1% sebulan selama 12 bulan, serta RM2,000 untuk pendapat perubatan kedua (sekali bagi setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian melayakkan bayaran 100% daripada baki 50%. Dalam pelan itu, early stage dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula melindungi 180 keadaan yang dilindungi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekali gus 100% apabila didiagnosis pada mana-mana tahap, dan perlindungan hingga umur 80.",
+      "reason": "Same Zurich Early Care correction in the CI hub FAQ: recovery benefit 12% in total, 1% a month for 12 months (was \"12% sebulan\"); early-stage wording qualified."
     },
     {
       "check": "contract",
       "kind": "removed",
       "field": "rm",
       "url": "^/car-insurance/honda-jazz/$",
-      "value": "^RM(107,000|107,000–110,000|43,000–55,000|88,000)$",
+      "values": [
+        "RM107,000",
+        "RM107,000–110,000",
+        "RM43,000–55,000",
+        "RM88,000"
+      ],
       "reason": "Correction (15 Nov 2026): the City Hatchback FAQ quoted RM88,000 and RM107,000+; Honda Malaysia's price list says RS petrol RM100,900 and RS e:HEV RM112,900. The unsourced used-Jazz range RM43,000–55,000 was removed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/honda-jazz/$",
+      "values": [
+        "RM100,900",
+        "RM112,900"
+      ],
+      "reason": "Correction (15 Nov 2026): Honda Malaysia price list (honda.com.my/model/city-hatchback/pricing, checked 15 Nov 2026): City Hatchback RS petrol RM100,900, RS e:HEV RM112,900, on the road without insurance, Peninsular. Replaces the FAQ's RM88,000 / RM107,000+."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/car-insurance/honda-jazz/$",
+      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$",
+      "old": "Besar — Jazz GK used sum insured RM43,000–RM55,000; City Hatchback RS petrol baru sekitar RM88,000, RS e:HEV hybrid RM107,000+, iaitu di luar julat anggaran di halaman ini. Jangan insure Jazz lama ikut harga baru — itu over-insure, claim tetap bayar ikut nilai pasaran.",
+      "new": "Besar. Harga runcit disyorkan Honda Malaysia untuk City Hatchback baharu (atas jalan tanpa insurans, Semenanjung, disemak 15 Nov 2026) ialah RM100,900 bagi RS petrol dan RM112,900 bagi RS e:HEV. Kedua-duanya di luar julat anggaran di halaman ini. Harga belian ini bukan sum insured Jazz GK terpakai: nilainya bergantung pada tahun dan keadaan; semak nilai pasaran semasa dengan insurer. Jangan insuranskan Jazz lama ikut harga baru — itu over-insure, dan claim tetap dibayar ikut nilai pasaran.",
+      "reason": "The City Hatchback price FAQ with Honda Malaysia's list prices (RM100,900 / RM112,900) in place of RM88,000 / RM107,000+, and without the unsourced used-Jazz range."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "pct",
+      "url": "^/car-insurance/honda-jazz/$",
+      "values": [
+        "15–20%"
+      ],
+      "reason": "Jazz record wording (7145bb9): the year note that called the Jazz \"renamed as City Hatchback\" and claimed an unsourced 15–20% hybrid premium loading was rewritten. Hidden by the old extractor, which kept only \"20%\"."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-jazz/$",
+      "values": [
+        "RM80,000"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (sum-insured instruction based on RM80,000.)"
     },
     {
       "check": "contract",
       "kind": "changed",
       "field": "title",
       "url": "^/guides/insurance-vs-takaful/$",
-      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+      "old": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025 — Insurans.co",
+      "new": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026 — Insurans.co",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in its title, H1, description and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "h1",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "old": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025",
+      "new": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in its title, H1, description and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
     },
     {
       "check": "contract",
       "kind": "changed",
       "field": "description",
       "url": "^/guides/insurance-vs-takaful/$",
-      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+      "old": "Apa beza takaful dan insurans? Perbezaan takaful dan insurans kereta di Malaysia — konsep, harga, proses claim, dan mana lebih baik untuk anda. Takaful vs insurans konvensional 2025.",
+      "new": "Apa beza takaful dan insurans? Perbezaan takaful dan insurans kereta di Malaysia — konsep, harga, proses claim, dan mana lebih baik untuk anda. Takaful vs insurans konvensional 2026.",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in its title, H1, description and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
     },
     {
       "check": "contract",
       "kind": "changed",
       "field": "jsonld",
       "url": "^/guides/insurance-vs-takaful/$",
-      "path": "Article\\.(dateModified|headline)$",
-      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
-    },
-    {
-      "check": "contract",
-      "kind": "changed",
-      "field": "description",
-      "url": "^/(takaful|negeri|perbandingan)/$",
-      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Old and new text: see docs/handoffs/EDISI_2026-11-15.md."
+      "path": "^Article\\.headline$",
+      "old": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025",
+      "new": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in its title, H1, description and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
     },
     {
       "check": "contract",
       "kind": "changed",
       "field": "jsonld",
-      "url": "^/(takaful|negeri)/$",
-      "path": "description$",
-      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Old and new text: see docs/handoffs/EDISI_2026-11-15.md."
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "^Article\\.dateModified$",
+      "old": "2025-03-09",
+      "new": "2026-11-15",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in its title, H1, description and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
     },
     {
       "check": "contract",
-      "kind": "removed",
-      "field": "rm",
-      "url": "^/car-insurance/honda-jazz/$",
-      "value": "^RM80,000",
-      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+      "kind": "changed",
+      "field": "description",
+      "url": "^/takaful/$",
+      "old": "Panduan takaful Malaysia 2026. Apa beza insurans dan takaful? Mana yang lebih murah? Syarikat takaful terbaik. Ditulis dalam BM.",
+      "new": "Panduan takaful Malaysia 2026: beza insurans dan takaful, faktor harga, perkongsian lebihan dan senarai syarikat. Ditulis dalam BM.",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Full old and new text: docs/handoffs/EDISI_2026-11-15.md, \"Changed descriptions\"."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/negeri/$",
+      "old": "Cari panduan insurans kereta mengikut negeri di Malaysia. Risiko banjir, syarikat disyorkan, dan tips khusus untuk Selangor, KL, Johor, Kelantan dan semua negeri.",
+      "new": "Cari panduan insurans kereta mengikut negeri di Malaysia: rekod banjir, wilayah tarif dan pejabat JPJ di Selangor, KL, Johor, Kelantan dan negeri lain.",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Full old and new text: docs/handoffs/EDISI_2026-11-15.md, \"Changed descriptions\"."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/perbandingan/$",
+      "old": "Bandingkan syarikat insurans kereta Malaysia — Etiqa vs Allianz, Tokio Marine vs MSIG, dan banyak lagi. Pilih yang terbaik untuk anda.",
+      "new": "Bandingkan syarikat insurans kereta Malaysia — Etiqa vs Allianz, Tokio Marine vs MSIG dan pasangan lain. Semak produk, tuntutan dan saluran digital.",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Full old and new text: docs/handoffs/EDISI_2026-11-15.md, \"Changed descriptions\"."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/takaful/$",
+      "path": "^Article\\.description$",
+      "old": "Panduan lengkap takaful di Malaysia. Apa beza sebenar insurans konvensional dan takaful? Mana satu lebih bagus? Syarikat takaful terbaik.",
+      "new": "Panduan takaful di Malaysia: beza insurans konvensional dan takaful, cara dana diurus, jenis perlindungan dan syarikat yang menawarkannya.",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Full old and new text: docs/handoffs/EDISI_2026-11-15.md, \"Changed descriptions\"."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/negeri/$",
+      "path": "^Article\\.description$",
+      "old": "Panduan insurans kereta mengikut negeri di Malaysia — risiko banjir, syarikat disyorkan, dan tips khusus untuk setiap negeri.",
+      "new": "Panduan insurans kereta mengikut negeri di Malaysia — rekod banjir, wilayah tarif, pejabat JPJ dan perkara untuk disemak mengikut lokasi.",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Full old and new text: docs/handoffs/EDISI_2026-11-15.md, \"Changed descriptions\"."
     },
     {
       "check": "contract",
       "kind": "removed",
       "field": "rm",
       "url": "^/(car-insurance/)?$",
-      "value": "^RM10,000",
-      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+      "values": [
+        "RM10,000"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (third-party \"for cars under RM10,000\" cut-off.)"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/$",
+      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$",
+      "old": "Third-party cuma cover kerosakan kereta orang lain. Kereta sendiri langsung tak dilindungi. Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil comprehensive. Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000.",
+      "new": "Polisi pihak ketiga hanya melindungi kerosakan kereta orang lain. Kereta anda sendiri langsung tidak dilindungi. Bandingkan polisi pihak ketiga dan komprehensif bersama nilai kereta, syarat pinjaman dan kemampuan anda menanggung kerugian.",
+      "reason": "Homepage third-party FAQ: the unsourced \"kereta bawah RM10,000\" cut-off removed; language pass."
     },
     {
       "check": "contract",
       "kind": "removed",
       "field": "rm",
       "url": "^/guides/insurans-komprehensif-vs-pihak-ketiga/$",
-      "value": "^RM1[05],000",
-      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+      "values": [
+        "RM15,000"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (comprehensive-vs-third-party RM15,000 rule; RM10,000 still occurs on the page.)"
     },
     {
       "check": "contract",
       "kind": "removed",
+      "field": "rm",
       "url": "^/life-insurance/$",
-      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (EPF FAQ 'RM50K-100K'; smoker FAQ '50-100%')."
+      "values": [
+        "RM50,000–100,000"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (EPF FAQ 'RM50K-100K'.)"
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "pct",
+      "url": "^/life-insurance/$",
+      "values": [
+        "50–100%"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (smoker FAQ '50-100%'.)"
     },
     {
       "check": "contract",
       "kind": "removed",
       "field": "rm",
       "url": "^/literasi-kewangan/gaji-dan-perlindungan/$",
-      "value": "^RM400",
+      "values": [
+        "RM400–500"
+      ],
       "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
     },
     {
       "check": "contract",
       "kind": "removed",
+      "field": "rm",
       "url": "^/takaful/$",
-      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. ('RM30 bilion'; surplus '5-20%')."
+      "values": [
+        "RM30,000,000,000"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. ('RM30 bilion' industry size.)"
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "pct",
+      "url": "^/takaful/$",
+      "values": [
+        "5–20%"
+      ],
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (surplus '5-20%'.)"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/literasi-kewangan/travel-bila-perlu/$",
+      "path": "^FAQPage\\.mainEntity\\[1\\]\\.acceptedAnswer\\.text$",
+      "old": "Kira: jumlahkan semua single-trip setahun, banding dengan harga annual (Zurich dan Zurich Takaful ada varian annual). Melepasi 3–4 trip setahun, annual biasanya menang — plus tak perlu ingat beli setiap kali. Semak juga penalti batal polisi tahunan (prorata, bukan refund penuh).",
+      "new": "Kira: jumlahkan semua single-trip setahun, dan bandingkan dengan harga annual (Zurich dan Zurich Takaful ada varian annual). Jumlahkan harga polisi satu perjalanan yang diperlukan sepanjang tahun, kemudian bandingkan dengan polisi tahunan yang memberi perlindungan setara. Semak juga penalti pembatalan polisi tahunan (mengikut jadual kadar tempoh pendek, bukan bayaran balik penuh).",
+      "reason": "Second-reader correction: the \"annual wins after 3–4 trips\" rule removed from the FAQ (compare the summed single-trip prices with an equivalent annual policy)."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/bantuan-insurans/perlindungan-tenang/$",
+      "path": "^FAQPage\\.mainEntity\\[4\\]\\.acceptedAnswer\\.text$",
+      "old": "Belum diumumkan setakat 2026-09-12. Semak myptv.my untuk status terkini; tetingkap PTV 3.0 berakhir pada 31 Disember 2025 atau apabila baucar habis ditebus.",
+      "new": "Belum diumumkan setakat 12 Sep 2026. Semak myptv.my untuk status terkini; tetingkap PTV 3.0 berakhir pada 31 Disember 2025 atau apabila baucar habis ditebus.",
+      "reason": "Date presentation only: 2026-09-12 -> 12 Sep 2026 (no ISO dates in visible text)."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/critical-illness/prudential-crisis-cover-benefit/$",
+      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$",
+      "old": "Rider insurans yang hanya boleh dilekatkan pada pelan asas PRUCash. Halaman rasmi yang diterbitkan pada 2026-09-23 menerangkan produk ini sebagai perlindungan tambahan kepada PRUCash.",
+      "new": "Rider insurans yang hanya boleh dilekatkan pada pelan asas PRUCash. Halaman rasmi yang diterbitkan pada 23 Sep 2026 menerangkan produk ini sebagai perlindungan tambahan kepada PRUCash.",
+      "reason": "Date presentation only: 2026-09-23 -> 23 Sep 2026 (no ISO dates in visible text)."
     }
   ]
 }

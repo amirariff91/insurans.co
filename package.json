@@ -14,7 +14,8 @@
     "data:merge-enriched": "bun scripts/merge-enriched-models.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "check:site": "node scripts/checks/run.mjs"
+    "check:site": "node scripts/checks/run.mjs",
+    "check:site:static": "node scripts/checks/run.mjs --static"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.6",

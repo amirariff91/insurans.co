@@ -1,11 +1,14 @@
 // Static checks 1–5 (no browser). Each returns { id, name, fails: [], warns: [], passes: n }.
 import fs from 'node:fs';
 import path from 'node:path';
-import { walkHtml, loadPage, meta, jsonLd, norm, decode, snapshot, loadsAds, isRedirect } from './lib.mjs';
+import { walkHtml, loadPage, meta, jsonLd, norm, decode, snapshot, loadsAds, isRedirect, rmFigures, figureBag } from './lib.mjs';
+import { siteHelpers, derivedTexts } from './site-helpers.mjs';
 
 const mk = (id, name) => ({ id, name, fails: [], warns: [], passes: 0 });
 
 // ---------- allowlist ----------
+// An entry matches a difference when every field it gives matches. Regex fields: url, path, value. Exact fields:
+// old and new (the two sides of a `changed` difference), values (a list of exact added/removed values).
 export function makeAllow(entries) {
   const used = new Set();
   const allowed = (d) => entries.find((a, i) => {
@@ -15,37 +18,137 @@ export function makeAllow(entries) {
     if (a.url && !new RegExp(a.url).test(d.page)) return false;
     if (a.value && !new RegExp(a.value).test(String(d.value ?? ''))) return false;
     if (a.path && !new RegExp(a.path).test(String(d.path ?? ''))) return false;
+    if ('old' in a && a.old !== d.old) return false;
+    if ('new' in a && a.new !== d.new) return false;
+    if (a.values && !a.values.includes(d.value)) return false;
     used.add(i);
     return true;
   });
   return { allowed, unused: () => entries.filter((_, i) => !used.has(i)) };
 }
 
+// Visible-text comparison used by check 3 (FAQ JSON-LD must equal the visible FAQ): tags stripped, case and the
+// spaces next to punctuation ignored.
+const tight = (s) => s.replace(/\s+([.,;:!?)\]])/g, '$1').replace(/([(\[])\s+/g, '$1');
+const stripText = (s) => tight(norm(decode(String(s || '').replace(/<[^>]+>/g, ' '))).toLowerCase());
+const FAQ_PATH = /^FAQPage(#\d+)?\.mainEntity\[\d+\]\.(name|acceptedAnswer\.text)$/;
+const sameBag = (a, b) => { const x = figureBag(a), y = figureBag(b); return x.length === y.length && x.every((v, i) => v === y[i]); };
+
+/** The figures the NCD control and derived displays may add, per page: computed from car-models.json with the site's helpers. */
+async function derivedSets(repo) {
+  const h = await siteHelpers(repo);
+  const models = JSON.parse(fs.readFileSync(path.join(repo, 'src/data/car-models.json'), 'utf8'));
+  const per = new Map();
+  const all = new Set();
+  const listed = new Set(); // any model's premium at any step: model pages list related models with their range
+  for (const m of models) {
+    for (const v of rmFigures(derivedTexts(h, m))) all.add(v);
+    for (const v of rmFigures(Object.values(h.carSteps(m).ins).join(' ; '))) listed.add(v);
+  }
+  for (const m of models) per.set(`/car-insurance/${m.slug}/`, new Set([...rmFigures(derivedTexts(h, m)), ...listed]));
+  // The homepage and the car hub show the same per-model figures for every model they list.
+  per.set('/', all);
+  per.set('/car-insurance/', all);
+  return per;
+}
+
 // ---------- 1. contract against live ----------
-export function contract(dist, baseline, allow) {
+export async function contract(dist, baseline, allow, repo) {
   const r = mk(1, 'Contract against live (4dd50a3)');
-  const cur = snapshot(dist);
+  const cur = snapshot(dist, true);
   const base = baseline.pages;
-  const push = (d) => { if (allow.allowed(d)) r.allowed = (r.allowed || 0) + 1; else r.fails.push(d); };
+  const derived = await derivedSets(repo);
+  const auto = { derived: 0, faqWording: 0 };
+  const push = (d) => {
+    if (allow.allowed(d)) { r.allowed = (r.allowed || 0) + 1; return; }
+    // A figure the page's NCD control or derived display prints, computed from the data with the site's helpers.
+    if (d.kind === 'added' && d.field === 'rm' && derived.get(d.page)?.has(d.value)) { auto.derived++; r.allowed = (r.allowed || 0) + 1; return; }
+    // FAQ wording: allowed only when the new text is the visible FAQ text AND it carries exactly the same figures.
+    if (d.kind === 'changed' && d.field === 'jsonld' && FAQ_PATH.test(d.path) && d.old != null && d.new != null) {
+      const vis = tight(norm(cur[d.page].visible).toLowerCase());
+      if (vis.includes(stripText(d.new)) && sameBag(d.old, d.new)) { auto.faqWording++; r.allowed = (r.allowed || 0) + 1; return; }
+      d.why = !vis.includes(stripText(d.new)) ? 'new FAQ text is not the visible text' : `figures differ: ${figureBag(d.old).join(' ')} -> ${figureBag(d.new).join(' ')}`;
+    }
+    r.fails.push(d);
+  };
   for (const page of Object.keys(cur)) if (!base[page]) push({ check: 'contract', page, kind: 'pageAdded', field: 'page', value: page });
   for (const page of Object.keys(base)) {
     const b = base[page], c = cur[page];
     if (!c) { push({ check: 'contract', page, kind: 'pageRemoved', field: 'page', value: page }); continue; }
-    let ok = true;
-    for (const f of ['title', 'description', 'canonical', 'robots', 'ads']) {
-      if (b[f] !== c[f]) { ok = false; push({ check: 'contract', page, kind: 'changed', field: f, value: `${b[f]} -> ${c[f]}` }); }
+    const before = r.fails.length;
+    for (const f of ['title', 'h1', 'description', 'canonical', 'robots', 'ads']) {
+      if (b[f] !== c[f]) push({ check: 'contract', page, kind: 'changed', field: f, old: b[f], new: c[f], value: `${b[f]} -> ${c[f]}` });
     }
     for (const f of ['rm', 'pct', 'phones']) {
       const bs = new Set(b[f]), cs = new Set(c[f]);
-      for (const v of b[f]) if (!cs.has(v)) { ok = false; push({ check: 'contract', page, kind: 'removed', field: f, value: v }); }
-      for (const v of c[f]) if (!bs.has(v)) { ok = false; push({ check: 'contract', page, kind: 'added', field: f, value: v }); }
+      for (const v of b[f]) if (!cs.has(v)) push({ check: 'contract', page, kind: 'removed', field: f, value: v });
+      for (const v of c[f]) if (!bs.has(v)) push({ check: 'contract', page, kind: 'added', field: f, value: v });
     }
     for (const p of new Set([...Object.keys(b.jsonld), ...Object.keys(c.jsonld)])) {
-      if (b.jsonld[p] !== c.jsonld[p]) { ok = false; push({ check: 'contract', page, kind: 'changed', field: 'jsonld', path: p, value: `${b.jsonld[p] ?? '(none)'} -> ${c.jsonld[p] ?? '(none)'}` }); }
+      if (b.jsonld[p] !== c.jsonld[p]) push({ check: 'contract', page, kind: 'changed', field: 'jsonld', path: p, old: b.jsonld[p] ?? null, new: c.jsonld[p] ?? null, value: `${b.jsonld[p] ?? '(none)'} -> ${c.jsonld[p] ?? '(none)'}` });
     }
-    if (ok) r.passes++;
+    if (r.fails.length === before) r.passes++;
   }
+  // Contextual figures: the highest-risk numbers checked where they are shown, not only as a page-wide set.
+  await contextual(dist, cur, repo, r);
+  r.info = `auto-allowed: ${auto.derived} derived NCD figures (expected set from car-models.json), ${auto.faqWording} FAQ wording edits with identical figures; contextual: ${r.contextual}`;
   return { r, cur };
+}
+
+async function contextual(dist, cur, repo, r) {
+  const h = await siteHelpers(repo);
+  const read = (f) => JSON.parse(fs.readFileSync(path.join(repo, 'src/data', f), 'utf8'));
+  const models = read('car-models.json');
+  const bySlug = Object.fromEntries(models.map((m) => [m.slug, m]));
+  const fail = (page, check, value, source) => r.fails.push({ check: 'contextual', page, kind: check, value, source });
+  // (a) NCD steps in the HTML (what a reader sees without JavaScript, plus the data attributes CSS switches to):
+  //     every model page and the homepage's default car, all six steps, price, total and saving.
+  const pages = [...models.map((m) => `/car-insurance/${m.slug}/`), '/'];
+  let n = 0;
+  for (const u of pages) {
+    const root = cur[u]?.root;
+    const ea = root?.querySelector('[data-ea]');
+    const m = bySlug[ea?.getAttribute('data-slug')];
+    if (!m) { fail(u, 'ncd-steps', 'no [data-ea] with a known data-slug', 'src/components/edisi/ModelAnswer.astro / HomeAnswer.astro'); continue; }
+    if (u !== '/' && u !== `/car-insurance/${m.slug}/`) fail(u, 'ncd-steps', `answer block shows ${m.slug}`);
+    const s = h.carSteps(m);
+    const at = (sel, k) => { const el = ea.querySelector(sel); if (!el) return null; return k === '55' ? norm(el.querySelector('.pv')?.textContent || '') : el.getAttribute(`data-p${k}`); };
+    for (const k of ['0', '25', '30', '38', '45', '55']) {
+      // The homepage's answer block has no saving line; every model page has all three.
+      const want = { '.ea-pnum': s.price[k], '.ea-sum-t': s.total[k] || null, '.ea-save .px': u === '/' ? null : s.saving[k] };
+      for (const [sel, w] of Object.entries(want)) {
+        if (w == null) continue;
+        const got = at(sel, k);
+        if (got !== w) fail(u, 'ncd-steps', `${sel} at NCD ${k}: got "${got}" expected "${w}"`, 'src/components/edisi/steps.ts / ModelAnswer.astro');
+      }
+    }
+    n++;
+  }
+  // (b) Each plan page's lead equals its record's field.
+  let leads = 0;
+  const leadOf = (u) => norm(cur[u]?.root?.querySelector('.pa-lead-v')?.textContent || '');
+  for (const c of read('medical-cards.json').records) {
+    const u = `/medical-cards/${c.slug}/`;
+    if (!cur[u]) continue;
+    const want = /^RM[\d,]+$/.test(c.annualLimit ?? '') ? c.annualLimit : '';
+    if (leadOf(u) !== want) fail(u, 'plan-lead', `lead "${leadOf(u)}" expected annualLimit "${want}"`, 'src/pages/medical-cards/[slug].astro'); else leads++;
+  }
+  for (const c of read('critical-illness.json').records) {
+    const u = `/critical-illness/${c.slug}/`;
+    if (!cur[u]) continue;
+    const fact = c.analysis?.facts?.find((f) => f.label === 'Penyakit yang dilindungi');
+    const want = fact?.value.match(/^(\d+)\s/)?.[1] ?? '';
+    if (leadOf(u) !== want) fail(u, 'plan-lead', `lead "${leadOf(u)}" expected "${want}" (start of "Penyakit yang dilindungi")`, 'src/pages/critical-illness/[slug].astro'); else leads++;
+  }
+  // (c) Buy-direct table: one row per record, each linking the record's official URL.
+  const direct = read('direct-online.json').records;
+  const t = cur['/insurans-online/']?.root?.querySelector('#beli-terus tbody');
+  const rows = t ? t.querySelectorAll('tr') : [];
+  const links = rows.map((tr) => tr.querySelector('a[data-direct-insurer]')?.getAttribute('href'));
+  const host = (x) => { try { return new URL(x).hostname; } catch { return String(x); } };
+  if (rows.length !== direct.length) fail('/insurans-online/', 'buy-direct', `${rows.length} rows, data has ${direct.length}`, 'src/pages/insurans-online/index.astro');
+  else direct.forEach((d, i) => { if (links[i] !== d.url || host(links[i]) !== host(d.url)) fail('/insurans-online/', 'buy-direct', `row ${i + 1} ${d.company}: links ${links[i]} expected ${d.url}`); });
+  r.contextual = `${n} answer blocks × 6 steps, ${leads} plan leads, ${rows.length} buy-direct rows`;
 }
 
 // ---------- 2. ads and indexing ----------

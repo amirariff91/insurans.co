@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 // insurans.co site checks. Run after `bun run build`:  bun run check:site
-// Options (env): DIST (default ./dist), CHROME_PATH, CHECKS=1,2,6 (subset), SKIP_BROWSER=1.
-// Writes scripts/checks/report.json; exits 1 on any failure. See docs/checks.md.
+// Release run: all ten checks must RUN and pass; a skipped check (no browser) fails the run.
+// Static-only run (checks 1-5, no browser): bun run check:site:static  (same as --static or CHECKS=1,2,3,4,5).
+// Options (env): DIST (default ./dist), CHROME_PATH (Chromium/Chrome binary), PLAYWRIGHT_CORE (path to a
+// playwright-core package if the project has none), CHECKS=1,2,6 (subset: only those run, and must not skip),
+// ALLOWLIST (alternative allowlist file). Writes scripts/checks/report.json; exits 1 on any failure or required skip.
+// See docs/checks.md.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,19 +14,20 @@ import * as S from './static.mjs';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '../..');
 const DIST = path.resolve(process.env.DIST || path.join(REPO, 'dist'));
-const ONLY = process.env.CHECKS ? new Set(process.env.CHECKS.split(',').map(Number)) : null;
+const STATIC = process.argv.includes('--static');
+const ONLY = STATIC ? new Set([1, 2, 3, 4, 5]) : process.env.CHECKS ? new Set(process.env.CHECKS.split(',').map(Number)) : null;
 const want = (n) => !ONLY || ONLY.has(n);
 const t0 = Date.now();
 
 if (!fs.existsSync(path.join(DIST, 'index.html'))) { console.error(`No build at ${DIST}. Run: bun run build`); process.exit(2); }
 const baselineFile = fs.readdirSync(HERE).find((f) => /^baseline-.+\.json$/.test(f));
 const baseline = JSON.parse(fs.readFileSync(path.join(HERE, baselineFile), 'utf8'));
-const allowJson = JSON.parse(fs.readFileSync(path.join(HERE, 'allowlist.json'), 'utf8'));
+const allowJson = JSON.parse(fs.readFileSync(process.env.ALLOWLIST || path.join(HERE, 'allowlist.json'), 'utf8'));
 const allow = S.makeAllow(allowJson.entries);
 
 const results = [];
 const { pages, idsByFile } = S.loadAll(DIST);
-if (want(1)) results.push(S.contract(DIST, baseline, allow).r);
+if (want(1)) results.push((await S.contract(DIST, baseline, allow, REPO)).r);
 if (want(2)) results.push(S.adsIndexing(DIST, baseline, pages));
 if (want(3)) results.push(S.structure(DIST, pages, idsByFile));
 if (want(4)) results.push(S.copyHygiene(pages));
@@ -52,5 +57,9 @@ for (const r of results) {
 }
 if (report.unusedAllowlist.length) console.log(`\nUnused allowlist entries: ${report.unusedAllowlist.join(' | ')}`);
 const failed = results.filter((r) => r.fails.length).length;
-console.log(`\n${failed ? 'FAILED' : 'OK'}: ${results.length} checks, ${failed} failing, ${results.filter((r) => r.skipped).length} skipped, ${report.runtimeSec}s. Report: scripts/checks/report.json`);
-process.exit(failed ? 1 : 0);
+// Every requested check is required: a skip is not a pass.
+const skipped = results.filter((r) => r.skipped).length;
+const bad = failed + skipped;
+console.log(`\n${bad ? 'FAILED' : 'OK'}: ${results.length - bad} of ${results.length} checks passed, ${failed} failing, ${skipped} skipped${STATIC ? ' (static-only run: checks 6-10 not requested)' : ''}, ${report.runtimeSec}s. Report: scripts/checks/report.json`);
+if (skipped) console.log('Skipped checks fail the run. Install a browser (see docs/checks.md: CHROME_PATH, PLAYWRIGHT_CORE) or run the static checks only: bun run check:site:static');
+process.exit(bad ? 1 : 0);
