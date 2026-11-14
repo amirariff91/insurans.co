@@ -35,7 +35,9 @@ const schema = {
         <p class="text-lg text-stone-600 leading-relaxed">
           Setiap foto ialah karya pengarangnya di Wikimedia Commons, dan hanya foto kereta pasaran Malaysia digunakan.
           Kami membuang latar, menukar ke hitam putih dan, jika kelihatan, menutup nombor plat. Versi yang diubah suai
-          ini dikongsi di bawah lesen yang sama dengan foto asal.
+          di laman ini tersedia di bawah lesen yang sama dengan foto asalnya, seperti yang tertulis bagi setiap foto di
+          bawah. Setiap kredit memaparkan tajuk asal, pengarang serta notis hak cipta yang diberikannya, lesen, sumber
+          dan ubah suai yang dibuat.
         </p>
       </div>
     </div>
@@ -74,14 +76,18 @@ const schema = {
             <div class="text-sm leading-relaxed text-stone-700 min-w-0">
               <h3 class="font-semibold text-base text-stone-900 mb-1">{nameOf(p.slug)}</h3>
               <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+                <dt class="text-stone-500">Tajuk asal</dt>
+                <dd class="break-words"><cite class="not-italic">{p.credit!.title}</cite></dd>
                 <dt class="text-stone-500">Pengarang</dt>
-                <dd>{p.credit!.author}</dd>
+                <dd>{p.credit!.copyrightNotice ?? p.credit!.author}</dd>
                 <dt class="text-stone-500">Lesen</dt>
                 <dd><a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a></dd>
                 <dt class="text-stone-500">Sumber</dt>
                 <dd class="break-words"><a class="underline" href={p.credit!.source} rel="noopener">Wikimedia Commons</a></dd>
                 <dt class="text-stone-500">Ubah suai</dt>
                 <dd>{p.modifications}{p.aiRetouched && <strong class="ml-1">(alat AI)</strong>}</dd>
+                <dt class="text-stone-500">Lesen versi ini</dt>
+                <dd>Versi yang diubah suai di laman ini tersedia di bawah lesen yang sama, <a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a>.</dd>
               </dl>
             </div>
           </li>

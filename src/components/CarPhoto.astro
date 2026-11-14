@@ -46,7 +46,7 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
       fetchpriority={eager ? 'high' : undefined}
     />
     <figcaption class="cp-credit">
-      Foto: <a href={photo.credit!.source} rel="noopener">{photo.credit!.author}</a>,{' '}
+      Foto: <a href={photo.credit!.source} rel="noopener">{photo.credit!.copyrightNotice ?? photo.credit!.author}</a>,{' '}
       <a href={photo.credit!.licenceUrl} rel="license noopener">{photo.credit!.licence}</a>,{' '}
       {aiNote ? (
         <>Wikimedia Commons. <a href={creditHref}>{aiNote}</a></>
