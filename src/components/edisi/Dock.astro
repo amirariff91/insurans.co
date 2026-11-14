@@ -18,10 +18,12 @@ interface Props {
   car?: string;
   /** Element whose text is the current calculated price (NCD calculator: '#result-premium'). */
   result?: string;
+  /** Unit appended to the `result` price when one is shown (NCD calculator: '/tahun', the premium is yearly). */
+  unit?: string;
 }
-const { answer, control, name = '', car = '', result = '' } = Astro.props;
+const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.props;
 ---
-<div class="dock" data-dock data-answer={answer} data-control={control} data-name={name} data-car={car} data-result={result} hidden>
+<div class="dock" data-dock data-answer={answer} data-control={control} data-name={name} data-car={car} data-result={result} data-unit={unit || undefined} hidden>
   <p class="dock-t"><span class="dock-r"><span class="dock-n" data-dock-n></span><span class="dock-k" data-dock-k></span></span><span class="dock-v" data-dock-v></span></p>
   <button type="button" class="dock-b" data-dock-b>Tukar</button>
 </div>
@@ -86,7 +88,10 @@ const { answer, control, name = '', car = '', result = '' } = Astro.props;
       const name = dock.dataset.car || txt(dock.dataset.name);
       let price = '';
       let unit = '';
-      if (dock.dataset.result) price = txt(dock.dataset.result);
+      if (dock.dataset.result) {
+        price = txt(dock.dataset.result);
+        if (price) unit = dock.dataset.unit ?? '';
+      }
       else {
         const px = document.querySelector<HTMLElement>('[data-ea] .ea-pnum');
         const k = r?.value ?? '55';
@@ -121,16 +126,19 @@ const { answer, control, name = '', car = '', result = '' } = Astro.props;
     let queued = false;
     const later = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; set(); }); } };
     // Only dialog and consent changes matter; the dock's own text and the page's price ticks are ignored, so
-    // updating the dock can never retrigger this observer.
+    // updating the dock can never retrigger this observer. That includes a wrapper that holds a consent root or a
+    // dialog: un-hiding it (hidden, class, style, aria-hidden) can put the consent message on screen. The dock only
+    // writes to itself and to <html> (outside the observed body), so its own changes never match.
     const isBlocker = (n: Node) => n instanceof Element && (n.tagName === 'DIALOG' || n.matches(CMP) || Boolean(n.querySelector(`dialog, ${CMP}`)));
     const relevant = (m: MutationRecord) => {
       const t = m.target;
       if (dock.contains(t)) return false;
       if (t instanceof Element && (t.tagName === 'DIALOG' || t.closest(CMP))) return true;
+      if (m.type === 'attributes' && t instanceof Element && t.querySelector(`dialog, ${CMP}`)) return true;
       return [...m.addedNodes, ...m.removedNodes].some(isBlocker);
     };
     new MutationObserver((ms) => { if (ms.some(relevant)) later(); })
-      .observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['open', 'style', 'class', 'hidden'] });
+      .observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['open', 'style', 'class', 'hidden', 'aria-hidden'] });
     document.addEventListener('toggle', later, true);
     document.addEventListener('close', later, true);
     dock.hidden = false;
