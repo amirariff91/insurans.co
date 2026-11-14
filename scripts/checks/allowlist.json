@@ -73,6 +73,28 @@
       "url": "^/car-insurance/honda-jazz/$",
       "value": "^RM(107,000|107,000–110,000|43,000–55,000|88,000)$",
       "reason": "Correction (15 Nov 2026): the City Hatchback FAQ quoted RM88,000 and RM107,000+; Honda Malaysia's price list says RS petrol RM100,900 and RS e:HEV RM112,900. The unsourced used-Jazz range RM43,000–55,000 was removed."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance-vs-takaful/$",
+      "path": "Article\\.(dateModified|headline)$",
+      "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
     }
   ]
 }
