@@ -2,6 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
+import HubModelList from '../../components/edisi/HubModelList.astro';
+import HubTiles from '../../components/edisi/HubTiles.astro';
 import companies from '../../data/companies.json';
 import carModels from '../../data/car-models.json';
 
@@ -27,6 +29,21 @@ const tableRows = ['perodua-axia', 'perodua-myvi', 'proton-saga', 'proton-x50', 
   return { slug, label: car.fullName, marketValue: `${kValue(car.marketValueMin)} – ${kValue(car.marketValueMax)}`, car };
 });
 const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
+
+// Jump tiles to the hub's own sections; the labels are the quick-link words and section headings already on the page.
+const jumpTiles = [
+  { href: '#harga', icon: 'i-harga', label: 'Harga' },
+  { href: '#jenis', icon: 'i-lindung', label: 'Jenis Coverage' },
+  { href: '#ncd', icon: 'i-peratus', label: 'NCD' },
+  { href: '#renew', icon: 'i-renew', label: 'Cara Renew' },
+  { href: '#add-ons', icon: 'i-tambah', label: 'Add-ons' },
+  { href: '#murah', icon: 'i-dompet', label: 'Murah' },
+  { href: '#tips', icon: 'i-syiling', label: 'Tips Jimat' },
+  { href: '#syarikat', icon: 'i-cop', label: 'Syarikat' },
+  { href: '#istilah', icon: 'i-kamus', label: 'Istilah' },
+  { href: '#soalan', icon: 'i-info', label: 'Soalan lazim' },
+  { href: '#semua-model', icon: 'i-kereta', label: 'Ikut Model' },
+];
 
 const pageTitle = `Harga Insurans & Roadtax Kereta 2026: ${carModels.length} Model`;
 const pageDescription = 'Pilih model kereta anda (Perodua, Proton, Honda, Toyota & lain-lain) untuk anggaran insurans ikut NCD 0–55% dan roadtax setahun. Bukan quotation.';
@@ -65,33 +82,25 @@ const schema = {
   ads={true}
 >
   <!-- Breadcrumb + Header -->
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Kereta</span>
+  <section class="hub-top">
+    <div class="container-wide hub-top-in">
+      <nav class="hub-crumbs" aria-label="Breadcrumb">
+        <a href="/">Utama</a>
+        <span aria-hidden="true">›</span>
+        <span>Insurans Kereta</span>
       </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <p class="label">Panduan Lengkap</p>
+      <h1 class="hub-h1">
         {pageTitle}
       </h1>
       <Byline dateModified={schema.dateModified} />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="hub-lead">
         Insurans kereta wajib di Malaysia — tanpa polisi sah, roadtax tak boleh renew. Premium comprehensive untuk Axia/Myvi sekitar {leadSmall55} setahun (NCD 55%) dan {leadSmall0} (NCD 0%); City/Vios {leadMid55} dengan NCD penuh. Panduan ini tunjuk harga ikut model, jadual NCD 25–55%, beza comprehensive vs third-party, dan cara renew online.
       </p>
 
-      <!-- Quick jump links -->
-      <div class="flex flex-wrap gap-2 mt-6">
-        <a href="#harga" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Harga</a>
-        <a href="#jenis" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Jenis Coverage</a>
-        <a href="#ncd" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">NCD</a>
-        <a href="#murah" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Murah</a>
-        <a href="#renew" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Cara Renew</a>
-        <a href="#syarikat" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Syarikat</a>
-        <a href="#tips" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Tips Jimat</a>
-        <a href="#semua-model" class="text-xs font-semibold px-3 py-1.5 border border-stone-300 text-stone-600 hover:border-hijau-500 hover:text-hijau-700 transition-colors">Ikut Model</a>
-      </div>
+      <HubModelList />
+
+      <HubTiles tiles={jumpTiles} label="Bahagian panduan" />
     </div>
   </section>
 
@@ -329,7 +338,7 @@ const schema = {
 
 
           <!-- Add-ons -->
-          <h2>Add-ons: apa yang perlu dipertimbangkan</h2>
+          <h2 id="add-ons">Add-ons: apa yang perlu dipertimbangkan</h2>
 
           <p>
             Lepas liberalisasi tarif, syarikat insurans offer macam-macam add-ons.
@@ -451,7 +460,7 @@ const schema = {
 
         <article class="prose-editorial">
           <!-- Istilah penting -->
-          <h2>Istilah penting yang anda patut tahu</h2>
+          <h2 id="istilah">Istilah penting yang anda patut tahu</h2>
         </article>
 
         <div class="my-8">
@@ -502,7 +511,7 @@ const schema = {
 
         <!-- FAQ -->
         <article class="prose-editorial">
-          <h2>Soalan lazim insurans kereta</h2>
+          <h2 id="soalan">Soalan lazim insurans kereta</h2>
         </article>
 
         <div class="my-8">
@@ -602,9 +611,9 @@ const schema = {
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
           <!-- Quick summary card -->
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
+          <div class="hub-sum">
+            <h3 class="hub-sum-bar">Ringkasan</h3>
+            <dl class="space-y-3 text-sm hub-sum-in">
               <div>
                 <dt class="text-stone-500">Wajib?</dt>
                 <dd class="font-semibold text-stone-900">Ya, minimum third-party</dd>
@@ -660,3 +669,69 @@ const schema = {
     </div>
   </div>
 </Base>
+
+<style>
+  .hub-top {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hub-top-in {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 1.25rem 2.5rem;
+  }
+  .hub-top-in > * {
+    margin: 0;
+  }
+  .hub-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+  }
+  .hub-crumbs a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .hub-top-in .label {
+    margin-bottom: -0.75rem;
+  }
+  .hub-h1 {
+    font: 800 clamp(1.875rem, 1.3rem + 2.6vw, 3rem)/1.08 var(--fd);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+  .hub-lead {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 68ch;
+  }
+  .hub-sum {
+    border: 2px solid var(--ink);
+    border-radius: var(--r-2);
+    overflow: clip;
+    background: var(--card);
+  }
+  .hub-sum-bar {
+    margin: 0;
+    padding: 0.55rem 0.9rem;
+    background: #000;
+    color: #fff;
+    font: 800 1.125rem/1.2 var(--fd);
+  }
+  .hub-sum-in {
+    padding: 0.9rem;
+  }
+  @media (min-width: 64rem) {
+    .hub-top-in {
+      padding-block: 2rem 3rem;
+    }
+  }
+</style>
+

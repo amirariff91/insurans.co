@@ -1,0 +1,135 @@
+---
+/**
+ * "Harga ikut model" on the car hub: every model by brand with its NCD 55% yearly range in a pink pill.
+ * Same data, brand order and span() helper as the model pages' "Tukar model" rail (ModelRail.astro).
+ */
+import carModels from '../../data/car-models.json';
+import { span } from './steps';
+
+const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
+const brands = [...new Set(carModels.map((c) => c.brand))];
+const ordered = [...brandOrder.filter((b) => brands.includes(b)), ...brands.filter((b) => !brandOrder.includes(b)).sort()];
+const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => c.brand === brand).sort((a, b) => a.model.localeCompare(b.model)) }));
+---
+<section class="hm" aria-labelledby="harga-ikut-model">
+  <h2 class="hm-bar" id="harga-ikut-model">Harga ikut model</h2>
+  <p class="hm-cap">Anggaran setahun, NCD 55%</p>
+  <ul class="hm-groups">
+    {groups.map((g) => (
+      <li class="hm-g">
+        <h3 class="hm-gh">{g.brand}</h3>
+        <ul class="hm-list">
+          {g.models.map((c) => (
+            <li>
+              <a href={`/car-insurance/${c.slug}/`}>
+                <span class="hm-name">{c.model}</span>
+                <span class="hm-pill">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span>
+                <svg class="hm-chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .hm {
+    border: 2px solid var(--ink);
+    border-radius: var(--r-2);
+    overflow: clip;
+    background: var(--card);
+    min-width: 0;
+  }
+  .hm-bar {
+    margin: 0;
+    padding: 0.6rem 0.9rem;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    font: 800 1.375rem/1.15 var(--fd);
+  }
+  .hm-cap {
+    margin: 0;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    border-bottom: 1px solid rgb(0 0 0 / 0.15);
+  }
+  .hm-groups,
+  .hm-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .hm-g {
+    break-inside: avoid;
+  }
+  .hm-gh {
+    margin: 0;
+    padding: 0.4rem 0.9rem;
+    background: var(--tray);
+    font: 700 0.875rem/1.3 var(--f);
+    color: var(--ink);
+  }
+  .hm-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.875rem;
+    padding: 0.3rem 0.6rem 0.3rem 0.9rem;
+    border-top: 1px solid rgb(0 0 0 / 0.12);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .hm-list li:first-child a {
+    border-top: 0;
+  }
+  .hm-name {
+    flex: 1;
+    min-width: 0;
+    font: 800 1.125rem/1.15 var(--fd);
+  }
+  .hm-pill {
+    flex: none;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--r-pill);
+    background: var(--tint-pink);
+    color: var(--ink);
+    font: 700 0.9375rem/1.2 var(--f);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .hm-chev {
+    flex: none;
+  }
+  .hm-list a:hover .hm-name {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .hm-list a:hover {
+    background: var(--tray);
+  }
+  .hm-list a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: -3px;
+  }
+
+  @media (min-width: 40rem) {
+    .hm-groups {
+      columns: 2;
+      column-gap: 0;
+    }
+    .hm-g {
+      border-right: 1px solid rgb(0 0 0 / 0.12);
+    }
+  }
+  @media (min-width: 64rem) {
+    .hm-groups {
+      columns: 3;
+    }
+  }
+</style>

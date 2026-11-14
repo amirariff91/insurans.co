@@ -71,7 +71,7 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
     <span class="ea-fit">
       <span class="ea-price" style={cur.vars} data-price><span class="ea-cur">RM</span><Px v={cur.price} class="ea-pnum" data-tick data-f="price" /></span>
     </span>
-    <span class="ea-sub">setahun <span class="ha-mo">(<Px v={cur.monthly} data-f="monthly" />)</span> · NCD <Px v={cur.pct} data-f="pct" /> (<Px v={cur.long} class="px-w" data-f="long" />). Anggaran{cur.reviewedText && <>, disemak <time datetime={cur.reviewed} data-f="reviewed">{cur.reviewedText}</time></>}.</span>
+    <span class="ea-sub">setahun · NCD <Px v={cur.pct} data-f="pct" /> (<Px v={cur.long} class="px-w" data-f="long" />).</span>
     {cur.hasRt && (
       <span class="ea-sum">
         <span>Campur roadtax <b data-f="rt">{cur.rt}</b> (Semenanjung):</span>
@@ -99,6 +99,7 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
     <a class="ea-btn ea-btn-p" href={cur.href} data-f="href" data-cta="hero_model"><span>Harga penuh <span data-f="short">{cur.short}</span></span> <Ikon name="i-kanan" size={20} /></a>
     <a class="ea-btn ea-btn-o" href={cur.calc} data-calculator-link data-cta="hero_secondary">Kira NCD saya <Ikon name="i-kalkulator" size={20} /></a>
   </div>
+  <p class="ha-note"><span class="ha-mo">(<Px v={cur.monthly} data-f="monthly" />)</span> · Anggaran{cur.reviewedText && <>, disemak <time datetime={cur.reviewed} data-f="reviewed">{cur.reviewedText}</time></>}.</p>
   <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>
   <script type="application/json" id="ha-data" set:html={JSON.stringify(data)} />
 </div>
@@ -125,6 +126,7 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
   .ha-chip:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) { .ha-chip:not([aria-current]):hover { background: var(--tray); } }
   .ha-mo { white-space: nowrap; }
+  .ha-note { font-size: 0.9375rem; line-height: 1.4; color: var(--ink-2); max-width: 36rem; }
   .ha-name { display: block; font: 750 1.25rem/1.1 var(--fd); color: var(--ink); }
   .ha-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 36rem; }
   .ha .ea-btn { padding-inline: 0.75rem; text-align: center; }

@@ -96,10 +96,10 @@ const modelReferences = Object.fromEntries(
               <caption class="sr-only">Jadual NCD kereta persendirian Malaysia 2026</caption>
               <thead>
                 <tr>
-                  <th scope="col">Tahun Tanpa Claim</th>
+                  <th scope="col"><span class="tg-long">Tahun Tanpa Claim</span><span class="tg-short" aria-hidden="true">Tahun</span></th>
                   <th scope="col">NCD</th>
-                  <th scope="col" class="num">Contoh: Premium Asas RM2,000</th>
-                  <th scope="col" class="num">Baki premium asas</th>
+                  <th scope="col" class="num"><span class="tg-long">Contoh: Premium Asas RM2,000</span><span class="tg-short" aria-hidden="true">Premium Asas RM2,000</span></th>
+                  <th scope="col" class="num"><span class="tg-long">Baki premium asas</span><span class="tg-short" aria-hidden="true">Baki</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -107,7 +107,7 @@ const modelReferences = Object.fromEntries(
                   <tr class:list={[{ 'tg-max': row.pct === 55 }]}>
                     <th scope="row">{row.years}</th>
                     <td><span class="tg-mid"><span class="tg-bar" style={`--p:${row.pct === 0 ? 4 : row.pct / 55 * 100}`} aria-hidden="true"></span><span class="tg-pct">{row.label}</span></span></td>
-                    <td class="num">{row.discount}</td>
+                    <td class="num tg-disc">{row.discount}</td>
                     <td class="num"><strong>{row.after}</strong></td>
                   </tr>
                 ))}

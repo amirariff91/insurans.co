@@ -6,6 +6,7 @@
  */
 import carPhotos from '../data/car-photos.json';
 import carModels from '../data/car-models.json';
+import Ikon from './Ikon.astro';
 
 interface Props {
   slug: string;
@@ -24,8 +25,8 @@ if (!photo || !model) {
   throw new Error(`CarPhoto: unknown car slug "${slug}"`);
 }
 
-const shortName = model.model.length > 2 ? model.model : model.fullName;
-const bodyType = model.segment.split(' ')[0];
+// Brand on one line, model on the next; the longer of the two sets the type size so both fit the plate.
+const fitChars = Math.max(model.brand.length, model.model.length, 4);
 const creditHref = `/kredit-foto/#${slug}`;
 const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace(/\.$/, '') : null;
 ---
@@ -55,10 +56,11 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     </figcaption>
   </figure>
 ) : (
-  <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName}>
-    <span class="cp-card-brand">{model.brand}</span>
-    <span class="cp-card-name">{shortName}</span>
-    <span class="cp-card-type">{bodyType}</span>
+  <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName} style={`--fit:${fitChars}`}>
+    <span class="cp-card-name"><span class="cp-card-brand">{model.brand}</span> <span class="cp-card-model">{model.model}</span></span>
+    <span class="cp-card-meta">{model.segment} · {model.engineCC}</span>
+    <span class="cp-card-car"><Ikon name="i-kereta" size={96} /></span>
+    <span class="cp-card-note">Foto belum ada</span>
   </div>
 )}
 
@@ -88,59 +90,76 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     color: var(--edisi-ink, #1c1917);
   }
 
-  /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box. */
+  /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box:
+     brand and model set very large and tight, body type and engine small beneath, the car pictogram
+     (its knob is the magenta dot) and a small "Foto belum ada". */
   .cp-card {
     container-type: inline-size;
     display: grid;
-    grid-template: 'b g' auto 'n n' 1fr / minmax(0, 1fr) auto;
+    grid-template:
+      'name name' auto
+      'meta car' 1fr
+      'note car' auto / minmax(0, 1fr) auto;
     align-items: end;
-    gap: 0.25rem 0.75rem;
-    aspect-ratio: 2 / 1;
-    padding: 0.8rem 1rem 0.9rem;
-    border-radius: var(--edisi-radius, 0.75rem);
-    background: var(--edisi-plate, #ffd9e8);
-    color: var(--edisi-plate-ink, #4a0526);
+    gap: 0.35rem 1rem;
+    padding: 1rem 1rem 0.9rem;
+    border: 2px solid var(--ink, #000);
+    border-radius: var(--r-2, 0.5rem);
+    background: var(--tint-pink, #fbd3e4);
+    color: var(--ink, #000);
     overflow: hidden;
   }
-  .cp-card-brand {
-    grid-area: b;
-    align-self: start;
-    font-size: 0.8125rem;
-    font-weight: 650;
-    line-height: 1.15;
-  }
-  .cp-card-type {
-    grid-area: g;
-    align-self: start;
-    font-size: 0.8125rem;
-    line-height: 1.15;
-    opacity: 0.8;
-  }
   .cp-card-name {
-    grid-area: n;
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    font-family: var(--edisi-display, inherit);
+    font-family: var(--fd, inherit);
     font-weight: 800;
-    font-size: clamp(1.75rem, 16cqi, 5.5rem);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.25rem, calc(170cqi / var(--fit)), 5.5rem);
+    line-height: 0.88;
+    letter-spacing: -0.035em;
     overflow-wrap: anywhere;
   }
+  .cp-card-meta {
+    grid-area: meta;
+    align-self: start;
+    margin-block-start: 0.35rem;
+    font-size: 0.9375rem;
+    font-weight: 650;
+    line-height: 1.25;
+  }
+  .cp-card-car {
+    grid-area: car;
+    --icon-stroke: 2;
+    line-height: 0;
+  }
+  .cp-card-car :global(.ikon) {
+    inline-size: clamp(4.5rem, 26cqi, 7rem);
+    block-size: auto;
+  }
+  .cp-card-note {
+    grid-area: note;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-  /* Wider slots (tablet and desktop): a capped, compact plate. The name sits large on the left;
-     brand and body type stack small on the right, so the card never reads as an empty image box. */
+  /* Wider slots (tablet and desktop): a capped, compact plate. Name stack on the left, car on the right. */
   @media (min-width: 48rem) {
     .cp-card {
-      grid-template: 'n b' auto 'n g' auto / minmax(0, 1fr) auto;
-      align-items: end;
+      grid-template:
+        'name car' 1fr
+        'meta note' auto / minmax(0, 1fr) auto;
       align-content: end;
-      aspect-ratio: auto;
-      min-block-size: 6.5rem;
       max-block-size: 9rem;
-      padding: 1rem 1.1rem;
+      gap: 0.3rem 1rem;
+      padding: 0.85rem 1rem 0.75rem;
     }
-    .cp-card-brand { align-self: end; text-align: right; font-size: 0.875rem; }
-    .cp-card-type { align-self: start; text-align: right; font-size: 0.875rem; opacity: 1; }
-    .cp-card-name { align-self: end; font-size: clamp(2.25rem, 13cqi, 3.75rem); overflow-wrap: normal; word-break: normal; }
+    .cp-card-name { font-size: clamp(1.75rem, calc(110cqi / var(--fit)), 2.75rem); overflow-wrap: normal; }
+    .cp-card-meta { margin: 0; font-size: 0.875rem; align-self: end; }
+    .cp-card-car { align-self: center; justify-self: end; }
+    .cp-card-car :global(.ikon) { inline-size: 4.25rem; }
+    .cp-card-note { justify-self: end; align-self: end; }
   }
 </style>
