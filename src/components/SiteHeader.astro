@@ -103,7 +103,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 </header>
 
 <style>
-  .mast { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--rule); }
+  .mast { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--rule); container: mast / inline-size; }
   .mast-in {
     --wm-h: 2.75rem;
     max-width: var(--page-max); margin: 0 auto;
@@ -146,6 +146,22 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .menu-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .menu-nojs > .menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.4); }
   @media (max-width: 47.99rem) { .mast { position: relative; z-index: 41; } }
+
+  /* Narrow bar (rem here follows the root size, so enlarged text lands in these too): at 320 the logo,
+     gaps and "Menu" were 1.5px too wide; tighter gap and padding. Very narrow (large text): icon-only
+     button (its name stays in aria-label) and a logo that shrinks to the space left. */
+  @container mast (width < 22.5rem) {
+    .mast-in { column-gap: 0.5rem; }
+    .menu-btn { padding: 0 0.75rem 0 0.6rem; }
+  }
+  @container mast (width < 19.5rem) {
+    .mast-in { grid-template-columns: minmax(0, 1fr) auto; }
+    .wm-a { min-width: 0; justify-self: start; max-width: 100%; }
+    .wm-svg { width: 100%; height: auto; max-height: var(--wm-h); }
+    .menu-btn, .menu-nojs { grid-column: 2; }
+    .menu-btn { padding: 0 0.6rem; }
+    .menu-btn > span { display: none; }
+  }
 
   @media (min-width: 48rem) {
     .mast-in { --wm-h: 4.25rem; grid-template-columns: auto auto 1fr; padding: 0.35rem var(--gutter) 0.6rem; }

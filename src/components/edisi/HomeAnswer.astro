@@ -26,7 +26,8 @@ const reviewedText = (reviewed?: string) =>
   reviewed
     ? new Date(`${reviewed}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
     : '';
-const calcUrl = (slug: string) => `/tools/ncd-calculator/?model=${slug}&ncd=55`;
+// No ?ncd= in the HTML: edisi-ncd.ts adds the chosen step, so a link without JavaScript is never on the wrong step.
+const calcUrl = (slug: string) => `/tools/ncd-calculator/?model=${slug}`;
 const entries = models.map((m) => {
   const s = carSteps(m);
   const rtSen = s.rtSen;
@@ -93,13 +94,16 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
       ))}
       <span class="ea-track" aria-hidden="true"><span class="ea-knob"></span></span>
     </div>
+    <ul class="ea-static">
+      {STEPS.map((st) => <li><span>NCD {st.pct} ({st.long})</span> <b>RM{cur.price[st.k]}</b></li>)}
+    </ul>
   </fieldset>
 
   <div class="ha-cta">
     <a class="ea-btn ea-btn-p" href={cur.href} data-f="href" data-cta="hero_model"><span>Harga penuh <span data-f="short">{cur.short}</span></span> <Ikon name="i-kanan" size={20} /></a>
     <a class="ea-btn ea-btn-o" href={cur.calc} data-calculator-link data-cta="hero_secondary">Kira NCD saya <Ikon name="i-kalkulator" size={20} /></a>
   </div>
-  <p class="ha-note"><span class="ha-mo">(<Px v={cur.monthly} data-f="monthly" />)</span> · Anggaran{cur.reviewedText && <>, disemak <time datetime={cur.reviewed} data-f="reviewed">{cur.reviewedText}</time></>}.</p>
+  <p class="ha-note"><span class="ha-mo">(<Px v={cur.monthly} data-f="monthly" />)</span> <span class="ha-mo-note">Setara tahunan ÷ 12; bukan pelan ansuran.</span> · Anggaran{cur.reviewedText && <>, disemak <time datetime={cur.reviewed} data-f="reviewed">{cur.reviewedText}</time></>}.</p>
   <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>
   <script type="application/json" id="ha-data" set:html={JSON.stringify(data)} />
 </div>
@@ -141,7 +145,8 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
   // Picker enhancement: swap the figures in place from the build-time data; the links stay real links.
   const root = document.querySelector<HTMLElement>('[data-ha]');
   const raw = document.getElementById('ha-data')?.textContent;
-  if (root && raw) {
+  // Without :has() the NCD bars are hidden and the static list shows; the chips stay plain links to the model pages.
+  if (root && raw && CSS.supports('selector(:has(*))')) {
     const data = JSON.parse(raw) as Record<string, any>;
     const KEYS = ['0', '25', '30', '38', '45'];
     const setPx = (el: HTMLElement, v: Record<string, string>) => {

@@ -174,7 +174,8 @@ const addonIcon = (name: string) =>
   : /kunci|key/i.test(name) ? 'i-kunci'
   : /pihak|liabil|legal|driver|pemandu/i.test(name) ? 'i-pihak-ketiga'
   : 'i-tambah';
-const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`;
+// No ?ncd= in the HTML: edisi-ncd.ts adds the chosen step, so a link without JavaScript is never on the wrong step.
+const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 ---
 
 <Base
@@ -191,8 +192,6 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
 >
   <div class="ep">
     <div class="ep-main">
-      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl} />
-
       <div class="ep-crumbs">
         <Breadcrumbs
           items={[
@@ -210,6 +209,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
           />
         </div>
       </div>
+      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl} />
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">
@@ -231,10 +231,15 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
           <h3 class="rows-h">Kena tambah, setahun</h3>
           <ul class="rows">
             <li><Ikon name="i-banjir" size={24} /><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
-            {model.windscreenPrice && (
-              <li><Ikon name="i-cermin" size={24} /><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan calibration dengan panel bengkel sebelum memilih windscreen cover.</p></div></li>
-            )}
           </ul>
+          {model.windscreenPrice && (
+            <>
+            <h3 class="rows-h">Kos gantian cermin</h3>
+            <ul class="rows">
+              <li><Ikon name="i-cermin" size={24} /><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan calibration dengan panel bengkel sebelum memilih windscreen cover.</p></div></li>
+            </ul>
+            </>
+          )}
           <p class="ix-s">
             Nilai pasaran {model.fullName} dianggarkan {model.marketValueRange}.
             Roadtax dan perlindungan tambahan ditunjukkan berasingan supaya julat premium kekal jelas.

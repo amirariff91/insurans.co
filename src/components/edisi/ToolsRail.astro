@@ -29,7 +29,7 @@ const formatRange = (min: number, max: number) => `${rm(min)} – ${rm(max)}`;
       <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd data-f={f('rail-zero')}>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
     </dl>
     <p class="ix-s">Bandingkan kos repair dengan diskaun yang hilang sebelum claim.</p>
-    <a class="ea-btn ea-btn-p" href={calculatorUrl} data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
+    <a class="ea-btn ea-btn-p" href={calculatorUrl} data-calculator-link data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos repair anda <Ikon name="i-kanan" size={20} /></a>
   </div>
 </section>
 

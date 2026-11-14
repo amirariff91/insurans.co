@@ -60,10 +60,13 @@ const kiraanId = `kiraan-${model.slug}`;
       ))}
       <span class="ea-track" aria-hidden="true"><span class="ea-knob"></span></span>
     </div>
+    <ul class="ea-static">
+      {STEPS.map((st) => <li><span>NCD {st.pct} ({st.long})</span> <b>{s.ins[st.k]}</b></li>)}
+    </ul>
     <p class="ea-save"><Px v={s.saving} class="px-w" /></p>
   </fieldset>
 
-  <CarPhoto slug={model.slug} eager sizes="(min-width: 80rem) 36rem, (min-width: 48rem) 34rem, 92vw" class="ea-photo" />
+  <CarPhoto slug={model.slug} eager sizes="(min-width: 48rem) 26rem, calc(100vw - 2rem)" class="ea-photo" />
 
   <div class="ea-cta" data-section="quotation">
     <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-p">Kira NCD saya <Ikon name="i-kanan" size={20} /></a>

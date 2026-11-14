@@ -1,6 +1,6 @@
 // Edisi NCD control: progressive enhancement only. Prices already switch through CSS :has() on the
 // checked radio; this remembers the reader's step, plays a short tick on the changed figures,
-// keeps the calculator link on the same step and announces the new price.
+// keeps every calculator link on the same step and announces the new price.
 const KEY = 'edisi.ncd';
 const root = document.querySelector<HTMLElement>('[data-ea]');
 const radios = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="ncd"]'));
@@ -13,12 +13,11 @@ const valueOf = (el: Element | null, k: string): string => {
 
 const apply = (r: HTMLInputElement, announce: boolean) => {
   const k = r.value;
-  const link = document.querySelector<HTMLAnchorElement>('[data-calculator-link]');
-  if (link) {
+  document.querySelectorAll<HTMLAnchorElement>('[data-calculator-link]').forEach((link) => {
     const url = new URL(link.href, location.href);
     url.searchParams.set('ncd', r.dataset.tier ?? k);
     link.setAttribute('href', url.pathname + url.search);
-  }
+  });
   if (!announce || !root) return;
   root.querySelectorAll<HTMLElement>('[data-tick]').forEach((el) => {
     el.classList.remove('tick');
@@ -31,11 +30,17 @@ const apply = (r: HTMLInputElement, announce: boolean) => {
   if (live) live.textContent = `NCD ${r.dataset.tier}%: insurans RM${price} setahun${total ? `, dengan roadtax ${total}` : ''}.`;
 };
 
-if (root && radios.length) {
+// Without :has() the bars are hidden and a static list of all six steps shows instead: nothing to enhance.
+const hasSupport = typeof CSS !== 'undefined' && CSS.supports?.('selector(:has(*))');
+
+if (hasSupport && root && radios.length) {
   let saved: string | null = null;
   try { saved = localStorage.getItem(KEY); } catch { /* storage blocked */ }
   const pre = radios.find((r) => r.checked && !r.defaultChecked) ?? radios.find((r) => r.value === saved);
-  if (pre) { pre.checked = true; apply(pre, false); }
+  if (pre) pre.checked = true;
+  // The HTML links carry no ?ncd= (so they are never wrong without JavaScript); add the current step.
+  const cur = pre ?? radios.find((r) => r.checked);
+  if (cur) apply(cur, false);
   radios.forEach((r) => r.addEventListener('change', () => {
     try { localStorage.setItem(KEY, r.value); } catch { /* storage blocked */ }
     apply(r, true);
