@@ -95,6 +95,65 @@
       "url": "^/guides/insurance-vs-takaful/$",
       "path": "Article\\.(dateModified|headline)$",
       "reason": "The guide was re-edited on 15 Nov 2026 (language pass, FAQ schema rebuilt from the visible FAQ): the year in the title, description, H1 and headline goes 2025 -> 2026 and dateModified becomes 2026-11-15."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/(takaful|negeri|perbandingan)/$",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Old and new text: see docs/handoffs/EDISI_2026-11-15.md."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/(takaful|negeri)/$",
+      "path": "description$",
+      "reason": "Second-reader correction (15 Nov 2026): ranking/recommendation wording ('terbaik', 'disyorkan') removed from the description; search keywords kept. Old and new text: see docs/handoffs/EDISI_2026-11-15.md."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-jazz/$",
+      "value": "^RM80,000",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/(car-insurance/)?$",
+      "value": "^RM10,000",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/guides/insurans-komprehensif-vs-pihak-ketiga/$",
+      "value": "^RM1[05],000",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "url": "^/life-insurance/$",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. (EPF FAQ 'RM50K-100K'; smoker FAQ '50-100%')."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/literasi-kewangan/gaji-dan-perlindungan/$",
+      "value": "^RM400",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "url": "^/takaful/$",
+      "reason": "Second-reader correction (15 Nov 2026): unsourced figure or cut-off removed from body copy. ('RM30 bilion'; surplus '5-20%')."
     }
   ]
 }
