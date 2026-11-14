@@ -5,7 +5,8 @@
      Two CSS custom properties reach inside (written here without their two leading hyphens, which an XML
      comment may not hold): icon-knob, the knob colour, default #D0106F; icon-stroke, the line weight, default 2.25.
      Use: <svg class="ix-i" aria-hidden="true"><use href="icons.svg#i-kereta"/></svg>
-     Edit this file by hand, then run python3 tools/build.py. -->
+     Source: the redesign worktree, docs/eeat-revamp-2026-11/round4/icons/icons.svg (copied via the Edisi concept's ikon.svg).
+     No generator for this sprite exists in this repository: edit this file by hand, keeping the grid and knob rules above. -->
 <defs>
 
 <!-- Kereta dan perlindungan (cars and cover) -->
