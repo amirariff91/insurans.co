@@ -2,13 +2,14 @@
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025",
+  "headline": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026",
   "datePublished": "2025-01-28",
-  "dateModified": "2025-03-09",
+  "dateModified": "2026-11-15",
   "inLanguage": "ms",
   "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
   "breadcrumb": {
@@ -44,28 +45,32 @@ const faqSchema = {
 ---
 
 <Base
-  title="Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025 — Insurans.co"
-  description="Apa beza takaful dan insurans? Perbezaan takaful dan insurans kereta di Malaysia — konsep, harga, proses claim, dan mana lebih baik untuk anda. Takaful vs insurans konvensional 2025."
+  title="Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026 — Insurans.co"
+  description="Apa beza takaful dan insurans? Perbezaan takaful dan insurans kereta di Malaysia — konsep, harga, proses claim, dan mana lebih baik untuk anda. Takaful vs insurans konvensional 2026."
   schema={schema}
   ogType="article"
   publishedTime="2025-01-28"
-  modifiedTime="2025-03-09"
+  modifiedTime="2026-11-15"
   ads={true}
 >
   <section class="bg-white">
     <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Takaful', href: '/takaful/' }, { label: 'Beza Takaful dan Insurans' }]} />
-      <h1 class="ea-h1 mb-1">Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2025</h1>
-      <Byline dateModified="2025-03-09" />
+      <h1 class="ea-h1 mb-1">Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026</h1>
+      <PageAnswer
+        finding="Dari segi perlindungan dan claim, kedua-duanya hampir identik"
+        facts={[
+          { label: 'Insurans konvensional', value: 'Anda bayar premium, syarikat tanggung risiko, dan keuntungan masuk syarikat.' },
+          { label: 'Takaful', value: 'Anda dan peserta lain menyumbang kepada dana bersama, risiko dikongsi secara kolektif, dan lebihan dana dikongsi semula.' },
+          { label: 'Yang berbeza', value: 'Konsep dan prinsip di sebaliknya' },
+        ]}
+      />
+      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Takaful vs insurans: kedua-duanya memberi perlindungan yang sama, tetapi cara kerjanya berbeza.
-        Panduan ini menerangkan perbezaan takaful dan insurans konvensional secara ringkas, supaya anda boleh membuat keputusan yang tepat untuk 2025.
+        Panduan ini menerangkan perbezaan takaful dan insurans konvensional secara ringkas, supaya anda boleh membuat keputusan yang tepat untuk 2026.
       </p>
-      <div class="flex flex-wrap gap-2 mt-6 text-sm text-stone-500">
-        <span>Dikemas kini: Mac 2025</span>
-        <span>·</span>
-        <span>Masa baca: ~8 minit</span>
-      </div>
+      <p class="mt-4 text-sm text-stone-700">Masa baca: ~8 minit</p>
     </div>
   </section>
 
@@ -80,16 +85,7 @@ const faqSchema = {
 
     <article class="prose-editorial prose-bars">
 
-      <h2>Ringkasan — Dalam dua ayat</h2>
-      <p>
-        <strong>Insurans konvensional:</strong> Anda bayar premium, syarikat tanggung risiko, dan keuntungan masuk syarikat.<br/>
-        <strong>Takaful:</strong> Anda dan peserta lain menyumbang kepada dana bersama, risiko dikongsi secara kolektif, dan lebihan dana dikongsi semula.
-      </p>
-      <p>
-        Dari segi <strong>perlindungan dan claim</strong>, kedua-duanya hampir identik. Yang berbeza ialah <em>konsep dan prinsip</em> di sebaliknya.
-      </p>
-
-      <h2>Apa itu Takaful?</h2>
+      <h2 class="h2-quiet">Apa itu Takaful?</h2>
       <p>
         Takaful berasal dari perkataan Arab <em>kafala</em> yang bermaksud "menjamin sesama sendiri". Ini ialah sistem perlindungan kewangan yang berasaskan prinsip <strong>ta'awun</strong> (saling bantu-membantu) dan <strong>tabarru'</strong> (sumbangan ikhlas).
       </p>
@@ -100,7 +96,7 @@ const faqSchema = {
         Dalam insurans konvensional pula, premium yang anda bayar menjadi <em>milik syarikat</em>, dan keuntungan syarikat bergantung pada jumlah premium yang dikutip berbanding tuntutan yang dibayar.
       </p>
 
-      <h2>Apa itu Insurans Konvensional?</h2>
+      <h2 class="h2-quiet">Apa itu Insurans Konvensional?</h2>
       <p>
         Insurans konvensional ialah kontrak antara anda dan syarikat insurans. Anda bersetuju membayar premium secara berkala, dan syarikat bersetuju untuk membayar ganti rugi sekiranya berlaku kerugian yang dilindungi.
       </p>
@@ -231,7 +227,7 @@ const faqSchema = {
         Kesimpulan: <strong>Sentiasa bandingkan quotation</strong> daripada pelbagai syarikat — takaful dan konvensional — sebelum renew atau membeli polisi baharu.
       </p>
 
-      <h2>Syarikat yang Ada Kedua-dua — Takaful dan Konvensional</h2>
+      <h2 class="h2-quiet">Syarikat yang Ada Kedua-dua — Takaful dan Konvensional</h2>
       <p>Kebanyakan syarikat besar di Malaysia menawarkan kedua-duanya. Ini memudahkan anda membandingkan kedua-duanya daripada syarikat yang sama:</p>
     </article>
 
@@ -278,7 +274,7 @@ const faqSchema = {
 
     <article class="prose-editorial prose-bars">
 
-      <h2>Proses Claim — Sama Ke Berbeza?</h2>
+      <h2 class="h2-quiet">Proses Claim — Sama Ke Berbeza?</h2>
       <p>
         Dari perspektif pengguna, proses claim takaful dan insurans konvensional adalah <strong>hampir identik</strong>:
       </p>
@@ -327,7 +323,7 @@ const faqSchema = {
 
     <article class="prose-editorial prose-bars">
 
-      <h2>Tips Memilih Antara Takaful dan Insurans</h2>
+      <h2 class="h2-quiet">Tips Memilih Antara Takaful dan Insurans</h2>
 
       <h3>1. Bandingkan harga dahulu, label kemudian</h3>
       <p>
@@ -394,3 +390,11 @@ const faqSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with a topic, not a finding. */
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
@@ -126,10 +127,18 @@ const faqSchema = {
           { label: 'Checklist Medical Card' },
         ]}
       />
-      <h1 class="ea-h1 mb-3">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
+      <h1 class="ea-h1 mb-1">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
+      <PageAnswer
+        finding="Kalau jawapannya tak jelas bertulis, jangan sign dulu"
+        facts={[
+          { label: 'Tanya', value: '8 soalan di bawah pada mana-mana ejen atau dalam PDS (Product Disclosure Sheet)' },
+          { label: 'Perkara pertama', value: 'Had tahunan (annual limit)', href: '#perkara-1' },
+          { label: 'Contoh nombor', value: 'Data PDS/brosur yang kami rekodkan', href: '/medical-cards/' },
+        ]}
+      />
       <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
-        Print halaman ini. Tanya 8 soalan di bawah pada mana-mana ejen atau dalam PDS (Product Disclosure Sheet) — kalau jawapannya tak jelas bertulis, jangan sign dulu. Kami bukan ejen, bukan broker; kami tak jual polisi dan tak tahu premium anda. Nombor-nombor di bawah adalah contoh sebenar daripada data PDS/brosur yang kami rekodkan di <a href="/medical-cards/">/medical-cards/</a>, bukan cadangan produk.
+        Print halaman ini. Kami bukan ejen, bukan broker; kami tak jual polisi dan tak tahu premium anda. Nombor-nombor di bawah adalah contoh sebenar daripada data PDS/brosur yang kami rekodkan di <a href="/medical-cards/">/medical-cards/</a>, bukan cadangan produk.
       </p>
     </div>
   </section>
@@ -138,7 +147,7 @@ const faqSchema = {
     <article class="prose-editorial">
       <ol class="list-none space-y-8 pl-0">
         {checklistItems.map((item, index) => (
-          <li class="checklist-item border-b border-stone-200 pb-8">
+          <li id={`perkara-${index + 1}`} class="checklist-item border-b border-stone-200 pb-8">
             <h2 class="mt-0 flex gap-2 text-headline-sm">
               <span class="shrink-0 font-sans text-base text-stone-500">{index + 1}.</span>
               <span aria-hidden="true" class="shrink-0 font-sans text-stone-700">☐</span>

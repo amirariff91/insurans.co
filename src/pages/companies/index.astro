@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
+import Ikon from '../../components/Ikon.astro';
 
 const conventional = companies.filter(c => c.type === 'conventional');
 const takafulOnly = companies.filter(c => c.type === 'takaful');
@@ -32,9 +33,21 @@ const schema = {
   <section class="bg-white">
     <div class="container-wide pt-6 pb-4 sm:pt-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Syarikat' }]} />
-      <h1 class="ea-h1 mb-3">
+      <h1 class="ea-h1 mb-1">
         Syarikat Insurans & Takaful di Malaysia: Senarai, Profil & Nombor Claim
       </h1>
+      <section class="mod co-list" aria-labelledby="senarai-syarikat">
+        <h2 id="senarai-syarikat" class="mod-bar">{companies.length} syarikat insurans dan takaful berlesen di Malaysia</h2>
+        <ul class="co-rows">
+          {sortedCompanies.map((company) => (
+            <li class="co-r">
+              <a href={`/companies/${company.slug}/`} class="co-a">{company.name}<Ikon name="i-kanan" size={18} /></a>
+              <span class="co-t">{company.type === 'takaful' ? 'Takaful' : company.takaful ? 'Ada takaful' : 'Insurans'}</span>
+              <span class="co-f">{company.verdictBM}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
       <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Senarai syarikat insurans dan takaful berlesen di Malaysia — 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Semak produk, status takaful dan nombor claim hotline setiap syarikat sebelum renew.
       </p>
@@ -82,73 +95,6 @@ const schema = {
     <p class="text-sm text-stone-700 mb-3">Disahkan 10 Sep 2026 daripada laman rasmi</p>
     <p class="text-sm text-stone-600 mb-10">Mahu banding dua syarikat secara terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a>, <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> atau <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
 
-    <!-- Company list -->
-    <div class="space-y-4">
-      {sortedCompanies.map((company) => (
-        <div class="card-editorial group block">
-          <a href={`/companies/${company.slug}/`} class="block">
-            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-
-              <!-- Content -->
-              <div class="flex-1 min-w-0">
-                <div class="flex items-baseline flex-wrap gap-2 mb-1.5">
-                  <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
-                    {company.name}
-                  </h2>
-                  {company.type === 'takaful' ? (
-                    <span class="text-sm font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
-                  ) : company.takaful ? (
-                    <span class="text-sm font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Ada Takaful</span>
-                  ) : null}
-                </div>
-
-                <p class="text-sm text-stone-700 mb-2">
-                  {company.fullName}
-                  {company.parent && <span>, {company.parent}</span>}
-                </p>
-
-                <p class="text-sm text-stone-600 mb-3">{company.verdictBM}</p>
-
-                <!-- Products -->
-                <div class="flex flex-wrap gap-1.5 mb-3">
-                  {company.products.map((product: string) => (
-                    <span class="text-sm bg-stone-100 text-stone-700 px-2 py-0.5">
-                      {product === 'car' ? 'Kereta' :
-                       product === 'motorcycle' ? 'Motosikal' :
-                       product === 'health' ? 'Kesihatan' :
-                       product === 'life' ? 'Nyawa' :
-                       product === 'travel' ? 'Travel' :
-                       product === 'home' ? 'Rumah' :
-                       product === 'personal-accident' ? 'PA' : product}
-                    </span>
-                  ))}
-                </div>
-
-                <!-- Meta -->
-                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-700">
-                  <span>Est. {company.founded}</span>
-                  {company.claimLine && <span>Claim: {company.claimLine}</span>}
-                </div>
-              </div>
-            </div>
-          </a>
-
-          {(company.slug === 'prudential' || company.slug === 'aia' || company.slug === 'etiqa' || company.slug === 'zurich' || company.slug === 'allianz') && (
-            <ul class="mt-4 space-y-1 text-sm">
-              {(company.slug === 'prudential' || company.slug === 'aia') && (
-                <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA — bandingkan dua life insurer terbesar</a></li>
-              )}
-              {(company.slug === 'etiqa' || company.slug === 'zurich') && (
-                <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich — mana lagi murah untuk kereta?</a></li>
-              )}
-              {(company.slug === 'allianz' || company.slug === 'zurich') && (
-                <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich — perbandingan dua jenama global</a></li>
-              )}
-            </ul>
-          )}
-        </div>
-      ))}
-    </div>
   </section>
 
   <!-- Quick note -->
@@ -163,3 +109,14 @@ const schema = {
     </div>
   </section>
 </Base>
+
+<style>
+  .co-list { max-width: 48rem; margin-block: 1rem 1.25rem; }
+  .co-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  @media (min-width: 48rem) { .co-rows { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
+  .co-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; padding: 0.35rem 0 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .co-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .co-t { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+  .co-f { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--ink); }
+</style>

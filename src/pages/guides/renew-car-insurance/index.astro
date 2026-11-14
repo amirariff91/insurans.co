@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
   {
@@ -72,6 +73,15 @@ const schema = {
     <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Kereta', href: '/car-insurance/' }, { label: 'Renew Online' }]} />
       <h1 class="ea-h1 mb-1">Cara Renew Insurans Kereta Online</h1>
+      <PageAnswer
+        finding="Semak tarikh tamat dan NCD, bandingkan sebut harga, kemudian renew roadtax secara berasingan"
+        facts={[
+          { label: 'Sebelum renew', value: 'Semak tarikh tamat dan NCD' },
+          { label: 'Sebut harga', value: 'Bandingkan dengan perlindungan yang sama' },
+          { label: 'Bayaran', value: 'Melalui saluran rasmi' },
+          { label: 'Roadtax', value: 'JPJ memerlukan insurans yang meliputi seluruh tempoh roadtax yang dipohon' },
+        ]}
+      />
       <Byline dateModified="2026-10-10" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed" id="jawapan-ringkas">
         Untuk renew insurans kereta di Malaysia, semak tarikh tamat dan NCD. Bandingkan sebut harga dengan perlindungan yang sama. Kemudian, bayar melalui saluran rasmi. Pastikan polisi baharu dikeluarkan dengan tarikh kuat kuasa yang betul. Selepas itu, renew roadtax secara berasingan. JPJ memerlukan insurans yang meliputi seluruh tempoh roadtax yang dipohon.
@@ -92,7 +102,7 @@ const schema = {
         Menurut JPJ, LKM kenderaan persendirian boleh diperbaharui untuk enam bulan atau satu tahun. Pembaharuan dibenarkan apabila LKM akan tamat dalam masa dua bulan. Kenderaan mesti mempunyai insurans untuk tempoh LKM yang dipohon. Had dua bulan ini ialah peraturan urusan LKM. Waktu pembelian insurans pula perlu ikut syarikat yang anda pilih. Etiqa, contohnya, menyatakan pembelian boleh dibuat sehingga dua bulan sebelum polisi tamat. <a href="#rujukan-jpj">[1]</a> <a href="#rujukan-etiqa">[2]</a>
       </p>
 
-      <h2>Sediakan maklumat sebelum minta sebut harga</h2>
+      <h2 class="h2-quiet">Sediakan maklumat sebelum minta sebut harga</h2>
       <p>
         Letakkan polisi lama dan maklumat pendaftaran kenderaan di sebelah anda. Gunakan dokumen itu untuk menyalin butiran dengan tepat. Anda tidak perlu menghantar semua dokumen kepada setiap laman yang anda buka. Sebagai contoh, borang permohonan insurans motosikal Etiqa meminta maklumat pemohon, kenderaan, tempoh insurans, pemandu, jenis perlindungan dan jumlah diinsuranskan. Senarai sebenar boleh berbeza mengikut saluran pembelian. <a href="#rujukan-borang">[3]</a>
       </p>
@@ -106,7 +116,7 @@ const schema = {
         Jika maklumat yang dipaparkan secara automatik tidak sepadan dengan kereta anda, berhenti dan minta pembetulan. Kontrak Etiqa menerangkan kewajipan menjawab soalan dengan tepat dan memaklumkan perubahan maklumat. Teruskan pembayaran hanya selepas anda memilih model yang betul. Simpan pengesahan pembetulan bersama sebut harga supaya anda boleh menyemak polisi selepas dikeluarkan. <a href="#rujukan-kontrak">[4]</a>
       </p>
 
-      <h2>Pilih saluran: online terus, ejen atau MyEG</h2>
+      <h2 class="h2-quiet">Pilih saluran: online terus, ejen atau MyEG</h2>
       <h3>Online terus dengan syarikat</h3>
       <p>
         Laman produk rasmi membolehkan anda membaca Helaian Pendedahan Produk atau PDS sebelum meminta harga. Etiqa menyediakan pembelian online dan pembaharuan melalui aplikasi Etiqa+. Gunakan alamat laman rasmi. Semak nama syarikat pada sebut harga dan baca apa yang termasuk dalam jumlah akhir. Nilai perlindungan dan jumlah akhir bersama angka diskaun pada iklan. <a href="#rujukan-etiqa">[2]</a>
@@ -120,7 +130,7 @@ const schema = {
         Compare by MyEG menawarkan perbandingan insurans dan takaful kereta secara online, manakala laman MyEG menyenaraikan urusan pembaharuan roadtax. Bezakan transaksi insurans dengan transaksi LKM walaupun kedua-duanya diurus melalui satu platform. Semak status setiap transaksi, bukti pembayaran dan pilihan penerimaan dokumen sebelum menganggap semua urusan sudah selesai. <a href="#rujukan-myeg">[5]</a> <a href="#rujukan-myeg-roadtax">[6]</a>
       </p>
 
-      <h2>Langkah pembaharuan insurans</h2>
+      <h2 class="h2-quiet">Langkah pembaharuan insurans</h2>
       <ol class="list-decimal pl-5 space-y-4">
         <li>
           <strong>Semak NCD rasmi.</strong> Zurich menyatakan kadar boleh disemak melalui pangkalan data NCD di MyCarInfo atau dengan menghubungi syarikat insurans. Bandingkan kadar itu dengan sebut harga, terutama jika ada tuntutan atau pemindahan NCD baru-baru ini. Tempoh anda memegang lesen tidak menentukan NCD. <a href="#rujukan-ncd">[7]</a>
@@ -170,7 +180,7 @@ const schema = {
         Bezakan tamat perlindungan daripada NCD yang tidak digunakan. Kontrak Etiqa menyatakan NCD berundur mengikut skalanya bagi setiap tahun tidak digunakan. Aturan NCD itu bukan tempoh kelonggaran untuk memandu. Jika LKM terakhir tamat lebih tiga tahun, JPJ menetapkan pemeriksaan kenderaan. Bagi kereta, semak urusan PUSPAKOM dan dokumen yang perlu dibawa sebelum datang ke kaunter. <a href="#rujukan-kontrak">[4]</a> <a href="#rujukan-jpj">[1]</a>
       </p>
 
-      <h2>Soalan lazim</h2>
+      <h2 class="h2-quiet">Soalan lazim</h2>
       {faqItems.map(item => (
         <details class="faq-item">
           <summary>{item.q}</summary>
@@ -182,7 +192,7 @@ const schema = {
       </p>
 
       <section id="rujukan" class="border-t border-stone-200 pt-6 mt-8" aria-labelledby="tajuk-rujukan">
-        <h2 id="tajuk-rujukan">Rujukan</h2>
+        <h2 id="tajuk-rujukan" class="h2-quiet">Rujukan</h2>
         <ol class="list-decimal pl-5 space-y-2">
           <li id="rujukan-jpj"><a href="https://www.jpj.gov.my/pusat-media-3/informasi-perkhidmatan-jpj/kenderaan/panduan-pembaharuan-lesen-kenderaan-motor-lkm/" target="_blank" rel="noopener noreferrer">JPJ — panduan pembaharuan LKM: tempoh, insurans, dokumen dan pemeriksaan.</a></li>
           <li id="rujukan-etiqa"><a href="https://www.etiqa.com.my/car/comprehensive-car-insurance" target="_blank" rel="noopener noreferrer">Etiqa — pembelian online, waktu pembelian dan pilihan perlindungan kereta.</a></li>
@@ -198,3 +208,11 @@ const schema = {
     </article>
   </div>
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with a topic, not a finding. */
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>

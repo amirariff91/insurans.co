@@ -99,7 +99,18 @@ const faqSchema = {
   <section class="bg-white">
     <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
-      <h1 class="ea-h1 mb-3">Panduan Insurans untuk Print</h1>
+      <h1 class="ea-h1 mb-1">Panduan Insurans untuk Print</h1>
+      <section class="mod pd-list" aria-labelledby="pilih-panduan">
+        <h2 id="pilih-panduan" class="mod-bar"><span aria-hidden="true">{guides.length} panduan ringkas untuk anda semak, print atau Save-as-PDF</span><span class="sr-only">Pilih panduan anda</span></h2>
+        <ul class="pd-rows">
+          {guides.map((guide) => (
+            <li class="pd-r">
+              <a href={guide.href} class="pd-a">{guide.title}<Ikon name="i-kanan" size={18} /></a>
+              <span class="pd-b">{guide.description}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
       <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Tiga panduan ringkas dalam Bahasa Malaysia untuk anda semak, print atau Save-as-PDF. Kami bukan ejen, bukan broker — pilih dan semak sendiri berdasarkan PDS atau sijil.
@@ -122,23 +133,6 @@ const faqSchema = {
         faham perlindungan dan kos sendiri sebelum bersetuju membeli.
       </p>
     </section>
-    <div class="prose-editorial prose-bars">
-      <h2 id="pilih-panduan">Pilih panduan anda</h2>
-    </div>
-
-    <ul class="mt-6 grid gap-4 md:grid-cols-3">
-      {guides.map((guide) => (
-        <li>
-          <article class="card-editorial h-full">
-            <h3 class="font-serif text-headline-sm text-stone-900">
-              <a href={guide.href} class="hover:text-hijau-700">{guide.title}</a>
-            </h3>
-            <p class="mt-3 text-base leading-6 text-stone-700">{guide.description}</p>
-            <a href={guide.href} class="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan <Ikon name="i-kanan" size={16} /></a>
-          </article>
-        </li>
-      ))}
-    </ul>
 
     <section aria-labelledby="guna-checklist" class="prose-editorial prose-bars mt-10 sm:mt-14">
       <h2 id="guna-checklist">Cara menggunakan senarai semak</h2>
@@ -193,3 +187,13 @@ const faqSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Base>
+
+<style>
+  .pd-list { max-width: 48rem; margin-block: 1rem 0.5rem; }
+  .pd-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  .pd-r { display: grid; gap: 0.05rem; padding: 0.3rem 0 0.55rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .pd-r:last-child { border-bottom: 0; }
+  .pd-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .pd-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .pd-b { font-size: 0.9375rem; color: var(--ink); }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
@@ -126,7 +127,15 @@ const faqSchema = {
           { label: 'Checklist Travel Insurance' },
         ]}
       />
-      <h1 class="ea-h1 mb-3">Checklist Travel Insurance Sebelum Fly — 8 Perkara Wajib Semak</h1>
+      <h1 class="ea-h1 mb-1">Checklist Travel Insurance Sebelum Fly — 8 Perkara Wajib Semak</h1>
+      <PageAnswer
+        finding="Semak 8 perkara ini sehari sebelum bayar"
+        facts={[
+          { label: 'Jangan beli', value: 'Travel insurance di kaunter airport sambil beratur' },
+          { label: 'Perkara pertama', value: 'Single trip atau annual trip?', href: '#perkara-1' },
+          { label: 'Sumber', value: 'Ciri sebenar plan yang kami rekodkan', href: '/travel-insurance/' },
+        ]}
+      />
       <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Jangan beli travel insurance di kaunter airport sambil beratur. Semak 8 perkara ini sehari sebelum bayar — semuanya daripada ciri sebenar plan yang kami rekodkan di <a href="/travel-insurance/">/travel-insurance/</a>. Kami bukan ejen, bukan broker; kami tak jual plan dan tak ambil komisen.
@@ -138,7 +147,7 @@ const faqSchema = {
     <article class="prose-editorial">
       <ol class="list-none space-y-8 pl-0">
         {checklistItems.map((item, index) => (
-          <li class="checklist-item border-b border-stone-200 pb-8">
+          <li id={`perkara-${index + 1}`} class="checklist-item border-b border-stone-200 pb-8">
             <h2 class="mt-0 flex gap-2 text-headline-sm">
               <span class="shrink-0 font-sans text-base text-stone-500">{index + 1}.</span>
               <span aria-hidden="true" class="shrink-0 font-sans text-stone-700">☐</span>

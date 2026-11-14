@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import states from '../../data/states.json';
 
 export function getStaticPaths() {
@@ -63,6 +64,22 @@ const schema = {
     },
   ],
 };
+// Answer box: every word is already on this page (flood label, the flood section, the JPJ section, tariff region).
+const firstFlood = state.floodHistory[0] as { text: string; source: string } | undefined;
+const answerFinding = state.floodRisk
+  ? (firstFlood
+      ? `Risiko banjir ${state.floodRisk}: periksa perlindungan banjir dalam dokumen polisi`
+      : `Risiko banjir ${state.floodRisk}: kerosakan banjir memerlukan perlindungan tambahan Special Perils`)
+  : 'Kerosakan banjir memerlukan perlindungan tambahan Special Perils';
+const answerFacts: { label: string; value: string; href?: string }[] = [
+  { label: 'Risiko banjir', value: state.floodRisk || '—' },
+  ...(firstFlood ? [{ label: 'Rekod banjir (sumber kejadian)', value: firstFlood.text, href: firstFlood.source }] : []),
+  { label: `Pejabat JPJ di ${state.displayName}`, value: state.jpjOffice.text },
+  ...(state.slug !== 'labuan' ? [{ label: 'Wilayah tarif', value: state.tariffRegion }] : []),
+];
+const answerNote = state.floodRisk
+  ? undefined
+  : `Halaman ini tidak memberi label risiko banjir untuk ${state.displayName}. Semak amaran cuaca rasmi dan keadaan laluan sebelum perjalanan.`;
 function formatDate(value: string): string {
   const date = new Date(`${value}T00:00:00Z`);
   if (Number.isNaN(date.getTime())) return value;
@@ -83,9 +100,10 @@ function formatDate(value: string): string {
   <section class="bg-white">
     <div class="container-wide pt-6 pb-4 sm:pt-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Negeri', href: '/negeri/' }, { label: `${state.displayName}` }]} />
-      <h1 class="ea-h1 mb-3">
+      <h1 class="ea-h1 mb-1">
         Insurans Kereta {state.displayName}
       </h1>
+      <PageAnswer finding={answerFinding} facts={answerFacts} note={answerNote} />
       <Byline dateModified={state.asAt} />
       <p class="text-sm text-stone-700 mt-2 mb-4">Maklumat disemak setakat {formatDate(state.asAt)}</p>
       <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
@@ -99,14 +117,14 @@ function formatDate(value: string): string {
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
         <div class="bg-stone-50 border border-stone-200 p-6 mb-8">
-          <div class="flex flex-wrap gap-4 items-start">
+          <div class="flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-start">
             <div class="flex-1 min-w-0">
               <h2 class="font-serif text-xl text-stone-900 mb-1">{state.name}</h2>
               <p class="text-sm text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
               <p class="text-stone-600 text-sm leading-relaxed">{state.notes}</p>
             </div>
             {state.floodRisk && (
-              <div class="flex-shrink-0">
+              <div class="sm:flex-shrink-0">
                 <span class={`inline-block px-3 py-1.5 text-sm font-semibold ${
                   state.floodRisk === 'Tinggi' ? 'risk-tinggi' :
                   state.floodRisk === 'Sederhana' ? 'risk-sederhana' :
@@ -120,7 +138,7 @@ function formatDate(value: string): string {
         </div>
 
         <article class="prose-editorial prose-bars">
-          <h2>Wilayah tarif &amp; cukai jalan</h2>
+          <h2><span aria-hidden="true">Sejak 1 Julai 2017, insurer menentukan harga insurans motor</span><span class="sr-only">Wilayah tarif &amp; cukai jalan</span></h2>
           <p>
             Sejak 1 Julai 2017, BNM membenarkan insurer menentukan harga insurans motor komprehensif
             dan pihak ketiga, kebakaran serta kecurian (TPFT) berdasarkan penilaian risiko masing-masing.
@@ -224,7 +242,7 @@ function formatDate(value: string): string {
         )}
 
         <article class="prose-editorial prose-bars mt-10">
-          <h2>Tip khusus {state.displayName}</h2>
+          <h2 class="h2-quiet">Tip khusus {state.displayName}</h2>
           <p>
             Bandingkan perlindungan dengan mengambil kira perjalanan harian, tempat parkir dan urusan
             kenderaan anda. Semak jadual manfaat serta pengecualian, kemudian minta penjelasan bertulis
@@ -248,7 +266,7 @@ function formatDate(value: string): string {
         </article>
 
         <article class="prose-editorial prose-bars mt-10">
-          <h2>Soalan lazim — insurans kereta {state.displayName}</h2>
+          <h2 class="h2-quiet">Soalan lazim: insurans kereta {state.displayName}</h2>
         </article>
         <div class="my-6">
           {faqItems.map((faq, i) => (
@@ -260,7 +278,7 @@ function formatDate(value: string): string {
         </div>
 
         <article class="prose-editorial prose-bars mt-10">
-          <h2>Sumber</h2>
+          <h2 class="h2-quiet">Sumber</h2>
           <p>Fakta dan alamat di halaman ini disemak setakat {formatDate(state.asAt)}. Rujuk dokumen asal untuk konteks penuh.</p>
           <ul>
             {state.sources.map((source: { title: string; url: string }) => (
@@ -331,3 +349,11 @@ function formatDate(value: string): string {
     </div>
   </div>
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with advice rather than a finding. */
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>
