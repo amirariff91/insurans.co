@@ -118,11 +118,18 @@ const schema = {
 // Page answer (Edisi). Verified records: type plus the recorded facts (at most four rows). Unverified records:
 // only the type, with the existing honesty line as the note, so no unverified figure is promoted.
 // Rows whose value is a paragraph (over 160 characters) move to a details list under the box.
-const answerSpecs = record.figureVerified ? specItems.slice(0, 3) : [];
+const answerSpecs = record.figureVerified ? specItems.slice(0, 4) : [];
 const answerTop = answerSpecs.filter((spec) => String(spec.value ?? '').length <= 160);
 const answerRest = answerSpecs.filter((spec) => !answerTop.includes(spec));
+const barTypes: Record<string, string> = {
+  'third-party': 'Insurans motosikal third party',
+  comprehensive: 'Insurans motosikal comprehensive',
+  'comprehensive-takaful': 'Motosikal comprehensive / takaful',
+  'motorcycle-add-on': 'Add-on motosikal',
+};
+const barType = barTypes[record.type] ?? typeLabel;
+// The type sits in the bar with the insurer, so it is not repeated as a row. No lead: no single headline figure.
 const answerFacts = [
-  { label: 'Jenis', value: typeLabel },
   ...answerTop.map((spec) => ({ label: spec.label, value: spec.value ?? "", role: spec.label === 'Contoh premium PDS' ? ('price' as const) : ('term' as const) })),
 ];
 
@@ -150,13 +157,13 @@ const answerFacts = [
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
       {record.figureVerified
-        ? `Data ringkas ${record.planName} oleh ${record.insurer}, berdasarkan sumber rasmi yang dibaca pada ${tarikh(record.asAt)}.`
-        : `Rekod nama ${record.planName} oleh ${record.insurer} berdasarkan sumber yang dikenal pasti pada ${tarikh(record.asAt)}; butiran produk belum disahkan.`}
+        ? `Data ringkas berdasarkan sumber rasmi yang dibaca pada ${tarikh(record.asAt)}.`
+        : `Rekod nama berdasarkan sumber yang dikenal pasti pada ${tarikh(record.asAt)}; butiran produk belum disahkan.`}
     </p>
 
     <PageAnswer
       slot="answer"
-      finding={`${record.planName} oleh ${record.insurer}`}
+      finding={`${barType} oleh ${record.insurer.replace(/\.$/, '')}`}
       facts={answerFacts}
       note={record.figureVerified ? undefined : honestyLine}
     />

@@ -92,6 +92,10 @@ const schema = {
 };
 // Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
 // PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
+// The bar states the plan's type and insurer (the H1 already names the plan). No lead: medicalCoverLimit is never a
+// single figure in these records (tiers and variants), so no loud number is promoted.
+const tripLabel = plan.tripType === 'single' ? 'single trip' : 'single trip dan annual';
+const finding = `Travel insurance ${tripLabel} oleh ${plan.insurer.replace(/\.$/, '')}`;
 const answerSkip: string[] = [];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
@@ -128,11 +132,11 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      Analisis {planName} oleh {plan.insurer}, dikemas kini pada {tarikh(plan.analysisAsAt)}.
+      Analisis manfaat dikemas kini pada {tarikh(plan.analysisAsAt)}.
       Had dan kelayakan dipisahkan mengikut varian dalam dokumen rasmi yang dipautkan pada setiap fakta.
     </p>
 
-    <PageAnswer slot="answer" finding={`${planName} oleh ${plan.insurer}`} facts={answerFacts} />
+    <PageAnswer slot="answer" finding={finding} facts={answerFacts} />
     <ProductCss />
 
     {answerRest.length > 0 && (

@@ -112,7 +112,8 @@ const outboundSources = sourceLinks.map((source) => ({
 // Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
 // PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
 const answerSkip: string[] = [];
-const answerAll = [{ label: 'Jenis pelan', value: typeLabel }, ...specItems.filter((spec) => !answerSkip.includes(spec.label))]
+// The plan type now sits in the bar, so it is not repeated as a row. No lead: no single headline figure per record.
+const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
 // Rows whose value is a paragraph (over 160 characters) move to the details list below, so the box ends inside the
 // first phone screen; short facts keep their order.
@@ -147,10 +148,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      {record.planName} oleh {record.insurer.replace(/\.$/, '')}. Analisis perlindungan, had dan contoh rasmi dikemas kini pada {tarikh(record.analysisAsAt)}.
+      Analisis perlindungan, had dan contoh rasmi dikemas kini pada {tarikh(record.analysisAsAt)}.
     </p>
 
-    <PageAnswer slot="answer" finding={`${record.planName} oleh ${record.insurer}`} facts={answerFacts} />
+    <PageAnswer slot="answer" finding={`${typeLabel} oleh ${record.insurer.replace(/\.$/, '')}`} facts={answerFacts} />
     <ProductCss />
 
     {answerRest.length > 0 && (

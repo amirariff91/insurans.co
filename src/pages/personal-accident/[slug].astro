@@ -88,7 +88,8 @@ const schema = {
 };
 // Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
 // PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
-const answerSkip: string[] = ['Kematian akibat kemalangan'];
+// The plan type sits in the bar (with the insurer), so the 'Jenis pelan' row is not repeated in the box.
+const answerSkip: string[] = ['Kematian akibat kemalangan', 'Jenis pelan'];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
 // Rows whose value is a paragraph (over 160 characters) move to the details list below, so the box ends inside the
@@ -127,7 +128,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       {analysis.facts.find((fact) => fact.label === 'Kematian akibat kemalangan')?.value}
     </p>
 
-    <PageAnswer slot="answer" finding={`${record.planName} oleh ${record.insurer}`} facts={answerFacts} note={`Analisis dikemas kini pada ${tarikh(record.analysisAsAt)}. Tarikh rekod asal: ${tarikh(record.asAt)}.`} />
+    <PageAnswer slot="answer" finding={`${typeLabel} oleh ${record.insurer.replace(/\.$/, '')}`} facts={answerFacts} note={`Analisis dikemas kini pada ${tarikh(record.analysisAsAt)}. Tarikh rekod asal: ${tarikh(record.asAt)}.`} />
     <ProductCss />
 
     {answerRest.length > 0 && (
