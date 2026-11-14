@@ -147,24 +147,24 @@ const schema = {
           </p>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
           <div class="mt-4 overflow-x-auto">
-            <table class="table-editorial plan-table min-w-[40rem]">
-              <thead>
-                <tr>
-                  <th scope="col">Syarikat</th>
-                  <th scope="col">Insurans/takaful</th>
-                  <th scope="col">Beli online</th>
-                  <th scope="col">Syarat</th>
-                  <th scope="col">Pautan rasmi</th>
+            <table role="table" class="table-editorial plan-table min-w-[40rem]">
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Syarikat</th>
+                  <th role="columnheader" scope="col">Insurans/takaful</th>
+                  <th role="columnheader" scope="col">Beli online</th>
+                  <th role="columnheader" scope="col">Syarat</th>
+                  <th role="columnheader" scope="col">Pautan rasmi</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {directOnline.records.map((row) => (
-                  <tr>
-                    <th scope="row">{row.company}</th>
-                    <td data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
-                    <td data-label="Beli online" data-wide>Kereta · {row.channel}</td>
-                    <td data-label="Syarat" data-wide>{row.conditions ?? 'Semak di laman syarikat'}</td>
-                    <td data-label="Pautan rasmi" data-wide>
+                  <tr role="row">
+                    <th role="rowheader" scope="row">{row.company}</th>
+                    <td role="cell" data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
+                    <td role="cell" data-label="Beli online" data-wide>Kereta · {row.channel}</td>
+                    <td role="cell" data-label="Syarat" data-wide>{row.conditions ?? 'Semak di laman syarikat'}</td>
+                    <td role="cell" data-label="Pautan rasmi" data-wide>
                       <a
                         href={row.url}
                         target="_blank"

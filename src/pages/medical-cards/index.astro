@@ -121,33 +121,33 @@ const schema = {
           <h2 id="jadual-perbandingan">Jadual perbandingan medical card</h2>
           <TypeChips class="not-prose mt-5" label="Jenis pelan" groups={cardGroups.map((group) => ({ id: group.type, label: group.label }))} />
           <div class="overflow-x-auto my-8">
-            <table class="table-editorial plan-table min-w-[60rem]">
+            <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
               </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Pelan</th>
-                  <th scope="col">Penyedia</th>
-                  <th scope="col">Jenis pelan</th>
-                  <th scope="col">Had tahunan</th>
-                  <th scope="col">Room &amp; board</th>
-                  <th scope="col">Ciri utama</th>
-                  <th scope="col">Sumber</th>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Pelan</th>
+                  <th role="columnheader" scope="col">Penyedia</th>
+                  <th role="columnheader" scope="col">Jenis pelan</th>
+                  <th role="columnheader" scope="col">Had tahunan</th>
+                  <th role="columnheader" scope="col">Room &amp; board</th>
+                  <th role="columnheader" scope="col">Ciri utama</th>
+                  <th role="columnheader" scope="col">Sumber</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {cards.map((card) => (
-                  <tr>
-                    <th scope="row">
+                  <tr role="row">
+                    <th role="rowheader" scope="row">
                       <a href={`/medical-cards/${card.slug}/`}>{card.planName || '—'}</a>
                     </th>
-                    <td data-label="Penyedia" data-sub>{card.insurer || '—'}</td>
-                    <td data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[card.type] ?? '—'}</span></td>
-                    <td data-label="Had tahunan">{card.annualLimit || '—'}</td>
-                    <td data-label="Room &amp; board">{card.roomBoard || '—'}</td>
-                    <td data-label="Ciri utama" data-wide>{card.standoutFeature || '—'}</td>
-                    <td data-label="Sumber" data-wide>
+                    <td role="cell" data-label="Penyedia" data-sub>{card.insurer || '—'}</td>
+                    <td role="cell" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[card.type] ?? '—'}</span></td>
+                    <td role="cell" data-label="Had tahunan">{card.annualLimit || '—'}</td>
+                    <td role="cell" data-label="Room &amp; board">{card.roomBoard || '—'}</td>
+                    <td role="cell" data-label="Ciri utama" data-wide>{card.standoutFeature || '—'}</td>
+                    <td role="cell" data-label="Sumber" data-wide>
                       {card.sources[0] ? <a href={card.sources[0]}>Sumber rasmi</a> : '—'}
                     </td>
                   </tr>

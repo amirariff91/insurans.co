@@ -105,33 +105,33 @@ const schema = {
           </p>
           <h2 id="jadual-perbandingan">Jadual perbandingan insurans perjalanan</h2>
           <div class="overflow-x-auto my-8">
-            <table class="table-editorial plan-table min-w-[60rem]">
+            <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
               </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Pelan</th>
-                  <th scope="col">Penyedia</th>
-                  <th scope="col">Tempoh perjalanan</th>
-                  <th scope="col">COVID-19</th>
-                  <th scope="col">Pembatalan perjalanan</th>
-                  <th scope="col">Ciri utama</th>
-                  <th scope="col">Sumber</th>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Pelan</th>
+                  <th role="columnheader" scope="col">Penyedia</th>
+                  <th role="columnheader" scope="col">Tempoh perjalanan</th>
+                  <th role="columnheader" scope="col">COVID-19</th>
+                  <th role="columnheader" scope="col">Pembatalan perjalanan</th>
+                  <th role="columnheader" scope="col">Ciri utama</th>
+                  <th role="columnheader" scope="col">Sumber</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {plans.map((plan) => (
-                  <tr>
-                    <th scope="row">
+                  <tr role="row">
+                    <th role="rowheader" scope="row">
                       <a href={`/travel-insurance/${plan.slug}/`}>{plan.planName || '—'}</a>
                     </th>
-                    <td data-label="Penyedia" data-sub>{plan.insurer || '—'}</td>
-                    <td data-label="Tempoh perjalanan" data-wide>{plan.duration || '—'}</td>
-                    <td data-label="COVID-19" data-wide>{plan.covidCovered || '—'}</td>
-                    <td data-label="Pembatalan perjalanan" data-wide>{plan.tripCancellation || '—'}</td>
-                    <td data-label="Ciri utama" data-wide>{plan.standoutFeature || '—'}</td>
-                    <td data-label="Sumber" data-wide>
+                    <td role="cell" data-label="Penyedia" data-sub>{plan.insurer || '—'}</td>
+                    <td role="cell" data-label="Tempoh perjalanan" data-wide>{plan.duration || '—'}</td>
+                    <td role="cell" data-label="COVID-19" data-wide>{plan.covidCovered || '—'}</td>
+                    <td role="cell" data-label="Pembatalan perjalanan" data-wide>{plan.tripCancellation || '—'}</td>
+                    <td role="cell" data-label="Ciri utama" data-wide>{plan.standoutFeature || '—'}</td>
+                    <td role="cell" data-label="Sumber" data-wide>
                       {plan.sources[0] ? <a href={plan.sources[0]}>Sumber rasmi</a> : '—'}
                     </td>
                   </tr>

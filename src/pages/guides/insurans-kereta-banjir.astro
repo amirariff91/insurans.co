@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 
@@ -61,13 +62,7 @@ const schema = {
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/guides/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Panduan</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Kereta Banjir</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Insurans Kereta Banjir' }]} />
       <p class="label mb-3">Panduan Perlindungan</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?
@@ -275,7 +270,7 @@ const schema = {
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Contoh Syarikat dengan Special Perils</h3>
             <p class="text-xs text-stone-500 mb-3">Antara syarikat yang menawarkan add-on special perils:</p>
-            <ul class="space-y-2 text-sm">
+            <ul class="tap-links space-y-2 text-sm">
               <li><a href="/companies/etiqa/" class="text-hijau-700 hover:underline">Etiqa →</a></li>
               <li><a href="/companies/allianz/" class="text-hijau-700 hover:underline">Allianz →</a></li>
               <li><a href="/companies/tokio-marine/" class="text-hijau-700 hover:underline">Tokio Marine →</a></li>

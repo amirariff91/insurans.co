@@ -147,32 +147,32 @@ const schema = {
         <p class="mt-2 text-sm text-stone-600">Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>.</p>
         <TypeChips class="mt-5" label="Jenis pelan" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
         <div class="mt-6 overflow-x-auto">
-          <table class="table-editorial plan-table min-w-[60rem]">
+          <table role="table" class="table-editorial plan-table min-w-[60rem]">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar premium dan asas perlindungan untuk {records.length} pelan insurans rumah
             </caption>
-            <thead>
-              <tr>
-                <th scope="col">Pelan / penyedia</th>
-                <th scope="col">Jenis pelan</th>
-                <th scope="col">Kadar / contoh premium</th>
-                <th scope="col">Premium minimum</th>
-                <th scope="col">Asas jumlah diinsuranskan</th>
-                <th scope="col">Sumber</th>
+            <thead role="rowgroup">
+              <tr role="row">
+                <th role="columnheader" scope="col">Pelan / penyedia</th>
+                <th role="columnheader" scope="col">Jenis pelan</th>
+                <th role="columnheader" scope="col">Kadar / contoh premium</th>
+                <th role="columnheader" scope="col">Premium minimum</th>
+                <th role="columnheader" scope="col">Asas jumlah diinsuranskan</th>
+                <th role="columnheader" scope="col">Sumber</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody role="rowgroup">
               {records.map((record) => (
-                <tr>
-                  <th scope="row" class="align-top">
+                <tr role="row">
+                  <th role="rowheader" scope="row" class="align-top">
                     <a href={`/home-insurance/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
                     <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
                   </th>
-                  <td class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
-                  <td class="min-w-64 align-top" data-label="Kadar / contoh premium" data-wide>{record.tariffRates ?? '—'}</td>
-                  <td class="align-top" data-label="Premium minimum" data-wide>{record.minPremium ?? '—'}</td>
-                  <td class="min-w-64 align-top" data-label="Asas jumlah diinsuranskan" data-wide>{record.sumInsuredBasis ?? '—'}</td>
-                  <td class="align-top" data-label="Sumber" data-wide>
+                  <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Kadar / contoh premium" data-wide>{record.tariffRates ?? '—'}</td>
+                  <td role="cell" class="align-top" data-label="Premium minimum" data-wide>{record.minPremium ?? '—'}</td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Asas jumlah diinsuranskan" data-wide>{record.sumInsuredBasis ?? '—'}</td>
+                  <td role="cell" class="align-top" data-label="Sumber" data-wide>
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
                         {record.sources.map((url) => (
@@ -233,33 +233,33 @@ const schema = {
         </article>
 
         <div class="mt-6 overflow-x-auto">
-          <table class="table-editorial plan-table">
+          <table role="table" class="table-editorial plan-table">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Kadar houseowner dan householder yang direkodkan daripada sumber rasmi
             </caption>
-            <thead>
-              <tr>
-                <th scope="col">Perlindungan</th>
-                <th scope="col">1A landed</th>
-                <th scope="col">1A flat</th>
-                <th scope="col">1B landed</th>
-                <th scope="col">1B flat</th>
+            <thead role="rowgroup">
+              <tr role="row">
+                <th role="columnheader" scope="col">Perlindungan</th>
+                <th role="columnheader" scope="col">1A landed</th>
+                <th role="columnheader" scope="col">1A flat</th>
+                <th role="columnheader" scope="col">1B landed</th>
+                <th role="columnheader" scope="col">1B flat</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="font-medium text-stone-900">Houseowner</th>
-                <td class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.ho_landed_1A)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.ho_flat_1A)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.ho_landed_1B)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.ho_flat_1B)}</td>
+            <tbody role="rowgroup">
+              <tr role="row">
+                <th role="rowheader" scope="row" class="font-medium text-stone-900">Houseowner</th>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.ho_landed_1A)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.ho_flat_1A)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.ho_landed_1B)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.ho_flat_1B)}</td>
               </tr>
-              <tr>
-                <th scope="row" class="font-medium text-stone-900">Householder</th>
-                <td class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.hh_1A)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.hh_1A)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.hh_1B)}</td>
-                <td class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.hh_1B)}</td>
+              <tr role="row">
+                <th role="rowheader" scope="row" class="font-medium text-stone-900">Householder</th>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1A landed">{formatRate(tariff.hh_1A)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1A flat">{formatRate(tariff.hh_1A)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1B landed">{formatRate(tariff.hh_1B)}</td>
+                <td role="cell" class="font-semibold text-hijau-700" data-label="1B flat">{formatRate(tariff.hh_1B)}</td>
               </tr>
             </tbody>
           </table>

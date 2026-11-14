@@ -101,33 +101,33 @@ const schema = {
           <h2 id="jadual-perbandingan">Jadual perbandingan penyakit kritikal</h2>
           <TypeChips class="not-prose mt-5" label="Jenis" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
           <div class="overflow-x-auto my-8">
-            <table class="table-editorial plan-table min-w-[60rem]">
+            <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
               </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Pelan / skim</th>
-                  <th scope="col">Penyedia</th>
-                  <th scope="col">Jenis</th>
-                  <th scope="col">Kondisi dilindungi</th>
-                  <th scope="col">Peringkat awal</th>
-                  <th scope="col">Struktur bayaran</th>
-                  <th scope="col">Sumber</th>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Pelan / skim</th>
+                  <th role="columnheader" scope="col">Penyedia</th>
+                  <th role="columnheader" scope="col">Jenis</th>
+                  <th role="columnheader" scope="col">Kondisi dilindungi</th>
+                  <th role="columnheader" scope="col">Peringkat awal</th>
+                  <th role="columnheader" scope="col">Struktur bayaran</th>
+                  <th role="columnheader" scope="col">Sumber</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {records.map((record) => (
-                  <tr>
-                    <th scope="row">
+                  <tr role="row">
+                    <th role="rowheader" scope="row">
                       <a href={`/critical-illness/${record.slug}/`}>{record.planName || '—'}</a>
                     </th>
-                    <td data-label="Penyedia" data-sub>{record.insurer || '—'}</td>
-                    <td data-label="Jenis" data-chip><span class="plan-chip">{typeLabels[record.type] ?? '—'}</span></td>
-                    <td data-label="Kondisi dilindungi">{record.conditionsCovered || '—'}</td>
-                    <td data-label="Peringkat awal">{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : '—'}</td>
-                    <td data-label="Struktur bayaran" data-wide>{record.payoutStructure || '—'}</td>
-                    <td data-label="Sumber" data-wide>
+                    <td role="cell" data-label="Penyedia" data-sub>{record.insurer || '—'}</td>
+                    <td role="cell" data-label="Jenis" data-chip><span class="plan-chip">{typeLabels[record.type] ?? '—'}</span></td>
+                    <td role="cell" data-label="Kondisi dilindungi">{record.conditionsCovered || '—'}</td>
+                    <td role="cell" data-label="Peringkat awal">{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : '—'}</td>
+                    <td role="cell" data-label="Struktur bayaran" data-wide>{record.payoutStructure || '—'}</td>
+                    <td role="cell" data-label="Sumber" data-wide>
                       {record.sources[0] ? <a href={record.sources[0]}>Sumber rasmi</a> : '—'}
                     </td>
                   </tr>

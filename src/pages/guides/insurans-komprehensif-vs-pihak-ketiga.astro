@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import carModels from '../../data/car-models.json';
@@ -54,13 +55,7 @@ const schema = {
   <!-- Breadcrumb + Header -->
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/guides/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Panduan</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Komprehensif vs Pihak Ketiga</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Komprehensif vs Pihak Ketiga' }]} />
       <p class="label mb-3">Panduan Insurans</p>
       <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
         Insurans Komprehensif vs Pihak Ketiga: Mana Lebih Baik untuk Anda?

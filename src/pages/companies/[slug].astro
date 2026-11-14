@@ -172,7 +172,7 @@ const schema = {
                   {product.names.map((name) => <li>{name}</li>)}
                 </ul>
               )}
-              <a href={product.url} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-hijau-700 underline">
+              <a href={product.url} target="_blank" rel="noopener noreferrer" class="tap-link mt-3 text-sm text-hijau-700 underline">
                 Lihat butiran produk →
               </a>
             </article>
@@ -201,7 +201,7 @@ const schema = {
           {company.claims.hotlines.filter((hotline) => hotline.number.trim()).map((hotline) => (
             <div class="flex flex-wrap items-baseline justify-between gap-2 border border-stone-200 bg-krim-50 p-4 text-sm">
               <span class="font-medium text-stone-700">{hotline.label}</span>
-              <a href={`tel:${hotline.number.replace(/[^0-9+]/g, '')}`} class="font-semibold text-hijau-700 underline">
+              <a href={`tel:${hotline.number.replace(/[^0-9+]/g, '')}`} class="tap-link font-semibold text-hijau-700 underline">
                 {hotline.number}
               </a>
             </div>
@@ -237,13 +237,13 @@ const schema = {
           {company.contact.website && (
             <div class="flex flex-wrap gap-3 border-b border-stone-200 pb-3 text-sm">
               <span class="w-24 shrink-0 font-medium text-stone-500">Laman web</span>
-              <a href={company.contact.website} target="_blank" rel="noopener noreferrer" class="break-all text-hijau-700 underline">{company.contact.website}</a>
+              <a href={company.contact.website} target="_blank" rel="noopener noreferrer" class="tap-link break-all text-hijau-700 underline">{company.contact.website}</a>
             </div>
           )}
           {company.contact.email && (
             <div class="flex flex-wrap gap-3 border-b border-stone-200 pb-3 text-sm">
               <span class="w-24 shrink-0 font-medium text-stone-500">E-mel</span>
-              <a href={`mailto:${company.contact.email}`} class="break-all text-hijau-700 underline">{company.contact.email}</a>
+              <a href={`mailto:${company.contact.email}`} class="tap-link break-all text-hijau-700 underline">{company.contact.email}</a>
             </div>
           )}
           {company.contact.hours && (
@@ -268,7 +268,7 @@ const schema = {
           {company.notable.map((fact) => (
             <div class="note-plain">
               <p class="text-sm leading-6 text-stone-700">{fact.text}</p>
-              <a href={fact.source} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-xs text-hijau-700 underline">
+              <a href={fact.source} target="_blank" rel="noopener noreferrer" class="tap-link mt-2 text-xs text-hijau-700 underline">
                 Buka sumber →
               </a>
             </div>
@@ -303,7 +303,7 @@ const schema = {
           <ol>
             {sourceLinks.map((source) => (
               <li>
-                <a href={source.url} target="_blank" rel="noopener noreferrer" class="break-all text-hijau-700 underline">
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="tap-link break-all text-hijau-700 underline">
                   {source.label}
                 </a>
               </li>
@@ -329,7 +329,7 @@ const schema = {
         {relatedComparisons.length > 0 && (
           <section class="mt-10 border border-stone-200 bg-stone-50 p-5">
             <h2 class="font-serif text-xl text-stone-900">Perbandingan berkaitan</h2>
-            <ul class="mt-3 space-y-2">
+            <ul class="tap-links mt-3 space-y-2">
               {relatedComparisons.map((comparison) => {
                 const company1 = companies.find((candidate) => candidate.slug === comparison.company1);
                 const company2 = companies.find((candidate) => candidate.slug === comparison.company2);
@@ -389,13 +389,13 @@ const schema = {
             <ul class="space-y-2.5">
               {otherCompanies.map((otherCompany) => (
                 <li>
-                  <a href={`/companies/${otherCompany.slug}/`} class="text-sm font-medium text-hijau-700 hover:underline">
+                  <a href={`/companies/${otherCompany.slug}/`} class="tap-link text-sm font-medium text-hijau-700 hover:underline">
                     {otherCompany.name}
                   </a>
                 </li>
               ))}
             </ul>
-            <a href="/companies/" class="mt-4 block text-xs font-medium text-stone-500 hover:text-hijau-700">Lihat semua syarikat →</a>
+            <a href="/companies/" class="mt-4 flex min-h-11 items-center text-xs font-medium text-stone-500 hover:text-hijau-700">Lihat semua syarikat →</a>
           </div>
 
           <div class="card-editorial">

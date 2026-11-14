@@ -666,8 +666,8 @@
   }
   table.plan-table > tbody > tr > :first-child a {
     min-height: 0;
-    padding: 0.6rem 0;
-    margin: -0.6rem 0;
+    padding: 0.7rem 0;
+    margin: -0.7rem 0;
     text-decoration-line: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
@@ -705,3 +705,115 @@
 .type-chips a:hover { border-color: var(--ink); background: var(--tray); }
 .type-chips a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 /* ==== W4 hubs: plan cards on phones (end) ==== */
+
+/* ==== Audit fixes, site-wide (begin) ==== */
+
+/* P1-2: placeholder text. #595959 is 7.0:1 on white, 5.18:1 on the pink plate, 6.24:1 on yellow,
+   5.53:1 on blue, 6.31:1 on the grey tray and 5.77:1 on the chip grey. */
+::placeholder {
+  color: #595959;
+  opacity: 1;
+}
+
+/* P2-4: sidebar link lists ("Baca juga" and similar): each link is a 44px row.
+   The rows replace the old 0.625rem gap between items. */
+ul.space-y-2\.5.text-sm > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+ul.space-y-2\.5.text-sm > li:not([hidden]) ~ li:not([hidden]) {
+  margin-top: 0;
+}
+
+/* P2-6: one-word links in the model page's insurer list ("AIA", "Etiqa"): at least 44px wide. */
+ul.grid.gap-x-8 > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* P2-7: links that stand alone in table header cells and description lists, and the
+   `.tap-link` helper for standalone links in lists and cards: 44px tall. */
+th > a,
+dd > a,
+.tap-link,
+.tap-links > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+th > a,
+.tap-link,
+.tap-links > li > a {
+  min-width: 2.75rem;
+}
+
+/* P1-3: the group pill on product hub plan cards. The row may wrap: at normal text sizes the
+   name block (10rem basis) and the pill share the line as before; with enlarged text the pill
+   moves under the name instead of pushing the card wider. */
+.flex.justify-between:has(> span.max-w-\[50\%\].rounded-full) {
+  flex-wrap: wrap;
+}
+.flex.justify-between:has(> span.max-w-\[50\%\].rounded-full) > div {
+  flex: 1 1 10rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.flex.justify-between > span.max-w-\[50\%\].rounded-full {
+  overflow-wrap: break-word;
+}
+
+/* P3-12: print. */
+@media print {
+  @page { margin: 1.5cm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  header.mast,
+  #mobile-menu-btn,
+  #mobile-menu,
+  .foot-map,
+  [data-privacy-settings],
+  ins.adsbygoogle,
+  .google-auto-placed,
+  iframe,
+  aside.ep-tools,
+  aside.lg\:col-span-1,
+  nav[aria-labelledby="tukar-model"],
+  nav[aria-label="Jejak navigasi"],
+  .hub-crumbs,
+  fieldset.ea-ncd,
+  .skip-link {
+    display: none !important;
+  }
+  /* One column: the rails are hidden, so the page grids drop their side columns. */
+  .ep { grid-template-columns: minmax(0, 1fr) !important; grid-template-areas: "main" !important; max-width: none !important; padding-inline: 0 !important; }
+  [class*="lg:grid-cols-"], [class*="md:grid-cols-"] { grid-template-columns: minmax(0, 1fr) !important; }
+  [class*="lg:col-span-"] { grid-column: auto !important; }
+  .container-wide, .container-article { max-width: none !important; padding-inline: 0 !important; }
+  /* Show collapsed answers (Chrome supports this; elsewhere they print as they are). */
+  details::details-content { content-visibility: visible; display: block; }
+  details > summary { list-style: none; font-weight: 700; }
+  /* Flat panels: black on white with a thin rule. */
+  .ea, .ea-hero, .ea-sum, .ix, .ix-bar, .ix-t, .ix-body, [class*="note-"], .mod, .info-box,
+  .card-editorial, [data-tint] {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  .ea, .ix, [class*="note-"]:not(.note-t), .info-box, .card-editorial {
+    border: 1px solid #000 !important;
+  }
+  .ea *, .ix *, [class*="note-"] * { color: #000 !important; background-color: transparent !important; }
+  a { color: #000 !important; }
+  /* URL after external links in running text. */
+  :is(p, li, td, dd) > a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+  }
+  [class*="note-"], .card-editorial, .mod, figure, tr, .rows li, .faq-item { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+}
+
+/* ==== Audit fixes, site-wide (end) ==== */

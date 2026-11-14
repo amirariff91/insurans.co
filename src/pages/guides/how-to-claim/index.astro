@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
 
@@ -69,13 +70,7 @@ const schema = {
 >
   <section class="bg-white border-b border-stone-200">
     <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5" aria-label="Jejak halaman">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/car-insurance/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Insurans Kereta</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Cara Claim</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Kereta', href: '/car-insurance/' }, { label: 'Cara Claim' }]} />
       <p class="label mb-3">Panduan</p>
       <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Cara Buat Claim Insurans Kereta</h1>
       <Byline dateModified="2026-10-10" />
