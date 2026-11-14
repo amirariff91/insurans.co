@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -36,13 +37,20 @@ const schema = {
   modifiedTime="2026-02-10"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Takaful' }]} />
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ea-h1">
         Takaful Malaysia — Apa Beza Dengan Insurans?
       </h1>
+      <PageAnswer
+        finding="Takaful: patuh Syariah, terbuka untuk semua"
+        facts={[
+          { label: 'Surplus sharing?', value: 'Ya — kalau ada lebihan' },
+          { label: 'Harga', value: 'Competitive (sama/lebih murah)' },
+          { label: 'Syarikat takaful di MY', value: '15 berlesen' },
+        ]}
+      />
       <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Ramai orang beli takaful tapi tak faham apa beza sebenar dengan insurans konvensional. 
@@ -54,7 +62,7 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
 
           <p class="text-lg text-stone-700 leading-relaxed">
             Secara ringkas: <strong>takaful = insurans yang patuh Syariah</strong>. 
@@ -114,7 +122,7 @@ const schema = {
           </table>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Macam mana takaful berfungsi?</h2>
 
           <p>
@@ -238,7 +246,7 @@ const schema = {
           </div>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Siapa patut pilih takaful?</h2>
 
           <p>Honestly? <strong>Sesiapa pun boleh beli takaful</strong> — tak kira agama. Tapi secara praktikal:</p>
@@ -273,7 +281,7 @@ const schema = {
           </p>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Soalan lazim tentang takaful</h2>
         </article>
 
@@ -329,31 +337,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Takaful vs Insurans</h3>
-            <dl class="space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Patuh Syariah?</dt>
-                <dd class="font-semibold text-hijau-700">Ya ✓</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Surplus sharing?</dt>
-                <dd class="font-semibold text-hijau-700">Ya — kalau ada lebihan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga</dt>
-                <dd class="font-semibold text-stone-900">Competitive (sama/lebih murah)</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Non-Muslim boleh?</dt>
-                <dd class="font-semibold text-stone-900">Ya, terbuka untuk semua</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Syarikat takaful di MY</dt>
-                <dd class="font-semibold text-stone-900">15 berlesen</dd>
-              </div>
-            </dl>
-          </div>
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>

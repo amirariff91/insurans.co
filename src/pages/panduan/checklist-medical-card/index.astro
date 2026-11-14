@@ -117,8 +117,8 @@ const faqSchema = {
   publishedTime={asAt}
   modifiedTime={asAt}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
@@ -126,10 +126,9 @@ const faqSchema = {
           { label: 'Checklist Medical Card' },
         ]}
       />
-      <p class="label mb-3">Checklist print-friendly</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
+      <h1 class="ea-h1 mb-3">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
       <Byline dateModified={asAt} />
-      <p class="mt-4 max-w-3xl text-lg leading-7 text-stone-600">
+      <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Print halaman ini. Tanya 8 soalan di bawah pada mana-mana ejen atau dalam PDS (Product Disclosure Sheet) — kalau jawapannya tak jelas bertulis, jangan sign dulu. Kami bukan ejen, bukan broker; kami tak jual polisi dan tak tahu premium anda. Nombor-nombor di bawah adalah contoh sebenar daripada data PDS/brosur yang kami rekodkan di <a href="/medical-cards/">/medical-cards/</a>, bukan cadangan produk.
       </p>
     </div>
@@ -158,7 +157,7 @@ const faqSchema = {
     </article>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim medical card</h2>
       </div>
       <div class="mt-5">
@@ -172,7 +171,7 @@ const faqSchema = {
     </section>
 
     <section class="mt-10 border-t border-stone-200 pt-8 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Baca juga</h2>
       </div>
       <ul class="mt-4 grid gap-3 text-sm sm:grid-cols-2">
@@ -186,9 +185,8 @@ const faqSchema = {
     </section>
 
     <section class="mt-10 border-2 border-stone-900 bg-white p-5 sm:mt-14 sm:p-6">
-      <p class="label">Langkah seterusnya</p>
-      <p class="mt-2 text-lg leading-7 text-stone-700">
-        Dah tanda 8? Bandingkan plan sebenar ikut had, bilik dan deductible dalam <a href="/medical-cards/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">bandingan medical card kami →</a>
+      <p class="text-lg leading-7 text-stone-700">
+        Dah tanda 8? Bandingkan plan sebenar ikut had, bilik dan deductible dalam <a href="/medical-cards/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">bandingan medical card kami</a>
       </p>
     </section>
   </div>

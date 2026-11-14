@@ -4,6 +4,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import Ikon from '../../components/Ikon.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
 const asAt = '2026-09-12';
@@ -108,14 +110,14 @@ const schema = {
       Siri bacaan ringkas untuk buat keputusan kewangan dengan lebih tenang — faham bajet, risiko, syarat dan susunan
       perlindungan sebelum bercakap dengan mana-mana penyedia.
     </p>
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Mula dengan angka sendiri</h2>
-      <p class="mt-3 text-sm leading-6 text-stone-700">
-        Kira gaji bersih, keperluan asas, hutang dan cover sedia ada dahulu. Baru tentukan siling perlindungan yang boleh
-        dibayar konsisten — bukan ikut apa yang nampak menarik dalam brosur.
-      </p>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Mula dengan angka sendiri"
+      facts={[
+        { label: 'Kira dahulu', value: 'gaji bersih, keperluan asas, hutang dan cover sedia ada' },
+        { label: 'Baru tentukan', value: 'siling perlindungan yang boleh dibayar konsisten' },
+      ]}
+    />
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={asAt} sources={[{ label: 'Bank Negara Malaysia', url: 'https://www.bnm.gov.my/' }]} sourcesLabel="Rujukan" showReviewed={false} />
     </div>
@@ -124,7 +126,7 @@ const schema = {
   <div class="container-wide py-8 sm:py-12">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
             Literasi kewangan bukan tentang menghafal semua produk. Ia tentang tahu apa yang anda mampu bayar, risiko mana
             yang boleh menghapuskan simpanan dan syarat apa yang perlu dibaca sebelum membuat keputusan. Enam artikel di
@@ -143,13 +145,13 @@ const schema = {
             <a href={article.href} class="card-editorial group block">
               <h3 class="font-serif text-headline-sm text-stone-900 group-hover:text-hijau-700">{article.title}</h3>
               <p class="mt-3 text-sm leading-6 text-stone-600">{article.angle}</p>
-              <span class="mt-5 inline-block text-sm font-semibold text-hijau-700">Baca artikel →</span>
+              <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-hijau-700">Baca artikel <Ikon name="i-kanan" size={16} /></span>
             </a>
           ))}
         </div>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim literasi kewangan</h2>
           </div>
           <div class="mt-5">

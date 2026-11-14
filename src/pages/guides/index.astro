@@ -39,10 +39,10 @@ const schema = {
   description="Panduan insurans kereta Malaysia dalam Bahasa Malaysia: renew online, NCD, cara claim, komprehensif vs pihak ketiga, banjir, dan takaful."
   schema={schema}
 >
-  <section class="border-b border-stone-200">
+  <section>
     <div class="container-wide py-8 sm:py-12">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
-      <h1 class="max-w-2xl font-serif text-headline-mobile text-stone-900 sm:text-headline-lg">Panduan insurans kereta</h1>
+      <h1 class="ea-h1 mb-1">Panduan insurans kereta</h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-stone-700">Ditulis untuk rakyat Malaysia biasa — bukan ejen, bukan broker. Mulakan dengan renew dan NCD; itu dua perkara yang paling kerap ditanya.</p>
     </div>
   </section>
@@ -65,7 +65,7 @@ const schema = {
           <article class="card-editorial h-full">
             <h2 class="font-serif text-headline-sm text-stone-900"><a href={g.href} class="hover:text-hijau-700">{g.title}</a></h2>
             <p class="mt-2 text-base leading-6 text-stone-700">{g.blurb}</p>
-            <a href={g.href} class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan →</a>
+            <a href={g.href} class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan</a>
           </article>
         </li>
       ))}

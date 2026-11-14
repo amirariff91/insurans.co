@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
 const asAt = '2026-09-12';
@@ -82,21 +83,22 @@ const schema = {
       Mula 2–4 minggu sebelum tamat dan ikut satu turutan: semak NCD, nilai pasaran, quotation dan add-on, kemudian bayar,
       simpan e-cover note dan renew roadtax.
     </p>
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">NCD → nilai → quote → PDF</h2>
-      <p class="mt-3 text-sm leading-6 text-stone-700">
-        Buat langkah satu demi satu 2–4 minggu awal. E-cover note, roadtax dan resit masuk satu folder supaya renew tahun depan
-        tidak bermula dari kosong.
-      </p>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="NCD, nilai, quote, PDF"
+      facts={[
+        { label: 'Mula', value: '2–4 minggu sebelum tamat', role: 'term' },
+        { label: 'Turutan', value: 'semak NCD, nilai pasaran, quotation dan add-on' },
+        { label: 'Kemudian', value: 'bayar, simpan e-cover note dan renew roadtax' },
+      ]}
+    />
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
     </div>
   </Hero>
 
   <div class="container-article py-8 sm:py-12">
-    <article class="prose-editorial">
+    <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
         Ritual renew yang tenang bermula <strong>2–4 minggu sebelum tarikh tamat</strong>: semak NCD, semak sum insured,
         bandingkan 2–3 quotation, bayar, simpan e-cover note, kemudian renew roadtax dan failkan semua PDF.
@@ -160,7 +162,7 @@ const schema = {
     </nav>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim renew roadtax dan insurans</h2>
       </div>
       <div class="mt-5">

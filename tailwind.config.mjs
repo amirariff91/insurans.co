@@ -120,6 +120,8 @@ export default {
         sans: ['Figtree', '"Figtree Fallback"', '"Figtree Fallback Android"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
+        // Type floor: nothing under 14px (critique 12). text-xs and text-sm both render at 0.875rem.
+        xs: ['0.875rem', { lineHeight: '1.25rem' }],
         'headline-xl': ['3.5rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         'headline-lg': ['2.5rem', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
         'headline-mobile': ['2rem', { lineHeight: '1.08', letterSpacing: '-0.01em' }],

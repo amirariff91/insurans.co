@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Ikon from '../../components/Ikon.astro';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
 const asAt = '2026-09-12';
@@ -95,13 +96,12 @@ const faqSchema = {
   publishedTime={asAt}
   modifiedTime={asAt}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
-      <p class="label mb-3">Panduan &amp; Senarai Semak</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Panduan Insurans untuk Print</h1>
+      <h1 class="ea-h1 mb-3">Panduan Insurans untuk Print</h1>
       <Byline dateModified={asAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-600">
         Tiga panduan ringkas dalam Bahasa Malaysia untuk anda semak, print atau Save-as-PDF. Kami bukan ejen, bukan broker — pilih dan semak sendiri berdasarkan PDS atau sijil.
       </p>
     </div>
@@ -122,7 +122,7 @@ const faqSchema = {
         faham perlindungan dan kos sendiri sebelum bersetuju membeli.
       </p>
     </section>
-    <div class="prose-editorial">
+    <div class="prose-editorial prose-bars">
       <h2 id="pilih-panduan">Pilih panduan anda</h2>
     </div>
 
@@ -134,13 +134,13 @@ const faqSchema = {
               <a href={guide.href} class="hover:text-hijau-700">{guide.title}</a>
             </h3>
             <p class="mt-3 text-base leading-6 text-stone-700">{guide.description}</p>
-            <a href={guide.href} class="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan →</a>
+            <a href={guide.href} class="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan <Ikon name="i-kanan" size={16} /></a>
           </article>
         </li>
       ))}
     </ul>
 
-    <section aria-labelledby="guna-checklist" class="prose-editorial mt-10 sm:mt-14">
+    <section aria-labelledby="guna-checklist" class="prose-editorial prose-bars mt-10 sm:mt-14">
       <h2 id="guna-checklist">Cara menggunakan senarai semak</h2>
       <h3>Sediakan butiran sebelum membandingkan</h3>
       <p>
@@ -177,7 +177,7 @@ const faqSchema = {
     </section>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim panduan print</h2>
       </div>
       <div class="mt-5">

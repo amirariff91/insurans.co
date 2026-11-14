@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
 const asAt = '2026-09-12';
@@ -79,20 +80,23 @@ const schema = {
       Deductible ialah jumlah yang anda bayar dahulu; co-insurance ialah peratus daripada baki yang anda kongsi. Dua-dua
       menentukan jumlah tunai yang perlu tersedia ketika claim.
     </p>
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Bil RM10,000 → RM975 keluar poket</h2>
-      <p class="mt-3 text-sm leading-6 text-stone-700">
-        Dengan deductible RM500 dan co-insurance 5% atas baki RM9,500, anda bayar RM500 + RM475. Insurer membayar RM9,025.
-      </p>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Bil RM10,000, RM975 keluar poket"
+      facts={[
+        { label: 'Deductible', value: 'RM500', role: 'price' },
+        { label: 'Co-insurance', value: '5% atas baki RM9,500', role: 'term' },
+        { label: 'Anda bayar', value: 'RM500 + RM475', role: 'price' },
+        { label: 'Insurer membayar', value: 'RM9,025', role: 'price' },
+      ]}
+    />
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
     </div>
   </Hero>
 
   <div class="container-article py-8 sm:py-12">
-    <article class="prose-editorial">
+    <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
         <strong>Deductible</strong> ialah jumlah anda bayar dulu setiap kali claim. <strong>Co-insurance atau co-payment</strong>
         pula ialah peratus anda kongsi daripada baki. Jadi “bayar dulu, lepas tu kongsi” menentukan jumlah sebenar yang keluar
@@ -182,7 +186,7 @@ const schema = {
     </nav>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim deductible dan co-insurance</h2>
       </div>
       <div class="mt-5">

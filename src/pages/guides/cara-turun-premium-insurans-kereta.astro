@@ -38,11 +38,10 @@ const schema = {
   modifiedTime="2026-11-15"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Cara Turunkan Premium' }]} />
-      <p class="label mb-3">Panduan Jimat</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ea-h1 mb-1">
         10 Cara Turunkan Premium Insurans Kereta Anda
       </h1>
       <Byline dateModified="2026-11-15" />
@@ -55,7 +54,7 @@ const schema = {
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
-      <article class="lg:col-span-2 prose-editorial">
+      <article class="lg:col-span-2 prose-editorial prose-bars">
 
         <h2>1. Jaga NCD (No-Claim Discount) Anda</h2>
         <p>
@@ -158,7 +157,7 @@ const schema = {
           <ul class="space-y-3">
             <li>
               <a href="/tools/ncd-calculator/" class="inline-flex min-h-11 items-center gap-2 text-hijau-700 font-semibold hover:underline">
-                Kalkulator NCD →
+                Kalkulator NCD
               </a>
               <span class="text-sm text-stone-600"> — Kira berapa premium anda patut bayar lepas NCD</span>
             </li>
@@ -175,7 +174,7 @@ const schema = {
               <span class="text-sm text-stone-600"> — Bandingkan Tokio Marine dan Allianz</span>
             </li>
             <li>
-              <a href="/perbandingan/" class="tap-link text-hijau-700 font-medium hover:underline">Lihat semua perbandingan →</a>
+              <a href="/perbandingan/" class="tap-link text-hijau-700 font-medium hover:underline">Lihat semua perbandingan</a>
             </li>
           </ul>
         </div>
@@ -188,7 +187,7 @@ const schema = {
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Alat & Panduan</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/tools/ncd-calculator/" class="text-hijau-700 hover:underline">Kalkulator NCD →</a></li>
+              <li><a href="/tools/ncd-calculator/" class="text-hijau-700 hover:underline">Kalkulator NCD</a></li>
               <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:underline">Panduan NCD lengkap</a></li>
               <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/" class="text-hijau-700 hover:underline">Komprehensif vs Pihak Ketiga</a></li>
               <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:underline">Insurans banjir</a></li>
@@ -203,7 +202,7 @@ const schema = {
             </p>
             <a href="/insurans-online/"
                class="block text-center btn-hijau text-sm">
-              Semakan platform insurans online →
+              Semakan platform insurans online
             </a>
           </div>
         </div>

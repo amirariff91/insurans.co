@@ -264,22 +264,24 @@
 
   /* Plain link tile (state shortcuts and similar). */
   .tile-link {
-    @apply block rounded-lg border border-edisi-rule bg-edisi-card p-4 text-center text-edisi-ink transition-colors hover:border-edisi-ink;
+    @apply block rounded-lg border border-edisi-rule bg-edisi-card p-3 text-left text-edisi-ink no-underline transition-colors hover:border-edisi-ink;
+    min-height: 44px;
   }
 
   /*
-   * Notes. Each pastel keeps one job (system.md):
-   *   .note-warn  yellow, ink border: warnings, exclusions, terms and totals;
+   * Notes. Each colour keeps one job (system.md, critique 18):
+   *   .note-warn  white, 2px ink border, red heading: warnings and exclusions;
+   *   .note-term  yellow, ink border: totals, limits and policy terms only;
    *   .note-info  blue: explanations, short answers, what is covered;
    *   .note-price pink: price examples and working;
    *   .note-plain tray: neutral asides and disclaimers.
-   * A soft 1px border all round replaces the old thick left bar.
    */
-  .note-warn, .note-info, .note-price, .note-plain {
+  .note-warn, .note-term, .note-info, .note-price, .note-plain {
     @apply rounded-lg p-4 sm:p-5 text-edisi-ink;
     border: 1px solid var(--rule);
   }
-  .note-warn { background: var(--tint-yellow); border-color: var(--ink); }
+  .note-warn { background: var(--card); border: 2px solid var(--ink); }
+  .note-term { background: var(--tint-yellow); border-color: var(--ink); }
   .note-info { background: var(--tint-sky); }
   .note-price { background: var(--tint-pink); }
   .note-plain { background: var(--tray); }
@@ -287,9 +289,9 @@
     @apply font-sans font-semibold text-edisi-ink;
     margin-bottom: 0.25rem;
   }
-  /* Restrained red for the heading of a warning only (5.6:1 on the yellow). */
+  /* Restrained red for the heading of a warning only (6.2:1 on white). */
   .note-warn > .note-t { color: var(--red); }
-  :is(.note-warn, .note-info, .note-price, .note-plain) :is(p, li) { color: var(--ink); }
+  :is(.note-warn, .note-term, .note-info, .note-price, .note-plain) :is(p, li) { color: var(--ink); }
 
   /* "Not covered" marks in tables and lists: Edisi red, 6.2:1 on white. */
   .mark-no { color: var(--red); font-weight: 700; }
@@ -307,7 +309,7 @@
 
   /* Verdict badge */
   .verdict {
-    @apply inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded;
+    @apply inline-block text-xs font-bold px-2.5 py-1 rounded;
   }
 
   .verdict-best {
@@ -650,7 +652,7 @@
     border-radius: var(--r-pill);
     background: #FFFFFF;
     color: var(--ink);
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.35;
     text-align: center;
@@ -817,3 +819,42 @@ th > a,
 }
 
 /* ==== Audit fixes, site-wide (end) ==== */
+
+/* ==========================================================================================================
+ * Edisi shared modules (moved here so every template can use them; edisi-answer.css keeps identical rules for
+ * the home and model pages, so those render unchanged). Used by src/components/edisi/PageAnswer.astro, the
+ * shared page opening (Hero.astro, .ea-h1) and section title bars (.prose-bars h2, .mod-bar).
+ * ======================================================================================================== */
+.ea-h1 { font: 750 1.625rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 22ch; }
+@media (min-width: 48rem) { .ea-h1 { font-size: 2rem; max-width: none; } }
+.mod { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); min-width: 0; }
+.mod[data-tint="pink"] { background: var(--tint-pink); }
+.mod[data-tint="sky"] { background: var(--tint-sky); }
+.mod[data-tint="yellow"] { background: var(--tint-yellow); }
+.mod-bar { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.55rem 0.9rem; background: #000; color: #fff; margin: 0; }
+.mod-bar, .mod-bar h2 { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
+.mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
+.mod a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.mod a:not(.ea-btn) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+
+/* Page answer (PageAnswer.astro): finding in the bar, facts as label/value rows. */
+.pa { max-width: 40rem; margin-block: 1rem; }
+.pa-rows { margin: 0; padding: 0.35rem 0.9rem 0.5rem; display: grid; }
+.pa-r { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.15rem 1rem; padding: 0.55rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+.pa-r:last-child { border-bottom: 0; }
+.pa-r dt { color: var(--ink); font-size: 1rem; line-height: 1.35; }
+.pa-r dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.35; min-width: 0; }
+.pa-r[data-role] .pa-v { display: inline-block; padding: 0.1rem 0.45rem; border-radius: var(--r-1); color: var(--ink); }
+.pa-r[data-role="price"] .pa-v { background: var(--tint-pink); }
+.pa-r[data-role="term"] .pa-v { background: var(--mark); }
+.pa-r dd a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.pa-note { margin: 0; padding: 0.6rem 0.9rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid rgb(0 0 0 / 0.15); }
+
+/* Section title bars for articles that opt in (class "prose-bars" next to prose-editorial). The H2 keeps its
+   level and id; it just takes the module bar look in place of the old ruled heading. */
+.prose-editorial.prose-bars h2, .prose-bars .prose-editorial h2, .h2-bar {
+  font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; background: #000; color: #fff;
+  border: 0; border-radius: var(--r-2) var(--r-2) 0 0; padding: 0.75rem 0.9rem; min-height: 3rem;
+  margin-top: 2.5rem; margin-bottom: 1rem;
+}
+@media print { .mod-bar, .prose-bars h2, .h2-bar { background: #fff; color: #000; border-bottom: 2px solid #000; } }

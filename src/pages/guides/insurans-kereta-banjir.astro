@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
   {
@@ -60,13 +61,20 @@ const schema = {
   modifiedTime="2026-11-15"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Insurans Kereta Banjir' }]} />
-      <p class="label mb-3">Panduan Perlindungan</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ea-h1 mb-1">
         Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?
       </h1>
+      <PageAnswer
+        finding="Insurans komprehensif standard tidak melindungi kerosakan akibat banjir."
+        facts={[
+          { label: 'Perlu tambah add-on', value: 'Special Perils' },
+          { label: 'Kos add-on special perils', value: '0.2%–0.5% daripada sum insured setahun', role: 'price' },
+          { label: 'Kenderaan bermotor dengan perlindungan banjir', value: 'Hanya 13%' },
+        ]}
+      />
       <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Insurans komprehensif standard <strong>tidak</strong>
@@ -77,7 +85,7 @@ const schema = {
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
-      <article class="lg:col-span-2 prose-editorial">
+      <article class="lg:col-span-2 prose-editorial prose-bars">
 
         <!-- Warning box -->
         <div class="not-prose note-warn mb-8">
@@ -143,29 +151,29 @@ const schema = {
           untuk maklumat risiko banjir bagi setiap negeri di Malaysia.
         </p>
 
-        <div class="not-prose grid sm:grid-cols-3 gap-3 my-6">
+        <div class="not-prose grid grid-cols-2 sm:grid-cols-3 gap-2 my-6">
           <a href="/negeri/kelantan/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Kelantan</span>
+            <span class="block font-semibold">Kelantan</span>
             <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
           <a href="/negeri/terengganu/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Terengganu</span>
+            <span class="block font-semibold">Terengganu</span>
             <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
           <a href="/negeri/pahang/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Pahang</span>
+            <span class="block font-semibold">Pahang</span>
             <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
           <a href="/negeri/kedah/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Kedah</span>
+            <span class="block font-semibold">Kedah</span>
             <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
           <a href="/negeri/selangor/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Selangor</span>
+            <span class="block font-semibold">Selangor</span>
             <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
           </a>
           <a href="/negeri/" class="tile-link group">
-            <span class="block font-semibold group-hover:underline">Semua Negeri →</span>
+            <span class="block font-semibold">Semua Negeri</span>
             <span class="text-xs text-stone-500">16 negeri di Malaysia</span>
           </a>
         </div>
@@ -253,14 +261,14 @@ const schema = {
             </p>
             <a href="/insurans-online/#beli-terus"
                class="btn-outline w-full justify-center text-center text-sm">
-              Beli terus daripada syarikat insurans →
+              Beli terus daripada syarikat insurans
             </a>
           </div>
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan Berkaitan</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/negeri/" class="text-hijau-700 hover:underline">Risiko banjir mengikut negeri →</a></li>
+              <li><a href="/negeri/" class="text-hijau-700 hover:underline">Risiko banjir mengikut negeri</a></li>
               <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/" class="text-hijau-700 hover:underline">Komprehensif vs Pihak Ketiga</a></li>
               <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 hover:underline">10 cara jimat premium</a></li>
               <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:underline">Cara buat claim insurans</a></li>
@@ -271,9 +279,9 @@ const schema = {
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Contoh Syarikat dengan Special Perils</h3>
             <p class="text-xs text-stone-500 mb-3">Antara syarikat yang menawarkan add-on special perils:</p>
             <ul class="tap-links space-y-2 text-sm">
-              <li><a href="/companies/etiqa/" class="text-hijau-700 hover:underline">Etiqa →</a></li>
-              <li><a href="/companies/allianz/" class="text-hijau-700 hover:underline">Allianz →</a></li>
-              <li><a href="/companies/tokio-marine/" class="text-hijau-700 hover:underline">Tokio Marine →</a></li>
+              <li><a href="/companies/etiqa/" class="text-hijau-700 hover:underline">Etiqa</a></li>
+              <li><a href="/companies/allianz/" class="text-hijau-700 hover:underline">Allianz</a></li>
+              <li><a href="/companies/tokio-marine/" class="text-hijau-700 hover:underline">Tokio Marine</a></li>
             </ul>
           </div>
 

@@ -74,8 +74,8 @@ const faqSchema = {
   publishedTime={asAt}
   modifiedTime={asAt}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
@@ -83,10 +83,9 @@ const faqSchema = {
           { label: 'Renew Insurans + Roadtax' },
         ]}
       />
-      <p class="label mb-3">Panduan print-friendly</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Renew Insurans + Roadtax Online — 7 Langkah Tanpa Panik</h1>
+      <h1 class="ea-h1 mb-3">Renew Insurans + Roadtax Online — 7 Langkah Tanpa Panik</h1>
       <Byline dateModified={asAt} />
-      <p class="mt-4 max-w-3xl text-lg leading-7 text-stone-600">
+      <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Ini ritual tahunan setiap pemilik kereta — ikut turutan, jangan langkau langkah 1 (NCD). Dalam 10–15 minit semua boleh settle online. Kami bukan ejen, bukan broker: kami tunjuk alirannya, anda pilih sendiri di mana nak beli.
       </p>
     </div>
@@ -98,7 +97,7 @@ const faqSchema = {
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 1 — Semak NCD anda (No Claim Discount).</h2>
           <p>
-            Pergi MyEG atau hubungi syarikat insurans semasa dan screenshot NCD semasa. NCD yang menentukan harga premium — tangga NCD bermula 0% dan naik ikut tahun tanpa claim (25% → 30% → 38.33% → 45% → 55%). Salah nyatakan NCD melambatkan urusan, jadi sahkan dahulu sebelum minta quotation. Kalau NCD anda tinggi, itu penjimatan terbesar anda tahun ini — semak dengan <a href="/tools/ncd-calculator/">Kalkulator NCD →</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap →</a>.
+            Pergi MyEG atau hubungi syarikat insurans semasa dan screenshot NCD semasa. NCD yang menentukan harga premium — tangga NCD bermula 0% dan naik ikut tahun tanpa claim (25% → 30% → 38.33% → 45% → 55%). Salah nyatakan NCD melambatkan urusan, jadi sahkan dahulu sebelum minta quotation. Kalau NCD anda tinggi, itu penjimatan terbesar anda tahun ini — semak dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> dan baca <a href="/guides/ncd-explained/">panduan NCD lengkap</a>.
           </p>
         </li>
 
@@ -112,14 +111,14 @@ const faqSchema = {
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 3 — Banding 2–3 quotation.</h2>
           <p>
-            Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>). Senarai itu bukan ranking editorial kami. Kalau nak kekal dengan syarikat sama, renew terus di laman syarikat itu (contoh: Etiqa, Allianz, Tokio Marine) — kadang ada diskaun renewal direct. Prinsipnya: tahu harga pasaran dulu, baru decide. Butiran penuh di <a href="/guides/renew-car-insurance/">panduan renew insurans kereta →</a>.
+            Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>). Senarai itu bukan ranking editorial kami. Kalau nak kekal dengan syarikat sama, renew terus di laman syarikat itu (contoh: Etiqa, Allianz, Tokio Marine) — kadang ada diskaun renewal direct. Prinsipnya: tahu harga pasaran dulu, baru decide. Butiran penuh di <a href="/guides/renew-car-insurance/">panduan renew insurans kereta</a>.
           </p>
         </li>
 
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 4 — Pilih add-on yang perlu saja.</h2>
           <p>
-            Comprehensive disyorkan untuk kebanyakan kereta; third-party memadai dalam kes tertentu (baca <a href="/guides/insurans-komprehensif-vs-pihak-ketiga/">komprehensif vs pihak ketiga →</a> — pautan berkaitan: <a href="/guides/insurans-kereta-banjir/">insurans kereta dan banjir</a> untuk special perils banjir, <a href="/guides/cara-turun-premium-insurans-kereta/">cara turun premium insurans kereta</a> untuk 10 cara turunkan premium). Add-on biasa: cermin (windscreen), special perils/banjir, perlindungan penumpang. Tolak yang tak perlu — setiap add-on tambah kos. Orang yang tinggal di kawasan banjir dan yang parkir bawah bumbung setiap hari tidak ada keperluan yang sama.
+            Comprehensive disyorkan untuk kebanyakan kereta; third-party memadai dalam kes tertentu (baca <a href="/guides/insurans-komprehensif-vs-pihak-ketiga/">komprehensif vs pihak ketiga</a> — pautan berkaitan: <a href="/guides/insurans-kereta-banjir/">insurans kereta dan banjir</a> untuk special perils banjir, <a href="/guides/cara-turun-premium-insurans-kereta/">cara turun premium insurans kereta</a> untuk 10 cara turunkan premium). Add-on biasa: cermin (windscreen), special perils/banjir, perlindungan penumpang. Tolak yang tak perlu — setiap add-on tambah kos. Orang yang tinggal di kawasan banjir dan yang parkir bawah bumbung setiap hari tidak ada keperluan yang sama.
           </p>
         </li>
 
@@ -133,7 +132,7 @@ const faqSchema = {
         <li class="guide-step border-b border-stone-200 pb-8">
           <h2 class="mt-0 text-headline-sm">Langkah 6 — Renew roadtax.</h2>
           <p>
-            Dah ada e-cover note, baru boleh renew roadtax. Pilihan sedia ada: MyEG online (roadtax dihantar ke rumah, ada caj penghantaran), kaunter Pos Malaysia (biasa siap dalam 15 minit), JPJ untuk kes khas (tukar nama, kereta lama), atau kaunter UTC/mall berdekatan. Nak semak angka roadtax ikut cc dan wilayah? Guna <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax →</a> — kiraan ikut jadual kadar JPJ awam (formula: kadar asas band + kadar per-cc atas cc tambahan; berbeza Semenanjung vs Sabah &amp; Sarawak).
+            Dah ada e-cover note, baru boleh renew roadtax. Pilihan sedia ada: MyEG online (roadtax dihantar ke rumah, ada caj penghantaran), kaunter Pos Malaysia (biasa siap dalam 15 minit), JPJ untuk kes khas (tukar nama, kereta lama), atau kaunter UTC/mall berdekatan. Nak semak angka roadtax ikut cc dan wilayah? Guna <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax</a> — kiraan ikut jadual kadar JPJ awam (formula: kadar asas band + kadar per-cc atas cc tambahan; berbeza Semenanjung vs Sabah &amp; Sarawak).
           </p>
         </li>
 
@@ -145,13 +144,13 @@ const faqSchema = {
         </li>
       </ol>
 
-      <p class="mt-8 note-warn text-sm leading-6">
-        <strong>Formula belanja tahun ini:</strong> premium (selepas NCD) + roadtax = jumlah renew. Kira kedua-duanya dengan <a href="/tools/ncd-calculator/">Kalkulator NCD →</a> dan <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax →</a>.
+      <p class="mt-8 note-term text-sm leading-6">
+        <strong>Formula belanja tahun ini:</strong> premium (selepas NCD) + roadtax = jumlah renew. Kira kedua-duanya dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> dan <a href="/tools/kalkulator-roadtax/">Kalkulator Roadtax</a>.
       </p>
     </article>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim renew insurans dan roadtax</h2>
       </div>
       <div class="mt-5">
@@ -165,7 +164,7 @@ const faqSchema = {
     </section>
 
     <section class="mt-10 border-t border-stone-200 pt-8 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Baca juga</h2>
       </div>
       <ul class="mt-4 grid gap-3 text-sm sm:grid-cols-2">
@@ -181,9 +180,8 @@ const faqSchema = {
     </section>
 
     <section class="mt-10 border-2 border-stone-900 bg-white p-5 sm:mt-14 sm:p-6">
-      <p class="label">Langkah seterusnya</p>
-      <p class="mt-2 text-lg leading-7 text-stone-700">
-        Nak tahu anggaran ikut model kereta anda? Lihat <a href="/car-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">anggaran premium dan roadtax ikut model →</a> — kemudian beli di mana-mana saluran yang anda percaya. Bukan ejen, bukan broker.
+      <p class="text-lg leading-7 text-stone-700">
+        Nak tahu anggaran ikut model kereta anda? Lihat <a href="/car-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2">anggaran premium dan roadtax ikut model</a> — kemudian beli di mana-mana saluran yang anda percaya. Bukan ejen, bukan broker.
       </p>
     </section>
   </div>

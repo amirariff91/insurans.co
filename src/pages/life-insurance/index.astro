@@ -2,7 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
-import VerdictBadge from '../../components/VerdictBadge.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -37,13 +37,20 @@ const schema = {
   modifiedTime="2026-11-15"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Nyawa' }]} />
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+      <h1 class="ea-h1">
         Insurans Nyawa Malaysia 2026
       </h1>
+      <PageAnswer
+        finding="Panduan kasar: 10 kali pendapatan tahunan"
+        facts={[
+          { label: 'Premium terendah (coverage sama)', value: 'Term Life Insurance' },
+          { label: 'Anggaran term life (umur 30)', value: 'RM80 – RM150/bulan', role: 'price' },
+          { label: 'Pelepasan cukai', value: 'RM3,000/tahun (berasingan daripada had RM4,000 KWSP)', role: 'term' },
+        ]}
+      />
       <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Jika anda ada tanggungan seperti pasangan, anak atau ibu bapa, insurans nyawa melindungi mereka yang anda tinggalkan.
@@ -54,7 +61,7 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
 
           <p class="text-lg text-stone-700 leading-relaxed">
             Bayangkan anda meninggal dunia hari ini. Siapa yang akan membayar pinjaman rumah?
@@ -88,9 +95,9 @@ const schema = {
 
         <div class="space-y-4 my-8">
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">1. Term Life Insurance</h3>
-              <VerdictBadge tone="best" label="Premium Terendah untuk Coverage Sama" />
+              <span class="verdict bg-stone-100 text-stone-600">Premium Terendah untuk Coverage Sama</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Coverage untuk tempoh tertentu (10, 20 atau 30 tahun). Jika anda meninggal dunia dalam tempoh itu, keluarga menerima bayaran. Jika tidak, polisi tamat tanpa nilai tunai. Premiumnya <strong>paling rendah</strong> bagi jumlah coverage yang sama.
@@ -105,7 +112,7 @@ const schema = {
           </div>
 
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">2. Whole Life Insurance</h3>
               <span class="verdict bg-emas-50 text-emas-700">Premium Lebih Tinggi</span>
             </div>
@@ -120,7 +127,7 @@ const schema = {
           </div>
 
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">3. Investment-Linked Plan (ILP)</h3>
               <span class="verdict bg-stone-100 text-stone-600">Ada Komponen Pelaburan</span>
             </div>
@@ -135,7 +142,7 @@ const schema = {
           </div>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Harga insurans nyawa di Malaysia</h2>
           <p>Anggaran premium bulanan untuk lelaki, non-smoker, sihat:</p>
         </article>
@@ -186,7 +193,7 @@ const schema = {
           </p>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Syarikat insurans nyawa di Malaysia</h2>
           <p>Berikut antara syarikat yang menawarkan insurans nyawa di Malaysia. Senarai ini bukan kedudukan atau cadangan — bandingkan pelan, caj dan pengecualian dalam Helaian Pendedahan Produk (PDS) setiap syarikat.</p>
 
@@ -237,7 +244,7 @@ const schema = {
           </ol>
         </article>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Soalan lazim insurans nyawa</h2>
         </article>
 
@@ -289,27 +296,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Panduan kasar coverage</dt>
-                <dd class="font-semibold text-stone-900">10× pendapatan tahunan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Premium terendah (coverage sama)</dt>
-                <dd class="font-semibold text-hijau-700">Term Life Insurance</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Anggaran term life (umur 30)</dt>
-                <dd class="font-semibold text-stone-900">RM80 – RM150/bulan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Pelepasan cukai</dt>
-                <dd class="font-semibold text-hijau-700">RM3,000/tahun (berasingan daripada had RM4,000 KWSP)</dd>
-              </div>
-            </dl>
-          </div>
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>

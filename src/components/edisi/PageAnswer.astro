@@ -1,0 +1,49 @@
+---
+/**
+ * The page answer: one module directly under the H1 on every content template (Edisi "one answer block").
+ * A black title bar states the page's finding; two to four label/value rows hold the facts.
+ * Every word must already be on the page (usually the old "Ringkasan" box or the lead paragraph).
+ *
+ *   <PageAnswer
+ *     finding="Panduan kasar: 10 kali pendapatan tahunan"
+ *     facts={[
+ *       { label: 'Anggaran term life (umur 30)', value: 'RM80 – RM150/bulan', role: 'price' },
+ *       { label: 'Pelepasan cukai', value: 'RM3,000/tahun', role: 'term' },
+ *       { label: 'Senarai syarikat', value: 'Lihat semua', href: '/companies/' },
+ *     ]}
+ *     note="Optional one-line caveat already on the page."
+ *   />
+ *
+ * role: 'price' = pink (a price or premium); 'term' = yellow (a total, limit or policy term); omitted = plain.
+ * Styles: global.css, block "Edisi shared modules" (.mod, .mod-bar, .pa-*).
+ */
+interface Fact {
+  label: string;
+  value: string;
+  href?: string;
+  role?: 'price' | 'term';
+}
+
+interface Props {
+  finding: string;
+  facts: Fact[];
+  note?: string;
+  /** Optional anchor id. The bar is a <p> so the page outline keeps its own H1/H2s. */
+  id?: string;
+}
+
+const { finding, facts, note, id } = Astro.props;
+---
+
+<section class="mod pa" aria-label={finding} id={id} data-section="page-answer">
+  <p class="mod-bar">{finding}</p>
+  <dl class="pa-rows">
+    {facts.map((f) => (
+      <div class="pa-r" data-role={f.role}>
+        <dt>{f.label}</dt>
+        <dd>{f.href ? <a href={f.href}>{f.value}</a> : <span class="pa-v">{f.value}</span>}</dd>
+      </div>
+    ))}
+  </dl>
+  {note && <p class="pa-note">{note}</p>}
+</section>
