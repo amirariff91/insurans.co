@@ -135,3 +135,36 @@
 .et input::placeholder { color: var(--ink-2); opacity: 1; }
 /* Quick-example chips (motorcycle roadtax): 44px tall. */
 .et .motor-chip { min-height: 2.75rem; }
+
+/* ---- Edisi opening for the tools pages: breadcrumbs, H1 at the answer-block size, no kicker, no hairline. */
+.et-open { padding-top: 1rem; padding-bottom: 1.25rem; }
+.et-open .et-h1, .et .et-h1 { margin: 0.25rem 0 0; font: 750 1.625rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 30ch; }
+@media (min-width: 48rem) { .et-open .et-h1, .et .et-h1 { font-size: 2rem; } .et-open { padding-top: 1.5rem; } }
+.et-open .et-lede { margin: 0.6rem 0 0; max-width: 42rem; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.et .et-after { display: grid; gap: 0.5rem; margin-top: 1.5rem; max-width: 42rem; }
+.et .et-after > p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink); }
+
+/* ---- Calculator panels: white input area with an ink border; the result carries the colour.
+   Pink = a price, yellow = a total (concepts/edisi/system.md). */
+.et .et-panel.et-calc { background: var(--card); border: 1.5px solid var(--ink); }
+.et .et-calc .et-out > [id$="-result"] { background: var(--tint-pink); }
+.et .et-calc[data-result="total"] .et-out > [id$="-result"] { background: var(--tint-yellow); }
+.et .et-calc .et-wait { min-height: 0; padding: 0.75rem 1rem; }
+/* Notes inside a calculator: plain text on an ink rule, not a tinted box inside a panel. */
+.et .et-note { border: 0; border-left: 3px solid var(--ink); background: none; padding: 0.25rem 0 0.25rem 0.75rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink); }
+.et .et-calc .et-panel-lede { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-2); }
+
+/* ---- NCD control on the calculator page: the answer block's bars, track and knob. */
+.et .et-ncd { max-width: 36rem; }
+.et .et-ncd .ea-bars { display: grid; }
+.et .et-ncd .ea-mark { display: none; }
+.et .et-ncd[data-ex] .ea-mark { display: block; }
+@supports selector(:has(*)) { html:not(:has(#ncd-55:checked)) .et .et-ncd .ea-mark { display: none; } }
+.et .et-pair { display: grid; gap: 0.75rem; margin-top: 1rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 48rem) { .et .et-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.25rem; } }
+.et .et-pair .et-msg { min-height: 0; }
+.et .et-price { padding: 0.9rem 1rem; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--tint-pink); color: var(--ink); min-height: 7.5rem; }
+.et .et-ex { margin: 0 0 0.4rem; font-size: 0.875rem; font-weight: 650; color: var(--ink); }
+.et .et-ex[hidden] { display: block; visibility: hidden; }
+.et .et-break { margin-top: 1rem; }
+.et .et-break-h { margin: 0 0 0.35rem; font-size: 0.875rem; font-weight: 650; color: var(--ink); }

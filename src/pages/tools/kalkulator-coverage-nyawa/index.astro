@@ -5,7 +5,7 @@ import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CtaBand from '../../../components/CtaBand.astro';
-import Hero from '../../../components/Hero.astro';
+import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-coverage-nyawa/';
 const description = 'Kira jurang coverage nyawa berdasarkan gaji, tahun sokongan, hutang, belanja khas, simpanan dan coverage sedia ada — tanpa anggaran produk.';
@@ -53,6 +53,9 @@ const schema = {
     ],
   },
 };
+// The opening shows the intro's first sentence; the rest follows the tool.
+const [introLead, ...introMore] = intro.split(/(?<=\.)\s+/);
+const introRest = introMore.join(' ');
 ---
 
 <Base
@@ -62,8 +65,7 @@ const schema = {
   schema={schema}
   pageType="tool"
 >
-  <Hero title="Kalkulator Coverage Nyawa — Berapa Cukup Untuk Keluarga?">
-    <Byline slot="byline" />
+  <ToolOpening title="Kalkulator Coverage Nyawa — Berapa Cukup Untuk Keluarga?">
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -72,21 +74,15 @@ const schema = {
         { label: 'Kalkulator Coverage Nyawa' },
       ]}
     />
-    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">{intro}</p>
-
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Alat pendidikan</p>
-      <p class="mt-2 font-serif text-headline-sm text-stone-900">Nombor anda, kiraan yang jelas</p>
-      <p class="mt-2 text-sm leading-5 text-stone-600">Tiada nama, tiada andaian pasaran. Hanya pendapatan, tanggungan dan sumber yang anda masukkan.</p>
-    </div>
-  </Hero>
+    <p class="et-lede">{introLead}</p>
+  </ToolOpening>
 
   <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
         <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
-        <section id="calculator" aria-labelledby="calculator-heading" class="et-panel" data-tint="pink">
-          <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 id="calculator-heading" class="et-bar-t">Kira jurang coverage keluarga</h2></div>
+        <section id="calculator" aria-labelledby="calculator-heading" class="et-panel et-calc" data-result="total">
+          <div class="et-bar"><Ikon name="i-orang" size={24} /><h2 id="calculator-heading" class="et-bar-t">Jurang coverage kasar ikut nombor anda sendiri</h2></div>
           <p class="label">Kalkulator percuma</p>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan nombor anda sendiri. Untuk jumlah yang tiada, masukkan 0.</p>
 
@@ -218,8 +214,14 @@ const schema = {
             <p id="result-interpretation" class="mt-5 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-700"></p>
           </div>
 </div>
-          <p id="handoff-note" hidden role="alert" class="mt-5 border border-emas-800 bg-emas-50 p-3 text-sm leading-5 text-stone-800"></p>
+          <p id="handoff-note" hidden role="alert" class="mt-5 et-note"></p>
         </section>
+
+        <div class="et-after">
+          <Byline />
+          {introRest && <p>{introRest}</p>}
+          <p><strong>Alat pendidikan.</strong> Tiada nama, tiada andaian pasaran. Hanya pendapatan, tanggungan dan sumber yang anda masukkan.</p>
+        </div>
 
         <article class="prose-editorial mt-10">
           <h2>Macam mana kami kira?</h2>
