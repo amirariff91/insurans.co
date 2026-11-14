@@ -69,12 +69,27 @@
 </footer>
 
 <script is:inline>
-  // Reopens the Funding Choices consent message. Does nothing when the CMP is not loaded (pages without ads).
+  // Reopens the Funding Choices consent message. On pages with ads the CMP arrives with AdSense;
+  // on pages without ads it is loaded on demand here. The request is queued, so a click made
+  // before the CMP is ready is not lost.
   document.addEventListener('click', function (event) {
     var target = event.target;
     if (!(target instanceof Element) || !target.closest('[data-privacy-settings]')) return;
     try {
-      window.googlefc && window.googlefc.showRevocationMessage && window.googlefc.showRevocationMessage();
+      var fc = (window.googlefc = window.googlefc || {});
+      fc.callbackQueue = fc.callbackQueue || [];
+      fc.callbackQueue.push({
+        CONSENT_API_READY: function () {
+          try { window.googlefc.showRevocationMessage(); } catch (e) {}
+        },
+      });
+      var hasCmp = document.querySelector('script[src*="adsbygoogle.js"], script[src*="fundingchoicesmessages.google.com"]');
+      if (!hasCmp) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://fundingchoicesmessages.google.com/i/pub-6126092270142355?ers=1';
+        document.head.appendChild(s);
+      }
     } catch (e) {}
   });
 </script>

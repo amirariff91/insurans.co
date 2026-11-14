@@ -20,7 +20,7 @@ export function getStaticPaths() {
 
 // Ads opt-in (Base defaults to ads off). Generated from the programmatic audit on 2026-11-15:
 // a model is listed only if it has at least 700 words in <main> and a 5-gram Jaccard below 0.35
-// against every sibling. perodua-alza (0.348) is left out as borderline. Re-run scripts/audit.py
+// against every sibling. perodua-alza (0.348) is left out as borderline. Re-run scripts/ads-gate-audit.py (word-token 5-grams on <main> text)
 // on a fresh build before adding a model.
 const adsEnabledSlugs = new Set([
   'bmw-3-series',
