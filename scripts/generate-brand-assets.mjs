@@ -19,6 +19,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(SCRIPT_DIR, '..');
 const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const BRAND_DIR = path.join(SCRIPT_DIR, 'brand');
+const ASSET_V = '?v=edisi-2026-11'; // bump with the artwork; also in src/layouts/Base.astro's icon links
 
 /** Paper white: the Edisi page ground, also the manifest theme and background colour. */
 const PAPER = '#FFFFFF';
@@ -197,9 +198,10 @@ async function writeManifest() {
     background_color: PAPER,
     display: 'standalone',
     icons: [
-      { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-      { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      // ?v= versions the URLs: the artwork changed at the same filenames, which live served as immutable for a year.
+      { src: `/icon-192.png${ASSET_V}`, sizes: '192x192', type: 'image/png' },
+      { src: `/icon-512.png${ASSET_V}`, sizes: '512x512', type: 'image/png' },
+      { src: `/icon-maskable-512.png${ASSET_V}`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
   };
   await writePublicFile('site.webmanifest', `${JSON.stringify(manifest, null, 2)}\n`);
