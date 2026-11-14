@@ -15,6 +15,9 @@ interface Props {
   schema?: object;
   ogType?: 'website' | 'article';
   noindex?: boolean;
+  /** With noindex: emit "noindex, follow" so links on the page are still crawled. */
+  noindexFollow?: boolean;
+  /** AdSense is opt-in per page. Pass ads={true} only where the page meets the content gate. */
   ads?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
@@ -33,7 +36,8 @@ const {
   schema,
   ogType = 'website',
   noindex = false,
-  ads = true,
+  noindexFollow = false,
+  ads = false,
   publishedTime,
   modifiedTime,
   pageType = 'page',
@@ -48,7 +52,7 @@ const fullTitle = !siteSuffix || trimmedTitle.toLowerCase().endsWith(siteName.to
 const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://insurans.co').href;
 const hasOgImageDimensions = ogImage.startsWith('/og/') || ogImage === '/og-default.png';
 const robotsContent = noindex
-  ? 'noindex, nofollow'
+  ? (noindexFollow ? 'noindex, follow' : 'noindex, nofollow')
   : 'index, follow, max-snippet:-1, max-image-preview:large';
 const resolvedSchema = schema ? withAuthor(schema) : undefined;
 

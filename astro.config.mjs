@@ -42,6 +42,9 @@ export default defineConfig({
   site: 'https://insurans.co',
   integrations: [
     sitemap({
+      // The 16 /negeri/<state>/ pages are noindex (their facts live in the /negeri/ hub table);
+      // the hub itself stays in the sitemap.
+      filter: (page) => !/\/negeri\/[^/]+\/$/.test(new URL(page).pathname),
       serialize(item) {
         const date = pageContentDate(item.url);
         return date ? { ...item, lastmod: date } : item;

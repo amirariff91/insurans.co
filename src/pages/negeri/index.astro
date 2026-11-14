@@ -47,8 +47,9 @@ const riskColor: Record<string, string> = {
       </h1>
       <Byline />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Setiap negeri ada risiko yang berbeza — banjir, kecurian, trafik padat. Pilih negeri anda
-        untuk panduan insurans yang lebih spesifik.
+        Premium insurans kereta tidak ditetapkan mengikut negeri: tarif motor berbeza mengikut wilayah,
+        bukan negeri individu. Yang berbeza antara negeri ialah risiko setempat seperti banjir, serta
+        pejabat JPJ untuk urusan kenderaan. Jadual di bawah meringkaskan fakta setiap negeri.
       </p>
     </div>
   </section>
@@ -72,10 +73,12 @@ const riskColor: Record<string, string> = {
             <h2 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors text-base">
               {state.displayName}
             </h2>
-            {state.floodRisk && (
+            {state.floodRisk ? (
               <span class={`text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
                 {state.floodRisk}
               </span>
+            ) : (
+              <span class="text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 bg-stone-100 text-stone-500" title="Tiada label risiko banjir dalam data kami">—</span>
             )}
           </div>
           <p class="text-xs text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
@@ -86,11 +89,57 @@ const riskColor: Record<string, string> = {
     </div>
 
     <div class="mt-12 border-t border-stone-200 pt-10">
+      <h2 class="font-serif text-2xl text-stone-900 mb-4">Fakta insurans kereta mengikut negeri</h2>
+      <p class="text-stone-600 leading-relaxed max-w-2xl mb-6">
+        Rekod banjir, pejabat JPJ dan wilayah tarif bagi setiap negeri, daripada halaman negeri masing-masing.
+        Wilayah tarif ialah Semenanjung atau Sabah/Sarawak; premium sebenar ditentukan oleh insurer.
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left border-collapse min-w-[48rem]">
+          <thead>
+            <tr class="border-b border-stone-300 text-stone-700">
+              <th scope="col" class="py-2 pr-4 font-semibold">Negeri</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Risiko banjir</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Rekod banjir</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Pejabat JPJ</th>
+              <th scope="col" class="py-2 font-semibold">Wilayah tarif</th>
+            </tr>
+          </thead>
+          <tbody>
+            {states.map((state) => (
+              <tr class="border-b border-stone-200 align-top text-stone-600">
+                <th scope="row" class="py-3 pr-4 font-medium text-stone-900">
+                  <a href={`/negeri/${state.slug}/`} class="underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">{state.displayName}</a>
+                </th>
+                <td class="py-3 pr-4 whitespace-nowrap">{state.floodRisk || '—'}</td>
+                <td class="py-3 pr-4 leading-relaxed">
+                  {state.floodHistory.length ? (
+                    <>
+                      {state.floodHistory[0].text}{' '}
+                      <a href={state.floodHistory[0].source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
+                    </>
+                  ) : '—'}
+                </td>
+                <td class="py-3 pr-4 leading-relaxed">
+                  {state.jpjOffice.text}{' '}
+                  <a href={state.jpjOffice.source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
+                </td>
+                <td class="py-3 whitespace-nowrap">{state.tariffRegion}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-stone-200 pt-10">
       <h2 class="font-serif text-2xl text-stone-900 mb-4">Kenapa lokasi penting untuk insurans kereta?</h2>
       <p class="text-stone-600 leading-relaxed max-w-2xl mb-4">
-        Syarikat insurans mengambil kira lokasi anda masa calculate premium. Negeri dengan risiko banjir tinggi
-        seperti Kelantan, Terengganu, dan Selangor (kawasan Klang) perlu pertimbangkan <strong>special perils add-on</strong>
-        untuk lindungi kereta dari kerosakan banjir.
+        Premium tidak bergantung pada negeri anda: tarif motor berbeza mengikut wilayah (Semenanjung
+        berbanding Sabah/Sarawak), bukan negeri individu, dan sejak 1 Julai 2017 insurer menetapkan harga
+        berdasarkan penilaian risiko masing-masing. Yang patut anda nilai mengikut lokasi ialah skop perlindungan:
+        pemilik kereta di negeri dengan rekod banjir seperti Kelantan, Terengganu dan Selangor (kawasan Klang)
+        wajar mempertimbangkan <strong>special perils add-on</strong> untuk kerosakan banjir.
       </p>
       <p class="text-stone-600 leading-relaxed max-w-2xl">
         Kawasan bandar besar seperti KL dan Selangor juga ada risiko kemalangan lebih tinggi kerana kepadatan trafik.
