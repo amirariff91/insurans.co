@@ -128,32 +128,24 @@ const faqSchema = {
       <!-- Main actions -->
       <div class="hp-grid">
         <section class="mod" aria-labelledby="popular">
-          <h2 class="mod-bar" id="popular"><Ikon name="i-kereta" size={22} /> Harga insurans kereta popular 2026</h2>
+          <h2 class="mod-bar" id="popular"><Ikon name="i-kereta" size={22} /> Range premium ikut model: NCD 0% vs 55%</h2>
           <div class="mod-in">
             <p class="ix-s">Terus tengok range premium untuk Axia, Myvi, Saga, Vios, City dan model lain — termasuk NCD 0% vs 55%.</p>
-            <ul class="hp-mini numeric">
-              {popularCars.slice(0, 4).map(car => (
-                <li>
-                  <span class="hp-mini-n">{car.fullName}</span>
-                  <span class="hp-mini-l">NCD 55%</span>
-                  <span class="hp-mini-p">{car.premiumNCD55}</span>
-                </li>
-              ))}
-            </ul>
+            <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model popular di bawah <Ikon name="i-bawah" size={18} /></a>
             <a href="/car-insurance/" data-cta="card_car" class="hp-more">Bandingkan ikut model <Ikon name="i-kanan" size={18} /></a>
           </div>
         </section>
 
         <section class="mod" data-tint="pink" aria-labelledby="kalk-ncd">
-          <h2 class="mod-bar" id="kalk-ncd"><Ikon name="i-kalkulator" size={22} /> Kalkulator NCD — kira berapa anda jimat</h2>
+          <h2 class="mod-bar" id="kalk-ncd"><Ikon name="i-kalkulator" size={22} /> Kira dulu “patut ke claim?” sebelum NCD reset</h2>
           <div class="mod-in">
             <p class="ix-s">Masukkan premium asal, pilih NCD level. Termasuk kira-kira “patut ke claim?” sebelum NCD reset.</p>
-            <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-p">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
+            <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-o">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
           </div>
         </section>
 
         <section class="mod" aria-labelledby="banding">
-          <h2 class="mod-bar" id="banding"><Ikon name="i-neraca" size={22} /> Pilih antara dua syarikat?</h2>
+          <h2 class="mod-bar" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan: harga dan claim line, head-to-head</h2>
           <div class="mod-in">
             <p class="ix-s">{comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga dan claim line.</p>
             <ul class="hp-links">
@@ -166,7 +158,7 @@ const faqSchema = {
         </section>
 
         <section class="mod" aria-labelledby="takaful-q">
-          <h2 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful atau insurans konvensional?</h2>
+          <h2 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful atau konvensional: coverage lebih kurang sama</h2>
           <div class="mod-in">
             <p class="ix-s">Coverage lebih kurang sama. Beza utama: takaful patuh Syariah, lebihan dana boleh dikongsi.</p>
             <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
@@ -176,7 +168,8 @@ const faqSchema = {
 
       <!-- Cara renew -->
       <section class="mod" data-section="renew" data-tint="sky" aria-labelledby="renew-h">
-        <h2 class="mod-bar" id="renew-h"><Ikon name="i-renew" size={22} /> Nak renew insurans kereta online?</h2>
+        <details class="hp-fold">
+        <summary class="mod-bar"><h2 id="renew-h"><Ikon name="i-renew" size={22} /> Renew online dalam 4 langkah, tak perlu ke pejabat</h2><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
           <p class="ix-s">Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
           <ol class="hp-steps">
@@ -194,10 +187,11 @@ const faqSchema = {
             </li>
             <li>
               <h3>Renew roadtax</h3>
-              <p>Boleh renew di <strong>JPJ</strong>, <strong>MyEG</strong>, <strong>Pos Malaysia</strong>, atau kaunter di shopping mall.</p>
+              <p>Boleh renew di JPJ, MyEG, Pos Malaysia, atau kaunter di shopping mall.</p>
             </li>
           </ol>
         </div>
+        </details>
       </section>
 
       <CtaBand
@@ -210,7 +204,8 @@ const faqSchema = {
 
       <!-- Company directory -->
       <section class="mod" aria-labelledby="syarikat">
-        <h2 class="mod-bar" id="syarikat"><Ikon name="i-dokumen" size={22} /> Syarikat insurans motor</h2>
+        <details class="hp-fold">
+        <summary class="mod-bar"><h2 id="syarikat"><Ikon name="i-dokumen" size={22} /> Senarai syarikat insurans motor, bukan ranking</h2><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
           <p class="ix-s">Senarai syarikat, bukan ranking — baca profil setiap syarikat.</p>
           <ul class="hp-co">
@@ -227,15 +222,16 @@ const faqSchema = {
           </ul>
           <a href="/companies/" class="hp-more">Semua syarikat <Ikon name="i-kanan" size={18} /></a>
         </div>
+        </details>
       </section>
 
       <!-- Harga sebenar -->
       <section class="mod" aria-labelledby="harga-sebenar">
-        <h2 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Berapa harga insurans kereta sebenar?</h2>
+        <h2 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Anggaran comprehensive setahun: {popularCars.length} model popular</h2>
         <div class="mod-in">
           <p class="ix-s">
             Kami compile anggaran harga untuk kereta-kereta popular di Malaysia.
-            Harga di bawah adalah untuk polisi <strong>comprehensive</strong> setahun.
+            Harga di bawah adalah untuk polisi comprehensive setahun.
           </p>
           <ul class="hp-cars numeric">
             {popularCars.map(car => (
@@ -252,7 +248,7 @@ const faqSchema = {
             ))}
           </ul>
           <p class="ix-src">
-            <strong>Nota:</strong> Harga di atas adalah anggaran untuk tahun 2026. Harga sebenar bergantung pada
+            Nota: Harga di atas adalah anggaran untuk tahun 2026. Harga sebenar bergantung pada
             umur kereta, lokasi, rekod pemanduan, dan syarikat insurans yang dipilih.
             Selepas liberalisasi tarif motor 2017, setiap syarikat boleh set harga sendiri.
           </p>
@@ -261,7 +257,7 @@ const faqSchema = {
 
       <!-- FAQ -->
       <section class="mod" aria-labelledby="soalan">
-        <h2 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Soalan yang ramai orang tanya</h2>
+        <h2 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Insurans kereta wajib: minimum third-party</h2>
         <div class="mod-in hp-faq">
       <details class="faq-item" open>
         <summary>Wajib ke beli insurans kereta?</summary>
@@ -325,21 +321,21 @@ const faqSchema = {
 
       <!-- Other verticals -->
       <section class="mod" aria-labelledby="jenis">
-        <h2 class="mod-bar" id="jenis"><Ikon name="i-lindung" size={22} /> Jenis-jenis insurans lain</h2>
+        <h2 class="mod-bar" id="jenis"><Ikon name="i-lindung" size={22} /> Selain kereta: kesihatan, nyawa, rumah dan lain-lain</h2>
         <div class="mod-in">
           <ul class="hp-vert">
-            <li><a href="/car-insurance/"><b>Insurans Kereta</b><span>Motor & motosikal</span></a></li>
-            <li><a href="/health-insurance/"><b>Insurans Kesihatan</b><span>Medical card</span></a></li>
-            <li><a href="/medical-cards/"><b>Medical Card</b><span>Pelan hospital</span></a></li>
-            <li><a href="/life-insurance/"><b>Insurans Nyawa</b><span>Life & investment-linked</span></a></li>
-            <li><a href="/personal-accident/"><b>Insurans Kemalangan Diri</b><span>Perlindungan kemalangan</span></a></li>
-            <li><a href="/takaful/"><b>Takaful</b><span>Patuh Syariah</span></a></li>
-            <li><a href="/critical-illness/"><b>Penyakit Kritikal</b><span>Critical illness</span></a></li>
-            <li><a href="/bantuan-insurans/"><b>Bantuan &amp; EPF</b><span>mySalam, i-Lindung, Tenang</span></a></li>
-            <li><a href="/travel-insurance/"><b>Insurans Perjalanan</b><span>Travel insurance</span></a></li>
-            <li><a href="/insurans-online/"><b>Insurans Online</b><span>Banding & beli online</span></a></li>
-            <li><a href="/home-insurance/"><b>Insurans Rumah</b><span>Fire, houseowner & householder</span></a></li>
-            <li><a href="/motorcycle-insurance/"><b>Insurans Motosikal</b><span>Roadtax & coverage</span></a></li>
+            <li><a href="/car-insurance/"><Ikon name="i-kereta" size={24} /><b>Insurans Kereta</b><span>Motor & motosikal</span></a></li>
+            <li><a href="/health-insurance/"><Ikon name="i-tambah" size={24} /><b>Insurans Kesihatan</b><span>Medical card</span></a></li>
+            <li><a href="/medical-cards/"><Ikon name="i-resit" size={24} /><b>Medical Card</b><span>Pelan hospital</span></a></li>
+            <li><a href="/life-insurance/"><Ikon name="i-orang" size={24} /><b>Insurans Nyawa</b><span>Life & investment-linked</span></a></li>
+            <li><a href="/personal-accident/"><Ikon name="i-kemalangan" size={24} /><b>Insurans Kemalangan Diri</b><span>Perlindungan kemalangan</span></a></li>
+            <li><a href="/takaful/"><Ikon name="i-lindung" size={24} /><b>Takaful</b><span>Patuh Syariah</span></a></li>
+            <li><a href="/critical-illness/"><Ikon name="i-amaran" size={24} /><b>Penyakit Kritikal</b><span>Critical illness</span></a></li>
+            <li><a href="/bantuan-insurans/"><Ikon name="i-dompet" size={24} /><b>Bantuan &amp; EPF</b><span>mySalam, i-Lindung, Tenang</span></a></li>
+            <li><a href="/travel-insurance/"><Ikon name="i-luar" size={24} /><b>Insurans Perjalanan</b><span>Travel insurance</span></a></li>
+            <li><a href="/insurans-online/"><Ikon name="i-cari" size={24} /><b>Insurans Online</b><span>Banding & beli online</span></a></li>
+            <li><a href="/home-insurance/"><Ikon name="i-utama" size={24} /><b>Insurans Rumah</b><span>Fire, houseowner & householder</span></a></li>
+            <li><a href="/motorcycle-insurance/"><Ikon name="i-tayar" size={24} /><b>Insurans Motosikal</b><span>Roadtax & coverage</span></a></li>
           </ul>
         </div>
       </section>
@@ -348,7 +344,7 @@ const faqSchema = {
     <aside class="ep-tools" aria-label="Alat">
       <ToolsRail model={exampleModel} related={[]} calculatorUrl={`/tools/ncd-calculator/?model=${exampleModel.slug}`} hooks />
       <nav class="mod" aria-labelledby="kalkulator">
-        <h2 class="mod-bar" id="kalkulator"><Ikon name="i-kalkulator" size={22} /> Kalkulator</h2>
+        <h2 class="mod-bar" id="kalkulator"><Ikon name="i-kalkulator" size={22} /> {calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
         <ul class="hp-calc">
           {calculators.map((c) => (
             <li><a href={c.href}><Ikon name={c.icon} size={22} /><span>{c.label}</span></a></li>
@@ -374,8 +370,8 @@ const faqSchema = {
   .hp-by-img { flex: none; display: block; border-radius: 50%; }
   .hp-by-img img { display: block; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1.5px var(--ink); }
   .hp-by p { font-size: 1rem; }
-  .hp-by p a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; }
-  .hp-trust { font-size: 0.9375rem; font-weight: 600; line-height: 1.6; }
+  .hp-by p a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; }
+  .hp-trust { font-size: 0.9375rem; font-weight: 500; line-height: 1.6; }
   .hp-trust a { display: inline-flex; align-items: center; min-height: 2.75rem; }
   .hp-more { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; justify-self: start; }
   .hp-mini { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
@@ -399,22 +395,37 @@ const faqSchema = {
   .hp-co h3 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
   .hp-co p { font-size: 1rem; line-height: 1.5; }
   .hp-co .hp-co-c { font-size: 0.875rem; color: var(--ink-2); margin-top: 0.25rem; }
-  .hp-tag { font: 650 0.8125rem/1 var(--f); padding: 0.3em 0.55em; border-radius: var(--r-pill); background: var(--tint-yellow); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.35); }
-  .hp-cars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
-  .hp-cars a { display: grid; gap: 0.15rem; height: 100%; padding: 0.8rem 0.9rem; border-radius: var(--r-2); box-shadow: inset 0 0 0 1px var(--rule); color: var(--ink); text-decoration: none !important; }
+  .hp-tag { font: 650 0.875rem/1 var(--f); padding: 0.3em 0.55em; border-radius: var(--r-pill); background: var(--tint-yellow); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.35); }
+  .hp-cars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr)); }
+  @media (min-width: 48rem) { .hp-cars { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); } }
+  .hp-cars a { display: grid; align-content: start; gap: 0.15rem; height: 100%; padding: 0.7rem 0.75rem; border-radius: var(--r-2); box-shadow: inset 0 0 0 1px var(--rule); color: var(--ink); text-decoration: none !important; }
   .hp-cars a:hover { box-shadow: inset 0 0 0 2px var(--ink); }
   .hp-car-n { font: 750 1.0625rem/1.2 var(--fd); }
   .hp-car-m { font-size: 0.875rem; color: var(--ink-2); padding-bottom: 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.15); margin-bottom: 0.35rem; }
-  .hp-car-p { font: 800 1.5rem/1.1 var(--fd); }
+  .hp-car-p { font: 800 1.375rem/1.1 var(--fd); overflow-wrap: anywhere; }
   .hp-car-z { font-size: 0.9375rem; }
   .hp-car-go { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.4rem; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; }
   .hp-faq { gap: 0; }
   .hp-faq :global(.faq-item p) { font-size: 1rem; line-height: 1.55; }
-  .hp-vert { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr)); }
-  .hp-vert a { display: grid; gap: 0.15rem; height: 100%; min-height: 2.75rem; padding: 0.6rem 0.75rem; border-radius: var(--r-1); box-shadow: inset 0 0 0 1px var(--rule); color: var(--ink); text-decoration: none !important; }
+  .hp-vert { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 48rem) { .hp-vert { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .hp-vert a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 0.5rem; height: 100%; min-height: 3rem; padding: 0.5rem 0.6rem; border-radius: var(--r-1); box-shadow: inset 0 0 0 1px var(--rule); color: var(--ink); text-decoration: none !important; }
   .hp-vert a:hover { background: var(--tray); box-shadow: inset 0 0 0 1.5px var(--ink); }
-  .hp-vert b { font-weight: 700; font-size: 0.9375rem; }
-  .hp-vert span { font-size: 0.875rem; color: var(--ink-2); }
+  .hp-vert b { font-weight: 650; font-size: 0.9375rem; line-height: 1.25; overflow-wrap: anywhere; }
+  .hp-vert span { display: none; }
+  @media (min-width: 48rem) { .hp-vert span { display: block; grid-column: 2; font-size: 0.875rem; color: var(--ink-2); } }
+  .hp-fold > summary { list-style: none; cursor: pointer; }
+  .hp-fold > summary::-webkit-details-marker { display: none; }
+  .hp-fold > summary h2 { display: flex; align-items: center; gap: 0.6rem; flex: 1; margin: 0; font: inherit; color: inherit; }
+  .hp-fold > summary :global(.hp-fold-i) { margin-left: auto; transition: transform 0.15s ease; }
+  .hp-fold[open] > summary :global(.hp-fold-i) { transform: rotate(180deg); }
+  .hp summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  @media (prefers-reduced-motion: reduce) { .hp-fold > summary :global(.hp-fold-i) { transition: none; } }
+  .hp-grid { gap: 1rem; }
+  .hp > .ep-main { gap: 1.5rem; }
+  .hp-grid .ea-btn-o { justify-self: start; background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .hp-grid .ea-btn-o:hover { background: var(--tray); } }
+  .hp :global(.mod-in) { gap: 0.6rem; }
   .hp-calc { list-style: none; margin: 0; padding: 0; }
   .hp-calc a { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.35rem 0.9rem; border-top: 1px solid rgb(0 0 0 / 0.12); color: var(--ink); font-weight: 650; text-decoration: none !important; }
   .hp-calc li:first-child a { border-top: 0; }

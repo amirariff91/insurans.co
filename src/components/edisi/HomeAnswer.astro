@@ -110,12 +110,12 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
 
 <style>
   .ha { gap: 0.75rem; }
-  .ha-pick { display: grid; gap: 0.4rem; min-width: 0; }
+  .ha-pick { display: grid; gap: 0.4rem; min-width: 0; grid-template-columns: minmax(0, 1fr); }
   .ha-pick-l { font-size: 1rem; color: var(--ink); }
   .ha-chips {
     display: flex; gap: 0.4rem; margin: 0; padding: 0.15rem 0.15rem 0.35rem; list-style: none;
     overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scroll-snap-type: x proximity;
-    max-width: 36rem;
+    max-width: min(36rem, 100%);
   }
   .ha-chips li { flex: none; scroll-snap-align: start; }
   .ha-chip {
@@ -132,7 +132,8 @@ const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
   .ha-mo { white-space: nowrap; }
   .ha-note { font-size: 0.9375rem; line-height: 1.4; color: var(--ink-2); max-width: 36rem; }
   .ha-name { display: block; font: 750 1.25rem/1.1 var(--fd); color: var(--ink); }
-  .ha-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 36rem; }
+  .ha-cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: 0.5rem; max-width: 36rem; }
+  .ha-cta > * { min-width: 0; }
   .ha .ea-btn { padding-inline: 0.75rem; text-align: center; }
   .ea-btn-o { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
   @media (hover: hover) and (pointer: fine) { .ea-btn-o:hover { background: var(--tray); } }

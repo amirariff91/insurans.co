@@ -72,7 +72,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     margin: 0;
     padding: 0.4rem 0.9rem;
     background: var(--tray);
-    font: 700 0.875rem/1.3 var(--f);
+    font: 650 0.875rem/1.3 var(--f);
     color: var(--ink);
   }
   .hm-list a {
@@ -84,14 +84,16 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     border-top: 1px solid rgb(0 0 0 / 0.12);
     color: var(--ink);
     text-decoration: none;
+    flex-wrap: wrap;
   }
   .hm-list li:first-child a {
     border-top: 0;
   }
   .hm-name {
-    flex: 1;
+    flex: 1 1 6rem;
     min-width: 0;
-    font: 800 1.125rem/1.15 var(--fd);
+    font: 650 1.125rem/1.15 var(--fd);
+    overflow-wrap: anywhere;
   }
   .hm-pill {
     flex: none;
@@ -102,6 +104,10 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     font: 700 0.9375rem/1.2 var(--f);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
+    max-width: 100%;
+  }
+  @media (max-width: 23rem) {
+    .hm-pill { white-space: normal; overflow-wrap: anywhere; }
   }
   .hm-chev {
     flex: none;
