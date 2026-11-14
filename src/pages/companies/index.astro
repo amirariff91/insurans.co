@@ -8,6 +8,10 @@ const conventional = companies.filter(c => c.type === 'conventional');
 const takafulOnly = companies.filter(c => c.type === 'takaful');
 const withTakaful = companies.filter(c => c.takaful);
 const sortedCompanies = [...companies].sort((a, b) => a.name.localeCompare(b.name, 'ms'));
+// Product-category labels as on the earlier company cards.
+const PRODUCT_LABELS: Record<string, string> = {
+  car: 'Kereta', motorcycle: 'Motosikal', health: 'Kesihatan', life: 'Nyawa', travel: 'Travel', home: 'Rumah', 'personal-accident': 'PA',
+};
 
 const schema = {
   "@context": "https://schema.org",
@@ -44,6 +48,15 @@ const schema = {
               <a href={`/companies/${company.slug}/`} class="co-a">{company.name}<Ikon name="i-kanan" size={18} /></a>
               <span class="co-t">{company.type === 'takaful' ? 'Takaful' : company.takaful ? 'Ada takaful' : 'Insurans'}</span>
               <span class="co-f">{company.verdictBM}</span>
+              <details class="co-d">
+                <summary>Butiran</summary>
+                <dl>
+                  <div><dt>Nama berdaftar</dt><dd>{company.fullName}</dd></div>
+                  {company.parent && <div><dt>Kumpulan induk</dt><dd>{company.parent}</dd></div>}
+                  {company.founded && <div><dt>Ditubuhkan</dt><dd>{company.founded}</dd></div>}
+                  <div><dt>Produk</dt><dd>{company.products.map((product: string) => PRODUCT_LABELS[product] ?? product).join(', ')}</dd></div>
+                </dl>
+              </details>
             </li>
           ))}
         </ul>
@@ -119,4 +132,11 @@ const schema = {
   .co-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .co-t { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
   .co-f { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--ink); }
+  .co-d { grid-column: 1 / -1; font-size: 0.875rem; color: var(--ink); margin-top: 0.25rem; }
+  .co-d summary { cursor: pointer; font-weight: 600; min-height: 2.75rem; display: flex; align-items: center; text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-d summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .co-d dl { display: grid; gap: 0.2rem; margin: 0 0 0.35rem; }
+  .co-d dl div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.5rem; }
+  .co-d dt { font-weight: 600; }
+  .co-d dd { margin: 0; overflow-wrap: anywhere; }
 </style>

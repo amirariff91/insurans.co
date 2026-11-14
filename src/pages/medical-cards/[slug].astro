@@ -105,7 +105,8 @@ const schema = {
 // Lead: the annual limit as a loud number only when the record states one single figure ("RM3,000,000");
 // the full "Had tahunan" fact row then moves to the details list under the box. The plan type sits in the bar.
 const leadValue = /^RM[\d,]+$/.test(card.annualLimit ?? '') ? card.annualLimit : undefined;
-const lead = leadValue ? { value: leadValue, label: 'Had tahunan', role: 'term' as const } : undefined;
+// The lead label comes from the record when it scopes the limit (AIA: benefits 1–14); otherwise 'Had tahunan'.
+const lead = leadValue ? { value: leadValue, label: card.annualLimitLabel ?? 'Had tahunan', role: 'term' as const } : undefined;
 const insurerName = card.insurer.replace(/\.$/, '');
 const finding = `${typeLabel} oleh ${insurerName}`;
 const answerSkip: string[] = lead ? ['Had tahunan'] : [];

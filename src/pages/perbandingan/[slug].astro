@@ -65,8 +65,8 @@ function formatDate(value: string): string {
 }
 
 // Answer box. finding = the first sentence of the page's own summary. facts = only criteria where both sides
-// state a concrete value in the criterion text shown below (same buyerCopy wording): the first phone number in
-// "Tuntutan dan bantuan jalan", the first app name in "Aplikasi digital", the AM Best / RAM rating in
+// state a concrete value in the criterion text shown below (same buyerCopy wording): the service phone number in
+// "Tuntutan dan bantuan jalan" (see servicePhone), the first app name in "Aplikasi digital", the AM Best / RAM rating in
 // "Kestabilan kewangan dan rating". A criterion is left out when either side has no such value. No verdict.
 type Dimension = { label: string; a: string; b: string; note: string };
 const dims = comp.dimensions as Dimension[];
@@ -76,8 +76,22 @@ const RATING = /(AM Best(?: kekuatan kewangan)?(?: kumpulan)? A\+{0,2}|RAM AA\d)
 function firstApp(text: string) {
   return APP_NAMES.map((name) => ({ name, at: text.indexOf(name) })).filter((hit) => hit.at >= 0).sort((x, y) => x.at - y.at)[0]?.name;
 }
+// The claims/breakdown number, not merely the first one: when a criterion lists several numbers, a
+// customer-service line is skipped and the chosen number keeps its own service label from the text
+// ("talian kerosakan 24 jam 1-800-18-8033"), so the answer never blurs two services. One number: as written.
+const PHONE_ALL = new RegExp(PHONE.source, 'g');
+function servicePhone(text: string) {
+  const hits = [...text.matchAll(PHONE_ALL)].map((m) => {
+    const label = text.slice(0, m.index).match(/.*\b((?:talian|meja|hotline)\b[^,;.]*?)\s*$/i)?.[1];
+    return { number: m[0], label };
+  });
+  if (hits.length === 0) return undefined;
+  if (hits.length === 1) return hits[0].number;
+  const hit = hits.find((h) => !/pelanggan/i.test(h.label ?? '')) ?? hits[0];
+  return hit.label ? `${hit.label} ${hit.number}` : hit.number;
+}
 const extractors: Record<string, (text: string) => string | undefined> = {
-  'Tuntutan dan bantuan jalan': (text) => text.match(PHONE)?.[0],
+  'Tuntutan dan bantuan jalan': servicePhone,
   'Aplikasi digital': firstApp,
   'Kestabilan kewangan dan rating': (text) => text.match(RATING)?.[1],
 };
