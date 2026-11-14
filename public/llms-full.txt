@@ -45,12 +45,12 @@ These are calculated estimates of the annual basic premium, worked out from the 
 *Note: Actual premiums vary by insurer, driver age, location, car age, and claims history.*
 
 #### Types of Car Insurance in Malaysia
-1. **Comprehensive (Komprehensif):** Covers own damage + third-party. Most popular choice. Covers accidents, theft, fire and third-party liability. Flood and other natural perils are NOT included; they need the paid special perils add-on.
+1. **Comprehensive (Komprehensif):** Covers own damage + third-party. Widest cover of the three types. Covers accidents, theft, fire and third-party liability. Flood and other natural perils are NOT included; they need the paid special perils add-on.
 2. **Third-Party, Fire & Theft (Pihak Ketiga, Kebakaran & Kecurian):** Covers damage to others + fire + theft of your own car. Does NOT cover own accident damage.
 3. **Third-Party Only (Pihak Ketiga Sahaja):** Minimum legal requirement. Only covers damage/injury to others. Cheapest but least protection.
 
 #### How Car Insurance Premium is Calculated
-- **Sum insured (nilai diinsuranskan):** Based on car's market value
+- **Sum insured (nilai diinsuranskan):** Based on the car's market value, or the agreed value on an agreed-value policy
 - **NCD (No-Claim Discount):** Up to 55% discount for claim-free years
 - **Car age and model:** Older cars and certain models may cost more
 - **Engine capacity (cc):** Higher cc = higher base premium
@@ -59,7 +59,7 @@ These are calculated estimates of the annual basic premium, worked out from the 
 
 #### Agreed Value vs Market Value
 - **Market Value (Nilai Pasaran):** Payout based on car's market value at time of total loss. Value depreciates over time.
-- **Agreed Value (Nilai Dipersetujui):** Payout is a fixed amount agreed upon when buying the policy. Slightly higher premium but no depreciation dispute.
+- **Agreed Value (Nilai Dipersetujui):** Payout is a fixed amount agreed with the insurer when buying the policy. Compare premiums and terms for both bases; do not assume one is always more expensive.
 
 ### Motorcycle Insurance (Insurans Motosikal)
 - **URL:** https://insurans.co/motorcycle-insurance/
@@ -76,8 +76,8 @@ These are calculated estimates of the annual basic premium, worked out from the 
 ### Life Insurance (Insurans Nyawa)
 - **URL:** https://insurans.co/life-insurance/
 - **Purpose:** Guide to life insurance plans in Malaysia
-- **Content:** Types of life insurance, how much coverage you need, comparison of providers
-- **Key facts:** Three main types — Term Life (paling murah, coverage sahaja), Whole Life (coverage + savings), Investment-Linked (coverage + investment). Rule of thumb: coverage = 10x annual income. Major providers: AIA, Great Eastern, Prudential, Zurich.
+- **Content:** Types of life insurance, how much coverage you need, list of providers (not ranked)
+- **Key facts:** Three main types — Term Life (lowest premium for the same cover, no cash value), Whole Life (coverage + savings), Investment-Linked (coverage + investment). Rule of thumb: coverage = 10x annual income. Providers listed (not ranked): AIA, Etiqa, Great Eastern, Prudential, Zurich.
 
 ### Home Insurance (Insurans Rumah)
 - **URL:** https://insurans.co/home-insurance/
@@ -251,7 +251,7 @@ These are calculated estimates of the annual basic premium, worked out from the 
 - Use panel workshops for hassle-free cashless claims
 - Keep all receipts and documentation
 - Don't admit fault at the scene
-- Own damage claim = lose your NCD; third-party claim = NCD preserved
+- A regular own damage claim can reset NCD to 0% at the next renewal; a qualifying OD-KfK claim, a third-party claim against the at-fault driver's insurer, or a windscreen claim under windscreen cover does not affect NCD
 
 ### Insurance vs Takaful (Insurans vs Takaful)
 - **URL:** https://insurans.co/guides/insurance-vs-takaful/
@@ -273,7 +273,7 @@ These are calculated estimates of the annual basic premium, worked out from the 
 #### NCD Table (Malaysia)
 | Years Without Claim | NCD Rate |
 |-------------------|----------|
-| 0 years (new/just claimed) | 0% |
+| First policy year with no prior NCD, or after a claim that affects NCD | 0% |
 | 1 year | 25% |
 | 2 years | 30% |
 | 3 years | 38.33% |
@@ -282,9 +282,9 @@ These are calculated estimates of the annual basic premium, worked out from the 
 
 #### Key NCD Facts:
 - **What is NCD?** A discount on your car insurance premium for every year you don't make a claim. Maximum 55% after 5+ claim-free years.
-- **NCD reset:** If you make a claim, your NCD resets to 0%. You start building again from scratch.
+- **NCD reset:** A claim that affects NCD resets it to 0% at the next renewal, and you build it up again from there. Exceptions: a qualifying OD-KfK claim where the other party is at fault, and claims the policy says do not affect NCD (such as windscreen claims under windscreen cover).
 - **NCD transfer:** NCD belongs to the policyholder, NOT the car. You can transfer it to a new car.
-- **NCD protection:** Some insurers offer NCD protection add-on — your NCD won't reset even if you claim (usually limited to 1 claim per year).
+- **NCD protection:** NCD protection or relief benefits vary by policy. Some reimburse the current year's lost discount rather than preserve the NCD record. Check the endorsement before assuming a claim will leave NCD unchanged.
 - **Not your fault:** If the other driver was at fault, you can claim against their insurer (a third-party claim), or claim from your own insurer under Own Damage Knock-for-Knock (OD-KfK). A qualifying OD-KfK claim does not affect your NCD. Conditions apply, for example a comprehensive policy, no injury, and the other vehicle identified and insured in Malaysia. Source: PIAM.
 - **Windscreen claims:** Windscreen claims under a separate windscreen cover do NOT affect your NCD.
 - **How to check NCD:** Contact your current insurer, check your policy document, or use online insurance quote tools.
@@ -299,12 +299,12 @@ These are calculated estimates of the annual basic premium, worked out from the 
 - **Purpose:** Guide to renewing car insurance in Malaysia, both online and offline
 
 #### Online Renewal Options:
-1. **Insurer website/app:** Most major insurers (Etiqa, Allianz, Zurich, etc.) allow direct online renewal
-2. **Aggregator platforms:** Bjak, PolicyStreet, iBanding, Fincrew — compare prices from multiple insurers
+1. **Insurer website/app:** Many insurers and takaful operators (Etiqa, Allianz, Zurich, etc.) sell and renew car cover directly online. A list of direct online channels, checked 15 Nov 2026, is at https://insurans.co/insurans-online/#beli-terus (not a ranking)
+2. **Comparison platforms (intermediaries):** described factually at https://insurans.co/insurans-online/; Insurans.co has no paid relationship with any of them
 3. **Banking apps:** Some banks (Maybank, RHB) offer insurance renewal within their apps
 
 #### Renewal Checklist:
-- [ ] Policy expiry date (renew BEFORE it expires to maintain NCD)
+- [ ] Policy expiry date (renew BEFORE it expires to avoid a gap in cover)
 - [ ] Current NCD percentage
 - [ ] Car grant (geran) details
 - [ ] IC/driving license
@@ -315,7 +315,7 @@ These are calculated estimates of the annual basic premium, worked out from the 
 #### Important Renewal Tips:
 - **Renew before expiry:** Driving without insurance is illegal, and a gap in cover can reduce your NCD. Check the rules with your insurer
 - **Can I switch insurers?** Yes! Your NCD follows you, not the insurer. Shop around each year.
-- **Road tax + insurance:** Most online platforms offer road tax renewal together with insurance
+- **Road tax + insurance:** Once the insurance is active, road tax can be renewed through MyJPJ (the official JPJ app) or MyEG. Some insurers also offer road tax renewal; check the channel and fee
 - **When to renew:** Best to start comparing 2-4 weeks before expiry
 - **Documents needed:** IC number, car plate number, current policy details
 
@@ -332,17 +332,17 @@ These are calculated estimates of the annual basic premium, worked out from the 
 - **Third-Party Fire & Theft:** Middle ground — covers third-party + fire/theft of your own car but NOT own accident damage.
 
 ### Can I renew car insurance online?
-**Yes.** Most insurers offer online renewal. Popular platforms: insurer websites (Etiqa, Allianz, Zurich), aggregators (Bjak, PolicyStreet), and banking apps. Online renewal is often faster and sometimes cheaper (online discounts).
+**Yes.** Most insurers offer online renewal. Options include insurer and takaful websites (Etiqa, Allianz, Zurich and others; see https://insurans.co/insurans-online/#beli-terus) and banking apps. Online renewal is often faster and sometimes cheaper (online discounts).
 
 ### What happens to NCD if I make a claim?
-Your NCD resets to 0%. For example, if you had 55% NCD (5+ years no claim) and make a claim, it goes back to 0%. You'll need to build it up again year by year. Some insurers offer NCD protection add-ons to prevent this reset.
+A claim that affects NCD resets it to 0% at the next renewal. For example, if you had 55% NCD (5+ years no claim) and make a regular own damage claim, it goes back to 0% and you build it up again year by year. A qualifying OD-KfK claim where the other party is at fault, or a windscreen claim under windscreen cover, does not affect NCD. NCD protection or relief benefits vary by policy; check the endorsement.
 
 ### What is the difference between insurance and takaful?
 **Insurance** operates on risk transfer — you pay premium, insurer bears the risk. **Takaful** operates on risk sharing (tabarru'/mutual help) — participants pool contributions, and surplus is shared back. Takaful is Shariah-compliant. In practice, coverage and pricing are very similar.
 
 ### What is agreed value vs market value?
 - **Market value:** Insurer pays car's current market value at time of total loss (depreciates yearly)
-- **Agreed value:** A fixed payout amount agreed at policy inception. Premium is slightly higher but you know exactly what you'll get. Recommended for newer/premium cars.
+- **Agreed value:** A fixed payout amount agreed with the insurer at policy inception. Check the agreed amount and its terms, and compare premiums without assuming one basis always costs more.
 
 ### How long do I have to make a police report after an accident?
 **24 hours.** You must lodge a police report within 24 hours of an accident, regardless of severity. Failing to report can void your insurance claim.

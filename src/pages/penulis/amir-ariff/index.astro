@@ -1,11 +1,9 @@
 ---
-import { existsSync } from 'node:fs';
 import Base from '../../../layouts/Base.astro';
 import { AUTHOR_SLUG, EDITORIAL_AUTHOR } from '../../../lib/schema';
 
 const authorUrl = `https://insurans.co/penulis/${AUTHOR_SLUG}/`;
-const authorPhoto = '/images/penulis/amir-ariff.webp';
-const hasAuthorPhoto = existsSync(`public${authorPhoto}`);
+const linkedinUrl = 'https://www.linkedin.com/in/amirariff';
 
 const schema = {
   "@context": "https://schema.org",
@@ -15,8 +13,7 @@ const schema = {
   "inLanguage": "ms",
   "mainEntity": {
     ...EDITORIAL_AUTHOR,
-    "email": "hello@insurans.co",
-    ...(hasAuthorPhoto ? { "image": new URL(authorPhoto, authorUrl).href } : {})
+    "email": "hello@insurans.co"
   }
 };
 ---
@@ -33,14 +30,17 @@ const schema = {
     <div class="border-b border-stone-200">
       <div class="container-article py-10 sm:py-14">
         <p class="label mb-4">Profil penulis</p>
-        <div class="flex items-center gap-4">
-          {hasAuthorPhoto ? (
-            <img src={authorPhoto} alt="Amir Ariff" width="48" height="48" class="w-12 h-12 rounded-full object-cover flex-shrink-0" />
-          ) : (
-            <div class="w-12 h-12 rounded-full bg-hijau-100 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-              <span class="font-serif text-hijau-700 text-lg font-bold">A</span>
-            </div>
-          )}
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+          <img
+            src="/images/penulis/amir-ariff-colour-480.webp"
+            srcset="/images/penulis/amir-ariff-colour-192.webp 192w, /images/penulis/amir-ariff-colour-480.webp 480w"
+            sizes="(min-width: 640px) 128px, 96px"
+            alt="Amir Ariff"
+            width="128"
+            height="128"
+            fetchpriority="high"
+            class="h-24 w-24 flex-shrink-0 rounded-full object-cover sm:h-32 sm:w-32"
+          />
           <div>
             <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900">Amir Ariff</h1>
             <p class="mt-3 text-lg text-stone-600">Pengasas &amp; Editor, Insurans.co</p>
@@ -52,6 +52,17 @@ const schema = {
     <div class="container-article py-10 sm:py-14">
       <div class="prose-editorial max-w-none">
         <h2>Peranan</h2>
+        <p>
+          Pengasas dan editor Insurans.co. Bukan ejen atau penasihat kewangan berlesen.
+          Profil: <a href={linkedinUrl} rel="me noopener" target="_blank">LinkedIn</a>.
+        </p>
+        <p>
+          Amir Ariff membina laman web sejak 2004 dan mempunyai lebih 20 tahun pengalaman dalam media digital,
+          produk dan pemasaran. Beliau pernah menjadi Digital Product Manager di FWD Insurance, dan sebelum itu
+          memimpin pasukan digital di Astro dan Suria FM. Peranan beliau di FWD ialah dalam produk digital dan
+          pemasaran, bukan sebagai ejen. Beliau bukan ejen atau penasihat kewangan berlesen; setiap angka di
+          Insurans.co disemak dengan sumber rasmi seperti PDS syarikat, PIAM, BNM, JPJ dan LHDN.
+        </p>
         <p>
           Amir Ariff ialah pengasas dan editor Insurans.co. Beliau mengendalikan laman ini serta menulis dan
           mengemaskini panduan insurans dalam Bahasa Malaysia. Panduan tersebut membantu pembaca memahami istilah
@@ -104,7 +115,7 @@ const schema = {
           dikeluarkan oleh penyedia untuk keadaan individu.
         </p>
         <p>
-          Baca <a href="/about/#metodologi">kaedah editorial Insurans.co</a> untuk penerangan tentang rujukan,
+          Baca <a href="/kaedah-editorial/">kaedah editorial Insurans.co</a> untuk penerangan tentang rujukan,
           semakan dan kemaskini kandungan. Kandungan dikemaskini apabila harga, produk atau peraturan berubah.
           Tarikh kemaskini pada artikel membantu pembaca mengenal pasti bila maklumat itu dikemaskini.
         </p>

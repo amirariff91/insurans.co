@@ -18,8 +18,41 @@ export function getStaticPaths() {
   }));
 }
 
+// Ads opt-in (Base defaults to ads off). Generated from the programmatic audit on 2026-11-15:
+// a model is listed only if it has at least 700 words in <main> and a 5-gram Jaccard below 0.35
+// against every sibling. Re-checked on the final build: perodua-alza (0.355), bmw-3-series and mercedes-c-class (0.351) are over the limit and left out. Re-run scripts/ads-gate-audit.py (word-token 5-grams on <main> text)
+// on a fresh build before adding a model.
+const adsEnabledSlugs = new Set([
+  'bmw-x1',
+  'honda-brv',
+  'honda-civic',
+  'honda-crv',
+  'honda-hrv',
+  'hyundai-elantra',
+  'mazda-2',
+  'mazda-3',
+  'mazda-cx5',
+  'mercedes-glb',
+  'nissan-almera',
+  'perodua-ativa',
+  'perodua-axia',
+  'perodua-bezza',
+  'perodua-myvi',
+  'proton-iriz',
+  'proton-persona',
+  'proton-saga',
+  'proton-x50',
+  'proton-x70',
+  'suzuki-swift',
+  'toyota-corolla',
+  'toyota-corolla-cross',
+  'toyota-raize',
+  'toyota-vios',
+  'toyota-yaris',
+]);
 const { car } = Astro.props;
 const model = car as any;
+const passesUniqueness = adsEnabledSlugs.has(model.slug);
 const isEnriched = model.enriched === true;
 const carInsurers = companies.filter((company) => company.products.includes('car')).slice(0, 5);
 const relatedCars = model.relatedModels
@@ -27,7 +60,13 @@ const relatedCars = model.relatedModels
   .filter(Boolean)
   .slice(0, 4);
 const initialArticleDate = '2026-02-14';
-const articleDate = model.premiumReviewed > initialArticleDate ? model.premiumReviewed : initialArticleDate;
+// Last content revision across all model pages (no-"wajib" verdicts, special-perils estimate).
+const contentRevised = '2026-11-15';
+const articleDate = [initialArticleDate, model.premiumReviewed, contentRevised].filter(Boolean).sort().at(-1);
+const roundRm10 = (n: number) => Math.round(n / 10) * 10;
+const specialPerilsEstimate = Number.isFinite(model.marketValueMin) && Number.isFinite(model.marketValueMax) && model.marketValueRange
+  ? ` (untuk sum insured ${model.marketValueRange}: sekitar RM${roundRm10(model.marketValueMin * 0.002).toLocaleString('en-MY')}–RM${roundRm10(model.marketValueMax * 0.005).toLocaleString('en-MY')} setahun, sebelum cukai)`
+  : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
@@ -99,7 +138,7 @@ const addOnsDetail = isEnriched && Array.isArray(model.addOnsDetail) ? model.add
 const modelFaqs = isEnriched && Array.isArray(model.modelFAQs) ? model.modelFAQs : [];
 const faqSchemaItems = modelFaqs.length > 0
   ? modelFaqs.map((faq: any) => ({ question: faq.q, answer: faq.a }))
-  : (model.faqSchemaItems ?? []);
+  : [];
 
 const schema = {
   "@context": "https://schema.org",
@@ -138,6 +177,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
   ogImage={`/og/car-insurance/${model.slug}.png`}
   ogImageAlt={`Insurans ${model.fullName}: NCD 55% ${rm(model.premiumNCD55Min)}–${rm(model.premiumNCD55Max)} setahun; tanpa NCD ${rm(model.premiumNCD0Min)}–${rm(model.premiumNCD0Max)}.`}
   siteSuffix={false}
+  ads={passesUniqueness}
 >
   <Hero title={`Harga insurans & roadtax ${searchName} 2026`}>
     <Byline slot="byline" dateModified={articleDate} />
@@ -294,7 +334,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
               <article class="border border-stone-200 bg-white p-4 sm:p-5">
                 <h3 class="font-semibold text-stone-900">{addon.name} · {addon.verdict}</h3>
                 <p class="mt-1 text-base leading-6 text-stone-700">{addon.whyBM}</p>
-                <p class="mt-2 text-sm leading-5 text-stone-600">Anggaran: {addon.priceBM}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
+                <p class="mt-2 text-sm leading-5 text-stone-600">Anggaran: {addon.priceBM}{/special perils/i.test(addon.name) ? specialPerilsEstimate : ''}. Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
               </article>
             ))}
           </div>
@@ -493,12 +533,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}&ncd=55`
         heading={`Kira NCD dan semak quotation ${model.fullName}`}
         body="Masukkan premium asal daripada polisi anda. Kalkulator ini tidak menganggap julat editorial sebagai quotation sebenar."
         primary={{ label: 'Kira NCD saya →', href: primaryCalculatorUrl }}
-        outbound={[
-          { label: 'Bjak.my', href: 'https://bjak.my', relationship: 'unpaid' },
-          { label: 'PolicyStreet', href: 'https://policystreet.com', relationship: 'unpaid' },
-          { label: 'Fincrew.my', href: 'https://fincrew.my', relationship: 'unpaid' },
-        ]}
-        disclosure="Tiada hubungan berbayar atau affiliate. Quotation/pembelian dibuat di laman mereka, bukan di sini."
+        disclosure="Untuk sebut harga sebenar, minta terus daripada syarikat insurans (lihat senarai beli online di /insurans-online/). Tiada hubungan berbayar atau affiliate; pembelian dibuat di laman syarikat, bukan di sini."
       />
     </div>
   </div>

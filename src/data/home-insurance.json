@@ -1,5 +1,5 @@
 {
-  "methodologyNote": "Setiap rekod menyimpan tarikh sumber rasmi dibaca dalam medan asAt. figureVerified hanya true apabila kadar atau manfaat yang dipaparkan disahkan daripada sumber rasmi; null bermaksud medan tidak dinyatakan dalam sumber yang dibaca dan tiada angka premium atau had direka.",
+  "methodologyNote": "Setiap rekod disertakan tarikh sumber rasmi dibaca. Kadar atau manfaat dianggap disahkan hanya apabila angka itu sepadan dengan sumber rasmi. Maklumat yang tidak dinyatakan dalam sumber dibiarkan kosong; kami tidak mereka angka premium atau had perlindungan.",
   "asAt": "2026-09-28",
   "tariff": {
     "ho_landed_1A": 0.090,

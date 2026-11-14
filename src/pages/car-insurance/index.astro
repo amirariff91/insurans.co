@@ -38,7 +38,7 @@ const schema = {
   "description": pageDescription,
   "url": "https://insurans.co/car-insurance/",
   "datePublished": "2026-01-15",
-  "dateModified": "2026-11-13",
+  "dateModified": "2026-11-15",
   "inLanguage": "ms",
   "publisher": {
     "@type": "Organization",
@@ -61,7 +61,8 @@ const schema = {
   schema={schema}
   ogType="article"
   publishedTime="2026-01-15"
-  modifiedTime="2026-11-13"
+  modifiedTime="2026-11-15"
+  ads={true}
 >
   <!-- Breadcrumb + Header -->
   <section class="bg-white border-b border-stone-200">
@@ -171,11 +172,11 @@ const schema = {
           <div class="card-editorial">
             <div class="flex items-start justify-between mb-2">
               <h3 class="font-serif text-xl text-stone-900">1. Comprehensive (Komprehensif)</h3>
-              <VerdictBadge tone="best" label="Paling Popular" />
+              <VerdictBadge tone="best" label="Perlindungan Paling Luas" />
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
               Cover kerosakan kereta sendiri, kereta orang lain, kecurian dan kebakaran. Banjir dan bencana alam hanya dilindungi jika anda tambah special perils.
-              Kalau anda buat accident, kereta anda pun dilindungi. Ini pilihan <strong>90%+ pemilik kereta di Malaysia</strong>.
+              Kalau anda buat accident, kereta anda pun dilindungi. Antara tiga jenis polisi, ini yang memberi <strong>perlindungan paling luas</strong>.
             </p>
             <p class="text-sm text-stone-500">
               <strong>Sesuai untuk:</strong> Semua kereta yang masih bernilai. Terutama kereta baru atau kereta yang masih ada loan.
@@ -208,7 +209,7 @@ const schema = {
             </p>
             <p class="text-sm text-stone-500">
               <strong>Sesuai untuk:</strong> Kereta yang nilainya sederhana dan park di kawasan berisiko tinggi kecurian.
-              Honestly, kebanyakan orang pilih comprehensive je.
+              Jika beza premium dengan comprehensive kecil, bandingkan kedua-duanya dahulu.
             </p>
           </div>
         </div>
@@ -224,8 +225,7 @@ const schema = {
           </p>
 
           <p>
-            Ini benda yang <strong>paling ramai orang tak fully faham</strong> — dan ia boleh save
-            atau cost anda ribuan ringgit.
+            Ini perkara yang <strong>penting untuk difahami</strong> kerana ia boleh menjimatkan atau merugikan anda ribuan ringgit.
           </p>
 
         </article>
@@ -242,7 +242,7 @@ const schema = {
             </thead>
             <tbody>
               <tr>
-                <td>Tahun pertama (baru dapat lesen)</td>
+                <td>Tahun pertama polisi tanpa NCD terdahulu</td>
                 <td class="font-semibold">0%</td>
                 <td>Bayar penuh: <strong>RM2,000</strong></td>
               </tr>
@@ -277,7 +277,7 @@ const schema = {
 
         <div class="info-box mb-6">
           <p class="text-sm text-stone-700">
-            <strong>Hati-hati:</strong> Satu claim own damage je, NCD anda reset ke 0% (kecuali claim OD-KfK bila pihak satu lagi yang salah).
+            <strong>Hati-hati:</strong> Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Pengecualiannya termasuk claim OD-KfK yang layak apabila pihak satu lagi bersalah, dan claim windscreen di bawah add-on windscreen (lihat <a href="/guides/ncd-explained/">panduan NCD</a>).
             Katakan kereta anda calar sikit, kos repair RM500. Tapi kalau anda claim, dan NCD anda 55%,
             anda mungkin akan bayar RM1,000+ lebih untuk premium tahun depan.
             <strong>Kadang-kadang, bayar sendiri lagi jimat.</strong>
@@ -302,7 +302,7 @@ const schema = {
         <article class="prose-editorial">
 
           <!-- Cara Renew -->
-          <h2 id="renew">Cara renew insurans kereta online (10–15 minit)</h2>
+          <h2 id="renew">Cara renew insurans kereta online</h2>
 
           <p>
             Tak perlu ke pejabat atau tunggu ejen call. Ikut 4 langkah ini:
@@ -313,7 +313,7 @@ const schema = {
               <strong>Semak NCD anda</strong> — check di MyEG atau tanya syarikat semasa; NCD tentukan harga premium.
             </li>
             <li>
-              <strong>Bandingkan quotation</strong> — guna aggregator (Bjak.my, PolicyStreet) atau beli direct di website syarikat.
+              <strong>Bandingkan quotation</strong> — melalui platform perbandingan yang diluluskan BNM atau terus di laman syarikat (lihat <a href="/insurans-online/">semakan platform insurans online</a>).
             </li>
             <li>
               <strong>Bayar dan simpan e-cover note</strong> — bayar via FPX/kad, PDF masuk email.
@@ -324,12 +324,12 @@ const schema = {
           </ol>
 
           <p>
-            Walkthrough penuh dengan screenshot: <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.
+            Panduan langkah demi langkah: <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.
           </p>
 
 
           <!-- Add-ons -->
-          <h2>Add-ons yang berbaloi (dan yang tak perlu)</h2>
+          <h2>Add-ons: apa yang perlu dipertimbangkan</h2>
 
           <p>
             Lepas liberalisasi tarif, syarikat insurans offer macam-macam add-ons.
@@ -342,29 +342,29 @@ const schema = {
           <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
             <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
             <div>
-              <p class="font-semibold text-sm text-stone-900">Windscreen cover — AMBIL</p>
-              <p class="text-sm text-stone-600">RM50-100 setahun. Tukar windscreen boleh kos RM300-800+. Berbaloi.</p>
+              <p class="font-semibold text-sm text-stone-900">Windscreen cover — pertimbangkan</p>
+              <p class="text-sm text-stone-600">Harga add-on dan kos menukar windscreen berbeza mengikut syarikat dan model kereta; minta sebut harga.</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-hijau-50 border border-hijau-200">
             <span class="text-hijau-700 font-bold text-sm mt-0.5">✓</span>
             <div>
-              <p class="font-semibold text-sm text-stone-900">Special perils (banjir & ribut) — AMBIL kalau kawasan berisiko</p>
-              <p class="text-sm text-stone-600">RM30-80 setahun. Kalau duduk kawasan yang selalu banjir (Shah Alam, JB, Klang), ini wajib.</p>
+              <p class="font-semibold text-sm text-stone-900">Special perils (banjir & ribut) — pertimbangkan jika kawasan berisiko</p>
+              <p class="text-sm text-stone-600">Lazimnya sekitar 0.2%–0.5% daripada sum insured setahun (contoh: RM100–250 untuk sum insured RM50,000). Wajar dipertimbangkan jika anda tinggal di kawasan yang kerap banjir.</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-emas-50 border border-emas-200">
             <span class="text-emas-700 font-bold text-sm mt-0.5">~</span>
             <div>
-              <p class="font-semibold text-sm text-stone-900">Breakdown towing — BERGANTUNG</p>
-              <p class="text-sm text-stone-600">Kalau kereta lama atau selalu drive jauh, ambil. Kereta baru biasa dah ada manufacturer warranty.</p>
+              <p class="font-semibold text-sm text-stone-900">Breakdown towing — bergantung pada penggunaan</p>
+              <p class="text-sm text-stone-600">Lebih relevan untuk kereta lama atau perjalanan jauh. Semak dahulu sama ada waranti pengeluar sudah termasuk bantuan tunda.</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-stone-50 border border-stone-200">
-            <span class="text-stone-400 font-bold text-sm mt-0.5">✗</span>
+            <span class="text-stone-400 font-bold text-sm mt-0.5">~</span>
             <div>
-              <p class="font-semibold text-sm text-stone-900">NCD protector — BIASANYA TAK PERLU</p>
-              <p class="text-sm text-stone-600">Mahal (RM200-500+) dan syarat ketat. Lebih jimat simpan duit tu untuk emergency fund.</p>
+              <p class="font-semibold text-sm text-stone-900">NCD protector — semak syarat dan kos dahulu</p>
+              <p class="text-sm text-stone-600">Harga dan syarat berbeza mengikut syarikat; minta sebut harga dan baca syaratnya sebelum membeli.</p>
             </div>
           </div>
         </div>
@@ -377,10 +377,10 @@ const schema = {
             Insurans kereta murah bermakna bayar kurang untuk cover yang sama — bukan ambil cover paling nipis.
             Lima cara paling berkesan: (1) <strong>Jaga NCD</strong> — beza NCD 0% dan 55% boleh jimat hampir separuh premium;
             kira dulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> sama ada berbaloi claim atau bayar sendiri.
-            (2) <strong>Set sum insured ikut nilai pasaran semasa</strong>, bukan harga beli baru.
+            (2) <strong>Semak sum insured</strong>: bagi polisi nilai pasaran, ikut penilaian semasa, bukan harga beli baru; bagi polisi nilai dipersetujui (agreed value), semak jumlah yang dipersetujui.
             (3) <strong>Bandingkan 2–3 quotation</strong> setiap tahun — harga berbeza ikut syarikat selepas liberalisasi 2017.
             (4) <strong>Ambil add-on yang perlu saja</strong> — windscreen, dan special perils kalau duduk kawasan banjir.
-            (5) <strong>Renew sebelum lapse</strong> supaya NCD tak reset.
+            (5) <strong>Renew sebelum polisi tamat</strong> supaya tiada jurang coverage.
             Panduan penuh: <a href="/guides/cara-turun-premium-insurans-kereta/">cara turunkan premium insurans kereta</a>.
           </p>
 
@@ -396,19 +396,19 @@ const schema = {
             </li>
             <li>
               <strong>Bandingkan harga.</strong> Selepas liberalisasi, harga berbeza antara syarikat.
-              Guna Bjak atau PolicyStreet untuk bandingkan.
+              Minta sebut harga melalui platform perbandingan yang diluluskan BNM atau terus di laman syarikat.
             </li>
             <li>
-              <strong>Jangan over-insure.</strong> Sum insured patut reflect nilai pasaran sebenar kereta, bukan harga baru.
-              Over-insure = bayar premium lebih untuk nothing.
+              <strong>Jangan over-insure.</strong> Semak sama ada polisi menggunakan nilai pasaran atau nilai dipersetujui.
+              Bagi polisi nilai pasaran, sum insured patut mengikut penilaian semasa kereta, bukan harga baru; bagi polisi nilai dipersetujui, semak jumlah dan syaratnya dengan syarikat.
             </li>
             <li>
-              <strong>Pilih add-ons dengan bijak.</strong> Windscreen dan special perils — ya.
-              NCD protector dan personal accident (kalau dah ada medical card) — mungkin tak perlu.
+              <strong>Pilih add-ons dengan bijak.</strong> Nilai setiap add-on ikut keperluan anda.
+              Kad perubatan dan perlindungan kemalangan diri mempunyai manfaat berbeza: kad perubatan menanggung perbelanjaan rawatan yang layak, manakala pelan kemalangan diri boleh menyediakan manfaat kematian atau hilang upaya akibat kemalangan. Bandingkan manfaat sedia ada sebelum menganggapnya bertindih.
             </li>
             <li>
-              <strong>Renew awal.</strong> Sesetengah syarikat bagi diskaun kecil kalau renew sebelum tamat.
-              Plus, anda elak risiko lapse coverage.
+              <strong>Renew sebelum polisi tamat.</strong> Ini mengelakkan jurang coverage.
+              Premium baharu tetap bergantung pada sebut harga dan syarat syarikat; renew awal tidak menjamin harga lebih rendah.
             </li>
             <li>
               <strong>Install dashcam.</strong> Bukan jimat premium secara langsung, tapi kalau accident,
@@ -460,41 +460,41 @@ const schema = {
               <dt class="font-semibold text-stone-900 text-sm">Sum Insured (Jumlah Diinsuranskan)</dt>
               <dd class="text-sm text-stone-600 mt-1">
                 Jumlah maksimum yang syarikat insurans akan bayar kalau kereta anda total loss.
-                Biasanya berdasarkan nilai pasaran semasa kereta.
+                Bergantung pada asas polisi: nilai pasaran semasa kereta atau nilai yang dipersetujui (agreed value).
               </dd>
             </div>
             <div class="border-b border-stone-100 pb-4">
               <dt class="font-semibold text-stone-900 text-sm">Excess (Lebihan)</dt>
               <dd class="text-sm text-stone-600 mt-1">
-                Jumlah pertama yang ANDA kena bayar sebelum insurans kick in.
-                Biasanya RM400 untuk polisi online. Ada juga excess RM0 tapi premium lebih mahal.
+                Jumlah pertama yang anda tanggung sendiri bagi sesuatu claim.
+                Excess wajib tambahan boleh dikenakan jika pemandu tidak dinamakan, berumur bawah 21 tahun atau memegang lesen P atau L; contohnya, wording polisi Allianz menetapkan RM400 bagi keadaan tersebut. Pembelian dalam talian bukan sebab excess ini dikenakan.
               </dd>
             </div>
             <div class="border-b border-stone-100 pb-4">
               <dt class="font-semibold text-stone-900 text-sm">NCD (No Claim Discount)</dt>
               <dd class="text-sm text-stone-600 mt-1">
-                Diskaun 25%-55% yang anda dapat sebab tak buat claim. Reset ke 0% kalau claim.
+                Diskaun 25%–55% yang anda dapat kerana tidak membuat claim. Claim yang menjejaskan NCD boleh menyebabkan kadar kembali kepada 0% pada renew; claim OD-KfK yang layak dan claim windscreen di bawah add-on windscreen boleh mengekalkannya.
               </dd>
             </div>
             <div class="border-b border-stone-100 pb-4">
               <dt class="font-semibold text-stone-900 text-sm">Named Driver (Pemandu Dinamakan)</dt>
               <dd class="text-sm text-stone-600 mt-1">
-                Driver lain yang dilindungi bawah polisi anda. Kalau anda letak "any driver",
-                premium naik. Namakan driver tertentu je kalau boleh.
+                Pemandu lain yang disenaraikan dalam polisi anda. Pemandu yang mendapat kebenaran pemilik boleh dilindungi
+                tertakluk kepada polisi, tetapi excess wajib tambahan boleh dikenakan jika pemandu tidak dinamakan. Semak syarat polisi anda.
               </dd>
             </div>
             <div class="border-b border-stone-100 pb-4">
               <dt class="font-semibold text-stone-900 text-sm">Agreed Value vs Market Value</dt>
               <dd class="text-sm text-stone-600 mt-1">
                 Market value = bayar ikut nilai kereta masa claim (depreciate setiap tahun).
-                Agreed value = jumlah tetap yang dipersetujui awal. Lebih mahal tapi lebih pasti.
+                Agreed value = jumlah tetap yang dipersetujui awal dengan syarikat. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal.
               </dd>
             </div>
             <div class="pb-4">
               <dt class="font-semibold text-stone-900 text-sm">Betterment Charge</dt>
               <dd class="text-sm text-stone-600 mt-1">
                 Kalau syarikat ganti part baru untuk kereta lama, mereka mungkin caj anda perbezaan
-                antara part baru dan part lama. Ini benda yang ramai tak expect masa claim.
+                antara part baru dan part lama. Ini perkara yang perlu dijangka semasa claim.
               </dd>
             </div>
           </dl>
@@ -541,7 +541,7 @@ const schema = {
             <p>
               Dua masalah besar: (1) Anda memandu tanpa insurans — <strong>tak sah di sisi undang-undang</strong>.
               Kalau kena tangkap, denda RM1,000 atau penjara 3 bulan.
-              (2) NCD anda mungkin reset ke 0% kalau lapse lebih dari setahun.
+              (2) NCD yang tidak digunakan boleh berkurang mengikut skala dan syarat polisi; ia tidak semestinya terus menjadi 0%.
               Jadi jangan tunggu last minute untuk renew.
             </p>
           </details>
@@ -549,9 +549,8 @@ const schema = {
           <details class="faq-item">
             <summary>Kereta import/recon, insurans lagi mahal ke?</summary>
             <p>
-              Ya, biasanya <strong>lebih mahal 10-30%</strong> berbanding kereta CBU/CKD yang sama.
-              Sebab spare parts kereta recon lebih mahal dan susah nak dapat. Syarikat insurans
-              ambil kira risiko ni dalam pengiraan premium.
+              Biasanya <strong>lebih mahal</strong> berbanding kereta CBU/CKD yang sama kerana alat ganti kereta recon lebih mahal dan lebih sukar didapati.
+              Syarikat insurans mengambil kira risiko ini dalam pengiraan premium. Beza harga bergantung pada syarikat; minta sebut harga.
             </p>
           </details>
         </div>
@@ -619,12 +618,12 @@ const schema = {
                 <dd class="font-semibold text-hijau-700">55%</dd>
               </div>
               <div>
-                <dt class="text-stone-500">Paling popular</dt>
+                <dt class="text-stone-500">Perlindungan paling luas</dt>
                 <dd class="font-semibold text-stone-900">Comprehensive</dd>
               </div>
               <div>
                 <dt class="text-stone-500">Beli online di</dt>
-                <dd class="font-semibold text-stone-900">Bjak, PolicyStreet, direct</dd>
+                <dd class="font-semibold text-stone-900">Platform diluluskan BNM atau terus</dd>
               </div>
             </dl>
           </div>
@@ -634,16 +633,7 @@ const schema = {
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Di mana nak beli?</h3>
             <ul class="space-y-2.5 text-sm">
               <li>
-                <a href="https://bjak.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Bjak.my</a>
-                <span class="text-stone-500"> — aggregator #1</span>
-              </li>
-              <li>
-                <a href="https://policystreet.com" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">PolicyStreet</a>
-                <span class="text-stone-500"> — alternatif popular</span>
-              </li>
-              <li>
-                <a href="https://fincrew.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Fincrew.my</a>
-                <span class="text-stone-500"> — platform baru</span>
+                <a href="/insurans-online/" class="text-hijau-700 font-medium hover:text-hijau-600">Semakan platform insurans online</a>
               </li>
               <li>
                 <a href="https://etiqa.com.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Etiqa Online</a>
@@ -661,7 +651,7 @@ const schema = {
               <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs Takaful</a></li>
               <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
               <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600">Prudential vs AIA — untuk yang nak faham beza life insurer besar</a></li>
-              <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600">Etiqa vs Zurich — dua pilihan popular untuk insurans kereta</a></li>
+              <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600">Etiqa vs Zurich — perbandingan untuk insurans kereta</a></li>
               <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600">Allianz vs Zurich — coverage premium head-to-head</a></li>
             </ul>
           </div>
