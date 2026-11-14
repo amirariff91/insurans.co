@@ -145,7 +145,7 @@ function probePx() {
   };
 }
 
-// 15 calculator fixtures (from the fx-tools review run of the merged build, 2026-11).
+// 26 calculator fixtures (from the fx-tools review run of the merged build, 2026-11; EV cases from JPJ Pekeliling Bil.01/2026).
 const CALC = [
   // Typed premium at the unchanged default tier (55%), different from the pre-rendered RM2,000 example.
   { tool: 'ncd', in: [2400, 55], expect: ['RM 1,080', 'RM 1,320'] },
@@ -163,9 +163,15 @@ const CALC = [
   { tool: 'rumah', in: ['flat', '1B', '500000', '80000'], expect: ['RM 1,641.00'] },
   { tool: 'nyawa', in: ['5000', '10', '500000', '50000', '100000'], expect: ['RM 950,010'] },
   { tool: 'nyawa', in: ['8000', '15', '300000', '20000', '0'], expect: ['RM 1,240,015'] },
+  // Electric-car road tax. The value is read whole (trailing "|"), so RM120 cannot pass as RM1,200.
+  ...[['50', 'RM20'], ['130', 'RM120'], ['150', 'RM160'], ['150.1', 'RM180'], ['220', 'RM305'], ['390', 'RM965'], ['1010', 'RM14,415'],
+    ['1200', 'RM20,000'], ['130 kW', 'RM120'], ['10000 kW', 'RM20,000']].map(([kw, rm]) => ({ tool: 'ev', in: [kw, 'semenanjung'], expect: [`Roadtax setahun: ${rm}|`] })),
+  { tool: 'ev', in: ['130', 'langkawi'], expect: ['Roadtax setahun: RM60|'] },
 ];
+// EV inputs the calculator must refuse: no amount shown, a message under the input.
+const EV_REJECT = ['0', '-5', 'abc', ''];
 const CC = [['1.5', '1,500cc'], ['1496', '1,496cc'], ['2', '2,000cc'], ['0.66', '660cc'], ['15', null], ['15cc', null]];
-const TOOLS = { 'ncd-calculator/': '#kalkulator, form', 'kalkulator-roadtax/': '#roadtax-form', 'kalkulator-roadtax-motosikal/': '#motor-roadtax-form', 'kalkulator-insurans-rumah/': '#fire-form', 'kalkulator-coverage-nyawa/': '#coverage-form' };
+const TOOLS = { 'ncd-calculator/': '#kalkulator, form', 'kalkulator-roadtax/': '#roadtax-form', 'kalkulator-roadtax-motosikal/': '#motor-roadtax-form', 'kalkulator-insurans-rumah/': '#fire-form', 'kalkulator-coverage-nyawa/': '#coverage-form', 'kalkulator-roadtax-ev/': '#ev-form' };
 
 async function runCalc(page, base, c) {
   const T = base + '/tools/';
@@ -177,6 +183,7 @@ async function runCalc(page, base, c) {
   if (c.tool === 'claim') { await page.goto(T + 'ncd-calculator/'); await page.fill('#current-premium', String(c.in[0])); await page.selectOption('#current-ncd-pct', String(c.in[1])); await page.fill('#repair-cost', String(c.in[2])); await page.fill('#excess', String(c.in[3])); await page.click('#claim-calc-btn'); await until('#claim-result', e0); return txt('#claim-result'); }
   if (c.tool === 'roadtax') { await page.goto(T + 'kalkulator-roadtax/'); await page.fill('#engine-cc', c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.check(`input[name=body][value=${c.in[2]}]`, { force: true }); await page.click('#roadtax-form button[type=submit]'); await until('#roadtax-value', e0); return txt('#roadtax-value'); }
   if (c.tool === 'motor') { await page.goto(T + 'kalkulator-roadtax-motosikal/'); await (await page.$('#motor-roadtax-form input:not([type=radio])')).fill(c.in[0]); await page.check(`input[name=region][value=${c.in[1]}]`, { force: true }); await page.click('#motor-roadtax-form button[type=submit]'); await until('#motor-result', e0); return txt('#motor-result'); }
+  if (c.tool === 'ev') { await page.goto(T + 'kalkulator-roadtax-ev/'); await page.fill('#ev-kw', c.in[0]); await page.selectOption('#ev-region', c.in[1]); await page.click('#ev-form button[type=submit]'); await until('#ev-value', e0.slice(0, -1)); return (await txt('#ev-value')) + '|'; }
   if (c.tool === 'rumah') { await page.goto(T + 'kalkulator-insurans-rumah/'); await page.check(`input[name=propertyType][value="${c.in[0]}"]`, { force: true }); await page.check(`input[name=constructionClass][value="${c.in[1]}"]`, { force: true }); const ins = await page.$$('#fire-form input:not([type=radio])'); await ins[0].fill(c.in[2]); await ins[1].fill(c.in[3]); await page.click('#fire-form button[type=submit]'); await until('#fire-result', e0); return txt('#fire-result'); }
   if (c.tool === 'nyawa') { await page.goto(T + 'kalkulator-coverage-nyawa/'); const ins = await page.$$('#coverage-form input:not([type=radio])'); for (let i = 0; i < ins.length && i < c.in.length; i++) await ins[i].fill(c.in[i]); await page.click('#coverage-form button[type=submit]'); await until('#coverage-result', e0); return txt('#coverage-result'); }
 }
@@ -342,6 +349,31 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
         if (ok) R[9].passes++; else R[9].fails.push({ page: '/tools/kalkulator-roadtax/', check: `engine-size parser "${v}"`, value: `expected ${exp || 'rejected'}; understood "${und}" value "${val}"`, source: 'src/pages/tools/kalkulator-roadtax/index.astro' });
         R[9].cases.push({ tool: 'cc-parser', in: [v], ok, got: `${und} | ${val}`.slice(0, 160) });
       }
+      // EV: rejected inputs (no amount, a message under the input), and a result that clears when the input changes.
+      const evState = () => page.evaluate(() => ({ val: document.querySelector('#ev-value')?.textContent ?? '', hidden: !!document.querySelector('#ev-result')?.classList.contains('hidden'), msg: document.querySelector('#ev-kw-msg')?.textContent?.trim() ?? '' }));
+      for (const v of EV_REJECT) {
+        await page.goto(base + '/tools/kalkulator-roadtax-ev/');
+        await page.fill('#ev-kw', v);
+        await page.click('#ev-form button[type=submit]');
+        await page.waitForFunction(() => (document.querySelector('#ev-kw-msg')?.textContent || '').trim() || (document.querySelector('#ev-value')?.textContent || '').trim(), null, { timeout: 2000 }).catch(() => {});
+        const st = await evState();
+        const ok = !/RM\s?\d/.test(st.val) && st.hidden && st.msg.length > 0;
+        if (ok) R[9].passes++; else R[9].fails.push({ page: '/tools/kalkulator-roadtax-ev/', check: `EV input "${v}" rejected`, value: JSON.stringify(st), source: 'src/pages/tools/kalkulator-roadtax-ev/index.astro' });
+        R[9].cases.push({ tool: 'ev-reject', in: [v], ok, got: JSON.stringify(st).slice(0, 160) });
+      }
+      {
+        await page.goto(base + '/tools/kalkulator-roadtax-ev/');
+        await page.fill('#ev-kw', '130');
+        await page.click('#ev-form button[type=submit]');
+        await page.waitForFunction(() => /RM120/.test(document.querySelector('#ev-value')?.textContent || ''), null, { timeout: 4000 }).catch(() => {});
+        const before = clean(await page.textContent('#ev-value'));
+        await page.type('#ev-kw', '0');
+        await page.waitForFunction(() => !!document.querySelector('#ev-result')?.classList.contains('hidden'), null, { timeout: 2000 }).catch(() => {});
+        const st = await evState();
+        const ok = before.includes('RM120') && st.hidden && !/RM\s?\d/.test(st.val);
+        if (ok) R[9].passes++; else R[9].fails.push({ page: '/tools/kalkulator-roadtax-ev/', check: 'EV stale result cleared when the input changes', value: `before "${before}" after ${JSON.stringify(st)}`, source: 'src/pages/tools/kalkulator-roadtax-ev/index.astro' });
+        R[9].cases.push({ tool: 'ev-stale', in: ['130', '1300'], ok, got: `${before} | ${JSON.stringify(st)}`.slice(0, 160) });
+      }
       await ctx.close();
       const nctx = await newCtx({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
       const np = await nctx.newPage();
@@ -356,6 +388,10 @@ export async function browserChecks({ DIST, REPO, pages, want }) {
         if (notice && navs === 0 && url === base + '/tools/' + slug) R[9].passes++;
         else R[9].fails.push({ page: '/tools/' + slug, check: 'JS off: notice shown and submit does not navigate', value: `notice=${notice} navigations=${navs} url=${url.replace(base, '')}`, source: `src/pages/tools/${slug}index.astro` });
       }
+      // EV with JavaScript off: the full table (97 bands + the open top band) is the fallback.
+      await np.goto(base + '/tools/kalkulator-roadtax-ev/');
+      const evRows = await np.evaluate(() => document.querySelectorAll('.ev-table-box tbody tr').length);
+      if (evRows === 98) R[9].passes++; else R[9].fails.push({ page: '/tools/kalkulator-roadtax-ev/', check: 'JS off: 98-row EV table present', value: `rows=${evRows}`, source: 'src/pages/tools/kalkulator-roadtax-ev/index.astro' });
       await nctx.close();
     }
   } finally {

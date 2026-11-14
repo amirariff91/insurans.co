@@ -451,6 +451,62 @@
         "RM115,000–140,000"
       ],
       "reason": "Unsourced generation-specific HR-V valuation range removed from the Gen 2 vs Gen 3 FAQ; the answer now states the market-value / agreed-value rule (release re-check finding 4, 15 Nov 2026)."
+    },
+    {
+      "check": "contract",
+      "kind": "pageAdded",
+      "field": "page",
+      "url": "^/terkini/([a-z0-9-]+/)?$",
+      "values": [
+        "/terkini/",
+        "/terkini/roadtax-kereta-elektrik-ikut-kw/",
+        "/terkini/harga-special-perils-dibetulkan/",
+        "/terkini/manfaat-pemulihan-zurich-early-care-dibetulkan/",
+        "/terkini/ncd-od-kfk-dan-julat-proton-saga/"
+      ],
+      "reason": "New Terkini update stream: the index and one page per item in src/data/terkini.json (each item is validated at build time to carry an https source and an internal updates link; check 3 confirms both on the built page)."
+    },
+    {
+      "check": "contract",
+      "kind": "pageAdded",
+      "field": "page",
+      "url": "^/tools/kalkulator-roadtax-ev/$",
+      "values": [
+        "/tools/kalkulator-roadtax-ev/"
+      ],
+      "reason": "New electric-car road tax calculator; every rate comes from JPJ Pekeliling Bil.01/2026 (src/data/roadtax-ev.json, 97 bands checked at build time; check 9 runs 11 fixtures)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/$",
+      "values": [
+        "0.2–0.5%"
+      ],
+      "reason": "Terkini rail on the homepage shows the special-perils correction title (0.2%–0.5% of sum insured), the figure already on /car-insurance/, the flood guide and the model pages."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/kaedah-editorial/$",
+      "values": [
+        "1%",
+        "12%",
+        "50%"
+      ],
+      "reason": "Corrections log, 15 Nov 2026: the Zurich Early Care recovery benefit (12% in total, 1% a month for 12 months) and the electric-motorcycle note (the JPJ circular's 50% base-rate exemption)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax-motosikal/$",
+      "values": [
+        "RM9–42"
+      ],
+      "reason": "Fact-checked electric-motorcycle note (displayNotes.ev): base rates RM9-RM42 above 7,500 W, from JPJ Pekeliling Bil.01/2026."
     }
   ]
 }

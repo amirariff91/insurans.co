@@ -247,6 +247,14 @@ export function structure(dist, pages, idsByFile) {
         if (!tids.has(tid)) errs.push({ check: 'missing #fragment target', value: href });
       }
     }
+    // Terkini item pages: at least one outbound source link (https, off-site) and one internal "updates" link to a
+    // built page. src/lib/terkini.ts enforces the data at build time; this checks the output.
+    if (/^\/terkini\/[^/]+\/$/.test(url)) {
+      const src = root.querySelectorAll('a[data-source]').filter((a) => { try { const h = new URL(a.getAttribute('href')); return h.protocol === 'https:' && !/(^|\.)insurans\.co$/.test(h.hostname); } catch { return false; } });
+      const upd = root.querySelectorAll('a[data-updates]').filter((a) => { const h = a.getAttribute('href') || ''; return /^\/(?!\/)/.test(h) && resolveTarget(dist, new URL(h, 'https://insurans.co').pathname); });
+      if (!src.length) errs.push({ check: 'Terkini item without an outbound source link', value: url, source: 'src/data/terkini.json' });
+      if (!upd.length) errs.push({ check: 'Terkini item without an internal updates link', value: url, source: 'src/data/terkini.json' });
+    }
     const ld = jsonLd(root);
     for (const e of ld.errors) errs.push({ check: 'JSON-LD does not parse', value: e });
     // Inline tags next to punctuation leave a stray space once tags are stripped ("lain</em>." -> "lain .");

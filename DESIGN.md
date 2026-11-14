@@ -379,7 +379,7 @@ Transform and opacity only, ease-out `--ease-out` (`cubic-bezier(0.23, 1, 0.32, 
 - A title bar or answer box adds no new fact: every word and figure in it must already be on the page.
 - Every estimated price is labelled "Anggaran" with the date it was checked.
 - Every car photo carries its credit line and appears on `/kredit-foto/`.
-- No stories, no price feed, no "Terkini" strip and no dark mode on this branch (the concept had them; they are not built).
+- No stories, no price feed and no dark mode (the concept had them; they are not built). "Terkini" is built as a small update stream: `/terkini/`, one page per item, an RSS feed, and a quiet rail (`TerkiniRail`, `.mod-lab` style) low on the homepage and model pages.
 - Light mode only for now (`color-scheme: light`).
 
 ## Do's and Don'ts
@@ -408,7 +408,7 @@ The concept is `docs/eeat-revamp-2026-11/round4/concepts/edisi/system.md` and `r
 1. **Logo knob.** Concept: the logo is a `role="slider"` control with keyboard and drag. Code: display only; it follows the reader's remembered NCD and a tap goes home.
 2. **Colour worlds and dark mode.** Concept: eleven colour worlds and a dark variant. Code: magenta, light only.
 3. **Price size.** Concept: capped at 72px on phones and 104px wide. Code: 4.5rem (72px) and 6rem (96px).
-4. **Not built:** the glass price pane, the pane switch, stories, "Kereta sekelas", "Selak harga", the "Terkini" strip (it is on branch `feat/terkini`), the utility row. There is no `EXTRAS` flag in the code on this branch: these features are simply absent. The phone dock is built, in a simpler form than the concept (a two-line context pill with one action, see "Phone dock").
+4. **Not built:** the glass price pane, the pane switch, stories, "Kereta sekelas", "Selak harga", the utility row. "Terkini" is built as a quiet rail and its own pages, not as the concept's strip. There is no `EXTRAS` flag in the code on this branch: these features are simply absent. The phone dock is built, in a simpler form than the concept (a two-line context pill with one action, see "Phone dock").
 5. **Photo plate.** Concept: a hard offset shadow. Code: a 2px ink border, no shadow.
 6. **Byline.** Concept: "Disunting dan disemak oleh Amir Ariff" with the editor's photo and an AI-assistance line. Code: "Oleh Amir Ariff, Pengasas & Editor. Dikemaskini <date>", no photo.
 7. **Name card.** Concept: hidden from assistive technology. Code: `role="img"` with the model's full name.
