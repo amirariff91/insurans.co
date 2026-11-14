@@ -93,7 +93,7 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={absoluteOgImage} />
   {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
-  <meta name="theme-color" content="#FAFAF7" />
+  <meta name="theme-color" content="#FFFFFF" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -102,9 +102,10 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Fonts -->
-  <link rel="preload" as="font" href="/fonts/source-sans-3-400-latin.woff2" type="font/woff2" crossorigin />
-  <!-- Fraunces 500 sets the above-the-fold price ranges; preloading it avoids a late swap that re-wraps them. -->
-  <link rel="preload" as="font" href="/fonts/fraunces-500-latin.woff2" type="font/woff2" crossorigin />
+  <!-- Two variable files cover every weight: Figtree (all text) and Gabarito (prices, headings).
+       Preloading Gabarito avoids a late swap that re-wraps the above-the-fold price ranges. -->
+  <link rel="preload" as="font" href="/fonts/figtree-var-latin.woff2" type="font/woff2" crossorigin />
+  <link rel="preload" as="font" href="/fonts/gabarito-var-latin.woff2" type="font/woff2" crossorigin />
   {resolvedSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   )}
@@ -161,8 +162,8 @@ const resolvedSchema = schema ? withAuthor(schema) : undefined;
     }],
   })} />
 </head>
-<body class="min-h-screen flex flex-col" data-page-type={pageType}>
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[60] focus:bg-krim-50 focus:px-3 focus:py-2 focus:outline">Langkau ke kandungan</a>
+<body class="min-h-screen flex flex-col bg-edisi-paper text-edisi-ink" data-page-type={pageType}>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[60] focus:rounded-lg focus:bg-edisi-ink focus:px-4 focus:py-3 focus:font-semibold focus:text-white">Langkau ke kandungan</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3LMP78G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

@@ -1,8 +1,8 @@
 {
   "name": "Insurans.co",
   "short_name": "Insurans",
-  "theme_color": "#FAFAF7",
-  "background_color": "#FAFAF7",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "icons": [
     {
@@ -14,6 +14,12 @@
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

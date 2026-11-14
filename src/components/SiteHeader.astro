@@ -12,70 +12,67 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+// The homepage already says "Bukan ejen. Bukan broker." under its H1, so the masthead tag is left out there.
 const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
 ---
 
-<header class="sticky top-0 z-50 border-b-2 border-stone-900 bg-krim-50">
-  <div class="container-wide">
-    <div class="flex h-14 items-center justify-between lg:h-16">
-      <a href="/" aria-label="Insurans.co — Utama" class="group flex min-h-11 items-center gap-2">
-        <svg
-          class="h-6 w-6 shrink-0"
-          width="24"
-          height="24"
-          viewBox="0 0 32 32"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <rect x="1" y="1" width="30" height="30" fill="#FAFAF7" stroke="#1c1917" stroke-width="2" stroke-linejoin="miter" vector-effect="non-scaling-stroke" />
-          <rect x="14" y="14" width="4" height="11" fill="#1c1917" />
-          <rect x="10" y="24" width="12" height="2" fill="#1c1917" />
-          <rect x="14" y="7" width="4" height="4" fill="#1e6243" />
-        </svg>
-        <span class="font-serif text-xl text-stone-900 transition-colors group-hover:text-hijau-700 sm:text-2xl">
-          insurans<span class="text-hijau-600">.co</span>
-        </span>
-      </a>
-
-      <nav aria-label="Navigasi utama" class="hidden items-center gap-1 lg:flex">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            aria-current={isCurrent(link.href) ? 'page' : undefined}
-            class="flex min-h-11 items-center px-2.5 py-2 text-sm font-semibold text-stone-700 transition-colors hover:text-hijau-700"
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <button
-        id="mobile-menu-btn"
-        type="button"
-        class="inline-flex min-h-11 min-w-11 items-center justify-center text-stone-600 transition-colors hover:text-stone-900 lg:hidden"
-        aria-label="Buka menu"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true" focusable="false">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
+<!--
+  Edisi masthead. The wordmark is the slider "i" (round4/logo-slider, study D), inlined so its
+  colours come from the page tokens. In this step it is static: the knob rests seated (NCD 55%,
+  the true logo) and is not a control yet. A tap anywhere on the wordmark goes home.
+-->
+<header class="mast">
+  <div class="mast-in">
+    <a class="wm-a" href="/" aria-label="Insurans.co — Utama">
+      <svg class="wm-svg" viewBox="0 -400 4637 1201" width="170" height="44" aria-hidden="true" focusable="false">
+          <path class="ins-word" d="M33 285.75A12 12 0 0 1 49.63 274.68A172 172 0 0 0 182.37 274.68A12 12 0 0 1 199 285.75V718A83 83 0 0 1 33 718Z"/>
+          <circle class="ins-knob" cx="116" cy="116" r="116"/>
+          <g class="ins-word">
+          <path d="M693 446V779Q693 784 689.5 787.5Q686 791 681 791H539Q534 791 530.5 787.5Q527 784 527 779V470Q527 442 513 425Q499 408 476 408Q453 408 439 425Q425 442 425 470V779Q425 784 421.5 787.5Q418 791 413 791H271Q266 791 262.5 787.5Q259 784 259 779V286Q259 281 262.5 277.5Q266 274 271 274H413Q418 274 421.5 277.5Q425 281 425 286V314Q425 317 427.5 317.5Q430 318 432 314Q468 266 534 266Q609 266 651 313.5Q693 361 693 446Z"/>
+          <path d="M740 642V634Q740 629 743.5 625.5Q747 622 752 622H887Q892 622 895.5 625.5Q899 629 899 634V635Q899 653 915 664.5Q931 676 955 676Q976 676 988.5 667Q1001 658 1001 644Q1001 628 984.5 619.5Q968 611 931 602Q892 593 866 582Q814 562 780 528Q746 494 746 433Q746 356 802 311Q858 266 950 266Q1044 266 1100.5 313.5Q1157 361 1157 439Q1157 450 1145 450H1015Q1010 450 1006.5 446.5Q1003 443 1003 438V434Q1003 417 989 406Q975 395 953 395Q932 395 918.5 405Q905 415 905 430Q905 449 923.5 458Q942 467 983 478Q1007 483 1026 490Q1091 511 1129.5 544.5Q1168 578 1168 640Q1168 715 1110.5 757Q1053 799 956 799Q891 799 842 779Q793 759 766.5 723.5Q740 688 740 642Z"/>
+          <path d="M1489 274H1631Q1636 274 1639.5 277.5Q1643 281 1643 286V779Q1643 784 1639.5 787.5Q1636 791 1631 791H1489Q1484 791 1480.5 787.5Q1477 784 1477 779V755Q1477 752 1475 751.5Q1473 751 1471 754Q1437 799 1365 799Q1297 799 1253.5 756.5Q1210 714 1210 632V286Q1210 281 1213.5 277.5Q1217 274 1222 274H1364Q1369 274 1372.5 277.5Q1376 281 1376 286V595Q1376 624 1389 640Q1402 656 1426 656Q1447 656 1460.5 643.5Q1474 631 1477 608V286Q1477 281 1480.5 277.5Q1484 274 1489 274Z"/>
+          <path d="M2019 279Q2027 284 2025 294L2002 434Q2001 445 1988 442Q1972 438 1958 438Q1942 438 1930 442Q1906 447 1889 466.5Q1872 486 1872 514V779Q1872 784 1868.5 787.5Q1865 791 1860 791H1718Q1713 791 1709.5 787.5Q1706 784 1706 779V286Q1706 281 1709.5 277.5Q1713 274 1718 274H1860Q1865 274 1868.5 277.5Q1872 281 1872 286V319Q1872 323 1873.5 323.5Q1875 324 1877 321Q1909 267 1970 267Q1999 267 2019 279Z"/>
+          <path d="M2477 436V779Q2477 784 2473.5 787.5Q2470 791 2465 791H2323Q2318 791 2314.5 787.5Q2311 784 2311 779V750Q2311 747 2309 746Q2307 745 2305 748Q2270 798 2189 799Q2120 799 2075.5 764Q2031 729 2031 647Q2031 560 2083.5 523Q2136 486 2237 486H2306Q2311 486 2311 481V459Q2311 436 2297 422Q2283 408 2258 408Q2239 408 2226.5 416.5Q2214 425 2209 439Q2206 450 2196 449L2051 440Q2039 438 2039 429Q2042 381 2070.5 344Q2099 307 2147.5 286.5Q2196 266 2256 266Q2320 266 2370 288Q2420 310 2448.5 348.5Q2477 387 2477 436ZM2311 622V592Q2311 587 2306 587H2261Q2232 587 2215.5 599.5Q2199 612 2199 635Q2199 655 2211.5 666.5Q2224 678 2245 678Q2272 678 2291.5 662.5Q2311 647 2311 622Z"/>
+          <path d="M2971 446V779Q2971 784 2967.5 787.5Q2964 791 2959 791H2817Q2812 791 2808.5 787.5Q2805 784 2805 779V470Q2805 442 2791 425Q2777 408 2754 408Q2731 408 2717 425Q2703 442 2703 470V779Q2703 784 2699.5 787.5Q2696 791 2691 791H2549Q2544 791 2540.5 787.5Q2537 784 2537 779V286Q2537 281 2540.5 277.5Q2544 274 2549 274H2691Q2696 274 2699.5 277.5Q2703 281 2703 286V314Q2703 317 2705.5 317.5Q2708 318 2710 314Q2746 266 2812 266Q2887 266 2929 313.5Q2971 361 2971 446Z"/>
+          <path d="M3018 642V634Q3018 629 3021.5 625.5Q3025 622 3030 622H3165Q3170 622 3173.5 625.5Q3177 629 3177 634V635Q3177 653 3193 664.5Q3209 676 3233 676Q3254 676 3266.5 667Q3279 658 3279 644Q3279 628 3262.5 619.5Q3246 611 3209 602Q3170 593 3144 582Q3092 562 3058 528Q3024 494 3024 433Q3024 356 3080 311Q3136 266 3228 266Q3322 266 3378.5 313.5Q3435 361 3435 439Q3435 450 3423 450H3293Q3288 450 3284.5 446.5Q3281 443 3281 438V434Q3281 417 3267 406Q3253 395 3231 395Q3210 395 3196.5 405Q3183 415 3183 430Q3183 449 3201.5 458Q3220 467 3261 478Q3285 483 3304 490Q3369 511 3407.5 544.5Q3446 578 3446 640Q3446 715 3388.5 757Q3331 799 3234 799Q3169 799 3120 779Q3071 759 3044.5 723.5Q3018 688 3018 642Z"/>
+          <circle cx="3569.5" cy="710" r="87"/>
+          <path d="M3713 635Q3704 590 3704 531Q3704 474 3713 427Q3727 353 3784.5 309.5Q3842 266 3930 266Q4015 266 4073 308Q4131 350 4145 421Q4147 431 4149 453V455Q4149 464 4138 466L3997 480H3994Q3987 480 3985 472V466L3982 450Q3977 431 3963.5 419.5Q3950 408 3929 408Q3887 408 3876 455Q3871 480 3871 531Q3871 587 3877 612Q3882 633 3895 645Q3908 657 3929 657Q3952 657 3965 644.5Q3978 632 3981 612Q3983 602 3983 597Q3985 584 3996 586L4137 598Q4149 600 4148 611Q4148 620 4146 634Q4135 712 4077 755.5Q4019 799 3930 799Q3841 799 3784 755.5Q3727 712 3713 635Z"/>
+          <path d="M4192 624Q4186 585 4186 532Q4186 473 4193 437Q4204 358 4262 312Q4320 266 4412 266Q4504 266 4561.5 312Q4619 358 4630 436Q4637 474 4637 531Q4637 579 4632 622Q4621 705 4563 752Q4505 799 4412 799Q4319 799 4261 752.5Q4203 706 4192 624ZM4468 600Q4471 568 4471 532Q4471 506 4467 462Q4463 437 4448.5 422.5Q4434 408 4412 408Q4389 408 4374.5 422.5Q4360 437 4356 462Q4352 491 4352 532Q4352 568 4355 600Q4360 626 4374.5 641.5Q4389 657 4412 657Q4434 657 4448.5 641.5Q4463 626 4468 600Z"/>
+          </g>
+      </svg>
+    </a>
+    {currentPath !== '/' && <p class="mast-tag">Bukan ejen. Bukan broker.</p>}
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="menu-btn"
+      aria-label="Buka menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <svg class="menu-i" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true" focusable="false">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+      <span aria-hidden="true">Menu</span>
+    </button>
   </div>
 
-  <div id="mobile-menu" hidden class="border-t border-stone-200 bg-krim-50 lg:hidden">
-    <nav aria-label="Navigasi utama mudah alih" class="container-wide py-3">
-      <ul class="space-y-1">
+  <nav class="tabs" aria-label="Navigasi utama">
+    <ul>
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div id="mobile-menu" hidden class="menu-panel">
+    <nav aria-label="Navigasi utama mudah alih">
+      <ul>
         {navLinks.map((link) => (
           <li>
-            <a
-              href={link.href}
-              aria-current={isCurrent(link.href) ? 'page' : undefined}
-              class="flex min-h-11 items-center px-3 py-2 text-sm font-medium text-stone-700 transition-colors hover:bg-hijau-50 hover:text-hijau-700"
-            >
-              {link.label}
-            </a>
+            <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
           </li>
         ))}
       </ul>
@@ -83,23 +80,101 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   </div>
 
   <noscript>
-    <nav aria-label="Navigasi utama mudah alih" class="border-t border-stone-200 bg-krim-50 lg:hidden">
-      <ul class="container-wide space-y-1 py-3">
+    <nav aria-label="Navigasi utama mudah alih" class="menu-panel menu-panel-nojs">
+      <ul>
         {navLinks.map((link) => (
           <li>
-            <a
-              href={link.href}
-              aria-current={isCurrent(link.href) ? 'page' : undefined}
-              class="flex min-h-11 items-center px-3 py-2 text-sm font-medium text-stone-700 hover:bg-hijau-50 hover:text-hijau-700"
-            >
-              {link.label}
-            </a>
+            <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
           </li>
         ))}
       </ul>
     </nav>
   </noscript>
 </header>
+
+<style>
+  .mast { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--rule); }
+  .mast-in {
+    --wm-h: 2.75rem;
+    max-width: var(--page-max); margin: 0 auto;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 0 0.75rem;
+    padding: 0.3rem var(--gutter) 0.45rem;
+  }
+  .wm-a { display: block; border-radius: var(--r-1); color: var(--ink); }
+  .wm-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .wm-svg { display: block; height: var(--wm-h); width: auto; overflow: visible; }
+  .ins-word { fill: var(--ink); }
+  .ins-knob { fill: var(--knob); }
+  .mast-tag { display: none; }
+
+  .menu-btn {
+    grid-column: 3; align-self: center;
+    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.75rem; padding: 0 0.9rem 0 0.75rem;
+    border: 1.5px solid var(--ink); border-radius: var(--r-pill); background: var(--card); color: var(--ink);
+    font: 600 1rem/1 var(--f); cursor: pointer;
+    transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
+  }
+  .menu-btn[aria-expanded='true'] { background: var(--ink); color: #fff; }
+  .menu-i { width: 1.25rem; height: 1.25rem; }
+
+  .menu-panel { border-top: 1px solid var(--rule); background: var(--card); }
+  .menu-panel ul { margin: 0; padding: 0.5rem var(--gutter) 0.75rem; list-style: none; display: grid; }
+  .menu-panel li + li { border-top: 1px solid var(--chip); }
+  .menu-panel a {
+    display: flex; align-items: center; min-height: 3rem; padding: 0 0.25rem;
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.0625rem;
+  }
+  .menu-panel a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; text-decoration-color: var(--sel); }
+
+  .tabs { display: none; }
+
+  @media (min-width: 48rem) {
+    .mast-in { --wm-h: 4.25rem; grid-template-columns: auto auto 1fr; padding: 0.35rem var(--gutter) 0.6rem; }
+    .mast-tag {
+      display: block; grid-column: 2; margin: 0 0 0.55rem 0.25rem; padding-left: 1rem;
+      border-left: 1.5px solid var(--rule); font-weight: 600; line-height: 1.2; color: var(--ink);
+    }
+    .menu-btn, .menu-panel { display: none; }
+
+    /* Section tabs: a strip on tablet, a glass capsule on desktop (glass only on navigation). */
+    .tabs { display: block; padding: 0 var(--gutter) 0.6rem; }
+    .tabs ul {
+      display: flex; gap: 0.125rem; width: fit-content; max-width: 100%; margin: 0 auto; padding: 0.25rem;
+      list-style: none; border-radius: var(--r-pill); overflow-x: auto; scrollbar-width: none;
+      background: var(--glass);
+      box-shadow: 0 0 0 1px var(--glass-edge), 0 12px 28px -14px rgb(var(--shade) / 0.5), inset 0 1px 0 var(--glass-spec), inset 0 0 0 1px var(--glass-rim);
+    }
+    .tabs li { flex: none; }
+    .tabs li + li { position: relative; }
+    .tabs li + li::before { content: ''; position: absolute; left: -1px; top: 28%; bottom: 28%; width: 1px; background: rgb(var(--shade) / 0.2); }
+    .tabs a {
+      display: flex; align-items: center; min-height: 2.75rem; padding: 0 0.95rem; white-space: nowrap; border-radius: var(--r-pill);
+      color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: background-color 150ms var(--ease-out);
+    }
+    .tabs a[aria-current='page'] { background: var(--ink); color: #fff; }
+    .tabs a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+    .tabs a[aria-current='page']:focus-visible { outline-color: var(--sel); }
+    @media (hover: hover) and (pointer: fine) {
+      .tabs a:not([aria-current]):hover { background: rgb(var(--shade) / 0.08); }
+    }
+  }
+
+  @media (min-width: 70rem) {
+    .mast-in { --wm-h: 4.5rem; padding-bottom: 0.75rem; }
+    .mast { position: relative; z-index: 41; display: contents; }
+    .mast-in { background: var(--paper); max-width: none; padding-inline: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter))); }
+    .tabs { position: sticky; top: 0.5rem; z-index: 40; margin-top: -0.4rem; padding-bottom: 0; pointer-events: none; }
+    .tabs ul { pointer-events: auto; }
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .tabs ul { background: var(--glass-t); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); }
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .tabs ul { background: var(--card) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 1.5px var(--ink); }
+  }
+</style>
 
 <script>
   const menuButton = document.getElementById('mobile-menu-btn');

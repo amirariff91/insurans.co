@@ -1,150 +1,136 @@
+/*
+ * Edisi type: Gabarito (display: price, headings, title bars) and Figtree (all text).
+ * Both variable, Latin subset, OFL (public/fonts/OFL-*.txt), self-hosted.
+ */
 @font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/fraunces-500-latin.woff2') format('woff2');
+  font-family: 'Gabarito';
+  src: url('/fonts/gabarito-var-latin.woff2') format('woff2-variations'), url('/fonts/gabarito-var-latin.woff2') format('woff2');
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/fraunces-600-latin.woff2') format('woff2');
+  font-family: 'Figtree';
+  src: url('/fonts/figtree-var-latin.woff2') format('woff2-variations'), url('/fonts/figtree-var-latin.woff2') format('woff2');
   font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-400-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-500-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-600-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-700-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 300 900;
   font-display: swap;
 }
 
 /*
- * Metric-matched fallbacks: while the web fonts load (font-display: swap), text is drawn
- * in a local font scaled to the same average width, ascent and descent, so the swap does
- * not reflow lines. Values from @capsizecss/metrics (size-adjust = ratio of average glyph
- * widths; overrides = primary metric / size-adjust). Liberation/Arimo/Tinos are metric
- * clones of Arial/Times, so they share the same numbers. Roboto and Noto Serif are the
- * Android system fonts. unicode-range matches the self-hosted Latin subset, so characters
- * outside it (e.g. the → arrow) still come from the system font, exactly as before.
+ * Metric-matched fallbacks (kept from main's layout-shift work): while the web fonts load
+ * (font-display: swap), text is drawn in a local font scaled to the same average width,
+ * ascent and descent, so the swap does not reflow lines. size-adjust = ratio of average
+ * glyph widths (capsize xWidthAvg: Gabarito 0.442, Figtree 0.444 at the default instance,
+ * Arial 0.4414, Roboto 0.4448); overrides = primary metric / size-adjust (Gabarito
+ * 940/-260, Figtree 950/-250 per 1000). Bold faces are estimated, not measured.
+ * Liberation/Arimo are metric clones of Arial; Roboto is the Android system font.
+ * unicode-range matches the self-hosted Latin subset.
  */
 @font-face {
-  font-family: 'Fraunces Fallback';
-  src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'), local('Tinos');
-  size-adjust: 115.45%;
-  ascent-override: 84.71%;
-  descent-override: 22.09%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Fraunces Fallback Android';
-  src: local('Noto Serif'), local('NotoSerif');
-  size-adjust: 97.51%;
-  ascent-override: 100.3%;
-  descent-override: 26.15%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/*
- * Price figures ("RM 330 – RM 670") are mostly digits, spaces and "RM", whose widths
- * differ from average prose. These faces are sized on such strings (Fraunces 500 vs the
- * fallback), so a price line wraps the same way before and after the swap.
- */
-@font-face {
-  font-family: 'Fraunces Figures Fallback';
-  src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'), local('Tinos');
-  size-adjust: 109%;
-  ascent-override: 89.72%;
-  descent-override: 23.39%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Fraunces Figures Fallback Android';
-  src: local('Noto Serif'), local('NotoSerif');
-  size-adjust: 102.47%;
-  ascent-override: 95.44%;
-  descent-override: 24.89%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Source Sans 3 Fallback';
+  font-family: 'Gabarito Fallback';
   src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
-  size-adjust: 93.76%;
-  ascent-override: 109.21%;
-  descent-override: 42.66%;
+  size-adjust: 100.1%;
+  ascent-override: 93.9%;
+  descent-override: 26%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/*
- * Real bold faces for semibold/bold text, so the fallback is not synthetically emboldened.
- * Sized on Source Sans 3 600 (the site's usual "font-semibold") against Arial Bold:
- * 89.8% (700 would be 92.3%). Roboto Bold uses the same values (Roboto tracks Arial within 0.2%).
- */
 @font-face {
-  font-family: 'Source Sans 3 Fallback';
+  font-family: 'Gabarito Fallback';
   src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
-  font-weight: 600 700;
-  size-adjust: 90%;
-  ascent-override: 113.78%;
-  descent-override: 44.44%;
+  font-weight: 600 900;
+  size-adjust: 98%;
+  ascent-override: 95.9%;
+  descent-override: 26.5%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Source Sans 3 Fallback Android';
+  font-family: 'Gabarito Fallback Android';
   src: local('Roboto Bold'), local('Roboto-Bold');
-  font-weight: 600 700;
-  size-adjust: 90%;
-  ascent-override: 113.78%;
-  descent-override: 44.44%;
+  font-weight: 600 900;
+  size-adjust: 97.4%;
+  ascent-override: 96.5%;
+  descent-override: 26.7%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Source Sans 3 Fallback Android';
+  font-family: 'Gabarito Fallback Android';
   src: local('Roboto'), local('Roboto-Regular');
-  size-adjust: 93.97%;
-  ascent-override: 108.97%;
-  descent-override: 42.57%;
+  size-adjust: 99.4%;
+  ascent-override: 94.6%;
+  descent-override: 26.2%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+  size-adjust: 100.6%;
+  ascent-override: 94.4%;
+  descent-override: 24.9%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
+  font-weight: 600 900;
+  size-adjust: 96%;
+  ascent-override: 99%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback Android';
+  src: local('Roboto Bold'), local('Roboto-Bold');
+  font-weight: 600 900;
+  size-adjust: 96%;
+  ascent-override: 99%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback Android';
+  src: local('Roboto'), local('Roboto-Regular');
+  size-adjust: 99.8%;
+  ascent-override: 95.2%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Edisi magenta world, light only (tokens.css). The Tailwind tokens carry the same values. */
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF; --card: #FFFFFF; --tray: #F3F3F3; --chip: #E9E9E9;
+  --ink: #000000; --ink-2: #4A4A4A; --rule: #767676; --rule-strong: #000000;
+  --kick: #D0106F; --kick-ink: #FFFFFF; --sel: #D0106F; --sel-ink: #FFFFFF;
+  --mark: #FFF3B0; --mark-ink: #000000; --link: #000000; --red: #B8291E;
+  --knob: #D0106F; --ghost: #949494;
+  --tint-pink: #FBD3E4; --tint-yellow: #FFF3B0; --tint-sky: #CFE8FA;
+  --focus: #000000; --focus-on-dark: #FFFFFF;
+  --glass: rgb(255 255 255 / 0.97); --glass-t: rgb(255 255 255 / 0.8);
+  --glass-edge: rgb(0 0 0 / 0.16); --glass-rim: rgb(255 255 255 / 0.85); --glass-spec: rgb(255 255 255 / 0.9);
+  --shade: 0 0 0;
+  --r-1: 6px; --r-2: 8px; --r-pill: 999px;
+  --fd: 'Gabarito', 'Gabarito Fallback', 'Gabarito Fallback Android', system-ui, sans-serif;
+  --f: 'Figtree', 'Figtree Fallback', 'Figtree Fallback Android', system-ui, sans-serif;
+  --gutter: max(1rem, env(safe-area-inset-left));
+  --page-max: 92rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @tailwind base;
@@ -154,31 +140,42 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 74px;
+    /* The masthead scrolls away on phones and tablets; on desktop the glass tab capsule stays. */
+    scroll-padding-top: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 70rem) {
     html {
-      scroll-padding-top: 82px;
+      scroll-padding-top: 5rem;
     }
   }
 
   body {
-    @apply text-stone-800 bg-krim-50 font-sans;
+    @apply text-stone-900 bg-krim-50 font-sans;
     font-feature-settings: 'kern' 1, 'liga' 1;
-    font-optical-sizing: auto;
+    accent-color: var(--sel);
+    caret-color: var(--sel);
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  b, strong {
+    font-weight: 650;
   }
 
   h1, h2, h3 {
     @apply font-serif;
   }
 
-  h1, h2, h3, .font-serif {
-    font-optical-sizing: auto;
-    /* SOFT axis applies only if a variable Fraunces is installed; static instances ignore it. */
-    font-variation-settings: "SOFT" 35;
+  /* Gabarito carries headings at a heavy weight (Edisi: 750); a weight utility on the element still wins. */
+  h1, h2, h3 {
+    font-weight: 750;
+    text-wrap: balance;
   }
 
   h4, h5, h6 {
@@ -187,13 +184,15 @@
 
   /* Editorial link style */
   .prose-editorial a {
-    @apply text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600 transition-colors;
+    @apply text-edisi-ink underline decoration-edisi-rule hover:decoration-edisi-ink transition-colors;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
   /* Better focus styles */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-stone-900;
-    outline-style: solid;
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
   }
 
   button:focus-visible,
@@ -201,12 +200,13 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    box-shadow: 0 0 0 2px #FAFAF7;
+    box-shadow: 0 0 0 2px #FFFFFF;
   }
 
   /* Selection color */
   ::selection {
-    @apply bg-emas-200 text-stone-900;
+    background: var(--mark);
+    color: var(--mark-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -243,18 +243,18 @@
 
   /* Category label */
   .label {
-    @apply text-xs font-sans font-bold uppercase tracking-widest text-hijau-700;
+    @apply text-xs font-sans font-bold uppercase tracking-widest text-edisi-ink;
   }
 
   /* Card — minimal, editorial */
   .card-editorial {
-    @apply bg-krim-50 border border-stone-200 p-5 sm:p-6;
-    @apply hover:border-stone-400 transition-colors;
+    @apply bg-edisi-card border border-edisi-rule rounded-lg p-5 sm:p-6;
+    @apply hover:border-edisi-ink transition-colors;
   }
 
   /* Verdict badge */
   .verdict {
-    @apply inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1;
+    @apply inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded;
   }
 
   .verdict-best {
@@ -269,13 +269,13 @@
     @apply verdict bg-verdict-warn-bg text-verdict-warn-ink border border-verdict-warn-border;
   }
 
-  /* Info box */
+  /* Info box: explanation, so blue (Edisi: blue is for explanation). */
   .info-box {
-    @apply bg-emas-50 border border-emas-800 p-4 sm:p-5;
+    @apply bg-edisi-sky border border-edisi-rule rounded-lg p-4 sm:p-5 text-edisi-ink;
   }
 
   .info-box > p:first-child > strong:first-child {
-    @apply block font-bold text-emas-800;
+    @apply block font-bold text-edisi-ink;
     margin-bottom: 0.25rem;
   }
 
@@ -285,11 +285,11 @@
   }
 
   .table-editorial thead {
-    @apply border-b-2 border-stone-900;
+    @apply border-b-[1.5px] border-edisi-ink;
   }
 
   .table-editorial th {
-    @apply text-left font-sans font-bold text-stone-900 py-3 pr-4;
+    @apply text-left font-display font-bold text-edisi-ink py-3 pr-4;
   }
 
   .table-editorial td {
@@ -311,7 +311,12 @@
     display: flex;
     align-items: flex-start;
     @apply font-sans font-semibold text-stone-900 cursor-pointer list-none;
-    @apply hover:text-hijau-700 transition-colors;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .faq-item summary:hover { text-decoration-line: underline; }
   }
 
   .faq-item summary::-webkit-details-marker {
@@ -340,18 +345,19 @@
   }
 
   .btn-hijau {
-    @apply btn px-5 py-2.5 bg-hijau-700 text-white hover:bg-hijau-800;
+    /* The main button: magenta, white text (Edisi .btn-p). */
+    @apply btn px-5 py-2.5 rounded-lg border-[1.5px] border-edisi-magenta bg-edisi-magenta text-white hover:bg-edisi-magenta-deep hover:border-edisi-magenta-deep;
     min-height: 48px;
   }
 
   .btn-outline {
-    @apply btn px-5 py-2.5 border-2 border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white;
+    @apply btn px-5 py-2.5 rounded-lg border-[1.5px] border-edisi-ink bg-edisi-card text-edisi-ink hover:bg-edisi-ink hover:text-white;
     min-height: 44px;
   }
 
   /* Prose for article content */
   .prose-editorial {
-    @apply text-stone-700 leading-relaxed;
+    @apply text-stone-800 leading-relaxed;
   }
 
   .prose-editorial p {
@@ -381,9 +387,6 @@
 
 @layer utilities {
   .numeric { font-variant-numeric: tabular-nums; }
-  /* Serif price figures use the fallback sized for price strings (see @font-face above). */
-  .numeric.font-serif,
-  .numeric .font-serif {
-    font-family: Fraunces, 'Fraunces Figures Fallback', 'Fraunces Figures Fallback Android', Georgia, serif;
-  }
+  /* Form controls take the chosen-state colour (magenta), not the hijau-700 text shade (ink). */
+  .accent-hijau-700 { accent-color: var(--sel); }
 }
