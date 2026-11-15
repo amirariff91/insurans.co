@@ -99,3 +99,41 @@ Peraturan ini untuk teks baharu. Suntingan bahasa ini **tidak** mengubah mana-ma
 - **Tarikh:** 11 Nov 2026 (singkatan bulan bahasa Melayu: Jan, Feb, Mac, Apr, Mei, Jun, Jul, Ogos, Sep, Okt, Nov, Dis). Dalam data: 2026-11-11.
 - **Singkatan:** tulis penuh sekali jika pembaca mungkin tidak tahu: "BNM (Bank Negara Malaysia)", "PIAM (Persatuan Insurans Am Malaysia)", "JPJ". NCD dan PA diterangkan pada kali pertama. Jangan guna "dll", "dsb", "drpd" dalam teks.
 - **Huruf besar:** gaya ayat untuk tajuk kecil baharu ("Harga insurans Myvi 2026"), bukan Gaya Tajuk Setiap Perkataan.
+
+## 5. Kebolehbacaan
+
+Dikemas kini 15 Nov 2026. Peraturan ini disesuaikan daripada disiplin Simplified Technical English (ASD-STE100) untuk bahasa Melayu. Ia dirintis pada `/takaful/`, `/medical-cards/` dan `/guides/how-to-claim/`.
+
+**Ayat**
+- Satu idea dalam satu ayat. Arahan: 20 patah perkataan atau kurang. Penerangan: 25 atau kurang.
+- Jawapan atau arahan dulu, kemudian syarat atau sebab.
+- Ayat aktif dengan pelaku yang dinamakan apabila pelaku itu penting: "Syarikat memeriksa kereta…", bukan "Kereta akan diperiksa…".
+- Satu istilah untuk satu konsep pada satu halaman. Jangan selang-seli "premium/caruman/harga" atau "perlindungan/coverage" jika maksudnya sama. Jika bezanya memang isi halaman (premium untuk insurans, sumbangan untuk takaful), kekalkan dan terangkan sekali.
+
+**Buang**
+- Pembuka kosong ("Secara ringkas:", "Kesimpulannya:", "Ini jelas.").
+- Ayat yang mengulang tajuk, kotak jawapan atau perenggan sebelumnya.
+- Perenggan yang memberitahu isi perenggan seterusnya.
+- Soalan retorik sebagai tajuk, kecuali soalan sebenar pembaca (FAQ).
+- Pendedahan "bukan X, tetapi Y", senarai tiga untuk irama, kata sifat pemasaran, keraguan bertindih dalam satu ayat ("mungkin boleh jadi").
+
+**Kekalkan**
+- Setiap syarat yang melindungi pembaca: siapa yang layak, had, pengecualian, "bergantung pada produk", sumber.
+- Nombor, harga, tarikh, nama syarikat dan pelan, pautan sumber dan id: suntingan bahasa tidak menyentuhnya.
+
+**Format**
+- Perenggan paling banyak tiga atau empat ayat.
+- Prosedur ialah senarai bernombor, satu tindakan bagi setiap langkah. Syarat yang mesti dipenuhi semuanya ialah senarai berbutir.
+- Jadual hanya untuk fakta yang memang berbentuk jadual.
+- Tebal hanya untuk satu perkara yang pembaca cepat tidak boleh terlepas; bawah kira-kira 15% teks pada satu skrin.
+- Tajuk kecil menyatakan dapatan bahagian itu dengan kata-kata halaman sendiri: "Takaful tidak terhad kepada orang Islam", bukan "Siapa patut pilih takaful?".
+
+**Contoh daripada halaman rintis**
+
+| Sebelum | Selepas |
+|---|---|
+| Secara ringkas: **takaful = insurans yang patuh Syariah**. Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk. Yang berbeza ialah **konsep di sebaliknya** dan **cara wang diurus**. | **Takaful ialah insurans yang patuh Syariah.** Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Yang berbeza ialah konsepnya dan cara wang peserta diurus. |
+| Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan. Anda perlu mendapatkan persetujuan bertulis sebelum pembaikan atau perbelanjaan tuntutan dibuat. Sahkan kerja yang syarikat akan bayar… (dalam satu perenggan lima ayat) | Urutannya: 1. Syarikat memeriksa kereta sebelum meluluskan pembaikan. 2. Anda mendapatkan persetujuan bertulis… 3. Anda mengesahkan kerja yang syarikat akan bayar… |
+| Dokumen AIA, SmartMedic Shield, … dan brosur Medic Plus menyatakan tempoh penyakit umum 30 hari serta penyakit tertentu 120 hari. | Tempoh menunggu ialah 30 hari untuk penyakit umum dan 120 hari untuk penyakit tertentu. Ini dinyatakan dalam dokumen AIA, SmartMedic Shield, … dan brosur Medic Plus. |
+
+Ukur sebelum dan selepas: purata dan persentil ke-90 panjang ayat, bilangan ayat melebihi 25 patah perkataan, perenggan melebihi empat ayat, dan peratus teks tebal pada skrin pertama di 390 px. Halaman beriklan mesti kekal sekurang-kurangnya 700 patah perkataan; jangan tambah isi untuk mencapainya.
