@@ -5,9 +5,10 @@
 // Documents are hashed in memory and not saved anywhere.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { dirname, join, resolve, relative, isAbsolute } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
+import { insideRepo, norm, pdfLinks } from './watch-lib.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const register = JSON.parse(readFileSync(join(root, 'src', 'data', 'documents.json'), 'utf8'));
@@ -22,8 +23,7 @@ const today = new Date().toISOString().slice(0, 10);
 const args = process.argv.slice(2);
 const outIdx = args.indexOf('--out');
 const out = resolve(outIdx >= 0 && args[outIdx + 1] ? args[outIdx + 1] : join(SCRATCH, `watch-${today}.md`));
-const rel = relative(root, out);
-if (!rel.startsWith('..') && !isAbsolute(rel)) {
+if (insideRepo(out, root)) {
   console.error(`docs:watch: refusing to write the report inside the repository (${out}); pick a path outside it`);
   process.exit(2);
 }
@@ -55,24 +55,6 @@ async function politeFetch(url) {
   return { status: 0, error: lastErr };
 }
 
-// Normalise a URL for comparison: decode, drop the fragment, keep the query.
-function norm(u) {
-  try {
-    const x = new URL(u);
-    x.hash = '';
-    return decodeURI(x.href).replace(/^http:/, 'https:').replace('://s3.ap-southeast-1.', '://s3-ap-southeast-1.');
-  } catch { return u; }
-}
-function pdfLinks(html, base) {
-  const found = new Set();
-  const re = /(?:href|src|data-href)\s*=\s*["']([^"']+?\.pdf(?:\?[^"']*)?)["']|["'](https?:\/\/[^"'\s]+?\.pdf)["']/gi;
-  for (const m of html.matchAll(re)) {
-    const raw = (m[1] ?? m[2]).replace(/&amp;/g, '&');
-    try { found.add(norm(new URL(raw, base).href)); } catch { /* ignore */ }
-  }
-  return found;
-}
-
 const docs = register.documents;
 const live = docs.filter((d) => d.status === 'live');
 const known = new Set(docs.map((d) => norm(d.url)));
@@ -88,7 +70,7 @@ for (const page of pages) {
     continue;
   }
   const links = pdfLinks(r.body.toString('utf8'), r.finalUrl || page);
-  for (const l of links) if (!known.has(l)) newLinks.push({ page, url: l });
+  for (const [k, display] of links) if (!known.has(k)) newLinks.push({ page, url: display });
   for (const d of live.filter((x) => x.productPage === page)) if (!links.has(norm(d.url))) unlinked.push({ id: d.id, page });
 }
 
