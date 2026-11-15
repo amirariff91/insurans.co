@@ -976,3 +976,5 @@ main a:not([class]) { color: var(--link); }
   .ea-btn, .btn-outline, .type-chips a, .tk-chip, .ea-mark { border: 1px solid CanvasText; }
   .overflow-x-auto:has(> table)::before, .overflow-x-auto:has(> table)::after { background: CanvasText; }
 }
+/* A date never breaks across lines: with the fallback font it wrapped and moved the page when Figtree arrived. */
+time { white-space: nowrap; }
