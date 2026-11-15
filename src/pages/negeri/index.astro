@@ -75,14 +75,14 @@ const riskColor: Record<string, string> = {
                 <th scope="row" class="py-3 pr-4 font-medium text-stone-900">
                   <a href={`/negeri/${state.slug}/`} class="underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">{state.displayName}</a>
                 </th>
-                <td data-label="Risiko banjir" class="py-3 pr-4 whitespace-nowrap">{state.floodRisk || 'Tiada'}</td>
+                <td data-label="Risiko banjir" class="py-3 pr-4 whitespace-nowrap">{state.floodRisk || 'Tidak dinyatakan'}</td>
                 <td data-label="Rekod banjir" class="py-3 pr-4 leading-relaxed">
                   {state.floodHistory.length ? (
                     <>
                       {state.floodHistory[0].text}{' '}
                       <a href={state.floodHistory[0].source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
                     </>
-                  ) : 'Tiada'}
+                  ) : 'Tidak dinyatakan'}
                 </td>
                 <td data-label="Pejabat JPJ" class="py-3 pr-4 leading-relaxed">
                   {state.jpjOffice.text}{' '}
@@ -129,7 +129,7 @@ const riskColor: Record<string, string> = {
                 {state.floodRisk}
               </span>
             ) : (
-              <span class="text-sm font-medium px-2 py-0.5 ml-2 flex-shrink-0 bg-stone-100 text-stone-500" title="Tiada label risiko banjir dalam data kami">Tiada</span>
+              <span class="text-sm font-medium px-2 py-0.5 ml-2 flex-shrink-0 bg-stone-100 text-stone-500" >Tiada label risiko banjir dalam data kami</span>
             )}
           </div>
           <p class="text-sm text-stone-700 mb-3">Ibu negeri: {state.capital}</p>
