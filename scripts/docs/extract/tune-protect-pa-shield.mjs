@@ -1,8 +1,9 @@
 // Tune Protect PA Shield brochure: premium table, English, file page 6.
-import { pageLines, pdf, toks, findLine, checkTable, pushRow } from './lib.mjs';
+import { pageLines, pdf, toks, findLine, checkTable, pushRow, expectHeader } from './lib.mjs';
 
 export const id = 'tune-protect-pa-shield-brochure-072025';
 export const file = 'tune-pashield-brochure.pdf';
+export const skipPages = { 12: 'Malay' };
 
 const COLS = ['Plan 1', 'plan 2', 'Plan 3', 'Plan 4', 'Plan 5']; // "plan 2" is printed lower case
 const ROWS = ['Class 1 & Class 2', 'Class 3'];
@@ -14,11 +15,13 @@ const TABLES = [
 export function extract(srcDir) {
   const page = 6;
   const lines = pageLines(pdf(srcDir, file), page);
-  const head = findLine(lines, /^\s*Premium Rates\s+Plan 1\s+plan 2\s+Plan 3\s+Plan 4\s+Plan 5\s*$/, 0, 'Premium Rates header');
+  const cap = findLine(lines, /^\s+Premium \(RM\)\s*$/, 0, 'Premium (RM) caption');
+  // Full header, top to bottom; columns below are assigned by position.
+  const head = expectHeader(lines, cap, ['Premium Rates Plan 1 plan 2 Plan 3 Plan 4 Plan 5'], 'premium rates');
   const cells = [];
   for (const [table, re] of TABLES) {
     let i = findLine(lines, re, head, table) + 1;
-    if (!/^\s*Occupation\s*$/.test(lines[i])) throw new Error(`[${table}] expected "Occupation" line`);
+    expectHeader(lines, i - 1, ['Occupation'], table);
     for (const row of ROWS) {
       i++;
       while (!lines[i].trim()) i++;

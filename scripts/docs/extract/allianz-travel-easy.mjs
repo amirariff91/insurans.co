@@ -1,5 +1,5 @@
 // Allianz Travel Easy brochure (English): premium rates, file page 1 (one tall page).
-import { pageLines, pdf, toks, findLine, checkTable, pushRow } from './lib.mjs';
+import { pageLines, pdf, toks, findLine, checkTable, pushRow, expectHeader } from './lib.mjs';
 
 export const id = 'allianz-travel-easy-brochure-en';
 export const file = 'allianz-ate-brochure.pdf';
@@ -11,7 +11,9 @@ const EXTRA = 'Each additional week or part';
 function tripTable(lines, page, cells, table, startRe, endRe, withAnnual) {
   const start = findLine(lines, startRe, 0, table);
   const end = findLine(lines, endRe, start + 1, `end of ${table}`);
-  for (let i = start + 1; i < end; i++) {
+  // "Overseas" spans Asia and Worldwide; Domestic sits on the "No. of Days" line.
+  const h = expectHeader(lines, start, ['Premium (RM)', 'Overseas', 'No. of Days Domestic', 'Asia Worldwide'], table);
+  for (let i = h + 1; i < end; i++) {
     const line = lines[i];
     const t = toks(line);
     if (!t.length) continue;
@@ -48,8 +50,8 @@ export function extract(srcDir) {
     const table = 'premium high altitude mountaineering';
     const s = findLine(lines, /^\s*High Altitude Mountaineering \(above 3,500 metres/, pr, table);
     const e = findLine(lines, /^Premium Discount\s*$/, s, 'Premium Discount');
-    if (!lines.slice(s, e).some((l) => /Asia\/Worldwide \(per trip\)/.test(l))) throw new Error(`[${table}] header missing`);
-    for (let i = s + 1; i < e; i++) {
+    const h = expectHeader(lines, s, ['Premium (RM)', 'Age Asia/Worldwide (per trip)'], table);
+    for (let i = h + 1; i < e; i++) {
       const t = toks(lines[i]);
       if (/^\d+ - \d+ years old$/.test(t[0] ?? ''))
         pushRow(cells, { table, page, row: t[0], cols: ['Asia/Worldwide (per trip)'], values: t.slice(1) });
@@ -62,7 +64,8 @@ export function extract(srcDir) {
     const table = 'premium discount multiple travellers and children';
     const s = findLine(lines, /^\s*Multiple Travellers and Children\s*$/, pr, table);
     const e = findLine(lines, /^\s*Notes:\s*$/, s, 'discount notes');
-    for (let i = s + 1; i < e; i++) {
+    const h = expectHeader(lines, s, ['Discount (%)'], table);
+    for (let i = h + 1; i < e; i++) {
       const t = toks(lines[i]);
       if (t.length === 2 && /^\d+$/.test(t[1]))
         pushRow(cells, { table, page, row: t[0], cols: ['Discount (%)'], values: [t[1]] });

@@ -1,22 +1,49 @@
 // MSIG Travel SafeGuard brochure, English price pages.
 // File pages 12-15 base plan (printed 11-14); 16 Alternative Transport Top-Up add-on (printed 15);
-// 18 Cruise Benefit add-on (printed 17); 19 Golf Benefit add-on (printed 18, the benefit list is on file page 18).
-import { pageLines, pdf, toks, findLine, checkTable, pushRow, cross } from './lib.mjs';
+// 18 Cruise Benefit add-on (printed 17); 19 Golf Benefit add-on (printed 18, the benefit list is on
+// file page 18); 20 Pet Benefit add-on (printed 19).
+// The Malay pages (46, 48, 50, 51, 52, 54, 55, 56) repeat the same tables and are not parsed.
+import { pageLines, pdf, toks, findLine, checkTable, pushRow, cross, expectHeader } from './lib.mjs';
 
 export const id = 'msig-travel-safeguard-brochure';
 export const file = 'msig-tsg-brochure.pdf';
+export const skipPages = { 46: 'Malay', 48: 'Malay', 50: 'Malay', 51: 'Malay', 52: 'Malay', 54: 'Malay', 55: 'Malay', 56: 'Malay' };
 
 const B65 = 'BELOW 65 YEARS OLD';
 const A65 = '65 - 80 YEARS OLD';
-const FIVE = [...cross([B65], ['TRAVEL SHIELD', 'TRAVEL MAX']), ...cross([A65], ['TRAVEL SHIELD', 'TRAVEL MAX', 'GOLDEN JOY'])];
+const PLANS5 = ['TRAVEL SHIELD', 'TRAVEL MAX', 'TRAVEL SHIELD', 'TRAVEL MAX', 'GOLDEN JOY'];
+const five = (older) => [...cross([B65], PLANS5.slice(0, 2)), ...cross([older], PLANS5.slice(2))];
+const FIVE = five(A65);
 const DUR = ['1 - 5 days', '6 - 10 days', '11 - 18 days', '19 - 31 days', 'Each additional week'];
 const AREA = /^(Area|AREA) [\d-]+( & \d)?\*?$/;
+const PLAN123 = ['Plan 1', 'Plan 2', 'Plan 3'];
+const TYPES = ['Insured Only', 'Insured & Spouse', 'Family'];
+
+// Printed headers, squashed. Columns are assigned by position under these.
+const H_FIVE = [
+  'BELOW 65 YEARS OLD 65 - 80 YEARS OLD',
+  'TRAVEL TRAVEL TRAVEL TRAVEL GOLDEN',
+  'TRAVEL',
+  'AREA SHIELD MAX SHIELD MAX JOY',
+  'DURATION',
+  '(RM) (RM) (RM) (RM) (RM)',
+  'NEW NEW',
+];
+const H_FAMILY = ['BELOW 65 YEARS OLD', 'TRAVEL', 'AREA TRAVEL SHIELD TRAVEL MAX', 'DURATION', '(RM) (RM)'];
+const H_ANNUAL = [
+  'BELOW 65 YEARS OLD 65 - 80 YEARS OLD^',
+  'TRAVEL TRAVEL TRAVEL TRAVEL GOLDEN',
+  'AREA SHIELD MAX SHIELD MAX JOY',
+  '(RM) (RM) (RM) (RM) (RM)',
+  'NEW NEW',
+];
+const H_ADDON3 = ['AREA 1 AREA 2 & 3 AREA 4', 'TYPE Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3', '(RM) (RM) (RM) (RM) (RM) (RM) (RM) (RM) (RM)'];
+const H_ADDON2 = ['AREA 1 AREA 2 & 3', 'TYPE Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3', '(RM) (RM) (RM) (RM) (RM) (RM)'];
 
 /** Rows grouped by area where the area label sits on any line of its group. */
 function areaGrouped(lines, from, to, table, page, inner, areas, cells) {
   const groups = [];
   let g = null;
-  let pendingValuesOnly = null;
   for (let i = from; i < to; i++) {
     let t = toks(lines[i]);
     if (!t.length) continue;
@@ -47,9 +74,8 @@ function areaGrouped(lines, from, to, table, page, inner, areas, cells) {
   checkTable(cells, table, { rows: DUR, cols: cross(areas, inner) });
 }
 
+/** Rows "Insured Only", "Insured & Spouse", "Family", with labels wrapped over two lines. */
 function typeRows(lines, from, to, table, page, cols, rows, cells) {
-  // Rows are "Insured Only" (wrapped: "Insured" / values / "Only" or "Insured" + values / "Only"),
-  // "Insured & Spouse" (same), "Family".
   for (let i = from; i < to; i++) {
     const t = toks(lines[i]);
     if (!t.length) continue;
@@ -59,8 +85,7 @@ function typeRows(lines, from, to, table, page, cols, rows, cells) {
       while (!values.length) values = toks(lines[j++]);
       while (!toks(lines[j]).length) j++;
       const tail = toks(lines[j]);
-      const label = `${t[0]} ${tail.join(' ')}`;
-      pushRow(cells, { table, page, row: label, cols, values });
+      pushRow(cells, { table, page, row: `${t[0]} ${tail.join(' ')}`, cols, values });
       i = j;
     } else if (t[0] === 'Family' || t[0] === 'Insured Only') {
       pushRow(cells, { table, page, row: t[0], cols, values: t.slice(1) });
@@ -71,11 +96,7 @@ function typeRows(lines, from, to, table, page, cols, rows, cells) {
   checkTable(cells, table, { rows, cols });
 }
 
-function section(lines, startRe, endRe, what) {
-  const s = findLine(lines, startRe, 0, what);
-  const e = findLine(lines, endRe, s + 1, `end of ${what}`);
-  return [s, e];
-}
+const TAX_BOTH = /^\s*\* Premiums for Area 4 and Annual Cover are inclusive of 8% Service Tax\.\s*$/;
 
 export function extract(srcDir) {
   const P = (n) => pageLines(pdf(srcDir, file), n);
@@ -83,51 +104,52 @@ export function extract(srcDir) {
   const NOTE4 = /^\s*\* Area 4 premium inclusive of 8% Service Tax\.\s*$/;
 
   // Base plan, single trip: insured only, insured & spouse (5 plan columns), family (2 columns).
-  for (const [page, table, head, inner] of [
-    [12, 'single trip insured only', /SINGLE TRIP PREMIUM \(INSURED ONLY\)/, FIVE],
-    [13, 'single trip insured & spouse', /SINGLE TRIP PREMIUM \(INSURED & SPOUSE\)/, FIVE],
-    [14, 'single trip family', /SINGLE TRIP PREMIUM \(FAMILY\)/, cross([B65], ['TRAVEL SHIELD', 'TRAVEL MAX'])],
+  for (const [page, table, head, inner, header] of [
+    [12, 'single trip insured only', /SINGLE TRIP PREMIUM \(INSURED ONLY\)/, FIVE, H_FIVE],
+    [13, 'single trip insured & spouse', /SINGLE TRIP PREMIUM \(INSURED & SPOUSE\)/, FIVE, H_FIVE],
+    [14, 'single trip family', /SINGLE TRIP PREMIUM \(FAMILY\)/, cross([B65], PLANS5.slice(0, 2)), H_FAMILY],
   ]) {
     const lines = P(page);
     const s = findLine(lines, head, 0, table);
-    const first = findLine(lines, /^\s+(Area 1\s+)?1 - 5 days\s/, s, 'first row');
-    const e = findLine(lines, NOTE4, first, 'Area 4 tax note');
-    areaGrouped(lines, first, e, table, page, inner, ['Area 1', 'Area 2', 'Area 3', 'Area 4*'], cells);
+    const h = expectHeader(lines, s, header, table);
+    const e = findLine(lines, NOTE4, h, 'Area 4 tax note');
+    areaGrouped(lines, h + 1, e, table, page, inner, ['Area 1', 'Area 2', 'Area 3', 'Area 4*'], cells);
   }
 
-  // Base plan, annual cover.
+  // Base plan, annual cover. The 65 - 80 band is printed with "^" (renewal only).
   {
     const page = 15;
     const table = 'annual cover';
     const lines = P(page);
-    const [s, e] = section(lines, /ANNUAL COVER PREMIUM\*/, /^\* Annual Cover inclusive of 8% Service Tax\.\s*$/, table);
-    for (let i = s + 1; i < e; i++) {
+    const s = findLine(lines, /ANNUAL COVER PREMIUM\*/, 0, table);
+    const h = expectHeader(lines, s, H_ANNUAL, table);
+    const e = findLine(lines, /^\* Annual Cover inclusive of 8% Service Tax\.\s*$/, h, 'annual tax note');
+    findLine(lines, /^\^ Annual Cover under age band 65 - 80 years old is for renewal only\.\s*$/, e, 'renewal note');
+    const cols = five(`${A65}^`);
+    for (let i = h + 1; i < e; i++) {
       const t = toks(lines[i]);
-      if (/^Area \d$/.test(t[0] ?? '')) pushRow(cells, { table, page, row: t[0], cols: FIVE, values: t.slice(1) });
+      if (!t.length) continue;
+      if (!/^Area \d$/.test(t[0])) throw new Error(`[${table}] unrecognised line: ${JSON.stringify(lines[i])}`);
+      pushRow(cells, { table, page, row: t[0], cols, values: t.slice(1) });
     }
-    checkTable(cells, table, { rows: ['Area 1', 'Area 2', 'Area 3'], cols: FIVE });
+    checkTable(cells, table, { rows: ['Area 1', 'Area 2', 'Area 3'], cols });
   }
 
   // Add-on: Alternative Transport Top-Up.
   {
     const page = 16;
     const lines = P(page);
-    const plans = ['Plan 1', 'Plan 2', 'Plan 3'];
     findLine(lines, /^\s*Alternative Transport Top-Up\s*$/, 0, 'Alternative Transport Top-Up');
-    let [s, e] = section(lines, /^\s+SINGLE TRIP PREMIUM\s*$/, /^\s+ANNUAL COVER PREMIUM\*\s*$/, 'ATT single');
-    findLine(lines, /^\s+AREA 1\s+AREA 2 & 3\s+AREA 4\s*$/, s, 'ATT single area header');
-    const first = findLine(lines, /^\s+Insured(\s|$)/, s, 'ATT first row');
-    typeRows(lines, first, e, 'alternative transport top-up single trip', page,
-      cross(['AREA 1', 'AREA 2 & 3', 'AREA 4'], plans), ['Insured Only', 'Insured & Spouse', 'Family'], cells);
-    const s2 = e;
-    const e2 = findLine(lines, /^\s*\* Premiums for Area 4 and Annual Cover are inclusive of 8% Service Tax\.\s*$/, s2, 'ATT tax note');
-    findLine(lines, /^\s+AREA 1\s+AREA 2 & 3\s*$/, s2, 'ATT annual area header');
-    const first2 = findLine(lines, /^\s+Insured(\s|$)/, s2, 'ATT annual first row');
-    typeRows(lines, first2, e2, 'alternative transport top-up annual cover', page,
-      cross(['AREA 1', 'AREA 2 & 3'], plans), ['Insured Only'], cells);
+    const s = findLine(lines, /^\s+SINGLE TRIP PREMIUM\s*$/, 0, 'ATT single');
+    const e = findLine(lines, /^\s+ANNUAL COVER PREMIUM\*\s*$/, s, 'ATT annual');
+    let h = expectHeader(lines, s, H_ADDON3, 'alternative transport top-up single trip');
+    typeRows(lines, h + 1, e, 'alternative transport top-up single trip', page, cross(['AREA 1', 'AREA 2 & 3', 'AREA 4'], PLAN123), TYPES, cells);
+    const e2 = findLine(lines, TAX_BOTH, e, 'ATT tax note');
+    h = expectHeader(lines, e, H_ADDON2, 'alternative transport top-up annual cover');
+    typeRows(lines, h + 1, e2, 'alternative transport top-up annual cover', page, cross(['AREA 1', 'AREA 2 & 3'], PLAN123), ['Insured Only'], cells);
   }
 
-  // Add-on: Cruise Benefit (per cruise trip).
+  // Add-on: Cruise Benefit (per cruise trip). Type label sits on the middle (Area 2) line of each group.
   {
     const page = 18;
     const lines = P(page);
@@ -145,7 +167,6 @@ export function extract(srcDir) {
         if (!/^Area \d$/.test(t[0] ?? '')) throw new Error(`[${table}] unrecognised line: ${JSON.stringify(lines[i])}`);
         got.push([type, t[0], t.slice(1)]);
       }
-      // Type label sits on the middle (Area 2) line of each group of three.
       if (got.length % 3) throw new Error(`[${table}] ${got.length} area lines, not a multiple of 3`);
       let prev = null;
       for (let k = 0; k < got.length; k += 3) {
@@ -158,10 +179,12 @@ export function extract(srcDir) {
       checkTable(cells, table, { rows, cols: cross(['Area 1', 'Area 2', 'Area 3'], plans) });
     };
     const s = findLine(lines, /^\s+PREMIUM PER CRUISE TRIP\s*$/, 0, 'cruise single');
+    const h = expectHeader(lines, s, ['TYPE AREAS PLAN 1 PLAN 2', '(RM) (RM)'], 'cruise single');
     const s2 = findLine(lines, /^\s+PREMIUM PER CRUISE TRIP FOR ANNUAL COVER\*\s*$/, s, 'cruise annual');
+    const h2 = expectHeader(lines, s2, ['AREAS PLAN 1 PLAN 2', '(RM) (RM)'], 'cruise annual');
     const e2 = findLine(lines, /^\s*\* Premiums for Annual Cover is inclusive of 8% Service Tax\.\s*$/, s2, 'cruise tax note');
-    areaRows(findLine(lines, /^\s+Area 1\s/, s) , s2, 'cruise benefit per cruise trip', ['Insured Only', 'Insured & Spouse', 'Family']);
-    areaRows(findLine(lines, /^\s+Area 1\s/, s2), e2, 'cruise benefit per cruise trip annual cover', ['Insured Only']);
+    areaRows(h + 1, s2, 'cruise benefit per cruise trip', TYPES);
+    areaRows(h2 + 1, e2, 'cruise benefit per cruise trip annual cover', ['Insured Only']);
     findLine(lines, /^\s*Golf Benefit\s*$/, e2, 'Golf Benefit heading (owner of page 19 tables)');
   }
 
@@ -171,18 +194,49 @@ export function extract(srcDir) {
     const lines = P(page);
     const inner = [...cross([B65], ['INSURED ONLY', 'INSURED & SPOUSE', 'FAMILY']), ...cross([A65], ['INSURED ONLY', 'INSURED & SPOUSE'])];
     const s = findLine(lines, /^\s+SINGLE TRIP PREMIUM\s*$/, 0, 'golf single');
-    const first = findLine(lines, /^\s+1 - 5 days\s/, s, 'golf first row');
-    const e = findLine(lines, /^\s+ANNUAL COVER PREMIUM\*\s*$/, first, 'golf annual');
-    areaGrouped(lines, first, e, 'golf benefit single trip', page, inner, ['Area 1-3', 'Area 4*'], cells);
-    const e2 = findLine(lines, /^\s*\* Premiums for Area 4 and Annual Cover are inclusive of 8% Service Tax\.\s*$/, e, 'golf tax note');
-    // Printed headers are "BELOW 65 YEARS OLD (RM)" and "65 - 80 YEARS OLD (RM)"; the unit is dropped.
-    findLine(lines, /^\s*TYPE\s+BELOW 65 YEARS OLD \(RM\)\s+65 - 80 YEARS OLD \(RM\)\s*$/, e, 'golf annual header');
-    const cols = [B65, A65];
-    for (let i = e + 1; i < e2; i++) {
-      const t = toks(lines[i]);
-      if (t[0] === 'Insured Only') pushRow(cells, { table: 'golf benefit annual cover', page, row: t[0], cols, values: t.slice(1) });
-    }
-    checkTable(cells, 'golf benefit annual cover', { rows: ['Insured Only'], cols });
+    const h = expectHeader(lines, s, [
+      'BELOW 65 YEARS OLD 65 - 80 YEARS OLD',
+      'TRAVEL INSURED INSURED & INSURED INSURED &',
+      'AREA FAMILY',
+      'DURATION ONLY SPOUSE ONLY SPOUSE',
+      '(RM)',
+      '(RM) (RM) (RM) (RM)',
+    ], 'golf benefit single trip');
+    const e = findLine(lines, /^\s+ANNUAL COVER PREMIUM\*\s*$/, h, 'golf annual');
+    areaGrouped(lines, h + 1, e, 'golf benefit single trip', page, inner, ['Area 1-3', 'Area 4*'], cells);
+    const e2 = findLine(lines, TAX_BOTH, e, 'golf tax note');
+    // Printed "BELOW 65 YEARS OLD (RM)" and "65 - 80 YEARS OLD (RM)"; the unit is dropped.
+    const h2 = expectHeader(lines, e, ['TYPE BELOW 65 YEARS OLD (RM) 65 - 80 YEARS OLD (RM)'], 'golf benefit annual cover');
+    typeRows(lines, h2 + 1, e2, 'golf benefit annual cover', page, [B65, A65], ['Insured Only'], cells);
+  }
+
+  // Add-on: Pet Benefit (file page 20). On the single-trip table one row of values is printed
+  // across the three insured types (one pet benefit per policy); it is written to each type.
+  // The Area 4 unit captions are printed "(RM)*"; the unit is dropped and the mark kept ("Plan 1*").
+  {
+    const page = 20;
+    const lines = P(page);
+    findLine(lines, /^\s*Pet Benefit\s*$/, 0, 'Pet Benefit heading');
+    const table = 'pet benefit single trip';
+    const s = findLine(lines, /^\s+SINGLE TRIP PREMIUM\s*$/, 0, table);
+    const h = expectHeader(lines, s, [
+      'AREA 1 AREA 2 & 3 AREA 4',
+      'TYPE',
+      'Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3',
+      '(RM) (RM) (RM) (RM) (RM) (RM) (RM)* (RM)* (RM)*',
+    ], table);
+    const e = findLine(lines, /^\s+ANNUAL COVER PREMIUM\*\s*$/, h, 'pet annual');
+    const body = lines.slice(h + 1, e).map(toks).filter((t) => t.length);
+    const shape = body.map((t) => t[0]).join('|');
+    if (shape !== 'Insured|Only|Insured|and Spouse|Family' || body[2].length !== 10)
+      throw new Error(`[${table}] expected one shared value row across Insured Only / Insured and Spouse / Family, got ${JSON.stringify(body)}`);
+    const cols = [...cross(['AREA 1', 'AREA 2 & 3'], PLAN123), ...cross(['AREA 4'], PLAN123.map((p) => `${p}*`))];
+    for (const row of ['Insured Only', 'Insured and Spouse', 'Family'])
+      pushRow(cells, { table, page, row, cols, values: body[2].slice(1) });
+    checkTable(cells, table, { rows: ['Insured Only', 'Insured and Spouse', 'Family'], cols });
+    const e2 = findLine(lines, TAX_BOTH, e, 'pet tax note');
+    const h2 = expectHeader(lines, e, H_ADDON2, 'pet benefit annual cover');
+    typeRows(lines, h2 + 1, e2, 'pet benefit annual cover', page, cross(['AREA 1', 'AREA 2 & 3'], PLAN123), ['Insured Only'], cells);
   }
   return { id, method: 'text', cells };
 }

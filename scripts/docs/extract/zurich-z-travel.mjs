@@ -1,10 +1,11 @@
 // Zurich Z-Travel Insurance (International) premium sheet, English, file pages 1 and 2.
 // Page 1: premium without Section G (Covid-19 benefits)
 // Page 2: additional premium for Section G (optional add-on, added to page 1)
-import { pageLines, pdf, toks, findLine, checkTable, pushRow, cross } from './lib.mjs';
+import { pageLines, pdf, toks, findLine, checkTable, pushRow, cross, expectHeader } from './lib.mjs';
 
 export const id = 'zurich-z-travel-international-premium-20250701';
 export const file = 'zurich-ztravel-premium.pdf';
+export const skipPages = { 3: 'Malay', 4: 'Malay' };
 
 const PLANS = ['Silver Plan', 'Gold Plan', 'Diamond Plan'];
 const TYPES = ['Individual', 'Individual & Spouse', 'Family', 'Senior'];
@@ -21,11 +22,19 @@ export function extract(srcDir) {
   for (const [page, table, headRe, printed] of PAGES) {
     const lines = pageLines(pdf(srcDir, file), page);
     const h = findLine(lines, headRe, 0, table);
-    findLine(lines, /^\s+Silver Plan\s+Gold Plan\s+Diamond Plan\s*$/, h, 'plan header');
+    // Insured types wrap: "Individual & Spouse" is split over three lines and its "(RM)" sits on a line of its own.
+    const hEnd = expectHeader(lines, h, [
+      'Silver Plan Gold Plan Diamond Plan',
+      'Travel Individual Individual Individual',
+      'Individual Family Senior Individual Family Senior Individual Family Senior',
+      'Duration & Spouse & Spouse & Spouse',
+      '(RM) (RM) (RM) (RM) (RM) (RM) (RM) (RM) (RM)',
+      '(RM) (RM) (RM)',
+    ], table);
     const end = findLine(lines, /^\s*Area of Travel:\s*$/, h, 'Area of Travel');
     findLine(lines, new RegExp(`/Premium/20250701\\s+${printed}\\s*$`), end, printed);
     let area = null;
-    for (let i = h + 1; i < end; i++) {
+    for (let i = hEnd + 1; i < end; i++) {
       const t = toks(lines[i]);
       if (!t.length) continue;
       if (t.length === 1 && /^Area \d$/.test(t[0])) {

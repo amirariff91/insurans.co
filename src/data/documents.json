@@ -44,7 +44,7 @@
       "pages": 2,
       "textLayer": true,
       "priceTable": "full",
-      "priceTablePages": { "file": [1, 2], "printed": null },
+      "priceTablePages": { "file": [1], "printed": null },
       "status": "live",
       "supersedes": "etiqa-onemedical-premium-table-until-may2026",
       "notes": "No date is printed; the product page labels this link \"effective 1st June 2026\" and the PDF was created on 1 May 2026."
@@ -68,7 +68,7 @@
       "pages": 2,
       "textLayer": true,
       "priceTable": "full",
-      "priceTablePages": { "file": [1, 2], "printed": null },
+      "priceTablePages": { "file": [1], "printed": null },
       "status": "replaced",
       "supersedes": null,
       "notes": "Still linked and loading; the product page labels it \"applicable until 31st May 2026\", the PDF was created on 27 Nov 2024, and it differs from the June 2026 table in the rows for ages 61, 66 and 80."
@@ -140,10 +140,10 @@
       "pages": 73,
       "textLayer": true,
       "priceTable": "full",
-      "priceTablePages": { "file": [12, 13, 14, 15, 16, 18, 19, 46, 48, 50, 51], "printed": ["11", "12", "13", "14", "15", "17", "18", "45", "47", "49", "50"] },
+      "priceTablePages": { "file": [12, 13, 14, 15, 16, 18, 19, 20, 46, 48, 50, 51, 52, 54, 55, 56], "printed": ["11", "12", "13", "14", "15", "17", "18", "19", "45", "47", "49", "50", "51", "53", "54", "55"] },
       "status": "live",
       "supersedes": null,
-      "notes": "Printed page numbers run one behind file pages; the base tables are file pages 12 to 15 (English) and 46, 48, 50, 51 (Malay), the rest are add-on tables, and only Area 4 and annual figures include 8% service tax."
+      "notes": "Printed page numbers run one behind file pages; the base tables are file pages 12 to 15 (English) and 46, 48, 50, 51 (Malay), the rest are add-on tables (Alternative Transport, Cruise, Golf, Pet), and only Area 4 and annual figures include 8% service tax."
     },
     {
       "id": "tune-protect-pa-shield-brochure-072025",

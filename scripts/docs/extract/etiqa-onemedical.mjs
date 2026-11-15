@@ -1,6 +1,6 @@
 // Etiqa OneMedical annual premium tables (two registered files, same layout).
 // Prices are on file page 1 only; file page 2 carries the notes.
-import { pageLines, pdf, toks, findLine, checkTable, pushRow } from './lib.mjs';
+import { pageLines, pdf, toks, findLine, checkTable, pushRow, expectHeader } from './lib.mjs';
 
 export const docs = [
   { id: 'etiqa-onemedical-premium-table-jun2026', file: 'etiqa-om-premium-jun2026.pdf' },
@@ -19,11 +19,19 @@ const RIGHT = 'annual premium RM1,000 deductible';
 function one({ id, file }, srcDir) {
   const page = 1;
   const lines = pageLines(pdf(srcDir, file), page);
-  findLine(lines, /^OneMedical - Table of Annual Premium Rates \(Male & Female\)\s*$/, 0, 'title');
-  findLine(lines, /^No Deductible\s+RM1,000 Deductible\s*$/, 0, 'two-table header');
-  const end = findLine(lines, /^\* Applicable for renewal only\.\s*$/, 0, 'footnote');
+  const title = findLine(lines, /^OneMedical - Table of Annual Premium Rates \(Male & Female\)\s*$/, 0, 'title');
+  // Left half = no deductible, right half = RM1,000 deductible, each Plan 1, 2, 3 in that order.
+  const h = expectHeader(lines, title, [
+    'No Deductible RM1,000 Deductible',
+    'Age Next Age Next',
+    'Plan 1 Plan 2 Plan 3 Plan 1 Plan 2 Plan 3',
+    'Birthday Birthday',
+    '(RM) (RM) (RM) (RM) (RM) (RM)',
+    '(ANB) (ANB)',
+  ], id);
+  const end = findLine(lines, /^\* Applicable for renewal only\.\s*$/, h, 'footnote');
   const cells = [];
-  for (let i = 0; i < end; i++) {
+  for (let i = h + 1; i < end; i++) {
     const t = toks(lines[i]);
     if (!/^\d+(\s?–\s?\d+)?\*?$/.test(t[0] ?? '')) continue;
     if (t.length !== 8 || t[4] !== t[0]) throw new Error(`[${id}] bad row: ${JSON.stringify(t)}`);
