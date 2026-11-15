@@ -146,6 +146,13 @@ const windscreenRange = windscreenMatch ? windscreenMatch[1] : model.windscreenP
 const windscreenRest = windscreenMatch ? windscreenMatch[2] : '';
 const modelYearNotes = isEnriched && Array.isArray(model.modelYearNotes) ? model.modelYearNotes : [];
 const addOnsDetail = isEnriched && Array.isArray(model.addOnsDetail) ? model.addOnsDetail : [];
+// Published add-on rates, shared by every model page and linked from the note in #addons (#nota-addon).
+// Not added to the EditorialStamp: a second copy of the labels raises sibling overlap for the ads gate.
+// Read 2026-11-15. Zurich PDS p3 (rate table); HSBC PDS p2 (premium example, RM150 on a RM1,000 windscreen, RM102 on RM51,000).
+const addOnRateSources = {
+  zurich: 'https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb-z-driver-pds-bm.pdf',
+  hsbc: 'https://hsbc.com.my/content/dam/hsbc/my/docs/motor-insurance-pds.pdf',
+};
 const modelFaqs = isEnriched && Array.isArray(model.modelFAQs) ? model.modelFAQs : [];
 const faqSchemaItems = modelFaqs.length > 0
   ? modelFaqs.map((faq: any) => ({ question: faq.q, answer: faq.a }))
@@ -229,7 +236,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             <li><div><b>Kebakaran</b></div></li>
           </ul>
           <p class="ix-s">Butiran sebenar bergantung pada polisi dan syarikat.</p>
-          <h3 class="rows-h">Kena tambah, setahun</h3>
+          <h3 class="rows-h">Kena tambah, setahun (anggaran)</h3>
           <ul class="rows">
             <li id="nota-banjir"><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
           </ul>
@@ -316,6 +323,9 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
               ))}
             </ul>
           )}
+          <p class="ix-s" id="nota-addon">Harga perlindungan tambahan {model.model} di halaman ini ialah anggaran kami. Ini bukan quotation (sebut harga).</p>
+          <p class="ix-s"><a href={addOnRateSources.zurich}>PDS Zurich Z-Driver bertarikh 15 Nov 2025</a> menyenaraikan kadar berikut untuk risiko standard. Windscreen cover: 15% daripada jumlah diinsuranskan cermin {model.model}. Special perils: 0.2% daripada jumlah diinsuranskan {model.model}.</p>
+          <p class="ix-s"><a href={addOnRateSources.hsbc}>Contoh PDS HSBC/Allianz</a>, sah pada 1 Jan 2026, menghasilkan peratus yang sama melalui kiraan. Kadar sebenar bergantung pada penilaian risiko syarikat. Semak quotation {model.model} anda.</p>
         </div>
       </section>
 

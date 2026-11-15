@@ -919,6 +919,435 @@
         "RM15,000"
       ],
       "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026). The directory row shows the MPE deductible via standoutFeature."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/bmw\\-3\\-series/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/bmw\\-x1/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-brv/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-city/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-civic/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-crv/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-hrv/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda\\-jazz/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/hyundai\\-elantra/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/hyundai\\-tucson/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/kia\\-sportage/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mazda\\-2/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mazda\\-3/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mazda\\-cx5/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mercedes\\-c\\-class/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mercedes\\-glb/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mitsubishi\\-triton/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/mitsubishi\\-xpander/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/nissan\\-almera/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/nissan\\-navara/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/perodua\\-alza/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/perodua\\-ativa/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/perodua\\-axia/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/perodua\\-bezza/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/perodua\\-myvi/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-exora/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-iriz/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-persona/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-saga/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-x50/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/proton\\-x70/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/suzuki\\-swift/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-corolla/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-corolla\\-cross/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-hilux/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-raize/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-veloz/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-vios/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota\\-yaris/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note (#nota-addon, 15 Nov 2026) beside the site's add-on estimates. Zurich Z-Driver PDS of 15 Nov 2025 p3 lists, for standard risks, windscreen cover at 15% of the windscreen sum insured and special perils at 0.2% of the vehicle sum insured; the HSBC/Allianz PDS example (valid 1 Jan 2026) works out to the same percentages (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
     }
   ]
 }
