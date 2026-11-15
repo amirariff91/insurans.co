@@ -15,7 +15,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:site": "node scripts/checks/run.mjs",
-    "check:site:static": "node scripts/checks/run.mjs --static"
+    "check:site:static": "node scripts/checks/run.mjs --static",
+    "docs:validate": "node scripts/docs/validate-register.mjs",
+    "docs:watch": "node scripts/docs/watch.mjs",
+    "docs:extract": "node scripts/docs/extract/run.mjs",
+    "docs:compare": "node scripts/docs/extract/compare.mjs"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.6",
