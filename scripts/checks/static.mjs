@@ -197,7 +197,11 @@ export function adsIndexing(dist, baseline, pages) {
     if (noindex && sitemap.has(url)) r.fails.push({ page: url, check: 'noindex page in sitemap', source: 'astro.config.mjs (sitemap filter)' });
     if (!noindex && !sitemap.has(url)) r.fails.push({ page: url, check: 'indexable page missing from sitemap', source: 'astro.config.mjs (sitemap filter)' });
   }
-  for (const u of baseAds) if (!curAds.has(u)) r.fails.push({ page: u, check: 'AdSense no longer loads (baseline loads it)', source: 'src/layouts/Base.astro / ads gate' });
+  // Pages where ads were switched off on purpose since the baseline (exact URLs, each with a reason).
+  const adsOffFile = new URL('./ads-changes.json', import.meta.url);
+  const adsOff = new Map((fs.existsSync(adsOffFile) ? JSON.parse(fs.readFileSync(adsOffFile, 'utf8')).removed : []).map((e) => [e.url, e]));
+  for (const u of baseAds) if (!curAds.has(u) && !adsOff.has(u)) r.fails.push({ page: u, check: 'AdSense no longer loads (baseline loads it)', source: 'src/layouts/Base.astro / ads gate' });
+  for (const u of adsOff.keys()) if (curAds.has(u) || !baseAds.has(u)) r.fails.push({ page: u, check: 'stale entry in ads-changes.json (page loads ads, or never did)', source: 'scripts/checks/ads-changes.json' });
   for (const u of curAds) if (!baseAds.has(u)) r.fails.push({ page: u, check: 'AdSense now loads (baseline does not)', source: 'src/layouts/Base.astro / ads gate' });
   r.info = `AdSense pages: baseline ${baseAds.size}, current ${curAds.size}; sitemap URLs ${sitemap.size}`;
   return r;
