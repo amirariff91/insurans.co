@@ -207,7 +207,8 @@ The old names stay so the templates keep working, but each is only an alias of o
 | Name | Resolves to |
 |---|---|
 | CSS `--card`, `--tray`, `--mark`, `--tint-pink`, `--tint-yellow`, `--tint-sky`, `--glass`, `--glass-t`, `--glass-rim`, `--glass-spec` | paper |
-| CSS `--chip`, `--glass-edge` | line |
+| CSS `--chip` | line |
+| CSS `--glass-edge` (the edge of the tab capsule and the phone dock) | mute |
 | CSS `--ink-2`, `--rule`, `--ghost` | mute |
 | CSS `--rule-strong`, `--link`, `--red`, `--focus`, `--mark-ink` | ink |
 | CSS `--kick`, `--sel`, `--knob` | magenta |
@@ -437,5 +438,3 @@ The Edisi concept is `docs/eeat-revamp-2026-11/round4/concepts/edisi/system.md` 
 10. **Middle-dot meta strings remain** in `CarPhoto.astro` (name card), `ModelAnswer.astro`, `HomeAnswer.astro` and `ToolsRail.astro`, against the do-not list.
 11. **A decorative text arrow remains** in `src/pages/motorcycle-insurance/index.astro` (the roadtax calculator link). Other arrows in prose mean "leads to" inside a sentence.
 12. **14px floor:** the plan-card column labels (`table.plan-table > tbody > tr > td::before`) are 0.875rem (14px), at the floor. They are CSS generated content, which check 6 may not measure.
-13. **The NCD ladder lost its highlight.** The chosen row in `.work` is filled with `--mark`, now an alias of paper, so the reader's row no longer stands out. Not recorded as a rule; it needs an ink row or a 2px ink rule like the rail's current model.
-14. **Dead glass code.** `SiteHeader.astro` and `Dock.astro` still carry `@supports (backdrop-filter)` blocks; they now only set `backdrop-filter: none` and a paper background.

@@ -10,6 +10,10 @@ Rewrites, in src/styles/*.css and every <style> block in src/**/*.astro:
   box-shadow                      -> rings only (no blurred or offset shadows)
   backdrop-filter                 -> removed
 Values inside calc()/clamp()/var()/min()/max() are left alone and reported.
+Limits of --check: it only knows the patterns above. It does not see Tailwind classes, named or hsl()
+colours, em sizes, custom properties that hold lengths, filter: drop-shadow(), display sizes over 40px,
+or a declaration that follows a comment on the same line. The rendered audit (every page, both widths)
+is the real test; this is a guard against the common drift.
 Run:  python3 scripts/design/snap-tokens.py [--check]
 """
 import re, sys, pathlib, colorsys

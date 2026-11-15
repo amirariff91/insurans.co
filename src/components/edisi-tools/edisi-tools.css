@@ -29,13 +29,13 @@
 .et input[type="number"]:focus-visible, .et input[type="text"]:focus-visible, .et select:focus-visible {
   outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--kick); box-shadow: none;
 }
-/* A value the field refuses: a thicker ink ring after the reader has left or submitted the field (:user-invalid),
+/* A value the field refuses: a thicker ink ring only where the page has marked the field (aria-invalid) and says why,
    never on load. The ring is the non-colour cue; the words come from the browser or the message under the field.
    Inset box-shadow, so nothing moves. */
-.et :is(input[type="number"], input[type="text"], select):is(:user-invalid, [aria-invalid="true"]) { box-shadow: inset 0 0 0 2px var(--ink); }
+.et :is(input[type="number"], input[type="text"], select)[aria-invalid="true"] { box-shadow: inset 0 0 0 2px var(--ink); }
 /* The RM box carries the ring for its borderless input (own rule: a browser without :has() keeps the one above). */
-.et .rm:has(input:user-invalid) { box-shadow: inset 0 0 0 2px var(--ink); }
-.et .rm input:is(:user-invalid, [aria-invalid="true"]) { box-shadow: none; }
+.et .rm:has(input[aria-invalid="true"]) { box-shadow: inset 0 0 0 2px var(--ink); }
+.et .rm input[aria-invalid="true"] { box-shadow: none; }
 .et label, .et legend { color: var(--ink); }
 .et label.flex { border: 1.5px solid var(--rule); border-radius: var(--r-1); background: var(--card); min-height: 2.75rem; cursor: pointer; }
 .et label.flex:has(input:checked) { border-color: var(--kick); box-shadow: inset 0 0 0 1px var(--kick); font-weight: 600; color: var(--ink); }

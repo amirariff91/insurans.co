@@ -117,6 +117,7 @@
   color-scheme: light;
   /* The five colour tokens. Every other colour name below is an alias of one of them. */
   --paper: #FFFFFF; --ink: #000000; --mute: #595959; --line: #DADADA; --magenta: #D0106F;
+  --measure: 44rem;
   --card: var(--paper); --tray: var(--paper); --chip: var(--line);
   --ink-2: var(--mute); --rule: var(--mute); --rule-strong: var(--ink);
   --kick: var(--magenta); --kick-ink: var(--paper); --sel: var(--magenta); --sel-ink: var(--paper);
@@ -125,7 +126,7 @@
   --tint-pink: var(--paper); --tint-yellow: var(--paper); --tint-sky: var(--paper);
   --focus: var(--ink); --focus-on-dark: var(--paper);
   --glass: var(--paper); --glass-t: var(--paper);
-  --glass-edge: var(--line); --glass-rim: var(--paper); --glass-spec: var(--paper);
+  --glass-edge: var(--mute); --glass-rim: var(--paper); --glass-spec: var(--paper);
   --shade: 0 0 0;
   --r-1: 8px; --r-2: 8px; --r-pill: 999px;
   --fd: 'Gabarito', 'Gabarito Fallback', 'Gabarito Fallback Android', system-ui, sans-serif;
@@ -237,7 +238,7 @@
   .container-article {
     @apply max-w-6xl mx-auto px-5 sm:px-6;
   }
-  .container-article > * { max-width: 72ch; }
+  .container-article.container-article > * { max-width: var(--measure); }
 
   .container-wide {
     @apply max-w-6xl mx-auto px-5 sm:px-6;
@@ -946,35 +947,17 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
  *   2px ink    = a section start, a table head, the yearly total;
  *   1px line   = dividers inside a module;  1px mute = the edge of a control or module.
  * Side rails never invert: they are navigation, and the main column carries the answer. */
-.ea-sum { box-shadow: none; border: 2px solid var(--ink); }
-.mlist a[aria-current="page"] { background: var(--ink); color: var(--paper); }
-.mlist a[aria-current="page"] .mp { color: var(--paper); }
 .pa-r[data-role="price"] .pa-v, .pa-r[data-role="term"] .pa-v,
 .pa-lead[data-role="price"], .pa-lead[data-role="term"] { background: none; font-weight: 600; }
-.ep-tools .mod-bar, .ep-tools .ix-bar, .ep-models .mod-bar, .ep-models .ix-bar, aside .mod-bar {
-  background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid var(--line);
-}
 /* The first section sits right under the page opening: the container's own padding is the gap. */
 .prose-editorial > h2:first-child, .prose-editorial > :first-child > h2:first-child { margin-top: 0; }
 /* Guide illustrations are drawn in their own colours; on the page they read as ink, like the car photos. */
 img[src^="/images/guides/"] { filter: grayscale(1); }
 code { font-size: 0.875rem; }
 main a:not([class]) { color: var(--link); }
-/* Reading measure: prose never runs wider than 72ch, whatever container it sits in. */
-.prose-editorial > :where(p, ul, ol, h3, h4, blockquote) { max-width: 72ch; }
-/* The yearly total: the row the reader came for. */
-.kb-r.kb-tot { background: none; border-top: 2px solid var(--ink); font-weight: 600; }
-.kb-r.kb-tot { border-radius: 0; margin-inline: 0; padding-inline: 0; }
-/* The reader's NCD row in the working table is an ink row, like the current model in the rail. */
-.work tr .yrs { color: inherit; }
-
-/* Windows high contrast (forced colours): fills and rings are dropped there, so the states that rely on
-   them get system colours. The reader's current choice is a Highlight fill; outlined buttons keep an edge. */
-@media (forced-colors: active) {
-  .mlist a[aria-current="page"] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
-  .mlist a[aria-current="page"] .mp { color: HighlightText; }
-  .ea-btn, .btn-outline, .type-chips a, .tk-chip, .ea-mark { border: 1px solid CanvasText; }
-  .overflow-x-auto:has(> table)::before, .overflow-x-auto:has(> table)::after { background: CanvasText; }
-}
+/* Reading measure: one width in rem (ch would differ with each child's font size), whatever the container. */
+.prose-editorial > :where(p, ul, ol, h2, h3, h4, blockquote, details, [class*="note-"], .info-box) { max-width: var(--measure); }
 /* A date never breaks across lines: with the fallback font it wrapped and moved the page when Figtree arrived. */
 time { white-space: nowrap; }
+/* A centred page (404): capped children stay centred. */
+.container-article.text-center > * { margin-inline: auto; }

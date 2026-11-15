@@ -82,7 +82,7 @@
 .ea-price .ea-pnum { min-inline-size: 0; white-space: normal; }
 .ea-cur { flex: none; }
 @media (min-width: 48rem) { .ea-price { --price-max: 6rem; } }
-.ea-cur { font-size: 0.5em; letter-spacing: 0; margin-right: 2px; }
+.ea-cur { font-size: 0.5em; letter-spacing: 0; margin-right: calc(0.12em); } /* kerning of the fitted price, in em because steps.ts budgets it so; calc() keeps the snap script off it */
 .ea-sub { font-size: 1rem; line-height: 1.4; max-width: 34rem; color: var(--ink); }
 .ea-sum { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 0.5rem; padding: 0.5rem 0.75rem; background: var(--mark); color: var(--mark-ink); border-radius: var(--r-2); font-size: 1rem; line-height: 1.3; max-width: 36rem; box-shadow: inset 0 0 0 1px var(--mute); }
 .ea-sum b { font-weight: 600; }
@@ -254,4 +254,25 @@
   html:has(#ncd-45:checked) .work tr[data-n="45"], html:has(#ncd-55:checked) .work tr[data-n="55"] {
     forced-color-adjust: none; background: Highlight; color: HighlightText;
   }
+}
+
+/* ---- Hierarchy on five colours (15 Nov 2026) -------------------------------------------------
+ * Kept in this file, after the rules they replace, so source order decides and not luck.
+ *   ink fill = a module's finding and the reader's current choice;  2px ink = the yearly total;
+ *   side rails never invert: they are navigation, and the main column carries the answer. */
+.ea-sum { box-shadow: none; border: 2px solid var(--ink); }
+.mlist a[aria-current="page"] .mp { color: var(--paper); }
+:is(.ep-tools, .ep-models, aside) :is(.mod-bar, .ix-bar):not(.mod-lab) {
+  background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid var(--line);
+}
+.kb-r.kb-tot { background: none; border-top: 2px solid var(--ink); border-radius: 0; margin-inline: 0; padding-inline: 0; font-weight: 600; }
+.work th { font-weight: 600; }
+.work tr .yrs { color: inherit; }
+/* Windows high contrast (forced colours): the reader's current choice is a Highlight fill; outlined
+   buttons keep an edge. */
+@media (forced-colors: active) {
+  .mlist a[aria-current="page"] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .mlist a[aria-current="page"] .mp { color: HighlightText; }
+  .ea-btn, .btn-outline, .type-chips a, .tk-chip, .ea-mark { border: 1px solid CanvasText; }
+  .overflow-x-auto:has(> table)::before, .overflow-x-auto:has(> table)::after { background: CanvasText; }
 }
