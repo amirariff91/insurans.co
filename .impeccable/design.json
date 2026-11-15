@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-14T21:29:58+00:00",
+  "generatedAt": "2026-11-15T17:48:54+00:00",
   "title": "Design System: Insurans.co (Edisi)",
   "extensions": {
     "colorMeta": {
@@ -17,112 +17,8 @@
           "#E370A9",
           "#F1B7D4",
           "#FAE7F1"
-        ]
-      },
-      "magenta-deep": {
-        "role": "primary",
-        "displayName": "Deep Magenta",
-        "canonical": "#A50C58",
-        "tonalRamp": [
-          "#32041A",
-          "#52062C",
-          "#74083E",
-          "#8C0A4B",
-          "#A50C58",
-          "#C96D9B",
-          "#E4B6CD",
-          "#F6E7EE"
-        ]
-      },
-      "magenta-light": {
-        "role": "primary",
-        "displayName": "Light Magenta (legacy hijau-400)",
-        "canonical": "#E0559B",
-        "tonalRamp": [
-          "#431A2E",
-          "#702A4E",
-          "#9D3C6C",
-          "#BE4884",
-          "#E0559B",
-          "#EC99C3",
-          "#F6CCE1",
-          "#FCEEF5"
-        ]
-      },
-      "pink": {
-        "role": "secondary",
-        "displayName": "Price Pink",
-        "canonical": "#FBD3E4",
-        "tonalRamp": [
-          "#4B3F44",
-          "#7E6A72",
-          "#B094A0",
-          "#D5B3C2",
-          "#FBD3E4",
-          "#FDE5EF",
-          "#FEF2F7",
-          "#FFFBFC"
-        ]
-      },
-      "pink-pale": {
-        "role": "secondary",
-        "displayName": "Pale Pink (legacy hijau-50)",
-        "canonical": "#FDEDF4",
-        "tonalRamp": [
-          "#4C4749",
-          "#7E767A",
-          "#B1A6AB",
-          "#D7C9CF",
-          "#FDEDF4",
-          "#FEF4F8",
-          "#FEFAFC",
-          "#FFFDFE"
-        ]
-      },
-      "yellow": {
-        "role": "secondary",
-        "displayName": "Total Yellow",
-        "canonical": "#FFF3B0",
-        "tonalRamp": [
-          "#4C4935",
-          "#807A58",
-          "#B2AA7B",
-          "#D9CF96",
-          "#FFF3B0",
-          "#FFF8D0",
-          "#FFFBE7",
-          "#FFFEF7"
-        ]
-      },
-      "sky": {
-        "role": "secondary",
-        "displayName": "Explanation Blue",
-        "canonical": "#CFE8FA",
-        "tonalRamp": [
-          "#3E464B",
-          "#68747D",
-          "#91A2AF",
-          "#B0C5D4",
-          "#CFE8FA",
-          "#E2F1FC",
-          "#F1F8FE",
-          "#FAFDFE"
-        ]
-      },
-      "red": {
-        "role": "tertiary",
-        "displayName": "Warning Red",
-        "canonical": "#B8291E",
-        "tonalRamp": [
-          "#370C09",
-          "#5C140F",
-          "#811D15",
-          "#9C231A",
-          "#B8291E",
-          "#D47F78",
-          "#EABFBC",
-          "#F8EAE8"
-        ]
+        ],
+        "note": "The one action and the chosen state. Text on it is paper. The ramp is for display only; only #D0106F is a token."
       },
       "ink": {
         "role": "neutral",
@@ -131,202 +27,164 @@
         "tonalRamp": [
           "#000000",
           "#1A1A1A",
-          "#2B2B2B",
-          "#4A4A4A",
+          "#333333",
           "#595959",
-          "#6B6B6B",
-          "#949494",
-          "#DADADA"
-        ]
+          "#808080",
+          "#A6A6A6",
+          "#DADADA",
+          "#FFFFFF"
+        ],
+        "note": "Text, title bars, 2px rules, the current choice, focus."
       },
-      "ink-2": {
+      "mute": {
         "role": "neutral",
-        "displayName": "Ink 2",
-        "canonical": "#4A4A4A",
-        "tonalRamp": [
-          "#161616",
-          "#252525",
-          "#343434",
-          "#3F3F3F",
-          "#4A4A4A",
-          "#929292",
-          "#C9C9C9",
-          "#EDEDED"
-        ]
-      },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Rule",
-        "canonical": "#767676",
-        "tonalRamp": [
-          "#232323",
-          "#3B3B3B",
-          "#535353",
-          "#646464",
-          "#767676",
-          "#ADADAD",
-          "#D6D6D6",
-          "#F1F1F1"
-        ]
-      },
-      "ghost": {
-        "role": "neutral",
-        "displayName": "Ghost",
-        "canonical": "#949494",
-        "tonalRamp": [
-          "#2C2C2C",
-          "#4A4A4A",
-          "#686868",
-          "#7E7E7E",
-          "#949494",
-          "#BFBFBF",
-          "#DFDFDF",
-          "#F4F4F4"
-        ]
-      },
-      "placeholder": {
-        "role": "neutral",
-        "displayName": "Placeholder",
+        "displayName": "Mute",
         "canonical": "#595959",
         "tonalRamp": [
-          "#1B1B1B",
-          "#2C2C2C",
-          "#3E3E3E",
-          "#4C4C4C",
+          "#000000",
+          "#1A1A1A",
+          "#333333",
           "#595959",
-          "#9B9B9B",
-          "#CDCDCD",
-          "#EEEEEE"
-        ]
+          "#808080",
+          "#A6A6A6",
+          "#DADADA",
+          "#FFFFFF"
+        ],
+        "note": "Secondary text and the edge of a control or module. 7.0:1 on paper."
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#DADADA",
+        "tonalRamp": [
+          "#000000",
+          "#1A1A1A",
+          "#333333",
+          "#595959",
+          "#808080",
+          "#A6A6A6",
+          "#DADADA",
+          "#FFFFFF"
+        ],
+        "note": "Hairlines, unchosen and hover fills. Never text. 1.4:1 on paper."
       },
       "paper": {
         "role": "neutral",
         "displayName": "Paper",
         "canonical": "#FFFFFF",
         "tonalRamp": [
-          "#4C4C4C",
+          "#000000",
+          "#1A1A1A",
+          "#333333",
+          "#595959",
           "#808080",
-          "#B2B2B2",
-          "#D9D9D9",
-          "#FFFFFF",
-          "#FFFFFF",
-          "#FFFFFF",
-          "#FFFFFF"
-        ]
-      },
-      "tray": {
-        "role": "neutral",
-        "displayName": "Tray",
-        "canonical": "#F3F3F3",
-        "tonalRamp": [
-          "#494949",
-          "#7A7A7A",
-          "#AAAAAA",
-          "#CFCFCF",
-          "#F3F3F3",
-          "#F8F8F8",
-          "#FBFBFB",
-          "#FEFEFE"
-        ]
-      },
-      "chip": {
-        "role": "neutral",
-        "displayName": "Chip",
-        "canonical": "#E9E9E9",
-        "tonalRamp": [
-          "#464646",
-          "#747474",
-          "#A3A3A3",
-          "#C6C6C6",
-          "#E9E9E9",
-          "#F2F2F2",
-          "#F8F8F8",
-          "#FDFDFD"
-        ]
-      },
-      "hairline-grey": {
-        "role": "neutral",
-        "displayName": "Hairline Grey",
-        "canonical": "#DADADA",
-        "tonalRamp": [
-          "#414141",
-          "#6D6D6D",
-          "#999999",
-          "#B9B9B9",
+          "#A6A6A6",
           "#DADADA",
-          "#E9E9E9",
-          "#F4F4F4",
-          "#FBFBFB"
-        ]
+          "#FFFFFF"
+        ],
+        "note": "The page and every surface."
       }
     },
     "typographyMeta": {
       "price": {
         "displayName": "Price",
-        "purpose": "The yearly price in the answer block (.ea-price); fitted to 96cqi, capped 4.5rem phones, 6rem from 48rem."
+        "purpose": "The fitted yearly price (.ea-price); the one fluid size, floor 1.25rem, cap 4.5rem on phones and 6rem from 48rem."
       },
       "headline": {
-        "displayName": "H1 (.ea-h1)",
-        "purpose": "The one H1 size, phones."
+        "displayName": "Headline (H1, phones)",
+        "purpose": "Every page H1, .ea-h1, 28px."
       },
       "headline-desktop": {
-        "displayName": "H1 (.ea-h1) from 48rem",
-        "purpose": "The one H1 size, 48rem and up."
+        "displayName": "Headline (H1, from 48rem)",
+        "purpose": ".ea-h1 at 36px."
       },
       "section": {
-        "displayName": "Prose H2",
-        "purpose": "H2 in running prose without title bars."
+        "displayName": "Section",
+        "purpose": "Prose H2 under a 2px ink rule, and H3, 22px."
       },
       "title-bar": {
         "displayName": "Title bar",
-        "purpose": ".mod-bar, .ix-bar, .h2-bar; 1.25rem in .et-bar-t."
-      },
-      "body": {
-        "displayName": "Prose",
-        "purpose": ".prose-editorial body text."
-      },
-      "body-ui": {
-        "displayName": "UI text",
-        "purpose": "Module bodies, rails, controls."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Labels, source lines, captions, photo credits; the 14px floor."
-      },
-      "small": {
-        "displayName": "Small",
-        "purpose": "Rail rows, tables, plan cards, chips, footer small print (15px)."
+        "purpose": ".mod-bar, .ix-bar: a module finding, 18px."
       },
       "title-bar-tool": {
         "displayName": "Calculator title bar",
-        "purpose": ".et-bar-t and the yearly total figure."
+        "purpose": ".et-bar-t, 22px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Article prose, 18px, 72ch measure."
+      },
+      "body-ui": {
+        "displayName": "Body UI",
+        "purpose": "Module and UI text, 16px."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Tables, byline, breadcrumbs, notes under the answer, 14px (the floor)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Labels, source lines, captions, 14px at 600."
       }
+    },
+    "scales": {
+      "spacingPx": [
+        2,
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ],
+      "typePx": [
+        14,
+        16,
+        18,
+        22,
+        28,
+        36
+      ],
+      "fontWeights": [
+        400,
+        600,
+        800
+      ],
+      "radii": [
+        "4px",
+        "8px",
+        "999px"
+      ],
+      "check": "python3 scripts/design/snap-tokens.py --check"
     },
     "shadows": [
       {
-        "name": "lifted-pane",
-        "value": "0 12px 28px -14px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(0 0 0 / 0.16)",
-        "purpose": "Tailwind shadow-hard; the few lifted surfaces."
+        "name": "edge-ring",
+        "value": "0 0 0 1px var(--mute)",
+        "purpose": "Tailwind shadow-hard; every other shadow-* is none."
       },
       {
-        "name": "glass-capsule",
-        "value": "0 0 0 1px rgb(0 0 0 / 0.16), 0 12px 28px -14px rgb(0 0 0 / 0.5), inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 0 0 1px rgb(255 255 255 / 0.85)",
-        "purpose": "Desktop section tabs and the phone dock; blur(16px) saturate(180%) where supported (tabs from 70rem), solid --glass white otherwise, solid card with prefers-reduced-transparency or prefers-contrast: more."
+        "name": "control-ring",
+        "value": "inset 0 0 0 1.5px var(--ink)",
+        "purpose": "Outline buttons (2px on .ea-btn-o), marker pill, home tiles, hovered unchosen NCD bar."
       },
       {
-        "name": "menu-drop",
-        "value": "0 12px 24px -12px rgb(0 0 0 / 0.4)",
-        "purpose": "No-JavaScript phone menu panel."
-      },
-      {
-        "name": "total-inset",
-        "value": "inset 0 0 0 1px rgb(0 0 0 / 0.35)",
-        "purpose": "Yellow yearly total band (.ea-sum)."
+        "name": "capsule-edge",
+        "value": "0 0 0 1px var(--line)",
+        "purpose": "Section tabs and phone dock on solid paper; 1.5px ink with prefers-reduced-transparency or prefers-contrast: more."
       },
       {
         "name": "knob-ring",
-        "value": "0 0 0 2.5px #FFFFFF, 0 0 0 4px #000000",
+        "value": "0 0 0 2.5px var(--paper), 0 0 0 4px var(--ink)",
         "purpose": "NCD knob (.ea-knob::after)."
+      },
+      {
+        "name": "focus-inner",
+        "value": "0 0 0 2px var(--paper)",
+        "purpose": "Under the 3px ink focus outline on buttons and inputs."
       }
     ],
     "motion": [
@@ -341,14 +199,19 @@
         "purpose": ".tick on repriced figures; 120ms opacity fade under reduced motion."
       },
       {
-        "name": "knob-slide",
-        "value": "180ms",
-        "purpose": ".ea-knob between NCD stops."
-      },
-      {
         "name": "logo-knob",
         "value": "220ms",
         "purpose": ".ins-knob rising per stop."
+      },
+      {
+        "name": "dock-slide",
+        "value": "200ms",
+        "purpose": "Phone dock sliding in."
+      },
+      {
+        "name": "knob-slide",
+        "value": "180ms",
+        "purpose": ".ea-knob between NCD stops."
       },
       {
         "name": "state",
@@ -374,7 +237,7 @@
         "value": "1024px"
       },
       {
-        "name": "glass-sticky",
+        "name": "tabs-sticky",
         "value": "70rem"
       },
       {
@@ -388,89 +251,123 @@
       "name": "Main Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Magenta, white text; one per screen (.btn-hijau, .ea-btn-p).",
+      "description": "Magenta, paper text; one per screen (.btn-hijau, .ea-btn-p). Hover turns ink.",
       "html": "<a class=\"ds-btn-p\" href=\"#\">Dapatkan quotation</a>",
-      "css": ".ds-btn-p{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;border-radius:8px;border:1.5px solid #D0106F;background:#D0106F;color:#fff;font:700 1.0625rem/1.2 Gabarito,system-ui,sans-serif;text-decoration:none;transition:background-color 150ms ease-out}.ds-btn-p:hover{background:#A50C58;border-color:#A50C58}.ds-btn-p:focus-visible{outline:3px solid #000;outline-offset:2px}"
+      "css": ".ds-btn-p{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 16px;border-radius:8px;background:#D0106F;color:#FFFFFF;font:600 1.125rem/1.2 Gabarito,system-ui,sans-serif;text-decoration:none;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-btn-p:hover{background:#000000}.ds-btn-p:focus-visible{outline:3px solid #000000;outline-offset:2px;box-shadow:0 0 0 2px #FFFFFF}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Second action (.btn-outline, .ea-btn-o).",
-      "html": "<a class=\"ds-btn-o\" href=\"#\">Kira NCD</a>",
-      "css": ".ds-btn-o{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:8px;border:1.5px solid #000;background:#fff;color:#000;font:600 1rem/1.5 Figtree,system-ui,sans-serif;text-decoration:none;transition:background-color 150ms ease-out,color 150ms ease-out}.ds-btn-o:hover{background:#000;color:#fff}.ds-btn-o:focus-visible{outline:3px solid #000;outline-offset:2px}"
+      "description": "Every second action (.ea-btn-o); hover is a line fill.",
+      "html": "<a class=\"ds-btn-o\" href=\"#\">Kira semula</a>",
+      "css": ".ds-btn-o{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 16px;border-radius:8px;background:#FFFFFF;color:#000000;box-shadow:inset 0 0 0 2px #000000;font:600 1.125rem/1.2 Gabarito,system-ui,sans-serif;text-decoration:none;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-btn-o:hover{background:#DADADA}.ds-btn-o:focus-visible{outline:3px solid #000000;outline-offset:2px}"
     },
     {
-      "name": "Answer Box",
+      "name": "Module with Finding Bar",
       "kind": "card",
-      "refersTo": "title-bar",
-      "description": "PageAnswer: black finding bar, then any of an optional lead numeral (.pa-lead), one sentence (.pa-sent) and label/value rows (.pa-rows).",
-      "html": "<section class=\"ds-mod\"><p class=\"ds-bar\">Diskaun 55% potong lebih separuh harga</p><dl class=\"ds-rows\"><div class=\"ds-r\"><dt>Anggaran setahun</dt><dd><span class=\"ds-v ds-price\">RM1,060 – RM1,400</span></dd></div><div class=\"ds-r\"><dt>Had NCD</dt><dd><span class=\"ds-v ds-term\">55%</span></dd></div></dl></section>",
-      "css": ".ds-mod{max-width:40rem;border:1px solid #767676;border-radius:8px;overflow:clip;background:#fff;font-family:Figtree,system-ui,sans-serif;color:#000}.ds-bar{margin:0;display:flex;align-items:center;min-height:3rem;padding:.55rem .9rem;background:#000;color:#fff;font:800 1.125rem/1.2 Gabarito,system-ui,sans-serif}.ds-rows{margin:0;padding:.35rem .9rem .5rem}.ds-r{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.15rem 1rem;padding:.55rem 0;border-bottom:1px solid rgb(0 0 0/.2)}.ds-r:last-child{border-bottom:0}.ds-r dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}.ds-v{display:inline-block;padding:.1rem .45rem;border-radius:6px}.ds-price{background:#FBD3E4}.ds-term{background:#FFF3B0}"
+      "refersTo": "module",
+      "description": "The one inverted surface: an ink bar that states the module finding.",
+      "html": "<section class=\"ds-mod\"><p class=\"ds-mod-bar\">Harga ini lindung 4 perkara. Banjir tak termasuk.</p><div class=\"ds-mod-in\"><p>Kemalangan, kecurian, kebakaran dan pihak ketiga.</p></div></section>",
+      "css": ".ds-mod{border:1px solid #595959;border-radius:8px;overflow:clip;background:#FFFFFF;max-width:40rem}.ds-mod-bar{display:flex;align-items:center;min-height:48px;margin:0;padding:8px 16px;background:#000000;color:#FFFFFF;font:800 1.125rem/1.2 Gabarito,system-ui,sans-serif}.ds-mod-in{padding:16px;font:400 1rem/1.5 Figtree,system-ui,sans-serif;color:#000000}.ds-mod-in p{margin:0}"
     },
     {
-      "name": "Notes",
-      "kind": "card",
-      "refersTo": "note-info",
-      "description": "Five note colours, one job each (.note-warn/.note-term/.note-info/.note-price/.note-plain).",
-      "html": "<div class=\"ds-note ds-warn\"><p class=\"ds-nt\">Banjir tak termasuk</p><p>Perlu add-on special perils.</p></div><div class=\"ds-note ds-info\"><p>NCD ialah diskaun untuk tahun tanpa claim.</p></div>",
-      "css": ".ds-note{border:1px solid #767676;border-radius:8px;padding:16px;color:#000;font:400 1rem/1.5 Figtree,system-ui,sans-serif;margin-bottom:8px}.ds-note p{margin:0}.ds-warn{background:#fff;border:2px solid #000}.ds-nt{font-weight:600;color:#B8291E}.ds-info{background:#CFE8FA}"
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "Prose H2: 22px under a 2px ink rule; never an inverted bar.",
+      "html": "<h2 class=\"ds-h2\">Apa yang dilindungi</h2><p class=\"ds-p\">Polisi komprehensif melindungi kereta anda dan pihak ketiga.</p>",
+      "css": ".ds-h2{margin:0 0 12px;padding:12px 0 0;border-top:2px solid #000000;font:800 1.375rem/1.2 Gabarito,system-ui,sans-serif;color:#000000}.ds-p{margin:0;max-width:72ch;font:400 1.125rem/1.6 Figtree,system-ui,sans-serif;color:#000000}"
+    },
+    {
+      "name": "Yearly Total",
+      "kind": "custom",
+      "refersTo": "total-band",
+      "description": "The total under the price: paper with a 2px ink border.",
+      "html": "<p class=\"ds-sum\"><span>Jumlah setahun</span><b class=\"ds-sum-t\">RM1,284</b></p>",
+      "css": ".ds-sum{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0 8px;max-width:36rem;margin:0;padding:8px 12px;border:2px solid #000000;border-radius:8px;background:#FFFFFF;color:#000000;font:400 1rem/1.3 Figtree,system-ui,sans-serif}.ds-sum-t{font:800 1.375rem/1 Gabarito,system-ui,sans-serif}"
+    },
+    {
+      "name": "NCD Bars",
+      "kind": "custom",
+      "refersTo": "ncd-bar",
+      "description": "Unchosen bars are line with a mute ring; the chosen bar fills magenta.",
+      "html": "<div class=\"ds-bars\"><label class=\"ds-bar\"><input type=\"radio\" name=\"n\"><span class=\"ds-col\" style=\"--h:100\"></span><span class=\"ds-y\">0</span></label><label class=\"ds-bar\"><input type=\"radio\" name=\"n\"><span class=\"ds-col\" style=\"--h:75\"></span><span class=\"ds-y\">1</span></label><label class=\"ds-bar\"><input type=\"radio\" name=\"n\" checked><span class=\"ds-col\" style=\"--h:45\"></span><span class=\"ds-y\">5+</span></label></div>",
+      "css": ".ds-bars{display:grid;grid-template-columns:repeat(3,4rem);gap:4px}.ds-bar{position:relative;display:grid;grid-template-rows:3rem auto;justify-items:center;cursor:pointer;border-radius:8px}.ds-bar input{position:absolute;inset:0;opacity:0;margin:0}.ds-col{align-self:end;width:100%;height:calc(var(--h)*1%);background:#DADADA;box-shadow:inset 0 0 0 1.5px #595959;border-radius:8px 8px 0 0;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-bar:hover .ds-col{box-shadow:inset 0 0 0 1.5px #000000}.ds-bar:has(input:checked) .ds-col{background:#D0106F;box-shadow:none}.ds-bar:has(input:focus-visible){outline:3px solid #000000;outline-offset:2px}.ds-y{font:800 1.125rem/1.1 Gabarito,system-ui,sans-serif;color:#000000}"
     },
     {
       "name": "Jump Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Anchor chips to sections (.type-chips a).",
-      "html": "<a class=\"ds-chip\" href=\"#\">Kad perubatan</a>",
-      "css": ".ds-chip{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:1px solid #767676;border-radius:999px;background:#fff;color:#000;font:600 .9375rem/1 Figtree,system-ui,sans-serif;text-decoration:none;transition:border-color 150ms cubic-bezier(.23,1,.32,1),background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-chip:hover{border-color:#000;background:#F3F3F3}.ds-chip:focus-visible{outline:2px solid #000;outline-offset:2px}"
+      "description": "Pill link, mute edge; hover is an ink edge on a line fill.",
+      "html": "<nav class=\"ds-chips\"><a href=\"#\">Komprehensif</a><a href=\"#\">Pihak ketiga</a></nav>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:8px}.ds-chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid #595959;border-radius:999px;background:#FFFFFF;color:#000000;font:600 1rem Figtree,system-ui,sans-serif;text-decoration:none;transition:border-color 150ms cubic-bezier(.23,1,.32,1),background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-chips a:hover{border-color:#000000;background:#DADADA}.ds-chips a:focus-visible{outline:2px solid #000000;outline-offset:2px}"
     },
     {
       "name": "Calculator Input",
       "kind": "input",
-      "refersTo": "",
-      "description": "Calculator field inside .et (44px, ink border, magenta border on focus).",
-      "html": "<label class=\"ds-l\">Saiz enjin (cc)<input class=\"ds-in\" type=\"number\" placeholder=\"1496\"></label>",
-      "css": ".ds-l{display:grid;gap:4px;font:600 1rem/1.4 Figtree,system-ui,sans-serif;color:#000}.ds-in{min-height:2.75rem;padding:0 .75rem;border:1.5px solid #000;border-radius:6px;background:#fff;color:#000;font:400 1rem Figtree,system-ui,sans-serif}.ds-in::placeholder{color:#595959}.ds-in:focus-visible{outline:3px solid #000;outline-offset:2px;border-color:#D0106F}"
+      "refersTo": "input",
+      "description": "44px, 1.5px ink border that turns magenta on focus.",
+      "html": "<label class=\"ds-lab\">Nilai kereta (RM)<input class=\"ds-in\" type=\"number\" placeholder=\"60000\"></label>",
+      "css": ".ds-lab{display:grid;gap:4px;font:600 0.875rem/1.25rem Figtree,system-ui,sans-serif;color:#000000}.ds-in{min-height:44px;padding:8px 12px;border:1.5px solid #000000;border-radius:8px;background:#FFFFFF;color:#000000;font:400 1rem Figtree,system-ui,sans-serif}.ds-in::placeholder{color:#595959;opacity:1}.ds-in:focus-visible{outline:3px solid #000000;outline-offset:2px;border-color:#D0106F}"
     },
     {
       "name": "Section Tabs",
       "kind": "nav",
-      "refersTo": "",
-      "description": "Desktop navigation capsule; glass, shared only with the phone dock.",
+      "refersTo": "nav-tab-current",
+      "description": "Solid paper capsule with a line edge; current tab is an ink pill, hover a line fill.",
       "html": "<nav class=\"ds-tabs\"><a aria-current=\"page\" href=\"#\">Kereta</a><a href=\"#\">Kesihatan</a><a href=\"#\">Alat</a></nav>",
-      "css": ".ds-tabs{display:inline-flex;gap:2px;padding:4px;border-radius:999px;background:rgb(255 255 255/.97);box-shadow:0 0 0 1px rgb(0 0 0/.16),0 12px 28px -14px rgb(0 0 0/.5)}.ds-tabs a{display:flex;align-items:center;min-height:2.75rem;padding:0 .95rem;border-radius:999px;color:#000;text-decoration:none;font:600 1rem Figtree,system-ui,sans-serif;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-tabs a:hover:not([aria-current]){background:rgb(0 0 0/.08)}.ds-tabs a[aria-current=page]{background:#000;color:#fff}.ds-tabs a:focus-visible{outline:3px solid #000;outline-offset:-3px}"
+      "css": ".ds-tabs{display:inline-flex;gap:2px;padding:4px;border-radius:999px;background:#FFFFFF;box-shadow:0 0 0 1px #DADADA}.ds-tabs a{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;color:#000000;text-decoration:none;font:600 1rem Figtree,system-ui,sans-serif;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-tabs a:hover:not([aria-current]){background:#DADADA}.ds-tabs a[aria-current=page]{background:#000000;color:#FFFFFF}.ds-tabs a:focus-visible{outline:3px solid #000000;outline-offset:-3px}.ds-tabs a[aria-current=page]:focus-visible{outline-color:#D0106F}"
+    },
+    {
+      "name": "Rail Model List",
+      "kind": "nav",
+      "refersTo": "rail-row-current",
+      "description": "Side rail rows: line hairlines, line hover, the current model an ink row.",
+      "html": "<ul class=\"ds-mlist\"><li><a href=\"#\">Perodua Myvi</a></li><li><a aria-current=\"page\" href=\"#\">Proton Saga</a></li><li><a href=\"#\">Honda City</a></li></ul>",
+      "css": ".ds-mlist{list-style:none;margin:0;padding:0;max-width:17rem;border:1px solid #595959;border-radius:8px;overflow:clip}.ds-mlist li+li a{border-top:1px solid #DADADA}.ds-mlist a{display:flex;align-items:center;min-height:44px;padding:4px 12px;color:#000000;text-decoration:none;font:400 0.875rem/1.25rem Figtree,system-ui,sans-serif}.ds-mlist a:hover{background:#DADADA;text-decoration:underline}.ds-mlist a[aria-current=page]{background:#000000;color:#FFFFFF}.ds-mlist a:focus-visible{outline:3px solid #000000;outline-offset:-3px}"
     }
   ],
   "narrative": {
     "northStar": "Edisi: the price with a knob",
-    "overview": "Edisi is the name of the redesign. The idea fits in one line: every page leads with the answer (on a car page, the yearly price), and the reader's no-claim discount (NCD, the discount a Malaysian driver earns for each claim-free year, from 0% up to 55%) is a knob that reprices it. The site's logo repeats the idea: the dot of the \"i\" in the wordmark is the knob, seated at NCD 55% and lifting one step for each lower NCD step the reader has chosen.\n\nThe page is calm: white paper, black ink, black title bars, and one strong colour, magenta, used sparingly. Three pastel tints each have one job: pink for prices, yellow for totals and policy terms, blue for the car itself, what is covered and explanations. Type is two faces with fixed jobs: Gabarito, heavy and friendly, for the price, headings and title bars; Figtree, at regular weight, for everything else. The site is light mode only.\n\nThe frame borrows from the mid-2000s web (three columns with working side rails, boxed modules whose solid title bars state a finding, breadcrumbs, a site-map footer), with modern behaviour: native controls that work without JavaScript, container queries, and motion that only uses transform and opacity.",
+    "overview": "**Creative North Star: \"Edisi: the price with a knob\"**\n\nEdisi is the name of the redesign. The idea fits in one line: every page leads with the answer (on a car page, the yearly price), and the reader's no-claim discount (NCD, the discount a Malaysian driver earns for each claim-free year, from 0% up to 55%) is a knob that reprices it. The site's logo repeats the idea: the dot of the \"i\" in the wordmark is the knob, seated at NCD 55% and lifting one step for each lower NCD step the reader has chosen.\n\nThe page is calm and nearly monochrome: white paper, black ink, one mid grey for secondary text and control edges, one light grey for hairlines, and one strong colour, magenta, for the one action and the chosen state. Hierarchy comes from weight, rules and a single inverted surface, not from tints. Type is two faces with fixed jobs: Gabarito, heavy and friendly, for the price, headings and title bars; Figtree, at regular weight, for everything else. The site is light mode only.\n\nThe frame borrows from the mid-2000s web (three columns with working side rails, boxed modules whose solid title bars state a finding, breadcrumbs, a site-map footer), with modern behaviour: native controls that work without JavaScript, container queries, and motion that only uses transform and opacity.",
     "keyCharacteristics": [
       "Answer first: H1, answer box, byline, then intro, on every content template.",
-      "One magenta voice: the main button, the chosen state and the logo knob, never as text on a tint.",
-      "Colour by job: pink is price, yellow is total or term, blue is the car, coverage and explanation.",
-      "Black title bars that state a finding in words already on the page.",
+      "Five colours, two scales, one check that fails on drift.",
+      "One magenta voice: the main button, the chosen state and the logo knob, never as text.",
+      "Black title bars only where a module states a finding; prose sections are ruled headings.",
       "Works without JavaScript: the NCD control reprices through CSS `:has()`.",
-      "Glass only on navigation, never behind reading text."
+      "Flat paper: rings and rules, no shadows that blur, no glass."
     ],
     "rules": [
+      {
+        "name": "The Five Colours Rule",
+        "body": "A new colour is a design change, not a fix. If a template needs a value that is not paper, ink, mute, line or magenta, the snap script will turn it into one of them.",
+        "section": "colors"
+      },
       {
         "name": "The Three Magenta Things Rule",
         "body": "In any first screen, magenta appears on at most three things: the logo knob, the NCD control (its knob and chosen bar count as one), and the one main button. A second action is an outline button (`.ea-btn-o`, `.btn-outline`). `bun run check:site` check 7 warns when a first screen has more than three magenta fills.",
         "section": "colors"
       },
       {
-        "name": "The One Job Per Tint Rule",
-        "body": "Pink is price. Yellow is a total or a term. Blue is the car, what is covered, or an explanation. A warning is white with a 2px ink border and a red heading, never yellow.",
+        "name": "The Line Is Not Ink Rule",
+        "body": "Line is for hairlines and fills only. Text, and the edge that tells a reader something is a control, use mute or ink.",
         "section": "colors"
       },
       {
         "name": "The Ink Links Rule",
-        "body": "Links are ink and underlined (1px, offset 0.18em). Magenta and mid-grey are never text on a tint or on a grey chip.",
+        "body": "Links are ink and underlined (1px, offset 0.18em). Magenta is never text.",
         "section": "colors"
       },
       {
+        "name": "The Six Sizes Rule",
+        "body": "Text is 14, 16, 18, 22, 28 or 36px. Tailwind's size names all resolve onto these (`text-lg` 18, `text-xl` and `text-2xl` 22, `text-3xl` 28, `text-4xl` and up 36), and the snap script moves any stylesheet size to the nearest step.",
+        "section": "typography"
+      },
+      {
         "name": "The 14px Floor Rule",
-        "body": "No visible text is under 14px. `text-xs` is remapped to 0.875rem in `tailwind.config.mjs`, footnote markers are 0.875rem, and check 6 fails any visible text under 14px at 320, 390 and 1280px.",
+        "body": "No visible text is under 14px. Check 6 fails any visible text under 14px at 320, 390 and 1280px.",
         "section": "typography"
       },
       {
@@ -479,27 +376,36 @@
         "section": "typography"
       },
       {
-        "name": "The Glass Is Navigation Rule",
-        "body": "Blur is used only on the floating navigation capsule. Nothing with reading text sits on a blurred layer. Under `prefers-reduced-transparency: reduce` or `prefers-contrast: more` the capsule turns solid white with a 1.5px ink ring.",
+        "name": "The Rings Only Rule",
+        "body": "No blurred or offset shadow, no gradient, no backdrop blur. The snap script strips any blurred shadow layer and sets `backdrop-filter` to none. Navigation used to be glass; since 15 Nov 2026 the capsule is solid paper with a line edge, and the old `@supports (backdrop-filter)` blocks in `SiteHeader.astro` and `Dock.astro` now set it to none.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Inverted Surface Rule",
+        "body": "The ink bar is for a module that states a finding. Prose sections are ruled headings, and side rails (`.ep-tools`, `.ep-models`, `aside`) do not invert: their module bars render as an ink heading over a line hairline.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** open every content page with H1 (`.ea-h1`), the answer box, the byline, then the intro.",
-      "**Do** keep magenta to three things in the first screen: logo knob, NCD control, one main button.",
-      "**Do** give each tint its one job: pink price, yellow total or term, blue car, coverage or explanation.",
-      "**Do** write title bars as a finding, using only words already in the module.",
-      "**Do** keep one value per price element (`.px` with `data-p*`), so the HTML says one thing.",
-      "**Do** keep the 14px floor and 44px targets."
+      "Do open every content page with H1 (`.ea-h1`), the answer box, the byline, then the intro.",
+      "Do use only paper, ink, mute, line and magenta, and only the spacing (2 to 96px) and type (14 to 36px) scales; run `python3 scripts/design/snap-tokens.py --check` before committing a style change.",
+      "Do keep magenta to three things in the first screen: logo knob, NCD control, one main button.",
+      "Do show hierarchy with weight and rules: a 2px ink rule for a section, a table head or the yearly total; an ink bar only for a module's finding.",
+      "Do write title bars as a finding, using only words already in the module.",
+      "Do use a line fill or an ink inversion for hover.",
+      "Do keep one value per price element (`.px` with `data-p*`), so the HTML says one thing.",
+      "Do keep the 14px floor, 44px targets and the 72ch prose measure."
     ],
     "donts": [
-      "**Don't** put an all-caps kicker or a label above the H1 or above content.",
-      "**Don't** build meta strings out of middle dots (\"Sedan · 1.5L · 2024\").",
-      "**Don't** make every block an identical rounded card; use modules with title bars, rows and tables.",
-      "**Don't** use text arrows (\"→\") as decoration on links; use `Ikon` (`i-kanan`) or nothing.",
-      "**Don't** put magenta or grey text on a tint or a grey chip, or make a warning yellow.",
-      "**Don't** blur anything behind reading text.",
-      "**Don't** rename the legacy tokens (`hijau-*`, `emas-*`, `krim-*`, `stone-*`, `.btn-hijau`, `font-serif`) without changing every template that uses them."
+      "Don't bring back a tint to mark a kind of content (price, total, explanation); the old pink, yellow and blue tints were removed on 15 Nov 2026.",
+      "Don't use a gradient, a blurred or offset shadow, or a backdrop blur (removed on 15 Nov 2026); depth is rings only.",
+      "Don't invert a side rail or a prose section heading.",
+      "Don't set text, or the only edge of a control, in line grey.",
+      "Don't put an all-caps kicker or a label above the H1 or above content.",
+      "Don't build meta strings out of middle dots (\"Sedan · 1.5L · 2024\").",
+      "Don't make every block an identical rounded card; use modules with title bars, rows and tables.",
+      "Don't use text arrows (\"→\") as decoration on links; use `Ikon` (`i-kanan`) or nothing.",
+      "Don't rename the legacy tokens (`hijau-*`, `emas-*`, `krim-*`, `stone-*`, `.btn-hijau`, `font-serif`) without changing every template that uses them."
     ]
   }
 }
