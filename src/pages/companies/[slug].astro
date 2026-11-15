@@ -217,9 +217,6 @@ const schema = {
           {company.claims.roadside && <p><strong>Bantuan tepi jalan:</strong> {company.claims.roadside}</p>}
 
           <h2 class="h2-quiet" id="digital">Aplikasi &amp; saluran digital</h2>
-          <p>
-            Gunakan aplikasi atau portal rasmi di bawah untuk urusan yang tersedia bagi polisi atau sijil anda.
-          </p>
           <h3>{company.app.name}</h3>
           <ul>
             {company.app.features.map((feature) => <li>{feature}</li>)}
