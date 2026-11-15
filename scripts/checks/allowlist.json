@@ -833,6 +833,96 @@
     {
       "check": "contract",
       "kind": "added",
+      "field": "rm",
+      "url": "^/home-insurance/$",
+      "values": [
+        "RM238.8",
+        "RM306.46",
+        "RM50",
+        "RM75"
+      ],
+      "reason": "Allianz Smart Home Cover tariffRates corrected from SHC_Brochure_ENG_2406 (valid from 1 March 2024), p3: HomeFix annual premiums RM50/RM75/RM100 for Options 1-3 (RM100 already on the page) and HouseHolder First Loss Options 4-5 annual RM238.80/RM306.46, which the old text left out (15 Nov 2026)."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "RM5,984–14,148"
+      ],
+      "reason": "Tokio Marine Medic Plus renewal range replaced: the old figure came from the archived brochure MEDICPLUS-EN072023 and misread its 96-100 row. The record now uses the live brochure MEDICPLUS-EN062026 (rates from 1 Jun 2026), which prints renewal at ANB 75 as RM911-1,857 and at ANB 100 as RM6,914-14,148. The editor approved this replacement on 15 Nov 2026."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "RM1,177–1,857",
+        "RM127–193"
+      ],
+      "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "RM10",
+        "RM118–193",
+        "RM15,000",
+        "RM160",
+        "RM6,914–14,148",
+        "RM911–1,857"
+      ],
+      "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "8%"
+      ],
+      "reason": "Tokio Marine Medic Plus price conditions from the live brochure MEDICPLUS-EN062026 (p6 notes): rates exclude RM10 stamp duty, and corporate or group policies carry 8% service tax. Added beside the premium figures after the 15 Nov 2026 review (finding 2)."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "phones",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "0376283780",
+        "0378415600"
+      ],
+      "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026). The Asia Assistance Network lines are not in the 06/2026 brochure."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "path": "^Article\\.dateModified$",
+      "old": "2026-10-10",
+      "new": "2026-11-15",
+      "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026). analysisAsAt moved to the refresh date."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/medical-cards/$",
+      "values": [
+        "RM15,000"
+      ],
+      "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026). The directory row shows the MPE deductible via standoutFeature."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
       "field": "pct",
       "url": "^/car-insurance/bmw\\-3\\-series/$",
       "values": [
