@@ -10,6 +10,7 @@ import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type MedicalCard = (typeof medicalCards.records)[number];
 
@@ -56,22 +57,33 @@ const specItems = analysis.facts.filter((fact) =>
 );
 
 const faqFacts = [
-  { label: 'Struktur pelan', q: `Bagaimana ${card.planName} dibeli dan disusun?` },
-  { label: 'Umur kemasukan', q: `Siapa boleh memohon ${card.planName}?` },
-  { label: 'Had tahunan', q: `Berapakah had tahunan ${card.planName}?` },
-  { label: 'Deductible', q: `Bagaimana deductible ${card.planName} dikenakan?` },
-  { label: 'Perkongsian kos', q: `Apakah perkongsian kos ${card.planName}?` },
-  { label: 'Tempoh menunggu', q: `Bilakah perlindungan penyakit ${card.planName} bermula?` },
-  { label: 'Panel dan kemasukan tanpa tunai', q: `Bagaimana kemasukan hospital panel ${card.planName}?` },
+  { label: 'Struktur pelan', q: `Macam mana ${card.planName} dibeli?` },
+  { label: 'Umur kemasukan', q: 'Siapa boleh memohon?' },
+  { label: 'Had tahunan', q: 'Berapa had tahunannya?' },
+  { label: 'Deductible', q: 'Ada deductible ke?' },
+  { label: 'Perkongsian kos', q: 'Kena bayar sebahagian kos ke?' },
+  { label: 'Tempoh menunggu', q: 'Bila perlindungan penyakit bermula?' },
+  { label: 'Panel dan kemasukan tanpa tunai', q: 'Boleh masuk hospital panel tanpa tunai?' },
   ...analysis.facts.filter((fact) => fact.label.startsWith('Manfaat: ')).slice(0, 2).map((fact) => ({
     label: fact.label,
-    q: `Apakah ${fact.label.replace('Manfaat: ', '')} dalam ${card.planName}?`,
+    q: `Apa yang dibayar untuk ${fact.label.replace('Manfaat: ', '').toLowerCase()}?`,
   })),
 ];
-const faqs = faqFacts.flatMap(({ label, q }) => {
-  const fact = analysis.facts.find((candidate) => candidate.label === label);
-  return fact ? [{ q, a: fact.value }] : [];
-});
+// Every candidate answer is a fact row printed in full under "Manfaat, had dan syarat"; freshFaqs drops an answer
+// that only repeats the page, and drops the block when fewer than two answers are left.
+const faqs = freshFaqs(
+  faqFacts.flatMap(({ label, q }) => {
+    const fact = analysis.facts.find((candidate) => candidate.label === label);
+    return fact ? [{ q, a: fact.value }] : [];
+  }),
+  [
+    analysis.facts.find((fact) => fact.label === 'Struktur pelan')?.value,
+    analysis.bestFor,
+    ...analysis.facts.map((fact) => fact.value),
+    analysis.tradeoffs,
+    ...analysis.siblingDifferences,
+  ],
+);
 
 const title = buildTitle(`${card.planName} — Medical Card`);
 const description = buildDescription(
@@ -181,10 +193,10 @@ const answerRest = [
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial prose-bars">
-        <h2 id="sesuai">Siapa yang sesuai dengan {card.planName}</h2>
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p class="text-lg text-stone-700">{analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {card.planName}</h2>
+        <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
           {analysis.facts.map((fact) => (
             <div class="border-t border-stone-200 pt-4">
@@ -217,30 +229,32 @@ const answerRest = [
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim: {card.planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <CtaBand
         heading={`Semak semua pilihan medical card`}
-        body="Gunakan halaman hub untuk membandingkan pelan berdasarkan data manfaat dan sumber rasmi."
+        body="Senarai semua medical card di laman ini, dengan sumber rasmi setiap pelan."
         primary={{ label: 'Lihat semua medical card', href: '/medical-cards/' }}
         disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
       />
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -251,5 +265,5 @@ const answerRest = [
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>
