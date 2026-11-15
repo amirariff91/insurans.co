@@ -35,6 +35,11 @@ function sourceLabel(url: string): string {
   const parsed = new URL(url);
   const host = parsed.hostname.replace(/^www\./, '');
   const owner = isOfficial(host) ? `Laman rasmi ${company.name}` : host;
+  if (host === 'fmos.org.my') return /complaint/i.test(parsed.pathname) ? 'FMOS: cara membuat aduan' : 'FMOS';
+  if (host === 'bnm.gov.my' && /fsp-directory/.test(parsed.pathname)) {
+    const kind = parsed.searchParams.get('p_r_p_tag');
+    return kind === 'takaful-operator' ? 'Direktori BNM: pengendali takaful' : kind === 'insurer' ? 'Direktori BNM: syarikat insurans' : 'Direktori BNM';
+  }
   const product = company.productDetails.find((item) => item.url === url);
   if (product) return `${owner}: ${product.line}`;
   const segments = parsed.pathname.split('/').filter((segment) => segment && !SKIP_SEGMENTS.has(segment.toLowerCase()));
@@ -75,32 +80,11 @@ const answerFacts = [
 const canonicalUrl = `https://insurans.co/companies/${company.slug}/`;
 const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
 const companyOgImageAlt = `${companyOgName} — entiti, produk, tuntutan dan sumber rasmi.`;
-const productsSummary = company.productDetails.map((product) =>
-  product.names.length ? `${product.line}: ${product.names.join(', ')}` : product.line
-).join('; ');
-const hotlineSummary = company.claims.hotlines
-  .map((hotline) => `${hotline.label}: ${hotline.number}`)
-  .join('; ');
-const appSummary = `${company.app.name}: ${company.app.features.join('; ')}`;
+// FAQ: only questions the sections above do not already answer. Entities, products, claims lines and the app
+// are listed in full above, so they are not repeated here.
 const faqs = [
   {
-    q: `Apakah entiti berlesen yang berkaitan dengan ${company.name}?`,
-    a: `${company.entities.join(', ')}. ${company.history} Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.`,
-  },
-  {
-    q: `Apakah produk utama ${company.name}?`,
-    a: `${company.name} menawarkan ${productsSummary}. Rujuk helaian pendedahan produk dan dokumen polisi atau sijil untuk manfaat, had dan pengecualian.`,
-  },
-  {
-    q: `Bagaimana menghubungi ${company.name} untuk tuntutan?`,
-    a: `${company.claims.steps.join(' ')} Talian yang diterbitkan: ${hotlineSummary}. Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan.`,
-  },
-  {
-    q: `Apakah aplikasi atau saluran digital ${company.name}?`,
-    a: `${appSummary}. Semak fungsi yang tersedia untuk polisi atau sijil anda terus dengan ${company.name}.`,
-  },
-  {
-    q: `Bolehkah pertikaian terhadap ${company.name} dirujuk kepada FMOS?`,
+    q: `Boleh ke pertikaian dengan ${company.name} dibawa kepada FMOS?`,
     a: 'Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS.',
   },
 ];
@@ -190,7 +174,7 @@ const schema = {
 
           <h2 id="produk-utama">Produk utama</h2>
           <p>
-            Senarai berikut mengasingkan jenis perlindungan dan nama produk. Untuk nama dan butiran produk semasa, rujuk laman rasmi penyedia serta dokumen produk Malaysia yang berkaitan.
+            Untuk nama dan butiran produk semasa, rujuk laman rasmi {company.name} serta dokumen produk Malaysia yang berkaitan.
           </p>
         </article>
 
@@ -267,9 +251,6 @@ const schema = {
 
         <article class="prose-editorial prose-bars">
           <h2 id="fakta-penting">Fakta penting</h2>
-          <p>
-            Maklumat tentang produk dan perkhidmatan {company.name}, dengan pautan rasmi untuk setiap fakta.
-          </p>
         </article>
         <div class="my-5 space-y-3">
           {company.notable.map((fact) => (
@@ -283,8 +264,8 @@ const schema = {
         </div>
 
         <article class="prose-editorial prose-bars">
-          <h2 id="kesesuaian">Sesuai / Kurang sesuai</h2>
-          <h3>Sesuai untuk dipertimbangkan</h3>
+          <h2 id="kesesuaian">{company.kurangSesuaiUntuk.length > 0 ? `Bila ${company.name} sesuai, dan bila kurang sesuai` : `Bila ${company.name} wajar dipertimbangkan`}</h2>
+          {company.kurangSesuaiUntuk.length > 0 && <h3>Sesuai untuk dipertimbangkan</h3>}
           <ul>
             {company.sesuaiUntuk.map((item) => <li>{item}</li>)}
           </ul>
@@ -297,58 +278,13 @@ const schema = {
             </>
           )}
 
-          <details id="panduan-am" class="mt-8">
-            <summary>Panduan am memilih syarikat insurans</summary>
-                        <h3>Entiti dan lesen</h3>
-            <p>
-            Kenal pasti entiti yang mengeluarkan polisi atau sijil anda. Nama entiti tersebut membantu anda mencari saluran tuntutan dan khidmat pelanggan yang betul. Rujuk dokumen produk untuk manfaat, kelayakan dan had perlindungan.
+          <p class="mt-8">
+            Cara umum memilih syarikat insurans, membandingkan produk dan membuat aduan ada dalam <a href="/companies/#panduan-am">panduan memilih syarikat insurans</a>.
           </p>
-<p>
-            Semak nama pengendali pada dokumen perlindungan anda. Insurans konvensional menggunakan polisi, manakala takaful menggunakan sijil. Tarikh sejarah kumpulan dan jenama boleh berbeza daripada tarikh penubuhan entiti yang mengeluarkan dokumen tersebut.
-          </p>
-          <p>
-            Untuk membandingkan perlindungan dengan adil, kenal pasti dahulu entiti yang menanggung risiko, jenis produk dan saluran servisnya. Hubungan dengan kumpulan bank atau syarikat antarabangsa ialah maklumat korporat; ia tidak menggantikan semakan terma kontrak, had perlindungan, pengecualian atau proses aduan bagi produk tertentu.
-          </p>
-            <h3>Membandingkan produk</h3>
-            <p>
-            Untuk insurans motor, bandingkan jenis perlindungan, nilai diinsuranskan, excess, betterment, manfaat tambahan dan had tunda dalam quotation serta wording sebenar. Untuk perubatan atau hayat, semak had tahunan/seumur hidup, perkongsian kos, syarat kelayakan dan tempoh menunggu. Nama manfaat dalam ringkasan ini tidak menjamin tuntutan akan diluluskan.
-          </p>
-          <p>
-            Harga insurans kereta bergantung pada butiran risiko, kenderaan, perlindungan dan pilihan tambahan. Dapatkan quotation terus daripada penyedia dan bandingkan skop perlindungan yang setara.
-          </p>
-            <h3>Tuntutan dan aduan</h3>
-            <p>
-            Proses tuntutan berubah mengikut kategori perlindungan. Gunakan arahan yang sepadan dengan polisi atau sijil anda; nombor bantuan kemalangan, meja tuntutan dan careline umum tidak semestinya menjalankan fungsi yang sama.
-          </p>
-<p>
-            Jika melibatkan kemalangan, hubungi penyedia melalui saluran rasmi dan simpan maklumat berkaitan kejadian. Jangan anggap nombor hotline sebagai kelulusan tuntutan atau jaminan tempoh bayaran. Minta senarai dokumen serta arahan bertulis untuk tuntutan anda, dan gunakan bantuan tunda yang dilantik apabila penyedia mensyaratkannya.
-          </p>
-          <p>
-            Jika aduan tidak selesai selepas keputusan akhir penyedia, Financial Markets Ombudsman Service (FMOS) ialah saluran ombudsman bersama untuk pertikaian kewangan yang layak. Pertikaian motor dan perubatan/kesihatan termasuk takaful boleh dipertimbangkan secara percuma; had masa yang dinyatakan ialah enam bulan selepas keputusan akhir. Sahkan skop bidang kuasa dan syarat terkini terus dengan FMOS.
-          </p>
-            <h3>Aplikasi</h3>
-            <p>
-            Sebelum bergantung pada aplikasi ketika kecemasan, semak sama ada polisi anda telah dipautkan, kaedah log masuk berfungsi dan talian telefon masih tersedia. Semak fungsi yang tersedia untuk polisi anda dengan penyedia; portal web dan aplikasi mungkin menawarkan kemudahan yang berbeza.
-          </p>
-            <h3>Menghubungi penyedia</h3>
-            <p>
-            Gunakan saluran rasmi yang sepadan dengan urusan anda. Talian servis yang berasingan membantu membezakan pertanyaan polisi, tuntutan, bantuan jalan raya dan bantuan perubatan; periksa waktu operasi sebelum membuat panggilan bagi urusan bukan kecemasan.
-          </p>
-<p>
-            Untuk isu yang tidak sesuai dengan talian khusus di atas, lawati laman penyedia dan cari saluran khidmat pelanggan terkini. Simpan nombor rujukan, tarikh komunikasi dan dokumen yang dihantar. Insurans.co tidak menerima permohonan, mengurus tuntutan atau mewakili pelanggan dengan syarikat ini.
-          </p>
-            <h3>Sebelum membeli</h3>
-            <p>
-            Padankan produk dan saluran perkhidmatan dengan keperluan anda. Pertimbangkan bajet, tanggungan, risiko dan syarat kelayakan sebelum membeli.
-          </p>
-<p>
-            Sebelum membeli, bandingkan sekurang-kurangnya dua quotation dengan jumlah diinsuranskan dan tambahan yang sama. Baca helaian pendedahan produk serta wording polisi/sijil untuk had, excess, pengecualian, kewajipan pemberitahuan tuntutan dan cara membuat aduan. Pastikan manfaat yang anda perlukan dinyatakan dalam dokumen polisi atau sijil.
-          </p>
-          </details>
 
           <h2 class="h2-quiet" id="sumber">Sumber</h2>
           <p>
-            Maklumat di halaman ini disemak daripada laman rasmi {company.name} dan rujukan rasmi lain pada {formatDate(company.asAt)}. Rujuk pautan di bawah untuk butiran produk, tuntutan dan khidmat pelanggan terkini.
+            Kami menyemak maklumat ini di laman rasmi {company.name} dan rujukan rasmi lain pada {formatDate(company.asAt)}. Pautan di bawah membawa anda ke butiran produk, tuntutan dan khidmat pelanggan terkini.
           </p>
           <ol>
             {sourceLinks.map((source) => (
@@ -363,8 +299,8 @@ const schema = {
 
         <section id="faq" class="mt-10 sm:mt-14">
           <div class="prose-editorial prose-bars">
-            <h2 class="h2-quiet">Soalan lazim: {company.name}</h2>
-            <p>Jawapan ini merumuskan rekod di atas; syarat kontrak dan keputusan tuntutan ditentukan oleh dokumen serta penilaian penyedia.</p>
+            <h2 class="h2-quiet">Soalan lazim tentang {company.name}</h2>
+            <p>Syarat kontrak dan keputusan tuntutan ditentukan oleh dokumen serta penilaian penyedia.</p>
           </div>
           <div class="mt-5">
             {faqs.map((faq, index) => (
