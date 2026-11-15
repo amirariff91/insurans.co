@@ -1,8 +1,8 @@
 ---
 /**
- * One pictogram from the Edisi icon sprite (public/ikon.svg, 16 symbols, ids in src/data/ikon-names.json).
+ * One icon from the sprite public/ikon.svg (Phosphor Icons, Bold weight, MIT; ids in src/data/ikon-names.json).
  * Without `label` the icon is decorative and hidden from assistive technology; keep a visible word beside it.
- * The knob colour and stroke weight follow the CSS custom properties --icon-knob and --icon-stroke.
+ * Single colour: the icon is drawn in currentColor, so it takes the colour of the text around it.
  */
 import ikonNames from '../data/ikon-names.json';
 
@@ -24,12 +24,12 @@ if (!(ikonNames as string[]).includes(name)) {
 ---
 
 {label ? (
-  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 24 24" role="img" aria-label={label} focusable="false">
+  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 256 256" role="img" aria-label={label} focusable="false">
     <title>{label}</title>
     <use href={`/ikon.svg#${name}`} />
   </svg>
 ) : (
-  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 256 256" aria-hidden="true" focusable="false">
     <use href={`/ikon.svg#${name}`} />
   </svg>
 )}
