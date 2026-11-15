@@ -86,6 +86,7 @@ Insurance prices are "your money or your life" content, so:
 - Stories, a price feed or "Terkini" update stream on this branch (the Terkini stream is on branch `feat/terkini`).
 - Dark mode.
 - Per-insurer quotations or any quote engine.
+  - A published-price lookup is allowed and is not a quote engine. It returns the figure printed in an insurer's published table for the reader's age and plan, with the source document, its date and the conditions beside it. It is not an offer or a quotation. It asks only for what selects a row: no name, IC number, phone number or email. Nothing can be bought from it. A figure appears only after two independent extractions of the table agree and the insurer's printed example reproduces from it.
 - User uploads, accounts or reviews.
 
 ## Positioning
