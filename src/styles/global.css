@@ -126,7 +126,7 @@
   --kick: var(--magenta); --kick-ink: var(--paper); --sel: var(--magenta); --sel-ink: var(--paper);
   --mark-ink: var(--ink); --link: var(--ink); --red: var(--ink);
   --knob: var(--magenta); --ghost: var(--mute);
-  --tint-pink: var(--paper); --tint-yellow: var(--mark); --tint-sky: var(--paper);
+  --tint-pink: var(--paper); --tint-yellow: var(--paper); --tint-sky: var(--paper);
   --focus: var(--ink); --focus-on-dark: var(--paper);
   --glass: var(--paper); --glass-t: var(--paper);
   --glass-edge: var(--mute); --glass-rim: var(--paper); --glass-spec: var(--paper);

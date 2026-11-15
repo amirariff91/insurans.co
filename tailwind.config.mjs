@@ -39,7 +39,7 @@ export default {
       edisi: { paper, card: paper, tray: paper, chip: paper, ink, 'ink-2': mute, rule: mute, magenta, 'magenta-deep': ink, pink: paper, yellow: mark, sky: paper, red: ink },
       stone: ramp({ [paper]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900, 950] }),
       hijau: ramp({ [paper]: [50, 100], [mute]: [200, 300, 600], [magenta]: [400, 500], [ink]: [700, 800, 900, 950] }),
-      emas: ramp({ [mark]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900] }),
+      emas: ramp({ [paper]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900] }),
       krim: ramp({ [paper]: [50, 100, 200], [mute]: [300] }),
       red: ramp({ [paper]: [50], [mute]: [200], [ink]: [700] }),
       verdict: {
