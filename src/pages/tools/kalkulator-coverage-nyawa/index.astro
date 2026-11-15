@@ -115,7 +115,6 @@ const introRest = introMore.join(' ');
               <select
                 id="years-support"
                 name="yearsSupport"
-                inputmode="numeric"
                 required
                 class="w-full border border-stone-300 bg-white px-4 py-3 text-base font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
               >
@@ -199,13 +198,10 @@ const introRest = introMore.join(' ');
             </button>
           </form>
 
-          <div class="et-out" style="min-height:24rem">
+          <div class="et-out" role="status" aria-live="polite" aria-atomic="true" style="min-height:24rem">
 <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
 <div
             id="coverage-result"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
             class="hidden mt-6 border border-hijau-200 bg-hijau-50 p-5"
           >
             <p class="text-sm text-stone-600">Jurang coverage kasar anda:</p>

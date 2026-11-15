@@ -170,16 +170,13 @@ const introRest = introMore.join(' ');
             </button>
           </form>
 
-          <div class="et-out" style="min-height:16rem">
+          <div class="et-out" role="status" aria-live="polite" aria-atomic="true" style="min-height:16rem">
 <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
 <div
             id="fire-result"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
             class="mt-6 hidden border border-hijau-200 bg-hijau-50 p-5"
           >
-            <p id="fire-error" hidden role="alert" class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+            <p id="fire-error" hidden class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
             <p id="fire-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
             <div id="fire-breakdown" class="mt-4 space-y-1.5 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></div>
           </div>

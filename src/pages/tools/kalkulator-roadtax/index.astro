@@ -102,6 +102,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
                 id="engine-cc"
                 name="cc"
                 inputmode="decimal"
+                enterkeyhint="go"
                 autocomplete="off"
                 required
                 aria-describedby="engine-cc-hint engine-cc-help engine-cc-understood"
@@ -148,16 +149,13 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
             </button>
           </form>
 
-          <div class="et-out" style="min-height:10rem">
+          <div class="et-out" role="status" aria-live="polite" aria-atomic="true" style="min-height:10rem">
 <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
 <div
             id="roadtax-result"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
             class="mt-6 hidden border border-hijau-200 bg-hijau-50 p-5"
           >
-            <p id="roadtax-error" hidden role="alert" class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+            <p id="roadtax-error" hidden class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
             <p id="roadtax-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
             <p id="roadtax-breakdown" class="mt-4 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></p>
           </div>
