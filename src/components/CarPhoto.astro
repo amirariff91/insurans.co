@@ -6,7 +6,6 @@
  */
 import carPhotos from '../data/car-photos.json';
 import carModels from '../data/car-models.json';
-import Ikon from './Ikon.astro';
 import { photoSrcset } from './edisi/photo';
 
 interface Props {
@@ -60,7 +59,6 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
   <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName} style={`--fit:${fitChars}`}>
     <span class="cp-card-name"><span class="cp-card-brand">{model.brand}</span> <span class="cp-card-model">{model.model}</span></span>
     <span class="cp-card-meta">{model.segment}, {model.engineCC}</span>
-    <span class="cp-card-car"><Ikon name="i-kereta" size={96} /></span>
   </div>
 )}
 
@@ -91,15 +89,14 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
   }
 
   /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box: brand and
-     model large and tight on the left, body type and engine small beneath, the car pictogram on the right.
-     Pale blue like the photo plate (pink is kept for prices); the pictogram's dot is ink, not the knob colour.
-     One compact layout at every width. */
+     model large and tight, body type and engine small beneath, no pictogram.
+     Pale blue like the photo plate (pink is kept for prices). One compact layout at every width. */
   .cp-card {
     container-type: inline-size;
     display: grid;
     grid-template:
-      'name car' 1fr
-      'meta car' auto / minmax(0, 1fr) auto;
+      'name' 1fr
+      'meta' auto / minmax(0, 1fr);
     align-content: end;
     align-items: end;
     gap: 0.3rem 0.75rem;
@@ -131,17 +128,5 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     font-size: 0.875rem;
     font-weight: 650;
     line-height: 1.25;
-  }
-  .cp-card-car {
-    grid-area: car;
-    align-self: center;
-    justify-self: end;
-    --icon-stroke: 2;
-    --icon-knob: var(--ink, #000);
-    line-height: 0;
-  }
-  .cp-card-car :global(.ikon) {
-    inline-size: clamp(3rem, 18cqi, 4.25rem);
-    block-size: auto;
   }
 </style>

@@ -327,12 +327,13 @@ Gently rounded rectangles. Modules, notes, tables, cards and buttons use 8px (`-
 ### Car photo and name card (`CarPhoto.astro`)
 - A Wikimedia Commons cut-out of the Malaysian-market car (`.cp`, `.cp-img`) with its credit line (`.cp-credit`, 14px): "Foto: author, licence, diubah suai", the author linked to the source, the licence to its deed, "diubah suai" to `/kredit-foto/#slug`. An AI-retouched photo carries the manifest's wording instead. Data: `src/data/car-photos.json`.
 - In the answer block the cut-out sits on a sky plate with a 2px ink border (`.ea-photo .cp-img`), capped at 9rem tall on phones and 12rem from 48rem, below the buttons.
-- A model without a photo gets a name card (`.cp-card`) in the same slot: sky background, brand and model in Gabarito 800 fitted to the card, segment and engine size, and the `i-kereta` pictogram. No "photo missing" wording.
+- A model without a photo gets a name card (`.cp-card`) in the same slot: sky background, brand and model in Gabarito 800 fitted to the card, segment and engine size, and no pictogram. No "photo missing" wording.
 
 ### Icons (`Ikon.astro`)
 - An icon must do a job. Keep: the arrow or chevron that marks a link row or an expandable `<summary>` (open/closed); `i-luar` on links that leave the site; `i-amaran` on a genuine warning note; one icon inside a primary calculator button; the header menu/close and the phone dock control; the homepage type tiles (they tell the types apart); the car glyph standing in for a missing car photo.
 - Never decorate: no icon before a title bar (`.mod-bar`, `.mod-lab`, `.ix-bar`, `.et-bar`), an h2/h3, a step heading, a fact or row in an answer box, a table cell, a byline or date, a footer or rail link, or a row that already has a car thumbnail, brand or insurer logo. Removing one leaves no gap: the text sits where the icon was.
-- One sprite, `public/ikon.svg`, with 16 symbols; the valid ids are in `src/data/ikon-names.json` and an unknown name fails the build. Remove a symbol from both when nothing uses it. Without `label` the icon is decorative (`aria-hidden`); keep a visible word beside it. Default size 20px.
+- The set is Phosphor Icons, Bold weight (MIT; licence in `public/ikon-LICENSE.txt`, credited on `/kredit-foto/`). Paths are copied unchanged from the official repository, never redrawn by hand. Single colour: every icon is `currentColor` and takes its text colour (white on a black bar), with no magenta dot or second colour.
+- One sprite, `public/ikon.svg`, with 18 symbols (256 viewBox, each notes its Phosphor name); the valid ids are in `src/data/ikon-names.json` and an unknown name fails the build. Remove a symbol from both when nothing uses it. Without `label` the icon is decorative (`aria-hidden`); keep a visible word beside it. Default size 20px; type tiles 22px, chevrons in link rows 16 to 18px.
 
 ### Notes
 - `.note-warn`: white, 2px ink border, red heading (`.note-t`). Warnings and exclusions.

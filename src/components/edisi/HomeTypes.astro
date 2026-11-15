@@ -16,17 +16,17 @@ import { homeFacts as f } from '../../data/home-facts';
 interface Tile { href: string; icon: string; name: string; fact: string; group: 'cover' | 'scheme'; wide?: boolean }
 const tiles: Tile[] = [
   { href: '/car-insurance/', icon: 'i-kereta', name: 'Kereta', fact: `${carModels.length} model, anggaran ikut NCD`, group: 'cover' },
-  { href: '/motorcycle-insurance/', icon: 'i-tayar', name: 'Motosikal', fact: f.motorcycle.roadtax, group: 'cover' },
-  { href: '/medical-cards/', icon: 'i-resit', name: 'Medical card', fact: `${medicalCards.records.length} pelan: standalone, rider, takaful`, group: 'cover' },
-  { href: '/critical-illness/', icon: 'i-amaran', name: 'Penyakit kritikal', fact: `${ci.records.length} pelan dan skim`, group: 'cover' },
-  { href: '/life-insurance/', icon: 'i-orang', name: 'Nyawa', fact: `Pelepasan cukai sehingga ${f.lifeTaxRelief.value} setahun (${f.lifeTaxRelief.assessmentYear}), ${f.lifeTaxRelief.shared}`, group: 'cover', wide: true },
-  { href: '/home-insurance/', icon: 'i-utama', name: 'Rumah', fact: `${f.home.tileCover} ${f.home.construction}: kadar asas ${f.home.value} ${f.home.basis}`, group: 'cover', wide: true },
-  { href: '/takaful/', icon: 'i-lindung', name: 'Takaful', fact: f.takaful.price, group: 'cover' },
-  { href: '/travel-insurance/', icon: 'i-luar', name: 'Perjalanan', fact: `${travel.records.length} pelan, single dan annual`, group: 'cover' },
+  { href: '/motorcycle-insurance/', icon: 'i-motosikal', name: 'Motosikal', fact: f.motorcycle.roadtax, group: 'cover' },
+  { href: '/medical-cards/', icon: 'i-perubatan', name: 'Medical card', fact: `${medicalCards.records.length} pelan: standalone, rider, takaful`, group: 'cover' },
+  { href: '/critical-illness/', icon: 'i-jantung', name: 'Penyakit kritikal', fact: `${ci.records.length} pelan dan skim`, group: 'cover' },
+  { href: '/life-insurance/', icon: 'i-nyawa', name: 'Nyawa', fact: `Pelepasan cukai sehingga ${f.lifeTaxRelief.value} setahun (${f.lifeTaxRelief.assessmentYear}), ${f.lifeTaxRelief.shared}`, group: 'cover', wide: true },
+  { href: '/home-insurance/', icon: 'i-rumah', name: 'Rumah', fact: `${f.home.tileCover} ${f.home.construction}: kadar asas ${f.home.value} ${f.home.basis}`, group: 'cover', wide: true },
+  { href: '/takaful/', icon: 'i-takaful', name: 'Takaful', fact: f.takaful.price, group: 'cover' },
+  { href: '/travel-insurance/', icon: 'i-pesawat', name: 'Perjalanan', fact: `${travel.records.length} pelan, single dan annual`, group: 'cover' },
   { href: '/personal-accident/', icon: 'i-kemalangan', name: 'Kemalangan diri', fact: `${personalAccident.records.length} pelan PA`, group: 'cover' },
-  { href: '/bantuan-insurans/perkeso/', icon: 'i-tanda', name: 'PERKESO', fact: `${f.perkeso.plan}: ${f.perkeso.value} ${f.perkeso.unit}`, group: 'scheme' },
-  { href: '/i-lindung/', icon: 'i-dompet', name: 'i-Lindung', fact: `Dari ${f.iLindung.value} ${f.iLindung.unit}`, group: 'scheme' },
-  { href: '/bantuan-insurans/mysalam/', icon: 'i-tambah', name: 'mySalam', fact: f.mysalam.cost, group: 'scheme' },
+  { href: '/bantuan-insurans/perkeso/', icon: 'i-pekerja', name: 'PERKESO', fact: `${f.perkeso.plan}: ${f.perkeso.value} ${f.perkeso.unit}`, group: 'scheme' },
+  { href: '/i-lindung/', icon: 'i-lindung', name: 'i-Lindung', fact: `Dari ${f.iLindung.value} ${f.iLindung.unit}`, group: 'scheme' },
+  { href: '/bantuan-insurans/mysalam/', icon: 'i-bantuan', name: 'mySalam', fact: f.mysalam.cost, group: 'scheme' },
 ];
 ---
 <section class="mod htp" aria-labelledby="jenis">

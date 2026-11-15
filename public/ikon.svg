@@ -1,122 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-<!-- insurans.co icons, drawn from the logo. 13 Nov 2026. Original work for this project; no stock icons.
-     Grid 24 by 24 with a 2 unit margin. One stroke, 2.25, round caps and joins, in currentColor.
-     One knob in every icon: r 1.57, which is 1.4 times the stroke as in the logo, and never touching a stroke.
-     Two CSS custom properties reach inside (written here without their two leading hyphens, which an XML
-     comment may not hold): icon-knob, the knob colour, default #D0106F; icon-stroke, the line weight, default 2.25.
-     Use: <svg class="ix-i" aria-hidden="true"><use href="icons.svg#i-kereta"/></svg>
-     Source: the redesign worktree, docs/eeat-revamp-2026-11/round4/icons/icons.svg (copied via the Edisi concept's ikon.svg).
-     No generator for this sprite exists in this repository: edit this file by hand, keeping the grid and knob rules above. -->
+<!-- insurans.co icon sprite. Phosphor Icons, Bold weight (https://phosphoricons.com, github.com/phosphor-icons/core,
+     assets/bold/<name>-bold.svg), MIT licence: Copyright (c) 2023 Phosphor Icons; full text in /ikon-LICENSE.txt.
+     Paths copied unchanged. 256 by 256 viewBox, single colour in currentColor: an icon takes the colour of its text.
+     Each symbol notes its Phosphor name. Valid ids live in src/data/ikon-names.json; keep both in sync.
+     To add an icon: copy the path(s) of the Bold SVG from the repository above into a new <symbol>. -->
 <defs>
 
-<!-- Kereta dan perlindungan (cars and cover) -->
-<symbol id="i-kereta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Model</title>
-  <path d="M6.1 9.5l1.19-4.06A2 2 0 0 1 9.21 4h5.58a2 2 0 0 1 1.92 1.44L17.9 9.5"/>
-  <rect x="3.13" y="9.5" width="17.74" height="8.25" rx="3.25"/>
-  <path d="M5.5 19.9h2M16.5 19.9h2"/>
-  <circle cx="16.5" cy="13.63" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="7.5" cy="13.63" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kemalangan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kemalangan</title>
-  <path d="M3.69 13.35L3.94 10.24A1.1 1.1 0 0 1 4.85 9.24L6.91 8.88A1.1 1.1 0 0 1 8.1 9.5L9.4 12.35"/>
-  <path d="M3.18 15.07A1.6 1.6 0 0 1 4.48 13.21L8.62 12.48A1.6 1.6 0 0 1 10.47 13.78L10.52 14.08A1.6 1.6 0 0 1 9.22 15.93L5.09 16.66A1.6 1.6 0 0 1 3.23 15.36Z"/>
-  <path d="M4.41 18L5 17.89M9.73 17.06L10.32 16.96"/>
-  <path d="M14.6 12.35L15.9 9.5A1.1 1.1 0 0 1 17.09 8.88L19.15 9.24A1.1 1.1 0 0 1 20.06 10.24L20.31 13.35"/>
-  <path d="M13.53 13.78A1.6 1.6 0 0 1 15.38 12.48L19.52 13.21A1.6 1.6 0 0 1 20.82 15.07L20.77 15.36A1.6 1.6 0 0 1 18.91 16.66L14.78 15.93A1.6 1.6 0 0 1 13.48 14.08Z"/>
-  <path d="M13.68 16.96L14.27 17.06M19 17.89L19.59 18"/>
-  <circle cx="12" cy="6.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-tayar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Betterment</title>
-  <circle cx="12" cy="12" r="8.87"/>
-  <path d="M12 7.8V3.13M15.99 10.7l4.45-1.44M14.47 15.4l2.74 3.78M9.53 15.4l-2.74 3.78M8.01 10.7L3.56 9.26"/>
-  <circle cx="12" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-lindung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Apa dilindungi</title>
-  <path d="M8.63 6.8L3.13 10.9M15.37 6.8l5.5 4.1"/>
-  <path d="M9.1 15.48L9.89 12.45A1.1 1.1 0 0 1 10.95 11.63H13.05A1.1 1.1 0 0 1 14.11 12.45L14.9 15.48"/>
-  <path d="M8.3 17.08A1.6 1.6 0 0 1 9.9 15.48H14.1A1.6 1.6 0 0 1 15.7 17.08V17.38A1.6 1.6 0 0 1 14.1 18.98H9.9A1.6 1.6 0 0 1 8.3 17.38Z"/>
-  <path d="M9 20.18L9.6 20.18M14.4 20.18L15 20.18"/>
-  <circle cx="12" cy="4.3" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-tanda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Dilindungi</title>
-  <path d="M5.2 13.5l4.3 4.3 6.3-7.9"/>
-  <circle cx="18.41" cy="6.62" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-tambah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kena tambah</title>
-  <path d="M12 4.6v14.8M5 12h9.1"/>
-  <circle cx="18.3" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
+<!-- Jenis insurans (homepage type tiles) -->
+<symbol id="i-kereta" viewBox="0 0 256 256" fill="currentColor"><!-- car-profile --><path d="M236,108H213L170.83,65.86A19.86,19.86,0,0,0,156.69,60H48.28a20,20,0,0,0-16.64,8.91L2,113.34A12,12,0,0,0,0,120v48a20,20,0,0,0,20,20H33.5a34,34,0,0,0,65,0h59a34,34,0,0,0,65,0H236a20,20,0,0,0,20-20V128A20,20,0,0,0,236,108ZM50.42,84H155l24,24H34.42ZM66,188a10,10,0,1,1,10-10A10,10,0,0,1,66,188Zm124,0a10,10,0,1,1,10-10A10,10,0,0,1,190,188Zm42-24H221A34,34,0,0,0,159,164H97A34,34,0,0,0,35,164H24V132H232Z"/></symbol>
+<symbol id="i-motosikal" viewBox="0 0 256 256" fill="currentColor"><!-- motorcycle --><path d="M208,112c-.57,0-1.13,0-1.69,0l-3.5-11.8c1.71-.15,3.44-.24,5.19-.24a12,12,0,0,0,0-24H195.63l-8.12-27.41A12,12,0,0,0,176,40H144a12,12,0,0,0,0,24h23l3.56,12H152c-19.44,0-35.32,4.62-45.92,13.37a12,12,0,0,1-12.56,1.52c-13.13-6-57.19-25-61.65-26.89L26.6,61.76S22.4,60,20,60a12,12,0,0,0-4.61,23.08c1.72.73,43.67,18.5,68.2,29.66a36.25,36.25,0,0,0,15,3.23,35.78,35.78,0,0,0,22.78-8.09c5.74-4.73,15.58-7.48,27.89-7.84a84,84,0,0,0-24.4,48H94.48a48,48,0,1,0,0,24H136a12,12,0,0,0,12-12,60,60,0,0,1,31.8-52.94l3.5,11.8A48,48,0,1,0,208,112ZM48,172H68.77a24,24,0,1,1,0-24H48a12,12,0,0,0,0,24Zm160,12a24,24,0,0,1-17.4-40.5l5.89,19.91A12,12,0,0,0,208,172a12.28,12.28,0,0,0,3.41-.49,12,12,0,0,0,8.1-14.92l-5.91-19.92A24,24,0,0,1,208,184Z"/></symbol>
+<symbol id="i-perubatan" viewBox="0 0 256 256" fill="currentColor"><!-- first-aid-kit --><path d="M216,52H180V44a28,28,0,0,0-28-28H104A28,28,0,0,0,76,44v8H40A20,20,0,0,0,20,72V200a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V72A20,20,0,0,0,216,52ZM100,44a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4v8H100ZM212,196H44V76H212Zm-48-60a12,12,0,0,1-12,12H140v12a12,12,0,0,1-24,0V148H104a12,12,0,0,1,0-24h12V112a12,12,0,0,1,24,0v12h12A12,12,0,0,1,164,136Z"/></symbol>
+<symbol id="i-jantung" viewBox="0 0 256 256" fill="currentColor"><!-- heartbeat --><path d="M71.76,148H31.7a12,12,0,1,1,0-24H65.33l12.45-18.66a12,12,0,0,1,20,0l22,33,6-9a12,12,0,0,1,10-5.34h24a12,12,0,1,1,0,24h-17.6l-12.46,18.66a12,12,0,0,1-20,0l-22-33-6,9A12,12,0,0,1,71.76,148ZM177.91,36c-20.12,0-38,7.93-50.07,21.56C115.74,43.93,97.89,36,77.76,36A66,66,0,0,0,12.07,94.68,12,12,0,0,0,36,97.32,42,42,0,0,1,77.76,60c17.83,0,32.75,9.4,38.95,24.54a12,12,0,0,0,22.25,0C145.16,69.4,160.08,60,177.91,60A42.08,42.08,0,0,1,220,102c0,29.42-25.86,57.77-47.56,76.36a329,329,0,0,1-44.58,31.81c-10.87-6.45-35.37-22-56.51-42.73a12,12,0,1,0-16.84,17.12c30.39,29.81,66.15,49.2,67.66,50a12.06,12.06,0,0,0,11.39,0C138,232.14,244,174.34,244,102A66.12,66.12,0,0,0,177.91,36Z"/></symbol>
+<symbol id="i-nyawa" viewBox="0 0 256 256" fill="currentColor"><!-- users-three --><path d="M164.38,181.1a52,52,0,1,0-72.76,0,75.89,75.89,0,0,0-30,28.89,12,12,0,0,0,20.78,12,53,53,0,0,1,91.22,0,12,12,0,1,0,20.78-12A75.89,75.89,0,0,0,164.38,181.1ZM100,144a28,28,0,1,1,28,28A28,28,0,0,1,100,144Zm147.21,9.59a12,12,0,0,1-16.81-2.39c-8.33-11.09-19.85-19.59-29.33-21.64a12,12,0,0,1-1.82-22.91,20,20,0,1,0-24.78-28.3,12,12,0,1,1-21-11.6,44,44,0,1,1,73.28,48.35,92.18,92.18,0,0,1,22.85,21.69A12,12,0,0,1,247.21,153.59Zm-192.28-24c-9.48,2.05-21,10.55-29.33,21.65A12,12,0,0,1,6.41,136.79,92.37,92.37,0,0,1,29.26,115.1a44,44,0,1,1,73.28-48.35,12,12,0,1,1-21,11.6,20,20,0,1,0-24.78,28.3,12,12,0,0,1-1.82,22.91Z"/></symbol>
+<symbol id="i-rumah" viewBox="0 0 256 256" fill="currentColor"><!-- house-line --><path d="M240,204H228V144a12,12,0,0,0,12.49-19.78L142.14,25.85a20,20,0,0,0-28.28,0L15.51,124.2A12,12,0,0,0,28,144v60H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM52,121.65l76-76,76,76V204H164V152a12,12,0,0,0-12-12H104a12,12,0,0,0-12,12v52H52ZM140,204H116V164h24Z"/></symbol>
+<symbol id="i-takaful" viewBox="0 0 256 256" fill="currentColor"><!-- handshake --><path d="M253.88,108.11l-25.53-51a20,20,0,0,0-26.83-9L178.34,59.7,131.7,44.58a12.14,12.14,0,0,0-7.4,0L77.66,59.7,54.48,48.11a20,20,0,0,0-26.83,9L2.12,108.11a20,20,0,0,0,9,26.83l26.67,13.34,51.18,37.41A12.15,12.15,0,0,0,93,187.62l62,16a12.27,12.27,0,0,0,3,.38,12,12,0,0,0,8.48-3.52l52.62-52.62,25.83-12.92a20,20,0,0,0,8.95-26.83Zm-58.12,29.15-27.52-26a12,12,0,0,0-16.76.26c-9.66,9.74-25.06,16.81-40.81,9.55l38.19-37h22.72l25.81,51.63ZM47.32,71.37,60.59,78l-22,43.9-13.27-6.63Zm107,107.3L101.23,165l-42-30.66L85.17,82.5,128,68.61l1.69.55L90,107.68l-.13.12a20,20,0,0,0,3.4,31c20.95,13.39,46,12.07,66.33-2.73l19.2,18.15Zm63-56.77-22-43.9,13.27-6.63,21.95,43.9ZM118.55,219a12,12,0,0,1-14.62,8.62l-26.6-6.87a12,12,0,0,1-4.08-1.93L48.92,201a12,12,0,0,1,14.16-19.37l22.47,16.42,24.38,6.29A12,12,0,0,1,118.55,219Z"/></symbol>
+<symbol id="i-pesawat" viewBox="0 0 256 256" fill="currentColor"><!-- airplane-tilt --><path d="M190,115.31,217.21,89.7l.26-.26a36,36,0,0,0-50.91-50.91c-.09.08-.17.17-.26.26L140.69,66,60.1,36.71A12,12,0,0,0,47.52,39.5l-24,24A12,12,0,0,0,25.34,82l59.83,39.88L75,132H56a12,12,0,0,0-8.48,3.51l-24,24a12,12,0,0,0,4,19.62l35.23,14.1,14.06,35.14.09.22a12,12,0,0,0,19.76,3.7l23.81-23.81A12,12,0,0,0,124,200V181l10.13-10.13L174,230.65a12,12,0,0,0,18.47,1.83l24-24a12,12,0,0,0,2.79-12.59Zm-4.11,89.85L146,145.33a12,12,0,0,0-8.8-5.28A11.66,11.66,0,0,0,136,140a12,12,0,0,0-8.49,3.52l-24,24A12,12,0,0,0,100,176v19l-7.62,7.62-9.24-23.1a12,12,0,0,0-6.69-6.69l-23.1-9.24L61,156H80a12,12,0,0,0,8.48-3.51l24-24A12,12,0,0,0,110.66,110L50.84,70.12l8.24-8.25,80.83,29.39a12,12,0,0,0,12.84-3.05l30.89-32.82a12,12,0,0,1,17,17l-32.82,30.89a12,12,0,0,0-3.06,12.84l29.4,80.82Z"/></symbol>
+<symbol id="i-kemalangan" viewBox="0 0 256 256" fill="currentColor"><!-- bandaids --><path d="M190.23,128l24.88-24.89a44,44,0,1,0-62.22-62.22L128,65.77,103.11,40.89a44,44,0,1,0-62.22,62.22L65.77,128,40.89,152.89a44,44,0,1,0,62.22,62.22L128,190.23l24.89,24.88a44,44,0,1,0,62.22-62.22ZM169.86,57.86h0a20,20,0,1,1,28.28,28.28L173.25,111,145,82.75ZM156.28,128,128,156.28,99.72,128,128,99.72ZM57.86,86.14A20,20,0,1,1,86.14,57.86L111,82.75,82.75,111Zm28.28,112a20,20,0,1,1-28.28-28.28L82.75,145,111,173.25Zm112,0a20,20,0,0,1-28.28,0L145,173.25,173.25,145l24.89,24.89a20,20,0,0,1,0,28.28Z"/></symbol>
+<symbol id="i-pekerja" viewBox="0 0 256 256" fill="currentColor"><!-- hard-hat --><path d="M228,148.4V136a100.41,100.41,0,0,0-64-93.3V40a20,20,0,0,0-20-20H112A20,20,0,0,0,92,40v2.7A100.41,100.41,0,0,0,28,136v12.4A20,20,0,0,0,12,168v24a20,20,0,0,0,20,20H224a20,20,0,0,0,20-20V168A20,20,0,0,0,228,148.4ZM204,136v12H164V69.07A76.35,76.35,0,0,1,204,136ZM140,44V148H116V44ZM92,69.07V148H52V136A76.35,76.35,0,0,1,92,69.07ZM220,188H36V172H220Z"/></symbol>
+<symbol id="i-lindung" viewBox="0 0 256 256" fill="currentColor"><!-- umbrella --><path d="M243.93,126.3A116.43,116.43,0,0,0,49,50.81a115.45,115.45,0,0,0-37,75.49A20,20,0,0,0,32,148h84v52a36,36,0,0,0,72,0,12,12,0,0,0-24,0,12,12,0,0,1-24,0V148h84a20,20,0,0,0,20-21.7ZM100.41,124c2.67-39.33,18.08-63.51,27.59-74.87,9.52,11.39,24.92,35.56,27.59,74.87ZM65.31,68.46A92,92,0,0,1,99,48.65C88.8,65.25,78.39,90.08,76.36,124H36.44A91.56,91.56,0,0,1,65.31,68.46ZM179.64,124c-2-33.92-12.44-58.75-22.65-75.35A92.19,92.19,0,0,1,219.56,124Z"/></symbol>
+<symbol id="i-bantuan" viewBox="0 0 256 256" fill="currentColor"><!-- hand-heart --><path d="M232.76,137.88a28.66,28.66,0,0,0-12-5.39C236.19,114.94,244,97.37,244,80c0-28.67-23.09-52-51.46-52A51.77,51.77,0,0,0,156,42.85,51.77,51.77,0,0,0,119.46,28C91.09,28,68,51.33,68,80c0,10.15,2.72,20.3,8.22,30.7a35.9,35.9,0,0,0-11.73,7.84L43,140H20A20,20,0,0,0,0,160v40a20,20,0,0,0,20,20H120a11.89,11.89,0,0,0,2.91-.36l64-16a11.4,11.4,0,0,0,1.79-.6l38.82-16.54c.23-.09.45-.19.67-.3a28.61,28.61,0,0,0,4.57-48.32ZM119.46,52A27.18,27.18,0,0,1,144.9,68.56a12,12,0,0,0,22.2,0A27.18,27.18,0,0,1,192.54,52C207.42,52,220,64.82,220,80c0,18.06-15,38.84-43.38,60.19L172,141.26c0-.42,0-.84,0-1.26a32,32,0,0,0-32-32H102.71C95.42,97.76,92,88.77,92,80,92,64.82,104.58,52,119.46,52ZM24,164H36v32H24Zm193.68.61-37.51,16L118.52,196H60V157l21.46-21.46A11.93,11.93,0,0,1,89.94,132H140a8,8,0,0,1,0,16H112a12,12,0,0,0,0,24h32a12.19,12.19,0,0,0,2.69-.3l67-15.41.47-.12a4.61,4.61,0,0,1,5.82,4.44A4.58,4.58,0,0,1,217.68,164.61Z"/></symbol>
 
-<!-- Harga dan kiraan (price and sums) -->
-<symbol id="i-dompet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Excess</title>
-  <rect x="3.13" y="8.6" width="17.74" height="11.3" rx="3"/>
-  <path d="M3.13 11.6V7.4a2.9 2.9 0 0 1 2.9-2.9h10.57"/>
-  <circle cx="16.3" cy="14.25" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kalkulator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kira</title>
-  <rect x="4.63" y="3.13" width="14.74" height="17.74" rx="3"/>
-  <path d="M8.6 7.6h6.8"/>
-  <circle cx="9.2" cy="12" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="14.8" cy="12" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="9.2" cy="16.65" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="14.8" cy="16.65" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-
-<!-- Dokumen dan masa (papers and time) -->
-<symbol id="i-resit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Resit</title>
-  <path d="M5.13 20.87V6.13a3 3 0 0 1 3-3h7.74a3 3 0 0 1 3 3v14.74l-2.29-1.6-2.29 1.6L12 19.27l-2.29 1.6-2.29-1.6z"/>
-  <path d="M8.9 7.8h6.2M8.9 11.8h3"/>
-  <circle cx="14.3" cy="15.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-
-<!-- Antara muka (interface) -->
-<symbol id="i-kanan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Seterusnya</title>
-  <path d="M8.7 5.5l6.5 6.5-6.5 6.5"/>
-  <circle cx="9.26" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kiri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kembali</title>
-  <path d="M15.3 5.5L8.8 12l6.5 6.5"/>
-  <circle cx="14.74" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-bawah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Buka</title>
-  <path d="M5.5 8.7l6.5 6.5 6.5-6.5"/>
-  <circle cx="12" cy="9.26" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-luar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Pautan luar</title>
-  <path d="M10.9 6.2H7.13a3 3 0 0 0-3 3v7.67a3 3 0 0 0 3 3h7.67a3 3 0 0 0 3-3V13.1"/>
-  <path d="M14.6 4.13h5.27V9.4M19.87 4.13l-6.5 6.5"/>
-  <circle cx="10.4" cy="13.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-utama" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Utama</title>
-  <path d="M8.63 6.1L3.13 10.2M15.37 6.1l5.5 4.1"/>
-  <path d="M5.6 12.6v5.27a3 3 0 0 0 3 3h6.8a3 3 0 0 0 3-3V12.6"/>
-  <circle cx="12" cy="3.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-orang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Penulis</title>
-  <circle cx="12" cy="7.33" r="4.2"/>
-  <path d="M4.4 20.87a7.96 7.96 0 0 1 15.2 0"/>
-  <circle cx="12" cy="7.33" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-amaran" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Amaran</title>
-  <path d="M10.24 4.54A2 2 0 0 1 13.76 4.54L20.47 17.06A2.2 2.2 0 0 1 18.53 20.3L5.47 20.3A2.2 2.2 0 0 1 3.53 17.06Z"/>
-  <path d="M12 9.4V12"/>
-  <circle cx="12" cy="16.2" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
+<!-- Navigasi dan tanda (UI) -->
+<symbol id="i-kanan" viewBox="0 0 256 256" fill="currentColor"><!-- caret-right --><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></symbol>
+<symbol id="i-kiri" viewBox="0 0 256 256" fill="currentColor"><!-- caret-left --><path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"/></symbol>
+<symbol id="i-bawah" viewBox="0 0 256 256" fill="currentColor"><!-- caret-down --><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></symbol>
+<symbol id="i-luar" viewBox="0 0 256 256" fill="currentColor"><!-- arrow-square-out --><path d="M228,104a12,12,0,0,1-24,0V69l-59.51,59.51a12,12,0,0,1-17-17L187,52H152a12,12,0,0,1,0-24h64a12,12,0,0,1,12,12Zm-44,24a12,12,0,0,0-12,12v64H52V84h64a12,12,0,0,0,0-24H48A20,20,0,0,0,28,80V208a20,20,0,0,0,20,20H176a20,20,0,0,0,20-20V140A12,12,0,0,0,184,128Z"/></symbol>
+<symbol id="i-amaran" viewBox="0 0 256 256" fill="currentColor"><!-- warning --><path d="M240.26,186.1,152.81,34.23h0a28.74,28.74,0,0,0-49.62,0L15.74,186.1a27.45,27.45,0,0,0,0,27.71A28.31,28.31,0,0,0,40.55,228h174.9a28.31,28.31,0,0,0,24.79-14.19A27.45,27.45,0,0,0,240.26,186.1Zm-20.8,15.7a4.46,4.46,0,0,1-4,2.2H40.55a4.46,4.46,0,0,1-4-2.2,3.56,3.56,0,0,1,0-3.73L124,46.2a4.77,4.77,0,0,1,8,0l87.44,151.87A3.56,3.56,0,0,1,219.46,201.8ZM116,136V104a12,12,0,0,1,24,0v32a12,12,0,0,1-24,0Zm28,40a16,16,0,1,1-16-16A16,16,0,0,1,144,176Z"/></symbol>
+<symbol id="i-kalkulator" viewBox="0 0 256 256" fill="currentColor"><!-- calculator --><path d="M200,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V40A20,20,0,0,0,200,20Zm-4,192H60V44H196ZM80,76A12,12,0,0,1,92,64h72a12,12,0,0,1,0,24H92A12,12,0,0,1,80,76Zm40,52a16,16,0,1,1-16-16A16,16,0,0,1,120,128Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,128Zm-48,48a16,16,0,1,1-16-16A16,16,0,0,1,120,176Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,176Z"/></symbol>
 </defs>
 </svg>
