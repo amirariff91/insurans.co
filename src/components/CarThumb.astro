@@ -36,8 +36,8 @@ const sizes = size === 's' ? '36px' : '(min-width: 40rem) 72px, 60px';
     inline-size: var(--ct-w, 3.75rem);
     aspect-ratio: 3 / 2;
     border-radius: var(--r-1, 6px);
-    background: var(--tint-sky, #cfe8fa);
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+    background: var(--tint-sky, var(--paper));
+    box-shadow: inset 0 0 0 1px var(--line);
     overflow: hidden;
     line-height: 0;
   }
@@ -49,7 +49,7 @@ const sizes = size === 's' ? '36px' : '(min-width: 40rem) 72px, 60px';
     block-size: 100%;
     object-fit: cover;
   }
-  .ct-none { color: rgb(0 0 0 / 0.55); }
+  .ct-none { color: var(--mute); }
   .ct-none :global(.ikon) { inline-size: 55%; block-size: auto; }
   .ct-s.ct-none :global(.ikon) { inline-size: 65%; }
 </style>

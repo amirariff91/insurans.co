@@ -115,17 +115,19 @@
 /* Edisi magenta world, light only (tokens.css). The Tailwind tokens carry the same values. */
 :root {
   color-scheme: light;
-  --paper: #FFFFFF; --card: #FFFFFF; --tray: #F3F3F3; --chip: #E9E9E9;
-  --ink: #000000; --ink-2: #4A4A4A; --rule: #767676; --rule-strong: #000000;
-  --kick: #D0106F; --kick-ink: #FFFFFF; --sel: #D0106F; --sel-ink: #FFFFFF;
-  --mark: #FFF3B0; --mark-ink: #000000; --link: #000000; --red: #B8291E;
-  --knob: #D0106F; --ghost: #949494;
-  --tint-pink: #FBD3E4; --tint-yellow: #FFF3B0; --tint-sky: #CFE8FA;
-  --focus: #000000; --focus-on-dark: #FFFFFF;
-  --glass: rgb(255 255 255 / 0.97); --glass-t: rgb(255 255 255 / 0.8);
-  --glass-edge: rgb(0 0 0 / 0.16); --glass-rim: rgb(255 255 255 / 0.85); --glass-spec: rgb(255 255 255 / 0.9);
+  /* The five colour tokens. Every other colour name below is an alias of one of them. */
+  --paper: #FFFFFF; --ink: #000000; --mute: #595959; --line: #DADADA; --magenta: #D0106F;
+  --card: var(--paper); --tray: var(--paper); --chip: var(--line);
+  --ink-2: var(--mute); --rule: var(--mute); --rule-strong: var(--ink);
+  --kick: var(--magenta); --kick-ink: var(--paper); --sel: var(--magenta); --sel-ink: var(--paper);
+  --mark: var(--paper); --mark-ink: var(--ink); --link: var(--ink); --red: var(--ink);
+  --knob: var(--magenta); --ghost: var(--mute);
+  --tint-pink: var(--paper); --tint-yellow: var(--paper); --tint-sky: var(--paper);
+  --focus: var(--ink); --focus-on-dark: var(--paper);
+  --glass: var(--paper); --glass-t: var(--paper);
+  --glass-edge: var(--line); --glass-rim: var(--paper); --glass-spec: var(--paper);
   --shade: 0 0 0;
-  --r-1: 6px; --r-2: 8px; --r-pill: 999px;
+  --r-1: 8px; --r-2: 8px; --r-pill: 999px;
   --fd: 'Gabarito', 'Gabarito Fallback', 'Gabarito Fallback Android', system-ui, sans-serif;
   --f: 'Figtree', 'Figtree Fallback', 'Figtree Fallback Android', system-ui, sans-serif;
   --gutter: max(1rem, env(safe-area-inset-left));
@@ -165,7 +167,7 @@
   }
 
   b, strong {
-    font-weight: 650;
+    font-weight: 600;
   }
 
   h1, h2, h3 {
@@ -174,7 +176,7 @@
 
   /* Gabarito carries headings at a heavy weight (Edisi: 750); a weight utility on the element still wins. */
   h1, h2, h3 {
-    font-weight: 750;
+    font-weight: 800;
     text-wrap: balance;
   }
 
@@ -200,7 +202,7 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    box-shadow: 0 0 0 2px #FFFFFF;
+    box-shadow: 0 0 0 2px var(--paper);
   }
 
   /* Selection color */
@@ -224,9 +226,11 @@
 
 @layer components {
   /* Layout containers */
+  /* One page frame: the article column starts on the same left edge as the page opening. */
   .container-article {
-    @apply max-w-article mx-auto px-5 sm:px-6;
+    @apply max-w-6xl mx-auto px-5 sm:px-6;
   }
+  .container-article > * { max-width: 72ch; }
 
   .container-wide {
     @apply max-w-6xl mx-auto px-5 sm:px-6;
@@ -294,7 +298,7 @@
   :is(.note-warn, .note-term, .note-info, .note-price, .note-plain) :is(p, li) { color: var(--ink); }
 
   /* "Not covered" marks in tables and lists: Edisi red, 6.2:1 on white. */
-  .mark-no { color: var(--red); font-weight: 700; }
+  .mark-no { color: var(--red); font-weight: 600; }
 
   /* Flood-risk chips: a flag, so red text for high, yellow for medium, plain for low. No green. */
   .risk-tinggi, .risk-sederhana, .risk-rendah {
@@ -358,14 +362,15 @@
   .table-editorial thead,
   .prose-editorial table thead,
   .overflow-x-auto > table > thead {
-    background: var(--ink);
-    color: #FFFFFF;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
   }
 
   .table-editorial th,
   .prose-editorial table th {
     @apply text-left font-display font-bold;
-    padding: 0.7rem 0.85rem;
+    padding: 0.75rem 0.75rem;
     vertical-align: top;
   }
 
@@ -375,19 +380,19 @@
   }
 
   .table-editorial tbody th {
-    border-top: 1px solid rgb(0 0 0 / 0.14);
+    border-top: 1px solid var(--line);
   }
 
   .table-editorial caption,
   .prose-editorial table caption {
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 0.75rem;
     text-align: left;
   }
 
   .table-editorial thead th,
   .prose-editorial table thead th,
   .overflow-x-auto > table > thead th {
-    color: #FFFFFF;
+    color: var(--ink);
     border: 0;
   }
 
@@ -397,8 +402,8 @@
 
   .table-editorial td,
   .prose-editorial table td {
-    padding: 0.7rem 0.85rem;
-    border-top: 1px solid rgb(0 0 0 / 0.14);
+    padding: 0.75rem 0.75rem;
+    border-top: 1px solid var(--line);
     vertical-align: top;
     font-variant-numeric: tabular-nums;
   }
@@ -410,7 +415,7 @@
   /* FAQ and disclosures (Edisi .faq): hairline rows, a chevron on the right. */
   .faq-item,
   .prose-editorial details:not([class]) {
-    border-bottom: 1px solid rgb(0 0 0 / 0.25);
+    border-bottom: 1px solid var(--line);
     @apply py-1;
   }
 
@@ -443,7 +448,7 @@
     flex: none;
     width: 0.55rem;
     height: 0.55rem;
-    margin-right: 0.3rem;
+    margin-right: 0.25rem;
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
     transform: rotate(45deg);
@@ -481,7 +486,7 @@
   /* Prose for article content (Edisi .prosa, penulis.html). */
   .prose-editorial {
     @apply text-edisi-ink;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
 
@@ -522,14 +527,14 @@
   /* Figures in the display face: one weight next to 750 headings, tabular digits. */
   .figure {
     @apply font-display;
-    font-weight: 750;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
   }
 }
 
 /* Any display-face text without its own weight utility gets the Edisi weight (zero specificity, so a font-* utility wins). */
 :where(.font-serif, .font-display) {
-  font-weight: 750;
+  font-weight: 800;
 }
 
 @layer utilities {
@@ -573,7 +578,7 @@
   table.plan-table > tbody {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 1rem;
   }
   table.plan-table > tbody > tr {
     display: flex;
@@ -588,16 +593,16 @@
     flex: 1 1 50%;
     min-width: 0;
     max-width: 100%;
-    padding: 0.7rem 1rem;
+    padding: 0.75rem 1rem;
     border: 0;
-    border-top: 1px solid rgb(0 0 0 / 0.14);
+    border-top: 1px solid var(--line);
     overflow-wrap: anywhere;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     line-height: 1.45;
   }
   /* The shared table rule drops the first body row's top rules; cards need them back between facts. */
   table.plan-table.table-editorial > tbody > tr:first-child > td:not([data-sub], [data-chip], :first-child) {
-    border-top: 1px solid rgb(0 0 0 / 0.14);
+    border-top: 1px solid var(--line);
   }
   table.plan-table > tbody > tr > [data-wide] {
     flex-basis: 100%;
@@ -605,7 +610,7 @@
   table.plan-table > tbody > tr > td::before {
     content: attr(data-label);
     display: block;
-    margin-bottom: 0.15rem;
+    margin-bottom: 2px;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.3;
@@ -615,22 +620,22 @@
   table.plan-table > tbody > tr > :first-child {
     flex: 1 1 100%;
     background: var(--ink);
-    color: #FFFFFF;
+    color: var(--paper);
     border-top: 0;
     font-family: var(--fd);
-    font-weight: 700;
-    font-size: 1.0625rem;
+    font-weight: 600;
+    font-size: 1.125rem;
     line-height: 1.3;
-    padding: 0.75rem 1rem 0.6rem;
+    padding: 0.75rem 1rem 0.5rem;
   }
   table.plan-table > tbody > tr > :first-child::before { content: none; }
-  table.plan-table > tbody > tr > :first-child :is(a, span) { color: #FFFFFF; }
-  table.plan-table > tbody > tr > :first-child span { color: rgb(255 255 255 / 0.82); font-family: var(--f); }
+  table.plan-table > tbody > tr > :first-child :is(a, span) { color: var(--paper); }
+  table.plan-table > tbody > tr > :first-child span { color: var(--paper); font-family: var(--f); }
   table.plan-table > tbody > tr > :first-child:has(+ [data-chip]) { flex-basis: 0; flex-grow: 1; }
   table.plan-table > tbody > tr > [data-sub],
   table.plan-table > tbody > tr > [data-chip] {
     background: var(--ink);
-    color: rgb(255 255 255 / 0.82);
+    color: var(--paper);
     border-top: 0;
     font-size: 0.875rem;
   }
@@ -648,9 +653,9 @@
   }
   table.plan-table > tbody > tr > [data-chip] > .plan-chip {
     display: inline-block;
-    padding: 0.2rem 0.6rem;
+    padding: 0.25rem 0.5rem;
     border-radius: var(--r-pill);
-    background: #FFFFFF;
+    background: var(--paper);
     color: var(--ink);
     font-size: 0.875rem;
     font-weight: 600;
@@ -668,8 +673,8 @@
   }
   table.plan-table > tbody > tr > :first-child a {
     min-height: 0;
-    padding: 0.7rem 0;
-    margin: -0.7rem 0;
+    padding: 0.75rem 0;
+    margin: -0.75rem 0;
     text-decoration-line: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
@@ -678,7 +683,7 @@
     outline: 2px solid var(--focus-on-dark);
     outline-offset: 2px;
   }
-  table.plan-table > tbody > tr > :first-child span.block { margin-top: 0.3rem; }
+  table.plan-table > tbody > tr > :first-child span.block { margin-top: 0.25rem; }
   table.plan-table > tbody > tr > td ul { margin: 0; }
   table.plan-table > tbody > tr > td ul > li + li { margin-top: 0; }
 }
@@ -692,7 +697,7 @@
 .type-chips a {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   min-height: 44px;
   padding: 0 1rem;
   border: 1px solid var(--rule);
@@ -700,11 +705,11 @@
   background: var(--card);
   color: var(--ink);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out);
 }
-.type-chips a:hover { border-color: var(--ink); background: var(--tray); }
+.type-chips a:hover { border-color: var(--ink); background: var(--line); }
 .type-chips a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 /* ==== W4 hubs: plan cards on phones (end) ==== */
 
@@ -713,7 +718,7 @@
 /* P1-2: placeholder text. #595959 is 7.0:1 on white, 5.18:1 on the pink plate, 6.24:1 on yellow,
    5.53:1 on blue, 6.31:1 on the grey tray and 5.77:1 on the chip grey. */
 ::placeholder {
-  color: #595959;
+  color: var(--mute);
   opacity: 1;
 }
 
@@ -770,7 +775,7 @@ th > a,
 /* P3-12: print. */
 @media print {
   @page { margin: 1.5cm; }
-  html, body { background: #fff !important; color: #000 !important; }
+  html, body { background: var(--paper) !important; color: var(--ink) !important; }
   header.mast,
   #mobile-menu-btn,
   #mobile-menu,
@@ -795,19 +800,19 @@ th > a,
   .container-wide, .container-article { max-width: none !important; padding-inline: 0 !important; }
   /* Show collapsed answers (Chrome supports this; elsewhere they print as they are). */
   details::details-content { content-visibility: visible; display: block; }
-  details > summary { list-style: none; font-weight: 700; }
+  details > summary { list-style: none; font-weight: 600; }
   /* Flat panels: black on white with a thin rule. */
   .ea, .ea-hero, .ea-sum, .ix, .ix-bar, .ix-t, .ix-body, [class*="note-"], .mod, .info-box,
   .card-editorial, [data-tint] {
-    background: #fff !important;
-    color: #000 !important;
+    background: var(--paper) !important;
+    color: var(--ink) !important;
     box-shadow: none !important;
   }
   .ea, .ix, [class*="note-"]:not(.note-t), .info-box, .card-editorial {
-    border: 1px solid #000 !important;
+    border: 1px solid var(--ink) !important;
   }
-  .ea *, .ix *, [class*="note-"] * { color: #000 !important; background-color: transparent !important; }
-  a { color: #000 !important; }
+  .ea *, .ix *, [class*="note-"] * { color: var(--ink) !important; background-color: transparent !important; }
+  a { color: var(--ink) !important; }
   /* URL after external links in running text. */
   :is(p, li, td, dd) > a[href^="http"]::after {
     content: " (" attr(href) ")";
@@ -825,48 +830,49 @@ th > a,
  * the home and model pages, so those render unchanged). Used by src/components/edisi/PageAnswer.astro, the
  * shared page opening (Hero.astro, .ea-h1) and section title bars (.prose-bars h2, .mod-bar).
  * ======================================================================================================== */
-.ea-h1 { font: 750 1.625rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 22ch; }
-@media (min-width: 48rem) { .ea-h1 { font-size: 2rem; max-width: none; } }
+.ea-h1 { font: 800 1.75rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 22ch; }
+@media (min-width: 48rem) { .ea-h1 { font-size: 2.25rem; max-width: none; } }
 .mod { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); min-width: 0; }
 .mod[data-tint="pink"] { background: var(--tint-pink); }
 .mod[data-tint="sky"] { background: var(--tint-sky); }
 .mod[data-tint="yellow"] { background: var(--tint-yellow); }
-.mod-bar { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.55rem 0.9rem; background: #000; color: #fff; margin: 0; }
+.mod-bar { display: flex; align-items: center; gap: 0.5rem; min-height: 3rem; padding: 0.5rem 1rem; background: var(--ink); color: var(--paper); margin: 0; }
 .mod-bar, .mod-bar h2 { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
-.mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
+.mod-in { padding: 1rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
 .mod a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .mod a:not([class*="btn"]) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
 
 /* Page answer (PageAnswer.astro): finding in the bar, facts as label/value rows. */
 .pa { max-width: 40rem; margin-block: 1rem; }
-.pa-rows { margin: 0; padding: 0.35rem 0.9rem 0.5rem; display: grid; }
-.pa-r { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.15rem 1rem; padding: 0.55rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+.pa-rows { margin: 0; padding: 0.25rem 1rem 0.5rem; display: grid; }
+.pa-r { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
 .pa-r:last-child { border-bottom: 0; }
 .pa-r dt { color: var(--ink); font-size: 1rem; line-height: 1.35; }
-.pa-r dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.35; min-width: 0; }
-.pa-r[data-role] .pa-v { display: inline-block; padding: 0.1rem 0.45rem; border-radius: var(--r-1); color: var(--ink); }
+.pa-r dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; min-width: 0; }
+.pa-r[data-role] .pa-v { display: inline-block; padding: 2px 0.5rem; border-radius: var(--r-1); color: var(--ink); }
 .pa-r[data-role="price"] .pa-v { background: var(--tint-pink); }
 .pa-r[data-role="term"] .pa-v { background: var(--mark); }
 .pa-r[data-long] { display: block; }
-.pa-r[data-long] dt { font-weight: 700; }
-.pa-r[data-long] dd { font-weight: 400; margin-top: 0.15rem; }
+.pa-r[data-long] dt { font-weight: 600; }
+.pa-r[data-long] dd { font-weight: 400; margin-top: 2px; }
 /* Details rows under a plan answer box: paragraphs, so plain weight under a bold label. */
 .mod:not(.pa) > .pa-rows > .pa-r { display: block; }
-.mod:not(.pa) > .pa-rows > .pa-r dt { font-weight: 700; }
-.mod:not(.pa) > .pa-rows > .pa-r dd { font-weight: 400; margin-top: 0.15rem; }
+.mod:not(.pa) > .pa-rows > .pa-r dt { font-weight: 600; }
+.mod:not(.pa) > .pa-rows > .pa-r dd { font-weight: 400; margin-top: 2px; }
 .pa-r dd a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 /* Phone numbers and short hyphenated tokens stay whole; the value drops under its label instead. */
 .pa-nw, .pa a[href^="tel:"] { white-space: nowrap; }
-.pa-note { margin: 0; padding: 0.6rem 0.9rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid rgb(0 0 0 / 0.15); }
+.pa-note { margin: 0; padding: 0.5rem 1rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid var(--line); }
 
 /* Section title bars for articles that opt in (class "prose-bars" next to prose-editorial). The H2 keeps its
    level and id; it just takes the module bar look in place of the old ruled heading. */
-.prose-editorial.prose-bars h2, .prose-bars .prose-editorial h2, .h2-bar {
-  font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; background: #000; color: #fff;
-  border: 0; border-radius: var(--r-2) var(--r-2) 0 0; padding: 0.75rem 0.9rem; min-height: 3rem;
-  margin-top: 2.5rem; margin-bottom: 1rem;
+.prose-editorial.prose-bars h2, .prose-bars .prose-editorial h2, .h2-bar, h2.h2-quiet {
+  /* Sections are ruled headings. The inverted bar is kept for modules (.mod-bar), which state a finding. */
+  font: 800 1.375rem/1.2 var(--fd); text-wrap: balance; background: none; color: var(--ink);
+  border: 0; border-top: 2px solid var(--ink); border-radius: 0; padding: 0.75rem 0 0; min-height: 0;
+  margin-top: 3rem; margin-bottom: 0.75rem;
 }
-@media print { .mod-bar, .prose-bars h2, .h2-bar { background: #fff; color: #000; border-bottom: 2px solid #000; } }
+@media print { .mod-bar, .prose-bars h2, .h2-bar { background: var(--paper); color: var(--ink); border-bottom: 2px solid var(--ink); } }
 
 /* Long unbroken runs (e.g. "RM100,000/200,000/300,000") wrap instead of pushing the page sideways at 320px. */
 main :where(p, li, dd, dt, h1, h2, h3, figcaption, blockquote, a, summary, cite) { overflow-wrap: anywhere; }
@@ -881,19 +887,16 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
  * (term/total) band. It breaks only after a dash. The sentence is the answer on pages with no number.
  * Also: quiet section labels, once-only list labels and plan-card fixes for the product/company pages.
  * ======================================================================================================== */
-.pa-lead { padding: 0.8rem 0.9rem 0.85rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+.pa-lead { padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--line); }
 .pa-lead[data-role="price"] { background: var(--tint-pink); }
 .pa-lead[data-role="term"] { background: var(--mark); }
-.pa-lead-v { margin: 0; font: 800 clamp(2.5rem, 12.3vw, 3rem)/1.02 var(--fd); letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pa-lead-v { margin: 0; font: 800 2.25rem/1.02 var(--fd); letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .pa-lead-p { display: inline-block; }
-.pa-lead-l { margin: 0.35rem 0 0; font-size: 1rem; line-height: 1.35; color: var(--ink); }
-.pa-sent { margin: 0; padding: 0.75rem 0.9rem; font-size: 1.0625rem; line-height: 1.45; color: var(--ink); }
+.pa-lead-l { margin: 0.25rem 0 0; font-size: 1rem; line-height: 1.35; color: var(--ink); }
+.pa-sent { margin: 0; padding: 0.75rem 1rem; font-size: 1.125rem; line-height: 1.45; color: var(--ink); }
 .pa-sent + .pa-rows, .pa-lead + .pa-sent { border-top: 0; }
 /* A section heading without a finding: quiet label, not a black bar. Keeps its level and id. */
-.prose-editorial.prose-bars h2.h2-quiet, .prose-bars .prose-editorial h2.h2-quiet, h2.h2-quiet {
-  background: none; color: var(--ink); border-radius: 0; padding: 0 0 0.4rem; min-height: 0;
-  border-bottom: 2px solid var(--ink); font: 800 1.125rem/1.25 var(--fd);
-}
+/* (h2-quiet is now the same ruled heading as every section.) */
 .sr-only-x { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 /* ==== Page answer: lead and sentence (end) ==== */
 /* Plan cards: an empty condition cell is not a row on phones; a link cell named by its own text drops the label. */
@@ -901,3 +904,30 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
   table.plan-table > tbody > tr > td[data-empty] { display: none; }
   table.plan-table > tbody > tr > td[data-nolabel]::before { content: none; }
 }
+
+/* ---- Hierarchy on five colours (15 Nov 2026) -------------------------------------------------
+ * With the tints gone, emphasis comes from weight, rules and the one inverted surface:
+ *   ink fill   = a module's finding (.mod-bar) and the reader's current choice;
+ *   2px ink    = a section start, a table head, the yearly total;
+ *   1px line   = dividers inside a module;  1px mute = the edge of a control or module.
+ * Side rails never invert: they are navigation, and the main column carries the answer. */
+.ea-sum { box-shadow: none; border: 2px solid var(--ink); }
+.mlist a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+.mlist a[aria-current="page"] .mp { color: var(--paper); }
+.pa-r[data-role="price"] .pa-v, .pa-r[data-role="term"] .pa-v,
+.pa-lead[data-role="price"], .pa-lead[data-role="term"] { background: none; font-weight: 600; }
+.ep-tools .mod-bar, .ep-tools .ix-bar, .ep-models .mod-bar, .ep-models .ix-bar, aside .mod-bar {
+  background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid var(--line);
+}
+::selection { background: var(--magenta); color: var(--paper); }
+/* The first section sits right under the page opening: the container's own padding is the gap. */
+.prose-editorial > h2:first-child, .prose-editorial > :first-child > h2:first-child { margin-top: 0; }
+/* Guide illustrations are drawn in their own colours; on the page they read as ink, like the car photos. */
+img[src^="/images/guides/"] { filter: grayscale(1); }
+code { font-size: 0.875rem; }
+main a:not([class]) { color: var(--link); }
+/* Reading measure: prose never runs wider than 72ch, whatever container it sits in. */
+.prose-editorial > :where(p, ul, ol, h3, h4, blockquote) { max-width: 72ch; }
+/* The yearly total: the row the reader came for. */
+.kb-r.kb-tot { background: none; border-top: 2px solid var(--ink); font-weight: 600; }
+.kb-r.kb-tot { border-radius: 0; margin-inline: 0; padding-inline: 0; }

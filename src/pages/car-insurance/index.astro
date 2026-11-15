@@ -680,9 +680,9 @@ const schema = {
   }
   .hub-top-in {
     display: grid;
-    gap: 1.25rem;
+    gap: 1.5rem;
     grid-template-columns: minmax(0, 1fr);
-    padding-block: 1.25rem 2.5rem;
+    padding-block: 1.5rem 3rem;
   }
   .hub-top-in > * {
     margin: 0;
@@ -710,32 +710,32 @@ const schema = {
   .hub-warn { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem; border: 1.5px solid var(--ink); border-radius: var(--r-2); background: var(--card); color: var(--ink); }
   .hub-warn > :global(svg) { flex: none; }
   .hub-addon { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border: 1px solid var(--rule); border-radius: var(--r-2); background: var(--card); }
-  .hub-addon > span { font-weight: 700; font-size: 0.875rem; margin-top: 0.125rem; color: var(--ink); }
+  .hub-addon > span { font-weight: 600; font-size: 0.875rem; margin-top: 2px; color: var(--ink); }
   .hub-lead {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.55;
     color: var(--ink);
     max-width: 68ch;
   }
   .hub-sum { border: 2px solid var(--ink); }
-  .hub-sum :global(dl) { padding: 0.9rem; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
+  .hub-sum :global(dl) { padding: 1rem; display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
   .hub-sum :global(dl > div) { margin: 0; }
   .hub-body :global(h2.hub-bar) {
-    margin: 2.5rem 0 1rem;
-    padding: 0.55rem 0.9rem;
+    margin: 3rem 0 1rem;
+    padding: 0.5rem 1rem;
     border-top: 0;
     border-radius: var(--r-2);
-    background: #000;
-    color: #fff;
-    font: 800 1.25rem/1.2 var(--fd);
+    background: var(--ink);
+    color: var(--paper);
+    font: 800 1.375rem/1.2 var(--fd);
     scroll-margin-top: 5rem;
   }
   .hub-body :global(.prose-editorial > h2.hub-bar:first-child) { margin-top: 0.5rem; }
   /* Topic labels (no finding to state): the quiet heading, so the black bars left each carry a finding. */
-  .hub-body :global(h2.hub-bar.mod-lab) { padding: 0.75rem 0 0; border-top: 2px solid var(--ink); border-radius: 0; background: none; color: var(--ink); font-size: 1.1875rem; }
+  .hub-body :global(h2.hub-bar.mod-lab) { padding: 0.75rem 0 0; border-top: 2px solid var(--ink); border-radius: 0; background: none; color: var(--ink); font-size: 1.125rem; }
   .hub-fold > summary {
-    display: flex; align-items: center; min-height: 3rem; padding: 0.5rem 0.9rem; cursor: pointer;
-    border: 2px solid var(--ink); border-radius: var(--r-2); font: 750 1.0625rem/1.25 var(--fd); color: var(--ink);
+    display: flex; align-items: center; min-height: 3rem; padding: 0.5rem 1rem; cursor: pointer;
+    border: 2px solid var(--ink); border-radius: var(--r-2); font: 800 1.125rem/1.25 var(--fd); color: var(--ink);
   }
   .hub-fold > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .hub-fold[open] > summary { background: var(--tray); }

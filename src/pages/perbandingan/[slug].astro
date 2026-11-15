@@ -335,16 +335,16 @@ const schema = {
 </Base>
 
 <style>
-  .compare-rows { border-top: 2px solid var(--ink, #111); }
-  .compare-row { padding-block: 1.25rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
-  .compare-row-t { font: 800 1.125rem/1.25 var(--fd, inherit); color: var(--ink, #111); margin: 0 0 0.75rem; }
+  .compare-rows { border-top: 2px solid var(--ink, var(--ink)); }
+  .compare-row { padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
+  .compare-row-t { font: 800 1.125rem/1.25 var(--fd, inherit); color: var(--ink, var(--ink)); margin: 0 0 0.75rem; }
   .compare-cols { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 48rem) {
     .compare-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
-    .compare-cols > div + div { border-left: 1px solid rgb(0 0 0 / 0.2); padding-left: 1.25rem; }
-    .compare-cols > div:first-child { padding-right: 1.25rem; }
+    .compare-cols > div + div { border-left: 1px solid var(--line); padding-left: 1.5rem; }
+    .compare-cols > div:first-child { padding-right: 1.5rem; }
   }
-  .compare-name { font-weight: 700; color: var(--ink, #111); margin: 0 0 0.35rem; }
-  .compare-cols p, .compare-note { font-size: 1rem; line-height: 1.55; color: var(--ink, #111); margin: 0; }
-  .compare-note { margin-top: 0.9rem; color: var(--ink-2, #3a3a3a); }
+  .compare-name { font-weight: 600; color: var(--ink, var(--ink)); margin: 0 0 0.25rem; }
+  .compare-cols p, .compare-note { font-size: 1rem; line-height: 1.55; color: var(--ink, var(--ink)); margin: 0; }
+  .compare-note { margin-top: 1rem; color: var(--ink-2, var(--ink)); }
 </style>

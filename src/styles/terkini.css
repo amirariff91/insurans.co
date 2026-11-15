@@ -1,33 +1,33 @@
 /* Terkini pages: dated update stream. Uses the Edisi tokens from global.css. */
 
-.tk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.9375rem; color: var(--ink-2); }
+.tk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 1rem; color: var(--ink-2); }
 .tk-meta time { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
-.tk-chip { display: inline-flex; align-items: center; min-height: 1.75rem; padding: 0 0.65rem; border-radius: var(--r-pill); font: 700 0.875rem/1 var(--f); letter-spacing: 0.02em; color: var(--ink); background: var(--chip); box-shadow: inset 0 0 0 1px var(--rule); }
+.tk-chip { display: inline-flex; align-items: center; min-height: 1.75rem; padding: 0 0.75rem; border-radius: var(--r-pill); font: 600 0.875rem/1 var(--f); letter-spacing: 0.02em; color: var(--ink); background: var(--chip); box-shadow: inset 0 0 0 1px var(--rule); }
 .tk-chip[data-kind="pembetulan"] { background: var(--tint-yellow); box-shadow: inset 0 0 0 1.5px var(--ink); }
 .tk-chip[data-kind="harga"] { background: var(--tint-pink); }
 .tk-chip[data-kind="peraturan"] { background: var(--tint-sky); }
 
 .tk-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0; border-top: 2px solid var(--ink); }
-.tk-item { padding: 1.25rem 0 1.4rem; border-bottom: 1px solid var(--rule); display: grid; gap: 0.5rem; }
-.tk-item h2 { font: 750 1.3125rem/1.25 var(--fd); color: var(--ink); text-wrap: balance; margin: 0; }
+.tk-item { padding: 1.5rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: grid; gap: 0.5rem; }
+.tk-item h2 { font: 800 1.375rem/1.25 var(--fd); color: var(--ink); text-wrap: balance; margin: 0; }
 .tk-item h2 a { color: inherit; text-decoration: none; }
 .tk-item h2 a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
 .tk-item h2 a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .tk-item p { font-size: 1rem; line-height: 1.55; color: var(--ink); max-width: 62ch; margin: 0; }
 
-.tk-lede { margin-top: 0.5rem; font-size: 1.0625rem; line-height: 1.6; color: var(--ink); max-width: 62ch; }
-.tk-body { display: grid; gap: 1rem; margin: 1.5rem 0 2rem; font-size: 1.0625rem; line-height: 1.65; color: var(--ink); max-width: 62ch; }
+.tk-lede { margin-top: 0.5rem; font-size: 1.125rem; line-height: 1.6; color: var(--ink); max-width: 62ch; }
+.tk-body { display: grid; gap: 1rem; margin: 1.5rem 0 2rem; font-size: 1.125rem; line-height: 1.65; color: var(--ink); max-width: 62ch; }
 .tk-body a, .tk-refs a, .tk-foot a { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
 .tk-eff { font-weight: 600; }
 
-.tk-refs { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 2rem; }
+.tk-refs { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 2rem; }
 @media (min-width: 48rem) { .tk-refs { grid-template-columns: 1fr 1fr; } }
-.tk-refs ul { list-style: none; margin: 0; padding: 0.4rem 0.85rem 0.6rem; }
-.tk-refs li { padding: 0.45rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.15); font-size: 0.9375rem; line-height: 1.45; }
+.tk-refs ul { list-style: none; margin: 0; padding: 0.5rem 0.75rem 0.5rem; }
+.tk-refs li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; line-height: 1.45; }
 .tk-refs li:last-child { border-bottom: 0; }
 .tk-refs a:focus-visible, .tk-foot a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
-.tk-foot { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: 0.9375rem; }
-.tk-foot a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; }
-.tk-rss { font-size: 0.9375rem; color: var(--ink-2); margin-top: 1rem; }
+.tk-foot { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 1rem; }
+.tk-foot a { display: inline-flex; align-items: center; gap: 0.25rem; min-height: 2.75rem; }
+.tk-rss { font-size: 1rem; color: var(--ink-2); margin-top: 1rem; }
 .tk-rss a { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }

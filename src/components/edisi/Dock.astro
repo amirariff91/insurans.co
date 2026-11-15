@@ -31,17 +31,17 @@ const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.p
 <style is:global>
   .dock {
     position: fixed; z-index: 30; left: var(--gutter); right: var(--gutter); bottom: calc(0.5rem + env(safe-area-inset-bottom));
-    display: flex; align-items: center; gap: 0.5rem; max-width: 30rem; margin: 0 auto; padding: 0.3rem 0.3rem 0.3rem 0.85rem;
+    display: flex; align-items: center; gap: 0.5rem; max-width: 30rem; margin: 0 auto; padding: 0.25rem 0.25rem 0.25rem 0.75rem;
     border-radius: var(--r-pill); color: var(--ink); background: var(--glass);
-    box-shadow: 0 0 0 1px var(--glass-edge), 0 12px 28px -14px rgb(var(--shade) / 0.5), inset 0 1px 0 var(--glass-spec);
+    box-shadow: 0 0 0 1px var(--glass-edge), inset 0 1px 0 var(--glass-spec);
     transform: translateY(calc(100% + 1rem)); visibility: hidden;
     transition: transform 200ms var(--ease-out), visibility 0s linear 200ms;
   }
   @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .dock { background: var(--glass-t); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); }
+    .dock { background: var(--glass-t); -webkit-backdrop-filter: none; backdrop-filter: none; }
   }
   @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-    .dock { background: var(--card) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 1.5px var(--ink); }
+    .dock { background: var(--card) !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 0 0 1.5px var(--ink); }
   }
   html.dock-on .dock { transform: none; visibility: visible; transition: transform 200ms var(--ease-out); }
   html.dock-on body { padding-bottom: calc(var(--dock-h, 3.5rem) + 1rem + env(safe-area-inset-bottom)); }
@@ -49,17 +49,17 @@ const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.p
   .dock-t { flex: 1; min-width: 0; margin: 0; display: grid; font-variant-numeric: tabular-nums; }
   /* Two lines, each one line high. Line 1: the car's name, which alone truncates (full name in its title), then
      the NCD step, never cut. Line 2: the price and its unit, which fit at 320px for every model. */
-  .dock-r { display: flex; gap: 0.4rem; min-width: 0; font: 600 0.875rem/1.25 var(--f); }
+  .dock-r { display: flex; gap: 0.5rem; min-width: 0; font: 600 0.875rem/1.25 var(--f); }
   .dock-n { flex: 0 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
-  .dock-k { flex: none; white-space: nowrap; font-weight: 750; }
+  .dock-k { flex: none; white-space: nowrap; font-weight: 800; }
   .dock-n:empty { display: none; }
-  .dock-v { display: block; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font: 750 1.0625rem/1.25 var(--fd); }
+  .dock-v { display: block; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font: 800 1.125rem/1.25 var(--fd); }
   .dock-v:empty { display: none; }
   .dock-b {
     flex: none; min-height: 2.75rem; min-width: 2.75rem; padding: 0 1rem; border: 0; border-radius: var(--r-pill);
-    background: var(--kick); color: var(--kick-ink); font: 700 1rem/1 var(--fd); cursor: pointer;
+    background: var(--kick); color: var(--kick-ink); font: 600 1rem/1 var(--fd); cursor: pointer;
   }
-  .dock-b:hover { background: #A50C58; }
+  .dock-b:hover { background: var(--ink); }
   .dock-b:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .dock[hidden] { display: none; }
   @media (min-width: 48rem) { .dock { display: none !important; } }

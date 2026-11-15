@@ -112,7 +112,7 @@ const faqSchema = {
         </ul>
       </section>
       <Byline dateModified={asAt} />
-      <p class="max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Tiga panduan ringkas dalam Bahasa Malaysia untuk anda semak, print atau Save-as-PDF. Kami bukan ejen, bukan broker. Pilih dan semak sendiri berdasarkan PDS atau sijil.
       </p>
     </div>
@@ -190,10 +190,10 @@ const faqSchema = {
 
 <style>
   .pd-list { max-width: 48rem; margin-block: 1rem 0.5rem; }
-  .pd-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
-  .pd-r { display: grid; gap: 0.05rem; padding: 0.3rem 0 0.55rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .pd-rows { list-style: none; margin: 0; padding: 0 1rem; display: grid; }
+  .pd-r { display: grid; gap: 0; padding: 0.25rem 0 0.5rem; border-bottom: 1px solid var(--line); }
   .pd-r:last-child { border-bottom: 0; }
-  .pd-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .pd-a { display: inline-flex; align-items: center; gap: 0.25rem; min-height: 2.75rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .pd-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .pd-b { font-size: 0.9375rem; color: var(--ink); }
+  .pd-b { font-size: 1rem; color: var(--ink); }
 </style>

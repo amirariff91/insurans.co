@@ -5,21 +5,21 @@
  * magenta only for the main button and the chosen/focused state, pink tint for
  * calculators, sky tint for explanation, yellow for totals and flags.
  */
-.et { --et-xs: 0.875rem; --et-bar: #000; --et-bar-ink: #fff; }
+.et { --et-xs: 0.875rem; --et-bar: var(--ink); --et-bar-ink: var(--paper); }
 
 /* Panels with a black title bar */
-.et .et-panel { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); padding: 0 0 1.25rem; scroll-margin-top: 4.5rem; }
+.et .et-panel { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); padding: 0 0 1.5rem; scroll-margin-top: 4.5rem; }
 .et .et-panel[data-tint="pink"] { background: var(--tint-pink); }
 .et .et-panel[data-tint="sky"] { background: var(--tint-sky); }
 .et .et-panel > :not(.et-bar) { margin-left: 1rem; margin-right: 1rem; }
 @media (min-width: 640px) { .et .et-panel > :not(.et-bar) { margin-left: 1.5rem; margin-right: 1.5rem; } }
 .et .et-panel > .et-bar + * { margin-top: 1rem; }
-.et .et-bar { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.6rem 1rem; background: var(--et-bar); color: var(--et-bar-ink); }
+.et .et-bar { display: flex; align-items: center; gap: 0.5rem; min-height: 3rem; padding: 0.5rem 1rem; background: var(--et-bar); color: var(--et-bar-ink); }
 @media (min-width: 640px) { .et .et-bar { padding-inline: 1.5rem; } }
 .et .et-bar .ikon { flex: none; color: inherit; }
-.et .et-bar-t { flex: 1; margin: 0; font: 800 1.25rem/1.2 var(--fd); color: inherit; text-wrap: balance; }
+.et .et-bar-t { flex: 1; margin: 0; font: 800 1.375rem/1.2 var(--fd); color: inherit; text-wrap: balance; }
 .et .et-panel .label { color: var(--ink-2); }
-.et .et-src { font-size: var(--et-xs); color: var(--ink-2); padding-top: 0.6rem; border-top: 1px solid rgb(0 0 0 / 0.18); }
+.et .et-src { font-size: var(--et-xs); color: var(--ink-2); padding-top: 0.5rem; border-top: 1px solid var(--line); }
 
 /* Inputs: 44px minimum, ink border, black focus ring */
 .et input[type="number"], .et input[type="text"], .et select {
@@ -40,13 +40,13 @@
 .et button[type="submit"], .et .et-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   width: 100%; min-height: 3rem; padding: 0.75rem 1rem; border: 0; border-radius: var(--r-1);
-  background: var(--kick); color: var(--kick-ink); font: 700 1rem/1.2 var(--f); cursor: pointer;
+  background: var(--kick); color: var(--kick-ink); font: 600 1rem/1.2 var(--f); cursor: pointer;
 }
-.et button[type="submit"]:hover, .et .et-btn:hover { background: #A50C58; }
+.et button[type="submit"]:hover, .et .et-btn:hover { background: var(--ink); }
 .et button[type="submit"]:focus-visible, .et .et-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
 /* Result area: space reserved so nothing below moves when a result appears */
-.et .et-out { position: relative; margin-top: 1.25rem; }
+.et .et-out { position: relative; margin-top: 1.5rem; }
 .et .et-out > [id$="-result"] { margin-top: 0; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--tint-yellow); color: var(--ink); }
 .et .et-out > [id$="-result"] .text-hijau-700, .et .et-out > [id$="-result"] .text-stone-600, .et .et-out > [id$="-result"] .text-stone-700 { color: var(--ink); }
 .et .et-wait { display: flex; align-items: center; gap: 0.5rem; min-height: inherit; padding: 1rem; border: 1.5px dashed var(--rule); border-radius: var(--r-1); color: var(--ink-2); font-size: 1rem; }
@@ -60,20 +60,20 @@
 
 /* NCD table with bars */
 .et .tg-table { width: 100%; border-collapse: collapse; }
-.et .tg-table caption { text-align: left; font-weight: 650; padding-bottom: 0.5rem; }
-.et .tg-table thead th { text-align: left; font-size: var(--et-xs); font-weight: 600; color: #fff; padding: 0.55rem 0.35rem; vertical-align: bottom; }
-.et .tg-table tbody > tr > * { padding: 0.55rem 0.35rem; vertical-align: middle; border-top: 1px solid rgb(0 0 0 / 0.25); text-align: left; }
+.et .tg-table caption { text-align: left; font-weight: 600; padding-bottom: 0.5rem; }
+.et .tg-table thead th { text-align: left; font-size: var(--et-xs); font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--ink); padding: 0.5rem 0.25rem; vertical-align: bottom; }
+.et .tg-table tbody > tr > * { padding: 0.5rem 0.25rem; vertical-align: middle; border-top: 1px solid var(--line); text-align: left; }
 .et .tg-table tr > :first-child { padding-left: 0.75rem; }
 .et .tg-table tr > :last-child { padding-right: 0.75rem; }
 .et .tg-table tbody > tr:first-child > * { border-top: 0; }
 .et .tg-table tbody th { font-weight: 400; line-height: 1.25; }
 .et .tg-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .et .tg-table thead th.num { text-align: right; }
-.et .tg-mid { display: grid; gap: 0.2rem; min-width: 4.5rem; }
-.et .tg-bar { display: block; height: 0.625rem; width: calc(var(--p) * 1%); background: var(--card); box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 2px; }
-.et .tg-pct { font-weight: 650; line-height: 1.1; }
+.et .tg-mid { display: grid; gap: 0.25rem; min-width: 4.5rem; }
+.et .tg-bar { display: block; height: 0.625rem; width: calc(var(--p) * 1%); background: var(--card); box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 4px; }
+.et .tg-pct { font-weight: 600; line-height: 1.1; }
 .et .tg-max .tg-bar { background: var(--kick); box-shadow: none; }
-.et .tg-max > * { font-weight: 650; }
+.et .tg-max > * { font-weight: 600; }
 .et .tg-short { display: none; }
 /* Phones: the four columns fit the panel. Short headings on screen (the full wording stays for screen
    readers), the discount wraps under its word, tighter cells. Same rows and values. */
@@ -81,10 +81,10 @@
   .et .tg-table { font-size: 0.875rem; }
   .et .tg-table .tg-long { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   .et .tg-table .tg-short { display: inline; }
-  .et .tg-table thead th { padding: 0.5rem 0.2rem; }
-  .et .tg-table tbody > tr > * { padding: 0.5rem 0.2rem; }
-  .et .tg-table tr > :first-child { padding-left: 0.45rem; }
-  .et .tg-table tr > :last-child { padding-right: 0.45rem; }
+  .et .tg-table thead th { padding: 0.5rem 0.25rem; }
+  .et .tg-table tbody > tr > * { padding: 0.5rem 0.25rem; }
+  .et .tg-table tr > :first-child { padding-left: 0.5rem; }
+  .et .tg-table tr > :last-child { padding-right: 0.5rem; }
   .et .tg-table .tg-disc { white-space: normal; }
   .et .tg-table thead th.num { white-space: normal; }
   .et .tg-mid { min-width: 3.25rem; }
@@ -92,55 +92,55 @@
 
 /* NCD staircase picker */
 .et .ncd { border: 0; padding: 0; margin: 0; min-width: 0; }
-.et .ncd legend { font-weight: 650; margin-bottom: 0.5rem; }
-.et .bars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 0.3rem; max-width: 36rem; }
+.et .ncd legend { font-weight: 600; margin-bottom: 0.5rem; }
+.et .bars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 0.25rem; max-width: 36rem; }
 .et .bar { position: relative; display: grid; grid-template-rows: 4.5rem auto auto; justify-items: center; cursor: pointer; border-radius: var(--r-1); padding-bottom: 0.25rem; min-height: 2.75rem; }
 .et .bar input { position: absolute; inset: 0; opacity: 0; margin: 0; width: 100%; height: 100%; cursor: pointer; }
 .et .bar-col { align-self: end; width: 100%; height: calc(var(--h) * 1%); background: var(--chip); box-shadow: inset 0 0 0 1.5px var(--rule); border-radius: var(--r-1) var(--r-1) 0 0; transition: background-color 150ms var(--ease-out); }
-.et .bar-y { margin-top: 0.35rem; font: 750 1.125rem/1.1 var(--fd); }
+.et .bar-y { margin-top: 0.25rem; font: 800 1.125rem/1.1 var(--fd); }
 .et .bar-p { font-size: var(--et-xs); color: var(--ink-2); line-height: 1.2; }
 .et .bar:hover .bar-col { box-shadow: inset 0 0 0 2px var(--ink); }
 .et .bar:has(input:checked) .bar-col { background: var(--kick); box-shadow: none; }
-.et .bar:has(input:checked) .bar-p { color: var(--ink); font-weight: 650; }
+.et .bar:has(input:checked) .bar-p { color: var(--ink); font-weight: 600; }
 .et .bar:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
-.et .bars-base { grid-column: 1 / -1; height: 3px; background: var(--ink); border-radius: 2px; order: -1; }
+.et .bars-base { grid-column: 1 / -1; height: 3px; background: var(--ink); border-radius: 4px; order: -1; }
 .et .et-next { min-height: 3rem; margin-top: 0.75rem; font-weight: 400; }
 
 /* RM input */
 .et .rm { display: flex; align-items: center; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--card); max-width: 24rem; }
 .et .rm > span { padding-left: 0.75rem; color: var(--ink-2); font-weight: 600; }
-.et .rm input[type="number"] { flex: 1; width: 100%; min-width: 0; border: 0; background: none; padding: 0 0.6rem; font-size: 1.25rem; font-weight: 600; }
+.et .rm input[type="number"] { flex: 1; width: 100%; min-width: 0; border: 0; background: none; padding: 0 0.5rem; font-size: 1.375rem; font-weight: 600; }
 .et .rm input[type="number"]:focus-visible { outline: none; }
 .et .rm:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--kick); }
 .et .big { font: 800 2.25rem/1 var(--fd); }
 
 @media (prefers-reduced-motion: reduce) { .et * { transition: none !important; } }
 .et #claim-result { border: 0; background: none; }
-.et .ncd-h1 { font: 800 clamp(2rem, 5vw, 3.25rem)/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; }
+.et .ncd-h1 { font: 800 2.25rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; }
 
 /* Tools index cards */
 .et .et-card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); color: var(--ink); text-decoration: none; transition: border-color 150ms var(--ease-out); }
 .et .et-card > :not(.et-bar) { margin: 0 1rem; }
-.et .et-card > .et-bar + * { margin-top: 0.9rem; }
+.et .et-card > .et-bar + * { margin-top: 1rem; }
 .et .et-card .text-stone-600 { color: var(--ink-2); margin-top: 0.5rem; }
 .et .et-card:hover { border-color: var(--kick); box-shadow: inset 0 0 0 1px var(--kick); }
 .et .et-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.et .et-kicker { font-size: var(--et-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
-.et .et-go { margin-top: auto !important; padding: 0.9rem 0 1rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.et .et-kicker { font-size: var(--et-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
+.et .et-go { margin-top: auto !important; padding: 1rem 0 1rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .et .et-card:hover .et-go { text-decoration-color: var(--kick); }
 
 /* Examples under a label ("cth: ..."), visible text instead of a placeholder. #4A4A4A: 6.6:1 on the pink tint. */
-.et .et-hint { margin: 0 0 0.375rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-2); }
+.et .et-hint { margin: 0 0 0.5rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-2); }
 /* Placeholders that remain only repeat visible text; same ink as the hints so they pass 4.5:1. */
 .et input::placeholder { color: var(--ink-2); opacity: 1; }
 /* Quick-example chips (motorcycle roadtax): 44px tall. */
 .et .motor-chip { min-height: 2.75rem; }
 
 /* ---- Edisi opening for the tools pages: breadcrumbs, H1 at the answer-block size, no kicker, no hairline. */
-.et-open { padding-top: 1rem; padding-bottom: 1.25rem; }
-.et-open .et-h1, .et .et-h1 { margin: 0.25rem 0 0; font: 750 1.625rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 30ch; }
-@media (min-width: 48rem) { .et-open .et-h1, .et .et-h1 { font-size: 2rem; } .et-open { padding-top: 1.5rem; } }
-.et-open .et-lede { margin: 0.6rem 0 0; max-width: 42rem; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.et-open { padding-top: 1rem; padding-bottom: 1.5rem; }
+.et-open .et-h1, .et .et-h1 { margin: 0.25rem 0 0; font: 800 1.75rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 30ch; }
+@media (min-width: 48rem) { .et-open .et-h1, .et .et-h1 { font-size: 2.25rem; } .et-open { padding-top: 1.5rem; } }
+.et-open .et-lede { margin: 0.5rem 0 0; max-width: 42rem; font-size: 1rem; line-height: 1.5; color: var(--ink); }
 .et .et-after { display: grid; gap: 0.5rem; margin-top: 1.5rem; max-width: 42rem; }
 .et .et-after > p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink); }
 
@@ -160,7 +160,7 @@
 /* The bars show here even without :has() (the calculator needs them), so selected and focus states use the radio's
    own siblings, not the shared :has() rules; the knob follows the step only through :has(), so it hides without it. */
 .et .et-ncd .ea-bar input:checked ~ .ea-col { background: var(--sel); box-shadow: none; }
-.et .et-ncd .ea-bar input:checked ~ .ea-p { color: var(--ink); font-weight: 650; }
+.et .et-ncd .ea-bar input:checked ~ .ea-p { color: var(--ink); font-weight: 600; }
 .et .et-ncd .ea-bar:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
 @supports selector(:has(*)) { .et .et-ncd .ea-bar:focus-within:not(:has(input:focus-visible)) { outline: none; } }
 @supports not selector(:has(*)) { .et .et-ncd .ea-knob { display: none; } }
@@ -168,17 +168,17 @@
 .et .et-ncd[data-ex] .ea-mark { display: block; }
 @supports selector(:has(*)) { html:not(:has(#ncd-55:checked)) .et .et-ncd .ea-mark { display: none; } }
 .et .et-pair { display: grid; gap: 0.75rem; margin-top: 1rem; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 48rem) { .et .et-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.25rem; } }
+@media (min-width: 48rem) { .et .et-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.5rem; } }
 .et .et-pair .et-msg { min-height: 0; }
-.et .et-price { padding: 0.9rem 1rem; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--tint-pink); color: var(--ink); min-height: 7.5rem; }
-.et .et-ex { margin: 0 0 0.4rem; font-size: 0.875rem; font-weight: 650; color: var(--ink); }
+.et .et-price { padding: 1rem 1rem; border: 1.5px solid var(--ink); border-radius: var(--r-1); background: var(--tint-pink); color: var(--ink); min-height: 7.5rem; }
+.et .et-ex { margin: 0 0 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
 .et .et-ex[hidden] { display: block; visibility: hidden; }
 .et .et-break { margin-top: 1rem; }
-.et .et-break-h { margin: 0 0 0.35rem; font-size: 0.875rem; font-weight: 650; color: var(--ink); }
+.et .et-break-h { margin: 0 0 0.25rem; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
 
 /* NCD page, lower half: modules with title bars, not ruled H2s. */
-.et .et-hint { font-size: 0.9375rem; line-height: 1.45; color: var(--ink); max-width: 62ch; }
-.et .et-hint strong { font-weight: 650; }
+.et .et-hint { font-size: 1rem; line-height: 1.45; color: var(--ink); max-width: 62ch; }
+.et .et-hint strong { font-weight: 600; }
 .et .et-prose > :first-child { margin-top: 0; }
 .et .et-prose > :last-child { margin-bottom: 0; }
 .et .et-faq > .faq-item:first-child { border-top: 0; }
@@ -188,17 +188,17 @@
 .et .et-more { border: 1px solid var(--rule); border-radius: var(--r-2); background: var(--card); }
 .et .et-more > summary {
   display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: 3rem; padding: 0.5rem 1rem;
-  font: 750 1.0625rem/1.25 var(--fd); color: var(--ink); cursor: pointer; list-style: none; background: var(--tray); border-radius: var(--r-2);
+  font: 800 1.125rem/1.25 var(--fd); color: var(--ink); cursor: pointer; list-style: none; background: var(--tray); border-radius: var(--r-2);
 }
 .et .et-more > summary::-webkit-details-marker { display: none; }
-.et .et-more > summary::after { content: ""; flex: none; width: 0.55rem; height: 0.55rem; margin-right: 0.3rem; border: solid var(--ink); border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -0.15rem; }
+.et .et-more > summary::after { content: ""; flex: none; width: 0.55rem; height: 0.55rem; margin-right: 0.25rem; border: solid var(--ink); border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -0.15rem; }
 .et .et-more[open] > summary::after { rotate: 225deg; translate: 0 0.15rem; }
 .et .et-more[open] > summary { border-radius: var(--r-2) var(--r-2) 0 0; box-shadow: inset 0 -1px 0 var(--rule); }
 .et .et-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.et .et-more-in { display: grid; gap: 1.25rem; padding: 1rem; }
-.et .et-more-h { font: 750 1rem/1.25 var(--fd); color: var(--ink); margin: 0 0 0.6rem; }
+.et .et-more-in { display: grid; gap: 1.5rem; padding: 1rem; }
+.et .et-more-h { font: 800 1rem/1.25 var(--fd); color: var(--ink); margin: 0 0 0.5rem; }
 .et .et-main { max-width: 52rem; }
 
 /* Roadtax: the page's own worked example sits under the input, so the first screen shows a figure. */
-.et .et-worked { margin-top: 0.6rem; padding: 0.6rem 0.75rem; border-left: 3px solid var(--ink); background: var(--tray); font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.et .et-worked { margin-top: 0.5rem; padding: 0.5rem 0.75rem; border-left: 3px solid var(--ink); background: var(--tray); font-size: 1rem; line-height: 1.45; color: var(--ink); }
 .et .et-worked strong { font-variant-numeric: tabular-nums; }

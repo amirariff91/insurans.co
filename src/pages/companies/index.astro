@@ -177,18 +177,18 @@ const schema = {
 </Base>
 
 <style>
-  .co-list { max-width: 48rem; margin-block: 1rem 1.25rem; }
-  .co-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  .co-list { max-width: 48rem; margin-block: 1rem 1.5rem; }
+  .co-rows { list-style: none; margin: 0; padding: 0 1rem; display: grid; }
   @media (min-width: 48rem) { .co-rows { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
-  .co-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; padding: 0.35rem 0 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
-  .co-a { display: inline-flex; align-items: center; gap: 0.35rem 0.6rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; padding: 0.25rem 0 0.5rem; border-bottom: 1px solid var(--line); }
+  .co-a { display: inline-flex; align-items: center; gap: 0.25rem 0.5rem; min-height: 2.75rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .co-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .co-t { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
-  .co-f { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--ink); }
+  .co-f { grid-column: 1 / -1; font-size: 1rem; color: var(--ink); }
   .co-d { grid-column: 1 / -1; font-size: 0.875rem; color: var(--ink); margin-top: 0.25rem; }
   .co-d summary { cursor: pointer; font-weight: 600; min-height: 2.75rem; display: flex; align-items: center; text-decoration: underline; text-underline-offset: 0.18em; }
   .co-d summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .co-d dl { display: grid; gap: 0.2rem; margin: 0 0 0.35rem; }
+  .co-d dl { display: grid; gap: 0.25rem; margin: 0 0 0.25rem; }
   .co-d dl div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.5rem; }
   .co-d dt { font-weight: 600; }
   .co-d dd { margin: 0; overflow-wrap: anywhere; }

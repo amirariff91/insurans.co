@@ -1,137 +1,87 @@
 /** @type {import('tailwindcss').Config} */
 
 /*
- * Edisi, magenta world (light). Source: docs/eeat-revamp-2026-11/round4/concepts/edisi/tokens.css
- * and system.md in the E-E-A-T worktree.
+ * Edisi on fixed tokens (15 Nov 2026). DESIGN.md "Tokens" is the reference.
  *
- * The token NAMES are the old Kira Hijau ones (hijau, emas, krim, stone, verdict) so the
- * templates keep working unchanged; their VALUES now follow Edisi's colour roles:
- *   - white paper, black ink; links are ink and underlined;
- *   - magenta #D0106F only for the main button, borders that mark the chosen or focused state,
- *     the logo knob and the chosen bar. Text on magenta is white; magenta is never text on a tint;
- *   - pastel pink = price working and calculators (hijau-50/100), yellow = totals and flags
- *     (emas-50/100), blue = explanation (edisi.sky, used by .info-box).
- * hijau-600..950 and emas-600..900 are TEXT shades (ink and ink-2), because they sit on the tints.
- * New work should use the semantic `edisi.*` names below.
+ * Five colours, one spacing scale, one type scale. Everything a template can ask for resolves to
+ * one of them: the old class names (hijau, emas, krim, stone, verdict, edisi.*) are kept as
+ * ALIASES so the templates keep working, but no alias has a value of its own.
+ * `scripts/design/snap-tokens.py --check` fails if a stylesheet drifts off the scales.
  */
-const edisi = {
-  paper: '#FFFFFF',
-  card: '#FFFFFF',
-  tray: '#F3F3F3',
-  chip: '#E9E9E9',
-  ink: '#000000',
-  'ink-2': '#4A4A4A',
-  rule: '#767676',
-  magenta: '#D0106F',
-  'magenta-deep': '#A50C58',
-  pink: '#FBD3E4',
-  yellow: '#FFF3B0',
-  sky: '#CFE8FA',
-  red: '#B8291E',
-};
+const paper = '#FFFFFF'; // page and every surface
+const ink = '#000000'; // text, title bars, strong rules, focus
+const mute = '#595959'; // secondary text, borders of controls (7:1 on paper)
+const line = '#DADADA'; // hairline dividers and unchosen fills (decoration only, never text)
+const magenta = '#D0106F'; // the one action and the chosen state; text on it is paper
+
+const ramp = (map) => Object.fromEntries(Object.entries(map).flatMap(([v, ks]) => ks.map((k) => [k, v])));
+
+// Spacing: 2 (optical nudge) 4 8 12 16 24 32 48 64 96. Tailwind's step names are kept and snapped.
+const px = (n) => (n === 0 ? '0px' : n <= 2 ? `${n}px` : `${n / 16}rem`);
+const SPACE = [0, 2, 4, 8, 12, 16, 24, 32, 48, 64, 96];
+const snap = (v) => SPACE.reduce((a, b) => (Math.abs(b - v) <= Math.abs(a - v) ? b : a));
+const steps = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 20, 24, 28, 32];
+const space = { px: '1px', ...Object.fromEntries(steps.map((k) => [k, px(snap(k * 4))])) };
+
+// Type: 14 16 18 22 28 36. The fitted price in the answer block is the only fluid size.
+const t = (size, lh, ls = '0') => [`${size / 16}rem`, { lineHeight: lh, letterSpacing: ls }];
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    borderRadius: {
-      none: '0',
-      sm: '4px',
-      DEFAULT: '6px',
-      md: '6px',
-      lg: '8px',
-      xl: '12px',
-      '2xl': '16px',
-      '3xl': '20px',
-      full: '9999px',
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      inherit: 'inherit',
+      white: paper,
+      black: ink,
+      paper, ink, mute, line, magenta,
+      edisi: { paper, card: paper, tray: paper, chip: line, ink, 'ink-2': mute, rule: mute, magenta, 'magenta-deep': ink, pink: paper, yellow: paper, sky: paper, red: ink },
+      stone: ramp({ [paper]: [50], [line]: [100, 200], [mute]: [300, 400, 500, 600], [ink]: [700, 800, 900, 950] }),
+      hijau: ramp({ [paper]: [50, 100], [mute]: [200, 300, 600], [magenta]: [400, 500], [ink]: [700, 800, 900, 950] }),
+      emas: ramp({ [paper]: [50, 100], [line]: [200, 300], [mute]: [400, 500, 600], [ink]: [700, 800, 900] }),
+      krim: ramp({ [paper]: [50, 100], [line]: [200, 300] }),
+      red: ramp({ [paper]: [50], [line]: [200], [ink]: [700] }),
+      verdict: {
+        best: { bg: paper, ink, border: magenta },
+        good: { bg: paper, ink, border: mute },
+        warn: { bg: paper, ink, border: ink },
+      },
     },
+    borderRadius: { none: '0', sm: '4px', DEFAULT: '8px', md: '8px', lg: '8px', xl: '8px', '2xl': '8px', '3xl': '8px', full: '9999px' },
+    boxShadow: { none: 'none', sm: 'none', DEFAULT: 'none', md: 'none', lg: 'none', xl: 'none', hard: `0 0 0 1px ${mute}` },
+    fontFamily: {
+      // `font-serif` keeps its name for the templates; it is the display face, Gabarito.
+      serif: ['Gabarito', '"Gabarito Fallback"', '"Gabarito Fallback Android"', 'system-ui', 'sans-serif'],
+      display: ['Gabarito', '"Gabarito Fallback"', '"Gabarito Fallback Android"', 'system-ui', 'sans-serif'],
+      sans: ['Figtree', '"Figtree Fallback"', '"Figtree Fallback Android"', 'system-ui', '-apple-system', 'sans-serif'],
+    },
+    fontWeight: { normal: '400', medium: '600', semibold: '600', bold: '600', extrabold: '800', black: '800' },
+    fontSize: {
+      xs: t(14, '1.25rem'),
+      sm: t(14, '1.25rem'),
+      base: t(16, '1.5rem'),
+      lg: t(18, '1.625rem'),
+      xl: t(22, '1.2'),
+      '2xl': t(22, '1.2'),
+      '3xl': t(28, '1.1', '-0.01em'),
+      '4xl': t(36, '1.05', '-0.015em'),
+      '5xl': t(36, '1.05', '-0.015em'),
+      '6xl': t(36, '1.05', '-0.015em'),
+      'headline-sm': t(22, '1.2'),
+      'headline-md': t(22, '1.2'),
+      'headline-mobile': t(28, '1.1', '-0.01em'),
+      'headline-lg': t(36, '1.05', '-0.015em'),
+      'headline-xl': t(36, '1.05', '-0.015em'),
+      price: t(28, '1.1', '-0.01em'),
+    },
+    // Width, height and inset keep Tailwind's own steps (icons, columns); only the gaps between things snap.
+    padding: space,
+    margin: { auto: 'auto', ...space },
+    gap: space,
+    space,
     extend: {
-      boxShadow: {
-        // Was an 8px hard offset block. Edisi has no block shadow: a lifted pane instead.
-        hard: '0 12px 28px -14px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(0 0 0 / 0.16)',
-      },
-      colors: {
-        edisi,
-        stone: {
-          50: '#F6F6F6',
-          100: '#EDEDED',
-          200: '#DADADA',
-          300: '#949494',
-          400: '#6B6B6B',
-          500: '#595959',
-          600: '#4A4A4A',
-          700: '#2B2B2B',
-          800: '#1A1A1A',
-          900: '#000000',
-          950: '#000000',
-        },
-        hijau: {
-          50: '#FDEDF4',
-          100: '#FBD3E4',
-          200: '#767676',
-          300: '#767676',
-          400: '#E0559B',
-          500: '#D0106F',
-          600: '#4A4A4A',
-          700: '#000000',
-          800: '#000000',
-          900: '#000000',
-          950: '#000000',
-        },
-        emas: {
-          50: '#FFF3B0',
-          100: '#FFEB85',
-          200: '#FFE066',
-          300: '#F2CC3A',
-          400: '#C9A300',
-          500: '#8F7400',
-          600: '#4A4A4A',
-          700: '#000000',
-          800: '#000000',
-          900: '#000000',
-        },
-        krim: {
-          50: '#FFFFFF',
-          100: '#F3F3F3',
-          200: '#E9E9E9',
-          300: '#DADADA',
-        },
-        verdict: {
-          best: {
-            bg: '#FBD3E4',
-            ink: '#000000',
-            border: '#D0106F',
-          },
-          good: {
-            bg: '#E9E9E9',
-            ink: '#000000',
-            border: '#767676',
-          },
-          warn: {
-            bg: '#FFF3B0',
-            ink: '#000000',
-            border: '#000000',
-          },
-        },
-      },
-      fontFamily: {
-        // `font-serif` keeps its name for the templates; it is now the display face, Gabarito.
-        serif: ['Gabarito', '"Gabarito Fallback"', '"Gabarito Fallback Android"', 'system-ui', 'sans-serif'],
-        display: ['Gabarito', '"Gabarito Fallback"', '"Gabarito Fallback Android"', 'system-ui', 'sans-serif'],
-        sans: ['Figtree', '"Figtree Fallback"', '"Figtree Fallback Android"', 'system-ui', '-apple-system', 'sans-serif'],
-      },
-      fontSize: {
-        // Type floor: nothing under 14px (critique 12). text-xs and text-sm both render at 0.875rem.
-        xs: ['0.875rem', { lineHeight: '1.25rem' }],
-        'headline-xl': ['3.5rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
-        'headline-lg': ['2.5rem', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
-        'headline-mobile': ['2rem', { lineHeight: '1.08', letterSpacing: '-0.01em' }],
-        'headline-md': ['1.75rem', { lineHeight: '1.12', letterSpacing: '-0.005em' }],
-        'headline-sm': ['1.375rem', { lineHeight: '1.2', letterSpacing: '0' }],
-        price: ['2rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
-      },
-      maxWidth: {
-        article: '72ch',
-      },
+      maxWidth: { article: '72ch' },
     },
   },
   plugins: [],
