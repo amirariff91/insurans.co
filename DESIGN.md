@@ -307,7 +307,7 @@ Gently rounded rectangles. Modules, notes, tables, cards and buttons use 8px (`-
 
 ### Modules and title bars
 - **Module** (`.mod`, older name `.ix`): white box, 1px rule border, 8px radius, clipped; tint with `data-tint="pink|sky|yellow"`.
-- **Title bar** (`.mod-bar`, `.ix-bar`): black bar, white Gabarito 800, at least 3rem tall, optional `Ikon` before the text. The bar states the module's finding as a sentence ("Harga ini lindung 4 perkara. Banjir tak termasuk."), using only words and figures already in the module. In articles, `.prose-bars` turns H2s into the same bar (`.h2-bar` for a single heading).
+- **Title bar** (`.mod-bar`, `.ix-bar`): black bar, white Gabarito 800, at least 3rem tall, text only (no icon before the text). The bar states the module's finding as a sentence ("Harga ini lindung 4 perkara. Banjir tak termasuk."), using only words and figures already in the module. In articles, `.prose-bars` turns H2s into the same bar (`.h2-bar` for a single heading).
 - **Answer box** (`PageAnswer.astro`, classes `.mod.pa`, `.pa-rows`, `.pa-r`, `.pa-note`): one per content template, directly under the H1. The bar (a `<p>`, so the outline keeps its own H2s) states the page's finding. Under it, each optional: a `lead` (one decisive number already on the page, as a large Gabarito numeral with its label, `.pa-lead`), a `sentence` (`.pa-sent`), and label/value rows (`.pa-rows`); a box may have a lead and no rows, or rows only. `role: 'price'` highlights the value pink, `role: 'term'` yellow; a value over 40 characters drops the highlight and sits as plain text (`data-long`).
 - **Calculator panel** (`.et .et-panel`, `.et-bar`, `.et-bar-t`, `.et-out`, `.et-wait`, `.et-msg`; `src/components/edisi-tools/edisi-tools.css`): the same black bar on a white or pink panel; inputs at least 44px with a 1.5px ink border; the result box is yellow with an ink border; space for the result is reserved so nothing moves when it appears. Every selector is scoped under `.et`.
 - **CTA band** (`CtaBand.astro`): a `.mod` with a `.mod-bar` heading and one main button.
@@ -330,8 +330,9 @@ Gently rounded rectangles. Modules, notes, tables, cards and buttons use 8px (`-
 - A model without a photo gets a name card (`.cp-card`) in the same slot: sky background, brand and model in Gabarito 800 fitted to the card, segment and engine size, and the `i-kereta` pictogram. No "photo missing" wording.
 
 ### Icons (`Ikon.astro`)
-- One sprite, `public/ikon.svg`, with 47 symbols; the valid ids are in `src/data/ikon-names.json` and an unknown name fails the build. Names are Malay with an `i-` prefix: `i-kereta`, `i-banjir`, `i-lindung`, `i-kalkulator`, `i-roadtax`, `i-kanan`, `i-amaran` and so on.
-- Without `label` the icon is decorative (`aria-hidden`); keep a visible word beside it. With `label` it gets `role="img"` and a title. Default size 20px.
+- An icon must do a job. Keep: the arrow or chevron that marks a link row or an expandable `<summary>` (open/closed); `i-luar` on links that leave the site; `i-amaran` on a genuine warning note; one icon inside a primary calculator button; the header menu/close and the phone dock control; the homepage type tiles (they tell the types apart); the car glyph standing in for a missing car photo.
+- Never decorate: no icon before a title bar (`.mod-bar`, `.mod-lab`, `.ix-bar`, `.et-bar`), an h2/h3, a step heading, a fact or row in an answer box, a table cell, a byline or date, a footer or rail link, or a row that already has a car thumbnail, brand or insurer logo. Removing one leaves no gap: the text sits where the icon was.
+- One sprite, `public/ikon.svg`, with 16 symbols; the valid ids are in `src/data/ikon-names.json` and an unknown name fails the build. Remove a symbol from both when nothing uses it. Without `label` the icon is decorative (`aria-hidden`); keep a visible word beside it. Default size 20px.
 
 ### Notes
 - `.note-warn`: white, 2px ink border, red heading (`.note-t`). Warnings and exclusions.

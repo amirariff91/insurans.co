@@ -172,13 +172,6 @@ const schema = {
   }
 };
 
-const addonIcon = (name: string) =>
-  /windscreen|cermin/i.test(name) ? 'i-cermin'
-  : /special perils|banjir|flood/i.test(name) ? 'i-banjir'
-  : /tunda|tow|rescue/i.test(name) ? 'i-tunda'
-  : /kunci|key/i.test(name) ? 'i-kunci'
-  : /pihak|liabil|legal|driver|pemandu/i.test(name) ? 'i-pihak-ketiga'
-  : 'i-tambah';
 // No ?ncd= in the HTML: edisi-ncd.ts adds the chosen step, so a link without JavaScript is never on the wrong step.
 const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 ---
@@ -222,7 +215,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">
-        <h2 class="mod-bar" id="harga"><Ikon name="i-lindung" size={22} /> Anggaran ini ialah untuk polisi komprehensif</h2>
+        <h2 class="mod-bar" id="harga">Anggaran ini ialah untuk polisi komprehensif</h2>
         <div class="mod-in">
           <p class="ix-s">{model.description}</p>
           <p class="ix-s">
@@ -232,20 +225,20 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
           </p>
           <h3 class="rows-h">Dilindungi</h3>
           <ul class="rows">
-            <li><Ikon name="i-kemalangan" size={24} /><div><b>Kerosakan kereta sendiri</b></div></li>
-            <li><Ikon name="i-pihak-ketiga" size={24} /><div><b>Liabiliti pihak ketiga</b></div></li>
-            <li><Ikon name="i-kunci" size={24} /><div><b>Kecurian</b></div></li>
-            <li><Ikon name="i-api" size={24} /><div><b>Kebakaran</b></div></li>
+            <li><div><b>Kerosakan kereta sendiri</b></div></li>
+            <li><div><b>Liabiliti pihak ketiga</b></div></li>
+            <li><div><b>Kecurian</b></div></li>
+            <li><div><b>Kebakaran</b></div></li>
           </ul>
           <h3 class="rows-h">Kena tambah, setahun</h3>
           <ul class="rows">
-            <li id="nota-banjir"><Ikon name="i-banjir" size={24} /><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
+            <li id="nota-banjir"><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
           </ul>
           {model.windscreenPrice && (
             <>
             <h3 class="rows-h">Kos gantian cermin</h3>
             <ul class="rows">
-              <li><Ikon name="i-cermin" size={24} /><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan penentukuran (calibration) dengan bengkel panel sebelum memilih windscreen cover.</p></div></li>
+              <li><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan penentukuran (calibration) dengan bengkel panel sebelum memilih windscreen cover.</p></div></li>
             </ul>
             </>
           )}
@@ -258,7 +251,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Butiran model -->
       <section class="mod" aria-labelledby="butiran">
-        <h2 class="mod-bar" id="butiran"><Ikon name="i-kereta" size={22} /> Nilai pasaran {model.fullName} dianggarkan {marketValueText}</h2>
+        <h2 class="mod-bar" id="butiran">Nilai pasaran {model.fullName} dianggarkan {marketValueText}</h2>
         <div class="mod-in">
           <dl class="facts">
             <div><dt>Enjin / kapasiti</dt><dd>{model.engineCC}</dd></div>
@@ -276,7 +269,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
                   <h3 class="rows-h">Nota mengikut tahun</h3>
                   <ul class="rows">
                     {modelYearNotes.map((item: any) => (
-                      <li><Ikon name="i-kalendar" size={22} /><div><b>{item.range}:</b> {item.note}</div></li>
+                      <li><div><b>{item.range}:</b> {item.note}</div></li>
                     ))}
                   </ul>
                 </>
@@ -288,7 +281,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- NCD Section -->
       <section id="ncd" class="mod" data-tint="sky" aria-labelledby="ncd-h">
-        <h2 class="mod-bar" id="ncd-h"><Ikon name="i-tangga" size={22} /> Tahun tanpa tuntutan mengurangkan premium asas</h2>
+        <h2 class="mod-bar" id="ncd-h">Tahun tanpa tuntutan mengurangkan premium asas</h2>
         <div class="mod-in">
           <p class="ix-s">
             NCD (diskaun tanpa tuntutan) mengurangkan premium asas selepas tahun-tahun tanpa tuntutan.
@@ -305,7 +298,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Add-ons Section -->
       <section id="addons" class="mod" aria-labelledby="addons-h">
-        <h2 class="mod-bar" id="addons-h"><Ikon name="i-tambah" size={22} /> Perlindungan tambahan bukan automatik untuk semua polisi</h2>
+        <h2 class="mod-bar" id="addons-h">Perlindungan tambahan bukan automatik untuk semua polisi</h2>
         <div class="mod-in">
           <p class="ix-s">
             Perlindungan tambahan bukan automatik untuk semua polisi. Pilih berdasarkan penggunaan kereta,
@@ -315,7 +308,6 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             <ul class="rows">
               {addOnsDetail.map((addon: any) => (
                 <li>
-                  <Ikon name={addonIcon(addon.name)} size={24} />
                   <div>
                     <b>{addon.name}, {addon.verdict}</b>
                     <p>Anggaran: {addon.priceBM}.{/special perils/i.test(addon.name) && specialPerilsEstimate && <> <a href="#nota-banjir">Anggaran untuk {model.model}: lihat nota banjir di atas</a>.</>} Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
@@ -328,7 +320,6 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             <ul class="rows">
               {model.popularAddOns.map((addon: any) => (
                 <li>
-                  <Ikon name={addonIcon(addon.name)} size={24} />
                   <div>
                     <b>{addon.name}: {addon.recommended ? 'Wajar dipertimbangkan' : 'Bergantung pada keperluan'}</b>
                     <p>{addon.price} setahun untuk {model.model}.</p>
@@ -342,21 +333,21 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Risk Profile -->
       <section id="risiko" class="mod" aria-labelledby="risiko-h">
-        <h2 class="mod-bar" id="risiko-h"><Ikon name="i-amaran" size={22} /> Faktor risiko yang berbeza</h2>
+        <h2 class="mod-bar" id="risiko-h">Faktor risiko yang berbeza</h2>
         <div class="mod-in">
           <p class="ix-s">Setiap model mempunyai faktor risiko yang berbeza. Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.</p>
           <ul class="rows">
-            <li><Ikon name="i-kunci" size={24} /><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
-            <li><Ikon name="i-sepana" size={24} /><div><b>Kos repair: {repairHeadline}</b><p>{model.riskProfile.repairCost}</p></div></li>
-            <li><Ikon name="i-claim" size={24} /><div><b>Contoh risiko kerosakan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
-            <li><Ikon name="i-banjir" size={24} /><div><b>Nota banjir dan had data</b><p>{model.floodRiskNote ? <a href="#nota-banjir">Lihat nota banjir {model.model} di atas</a> : model.riskProfile.notes}</p></div></li>
+            <li><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
+            <li><div><b>Kos repair: {repairHeadline}</b><p>{model.riskProfile.repairCost}</p></div></li>
+            <li><div><b>Contoh risiko kerosakan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
+            <li><div><b>Nota banjir dan had data</b><p>{model.floodRiskNote ? <a href="#nota-banjir">Lihat nota banjir {model.model} di atas</a> : model.riskProfile.notes}</p></div></li>
           </ul>
         </div>
       </section>
 
       <!-- Tips Section -->
       <section id="tips" class="mod" aria-labelledby="tips-h">
-        <h2 class="mod-bar mod-lab" id="tips-h"><Ikon name="i-dompet" size={22} /> Beberapa perkara praktikal untuk pemilik {model.model}</h2>
+        <h2 class="mod-bar mod-lab" id="tips-h">Beberapa perkara praktikal untuk pemilik {model.model}</h2>
         <div class="mod-in">
           <p class="ix-s">Beberapa perkara praktikal untuk pemilik {model.model}:</p>
           <details class="baca">
@@ -370,7 +361,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Neutral company directory -->
       <section class="mod" aria-labelledby="syarikat-h">
-        <h2 class="mod-bar" id="syarikat-h"><Ikon name="i-cop" size={22} /> Direktori ini titik mula: semak quotation sebenar</h2>
+        <h2 class="mod-bar" id="syarikat-h">Direktori ini titik mula: semak quotation sebenar</h2>
         <div class="mod-in">
           <p class="ix-s">
             Harga dan ciri polisi boleh berbeza antara syarikat untuk {model.model}.
@@ -396,7 +387,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- FAQ -->
       <section id="faq" class="mod" aria-labelledby="faq-h">
-        <h2 class="mod-bar mod-lab" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim: Insurans {model.fullName}</h2>
+        <h2 class="mod-bar mod-lab" id="faq-h">Soalan lazim: Insurans {model.fullName}</h2>
         <div class="mod-in">
           {modelFaqs.length > 0 ? (
             modelFaqs.map((faq: any, i: number) => (

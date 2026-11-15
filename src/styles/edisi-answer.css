@@ -169,7 +169,6 @@
 .mod details > summary.mod-bar .hp-fold-i { flex: none; box-sizing: content-box; padding: 0.15rem; border: 1.5px solid var(--ink); border-radius: 50%; }
 .mod details > summary.mod-bar:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
 @media (hover: hover) and (pointer: fine) { .mod details > summary.mod-bar:hover { background: var(--chip); } }
-.ix-i { flex: none; }
 .ix-body, .mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); overflow-wrap: break-word; }
 .ix-s { font-size: 1rem; line-height: 1.5; max-width: 62ch; }
 .ix-src { font-size: 0.875rem; color: var(--ink-2); padding-top: 0.6rem; border-top: 1px solid rgb(0 0 0 / 0.18); }
@@ -195,11 +194,10 @@
 .work th, .work td { text-align: left; padding: 0.45rem 0.4rem; border-bottom: 1px solid rgb(0 0 0 / 0.15); vertical-align: top; }
 .work .yrs { display: block; font-weight: 400; font-size: 0.875rem; color: var(--ink-2); }
 
-/* ------------------------------------------------------------ explainer rows with icons */
+/* ------------------------------------------------------------ explainer rows (text only, no leading icon) */
 .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-.rows li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.6rem; align-items: start; padding: 0.6rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.15); }
+.rows li { display: block; padding: 0.6rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.15); }
 .rows li:last-child { border-bottom: 0; }
-.rows .ikon { margin-top: 0.1rem; }
 .rows b { display: block; font-weight: 700; }
 .rows p { margin: 0.15rem 0 0; }
 .rows-h { font: 800 1rem/1.2 var(--fd); margin-top: 0.4rem; }

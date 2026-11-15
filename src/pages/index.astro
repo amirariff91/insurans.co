@@ -30,12 +30,12 @@ const carModelCount = carModels.length;
 const pickSlugs = ['perodua-myvi', 'perodua-axia', 'perodua-bezza', 'proton-saga', 'honda-city', 'toyota-vios', 'proton-x50', 'perodua-alza'];
 const pickModels = pickSlugs.map((slug) => carModels.find((car) => car.slug === slug)).filter(Boolean);
 const calculators = [
-  { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD', icon: 'i-peratus' },
-  { href: '/tools/kalkulator-roadtax/', label: 'Kalkulator roadtax kereta', icon: 'i-roadtax' },
-  { href: '/tools/kalkulator-roadtax-motosikal/', label: 'Kalkulator roadtax motosikal', icon: 'i-roadtax' },
-  { href: '/tools/kalkulator-roadtax-ev/', label: 'Kalkulator roadtax kereta elektrik', icon: 'i-roadtax' },
-  { href: '/tools/kalkulator-insurans-rumah/', label: 'Kalkulator insurans rumah', icon: 'i-utama' },
-  { href: '/tools/kalkulator-coverage-nyawa/', label: 'Kalkulator coverage nyawa', icon: 'i-orang' },
+  { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD' },
+  { href: '/tools/kalkulator-roadtax/', label: 'Kalkulator roadtax kereta' },
+  { href: '/tools/kalkulator-roadtax-motosikal/', label: 'Kalkulator roadtax motosikal' },
+  { href: '/tools/kalkulator-roadtax-ev/', label: 'Kalkulator roadtax kereta elektrik' },
+  { href: '/tools/kalkulator-insurans-rumah/', label: 'Kalkulator insurans rumah' },
+  { href: '/tools/kalkulator-coverage-nyawa/', label: 'Kalkulator coverage nyawa' },
 ];
 const comparisonCount = comparisons.length;
 
@@ -128,7 +128,7 @@ const faqSchema = {
 
       <!-- Who writes this, and how it is checked -->
       <section class="mod" aria-labelledby="tentang">
-        <h2 class="mod-bar" id="tentang"><Ikon name="i-tanda" size={22} /> Bukan ejen. Bukan broker.</h2>
+        <h2 class="mod-bar" id="tentang">Bukan ejen. Bukan broker.</h2>
         <div class="mod-in">
           <p class="ix-s">
             Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Insurans.co membantu anda menyemak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online tanpa jargon.
@@ -151,10 +151,10 @@ const faqSchema = {
 
       <!-- Car: the site's strongest section -->
       <section class="hp-sec" aria-labelledby="kereta-h">
-        <h2 class="hp-sec-h" id="kereta-h"><Ikon name="i-kereta" size={24} /> Insurans kereta</h2>
+        <h2 class="hp-sec-h" id="kereta-h">Insurans kereta</h2>
         <div class="hp-grid">
         <section class="mod" aria-labelledby="popular">
-          <h3 class="mod-bar mod-lab" id="popular"><Ikon name="i-kereta" size={22} /> Julat premium ikut model: NCD 0% vs 55%</h3>
+          <h3 class="mod-bar mod-lab" id="popular">Julat premium ikut model: NCD 0% vs 55%</h3>
           <div class="mod-in">
             <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
             <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model dalam panduan ini <Ikon name="i-bawah" size={18} /></a>
@@ -162,7 +162,7 @@ const faqSchema = {
           </div>
         </section>
         <section class="mod" data-tint="pink" aria-labelledby="kalk-ncd">
-          <h3 class="mod-bar" id="kalk-ncd"><Ikon name="i-kalkulator" size={22} /> Kira dulu “patut ke claim?” sebelum NCD reset</h3>
+          <h3 class="mod-bar" id="kalk-ncd">Kira dulu “patut ke claim?” sebelum NCD reset</h3>
           <div class="mod-in">
             <p class="ix-s">Masukkan premium asal dan pilih tahap NCD. Termasuk kiraan “patut ke claim?” sebelum NCD hilang.</p>
             <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-o">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
@@ -171,7 +171,7 @@ const faqSchema = {
         </div>
       <!-- Harga sebenar -->
       <section class="mod" aria-labelledby="harga-sebenar">
-        <h3 class="mod-bar" id="harga-sebenar"><Ikon name="i-harga" size={22} /> Anggaran polisi komprehensif setahun</h3>
+        <h3 class="mod-bar" id="harga-sebenar">Anggaran polisi komprehensif setahun</h3>
         <div class="mod-in">
           <p class="ix-s">
             Kami kumpulkan anggaran harga untuk model kereta yang disenaraikan.
@@ -203,7 +203,7 @@ const faqSchema = {
       <!-- Cara renew -->
       <section class="mod" data-section="renew" data-tint="sky" aria-labelledby="renew-h">
         <details class="hp-fold">
-        <summary class="mod-bar"><h3 id="renew-h"><Ikon name="i-renew" size={22} /> Renew online dalam 4 langkah, tak perlu ke pejabat</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
+        <summary class="mod-bar"><h3 id="renew-h">Renew online dalam 4 langkah, tak perlu ke pejabat</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
           <p class="ix-s">Anda tidak perlu pergi ke pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
           <ol class="hp-steps">
@@ -240,7 +240,7 @@ const faqSchema = {
       <!-- Company directory -->
       <section class="mod" aria-labelledby="syarikat">
         <details class="hp-fold">
-        <summary class="mod-bar"><h3 id="syarikat"><Ikon name="i-dokumen" size={22} /> Senarai syarikat insurans motor, bukan ranking</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
+        <summary class="mod-bar"><h3 id="syarikat">Senarai syarikat insurans motor, bukan ranking</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
           <p class="ix-s">Senarai syarikat, bukan ranking. Baca profil setiap syarikat.</p>
           <ul class="hp-co">
@@ -262,7 +262,7 @@ const faqSchema = {
 
       <!-- FAQ -->
       <section class="mod" aria-labelledby="soalan">
-        <h3 class="mod-bar" id="soalan"><Ikon name="i-info" size={22} /> Insurans kereta wajib: sekurang-kurangnya perlindungan pihak ketiga</h3>
+        <h3 class="mod-bar" id="soalan">Insurans kereta wajib: sekurang-kurangnya perlindungan pihak ketiga</h3>
         <div class="mod-in hp-faq">
       {homeFaqs.map((faq, i) => (
         <details class="faq-item" open={i === 0}>
@@ -276,10 +276,10 @@ const faqSchema = {
 
       <!-- Beyond car: one tool and the comparisons -->
       <section class="hp-sec" aria-labelledby="lain-h">
-        <h2 class="hp-sec-h" id="lain-h"><Ikon name="i-lindung" size={24} /> Rumah, kesihatan dan takaful</h2>
+        <h2 class="hp-sec-h" id="lain-h">Rumah, kesihatan dan takaful</h2>
         <div class="hp-grid">
           <section class="mod" aria-labelledby="kalk-rumah">
-            <h3 class="mod-bar mod-lab" id="kalk-rumah"><Ikon name="i-utama" size={22} /> Kalkulator insurans rumah</h3>
+            <h3 class="mod-bar mod-lab" id="kalk-rumah">Kalkulator insurans rumah</h3>
             <div class="mod-in">
               <p class="ix-s">Fahami beza houseowner, householder dan fire-only.</p>
               <a href="/tools/kalkulator-insurans-rumah/" data-cta="card_home_calc" class="ea-btn ea-btn-o">Kira insurans rumah <Ikon name="i-kanan" size={20} /></a>
@@ -287,7 +287,7 @@ const faqSchema = {
           </section>
 
         <section class="mod" aria-labelledby="takaful-q">
-          <h3 class="mod-bar" id="takaful-q"><Ikon name="i-lindung" size={22} /> Takaful patuh Syariah, dan lebihan dana boleh dikongsi</h3>
+          <h3 class="mod-bar" id="takaful-q">Takaful patuh Syariah, dan lebihan dana boleh dikongsi</h3>
           <div class="mod-in">
             <p class="ix-s">Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
             <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
@@ -295,7 +295,7 @@ const faqSchema = {
         </section>
         </div>
         <section class="mod" aria-labelledby="banding">
-          <h3 class="mod-bar mod-lab" id="banding"><Ikon name="i-neraca" size={22} /> {comparisonCount} perbandingan satu lawan satu</h3>
+          <h3 class="mod-bar mod-lab" id="banding">{comparisonCount} perbandingan satu lawan satu</h3>
           <div class="mod-in">
             <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, produk, talian claim dan saluran digital.</p>
             <ul class="hp-links">
@@ -318,12 +318,12 @@ const faqSchema = {
     <aside class="ep-tools" aria-label="Alat">
       <ToolsRail model={exampleModel} related={[]} calculatorUrl={`/tools/ncd-calculator/?model=${exampleModel.slug}`} hooks />
       <nav class="mod" aria-labelledby="kalkulator">
-        <h2 class="mod-bar mod-lab" id="kalkulator"><Ikon name="i-kalkulator" size={22} /> {calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
+        <h2 class="mod-bar mod-lab" id="kalkulator">{calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
         <ul class="hp-calc">
           {calculators.map((c) => (
-            <li><a href={c.href}><Ikon name={c.icon} size={22} /><span>{c.label}</span></a></li>
+            <li><a href={c.href}><span>{c.label}</span></a></li>
           ))}
-          <li><a href="/tools/"><Ikon name="i-kanan" size={22} /><span>Semua alat</span></a></li>
+          <li><a href="/tools/"><span>Semua alat</span><Ikon name="i-kanan" size={18} /></a></li>
         </ul>
       </nav>
       <TerkiniRail />

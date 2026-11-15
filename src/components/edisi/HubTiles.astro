@@ -1,15 +1,14 @@
 ---
-/** A row of icon tiles that jump to sections on the same page by anchor. Labels are the page's own section names. */
-import Ikon from '../Ikon.astro';
+/** A row of tiles that jump to sections on the same page by anchor. Labels are the page's own section names. */
 
-interface Tile { href: string; icon: string; label: string }
+interface Tile { href: string; label: string }
 interface Props { tiles: Tile[]; label: string }
 const { tiles, label } = Astro.props;
 ---
 <nav class="ht" aria-label={label}>
   <ul>
     {tiles.map((t) => (
-      <li><a href={t.href}><Ikon name={t.icon} size={34} /><span>{t.label}</span></a></li>
+      <li><a href={t.href}><span>{t.label}</span></a></li>
     ))}
   </ul>
 </nav>
@@ -24,15 +23,13 @@ const { tiles, label } = Astro.props;
     gap: 0.5rem;
   }
   .ht a {
-    --icon-stroke: 2.75;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    min-height: 5.75rem;
+    min-height: 3rem;
     height: 100%;
-    padding: 0.7rem 0.4rem;
+    padding: 0.5rem 0.4rem;
     border: 2px solid var(--ink);
     border-radius: var(--r-2);
     background: var(--card);

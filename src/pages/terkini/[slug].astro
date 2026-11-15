@@ -77,7 +77,7 @@ const schema = {
 
       <div class="tk-refs">
         <section class="mod" aria-labelledby="sumber">
-          <h2 class="mod-bar mod-lab" id="sumber"><Ikon name="i-sumber" size={20} /> Sumber rasmi</h2>
+          <h2 class="mod-bar mod-lab" id="sumber">Sumber rasmi</h2>
           <ul>
             {item.sources.map((s) => (
               <li><a href={s.url} target="_blank" rel="noopener" data-source>{s.label}</a></li>
@@ -85,7 +85,7 @@ const schema = {
           </ul>
         </section>
         <section class="mod" aria-labelledby="dikemas-kini">
-          <h2 class="mod-bar mod-lab" id="dikemas-kini"><Ikon name="i-dokumen" size={20} /> Halaman yang dikemas kini</h2>
+          <h2 class="mod-bar mod-lab" id="dikemas-kini">Halaman yang dikemas kini</h2>
           <ul>
             {item.updates.map((u) => (
               <li><a href={u.href} data-updates>{u.label}</a></li>

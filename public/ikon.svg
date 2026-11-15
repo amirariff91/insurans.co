@@ -28,60 +28,6 @@
   <path d="M13.68 16.96L14.27 17.06M19 17.89L19.59 18"/>
   <circle cx="12" cy="6.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
-<symbol id="i-pihak-ketiga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Pihak ketiga</title>
-  <path d="M4.05 12.38L4.84 9.35A1.1 1.1 0 0 1 5.9 8.53H8A1.1 1.1 0 0 1 9.06 9.35L9.85 12.38"/>
-  <path d="M3.25 13.97A1.6 1.6 0 0 1 4.85 12.38H9.05A1.6 1.6 0 0 1 10.65 13.97V14.28A1.6 1.6 0 0 1 9.05 15.88H4.85A1.6 1.6 0 0 1 3.25 14.28Z"/>
-  <path d="M3.95 17.07L4.55 17.07M9.35 17.07L9.95 17.07"/>
-  <path d="M14.45 17.07v-2.3a3.1 3.1 0 0 1 6.2 0v2.3"/>
-  <circle cx="17.55" cy="7.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-mangga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kecurian</title>
-  <rect x="4.13" y="11.4" width="15.74" height="9.47" rx="3"/>
-  <path d="M8.1 11.4V7.2a3.9 3.9 0 0 1 7.8 0"/>
-  <circle cx="12" cy="16.13" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-api" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kebakaran</title>
-  <path d="M12.6 3.2C13.2 6.4 18.2 8.6 18.2 14.6A6.2 6.2 0 0 1 5.8 14.6C5.8 12.6 5.9 11 6.2 9.6C7 10.6 7.9 11.3 8.9 11.6C8.7 8.3 10.2 5.3 12.6 3.2Z"/>
-  <circle cx="12" cy="15.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-banjir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Banjir</title>
-  <path d="M6.1 9.1l1.19-4.06A2 2 0 0 1 9.21 3.6h5.58a2 2 0 0 1 1.92 1.44L17.9 9.1"/>
-  <path d="M3.13 14.9v-2.55a3.25 3.25 0 0 1 3.25-3.25h11.24a3.25 3.25 0 0 1 3.25 3.25v2.55"/>
-  <path d="M3.13 19.9q1.48-1.6 2.96 0t2.96 0 2.95 0 2.96 0 2.96 0 2.95 0"/>
-  <circle cx="16.5" cy="13.2" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="7.5" cy="13.2" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-cermin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Cermin depan</title>
-  <path d="M5.19 8.58A2.2 2.2 0 0 1 7.33 6.9h9.34a2.2 2.2 0 0 1 2.14 1.68l1.28 5.31a2.6 2.6 0 0 1-2.52 3.21H6.43a2.6 2.6 0 0 1-2.52-3.21z"/>
-  <path d="M19.44 11.2L15.4 13.4l-1-3.2-1.79.6"/>
-  <circle cx="8.62" cy="12.13" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-tunda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Tunda</title>
-  <path d="M3.13 15.9v-3.78a1.2 1.2 0 0 1 .16-.6L4.95 8.6A1.2 1.2 0 0 1 6 8h1.8a1.8 1.8 0 0 1 1.8 1.8v6.1"/>
-  <path d="M3.13 15.9H16.6"/>
-  <path d="M12.4 15.9L20.15 4v3.8"/>
-  <circle cx="5.9" cy="18" r="2.2"/>
-  <circle cx="14.1" cy="18" r="2.2"/>
-  <circle cx="20.15" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kunci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Ganti kunci</title>
-  <circle cx="15.65" cy="8.1" r="4.2"/>
-  <path d="M12.68 11.07L4.15 19.6M5.65 18.1l2.12 2.12M8.95 14.8l2.1 2.1"/>
-  <circle cx="15.65" cy="8.1" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-sepana" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kos baiki</title>
-  <path d="M13.19 4.87l-1.56 1.56a4.2 4.2 0 0 0 5.94 5.94l1.56-1.56"/>
-  <path d="M11.63 12.37L4.7 19.3"/>
-  <circle cx="14.6" cy="9.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 <symbol id="i-tayar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Betterment</title>
   <circle cx="12" cy="12" r="8.87"/>
@@ -108,53 +54,11 @@
 </symbol>
 
 <!-- Harga dan kiraan (price and sums) -->
-<symbol id="i-tangga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>NCD</title>
-  <path d="M3.13 20.5h4.4v-4h4.4v-4h4.4v-4h4.54"/>
-  <circle cx="18.6" cy="4.3" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-peratus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Peratus</title>
-  <path d="M17.6 3.9L6.4 20.1"/>
-  <circle cx="18.3" cy="17.8" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="5.7" cy="6.2" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-cop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kad cop NCD</title>
-  <rect x="3.13" y="5.6" width="17.74" height="12.8" rx="3"/>
-  <circle cx="7.6" cy="9.9" r="1.18" fill="currentColor" stroke="none"/>
-  <circle cx="12" cy="9.9" r="1.18" fill="currentColor" stroke="none"/>
-  <circle cx="16.4" cy="9.9" r="1.18" fill="currentColor" stroke="none"/>
-  <circle cx="7.6" cy="14.1" r="1.18" fill="currentColor" stroke="none"/>
-  <circle cx="12" cy="14.1" r="1.18" fill="currentColor" stroke="none"/>
-  <circle cx="16.4" cy="14.1" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 <symbol id="i-dompet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Excess</title>
   <rect x="3.13" y="8.6" width="17.74" height="11.3" rx="3"/>
   <path d="M3.13 11.6V7.4a2.9 2.9 0 0 1 2.9-2.9h10.57"/>
   <circle cx="16.3" cy="14.25" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-had" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Sum insured</title>
-  <path d="M3.13 3.4h17.74M5.6 20.87V13.8M12 20.87V11.8M18.4 20.87V16.2"/>
-  <circle cx="12" cy="7.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-naik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Loading</title>
-  <path d="M3.13 20.2h17.74M3.13 15.6L8.2 10.2l3.6 3.4 4.5-5.3"/>
-  <circle cx="19.02" cy="5.1" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-syiling" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kos setahun</title>
-  <circle cx="9.6" cy="14.4" r="6.4"/>
-  <path d="M10.78 4.32a6.4 6.4 0 0 1 8.9 8.9"/>
-  <circle cx="9.6" cy="14.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-harga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Harga</title>
-  <path d="M17.25 4.91A1.8 1.8 0 0 1 19.09 6.75L18.96 11.61A2.4 2.4 0 0 1 18.26 13.24L13.28 18.22A3 3 0 0 1 9.04 18.22L5.78 14.96A3 3 0 0 1 5.78 10.72L10.76 5.74A2.4 2.4 0 0 1 12.39 5.04Z"/>
-  <circle cx="14.9" cy="9.1" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
 <symbol id="i-kalkulator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Kira</title>
@@ -165,91 +69,16 @@
   <circle cx="9.2" cy="16.65" r="1.57" fill="currentColor" stroke="none"/>
   <circle cx="14.8" cy="16.65" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
-<symbol id="i-neraca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Banding</title>
-  <path d="M4.6 7.8h14.8M12 7.8v13.07M8.2 20.87h7.6"/>
-  <path d="M5.75 7.8L3.13 13.9h5.24zM18.25 7.8l-2.62 6.1h5.24z"/>
-  <circle cx="12" cy="3.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-roadtax" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Roadtax</title>
-  <circle cx="12" cy="12" r="8.87"/>
-  <path d="M8 9.6h8M8 14.4h2.6"/>
-  <circle cx="14.8" cy="14.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 
 <!-- Dokumen dan masa (papers and time) -->
-<symbol id="i-renew" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Renew</title>
-  <path d="M18.89 12.02A7 7 0 1 1 13.23 6.36"/>
-  <path d="M11.39 3.73l1.84 2.63-2.63 1.83"/>
-  <circle cx="16.95" cy="8.3" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kalendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Tarikh</title>
-  <rect x="3.63" y="5.4" width="16.74" height="15.2" rx="3"/>
-  <path d="M3.63 10.4h16.74M8.2 3.13v3.4M15.8 3.13v3.4"/>
-  <circle cx="12" cy="15.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-jam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Masa</title>
-  <path d="M16.07 4.95a8.4 8.4 0 1 1-8.14 0"/>
-  <path d="M12 8v4.3l3 1.9"/>
-  <circle cx="12" cy="3.9" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-claim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Claim</title>
-  <rect x="4.38" y="5.6" width="15.24" height="15.27" rx="3"/>
-  <path d="M9.9 3.13h4.2"/>
-  <path d="M7.9 14.5l2.2 2.2 2.8-3.5"/>
-  <circle cx="15.52" cy="9.92" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-dokumen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Baca penuh</title>
-  <rect x="5.13" y="3.13" width="13.74" height="17.74" rx="3"/>
-  <path d="M8.9 12.4h6.2M8.9 16.6h6.2"/>
-  <circle cx="9.3" cy="8.2" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 <symbol id="i-resit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Resit</title>
   <path d="M5.13 20.87V6.13a3 3 0 0 1 3-3h7.74a3 3 0 0 1 3 3v14.74l-2.29-1.6-2.29 1.6L12 19.27l-2.29 1.6-2.29-1.6z"/>
   <path d="M8.9 7.8h6.2M8.9 11.8h3"/>
   <circle cx="14.3" cy="15.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
-<symbol id="i-sumber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Sumber</title>
-  <rect x="5.13" y="3.13" width="13.74" height="17.74" rx="3"/>
-  <path d="M8.9 8h6.2M10.5 11.9h3"/>
-  <circle cx="12" cy="16.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-kamus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Kamus</title>
-  <path d="M12 6.5C10.2 4.9 7.4 4.3 3.13 4.5v13.2c4.27-.2 7.07.4 8.87 2 1.8-1.6 4.6-2.2 8.87-2V4.5C16.6 4.3 13.8 4.9 12 6.5zM12 6.5v13.2"/>
-  <circle cx="7.57" cy="11.3" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-baru" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Baru</title>
-  <path d="M12 3.13Q13.78 10.22 20.87 12Q13.78 13.78 12 20.87Q10.22 13.78 3.13 12Q10.22 10.22 12 3.13Z"/>
-  <circle cx="12" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 
 <!-- Antara muka (interface) -->
-<symbol id="i-cari" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Cari</title>
-  <circle cx="10.1" cy="10.1" r="6.1"/>
-  <path d="M14.7 14.7l5.3 5.3"/>
-  <circle cx="10.1" cy="10.1" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Menu</title>
-  <path d="M9.9 6.6h9.97M4.13 12h15.74M4.13 17.4h15.74"/>
-  <circle cx="5.7" cy="6.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-tutup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Tutup</title>
-  <path d="M6 6l12 12M6 18l8.63-8.63"/>
-  <circle cx="17.6" cy="6.4" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
 <symbol id="i-kanan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Seterusnya</title>
   <path d="M8.7 5.5l6.5 6.5-6.5 6.5"/>
@@ -259,11 +88,6 @@
   <title>Kembali</title>
   <path d="M15.3 5.5L8.8 12l6.5 6.5"/>
   <circle cx="14.74" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-atas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Ke atas</title>
-  <path d="M5.5 15.3L12 8.8l6.5 6.5"/>
-  <circle cx="12" cy="14.74" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
 <symbol id="i-bawah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Buka</title>
@@ -287,17 +111,6 @@
   <circle cx="12" cy="7.33" r="4.2"/>
   <path d="M4.4 20.87a7.96 7.96 0 0 1 15.2 0"/>
   <circle cx="12" cy="7.33" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-telefon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Telefon</title>
-  <rect x="6.63" y="3.13" width="10.74" height="17.74" rx="3"/>
-  <circle cx="12" cy="16.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
-</symbol>
-<symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
-  <title>Maklumat</title>
-  <circle cx="12" cy="12" r="8.87"/>
-  <path d="M12 11.8v4.8"/>
-  <circle cx="12" cy="7.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
 <symbol id="i-amaran" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Amaran</title>

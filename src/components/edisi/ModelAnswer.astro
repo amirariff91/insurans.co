@@ -88,7 +88,7 @@ const kiraanId = `kiraan-${model.slug}`;
   </div>
 
   <section class="ix ix-pink" id="kos-tahunan" aria-labelledby={`${kiraanId}-t`}>
-    <div class="ix-bar"><Ikon name="i-kalkulator" size={24} class="ix-i" /><h2 class="ix-t" id={`${kiraanId}-t`}><Px v={s.title} class="px-w" /></h2></div>
+    <div class="ix-bar"><h2 class="ix-t" id={`${kiraanId}-t`}><Px v={s.title} class="px-w" /></h2></div>
     <div class="ix-body">
       <dl class="kb">
         <div class="kb-r"><dt>Harga penuh, tanpa NCD (0%)</dt><dd>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max, rm)}</dd></div>
