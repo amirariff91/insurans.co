@@ -10,7 +10,7 @@ import rates from '../../../data/roadtax-rates.json';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax/';
 const description = 'Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.';
-const intro = 'Masukkan cc kereta dan wilayah: tengok roadtax JPJ setahun dalam beberapa saat. Ini roadtax sahaja, belum termasuk premium insurans. Bukan ejen, bukan broker: nombor ini ikut jadual JPJ awam.';
+const intro = 'Masukkan cc kereta dan wilayah untuk melihat roadtax JPJ setahun. Ini roadtax sahaja, belum termasuk premium insurans, dan nombornya ikut jadual JPJ awam.';
 const faqs = [
   {
     q: 'Roadtax ini untuk kereta apa?',
@@ -25,7 +25,7 @@ const faqs = [
     a: 'Jadual kadar JPJ berbeza mengikut wilayah. Pilih wilayah pendaftaran kereta anda untuk menggunakan jadual yang sepadan.',
   },
   {
-    q: 'Adakah Langkawi, Pangkor dan Labuan dikira di sini?',
+    q: 'Langkawi, Pangkor dan Labuan dikira di sini ke?',
     a: 'Tidak. Wilayah duty-free bukan cabang kiraan dalam alat ini. Langkawi, Pangkor dan Labuan mempunyai aturan kadar khas; semak portal JPJ untuk pengesahan sebelum renew.',
   },
 ];
@@ -173,7 +173,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
         <div class="et-after">
           <Byline dateModified={rates.asAt} />
           {introRest && <p>{introRest}</p>}
-          <p><strong>Alat percuma.</strong> Kiraan untuk kereta persendirian menggunakan jadual kadar awam JPJ.</p>
+          <p>Kiraan untuk kereta persendirian menggunakan jadual kadar awam JPJ, dan alat ini percuma.</p>
         </div>
 
         <article class="prose-editorial mt-10">
@@ -195,7 +195,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Disclaimer:</strong> Anggaran ikut jadual kadar JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
+              <strong>Penafian:</strong> Anggaran ikut jadual kadar JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
             </p>
             <div class="mt-3 text-sm leading-5 text-stone-700">
               <strong>Sumber:</strong>

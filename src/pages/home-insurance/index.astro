@@ -29,7 +29,7 @@ const typeLabels: Record<string, string> = {
   'modular-houseowner-householder': 'Modular house cover',
 };
 const typeDescriptions: Record<string, string> = {
-  'houseowner-householder': 'Perlindungan bangunan dan/atau isi rumah dengan kadar yang direkodkan daripada sumber rasmi.',
+  'houseowner-householder': 'Perlindungan bangunan dan/atau isi rumah, dengan kadar daripada sumber rasmi.',
   'houseowner-householder-takaful': 'Perlindungan bangunan dan isi rumah berasaskan takaful.',
   'houseowner-comprehensive': 'Pakej houseowner dengan struktur dan tempoh produk tersendiri.',
   'modular-houseowner-householder': 'Produk modular dengan komponen bangunan, isi rumah dan add-on pilihan; semak skop setiap modul dalam sumber rasmi.',
@@ -73,7 +73,7 @@ const faqs = [
   },
   {
     q: 'Banjir covered dalam insurans rumah?',
-    a: 'Jangan anggap banjir dilindungi oleh fire-only asas. Dalam rekod houseowner atau householder yang kadar atau manfaatnya disahkan, banjir dinyatakan untuk sesetengah produk, tetapi wording, pengecualian dan syarat tuntutan tetap berbeza. Semak PDS atau polisi sebelum menganggap banjir covered.',
+    a: 'Jangan anggap banjir dilindungi oleh fire-only asas. Antara pelan houseowner atau householder yang kadar atau manfaatnya kami temui dalam sumber rasmi, sesetengahnya menyatakan banjir, tetapi wording, pengecualian dan syarat tuntutan tetap berbeza. Semak PDS atau polisi sebelum menganggap banjir covered.',
   },
   {
     q: 'Berapa harga insurans rumah untuk jumlah diinsuranskan RM100,000?',
@@ -139,12 +139,12 @@ const schema = {
         facts={[
           { label: 'Minimum / setem', value: `RM${tariff.minPremium} / RM${tariff.stamp}`, role: 'price' },
         ]}
-        note={`Data dikemas kini ${tarikh(homeInsurance.asAt)}.`}
+        note={`Dikemas kini ${tarikh(homeInsurance.asAt)}.`}
       />
       <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
-        Semak kadar tariff yang dapat disahkan, asas jumlah diinsuranskan
-        dan rekod produk sebelum mendapatkan quotation.
+        Sebelum mendapatkan quotation, semak kadar tariff dalam sumber rasmi,
+        asas jumlah diinsuranskan dan butiran produk.
       </p>
       <div class="mt-6 max-w-3xl">
         <EditorialStamp
@@ -240,7 +240,7 @@ const schema = {
 
           <h2 id="kadar-tariff">Kadar premium tariff</h2>
           <p>
-            Kadar asas yang direkodkan di bawah ialah peratus setahun daripada jumlah diinsuranskan. Kelas pembinaan 1A
+            Kadar asas di bawah ialah peratus setahun daripada jumlah diinsuranskan. Kelas pembinaan 1A
             menggunakan kadar berasingan untuk rumah landed dan flat; 1B ialah kelas pembinaan sebahagian bata (partly brick). Ini bukan quotation
             individu.
           </p>
@@ -249,7 +249,7 @@ const schema = {
         <div class="pp-plans mt-6 overflow-x-auto">
           <table role="table" class="table-editorial plan-table">
             <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
-              Kadar houseowner dan householder yang direkodkan daripada sumber rasmi
+              Kadar houseowner dan householder daripada sumber rasmi
             </caption>
             <thead role="rowgroup">
               <tr role="row">
@@ -325,9 +325,8 @@ const schema = {
 
           <h2 id="senarai-produk">Senarai produk insurans rumah</h2>
           <p>
-            Rekod di bawah disusun mengikut jenis produk. Kad yang bertanda angka disahkan memaparkan maklumat yang dapat
-            dikesan kepada sumber rasmi pada tarikh semakan; rekod nama sahaja tidak memaparkan kadar atau had yang belum
-            disahkan.
+            Angka pada kad datang daripada sumber rasmi pada tarikh semakan. Jika kami belum menemui kadar atau had
+            sesuatu produk dalam sumber rasmi, kadnya hanya memaparkan nama produk.
           </p>
         </article>
 
@@ -341,7 +340,7 @@ const schema = {
                   <h3 class="font-serif text-headline-md text-stone-900">{group.label}</h3>
                   <p class="mt-1 text-sm text-stone-600">{group.description}</p>
                 </div>
-                <span class="text-sm text-stone-500">{group.records.length} rekod</span>
+                <span class="text-sm text-stone-500">{group.records.length} pelan</span>
               </div>
 
               <div class="mt-5 grid gap-4 sm:grid-cols-2">
@@ -359,7 +358,7 @@ const schema = {
                       <>
                         <dl class="mt-5 space-y-2 text-sm">
                           <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
-                            <dt class="text-stone-600">Kadar direkodkan</dt>
+                            <dt class="text-stone-600">Kadar</dt>
                             <dd class="font-semibold text-hijau-800">{record.tariffRates}</dd>
                           </div>
                           {record.minPremium && (
@@ -373,7 +372,7 @@ const schema = {
                       </>
                     ) : (
                       <p class="mt-5 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
-                        Nama produk direkodkan, tetapi kadar dan manfaat belum disahkan daripada sumber rasmi semasa penyelidikan.
+                        Kami belum menemui kadar dan manfaat produk ini dalam sumber rasmi yang disemak.
                       </p>
                     )}
                     <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
@@ -390,7 +389,7 @@ const schema = {
           <p>
             Fire-only asas tidak patut dianggap melindungi banjir. Untuk houseowner atau householder, cari perkataan banjir
             atau special perils dalam PDS dan wording, kemudian semak had, excess, pengecualian, syarat rumah kosong dan proses
-            tuntutan. Dalam data ini, beberapa sumber rasmi menyatakan banjir, tetapi kenyataan itu tidak menjadikan semua produk
+            tuntutan. Beberapa sumber rasmi yang kami semak menyatakan banjir, tetapi kenyataan itu tidak menjadikan semua produk
             atau semua keadaan tuntutan sama.
           </p>
           <p>

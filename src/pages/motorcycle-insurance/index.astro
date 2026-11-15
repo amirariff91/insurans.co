@@ -78,11 +78,11 @@ const faqs = [
     a: 'NCD ialah salah satu faktor rating yang dinyatakan dalam PDS Kurnia. PDS Berjaya Sompo yang kami baca menggunakan NCD 25% dalam satu contoh Honda Airblade, tetapi contoh tunggal itu bukan jadual kelayakan universal. Sahkan NCD yang terpakai pada polisi anda dalam quotation atau rekod insurer.',
   },
   {
-    q: 'Adakah add-on pembonceng atau pillion diperlukan?',
-    a: 'Jangan anggap semua polisi memberi skop pembonceng yang sama. PDS Kurnia menyatakan add-on penumpang atau pillion, manakala rekod Berjaya Sompo menyenaraikan liabiliti pillion sebagai add-on. Semak wording, had dan keadaan pemakaian sebelum menambahkannya.',
+    q: 'Perlu ke add-on pembonceng atau pillion?',
+    a: 'Jangan anggap semua polisi memberi skop pembonceng yang sama. PDS Kurnia menyatakan add-on penumpang atau pillion, manakala dokumen Berjaya Sompo yang kami semak menyenaraikan liabiliti pillion sebagai add-on. Semak wording, had dan keadaan pemakaian sebelum menambahkannya.',
   },
   {
-    q: 'Bagaimana cari insurans motosikal murah dengan cara yang jujur?',
+    q: 'Bagaimana cari insurans motosikal murah?',
     a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
   },
 ];
@@ -139,8 +139,8 @@ const schema = {
       />
       <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
-        Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang benar-benar
-        diterbitkan dan pautan quotation rasmi. Tiada jadual premium motosikal mengikut cc direka.
+        Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang diterbitkan
+        dan pautan quotation rasmi. Kami tidak menganggarkan premium motosikal mengikut cc.
       </p>
       <div class="mt-4 max-w-2xl">
         <EditorialStamp articleDate={asAt} sources={sourceLinks} sourcesLabel="Sumber" showReviewed={false} />
@@ -159,9 +159,9 @@ const schema = {
             memisahkan angka yang ada sumber daripada premium yang hanya boleh diketahui melalui quotation.
           </p>
           <p>
-            {records.length} rekod produk di bawah datang daripada sumber rasmi yang dikenal pasti. Klik kad untuk melihat ringkasan
-            dan sumber setiap rekod. Jika sumber yang dibaca belum cukup untuk mengesahkan manfaat atau harga, kami tandakan
-            perkara itu dan tidak mengisinya dengan anggaran.
+            Maklumat {records.length} produk di bawah datang daripada sumber rasmi. Setiap kad membawa ke ringkasan
+            dan sumber produk itu. Jika sumber yang kami baca belum cukup untuk menyatakan manfaat atau harga, kad itu
+            menyebutnya dan kami tidak mengisinya dengan anggaran.
           </p>
 
           <h2 id="roadtax">Kadar roadtax motosikal JPJ ikut cc</h2>
@@ -233,7 +233,7 @@ const schema = {
         <article class="prose-editorial prose-bars">
           <h2 id="harga">Berapa harga insurans motosikal sebenarnya?</h2>
           <p>
-            Tiada jadual premium motosikal mengikut cc yang dapat disahkan daripada sumber primer yang dibaca. PDS Kurnia
+            Kami tidak menemui jadual premium motosikal mengikut cc dalam sumber primer yang kami baca. PDS Kurnia
             menyenaraikan faktor rating seperti cc, NCD, umur dan lokasi tanpa menerbitkan jadual; perlindungan
             comprehensive pula bergantung pada risiko dan jumlah diinsuranskan. Jangan tukar jadual roadtax kepada jadual
             premium.
@@ -280,8 +280,7 @@ const schema = {
         <article class="prose-editorial prose-bars">
           <h2 id="produk">Senarai produk</h2>
           <p>
-            Produk dikelompokkan mengikut jenis rekod. Setiap kad membawa ke halaman butiran; status figure verified
-            menunjukkan sama ada angka atau manfaat boleh diringkaskan daripada sumber yang dibaca.
+            Produk dikelompokkan mengikut jenis perlindungan, dan setiap kad membawa ke halaman butiran produk itu.
           </p>
         </article>
 
@@ -295,7 +294,7 @@ const schema = {
                   <h3 class="font-serif text-headline-md text-stone-900">{group.label}</h3>
                   <p class="mt-1 text-sm text-stone-600">{group.description}</p>
                 </div>
-                <span class="text-sm text-stone-500">{group.records.length} rekod</span>
+                <span class="text-sm text-stone-500">{group.records.length} produk</span>
               </div>
 
               <div class="mt-5 grid gap-4 sm:grid-cols-2">
@@ -323,7 +322,7 @@ const schema = {
                       </>
                     ) : (
                       <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
-                        Manfaat dan premium belum disahkan daripada sumber primer yang dibaca.
+                        Kami belum menemui manfaat dan premium produk ini dalam sumber primer yang dibaca.
                       </p>
                     )}
                     <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
@@ -341,7 +340,7 @@ const schema = {
             antara penyedia.
           </p>
           <ol class="list-decimal space-y-3 pl-5">
-            <li>Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan NCD yang hendak disahkan.</li>
+            <li>Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan NCD yang hendak disemak.</li>
             <li>Dapatkan quotation daripada penyedia; pilih jenis cover dan add-on hanya selepas membaca skopnya.</li>
             <li>Semak nama pemilik, nombor pendaftaran, tempoh, jumlah diinsuranskan, excess dan pengecualian pada dokumen.</li>
             <li>Simpan e-policy atau cover note yang sah, kemudian uruskan roadtax melalui saluran JPJ yang berkenaan.</li>

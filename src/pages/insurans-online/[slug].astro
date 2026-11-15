@@ -122,7 +122,7 @@ const baseFaqs = [
     a: `Anda boleh mendapatkan ${productList} melalui saluran ini. Bandingkan quotation serta PDS atau dokumen sijil di saluran rasmi sebelum membayar.`,
   },
   {
-    q: `Apa caveat penting untuk ${platform.name}?`,
+    q: `Apa yang perlu disemak sebelum membeli di ${platform.name}?`,
     a: platform.caveat,
   },
 ];
@@ -131,7 +131,7 @@ const faqs = parentCompany
       ...baseFaqs,
       {
         q: `Siapa syarikat induk ${platform.name}?`,
-        a: `${platform.name} ialah platform milik ${parentCompany.name}. Pautan ke rekod syarikat itu disediakan untuk rujukan, bukan pengesyoran.`,
+        a: `${platform.name} ialah platform milik ${parentCompany.name}. Pautan ke profil syarikat itu disediakan untuk rujukan, bukan pengesyoran.`,
       },
     ]
   : baseFaqs;
@@ -191,7 +191,7 @@ const answerFacts = [
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      Kenali produk {platform.name}, cara pembelian online, bayaran dan perkara penting sebelum memilih perlindungan.
+      Produk {platform.name}, cara pembelian online, bayaran dan perkara penting sebelum memilih perlindungan.
     </p>
 
     <PageAnswer slot="answer" finding={platform.name} facts={answerFacts} note={platform.keyFact} />
@@ -213,12 +213,12 @@ const answerFacts = [
         <p class="text-lg text-stone-700">{platform.keyFact}</p>
 
         <h2 id="produk">Apa boleh buat di sini?</h2>
-        <p>Produk dan urusan yang tersedia melalui saluran ini:</p>
+        <p>Saluran ini menawarkan:</p>
         <ul>
           {platform.products.map((product) => <li>{productLabels[product] ?? product}</li>)}
         </ul>
 
-        <h2 id="caveat">Perhatian / caveat</h2>
+        <h2 id="caveat">Perkara yang perlu disemak</h2>
         <div class="info-box">
           <p><strong>Semak sebelum bayar:</strong>{' '}{platform.caveat}</p>
         </div>
@@ -227,7 +227,7 @@ const answerFacts = [
           <>
             <h2 id="kaotim-review">Kaotim MediKad: ulasan ringkas</h2>
             <p>
-              <strong>Ringkasan:</strong> Kaotim ialah platform takaful digital milik Takaful Malaysia: direct channel,
+              Kaotim ialah platform takaful digital milik Takaful Malaysia: direct channel,
               bukan aggregator, bukan ejen. MediKad ialah kad perubatan takaful standalone dalam platform tu: quote, apply,
               e-certificate dan e-medical card semua online tanpa ejen. Model ini berasaskan urusan takaful bajet secara kendiri;
               terma perlu disemak dalam dokumen produk.
@@ -242,8 +242,7 @@ const answerFacts = [
             </p>
             <h3>Pertimbangan utama</h3>
             <p>
-              Model tanpa ejen; bajet takaful asas. Pertimbangkan: premium naik ikut umur, penyakit sedia ada (pre-existing) perlu diisytiharkan, rawatan GP rutin
-              tidak dilindungi. Semak PDS MediKad semasa.
+              Model tanpa ejen untuk bajet takaful asas. Semak PDS MediKad semasa.
             </p>
             <h3>Perkara kena hadam</h3>
             <p>
@@ -257,7 +256,7 @@ const answerFacts = [
           <>
             <h2 id="fwd-review">FWD: beli insurans &amp; takaful online tanpa ejen</h2>
             <p>
-              <strong>Ringkasan:</strong> FWD Malaysia ialah insurer-langsung: FWD Insurance Berhad (konvensional) dan FWD
+              FWD Malaysia ialah insurer-langsung: FWD Insurance Berhad (konvensional) dan FWD
               Takaful Berhad (takaful keluarga). Saluran "Buy Online" di fwd.com.my membolehkan pembelian terus tanpa ejen.
               Semak manfaat, kelayakan dan dokumen produk sebelum memohon.
             </p>
@@ -294,9 +293,8 @@ const answerFacts = [
           <>
             <h2 id="shopee-review">Shopee Insurance: apa deal sebenarnya?</h2>
             <p>
-              <strong>Ringkasan:</strong> Shopee Insurance bukan penginsurans: ia marketplace dalam app Shopee/ShopeePay yang
+              Shopee Insurance bukan penginsurans: ia marketplace dalam app Shopee/ShopeePay yang
               dikendalikan entiti agensi SeaMoney. Shopee bertindak sebagai ejen digital; risiko ditanggung Allianz, Zurich dan rakan lain.
-              Model ini bermaksud platform menjadi saluran pembelian, manakala risiko ditanggung oleh penyedia.
             </p>
             <h3>Pilihan produk dalam Shopee</h3>
             <p>
@@ -325,7 +323,7 @@ const answerFacts = [
           <>
             <h2 id="policystreet-review">PolicyStreet: platform insurans dan roadtax</h2>
             <p>
-              <strong>Ringkasan:</strong> PolicyStreet ialah saluran digital untuk produk insurer; entiti yang dinyatakan dalam
+              PolicyStreet ialah saluran digital untuk produk insurer; entiti yang dinyatakan dalam
               terma ialah Polisea Sdn. Bhd. (201601041144 (1212085-T)), bukan penginsurans. Polisea menyatakan ia diluluskan
               Bank Negara Malaysia sebagai Financial Adviser (FA) dan Islamic Financial Adviser (IFA) di bawah Akta
               Perkhidmatan Kewangan 2013; nama syarikat turut tersenarai dalam <a href="https://www.bnm.gov.my/-/approved-financial-advisers" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">senarai FA BNM</a>.
@@ -378,7 +376,7 @@ const answerFacts = [
           <>
             <h2 id="bjak-review">Bjak: semakan insurer, produk dan roadtax</h2>
             <p>
-              <strong>Ringkasan:</strong> Bjak Sdn. Bhd. ialah platform perbandingan dan bukannya syarikat insurans. Bjak
+              Bjak Sdn. Bhd. ialah platform perbandingan dan bukannya syarikat insurans. Bjak
               menyatakan ia mendapat kelulusan BNM sebagai Financial Adviser (FA) dan Islamic Financial Adviser (IFA) pada
               Oktober 2025; namanya terdapat pada <a href="https://www.bnm.gov.my/-/approved-financial-advisers" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">senarai rasmi BNM</a>.
               Status FA/IFA itu berasingan daripada kebenaran JPJ untuk urusan roadtax.
@@ -414,13 +412,12 @@ const answerFacts = [
               Baca <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">kenyataan asal JPJ pada 6 Mei 2024</a>.
               Untuk urusan pembaharuan, JPJ menyenaraikan kaunter, kios, MyJPJ, portal awam serta rakan niaganya sebagai
               saluran yang boleh digunakan dalam kenyataan tersebut.
-              Setakat semakan kami, status semasa kebenaran JPJ bagi aliran roadtax Bjak masih belum disahkan. Semak terus dengan JPJ atau MyJPJ sebelum membayar.
+              Kami tidak menemui pengesahan status semasa kebenaran JPJ bagi aliran roadtax Bjak dalam sumber yang disemak. Semak terus dengan JPJ atau MyJPJ sebelum membayar.
             </p>
             <h3>Pertimbangan</h3>
             <p>
               Semak polisi dan insurer yang mengeluarkan perlindungan, jumlah premium serta kos ansuran sebelum membayar.
-              Untuk roadtax, periksa status e-LKM dalam MyJPJ. Bjak menyediakan aliran pembaharuan insurans dan roadtax
-              serta sokongan selepas pembelian; semak dokumen polisi dan resit untuk butiran urusan anda.
+              Untuk roadtax, periksa status e-LKM dalam MyJPJ, dan simpan dokumen polisi serta resit untuk butiran urusan anda.
             </p>
           </>
         )}
@@ -429,7 +426,7 @@ const answerFacts = [
           <>
             <h2 id="myeg-review">MyEG: insurans auto dan urusan JPJ</h2>
             <p>
-              <strong>Ringkasan:</strong> MyEG ialah jenama perkhidmatan MY E.G. Services Berhad, yang dinamakan semula
+              MyEG ialah jenama perkhidmatan MY E.G. Services Berhad, yang dinamakan semula
               Zetrix AI Berhad pada 2025. Perniagaan insurans auto dikendalikan sebagai perkhidmatan pengantara;
               polisi dikeluarkan insurer. Rujuk <a href="https://www.insage.com.my/interactiveAR/ZETRIX/interactiveAR2025/" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">laporan tahunan syarikat</a>.
             </p>
@@ -486,7 +483,7 @@ const answerFacts = [
 
       <CtaBand
         heading={`Laman rasmi ${platform.name}`}
-        body="Pautan ini membuka laman atau saluran rasmi platform untuk semakan lanjut; ia bukan ranking atau pengesyoran."
+        body="Pautan ke saluran rasmi platform untuk semakan lanjut; ia bukan ranking atau pengesyoran."
         primary={{ label: 'Kembali ke hub insurans online', href: '/insurans-online/' }}
         outbound={[{ label: platform.name, href: platformRoot, relationship: 'unpaid' }]}
         disclosure="Insurans.co bukan ejen atau broker dan tiada hubungan berbayar atau affiliate. Sahkan quotation, PDS dan syarat terkini di laman penyedia sebelum membuat keputusan."

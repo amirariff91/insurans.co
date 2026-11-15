@@ -131,7 +131,7 @@ const faqSchema = {
         <h2 class="mod-bar" id="tentang">Bukan ejen. Bukan broker.</h2>
         <div class="mod-in">
           <p class="ix-s">
-            Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Insurans.co membantu anda menyemak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online tanpa jargon.
+            Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Di sini anda boleh semak anggaran untuk 39 model, kira NCD, bandingkan 12 syarikat dan lihat cara renew online, dalam bahasa yang mudah.
           </p>
           <div class="hp-by">
             <a href="/penulis/amir-ariff/" class="hp-by-img"><img src="/images/penulis/amir-ariff-colour-192.webp" alt="Amir Ariff" width="56" height="56" loading="lazy" decoding="async" /></a>
@@ -156,7 +156,7 @@ const faqSchema = {
         <section class="mod" aria-labelledby="popular">
           <h3 class="mod-bar mod-lab" id="popular">Julat premium ikut model: NCD 0% vs 55%</h3>
           <div class="mod-in">
-            <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
+            <p class="ix-s">Untuk Axia, Myvi, Saga, Vios, City dan model lain, dengan NCD 0% dan 55% bersebelahan.</p>
             <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model dalam panduan ini <Ikon name="i-bawah" size={18} /></a>
             <a href="/car-insurance/" data-cta="card_car" class="hp-more">Bandingkan ikut model <Ikon name="i-kanan" size={18} /></a>
           </div>
@@ -164,7 +164,7 @@ const faqSchema = {
         <section class="mod" data-tint="pink" aria-labelledby="kalk-ncd">
           <h3 class="mod-bar" id="kalk-ncd">Kira dulu “patut ke claim?” sebelum NCD reset</h3>
           <div class="mod-in">
-            <p class="ix-s">Masukkan premium asal dan pilih tahap NCD. Termasuk kiraan “patut ke claim?” sebelum NCD hilang.</p>
+            <p class="ix-s">Masukkan premium asal dan tahap NCD untuk melihat berapa anda jimat, kemudian bandingkan kos baiki dengan NCD yang hilang jika anda claim.</p>
             <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-o">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
           </div>
         </section>
@@ -174,8 +174,7 @@ const faqSchema = {
         <h3 class="mod-bar" id="harga-sebenar">Anggaran polisi komprehensif setahun</h3>
         <div class="mod-in">
           <p class="ix-s">
-            Kami kumpulkan anggaran harga untuk model kereta yang disenaraikan.
-            Harga di bawah ialah untuk polisi komprehensif setahun.
+            Harga ikut nilai pasaran dan NCD untuk model di bawah.
           </p>
           <ul class="hp-cars numeric">
             {popularCars.map(car => (
@@ -193,7 +192,7 @@ const faqSchema = {
             ))}
           </ul>
           <p class="ix-src">
-            Nota: Harga di atas ialah anggaran untuk tahun 2026. Harga sebenar bergantung pada
+            Harga di atas ialah anggaran untuk tahun 2026. Harga sebenar bergantung pada
             umur kereta, lokasi, rekod pemanduan, dan syarikat insurans yang dipilih.
             Selepas liberalisasi tarif motor 2017, setiap syarikat boleh menetapkan harga sendiri.
           </p>
@@ -205,11 +204,11 @@ const faqSchema = {
         <details class="hp-fold">
         <summary class="mod-bar"><h3 id="renew-h">Renew online dalam 4 langkah, tak perlu ke pejabat</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
-          <p class="ix-s">Anda tidak perlu pergi ke pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
+          <p class="ix-s">Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
           <ol class="hp-steps">
             <li>
               <h4>Semak NCD anda</h4>
-              <p>Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau tanya ejen. Ini penting kerana NCD mempengaruhi harga premium.</p>
+              <p>Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau tanya ejen, kerana NCD mempengaruhi harga premium.</p>
             </li>
             <li>
               <h4>Dapatkan quotation</h4>
@@ -242,7 +241,7 @@ const faqSchema = {
         <details class="hp-fold">
         <summary class="mod-bar"><h3 id="syarikat">Senarai syarikat insurans motor, bukan ranking</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
         <div class="mod-in">
-          <p class="ix-s">Senarai syarikat, bukan ranking. Baca profil setiap syarikat.</p>
+          <p class="ix-s">Susunan ini bukan kedudukan. Setiap nama membawa ke profil syarikat itu.</p>
           <ul class="hp-co">
             {topMotorInsurers.map((company) => (
               <li>
@@ -289,7 +288,7 @@ const faqSchema = {
         <section class="mod" aria-labelledby="takaful-q">
           <h3 class="mod-bar" id="takaful-q">Takaful patuh Syariah, dan lebihan dana boleh dikongsi</h3>
           <div class="mod-in">
-            <p class="ix-s">Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
+            <p class="ix-s">Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk.</p>
             <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
           </div>
         </section>
@@ -297,7 +296,7 @@ const faqSchema = {
         <section class="mod" aria-labelledby="banding">
           <h3 class="mod-bar mod-lab" id="banding">{comparisonCount} perbandingan satu lawan satu</h3>
           <div class="mod-in">
-            <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, produk, talian claim dan saluran digital.</p>
+            <p class="ix-s">Antaranya Etiqa vs Allianz dan takaful vs konvensional, meliputi produk, talian claim dan saluran digital.</p>
             <ul class="hp-links">
               <li><a href="/perbandingan/prudential-vs-aia/">Prudential vs AIA: perbandingan medical card</a></li>
               <li><a href="/perbandingan/etiqa-vs-zurich/">Etiqa vs Zurich: perbandingan harga insurans kereta</a></li>

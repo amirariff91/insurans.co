@@ -70,7 +70,7 @@ const schema = {
       />
       <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Komprehensif dan pihak ketiga ialah dua jenis insurans kereta yang paling asas. Panduan ini menerangkan beza kedua-duanya untuk membantu anda membuat keputusan.
+        Komprehensif dan pihak ketiga ialah dua jenis insurans kereta yang paling asas. Bezanya ialah siapa yang dilindungi: komprehensif melindungi kereta anda dan orang lain, manakala pihak ketiga hanya melindungi orang lain.
       </p>
     </div>
   </section>
@@ -81,7 +81,7 @@ const schema = {
       <div class="lg:col-span-2">
         <article class="prose-editorial prose-bars">
 
-          <h2>Apa itu Insurans Komprehensif?</h2>
+          <h2>Insurans komprehensif melindungi kereta anda dan orang lain</h2>
           <p>
             Insurans komprehensif (atau "all risks") ialah perlindungan paling lengkap yang boleh anda beli
             untuk kereta. Ia melindungi dua pihak: anda <em>dan</em> orang lain. Jika berlaku kemalangan, sama ada
@@ -93,7 +93,7 @@ const schema = {
             pihak ketiga: orang lain yang terlibat dalam kemalangan dengan anda.
           </p>
 
-          <h2>Apa itu Insurans Pihak Ketiga (Third Party)?</h2>
+          <h2>Insurans pihak ketiga (third party) hanya melindungi orang lain</h2>
           <p>
             Insurans pihak ketiga (TP) ialah insurans minimum yang diwajibkan oleh undang-undang Malaysia.
             Ia <strong>hanya melindungi pihak ketiga</strong>: orang lain yang terlibat dalam kemalangan dengan anda.
@@ -105,7 +105,7 @@ const schema = {
             tetapi tidak melindungi kerosakan akibat kemalangan biasa.
           </p>
 
-          <h2>Perbandingan: Apa Yang Dilindungi</h2>
+          <h2>Perbandingan: apa yang dilindungi</h2>
         </article>
 
         <!-- Comparison Table -->
@@ -167,7 +167,7 @@ const schema = {
         </div>
 
         <article class="prose-editorial prose-bars">
-          <h2>Pilihan Berdasarkan Umur Kereta</h2>
+          <h2>Pilihan berdasarkan umur kereta</h2>
           <p>
             Cara paling mudah untuk membuat keputusan: lihat umur dan nilai kereta anda.
           </p>
@@ -193,9 +193,9 @@ const schema = {
             </p>
           </div>
 
-          <h2>Perbezaan Harga: Komprehensif vs Pihak Ketiga</h2>
+          <h2>Perbezaan harga: komprehensif vs pihak ketiga</h2>
           <p>
-            Perbezaan harga antara komprehensif dan pihak ketiga memang ketara. Untuk kereta seperti Perodua Myvi:
+            Untuk kereta seperti Perodua Myvi:
           </p>
           <ul>
             <li><strong>Komprehensif (NCD 55%):</strong> ~{range(myvi.premiumNCD55Min, myvi.premiumNCD55Max)} setahun</li>
@@ -203,11 +203,11 @@ const schema = {
           </ul>
 
           <div class="not-prose note-price my-6">
-            <p class="note-t mb-2">Contoh Kos: {myvi.fullName}</p>
+            <p class="note-t mb-2">Contoh kos: {myvi.fullName}</p>
             <ul class="text-sm space-y-1">
               <li>• <strong>Komprehensif (NCD 55%):</strong> ~{tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}/tahun (belum termasuk special perils)</li>
               <li>• <strong>Komprehensif (tanpa NCD):</strong> ~{tightRange(myvi.premiumNCD0Min, myvi.premiumNCD0Max)}/tahun</li>
-              <li>• <strong>Pihak Ketiga:</strong> minta sebut harga; kami belum mengesahkan angkanya</li>
+              <li>• <strong>Pihak ketiga:</strong> minta sebut harga; kami belum mengesahkan angkanya</li>
               <li>• Nilai pasaran {myvi.fullName}: {myvi.marketValueRange}</li>
             </ul>
           </div>
@@ -217,7 +217,7 @@ const schema = {
             Untuk kereta yang masih bernilai, komprehensif biasanya lebih wajar dipertimbangkan.
           </p>
 
-          <h2>Komprehensif memberi perlindungan paling luas</h2>
+          <h2>Komprehensif vs pihak ketiga: timbang beza premium dengan kos sendiri</h2>
           <p>
             Insurans komprehensif <strong>memberi perlindungan paling luas</strong> antara tiga jenis polisi. Untuk kereta yang masih bernilai tinggi, bandingkan beza premium dengan kos yang perlu anda tanggung sendiri jika kereta rosak atau dicuri. Jika anda tinggal di kawasan banjir, semak kos add-on special perils, lazimnya sekitar 0.2%–0.5% daripada sum insured setahun.
           </p>
@@ -243,8 +243,8 @@ const schema = {
 
         <!-- Lihat Juga -->
         <div class="not-prose bg-stone-50 border border-stone-200 rounded-xl p-6 my-8">
-          <h3 class="font-semibold text-stone-800 mb-4">Lihat Juga: Harga Insurans Kereta Popular</h3>
-          <p class="text-sm text-stone-600 mb-4">Mahu tahu harga insurans komprehensif untuk kereta anda? Semak anggaran untuk model popular:</p>
+          <h3 class="font-semibold text-stone-800 mb-4">Lihat juga: harga insurans kereta popular</h3>
+          <p class="text-sm text-stone-600 mb-4">Anggaran harga insurans komprehensif untuk model popular:</p>
           <ul class="space-y-3">
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
               <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold hover:underline">{myvi.fullName}</a>
