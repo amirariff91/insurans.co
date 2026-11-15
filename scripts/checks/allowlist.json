@@ -527,6 +527,136 @@
       "old": null,
       "new": "Surplus sharing ialah perkongsian lebihan dana takaful dengan peserta. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin. Nisbah perkongsian dinyatakan dalam sijil, contohnya 70% kepada peserta dan 30% kepada syarikat. Ada tahun yang tiada lebihan langsung.",
       "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "path": "^Organization\\.description$",
+      "old": "Panduan insurans Malaysia — harga sebenar, perbandingan syarikat, dan panduan dalam Bahasa Malaysia.",
+      "new": "Panduan insurans Malaysia: anggaran harga, perbandingan syarikat dan panduan dalam Bahasa Malaysia.",
+      "reason": "SEO review (15 Nov 2026): the site-wide Organization description said 'harga sebenar' while every page says estimates; now 'anggaran harga'. Dash removed."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/car\\-insurance/$",
+      "old": "Harga Insurans & Roadtax Kereta 2026: 39 Model | Insurans.co",
+      "new": "Insurans Kereta 2026: Harga 39 Model & Roadtax | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "h1",
+      "url": "^/car\\-insurance/$",
+      "old": "Harga Insurans & Roadtax Kereta 2026: 39 Model",
+      "new": "Insurans Kereta 2026: Harga 39 Model & Roadtax",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/car\\-insurance/$",
+      "old": "Pilih model kereta anda (Perodua, Proton, Honda, Toyota & lain-lain) untuk anggaran insurans ikut NCD 0–55% dan roadtax setahun. Bukan quotation.",
+      "new": "Semak anggaran harga insurans kereta dan roadtax 39 model ikut NCD 0–55%, dan cara dapat insurans kereta murah tanpa underinsure. Bukan quotation.",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/car\\-insurance/$",
+      "old": "Pilih model kereta anda (Perodua, Proton, Honda, Toyota & lain-lain) untuk anggaran insurans ikut NCD 0–55% dan roadtax setahun. Bukan quotation.",
+      "new": "Semak anggaran harga insurans kereta dan roadtax 39 model ikut NCD 0–55%, dan cara dapat insurans kereta murah tanpa underinsure. Bukan quotation.",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis.",
+      "path": "^Article\\.description$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/car\\-insurance/$",
+      "old": "Harga Insurans & Roadtax Kereta 2026: 39 Model",
+      "new": "Insurans Kereta 2026: Harga 39 Model & Roadtax",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis.",
+      "path": "^Article\\.headline$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/critical\\-illness/$",
+      "old": "Insurans Penyakit Kritikal Malaysia —… | Insurans.co",
+      "new": "Insurans Penyakit Kritikal Malaysia 2026 | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/critical\\-illness/$",
+      "old": "Insurans Penyakit Kritikal Malaysia — Panduan dan Perbandingan",
+      "new": "Insurans Penyakit Kritikal Malaysia 2026",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis.",
+      "path": "^Article\\.headline$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/health\\-insurance/$",
+      "old": "Insurans Kesihatan & Medical Card: Panduan… | Insurans.co",
+      "new": "Insurans Kesihatan & Medical Card Malaysia | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "h1",
+      "url": "^/health\\-insurance/$",
+      "old": "Insurans Kesihatan & Medical Card: Panduan Asas",
+      "new": "Insurans Kesihatan & Medical Card Malaysia",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/health\\-insurance/$",
+      "old": "Insurans Kesihatan & Medical Card: Panduan Asas",
+      "new": "Insurans Kesihatan & Medical Card Malaysia",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis.",
+      "path": "^Article\\.headline$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/$",
+      "old": "Anggaran Harga Insurans Kereta Malaysia 2026 | Insurans.co",
+      "new": "Insurans Malaysia 2026: Harga Kereta, Medical Card & Takaful | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/$",
+      "old": "Panduan insurans bebas, bukan ejen atau broker: anggaran harga insurans 39 model kereta, kalkulator NCD & roadtax, perbandingan dan profil syarikat.",
+      "new": "Panduan insurans bebas, bukan ejen atau broker: harga insurans kereta 39 model, kalkulator NCD & roadtax, medical card, nyawa, rumah dan takaful, bersumber rasmi.",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "title",
+      "url": "^/life\\-insurance/$",
+      "old": "Insurans Nyawa Malaysia 2026 — Panduan, Harga & Perbandingan | Insurans.co",
+      "new": "Insurans Nyawa Malaysia 2026: Term, Whole Life & ILP | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
     }
   ]
 }
