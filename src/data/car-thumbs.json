@@ -1,242 +1,302 @@
 [
   {
     "slug": "perodua-axia",
-    "src": "/images/kereta/kecil/perodua-axia.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/perodua-axia-800.webp",
-    "bytes": 2382
+    "src144": "/images/kereta/kecil/perodua-axia-144.webp",
+    "bytes144": 2382,
+    "src96": "/images/kereta/kecil/perodua-axia-96.webp",
+    "bytes96": 1500,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "perodua-myvi",
-    "src": "/images/kereta/kecil/perodua-myvi.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/perodua-myvi-800.webp",
-    "bytes": 2130
+    "src144": "/images/kereta/kecil/perodua-myvi-144.webp",
+    "bytes144": 2130,
+    "src96": "/images/kereta/kecil/perodua-myvi-96.webp",
+    "bytes96": 1296,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "perodua-bezza",
-    "src": "/images/kereta/kecil/perodua-bezza.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/perodua-bezza-800.webp",
-    "bytes": 2220
+    "src144": "/images/kereta/kecil/perodua-bezza-144.webp",
+    "bytes144": 2220,
+    "src96": "/images/kereta/kecil/perodua-bezza-96.webp",
+    "bytes96": 1380,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "perodua-ativa",
-    "src": "/images/kereta/kecil/perodua-ativa.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/perodua-ativa-800.webp",
-    "bytes": 2184
+    "src144": "/images/kereta/kecil/perodua-ativa-144.webp",
+    "bytes144": 2184,
+    "src96": "/images/kereta/kecil/perodua-ativa-96.webp",
+    "bytes96": 1404,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "perodua-alza",
-    "src": "/images/kereta/kecil/perodua-alza.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/perodua-alza-800.webp",
-    "bytes": 2480
+    "src144": "/images/kereta/kecil/perodua-alza-144.webp",
+    "bytes144": 2480,
+    "src96": "/images/kereta/kecil/perodua-alza-96.webp",
+    "bytes96": 1492,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-saga",
-    "src": "/images/kereta/kecil/proton-saga.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-saga-800.webp",
-    "bytes": 2376
+    "src144": "/images/kereta/kecil/proton-saga-144.webp",
+    "bytes144": 2376,
+    "src96": "/images/kereta/kecil/proton-saga-96.webp",
+    "bytes96": 1420,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-persona",
-    "src": "/images/kereta/kecil/proton-persona.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-persona-800.webp",
-    "bytes": 2094
+    "src144": "/images/kereta/kecil/proton-persona-144.webp",
+    "bytes144": 2094,
+    "src96": "/images/kereta/kecil/proton-persona-96.webp",
+    "bytes96": 1314,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-iriz",
-    "src": "/images/kereta/kecil/proton-iriz.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-iriz-800.webp",
-    "bytes": 2264
+    "src144": "/images/kereta/kecil/proton-iriz-144.webp",
+    "bytes144": 2264,
+    "src96": "/images/kereta/kecil/proton-iriz-96.webp",
+    "bytes96": 1390,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-x50",
-    "src": "/images/kereta/kecil/proton-x50.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-x50-800.webp",
-    "bytes": 2462
+    "src144": "/images/kereta/kecil/proton-x50-144.webp",
+    "bytes144": 2462,
+    "src96": "/images/kereta/kecil/proton-x50-96.webp",
+    "bytes96": 1426,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-x70",
-    "src": "/images/kereta/kecil/proton-x70.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-x70-800.webp",
-    "bytes": 2346
+    "src144": "/images/kereta/kecil/proton-x70-144.webp",
+    "bytes144": 2346,
+    "src96": "/images/kereta/kecil/proton-x70-96.webp",
+    "bytes96": 1460,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "proton-exora",
-    "src": "/images/kereta/kecil/proton-exora.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/proton-exora-800.webp",
-    "bytes": 2826
+    "src144": "/images/kereta/kecil/proton-exora-144.webp",
+    "bytes144": 2826,
+    "src96": "/images/kereta/kecil/proton-exora-96.webp",
+    "bytes96": 1674,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "honda-city",
-    "src": "/images/kereta/kecil/honda-city.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/honda-city-800.webp",
-    "bytes": 2460
+    "src144": "/images/kereta/kecil/honda-city-144.webp",
+    "bytes144": 2460,
+    "src96": "/images/kereta/kecil/honda-city-96.webp",
+    "bytes96": 1538,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "honda-hrv",
-    "src": "/images/kereta/kecil/honda-hrv.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/honda-hrv-800.webp",
-    "bytes": 2026
+    "src144": "/images/kereta/kecil/honda-hrv-144.webp",
+    "bytes144": 2026,
+    "src96": "/images/kereta/kecil/honda-hrv-96.webp",
+    "bytes96": 1276,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "honda-brv",
-    "src": "/images/kereta/kecil/honda-brv.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/honda-brv-800.webp",
-    "bytes": 2554
+    "src144": "/images/kereta/kecil/honda-brv-144.webp",
+    "bytes144": 2554,
+    "src96": "/images/kereta/kecil/honda-brv-96.webp",
+    "bytes96": 1552,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-vios",
-    "src": "/images/kereta/kecil/toyota-vios.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-vios-800.webp",
-    "bytes": 2212
+    "src144": "/images/kereta/kecil/toyota-vios-144.webp",
+    "bytes144": 2212,
+    "src96": "/images/kereta/kecil/toyota-vios-96.webp",
+    "bytes96": 1378,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-yaris",
-    "src": "/images/kereta/kecil/toyota-yaris.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-yaris-800.webp",
-    "bytes": 2528
+    "src144": "/images/kereta/kecil/toyota-yaris-144.webp",
+    "bytes144": 2528,
+    "src96": "/images/kereta/kecil/toyota-yaris-96.webp",
+    "bytes96": 1522,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-corolla",
-    "src": "/images/kereta/kecil/toyota-corolla.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-corolla-800.webp",
-    "bytes": 2246
+    "src144": "/images/kereta/kecil/toyota-corolla-144.webp",
+    "bytes144": 2246,
+    "src96": "/images/kereta/kecil/toyota-corolla-96.webp",
+    "bytes96": 1366,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-corolla-cross",
-    "src": "/images/kereta/kecil/toyota-corolla-cross.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-corolla-cross-800.webp",
-    "bytes": 2348
+    "src144": "/images/kereta/kecil/toyota-corolla-cross-144.webp",
+    "bytes144": 2348,
+    "src96": "/images/kereta/kecil/toyota-corolla-cross-96.webp",
+    "bytes96": 1464,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-hilux",
-    "src": "/images/kereta/kecil/toyota-hilux.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-hilux-800.webp",
-    "bytes": 2110
+    "src144": "/images/kereta/kecil/toyota-hilux-144.webp",
+    "bytes144": 2110,
+    "src96": "/images/kereta/kecil/toyota-hilux-96.webp",
+    "bytes96": 1294,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "toyota-veloz",
-    "src": "/images/kereta/kecil/toyota-veloz.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/toyota-veloz-800.webp",
-    "bytes": 2516
+    "src144": "/images/kereta/kecil/toyota-veloz-144.webp",
+    "bytes144": 2516,
+    "src96": "/images/kereta/kecil/toyota-veloz-96.webp",
+    "bytes96": 1468,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "nissan-almera",
-    "src": "/images/kereta/kecil/nissan-almera.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/nissan-almera-800.webp",
-    "bytes": 2434
+    "src144": "/images/kereta/kecil/nissan-almera-144.webp",
+    "bytes144": 2434,
+    "src96": "/images/kereta/kecil/nissan-almera-96.webp",
+    "bytes96": 1488,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "mazda-2",
-    "src": "/images/kereta/kecil/mazda-2.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/mazda-2-800.webp",
-    "bytes": 2238
+    "src144": "/images/kereta/kecil/mazda-2-144.webp",
+    "bytes144": 2238,
+    "src96": "/images/kereta/kecil/mazda-2-96.webp",
+    "bytes96": 1318,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "mazda-3",
-    "src": "/images/kereta/kecil/mazda-3.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/mazda-3-800.webp",
-    "bytes": 2192
+    "src144": "/images/kereta/kecil/mazda-3-144.webp",
+    "bytes144": 2192,
+    "src96": "/images/kereta/kecil/mazda-3-96.webp",
+    "bytes96": 1318,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "mazda-cx5",
-    "src": "/images/kereta/kecil/mazda-cx5.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/mazda-cx5-800.webp",
-    "bytes": 1686
+    "src144": "/images/kereta/kecil/mazda-cx5-144.webp",
+    "bytes144": 1686,
+    "src96": "/images/kereta/kecil/mazda-cx5-96.webp",
+    "bytes96": 1042,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "honda-crv",
-    "src": "/images/kereta/kecil/honda-crv.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/honda-crv-800.webp",
-    "bytes": 2268
+    "src144": "/images/kereta/kecil/honda-crv-144.webp",
+    "bytes144": 2268,
+    "src96": "/images/kereta/kecil/honda-crv-96.webp",
+    "bytes96": 1432,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "mitsubishi-triton",
-    "src": "/images/kereta/kecil/mitsubishi-triton.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/mitsubishi-triton-800.webp",
-    "bytes": 2338
+    "src144": "/images/kereta/kecil/mitsubishi-triton-144.webp",
+    "bytes144": 2338,
+    "src96": "/images/kereta/kecil/mitsubishi-triton-96.webp",
+    "bytes96": 1420,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "mitsubishi-xpander",
-    "src": "/images/kereta/kecil/mitsubishi-xpander.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/mitsubishi-xpander-800.webp",
-    "bytes": 2562
+    "src144": "/images/kereta/kecil/mitsubishi-xpander-144.webp",
+    "bytes144": 2562,
+    "src96": "/images/kereta/kecil/mitsubishi-xpander-96.webp",
+    "bytes96": 1562,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "nissan-navara",
-    "src": "/images/kereta/kecil/nissan-navara.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/nissan-navara-800.webp",
-    "bytes": 2480
+    "src144": "/images/kereta/kecil/nissan-navara-144.webp",
+    "bytes144": 2480,
+    "src96": "/images/kereta/kecil/nissan-navara-96.webp",
+    "bytes96": 1464,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "bmw-3-series",
-    "src": "/images/kereta/kecil/bmw-3-series.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/bmw-3-series-800.webp",
-    "bytes": 1906
+    "src144": "/images/kereta/kecil/bmw-3-series-144.webp",
+    "bytes144": 1906,
+    "src96": "/images/kereta/kecil/bmw-3-series-96.webp",
+    "bytes96": 1178,
+    "width": 144,
+    "height": 96
   },
   {
     "slug": "honda-jazz",
-    "src": "/images/kereta/kecil/honda-jazz.webp",
-    "width": 144,
-    "height": 96,
     "from": "/images/kereta/honda-jazz-800.webp",
-    "bytes": 2248
+    "src144": "/images/kereta/kecil/honda-jazz-144.webp",
+    "bytes144": 2248,
+    "src96": "/images/kereta/kecil/honda-jazz-96.webp",
+    "bytes96": 1370,
+    "width": 144,
+    "height": 96
   }
 ]

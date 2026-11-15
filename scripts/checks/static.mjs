@@ -323,7 +323,7 @@ export function photoCredits(dist, pages, repo) {
   // their source photo must be credited and listed on /kredit-foto/, which must explain them (#gambar-kecil).
   const thumbsFile = path.join(repo, 'src/data/car-thumbs.json');
   const thumbs = fs.existsSync(thumbsFile) ? JSON.parse(fs.readFileSync(thumbsFile, 'utf8')) : [];
-  const thumbBySrc = new Map(thumbs.map((t) => [t.src, t]));
+  const thumbBySrc = new Map(thumbs.flatMap((t) => [t.src144, t.src96].filter(Boolean).map((s) => [s, t])));
   const isThumb = (s) => /^\/images\/kereta\/kecil\//.test(s);
   const thumbDir = path.join(dist, 'images/kereta/kecil');
   if (fs.existsSync(thumbDir)) {

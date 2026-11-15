@@ -3,6 +3,7 @@
 import carModels from '../../data/car-models.json';
 import { span } from './steps';
 import CarThumb from '../CarThumb.astro';
+import LogoTile from '../LogoTile.astro';
 
 interface Props { current: string }
 const { current } = Astro.props;
@@ -17,7 +18,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   <ul class="mlist">
     {groups.map((g) => (
       <li>
-        <span class="mlist-g"><span>{g.brand}</span><span aria-hidden="true">{g.models.length}</span></span>
+        <span class="mlist-g"><span class="mlist-b"><LogoTile brand={g.brand} size="s" />{g.brand}</span><span aria-hidden="true">{g.models.length}</span></span>
         <ul class="mlist">
           {g.models.map((c) => (
             <li><a href={`/car-insurance/${c.slug}/`} aria-current={c.slug === current ? 'page' : undefined}><span class="mlist-n"><CarThumb slug={c.slug} /><span>{c.model}</span></span><span class="mp">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span></a></li>

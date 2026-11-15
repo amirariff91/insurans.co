@@ -4,6 +4,7 @@ import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import HubModelList from '../../components/edisi/HubModelList.astro';
 import CarThumb from '../../components/CarThumb.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import HubTiles from '../../components/edisi/HubTiles.astro';
 import Dock from '../../components/edisi/Dock.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -618,7 +619,7 @@ const schema = {
         <div class="my-6 space-y-6">
           {brandOrder.filter(brand => brandGroups[brand]).map((brand) => (
             <div>
-              <h3 class="font-serif text-headline-sm text-stone-900 mb-3">{brand}</h3>
+              <h3 class="font-serif text-headline-sm text-stone-900 mb-3 flex items-center gap-3"><LogoTile brand={brand} />{brand}</h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {brandGroups[brand].map((car) => (
                   <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">

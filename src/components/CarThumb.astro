@@ -16,11 +16,13 @@ interface Props {
   class?: string;
 }
 const { slug, size = 'm', eager = false, class: className } = Astro.props;
-const t = (thumbs as { slug: string; src: string; width: number; height: number }[]).find((x) => x.slug === slug);
+const t = (thumbs as { slug: string; src144: string; src96: string; width: number; height: number }[]).find((x) => x.slug === slug);
+// The CSS width of each size (see the styles below); --ct-w overrides stay within 2.25rem to 4.5rem.
+const sizes = size === 's' ? '36px' : '(min-width: 40rem) 72px, 60px';
 ---
 <span class:list={['ct', `ct-${size}`, !t && 'ct-none', className]} aria-hidden="true">
   {t ? (
-    <img class="ct-img" src={t.src} width={t.width} height={t.height} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <img class="ct-img" src={t.src96} srcset={`${t.src96} 96w, ${t.src144} 144w`} sizes={sizes} width={t.width} height={t.height} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" />
   ) : (
     <Ikon name="i-kereta" size={24} />
   )}
