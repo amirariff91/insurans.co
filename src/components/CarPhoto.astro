@@ -6,7 +6,6 @@
  */
 import carPhotos from '../data/car-photos.json';
 import carModels from '../data/car-models.json';
-import Ikon from './Ikon.astro';
 import { photoSrcset } from './edisi/photo';
 
 interface Props {
@@ -60,7 +59,6 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
   <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName} style={`--fit:${fitChars}`}>
     <span class="cp-card-name"><span class="cp-card-brand">{model.brand}</span> <span class="cp-card-model">{model.model}</span></span>
     <span class="cp-card-meta">{model.segment}, {model.engineCC}</span>
-    <span class="cp-card-car"><Ikon name="i-kereta" size={96} /></span>
   </div>
 )}
 

@@ -12,11 +12,11 @@
 <!-- Kereta dan perlindungan (cars and cover) -->
 <symbol id="i-kereta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Model</title>
-  <path d="M6.1 9.5l1.19-4.06A2 2 0 0 1 9.21 4h5.58a2 2 0 0 1 1.92 1.44L17.9 9.5"/>
-  <rect x="3.13" y="9.5" width="17.74" height="8.25" rx="3.25"/>
-  <path d="M5.5 19.9h2M16.5 19.9h2"/>
-  <circle cx="16.5" cy="13.63" r="1.57" fill="currentColor" stroke="none"/>
-  <circle cx="7.5" cy="13.63" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+  <path d="M3.9 16.5A1 1 0 0 1 3.13 15.6V12.9a2 2 0 0 1 1.55-1.95L7.4 10.3l2.5-3.3a2 2 0 0 1 1.6-.8h3.6a2 2 0 0 1 1.5.68l3.1 3.42a1.6 1.6 0 0 1 1.57 1.6V15.6a1 1 0 0 1-.77.9"/>
+  <path d="M7.4 10.3h11.9M10.3 16.9h3.4"/>
+  <circle cx="7.4" cy="16.9" r="2.9"/>
+  <circle cx="16.6" cy="16.9" r="2.9"/>
+  <circle cx="16.6" cy="16.9" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
 </symbol>
 <symbol id="i-kemalangan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
   <title>Kemalangan</title>
