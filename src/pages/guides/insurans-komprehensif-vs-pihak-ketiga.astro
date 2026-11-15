@@ -9,7 +9,7 @@ import carModels from '../../data/car-models.json';
 // pages and the car-insurance hub use, so the guide cannot drift from them.
 const bySlug = Object.fromEntries(carModels.map((car) => [car.slug, car])) as Record<string, (typeof carModels)[number]>;
 const num = (value: number) => value.toLocaleString('en-MY');
-const range = (min: number, max: number) => `RM${num(min)} – RM${num(max)}`;
+const range = (min: number, max: number) => `RM${num(min)}–RM${num(max)}`;
 const tightRange = (min: number, max: number) => `RM${num(min)}–RM${num(max)}`;
 const myvi = bySlug['perodua-myvi'];
 const city = bySlug['honda-city'];
@@ -100,8 +100,8 @@ const schema = {
             Kereta anda sendiri <em>tidak</em> dilindungi sama sekali.
           </p>
           <p>
-            Ada juga varian tengah yang dipanggil <strong>Third Party Fire and Theft (TPFT)</strong>:
-            ia melindungi pihak ketiga, dan kereta anda sendiri jika dicuri atau terbakar,
+            Ada juga varian tengah yang dipanggil <strong>Third Party Fire and Theft (TPFT)</strong>.
+            Ia melindungi pihak ketiga, dan kereta anda sendiri jika dicuri atau terbakar,
             tetapi tidak melindungi kerosakan akibat kemalangan biasa.
           </p>
 
@@ -177,7 +177,7 @@ const schema = {
             Komprehensif wajar diutamakan. Kereta baru bernilai tinggi; jika kemalangan teruk atau kereta dicuri, insurans pihak ketiga tidak melindungi kereta anda, dan kos membaiki atau mengganti kereta boleh mencecah puluhan ribu ringgit.
           </p>
 
-          <h3>Kereta sederhana (RM10,000 – RM30,000)</h3>
+          <h3>Kereta sederhana (RM10,000–RM30,000)</h3>
           <p>
             Komprehensif masih patut dipertimbangkan, tetapi kira dahulu. Jika premium komprehensif lebih daripada 10% nilai kereta, TPFT mungkin wajar dipertimbangkan. Ingat, dengan TPFT anda menanggung sendiri kos jika kereta rosak teruk dalam kemalangan.
           </p>
@@ -213,11 +213,11 @@ const schema = {
           </div>
           <p>
             Beza antara komprehensif dan pihak ketiga untuk Myvi biasanya beberapa ratus ringgit setahun; minta sebut harga untuk angka tepat.
-            Tetapi jika kereta dicuri atau terlibat dalam kemalangan teruk, anda boleh rugi RM20,000 – RM50,000.
+            Tetapi jika kereta dicuri atau terlibat dalam kemalangan teruk, anda boleh rugi RM20,000–RM50,000.
             Untuk kereta yang masih bernilai, komprehensif biasanya lebih wajar dipertimbangkan.
           </p>
 
-          <h2>Kesimpulan</h2>
+          <h2>Komprehensif memberi perlindungan paling luas</h2>
           <p>
             Insurans komprehensif <strong>memberi perlindungan paling luas</strong> antara tiga jenis polisi. Untuk kereta yang masih bernilai tinggi, bandingkan beza premium dengan kos yang perlu anda tanggung sendiri jika kereta rosak atau dicuri. Jika anda tinggal di kawasan banjir, semak kos add-on special perils, lazimnya sekitar 0.2%–0.5% daripada sum insured setahun.
           </p>

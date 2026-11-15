@@ -15,7 +15,7 @@ const canonicalUrl = 'https://insurans.co/panduan/checklist-medical-card/';
 
 const checklistItems = [
   {
-    title: 'Had tahunan (annual limit) — berapa, dan cukup ke untuk hospital swasta di bandar saya?',
+    title: 'Had tahunan (annual limit): berapa, dan cukup ke untuk hospital swasta di bandar saya?',
     question: '"Annual limit plan ini berapa? Bagaimana ia diperbaharui setiap tahun?"',
     why: 'Had tahunan digunakan sepanjang tahun polisi dan bermula semula tahun berikutnya. Julat sebenar dalam data kami luas. Contoh: Etiqa OneMedical RM50,000 / RM100,000 / RM150,000; Takaful Malaysia myMedik RM150,000–RM500,000 (RM900,000–RM1,500,000 dengan rider MedikBooster); Prudential PRUMillion Med 2.0 RM2,000,000; AIA A-Plus Health360 RM3,000,000; Great Eastern SmartMedic Shield RM1,000,000–RM4,000,000 ikut tier. Pilih ikut kos hospital di bandar rawatan biasa anda (Lembah Klang/Johor/Penang kos swasta lebih tinggi), bukan ikut nombor terbesar.',
   },
@@ -25,34 +25,34 @@ const checklistItems = [
     why: 'Annual limit bermula semula setiap tahun; lifetime limit yang habis bermakna polisi tamat dan anda perlu membeli polisi baharu. Dalam data kami, kebanyakan plan direkodkan "No lifetime limit" / "No limit" (contoh: SmartMedic Shield, GREAT MedCare, OneMedical "unlimited lifetime", PRUMillion Med 2.0 "tiada lifetime limit", myMedik, IKHLAS Medik, Tokio Medic Plus). Jika ada siling seumur hidup, pastikan ia tertulis dalam PDS, jangan bergantung pada janji lisan.',
   },
   {
-    title: 'Bilik & penginapan (room & board) — berapa RM sehari?',
+    title: 'Bilik & penginapan (room & board): berapa RM sehari?',
     question: '"Kelayakan bilik saya berapa RM sehari? Ada had hari?"',
     why: 'Bilik melebihi kelayakan ialah satu punca claim "kurang daripada jangkaan": anda bayar perbezaan, dan sesetengah polisi mengenakan co-insurance atas baki bil (contoh GREAT MedCare: bayar perbezaan + co-insurance 20% atas bil lain). Contoh sebenar: SmartMedic Shield RM150 / RM250 / RM400 sehari; AIA Health360 RM300 sehari (naik taraf AIA Vitality: RM450 Gold, RM600 Platinum); OneMedical RM160 / RM280 / RM360 sehari tanpa had hari; GREAT MedCare RM200–RM500 sehari (maksimum 180 hari); myMedik RM150–RM500 sehari (7 tier, tanpa had hari). Sebelum dimasukkan ke wad, tanya: "bilik ini dalam kelayakan saya?"',
   },
   {
-    title: 'Deductible — berapa saya bayar dulu setiap kali claim?',
+    title: 'Deductible: berapa saya bayar dulu setiap kali claim?',
     question: '"Deductible berapa: per disability atau per year? Bahagian mana ia terpakai?"',
     why: 'Deductible ialah jumlah yang anda bayar dulu sebelum insurer mengira baki. Frasa berbeza, kesan besar: "per disability" bermakna setiap kes/penyakit (contoh deductible RM300 SmartMedic Shield varian -D; RM500 per disability PRUMillion Med 2.0); "per rider/certificate/policy year" bermakna sekali setahun (contoh AIA RM500 / RM1,000 / RM3,000 per rider year; i-MedicalCard Elite RM500 / RM1,000 per certificate year; IKHLAS Medik RM500 / RM10,000 per certificate year). Contoh deductible tinggi: GREAT MedCare RM2,000–RM20,000 (dengan diskaun premium 10%–50%+); Tokio Marine Medic Plus RM10,000 / RM15,000 per disability (RM5,000 jika dirawat di hospital kerajaan): plan ini memang direka sebagai cover sekunder/top-up. Panduan kasar: deductible maksimum = jumlah yang anda boleh bayar esok pagi tanpa mengosongkan dana kecemasan.',
   },
   {
-    title: 'Co-insurance / co-payment / co-takaful — berapa %, dan ada cap?',
+    title: 'Co-insurance / co-payment / co-takaful: berapa %, dan ada cap?',
     question: '"Lepas deductible, berapa % saya kongsi? Ada had maksimum (cap)? Dikecualikan bila?"',
     why: 'Mulai 1 September 2024, semua pengendali insurans/takaful mesti menawarkan sekurang-kurangnya satu pilihan co-payment, jadi tanyakan soalan ini untuk mana-mana plan baharu. Contoh sebenar: AIA Health360 co-insurance 5% untuk in-patient, dihadkan (cap) pada RM500; myMedik co-takaful 5% atau 10%, dihadkan pada RM500/RM1,000 per certificate year, dikecualikan jika dirawat di hospital kerajaan Malaysia; GREAT MedCare co-payment tetap RM500 (dikecualikan untuk kecemasan, follow-up kanser/dialisis, hospital kerajaan). Sentiasa tanya kedua-duanya: peratus DAN cap. Tanpa cap bertulis, anggap risikonya terbuka.',
   },
   {
-    title: 'Waiting period — 30 hari / 120 hari, saya faham?',
+    title: 'Waiting period: 30 hari / 120 hari, saya faham?',
     question: '"Berapa hari tempoh menunggu untuk sakit umum, penyakit tertentu, dan kemalangan? Bagaimana dengan penyakit sedia ada?"',
-    why: 'Standard industri ialah 30 hari untuk sakit umum dan 120 hari untuk specified illnesses (contoh hipertensi, diabetes). Direkodkan dalam data kami untuk SmartMedic Shield, GREAT MedCare, PRUMillion Med 2.0 dan myMedik; hospitalisasi akibat kemalangan biasanya serta-merta (contoh PDS Prudential). Penyakit sedia ada (pre-existing) biasanya dikecualikan; sesetengah plan melindunginya semula selepas 12 bulan jika diisytiharkan (contoh Tokio Medic Plus). Jangan ambil plan dan terus menjangka boleh claim minggu depan.',
+    why: 'Standard industri ialah 30 hari untuk sakit umum dan 120 hari untuk specified illnesses (contoh hipertensi, diabetes), seperti yang direkodkan dalam data kami untuk SmartMedic Shield, GREAT MedCare, PRUMillion Med 2.0 dan myMedik; hospitalisasi akibat kemalangan biasanya serta-merta (contoh PDS Prudential). Penyakit sedia ada (pre-existing) biasanya dikecualikan; sesetengah plan melindunginya semula selepas 12 bulan jika diisytiharkan (contoh Tokio Medic Plus). Jangan ambil plan dan terus menjangka boleh claim minggu depan.',
   },
   {
-    title: 'Hospital panel — yang dekat rumah saya, cashless ke pay-and-claim?',
+    title: 'Hospital panel: yang dekat rumah saya, cashless ke pay-and-claim?',
     question: '"Hospital mana panel plan ini? Cashless automatik atau perlu pra-kelulusan (Guarantee Letter)?"',
     why: 'Fasiliti cashless hanya berguna di hospital panel terpilih dan tertakluk pada pengesahan pra-kemasukan. Senarai panel berubah, jadi semak pencari panel rasmi sebelum membeli. Contoh: AIA merekodkan 150+ panel providers dan 70+ SMART Panel Hospitals (setakat Jun 2026). Plan digital pula menggunakan e-medical card + Guarantee Letter dalam aplikasi (contoh i-MedicalCard Elite melalui aplikasi Etiqa+, myMedik e-medical card + e-certificate serta-merta). Jika hospital pilihan anda bukan hospital panel, anda bayar dulu dan claim kemudian: tanya lebih awal.',
   },
   {
     title: 'Renewal dijamin? Caj (COI) dijamin? Rider atau standalone?',
     question: '"Renewal dijamin sampai umur berapa? COI/caruman dijamin atau boleh naik? Plan ini rider yang tumpang polisi asas, atau standalone?"',
-    why: 'Semua PDS terkini dalam data kami menyatakan renewal dijamin TETAPI harga tidak dijamin: contoh SmartMedic Shield ("renewal dijamin tetapi COI tidak dijamin") dan PRUMillion Med 2.0 ("COI tidak dijaminkan dan mungkin naik", unjuran inflasi medikal 7%–10% dalam PDS). Contoh umur renewal: GREAT MedCare dijamin sehingga 85 tahun; i-MedicalCard Elite renewal automatik sehingga 85 tahun; Tokio Medic Plus renewal sehingga umur 100. Rider (contoh A-Plus Health360, SmartMedic Shield, PRUMillion Med 2.0) melekat pada polisi life/ILP. Tanya apa yang berlaku pada medical rider jika polisi asas luput (lapse). Standalone (contoh GREAT MedCare, OneMedical, Tokio Medic Plus) ialah polisi perubatan sahaja. Takaful (contoh i-MedicalCard Elite, myMedik, IKHLAS Medik, Kaotim MediKad) pula ikut struktur sijil takaful: bezakan dengan insurans konvensional sebelum memilih.',
+    why: 'Semua PDS terkini dalam data kami menyatakan renewal dijamin tetapi harga tidak dijamin: contoh SmartMedic Shield ("renewal dijamin tetapi COI tidak dijamin") dan PRUMillion Med 2.0 ("COI tidak dijaminkan dan mungkin naik", unjuran inflasi medikal 7%–10% dalam PDS). Contoh umur renewal: GREAT MedCare dijamin sehingga 85 tahun; i-MedicalCard Elite renewal automatik sehingga 85 tahun; Tokio Medic Plus renewal sehingga umur 100. Rider (contoh A-Plus Health360, SmartMedic Shield, PRUMillion Med 2.0) melekat pada polisi life/ILP. Tanya apa yang berlaku pada medical rider jika polisi asas luput (lapse). Standalone (contoh GREAT MedCare, OneMedical, Tokio Medic Plus) ialah polisi perubatan sahaja. Takaful (contoh i-MedicalCard Elite, myMedik, IKHLAS Medik, Kaotim MediKad) pula ikut struktur sijil takaful: bezakan dengan insurans konvensional sebelum memilih.',
   },
 ];
 
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: 'Macam mana co-payment atau deductible plan yang saya tengok?',
-    a: 'Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan tersebut untuk jumlah yang terpakai, contoh dalam data kami: AIA 5% dihadkan pada RM500, myMedik co-takaful 5%/10% dihadkan pada RM500/RM1,000, GREAT MedCare co-payment tetap RM500.',
+    a: 'Mulai 1 September 2024, produk MHIT baharu perlu menawarkan sekurang-kurangnya satu pilihan co-payment. Semak PDS plan tersebut untuk jumlah yang terpakai. Contoh dalam data kami: AIA 5% dihadkan pada RM500, myMedik co-takaful 5%/10% dihadkan pada RM500/RM1,000, GREAT MedCare co-payment tetap RM500.',
   },
   {
     q: 'Rider atau standalone — mana sesuai untuk saya?',
@@ -161,7 +161,7 @@ const faqSchema = {
 
       <p class="info-box mt-8 text-sm leading-6 text-stone-700">
         <strong>Cara guna checklist ini (mesra cetak)</strong>
-        Tanda ☐ setiap item apabila jawapan bertulis (PDS/brosur) sudah di tangan. Simpan PDF PDS: jangan bergantung pada brosur sahaja.
+        Tanda ☐ setiap item apabila jawapan bertulis (PDS/brosur) sudah di tangan. Simpan PDF PDS. Jangan bergantung pada brosur sahaja.
       </p>
     </article>
 
