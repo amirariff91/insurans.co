@@ -131,16 +131,6 @@
     },
     {
       "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/car-insurance/honda-jazz/$",
-      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$",
-      "old": "Besar — Jazz GK used sum insured RM43,000–RM55,000; City Hatchback RS petrol baru sekitar RM88,000, RS e:HEV hybrid RM107,000+, iaitu di luar julat anggaran di halaman ini. Jangan insure Jazz lama ikut harga baru — itu over-insure, claim tetap bayar ikut nilai pasaran.",
-      "new": "Besar. Harga runcit disyorkan Honda Malaysia untuk City Hatchback baharu (atas jalan tanpa insurans, Semenanjung, disemak 15 Nov 2026) ialah RM100,900 bagi RS petrol dan RM112,900 bagi RS e:HEV. Kedua-duanya di luar julat anggaran di halaman ini. Harga belian ini bukan sum insured Jazz GK terpakai: nilainya bergantung pada tahun dan keadaan; semak nilai pasaran semasa dengan insurer. Jangan insuranskan Jazz lama ikut harga baru — itu over-insure, dan claim tetap dibayar ikut nilai pasaran.",
-      "reason": "The City Hatchback price FAQ with Honda Malaysia's list prices (RM100,900 / RM112,900) in place of RM88,000 / RM107,000+, and without the unsourced used-Jazz range."
-    },
-    {
-      "check": "contract",
       "kind": "removed",
       "field": "pct",
       "url": "^/car-insurance/honda-jazz/$",
@@ -365,32 +355,12 @@
     },
     {
       "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/critical\\-illness/$",
-      "path": "^FAQPage\\.mainEntity\\[1\\]\\.acceptedAnswer\\.text$",
-      "old": "Standard 36 tu severe-stage — bar tinggi, contoh kanser mesti tahap tertentu. Early-stage benefit bayar awal tapi jumlah separa (accelerated) dan kurangkan sum assured, baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care): carcinoma-in-situ bayar 50% rider sum assured, campur faedah pemulihan 12% sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian bayar 100% daripada baki 50%. Early stage di situ dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula cover 180 kondisi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekaligus 100% bila didiagnos mana-mana tahap, perlindungan hingga umur 80.",
-      "new": "Bayaran early-stage dan kesannya terhadap sum assured bergantung pada produk. Standard 36 itu peringkat teruk (severe-stage) — syaratnya tinggi, contohnya kanser mesti pada tahap tertentu. Faedah early-stage membayar lebih awal; dalam sesetengah produk jumlahnya separa (accelerated) dan mengurangkan sum assured, dengan baki kekal untuk claim peringkat akhir. Contoh kiraan yang disahkan untuk Early Care Critical Illness (Zurich): bayaran untuk carcinoma-in-situ ialah 50% rider sum assured, ditambah manfaat pemulihan sebanyak 12% daripada jumlah diinsuranskan rider, dibayar pada kadar 1% sebulan selama 12 bulan, serta RM2,000 untuk pendapat perubatan kedua (sekali bagi setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian melayakkan bayaran 100% daripada baki 50%. Dalam pelan itu, early stage dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula melindungi 180 keadaan yang dilindungi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekali gus 100% apabila didiagnosis pada mana-mana tahap, dan perlindungan hingga umur 80.",
-      "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
-    },
-    {
-      "check": "contract",
       "kind": "removed",
       "field": "pct",
       "url": "^/guides/insurance\\-vs\\-takaful/$",
       "values": [
         "100%"
       ],
-      "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
-    },
-    {
-      "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/guides/insurance\\-vs\\-takaful/$",
-      "path": "^FAQPage\\.mainEntity\\[6\\]\\.acceptedAnswer\\.text$",
-      "old": null,
-      "new": "Surplus sharing ialah perkongsian lebihan dana takaful dengan peserta. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin. Nisbah perkongsian dinyatakan dalam sijil, contohnya 70% kepada peserta dan 30% kepada syarikat. Ada tahun yang tiada lebihan langsung.",
       "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
     },
     {

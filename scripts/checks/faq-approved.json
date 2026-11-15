@@ -22,9 +22,21 @@
   },
   {
    "url": "/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Insurans dan takaful — sama ke beza?",
+   "new": "Insurans dan takaful: sama ke beza?"
+  },
+  {
+   "url": "/",
    "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
    "old": "Market value — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun, so payout mungkin kurang dari yang dijangka). Agreed value — anda dan syarikat setuju satu jumlah tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss. Untuk kereta baru atau kereta mahal, agreed value lagi selamat.",
    "new": "Market value (nilai pasaran): syarikat membayar berdasarkan nilai kereta semasa claim. Nilai kereta susut setiap tahun, jadi bayaran mungkin kurang daripada yang dijangka. Agreed value (nilai dipersetujui): anda dan syarikat bersetuju dengan satu jumlah tetap semasa membeli polisi. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal. Dengan agreed value, jumlah yang dipersetujui menjadi asas penyelesaian total loss, tertakluk pada terma polisi."
+  },
+  {
+   "url": "/bantuan-insurans/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Saya penerima STR — automatik dapat apa?",
+   "new": "Saya penerima STR, automatik dapat apa?"
   },
   {
    "url": "/bantuan-insurans/",
@@ -1462,6 +1474,12 @@
   },
   {
    "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Senarai 36 penyakit kritikal — apa dia dan siapa tetapkan?",
+   "new": "Senarai 36 penyakit kritikal: apa dia dan siapa tetapkan?"
+  },
+  {
+   "url": "/critical-illness/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "Standard 36 tu severe-stage — bar tinggi, contoh kanser mesti tahap tertentu. Early-stage benefit bayar awal tapi jumlah separa (accelerated) dan kurangkan sum assured, baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care): carcinoma-in-situ bayar 50% rider sum assured, campur faedah pemulihan 12% sebulan selama 12 bulan dan RM2,000 pendapat perubatan kedua (sekali setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian bayar 100% daripada baki 50%. Early stage di situ dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula cover 180 kondisi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekaligus 100% bila didiagnos mana-mana tahap, perlindungan hingga umur 80.",
    "new": "Bayaran early-stage dan kesannya terhadap sum assured bergantung pada produk. Standard 36 itu peringkat teruk (severe-stage): syaratnya tinggi, contohnya kanser mesti pada tahap tertentu. Faedah early-stage membayar lebih awal; dalam sesetengah produk jumlahnya separa (accelerated) dan mengurangkan sum assured, dengan baki kekal untuk claim peringkat akhir. Contoh kiraan yang disahkan untuk Early Care Critical Illness (Zurich): bayaran untuk carcinoma-in-situ ialah 50% rider sum assured, ditambah manfaat pemulihan sebanyak 12% daripada jumlah diinsuranskan rider, dibayar pada kadar 1% sebulan selama 12 bulan, serta RM2,000 untuk pendapat perubatan kedua (sekali bagi setiap satu, bukan untuk angioplasti); kegagalan buah pinggang peringkat akhir kemudian melayakkan bayaran 100% daripada baki 50%. Dalam pelan itu, early stage dilindungi hingga umur 85, end stage hingga 100. AIA A-Life Beyond Critical Care pula melindungi 180 keadaan yang dilindungi (65 awal, 40 pertengahan, 75 lanjut) dengan bayaran sekali gus 100% apabila didiagnosis pada mana-mana tahap, dan perlindungan hingga umur 80."
@@ -1470,13 +1488,19 @@
    "url": "/critical-illness/",
    "path": "FAQPage.mainEntity[1].name",
    "old": "Early stage vs late stage critical illness — apa beza payout?",
-   "new": "Penyakit kritikal early stage vs late stage — apa beza bayarannya?"
+   "new": "Penyakit kritikal early stage vs late stage: apa beza bayarannya?"
   },
   {
    "url": "/critical-illness/",
    "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
    "old": "Tujuan payout sama — wang sekaligus bila didiagnos — tapi akad berbeza: tabarru' (derma bersama), wakalah (agensi), bebas riba/gharar/maisir, dengan potensi perkongsian lebihan/muhibah; pampasan kematian boleh diserah sebagai hibah mutlak ikut IFSA 2013. Nota: mekanik akad ni dari explainer sekunder, bukan BNM. Produk takaful yang disahkan: Etiqa Critical Care Takaful cover 39 kondisi, sum covered RM50,000 dari serendah RM30 setahun, tanpa pemeriksaan perubatan (3 soalan kesihatan), beli online via EPF i-Lindung, dilesenkan bawah IFSA 2013.",
    "new": "Tujuan bayarannya sama, iaitu wang sekali gus apabila didiagnosis, tetapi akadnya berbeza: tabarru' (derma bersama), wakalah (agensi), bebas riba/gharar/maisir, dengan potensi perkongsian lebihan/muhibah; pampasan kematian boleh diserahkan sebagai hibah mutlak mengikut IFSA 2013. Nota: penerangan tentang akad ini datang daripada sumber sekunder, bukan BNM. Produk takaful yang disahkan: Etiqa Critical Care Takaful melindungi 39 keadaan yang dilindungi, sum covered RM50,000 bermula serendah RM30 setahun, tanpa pemeriksaan perubatan (3 soalan kesihatan), boleh dibeli online melalui EPF i-Lindung, dan dilesenkan di bawah IFSA 2013."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Takaful penyakit kritikal — sama ke dengan insurans biasa?",
+   "new": "Takaful penyakit kritikal: sama ke dengan insurans biasa?"
   },
   {
    "url": "/critical-illness/",
@@ -1488,13 +1512,19 @@
    "url": "/critical-illness/",
    "path": "FAQPage.mainEntity[3].name",
    "old": "SOCSO/PERKESO vs CI swasta — SOCSO dah cover kan?",
-   "new": "SOCSO/PERKESO dan CI swasta — apa bezanya?"
+   "new": "SOCSO/PERKESO dan CI swasta: apa bezanya?"
   },
   {
    "url": "/critical-illness/",
    "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
    "old": "Rider menempel pada polisi asas dan payout-nya accelerated — tolak dari sum assured polisi asas. Contoh disahkan: Prudential Crisis Cover Benefit ialah rider (add-on) atas pelan asas macam PRUCash, bayar pendahuluan dari coverage pelan asas bila didiagnos salah satu 36 CI; Great Eastern SMART Early Payout CriticalCare ialah rider unit-deduction atas pelan investment-linked premium tetap, mesti dilekatkan dengan IL Critical Illness Benefit Rider, dan faedah mengurangkan sum assured rider itu dulu. Standalone dibeli sendiri, tak usik polisi lain — contoh Etiqa Critical Care Plus (42 kondisi, early cash payout, cancer care benefit, elaun tunai penyakit berjangkit, tanpa pemeriksaan perubatan). Rider jimat kalau dah ada polisi asas; standalone bersih kalau nak cover berdiri sendiri.",
    "new": "Rider dilekatkan pada polisi asas; sama ada bayarannya accelerated bergantung pada terma produk. Jika accelerated, bayaran mengurangkan jumlah diinsuranskan polisi atau rider yang dinyatakan dalam terma produk, bukan semestinya polisi asas. Contoh yang disahkan: Prudential Crisis Cover Benefit ialah rider (add-on) pada pelan asas seperti PRUCash, yang membayar pendahuluan daripada perlindungan pelan asas apabila didiagnosis salah satu daripada 36 CI; Great Eastern SMART Early Payout CriticalCare ialah rider unit-deduction pada pelan investment-linked berpremium tetap, mesti dilekatkan bersama IL Critical Illness Benefit Rider, dan faedahnya mengurangkan sum assured rider itu dahulu. Standalone dibeli secara berasingan dan tidak menjejaskan polisi lain, contohnya Etiqa Critical Care Plus (42 keadaan yang dilindungi, early cash payout, cancer care benefit, elaun tunai penyakit berjangkit, tanpa pemeriksaan perubatan). Bandingkan rider dengan pelan berasingan mengikut perlindungan sedia ada, terma dan harga produk."
+  },
+  {
+   "url": "/critical-illness/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Rider vs standalone critical illness — mana sesuai?",
+   "new": "Rider vs standalone critical illness: mana sesuai?"
   },
   {
    "url": "/critical-illness/",
@@ -1524,13 +1554,13 @@
    "url": "/guides/insurance-vs-takaful/",
    "path": "FAQPage.mainEntity[2].name",
    "old": "Beza takaful dan insurans dari segi harga?",
-   "new": "Beza takaful dan insurans dari segi harga — mana lebih murah?"
+   "new": "Beza takaful dan insurans dari segi harga: mana lebih murah?"
   },
   {
    "url": "/guides/insurance-vs-takaful/",
    "path": "FAQPage.mainEntity[3].name",
    "old": "Non-Muslim boleh ambil takaful?",
-   "new": "Perbezaan takaful dan insurans dari segi claim — susah ke senang?"
+   "new": "Perbezaan takaful dan insurans dari segi claim: susah ke senang?"
   },
   {
    "url": "/guides/insurance-vs-takaful/",
@@ -1570,6 +1600,12 @@
   },
   {
    "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "36 penyakit — siapa tetapkan senarai ini?",
+   "new": "36 penyakit: siapa tetapkan senarai ini?"
+  },
+  {
+   "url": "/literasi-kewangan/36-penyakit-kritikal-bnm/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "Ikut wording standard 36 — kanser sangat awal (very early) dikecualikan; bar ialah “tahap tertentu”. Nak perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich) — bukan assume standard 36 bayar awal.",
    "new": "Ikut wording standard 36: kanser sangat awal (very early) dikecualikan; syaratnya ialah “tahap tertentu”. Jika mahu perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich). Jangan anggap standard 36 membayar pada peringkat awal."
@@ -1600,6 +1636,12 @@
   },
   {
    "url": "/literasi-kewangan/deductible-co-insurance/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Co-insurance 5% — ada had maksimum tak?",
+   "new": "Co-insurance 5%: ada had maksimum tak?"
+  },
+  {
+   "url": "/literasi-kewangan/deductible-co-insurance/",
    "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
    "old": "Ya, itu fakta BNM — produk co-payment dilaporkan 19%–68% lebih murah sebab anda kongsi risiko. Tapi murah pada caruman, mahal masa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.",
    "new": "Ya, itu fakta BNM: produk co-payment dilaporkan 19%–68% lebih murah kerana anda berkongsi risiko. Tetapi murah pada caruman, mahal semasa claim. Pilih ikut simpanan anda, bukan ikut harga brosur."
@@ -1618,15 +1660,33 @@
   },
   {
    "url": "/literasi-kewangan/epf-simpanan-insurans/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Ada cover majikan — masih perlu medical card sendiri?",
+   "new": "Ada cover majikan, masih perlu medical card sendiri?"
+  },
+  {
+   "url": "/literasi-kewangan/epf-simpanan-insurans/",
    "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
    "old": "Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 one-off + RM50/hari hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta bayar lump sum ikut sum assured untuk ganti pendapatan dan hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang — kira, jangan assume cukup atau assume perlu.",
    "new": "Fungsi berbeza: mySalam skim percuma untuk penerima STR (RM8,000 sekali bayar + RM50/hari di hospital, maksimum 14 hari setahun; mesti bermalam di hospital kerajaan/universiti/tentera panel); CI swasta membayar sekali gus (lump sum) ikut sum assured untuk menggantikan pendapatan dan membayar hutang. Penerima mySalam yang ada tanggungan besar mungkin masih ada jurang. Kira dulu; jangan anggap sudah cukup, dan jangan anggap perlu."
+  },
+  {
+   "url": "/literasi-kewangan/epf-simpanan-insurans/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "mySalam dengan CI swasta — bertindih ke?",
+   "new": "mySalam dengan CI swasta: bertindih ke?"
   },
   {
    "url": "/literasi-kewangan/gaji-dan-perlindungan/",
    "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
    "old": "Tiada jawapan universal, tapi logiknya: lindungi risiko yang boleh hapuskan simpanan dulu — biasanya kos hospital. Kalau ada anak atau ibu bapa bergantung pada gaji anda, timbang perlindungan nyawa asas. Kira siling dulu, baru pilih.",
    "new": "Tiada jawapan universal, tetapi logiknya: lindungi dulu risiko yang boleh menghapuskan simpanan, biasanya kos hospital. Jika ada anak atau ibu bapa yang bergantung pada gaji anda, timbangkan perlindungan nyawa asas. Kira siling dulu, kemudian barulah pilih."
+  },
+  {
+   "url": "/literasi-kewangan/gaji-dan-perlindungan/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Gaji RM3,000, satu plan saja — ambil yang mana?",
+   "new": "Gaji RM3,000, satu plan saja, ambil yang mana?"
   },
   {
    "url": "/literasi-kewangan/gaji-dan-perlindungan/",
@@ -1666,6 +1726,12 @@
   },
   {
    "url": "/literasi-kewangan/travel-bila-perlu/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Frequent flyer — single atau annual?",
+   "new": "Frequent flyer: single atau annual?"
+  },
+  {
+   "url": "/literasi-kewangan/travel-bila-perlu/",
    "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
    "old": "Kena check satu-satu: Zurich Z-Travel dan Etiqa TripCare 360 = add-on berbayar; Generali = rider Pandemic Cover (overseas saja); Allianz Shopee = built-in tapi divaksin penuh saja + perlu diagnosis doktor dan laporan makmal. Jangan assume auto-cover.",
    "new": "Perlu disemak satu per satu: Zurich Z-Travel dan Etiqa TripCare 360 = add-on berbayar; Generali = rider Pandemic Cover (luar negara sahaja); Allianz Shopee = sudah termasuk dalam polisi, tetapi hanya untuk yang divaksin penuh, dan perlu diagnosis doktor serta laporan makmal. Jangan anggap COVID dilindungi secara automatik."
@@ -1678,6 +1744,12 @@
   },
   {
    "url": "/medical-cards/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Medical card murah di Malaysia — apa yang sebenarnya murah tu?",
+   "new": "Medical card murah di Malaysia: apa yang sebenarnya murah tu?"
+  },
+  {
+   "url": "/medical-cards/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "Keperluan dan bajet menentukan pilihan. SmartMedic Shield menyediakan RM1,000,000–RM2,000,000 setahun, atau sehingga RM4,000,000 bersama Extender. A-Plus Health360 menyediakan RM3,000,000. PRUMillion Med 2.0 menyediakan RM2,000,000. OneMedical menawarkan RM50,000, RM100,000 atau RM150,000. myMedik menawarkan RM150,000–RM500,000, atau RM900,000–RM1,500,000 bersama MedikBooster. Semua pelan ini tiada had keseluruhan seumur hidup, namun manfaat tertentu masih mempunyai had khusus. Nilai deductible, perkongsian kos, kelayakan bilik dan tempoh perlindungan pada halaman setiap pelan.",
    "new": "Keperluan dan bajet menentukan pilihan. SmartMedic Shield menyediakan RM1,000,000–RM2,000,000 setahun, atau sehingga RM4,000,000 bersama Extender. A-Plus Health360 menyediakan RM3,000,000. PRUMillion Med 2.0 menyediakan RM2,000,000. OneMedical menawarkan RM50,000, RM100,000 atau RM150,000. myMedik menawarkan RM150,000–RM500,000, atau RM900,000–RM1,500,000 bersama MedikBooster. Semua pelan ini tiada had keseluruhan seumur hidup, namun manfaat tertentu masih mempunyai had khusus. Bandingkan deductible, perkongsian kos, kelayakan bilik dan tempoh perlindungan pada halaman setiap pelan."
@@ -1686,7 +1758,7 @@
    "url": "/medical-cards/",
    "path": "FAQPage.mainEntity[1].name",
    "old": "Best medical card Malaysia — yang mana patut saya ambil?",
-   "new": "“Best medical card Malaysia” — bagaimana mahu membandingkan pelan?"
+   "new": "“Best medical card Malaysia”: bagaimana mahu membandingkan pelan?"
   },
   {
    "url": "/medical-cards/",
@@ -1696,9 +1768,27 @@
   },
   {
    "url": "/medical-cards/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Waiting period medical card — berapa lama kena tunggu sebelum boleh claim?",
+   "new": "Waiting period medical card: berapa lama kena tunggu sebelum boleh claim?"
+  },
+  {
+   "url": "/medical-cards/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Kaotim MediKad review — okay ke?",
+   "new": "Kaotim MediKad review: okay ke?"
+  },
+  {
+   "url": "/medical-cards/",
    "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
    "old": "A-Plus Health360 dan SmartMedic Shield menerima anak dari 14 hari serta mempunyai pilihan kemasukan anak dalam kandungan pada 13–35 minggu dan 13–36 minggu kehamilan masing-masing. OneMedical dan i-MedicalCard Elite menerima anak dari 14 hari hingga 16 ANB melalui ibu bapa atau pendaftaran pihak ketiga. OneMedical mempunyai diskaun pakej keluarga 5% dan had tahunan setiap ahli. IKHLAS Medik menerima kemasukan dari 30 hari hingga 70 ANB. myMedik dan MediKad menerima anak 6–18 ANB melalui pemegang sijil induk sekurang-kurangnya 19 ANB. Bandingkan kelayakan anak dan syarat setiap permohonan.",
    "new": "A-Plus Health360 dan SmartMedic Shield menerima anak dari 14 hari. Kedua-duanya ada pilihan kemasukan anak dalam kandungan, pada 13–35 minggu dan 13–36 minggu kehamilan masing-masing. OneMedical dan i-MedicalCard Elite menerima anak dari 14 hari hingga 16 ANB melalui ibu bapa atau pendaftaran pihak ketiga. OneMedical mempunyai diskaun pakej keluarga 5% dan had tahunan setiap ahli. IKHLAS Medik menerima kemasukan dari 30 hari hingga 70 ANB. myMedik dan MediKad menerima anak 6–18 ANB melalui pemegang sijil induk sekurang-kurangnya 19 ANB. Bandingkan kelayakan anak dan syarat setiap permohonan."
+  },
+  {
+   "url": "/medical-cards/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Medical card untuk baby dan family — umur berapa boleh masuk?",
+   "new": "Medical card untuk baby dan family: umur berapa boleh masuk?"
   },
   {
    "url": "/medical-cards/",
@@ -1743,6 +1833,12 @@
    "new": "Rider menumpang pada polisi life/ILP (mudah kerana di satu tempat, tetapi nasib rider terikat pada polisi asas); standalone ialah polisi perubatan sahaja (contoh GREAT MedCare, OneMedical). Takaful pula pilihan patuh-Syariah (contoh myMedik, IKHLAS Medik). Pilih ikut struktur yang anda faham dan mampu kekalkan, dan semak syarat pembaharuan dalam PDS."
   },
   {
+   "url": "/panduan/checklist-medical-card/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Rider atau standalone — mana sesuai untuk saya?",
+   "new": "Rider atau standalone: mana sesuai untuk saya?"
+  },
+  {
    "url": "/panduan/checklist-travel/",
    "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
    "old": "Bergantung jarak dan plan. Contoh: Zurich Travel Takaful ada tier domestik bermula ≥50km dari rumah — trip dekat bawah jarak itu tidak dilindungi. Untuk domestik jauh (flight + hotel prepaid), cancellation/delay cover masih berbaloi; untuk balik kampung naik kereta sejam, biasanya membazir.",
@@ -1768,6 +1864,12 @@
   },
   {
    "url": "/panduan/renew-insurans-roadtax/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Renew di mana paling murah — aggregator, direct, atau ejen?",
+   "new": "Renew di mana paling murah: aggregator, direct, atau ejen?"
+  },
+  {
+   "url": "/panduan/renew-insurans-roadtax/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "2–4 minggu sebelum tamat. Jangan tunggu last minute — kalau lapse, NCD boleh terjejas dan anda tak boleh memandu secara sah.",
    "new": "2–4 minggu sebelum tamat. Jangan tunggu saat akhir. Jika polisi luput (lapse), NCD boleh terjejas dan anda tidak boleh memandu secara sah."
@@ -1776,7 +1878,7 @@
    "url": "/panduan/renew-insurans-roadtax/",
    "path": "FAQPage.mainEntity[1].name",
    "old": "Bila patut renew — awal atau last minute?",
-   "new": "Bila patut renew — awal atau saat akhir?"
+   "new": "Bila patut renew: awal atau saat akhir?"
   },
   {
    "url": "/panduan/renew-insurans-roadtax/",
@@ -1791,6 +1893,12 @@
    "new": "Selepas kemalangan kecil, patut claim atau bayar sendiri?"
   },
   {
+   "url": "/personal-accident/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "SOCSO atau PERKESO sudah cover — masih perlu PA?",
+   "new": "SOCSO atau PERKESO sudah cover, masih perlu PA?"
+  },
+  {
    "url": "/tools/kalkulator-insurans-rumah/",
    "path": "FAQPage.mainEntity[4].acceptedAnswer.text",
    "old": "Tidak. Ia anggaran dari kadar tariff awam. Bank Negara sedang meliberalisasikan tariff kebakaran, jadi harga bukan tariff atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.",
@@ -1801,6 +1909,12 @@
    "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
    "old": "Bagi motosikal 150cc dan ke bawah, garis panduan JPJ yang dirujuk menulis \"dikekalkan pada kadar sedia ada\" tanpa menyatakan angka. Nilai RM2 sering dilaporkan di laman pihak ketiga, tetapi ia tidak dinyatakan dalam PDF rasmi yang kami baca. Sebab itu kalkulator ini tidak memaparkan angka rekaan untuk band ini — semak JPJ atau MyEG untuk pengesahan.",
    "new": "Bagi motosikal 150cc dan ke bawah, garis panduan JPJ yang dirujuk menulis \"dikekalkan pada kadar sedia ada\" tanpa menyatakan angka. Nilai RM2 sering dilaporkan di laman pihak ketiga, tetapi ia tidak dinyatakan dalam PDF rasmi yang kami baca. Sebab itu kalkulator ini tidak memaparkan angka rekaan untuk band ini. Semak JPJ atau MyEG untuk pengesahan."
+  },
+  {
+   "url": "/tools/kalkulator-roadtax-motosikal/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Roadtax dan insurans motosikal — berapa jumlah semua?",
+   "new": "Roadtax dan insurans motosikal: berapa jumlah semua?"
   }
  ]
 }
