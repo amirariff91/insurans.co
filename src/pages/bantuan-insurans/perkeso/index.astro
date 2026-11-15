@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { homeFacts } from '../../../data/home-facts';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
@@ -91,7 +92,7 @@ const schema = {
     <PageAnswer
       slot="answer"
       finding="PERKESO bukan insurans penyakit kritikal dan bukan medical card."
-      lead={{ value: 'RM13.10', label: 'Caruman SPS Pelan 1 sebulan (RM157.20 setahun)', role: 'price' }}
+      lead={{ value: homeFacts.perkeso.value, label: `Caruman ${homeFacts.perkeso.plan} ${homeFacts.perkeso.unit} (${homeFacts.perkeso.annual})`, role: 'price' }}
       facts={[
         { label: 'Skim Keilatan', value: 'Pencen bulanan apabila keupayaan mencari nafkah terjejas' },
         { label: 'SPS / Lindung Kendiri', value: 'Bencana pekerjaan untuk orang bekerja sendiri' },

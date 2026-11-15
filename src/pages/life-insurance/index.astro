@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { homeFacts } from '../../data/home-facts';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
@@ -49,7 +50,7 @@ const schema = {
         facts={[
           { label: 'Contoh panduan kasar', value: 'Gaji RM60,000 setahun: angka rujukan RM600,000' },
           { label: 'Term life', value: 'Perlindungan untuk tempoh tertentu (10, 20 atau 30 tahun)' },
-          { label: 'Pelepasan cukai', value: 'RM3,000/tahun (tahun taksiran 2025), dikongsi dengan caruman sukarela tambahan KWSP', role: 'term' },
+          { label: 'Pelepasan cukai', value: `${homeFacts.lifeTaxRelief.value}/tahun (${homeFacts.lifeTaxRelief.assessmentYear}), ${homeFacts.lifeTaxRelief.shared}`, role: 'term' },
         ]}
       />
       <Byline dateModified={schema.dateModified} />

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { homeFacts } from '../../data/home-facts';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
@@ -137,7 +138,7 @@ const schema = {
     <PageAnswer
       slot="answer"
       finding="Perlindungan melalui KWSP i-Akaun"
-      lead={{ value: 'RM12', label: 'Harga permulaan setahun, untuk produk tertentu', role: 'price' }}
+      lead={{ value: homeFacts.iLindung.value, label: `Harga permulaan ${homeFacts.iLindung.unit}, ${homeFacts.iLindung.qualification}`, role: 'price' }}
       facts={[
         { label: 'Akaun yang digunakan', value: 'Akaun Sejahtera (dahulu Akaun 2)' },
         { label: 'Akaun Persaraan', value: 'Akaun 1 tidak terjejas' },

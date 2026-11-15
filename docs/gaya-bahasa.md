@@ -104,6 +104,12 @@ Peraturan ini untuk teks baharu. Suntingan bahasa ini **tidak** mengubah mana-ma
 
 Dikemas kini 15 Nov 2026. Peraturan ini disesuaikan daripada disiplin Simplified Technical English (ASD-STE100) untuk bahasa Melayu. Ia dirintis pada `/takaful/`, `/medical-cards/` dan `/guides/how-to-claim/`.
 
+**Ketepatan dahulu**
+- Ketepatan mengatasi had panjang ayat dan larangan mengulang. Jika memendekkan ayat atau membuang ulangan memisahkan syarat daripada dakwaannya, jangan pendekkan.
+- Syarat yang melindungi pembaca kekal bersama dakwaannya di mana-mana dakwaan itu muncul, termasuk ringkasan berulang, kad halaman utama dan FAQ.
+- Senarai bernombor hanya untuk langkah yang urutannya dinyatakan oleh sumber. Tanpa urutan yang dinyatakan, guna senarai berbutir.
+- Penyemak memeriksa hubungan dakwaan–had–kelayakan (siapa, berapa, had dikongsi dengan apa, bila), bukan sekadar nombor tidak berubah.
+
 **Ayat**
 - Satu idea dalam satu ayat. Arahan: 20 patah perkataan atau kurang. Penerangan: 25 atau kurang.
 - Jawapan atau arahan dulu, kemudian syarat atau sebab.
@@ -123,7 +129,7 @@ Dikemas kini 15 Nov 2026. Peraturan ini disesuaikan daripada disiplin Simplified
 
 **Format**
 - Perenggan paling banyak tiga atau empat ayat.
-- Prosedur ialah senarai bernombor, satu tindakan bagi setiap langkah. Syarat yang mesti dipenuhi semuanya ialah senarai berbutir.
+- Prosedur yang urutannya dinyatakan sumber ialah senarai bernombor, satu tindakan bagi setiap langkah. Syarat yang mesti dipenuhi semuanya ialah senarai berbutir.
 - Jadual hanya untuk fakta yang memang berbentuk jadual.
 - Tebal hanya untuk satu perkara yang pembaca cepat tidak boleh terlepas; bawah kira-kira 15% teks pada satu skrin.
 - Tajuk kecil menyatakan dapatan bahagian itu dengan kata-kata halaman sendiri: "Takaful tidak terhad kepada orang Islam", bukan "Siapa patut pilih takaful?".
@@ -133,7 +139,7 @@ Dikemas kini 15 Nov 2026. Peraturan ini disesuaikan daripada disiplin Simplified
 | Sebelum | Selepas |
 |---|---|
 | Secara ringkas: **takaful = insurans yang patuh Syariah**. Jenis perlindungan boleh serupa; manfaat dan syarat bergantung pada produk. Yang berbeza ialah **konsep di sebaliknya** dan **cara wang diurus**. | **Takaful ialah insurans yang patuh Syariah.** Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Yang berbeza ialah konsepnya dan cara wang peserta diurus. |
-| Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan. Anda perlu mendapatkan persetujuan bertulis sebelum pembaikan atau perbelanjaan tuntutan dibuat. Sahkan kerja yang syarikat akan bayar… (dalam satu perenggan lima ayat) | Urutannya: 1. Syarikat memeriksa kereta sebelum meluluskan pembaikan. 2. Anda mendapatkan persetujuan bertulis… 3. Anda mengesahkan kerja yang syarikat akan bayar… |
+| Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan. Anda perlu mendapatkan persetujuan bertulis sebelum pembaikan atau perbelanjaan tuntutan dibuat. Sahkan kerja yang syarikat akan bayar… (dalam satu perenggan lima ayat) | Senarai berbutir (sumber tidak menyatakan urutan): • Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan. • Anda perlu mendapatkan persetujuan bertulis… • Sahkan kerja yang syarikat akan bayar… |
 | Dokumen AIA, SmartMedic Shield, … dan brosur Medic Plus menyatakan tempoh penyakit umum 30 hari serta penyakit tertentu 120 hari. | Tempoh menunggu ialah 30 hari untuk penyakit umum dan 120 hari untuk penyakit tertentu. Ini dinyatakan dalam dokumen AIA, SmartMedic Shield, … dan brosur Medic Plus. |
 
 Ukur sebelum dan selepas: purata dan persentil ke-90 panjang ayat, bilangan ayat melebihi 25 patah perkataan, perenggan melebihi empat ayat, dan peratus teks tebal pada skrin pertama di 390 px. Halaman beriklan mesti kekal sekurang-kurangnya 700 patah perkataan; jangan tambah isi untuk mencapainya.

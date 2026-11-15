@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { homeFacts } from '../../data/home-facts';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import Byline from '../../components/Byline.astro';
@@ -133,7 +134,7 @@ const schema = {
       <h1 class="ea-h1">Insurans Rumah Malaysia 2026</h1>
       <PageAnswer
         finding="Fahami beza houseowner, householder dan fire-only"
-        lead={{ value: formatRate(tariff.ho_landed_1A), label: 'Kadar asas 1A landed, houseowner (peratus setahun daripada jumlah diinsuranskan)', role: 'term' }}
+        lead={{ value: homeFacts.home.value, label: `Kadar asas ${homeFacts.home.construction}, ${homeFacts.home.cover} (peratus ${homeFacts.home.basis})`, role: 'term' }}
         facts={[
           { label: 'Minimum / setem', value: `RM${tariff.minPremium} / RM${tariff.stamp}`, role: 'price' },
         ]}

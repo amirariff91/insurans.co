@@ -21,6 +21,8 @@ interface Props {
   trackingSection?: string;
   /** A plain heading instead of a black bar, where the heading names an action rather than a finding. */
   quiet?: boolean;
+  /** Heading level; 3 where the band sits inside an h2 section. The outbound sub-heading goes one level below. */
+  level?: 2 | 3;
 }
 
 const {
@@ -31,7 +33,9 @@ const {
   disclosure,
   trackingSection = 'cta-band',
   quiet = false,
+  level = 2,
 } = Astro.props;
+
 // A note with a link comes in the "disclosure" slot; a plain-text note can still come as the prop.
 const escapeHtml = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const slotted = Astro.slots.has('disclosure');
@@ -39,7 +43,9 @@ const note = slotted ? await Astro.slots.render('disclosure') : disclosure;
 ---
 
 <section class="mod cta-mod" data-section={trackingSection}>
-  <h2 class:list={['mod-bar', { 'mod-lab': quiet }]}>{heading}</h2>
+  {level === 3
+    ? <h3 class:list={['mod-bar', { 'mod-lab': quiet }]}>{heading}</h3>
+    : <h2 class:list={['mod-bar', { 'mod-lab': quiet }]}>{heading}</h2>}
   <div class="mod-in lg:flex lg:items-center lg:justify-between lg:gap-10">
     {body && <p class="max-w-2xl text-base leading-6 text-edisi-ink">{body}</p>}
     <a href={primary.href} data-cta="cta-band-primary" class="btn-hijau w-full justify-center lg:w-auto lg:flex-none">
@@ -49,7 +55,9 @@ const note = slotted ? await Astro.slots.render('disclosure') : disclosure;
 
   {outbound.length > 0 && (
     <div class="mx-[0.9rem] mb-[0.9rem] border-t border-edisi-rule pt-4">
-      <h3 class="text-base font-semibold text-edisi-ink">Pilihan quotation di laman luar</h3>
+      {level === 3
+        ? <h4 class="text-base font-semibold text-edisi-ink">Pilihan quotation di laman luar</h4>
+        : <h3 class="text-base font-semibold text-edisi-ink">Pilihan quotation di laman luar</h3>}
       <div class="mt-3 flex flex-wrap gap-2">
         {outbound.map((action) => {
           const relationship = action.relationship ?? 'unknown';

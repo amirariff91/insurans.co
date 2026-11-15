@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { homeFacts } from '../../../data/home-facts';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
@@ -98,7 +99,7 @@ const schema = {
       facts={[
         { label: 'Penyakit kritikal', value: 'RM8,000 one-off seumur hidup · 50 penyakit', role: 'term' },
         { label: 'Hospitalisasi', value: 'RM50 sehari · maksimum 14 hari setahun', role: 'term' },
-        { label: 'Kos', value: 'Percuma untuk penerima yang layak' },
+        { label: 'Kos', value: homeFacts.mysalam.cost },
       ]}
     />
 

@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { homeFacts } from '../../data/home-facts';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
@@ -112,7 +113,7 @@ const schema = {
               <tr>
                 <td class="font-medium text-stone-900">Harga</td>
                 <td>Kompetitif</td>
-                <td>Harga boleh lebih rendah, sama atau lebih tinggi.</td>
+                <td>{homeFacts.takaful.price}.</td>
               </tr>
             </tbody>
           </table>

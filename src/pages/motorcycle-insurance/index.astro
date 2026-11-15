@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { homeFacts } from '../../data/home-facts';
 import Byline from '../../components/Byline.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
@@ -128,7 +129,7 @@ const schema = {
       />
       <h1 class="ea-h1">Insurans Motosikal Malaysia 2026</h1>
       <PageAnswer
-        finding="Roadtax JPJ ikut cc dan wilayah; premium perlu quotation"
+        finding={`${homeFacts.motorcycle.roadtax}; premium perlu quotation`}
         sentence="Roadtax motosikal mengikut jadual JPJ, ikut cc dan wilayah. Premium insurans tidak mengikut jadual cc: dapatkan quotation daripada insurer."
         facts={[
           { label: 'Jadual roadtax', value: 'JPJ ikut cc dan wilayah' },

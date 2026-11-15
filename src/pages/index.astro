@@ -206,19 +206,19 @@ const faqSchema = {
           <p class="ix-s">Anda tidak perlu pergi ke pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
           <ol class="hp-steps">
             <li>
-              <h3>Semak NCD anda</h3>
+              <h4>Semak NCD anda</h4>
               <p>Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau tanya ejen. Ini penting kerana NCD mempengaruhi harga premium.</p>
             </li>
             <li>
-              <h3>Dapatkan quotation</h3>
+              <h4>Dapatkan quotation</h4>
               <p>Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>).</p>
             </li>
             <li>
-              <h3>Bayar &amp; dapat e-cover note</h3>
+              <h4>Bayar &amp; dapat e-cover note</h4>
               <p>Bayar online (FPX, kad kredit). E-cover note dihantar terus ke e-mel. Simpan PDF itu.</p>
             </li>
             <li>
-              <h3>Renew roadtax</h3>
+              <h4>Renew roadtax</h4>
               <p>Boleh renew di JPJ, MyEG, Pos Malaysia, atau kaunter di pusat beli-belah.</p>
             </li>
           </ol>
@@ -228,6 +228,7 @@ const faqSchema = {
 
       <CtaBand
         trackingSection="renew"
+        level={3}
         heading="Minta sebut harga terus daripada syarikat insurans"
         body="Kira NCD dahulu, kemudian semak senarai syarikat yang menjual insurans kereta secara online di laman rasmi mereka."
         primary={{ label: 'Lihat senarai beli online →', href: '/insurans-online/#beli-terus' }}
@@ -243,10 +244,10 @@ const faqSchema = {
           <ul class="hp-co">
             {topMotorInsurers.map((company) => (
               <li>
-                <h3>
+                <h4>
                   <a href={`/companies/${company.slug}/`}>{company.name}</a>
                   {company.takaful && <span class="hp-tag">Takaful</span>}
-                </h3>
+                </h4>
                 <p>{company.verdictBM}</p>
                 {company.claimLine && <p class="hp-co-c">Claim: {company.claimLine}</p>}
               </li>
@@ -359,13 +360,13 @@ const faqSchema = {
   @media (min-width: 40rem) { .hp-steps { grid-template-columns: 1fr 1fr; } }
   .hp-steps li { counter-increment: s; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.6rem; }
   .hp-steps li::before { content: counter(s); grid-row: span 2; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: #000; color: #fff; font: 800 1.125rem/1 var(--fd); }
-  .hp-steps h3 { font: 800 1.0625rem/1.25 var(--fd); align-self: center; }
+  .hp-steps h4 { font: 800 1.0625rem/1.25 var(--fd); align-self: center; }
   .hp-steps p { font-size: 1rem; line-height: 1.5; margin-top: 0.15rem; }
   .hp-co { list-style: none; margin: 0; padding: 0; display: grid; }
   .hp-co li { padding: 0.75rem 0; border-top: 1px solid rgb(0 0 0 / 0.15); }
   .hp-co li:first-child { border-top: 0; padding-top: 0; }
-  .hp-co h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; font: 750 1.0625rem/1.25 var(--fd); }
-  .hp-co h3 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .hp-co h4 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; font: 750 1.0625rem/1.25 var(--fd); }
+  .hp-co h4 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
   .hp-co p { font-size: 1rem; line-height: 1.5; }
   .hp-co .hp-co-c { font-size: 0.875rem; color: var(--ink-2); margin-top: 0.25rem; }
   .hp-tag { font: 650 0.875rem/1 var(--f); padding: 0.3em 0.55em; border-radius: var(--r-pill); background: var(--tint-yellow); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.35); }
