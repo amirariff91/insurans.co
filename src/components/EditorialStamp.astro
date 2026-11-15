@@ -39,7 +39,7 @@ function formatDate(value: string): string {
 const isRootUrl = (u?: string) => !!u && /^https?:\/\/[^/]+\/?$/.test(u);
 const priceSources = sources.filter((source) => source.label && (source.url || source.href) && !isRootUrl(source.url || source.href));
 const generalRefs = sources.filter((source) => source.label && isRootUrl(source.url || source.href));
-const linkClass = 'inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600';
+const linkClass = 'inline-flex min-h-11 items-center text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink';
 ---
 
 <!-- Every page that renders this stamp also renders <Byline>, so the author and article date live there only

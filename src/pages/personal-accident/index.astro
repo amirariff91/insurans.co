@@ -164,7 +164,7 @@ const schema = {
               {records.map((record) => (
                 <tr role="row">
                   <th role="rowheader" scope="row" class="align-top">
-                    <a href={`/personal-accident/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
+                    <a href={`/personal-accident/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">{record.planName}</a>
                     <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? 'Tidak dinyatakan'}</span>
                   </th>
                   <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? 'Tidak dinyatakan'}</span></td>
@@ -174,7 +174,7 @@ const schema = {
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
                         {record.sources.map((url) => (
-                          <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a></li>
+                          <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">{sourceLabel(url)}</a></li>
                         ))}
                       </ul>
                     ) : 'Tidak dinyatakan'}
@@ -322,7 +322,7 @@ const schema = {
                     <p><strong>Sumber:</strong> {record.sources.map((url, index) => (
                       <span>
                         {index > 0 && <span aria-hidden="true"> · </span>}
-                        <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a>
+                        <a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">{sourceLabel(url)}</a>
                       </span>
                     ))}</p>
                     <p class="mt-1"><strong>Tarikh analisis:</strong> {tarikh(record.analysisAsAt)}</p>

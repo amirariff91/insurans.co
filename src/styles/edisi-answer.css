@@ -21,20 +21,20 @@
   html:has(#ncd-45:checked) .px[data-p45]::after { content: attr(data-p45); }
   html:has(#ncd-0:checked) .ea-price { --u: var(--u0); }
   html:has(#ncd-0:checked) .ea-knob { --stop: 0; }
-  html:has(#ncd-0:checked) .work tr[data-n="0"] { background: var(--mark); color: var(--mark-ink); }
+  html:has(#ncd-0:checked) .work tr[data-n="0"] { background: var(--ink); color: var(--paper); }
   html:has(#ncd-25:checked) .ea-price { --u: var(--u25); }
   html:has(#ncd-25:checked) .ea-knob { --stop: 1; }
-  html:has(#ncd-25:checked) .work tr[data-n="25"] { background: var(--mark); color: var(--mark-ink); }
+  html:has(#ncd-25:checked) .work tr[data-n="25"] { background: var(--ink); color: var(--paper); }
   html:has(#ncd-30:checked) .ea-price { --u: var(--u30); }
   html:has(#ncd-30:checked) .ea-knob { --stop: 2; }
-  html:has(#ncd-30:checked) .work tr[data-n="30"] { background: var(--mark); color: var(--mark-ink); }
+  html:has(#ncd-30:checked) .work tr[data-n="30"] { background: var(--ink); color: var(--paper); }
   html:has(#ncd-38:checked) .ea-price { --u: var(--u38); }
   html:has(#ncd-38:checked) .ea-knob { --stop: 3; }
-  html:has(#ncd-38:checked) .work tr[data-n="38"] { background: var(--mark); color: var(--mark-ink); }
+  html:has(#ncd-38:checked) .work tr[data-n="38"] { background: var(--ink); color: var(--paper); }
   html:has(#ncd-45:checked) .ea-price { --u: var(--u45); }
   html:has(#ncd-45:checked) .ea-knob { --stop: 4; }
-  html:has(#ncd-45:checked) .work tr[data-n="45"] { background: var(--mark); color: var(--mark-ink); }
-  html:has(#ncd-55:checked) .work tr[data-n="55"] { background: var(--mark); color: var(--mark-ink); }
+  html:has(#ncd-45:checked) .work tr[data-n="45"] { background: var(--ink); color: var(--paper); }
+  html:has(#ncd-55:checked) .work tr[data-n="55"] { background: var(--ink); color: var(--paper); }
 }
 .tick { animation: ea-tick 260ms var(--ease-out); }
 @keyframes ea-tick { from { opacity: 0.35; transform: translateY(0.25em); } }

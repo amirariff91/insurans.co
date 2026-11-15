@@ -931,3 +931,5 @@ main a:not([class]) { color: var(--link); }
 /* The yearly total: the row the reader came for. */
 .kb-r.kb-tot { background: none; border-top: 2px solid var(--ink); font-weight: 600; }
 .kb-r.kb-tot { border-radius: 0; margin-inline: 0; padding-inline: 0; }
+/* The reader's NCD row in the working table is an ink row, like the current model in the rail. */
+.work tr .yrs { color: inherit; }
