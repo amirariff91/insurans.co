@@ -72,7 +72,7 @@ const answerFacts = [
 ];
 const canonicalUrl = `https://insurans.co/companies/${company.slug}/`;
 const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
-const companyOgImageAlt = `${companyOgName}: entiti, produk, tuntutan dan sumber rasmi.`;
+const companyOgImageAlt = `${companyOgName} — entiti, produk, tuntutan dan sumber rasmi.`;
 const productsSummary = company.productDetails.map((product) =>
   product.names.length ? `${product.line}: ${product.names.join(', ')}` : product.line
 ).join('; ');

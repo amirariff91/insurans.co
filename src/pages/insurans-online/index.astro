@@ -27,7 +27,7 @@ const productLabels: Record<string, string> = {
 const modelGroups = [
   {
     key: 'insurer-langsung',
-    label: 'Insurer-langsung, beli terus tanpa ejen',
+    label: 'Insurer-langsung: beli terus tanpa ejen',
     description: 'Beli terus daripada penginsurans atau takaful melalui saluran digital mereka.',
     records: platforms.records.filter((platform) => platform.model.startsWith('insurer-langsung')),
   },
@@ -39,7 +39,7 @@ const modelGroups = [
   },
   {
     key: 'platform-jpj',
-    label: 'Penyedia kontrak JPJ, bukan eksklusif',
+    label: 'Penyedia kontrak JPJ: bukan eksklusif',
     description: 'Penyedia berkontrak JPJ yang turut menawarkan urusan digital lain.',
     records: platforms.records.filter((platform) => platform.model.startsWith('platform berkontrak JPJ')),
   },
@@ -211,7 +211,7 @@ const schema = {
             <strong>Aggregator:</strong> banding beberapa insurer. Bjak menyenaraikan 16 insurer/takaful dan diluluskan BNM
             sebagai FA/IFA sejak Oktober 2025. Polisea, entiti PolicyStreet, juga diluluskan sebagai FA/IFA.
             PolicyStreet menawarkan Drive+, keahlian pilihan berbayar yang dipilih semasa checkout. Rujuk <a href="https://bjak.my/en/approved-financial-adviser" target="_blank" rel="noopener">Bjak</a> dan
-            <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar: Shopee Insurance (Allianz
+            <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar, seperti Shopee Insurance (Allianz
             Travel + Zurich Travel Takaful, motor takaful, PA; ansur SPayLater 3–12 bulan; Shopee hanya ejen SeaMoney, bukan
             insurer). <strong>Urusan JPJ:</strong> MyEG disenaraikan sebagai rakan niaga JPJ dalam
             <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener">kenyataan JPJ pada 6 Mei 2024</a>.

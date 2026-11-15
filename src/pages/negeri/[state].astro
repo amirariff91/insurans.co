@@ -72,7 +72,7 @@ const answerFinding = state.floodRisk
       : `Risiko banjir ${state.floodRisk}: kerosakan banjir memerlukan perlindungan tambahan Special Perils`)
   : 'Kerosakan banjir memerlukan perlindungan tambahan Special Perils';
 const answerFacts: { label: string; value: string; href?: string }[] = [
-  { label: 'Risiko banjir', value: state.floodRisk || '—' },
+  { label: 'Risiko banjir', value: state.floodRisk || 'Tiada' },
   ...(firstFlood ? [{ label: 'Rekod banjir (sumber kejadian)', value: firstFlood.text, href: firstFlood.source }] : []),
   { label: `Pejabat JPJ di ${state.displayName}`, value: state.jpjOffice.text },
   ...(state.slug !== 'labuan' ? [{ label: 'Wilayah tarif', value: state.tariffRegion }] : []),
