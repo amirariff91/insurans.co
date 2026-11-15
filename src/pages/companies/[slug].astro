@@ -376,3 +376,8 @@ const schema = {
   })} />
 </Base>
 
+<style>
+  /* Quiet module label, as .mod-lab in edisi-answer.css (that file is not loaded here; global.css has
+     .mod-bar but not .mod-lab): the module names its topic, so no black bar. */
+  .mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0; font: 800 1.125rem/1.25 var(--fd); }
+</style>

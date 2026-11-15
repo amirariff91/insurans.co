@@ -328,7 +328,7 @@ function formatDate(value: string): string {
                   </li>
                 ))}
               </ul>
-              <a href="/negeri/" class="block mt-4 text-xs text-stone-500 hover:text-hijau-700 font-medium">
+              <a href="/negeri/" class="block mt-4 text-xs text-stone-500 underline font-medium">
                 Semua negeri
               </a>
             </div>
@@ -350,6 +350,10 @@ function formatDate(value: string): string {
 </Base>
 
 <style>
+  /* Quiet module label, as .mod-lab in edisi-answer.css (that file is not loaded here; global.css has
+     .mod-bar but not .mod-lab): the module names its topic, so no black bar. */
+  .mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0; font: 800 1.125rem/1.25 var(--fd); }
+
   /* Quiet section label: a plain heading where the section opens with advice rather than a finding. */
   .prose-editorial.prose-bars h2.h2-quiet {
     background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
