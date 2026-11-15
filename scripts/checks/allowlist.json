@@ -517,6 +517,16 @@
         "0.09%"
       ],
       "reason": "Homepage types module, Rumah tile: base rate 0.090% (1A landed, houseowner) from home-insurance.json tariff.ho_landed_1A, the same value as the answer-box lead on /home-insurance/."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurance\\-vs\\-takaful/$",
+      "path": "^FAQPage\\.mainEntity\\[6\\]\\.acceptedAnswer\\.text$",
+      "old": null,
+      "new": "Surplus sharing ialah perkongsian lebihan dana takaful dengan peserta. Jika tuntutan yang dibayar lebih rendah daripada sumbangan yang dikutip, lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin. Nisbah perkongsian dinyatakan dalam sijil, contohnya 70% kepada peserta dan 30% kepada syarikat. Ada tahun yang tiada lebihan langsung.",
+      "reason": "Release-review correction (15 Nov 2026, finding 3 and 5): blanket claims removed ('Ya, 100% boleh'; surplus 'diagihkan' unqualified; early-stage mechanics stated as universal). The corrected text qualifies them by product and certificate terms."
     }
   ]
 }
