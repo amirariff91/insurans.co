@@ -241,3 +241,17 @@
 .ep-main > .ep-crumbs + .ea { order: -1; }
 /* Very large text: long words in collapsed lists and rows break inside their module instead of being clipped. */
 .baca-in > *, .rows li > div { min-width: 0; overflow-wrap: break-word; }
+
+/* Forced colours: the bars lose their fills and rings, so each bar gets an edge and the chosen one (and its
+   row in the working table) a Highlight fill. The knob is drawn in the text colour. */
+@media (forced-colors: active) {
+  .ea-col { border: 1px solid CanvasText; border-bottom: 0; }
+  .ea-bar:has(input:checked) .ea-col { forced-color-adjust: none; background: Highlight; }
+  .ea-knob::after { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+  .ea-track::before { background: CanvasText; }
+  html:has(#ncd-0:checked) .work tr[data-n="0"], html:has(#ncd-25:checked) .work tr[data-n="25"],
+  html:has(#ncd-30:checked) .work tr[data-n="30"], html:has(#ncd-38:checked) .work tr[data-n="38"],
+  html:has(#ncd-45:checked) .work tr[data-n="45"], html:has(#ncd-55:checked) .work tr[data-n="55"] {
+    forced-color-adjust: none; background: Highlight; color: HighlightText;
+  }
+}

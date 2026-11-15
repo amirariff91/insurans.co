@@ -146,6 +146,12 @@
     scroll-padding-top: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Scrollbars from the tokens: mute thumb (7.0:1 on paper), paper track. */
+    scrollbar-color: var(--mute) var(--paper);
+  }
+
+  @media (prefers-contrast: more) {
+    html { scrollbar-color: var(--ink) var(--paper); }
   }
 
   @media (min-width: 70rem) {
@@ -162,7 +168,7 @@
   }
 
   a {
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: max(1px, 0.06em);
     text-underline-offset: 0.18em;
   }
 
@@ -182,12 +188,13 @@
 
   h4, h5, h6 {
     @apply font-sans font-semibold tracking-tight;
+    text-wrap: balance;
   }
 
   /* Editorial link style */
   .prose-editorial a {
     @apply text-edisi-ink underline decoration-edisi-rule hover:decoration-edisi-ink transition-colors;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: max(1px, 0.06em);
     text-underline-offset: 0.18em;
   }
 
@@ -207,8 +214,8 @@
 
   /* Selection color */
   ::selection {
-    background: var(--mark);
-    color: var(--mark-ink);
+    background: var(--sel);
+    color: var(--sel-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -262,7 +269,7 @@
   /* A card that is a link: the border goes ink on hover and the inner title underlines. */
   a.card-editorial:hover :is(h2, h3, .card-t) {
     text-decoration-line: underline;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: max(1px, 0.06em);
     text-underline-offset: 0.18em;
   }
 
@@ -345,7 +352,24 @@
     border: 1px solid var(--rule);
     border-radius: var(--r-2);
     background: var(--card);
-    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--mute) var(--line);
+    scrollbar-width: thin;
+  }
+
+  /* Scroll hint: a 2px ink edge on each side that has more columns, gone at that end. Where scroll-state
+     queries are unsupported the wrapper stays as it was (its scrollbar is the hint). */
+  @supports (container-type: scroll-state) {
+    .overflow-x-auto:has(> table) { container-type: scroll-state; display: flex; }
+    .overflow-x-auto:has(> table) > table { flex: none; }
+    .overflow-x-auto:has(> table)::before,
+    .overflow-x-auto:has(> table)::after {
+      content: ''; position: sticky; z-index: 2; flex: none; width: 2px; background: var(--ink);
+      pointer-events: none; opacity: 0; transition: opacity 150ms var(--ease-out);
+    }
+    .overflow-x-auto:has(> table)::before { order: -1; inset-inline-start: 0; margin-inline-end: -2px; }
+    .overflow-x-auto:has(> table)::after { order: 1; inset-inline-end: 0; margin-inline-start: -2px; }
+    @container scroll-state(scrollable: inline-start) { .overflow-x-auto:has(> table)::before { opacity: 1; } }
+    @container scroll-state(scrollable: inline-end) { .overflow-x-auto:has(> table)::after { opacity: 1; } }
   }
 
   /* A grid column holding a scrolling table must be allowed to shrink, or the page scrolls sideways. */
@@ -377,6 +401,7 @@
   .table-editorial thead th,
   .prose-editorial table thead th {
     vertical-align: bottom;
+    text-wrap: balance;
   }
 
   .table-editorial tbody th {
@@ -408,7 +433,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .table-editorial tbody tr:first-child td {
+  .table-editorial tbody tr:first-child > :is(td, th) {
     border-top: 0;
   }
 
@@ -428,7 +453,7 @@
     gap: 1rem;
     padding: 0.5rem 0;
     @apply font-sans font-semibold text-edisi-ink cursor-pointer list-none;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: max(1px, 0.06em);
     text-underline-offset: 0.18em;
   }
 
@@ -494,6 +519,12 @@
     @apply mb-4;
   }
 
+  /* Running text avoids one-word last lines where supported (ignored elsewhere). */
+  .prose-editorial :where(p, li, blockquote),
+  .faq-item p {
+    text-wrap: pretty;
+  }
+
   .prose-editorial h2 {
     @apply font-serif text-headline-md text-edisi-ink mt-12 mb-4;
     padding-top: 0.75rem;
@@ -550,6 +581,8 @@
  * Same DOM, same text; only the column names are repeated, as CSS generated content. */
 @media (max-width: 47.99rem) {
   .overflow-x-auto:has(> table.plan-table) {
+    display: block;
+    container-type: normal;
     overflow: visible;
     border: 0;
     border-radius: 0;
@@ -561,6 +594,8 @@
     min-width: 0;
     width: 100%;
   }
+  .overflow-x-auto:has(> table.plan-table)::before,
+  .overflow-x-auto:has(> table.plan-table)::after { content: none; }
   table.plan-table > caption {
     display: block;
     padding: 0 0 0.75rem;
@@ -676,7 +711,7 @@
     padding: 0.75rem 0;
     margin: -0.75rem 0;
     text-decoration-line: underline;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: max(1px, 0.06em);
     text-underline-offset: 0.18em;
   }
   table.plan-table > tbody > tr > :first-child a:focus-visible {
@@ -919,7 +954,6 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
 .ep-tools .mod-bar, .ep-tools .ix-bar, .ep-models .mod-bar, .ep-models .ix-bar, aside .mod-bar {
   background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid var(--line);
 }
-::selection { background: var(--magenta); color: var(--paper); }
 /* The first section sits right under the page opening: the container's own padding is the gap. */
 .prose-editorial > h2:first-child, .prose-editorial > :first-child > h2:first-child { margin-top: 0; }
 /* Guide illustrations are drawn in their own colours; on the page they read as ink, like the car photos. */
@@ -933,3 +967,12 @@ main a:not([class]) { color: var(--link); }
 .kb-r.kb-tot { border-radius: 0; margin-inline: 0; padding-inline: 0; }
 /* The reader's NCD row in the working table is an ink row, like the current model in the rail. */
 .work tr .yrs { color: inherit; }
+
+/* Windows high contrast (forced colours): fills and rings are dropped there, so the states that rely on
+   them get system colours. The reader's current choice is a Highlight fill; outlined buttons keep an edge. */
+@media (forced-colors: active) {
+  .mlist a[aria-current="page"] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .mlist a[aria-current="page"] .mp { color: HighlightText; }
+  .ea-btn, .btn-outline, .type-chips a, .tk-chip, .ea-mark { border: 1px solid CanvasText; }
+  .overflow-x-auto:has(> table)::before, .overflow-x-auto:has(> table)::after { background: CanvasText; }
+}

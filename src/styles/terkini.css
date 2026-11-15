@@ -19,6 +19,8 @@
 .tk-body { display: grid; gap: 1rem; margin: 1.5rem 0 2rem; font-size: 1.125rem; line-height: 1.65; color: var(--ink); max-width: 62ch; }
 .tk-body a, .tk-refs a, .tk-foot a { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
 .tk-eff { font-weight: 600; }
+/* Running text avoids one-word last lines where supported. */
+.tk-item p, .tk-lede, .tk-body > p { text-wrap: pretty; }
 
 .tk-refs { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 2rem; }
 @media (min-width: 48rem) { .tk-refs { grid-template-columns: 1fr 1fr; } }
