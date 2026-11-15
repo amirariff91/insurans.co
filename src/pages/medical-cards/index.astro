@@ -5,7 +5,7 @@ import Byline from '../../components/Byline.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
-import { tarikh } from '../../components/edisi/ProductFormat';
+import { archivedCopy, tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import medicalCards from '../../data/medical-cards.json';
@@ -157,7 +157,11 @@ const schema = {
                     <td role="cell" data-label="Room &amp; board">{card.roomBoard || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Ciri utama" data-wide>{card.standoutFeature || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Sumber" data-wide>
-                      {card.sources[0] ? <a href={card.sources[0]}>Sumber rasmi</a> : 'Tidak dinyatakan'}
+                      {card.sources[0] ? (
+                        <a href={card.sources[0]}>
+                          {archivedCopy(card.sources[0]) ? `Sumber rasmi (salinan arkib, ${archivedCopy(card.sources[0])!.captured})` : 'Sumber rasmi'}
+                        </a>
+                      ) : 'Tidak dinyatakan'}
                     </td>
                   </tr>
                 ))}

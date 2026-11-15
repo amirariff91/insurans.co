@@ -13,3 +13,14 @@ export function tarikh(value: string | undefined | null): string {
 export function factRole(label: string): 'price' | 'term' {
   return /premium|sumbangan|harga/i.test(label) ? 'price' : 'term';
 }
+
+/**
+ * A source link to a Wayback Machine copy (web.archive.org/web/<YYYYMMDDhhmmss>/<original>): the original site and
+ * the capture date, so the page can say it is an archived copy and of when. Null for any other link.
+ */
+export function archivedCopy(url: string): { site: string; captured: string } | null {
+  const match = /^https:\/\/web\.archive\.org\/web\/(\d{4})(\d{2})(\d{2})\d*\/(https?:\/\/.+)$/.exec(url);
+  if (!match) return null;
+  const [, year, month, day, original] = match;
+  return { site: new URL(original).hostname.replace(/^www\./, ''), captured: tarikh(`${year}-${month}-${day}`) };
+}
