@@ -1,13 +1,16 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import Ikon from '../../components/Ikon.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import states from '../../data/states.json';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Panduan Insurans Kereta Mengikut Negeri di Malaysia",
-  "description": "Panduan insurans kereta mengikut negeri di Malaysia — risiko banjir, syarikat disyorkan, dan tips khusus untuk setiap negeri.",
+  "description": "Panduan insurans kereta mengikut negeri di Malaysia — rekod banjir, wilayah tarif, pejabat JPJ dan perkara untuk disemak mengikut lokasi.",
   "url": "https://insurans.co/negeri/",
   "inLanguage": "ms",
   "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" },
@@ -21,35 +24,83 @@ const schema = {
 };
 
 const riskColor: Record<string, string> = {
-  'Tinggi': 'bg-red-100 text-red-700',
-  'Sederhana': 'bg-yellow-100 text-yellow-700',
-  'Rendah': 'bg-green-100 text-green-700',
+  'Tinggi': 'risk-tinggi',
+  'Sederhana': 'risk-sederhana',
+  'Rendah': 'risk-rendah',
 };
 ---
 
 <Base
   title="Panduan Insurans Kereta Mengikut Negeri di Malaysia — Insurans.co"
-  description="Cari panduan insurans kereta mengikut negeri di Malaysia. Risiko banjir, syarikat disyorkan, dan tips khusus untuk Selangor, KL, Johor, Kelantan dan semua negeri."
+  description="Cari panduan insurans kereta mengikut negeri di Malaysia: rekod banjir, wilayah tarif dan pejabat JPJ di Selangor, KL, Johor, Kelantan dan negeri lain."
   schema={schema}
 
 >
   <!-- Breadcrumb + Header -->
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Negeri</span>
-      </nav>
-      <p class="label mb-3">Panduan Mengikut Lokasi</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Negeri' }]} />
+      <h1 class="ea-h1 mb-3">
         Panduan Insurans Kereta Mengikut Negeri di Malaysia
       </h1>
+      <PageAnswer
+        finding="Tiada satu kadar premium tetap bagi setiap negeri"
+        facts={[
+          { label: 'Wilayah tarif', value: 'Semenanjung atau Sabah/Sarawak', role: 'term' },
+          { label: 'Berbeza antara negeri', value: 'Risiko setempat seperti banjir' },
+          { label: 'Pejabat JPJ', value: 'Fakta setiap negeri, dalam jadual' },
+        ]}
+        note="Premium semasa boleh mengambil kira lokasi kenderaan dan penilaian risiko syarikat insurans."
+      />
+    <section class="mod my-4" aria-labelledby="fakta-negeri" data-section="state-table">
+      <h2 id="fakta-negeri" class="mod-bar">Fakta insurans kereta mengikut negeri</h2>
+      <p class="text-stone-700 leading-relaxed max-w-2xl px-4 pt-3 pb-2">
+        Rekod banjir, pejabat JPJ dan wilayah tarif bagi setiap negeri, daripada halaman negeri masing-masing.
+        Wilayah tarif ialah Semenanjung atau Sabah/Sarawak; premium sebenar ditentukan oleh insurer.
+      </p>
+      <div class="st-wrap px-4 pb-2" tabindex="0" role="region" aria-labelledby="fakta-negeri">
+        <table class="st-tab w-full text-sm text-left border-collapse">
+          <thead>
+            <tr class="border-b border-stone-300 text-stone-700">
+              <th scope="col" class="py-2 pr-4 font-semibold">Negeri</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Risiko banjir</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Rekod banjir</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Pejabat JPJ</th>
+              <th scope="col" class="py-2 font-semibold">Wilayah tarif</th>
+            </tr>
+          </thead>
+          <tbody>
+            {states.map((state) => (
+              <tr class="border-b border-stone-200 align-top text-stone-700">
+                <th scope="row" class="py-3 pr-4 font-medium text-stone-900">
+                  <a href={`/negeri/${state.slug}/`} class="underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">{state.displayName}</a>
+                </th>
+                <td data-label="Risiko banjir" class="py-3 pr-4 whitespace-nowrap">{state.floodRisk || 'Tidak dinyatakan'}</td>
+                <td data-label="Rekod banjir" class="py-3 pr-4 leading-relaxed">
+                  {state.floodHistory.length ? (
+                    <>
+                      {state.floodHistory[0].text}{' '}
+                      <a href={state.floodHistory[0].source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
+                    </>
+                  ) : 'Tidak dinyatakan'}
+                </td>
+                <td data-label="Pejabat JPJ" class="py-3 pr-4 leading-relaxed">
+                  {state.jpjOffice.text}{' '}
+                  <a href={state.jpjOffice.source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
+                </td>
+                <td data-label="Wilayah tarif" class="py-3 whitespace-nowrap">{state.tariffRegion}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
       <Byline />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Tiada satu kadar premium tetap bagi setiap negeri. Premium semasa boleh mengambil kira lokasi kenderaan
         dan penilaian risiko syarikat insurans. Yang jelas berbeza antara negeri ialah risiko setempat seperti banjir, serta
-        pejabat JPJ untuk urusan kenderaan. Jadual di bawah meringkaskan fakta setiap negeri.
+        pejabat JPJ untuk urusan kenderaan. Jadual di atas meringkaskan fakta setiap negeri.
       </p>
     </div>
   </section>
@@ -58,9 +109,9 @@ const riskColor: Record<string, string> = {
     <!-- Risk Legend -->
     <div class="flex flex-wrap gap-3 mb-8 text-sm">
       <span class="text-stone-500">Risiko Banjir:</span>
-      <span class="bg-red-100 text-red-700 px-3 py-1 font-medium">Tinggi</span>
-      <span class="bg-yellow-100 text-yellow-700 px-3 py-1 font-medium">Sederhana</span>
-      <span class="bg-green-100 text-green-700 px-3 py-1 font-medium">Rendah</span>
+      <span class="risk-tinggi px-3 py-1 font-medium">Tinggi</span>
+      <span class="risk-sederhana px-3 py-1 font-medium">Sederhana</span>
+      <span class="risk-rendah px-3 py-1 font-medium">Rendah</span>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -74,62 +125,18 @@ const riskColor: Record<string, string> = {
               {state.displayName}
             </h2>
             {state.floodRisk ? (
-              <span class={`text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
+              <span class={`text-sm font-medium px-2 py-0.5 ml-2 flex-shrink-0 ${riskColor[state.floodRisk] ?? 'bg-stone-100 text-stone-600'}`}>
                 {state.floodRisk}
               </span>
             ) : (
-              <span class="text-xs font-medium px-2 py-0.5 ml-2 flex-shrink-0 bg-stone-100 text-stone-500" title="Tiada label risiko banjir dalam data kami">—</span>
+              <span class="text-sm font-medium px-2 py-0.5 ml-2 bg-stone-100 text-stone-500 text-right">Tiada label risiko banjir dalam data kami</span>
             )}
           </div>
-          <p class="text-xs text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
-          <p class="text-xs text-stone-600 leading-relaxed line-clamp-2">{state.notes}</p>
-          <p class="text-xs text-hijau-700 font-medium mt-3 group-hover:underline">Lihat panduan →</p>
+          <p class="text-sm text-stone-700 mb-3">Ibu negeri: {state.capital}</p>
+          <p class="text-sm text-stone-700 leading-relaxed line-clamp-2">{state.notes}</p>
+          <p class="text-sm text-hijau-700 font-medium mt-3 group-hover:underline">Lihat panduan <Ikon name="i-kanan" size={16} class="inline" /></p>
         </a>
       ))}
-    </div>
-
-    <div class="mt-12 border-t border-stone-200 pt-10">
-      <h2 class="font-serif text-2xl text-stone-900 mb-4">Fakta insurans kereta mengikut negeri</h2>
-      <p class="text-stone-600 leading-relaxed max-w-2xl mb-6">
-        Rekod banjir, pejabat JPJ dan wilayah tarif bagi setiap negeri, daripada halaman negeri masing-masing.
-        Wilayah tarif ialah Semenanjung atau Sabah/Sarawak; premium sebenar ditentukan oleh insurer.
-      </p>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left border-collapse min-w-[48rem]">
-          <thead>
-            <tr class="border-b border-stone-300 text-stone-700">
-              <th scope="col" class="py-2 pr-4 font-semibold">Negeri</th>
-              <th scope="col" class="py-2 pr-4 font-semibold">Risiko banjir</th>
-              <th scope="col" class="py-2 pr-4 font-semibold">Rekod banjir</th>
-              <th scope="col" class="py-2 pr-4 font-semibold">Pejabat JPJ</th>
-              <th scope="col" class="py-2 font-semibold">Wilayah tarif</th>
-            </tr>
-          </thead>
-          <tbody>
-            {states.map((state) => (
-              <tr class="border-b border-stone-200 align-top text-stone-600">
-                <th scope="row" class="py-3 pr-4 font-medium text-stone-900">
-                  <a href={`/negeri/${state.slug}/`} class="underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">{state.displayName}</a>
-                </th>
-                <td class="py-3 pr-4 whitespace-nowrap">{state.floodRisk || '—'}</td>
-                <td class="py-3 pr-4 leading-relaxed">
-                  {state.floodHistory.length ? (
-                    <>
-                      {state.floodHistory[0].text}{' '}
-                      <a href={state.floodHistory[0].source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
-                    </>
-                  ) : '—'}
-                </td>
-                <td class="py-3 pr-4 leading-relaxed">
-                  {state.jpjOffice.text}{' '}
-                  <a href={state.jpjOffice.source} target="_blank" rel="noopener nofollow" class="text-hijau-700 underline">Sumber</a>
-                </td>
-                <td class="py-3 whitespace-nowrap">{state.tariffRegion}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </div>
 
     <div class="mt-12 border-t border-stone-200 pt-10">
@@ -142,9 +149,24 @@ const riskColor: Record<string, string> = {
         wajar mempertimbangkan <strong>special perils add-on</strong> untuk kerosakan banjir.
       </p>
       <p class="text-stone-600 leading-relaxed max-w-2xl">
-        Kawasan bandar besar seperti KL dan Selangor juga ada risiko kemalangan lebih tinggi kerana kepadatan trafik.
-        Pilih syarikat dengan panel bengkel yang luas di kawasan anda.
+        Nilai lokasi dan corak penggunaan kereta anda. Semak juga bengkel panel yang mudah dicapai.
       </p>
     </div>
   </div>
 </Base>
+
+<style>
+  /* Phones: each state is a short card (label above value); from 48rem the five-column table, scrolling if needed. */
+  .st-wrap { overflow-x: auto; }
+  @media (max-width: 47.99rem) {
+    .st-tab, .st-tab tbody, .st-tab tr, .st-tab th, .st-tab td { display: block; }
+    .st-tab thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .st-tab { font-size: 1rem; }
+    .st-tab tr { padding: 0.75rem 0; }
+    .st-tab th[scope="row"], .st-tab td { padding: 0.15rem 0; white-space: normal; }
+    .st-tab th[scope="row"] a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: 1.0625rem; font-weight: 700; }
+    .st-tab td::before { content: attr(data-label) ": "; color: var(--ink-2); }
+    .st-tab td a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  }
+  @media (min-width: 48rem) { .st-tab { min-width: 48rem; } }
+</style>

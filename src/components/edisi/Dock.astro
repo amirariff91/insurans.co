@@ -1,0 +1,170 @@
+---
+/**
+ * Phone dock (below 48rem): once the answer block has scrolled out of view, a bar at the bottom repeats the
+ * current context on two lines ("Anggaran Axia  NCD 55%", the name truncated if long; then "RM330–670/tahun") with one action
+ * that goes back to the NCD control. Every value is read from what the page already shows for the chosen step
+ * (the same Px data attributes the NCD control switches, or the calculator's result text): the dock never computes
+ * a price. Rendered `hidden`: without JavaScript it never shows. It steps aside while a native dialog is open or a
+ * consent message is actually visible.
+ */
+interface Props {
+  /** The block whose leaving the screen shows the dock. */
+  answer: string;
+  /** Where "Tukar" goes: the NCD control. */
+  control: string;
+  /** Element whose text is the car's short name (home and model pages). */
+  name?: string;
+  /** The car's short name when it never changes on the page (model pages). */
+  car?: string;
+  /** Element whose text is the current calculated price (NCD calculator: '#result-premium'). */
+  result?: string;
+  /** Unit appended to the `result` price when one is shown (NCD calculator: '/tahun', the premium is yearly). */
+  unit?: string;
+}
+const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.props;
+---
+<div class="dock" data-dock data-answer={answer} data-control={control} data-name={name} data-car={car} data-result={result} data-unit={unit || undefined} hidden>
+  <p class="dock-t"><span class="dock-r"><span class="dock-n" data-dock-n></span><span class="dock-k" data-dock-k></span></span><span class="dock-v" data-dock-v></span></p>
+  <button type="button" class="dock-b" data-dock-b>Tukar</button>
+</div>
+
+<style is:global>
+  .dock {
+    position: fixed; z-index: 30; left: var(--gutter); right: var(--gutter); bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 0.5rem; max-width: 30rem; margin: 0 auto; padding: 0.3rem 0.3rem 0.3rem 0.85rem;
+    border-radius: var(--r-pill); color: var(--ink); background: var(--glass);
+    box-shadow: 0 0 0 1px var(--glass-edge), 0 12px 28px -14px rgb(var(--shade) / 0.5), inset 0 1px 0 var(--glass-spec);
+    transform: translateY(calc(100% + 1rem)); visibility: hidden;
+    transition: transform 200ms var(--ease-out), visibility 0s linear 200ms;
+  }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .dock { background: var(--glass-t); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); }
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .dock { background: var(--card) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 1.5px var(--ink); }
+  }
+  html.dock-on .dock { transform: none; visibility: visible; transition: transform 200ms var(--ease-out); }
+  html.dock-on body { padding-bottom: calc(var(--dock-h, 3.5rem) + 1rem + env(safe-area-inset-bottom)); }
+  html.dock-on { scroll-padding-bottom: calc(var(--dock-h, 3.5rem) + 1.5rem + env(safe-area-inset-bottom)); }
+  .dock-t { flex: 1; min-width: 0; margin: 0; display: grid; font-variant-numeric: tabular-nums; }
+  /* Two lines, each one line high. Line 1: the car's name, which alone truncates (full name in its title), then
+     the NCD step, never cut. Line 2: the price and its unit, which fit at 320px for every model. */
+  .dock-r { display: flex; gap: 0.4rem; min-width: 0; font: 600 0.875rem/1.25 var(--f); }
+  .dock-n { flex: 0 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
+  .dock-k { flex: none; white-space: nowrap; font-weight: 750; }
+  .dock-n:empty { display: none; }
+  .dock-v { display: block; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font: 750 1.0625rem/1.25 var(--fd); }
+  .dock-v:empty { display: none; }
+  .dock-b {
+    flex: none; min-height: 2.75rem; min-width: 2.75rem; padding: 0 1rem; border: 0; border-radius: var(--r-pill);
+    background: var(--kick); color: var(--kick-ink); font: 700 1rem/1 var(--fd); cursor: pointer;
+  }
+  .dock-b:hover { background: #A50C58; }
+  .dock-b:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .dock[hidden] { display: none; }
+  @media (min-width: 48rem) { .dock { display: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .dock, html.dock-on .dock { transition: none; } }
+  @media print { .dock { display: none !important; } }
+</style>
+
+<script>
+  const dock = document.querySelector<HTMLElement>('[data-dock]');
+  const answer = dock && document.querySelector<HTMLElement>(dock.dataset.answer!);
+  const phone = matchMedia('(max-width: 47.99rem)');
+  if (dock && answer && 'IntersectionObserver' in window && !dock.dataset.on) {
+    dock.dataset.on = '1';
+    const html = document.documentElement;
+    const nameEl = dock.querySelector<HTMLElement>('[data-dock-n]')!;
+    const valEl = dock.querySelector<HTMLElement>('[data-dock-v]')!;
+    const ncdEl = dock.querySelector<HTMLElement>('[data-dock-k]')!;
+    let past = false;
+    const txt = (sel?: string) => (sel ? document.querySelector(sel)?.textContent?.replace(/\s+/g, ' ').trim() ?? '' : '');
+    // Read what the page shows now: the checked step, the car's name and the price of that step (car pages: the
+    // Px data attributes; calculator: the result's text). Nothing is computed here.
+    const fill = () => {
+      const r = document.querySelector<HTMLInputElement>('input[name="ncd"]:checked');
+      let pct = r ? r.dataset.tier ?? r.value : '';
+      if (!pct) { try { const k = localStorage.getItem('edisi.ncd'); pct = k === '38' ? '38.33' : k ?? ''; } catch { /* storage blocked */ } }
+      const name = dock.dataset.car || txt(dock.dataset.name);
+      let price = '';
+      let unit = '';
+      if (dock.dataset.result) {
+        price = txt(dock.dataset.result);
+        if (price) unit = dock.dataset.unit ?? '';
+      }
+      else {
+        const px = document.querySelector<HTMLElement>('[data-ea] .ea-pnum');
+        const k = r?.value ?? '55';
+        const v = px && r ? (k === '55' ? px.querySelector('.pv')?.textContent : px.dataset[`p${k}`]) : '';
+        price = v ? `RM${v}` : '';
+        // The unit only when the page states it beside the price ("setahun").
+        if (price && /^setahun\b/.test(txt('[data-ea] .ea-sub'))) unit = '/tahun';
+      }
+      const n = price ? `Anggaran${name ? ` ${name}` : ''}` : name;
+      if (nameEl.textContent !== n) nameEl.textContent = n;
+      nameEl.title = name;
+      const k = `NCD ${pct || '55'}%`;
+      if (ncdEl.textContent !== k) ncdEl.textContent = k;
+      const v = price ? `${price}${unit}` : '';
+      if (valEl.textContent !== v) valEl.textContent = v;
+    };
+    // Hide while a native dialog is open or a consent message (Funding Choices) is actually on screen: its root
+    // can sit in the DOM hidden, so test visibility and size, not presence.
+    const CMP = '.fc-consent-root, .fc-dialog-container';
+    const shown = (el: Element) => {
+      const cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) return false;
+      const b = el.getBoundingClientRect();
+      return b.width > 0 && b.height > 0;
+    };
+    const blocked = () => Boolean(document.querySelector('dialog[open]')) || [...document.querySelectorAll(CMP)].some(shown);
+    const set = () => {
+      const on = past && phone.matches && !blocked();
+      if (on) { fill(); html.style.setProperty('--dock-h', `${dock.offsetHeight / 16}rem`); }
+      html.classList.toggle('dock-on', on);
+    };
+    let queued = false;
+    const later = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; set(); }); } };
+    // Only dialog and consent changes matter; the dock's own text and the page's price ticks are ignored, so
+    // updating the dock can never retrigger this observer. That includes a wrapper that holds a consent root or a
+    // dialog: un-hiding it (hidden, class, style, aria-hidden) can put the consent message on screen. The dock only
+    // writes to itself and to <html> (outside the observed body), so its own changes never match.
+    const isBlocker = (n: Node) => n instanceof Element && (n.tagName === 'DIALOG' || n.matches(CMP) || Boolean(n.querySelector(`dialog, ${CMP}`)));
+    const relevant = (m: MutationRecord) => {
+      const t = m.target;
+      if (dock.contains(t)) return false;
+      if (t instanceof Element && (t.tagName === 'DIALOG' || t.closest(CMP))) return true;
+      if (m.type === 'attributes' && t instanceof Element && t.querySelector(`dialog, ${CMP}`)) return true;
+      return [...m.addedNodes, ...m.removedNodes].some(isBlocker);
+    };
+    new MutationObserver((ms) => { if (ms.some(relevant)) later(); })
+      .observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['open', 'style', 'class', 'hidden', 'aria-hidden'] });
+    document.addEventListener('toggle', later, true);
+    document.addEventListener('close', later, true);
+    dock.hidden = false;
+    new IntersectionObserver(([e]) => { past = !e.isIntersecting && e.boundingClientRect.top < 0; set(); }).observe(answer);
+    phone.addEventListener('change', set);
+    // A restored page (back/forward cache) keeps these observers; only re-read the state.
+    addEventListener('pageshow', (e) => { if (e.persisted) set(); });
+    document.addEventListener('change', () => past && fill());
+    if (dock.dataset.result) {
+      const res = document.querySelector(dock.dataset.result);
+      if (res) new MutationObserver(() => past && fill()).observe(res, { childList: true, characterData: true, subtree: true });
+    }
+    // Never cover the focused element.
+    document.addEventListener('focusin', (ev) => {
+      const t = ev.target as HTMLElement;
+      if (!html.classList.contains('dock-on') || dock.contains(t)) return;
+      const over = t.getBoundingClientRect().bottom - dock.getBoundingClientRect().top + 8;
+      if (over > 0) scrollBy(0, over);
+    });
+    dock.querySelector('[data-dock-b]')!.addEventListener('click', () => {
+      const c = document.querySelector<HTMLElement>(dock.dataset.control!);
+      if (!c) return;
+      c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      const f = c.querySelector<HTMLElement>('input:checked') ?? c;
+      if (f === c && !c.hasAttribute('tabindex')) c.tabIndex = -1;
+      f.focus({ preventScroll: true });
+    });
+  }
+</script>

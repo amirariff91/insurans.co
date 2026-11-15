@@ -25,6 +25,13 @@ const corrections = [
       'Nama pelan Prudential dibetulkan supaya sepadan dengan nama rasmi syarikat.',
       'Penerangan pelepasan cukai insurans nyawa dibetulkan.',
       'Statistik yang tiada sumber dibuang.',
+      'Nota motosikal elektrik pada kalkulator roadtax motosikal dibetulkan: struktur kadar mengikut watt sudah ada dalam garis panduan JPJ yang lebih awal. Pekeliling JPJ Bil.01/2026 bertarikh 1 April 2026 menyatakan pengecualian 50% kadar asas; garis panduan terdahulu tidak menyebutnya.',
+      'Manfaat pemulihan Zurich Early Care Critical Illness dibetulkan kepada 12% keseluruhan, dibayar 1% sebulan selama 12 bulan, bukan 12% sebulan.',
+      'Harga Honda City Hatchback kini dipetik daripada senarai harga Honda Malaysia.',
+      'Nama akta bagi Skim Keilatan PERKESO dibetulkan kepada Akta Keselamatan Sosial Pekerja 1969 (Akta 4).',
+      'Angka tanpa sumber dan kenyataan tentang kedudukan (ranking) dibuang daripada beberapa halaman.',
+      'Penerangan takaful dibetulkan di setiap halaman: harga takaful boleh lebih rendah, sama atau lebih tinggi daripada insurans konvensional, dan agihan lebihan (surplus) tidak dijamin.',
+      'Jadual anggaran premium insurans nyawa dibuang kerana tiada kadar yang diterbitkan syarikat insurans untuk dirujuk; halaman itu kini menerangkan cara membandingkan sebut harga.',
     ],
   },
   {
@@ -50,22 +57,21 @@ const corrections = [
   schema={schema}
   ads={false}
 >
-  <article class="bg-white border-b border-stone-200">
-    <div class="border-b border-stone-200">
-      <div class="container-article py-10 sm:py-14">
-        <p class="label mb-4">Dasar Laman</p>
-        <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <article class="bg-white">
+    <div>
+      <div class="container-article pt-6 pb-4 sm:pt-8">
+        <h1 class="ea-h1 mb-3">
           Kaedah editorial
         </h1>
-        <p class="text-lg text-stone-600 leading-relaxed mb-4">
+        <Byline dateModified={dateModified} />
+        <p class="text-lg text-stone-700 leading-relaxed mb-4">
           Halaman ini menerangkan cara kami mengira anggaran harga, dari mana maklumat datang, bagaimana kami membetulkan kesilapan, dan bagaimana laman ini mendapat pendapatan.
         </p>
-        <Byline dateModified={dateModified} />
       </div>
     </div>
 
     <div class="container-article py-10 sm:py-14">
-      <div class="prose-editorial max-w-none">
+      <div class="prose-editorial prose-bars max-w-none">
 
         <h2 id="siapa">Siapa yang menulis</h2>
         <p>
@@ -99,12 +105,12 @@ const corrections = [
           <li>Lembaga Hasil Dalam Negeri (LHDN), untuk pelepasan cukai</li>
         </ul>
         <p>
-          Di mana boleh, setiap fakta mempunyai pautan sumber dan tarikh sumber itu dibaca. Jika kami tidak dapat mengesahkan sesuatu, kami tidak meneka angkanya.
+          Jika boleh, setiap fakta mempunyai pautan sumber dan tarikh sumber itu dibaca. Jika kami tidak dapat mengesahkan sesuatu, kami tidak meneka angkanya.
         </p>
 
         <h2 id="semakan">Tarikh semakan</h2>
         <p>
-          Setiap halaman menunjukkan tarikh kemaskini, dan di mana berkenaan, tarikh sumber dibaca. Fakta produk dan talian tuntutan disemak semula apabila syarikat mengemas kini dokumennya. Anggaran premium dikira semula apabila kaedah berubah. Perubahan penting dicatat dalam <a href="#log-pembetulan">log pembetulan</a> di bawah.
+          Setiap halaman menunjukkan tarikh kemas kini dan, jika berkenaan, tarikh sumber dibaca. Fakta produk dan talian tuntutan disemak semula apabila syarikat mengemas kini dokumennya. Anggaran premium dikira semula apabila kaedah berubah. Perubahan penting dicatat dalam <a href="#log-pembetulan">log pembetulan</a> di bawah.
         </p>
 
         <h2 id="ai">Penggunaan alat AI</h2>

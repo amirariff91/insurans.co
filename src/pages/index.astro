@@ -1,9 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
-import AnswerCard from '../components/AnswerCard.astro';
 import CtaBand from '../components/CtaBand.astro';
 import EditorialStamp from '../components/EditorialStamp.astro';
-import ModelPicker from '../components/ModelPicker.astro';
+import Ikon from '../components/Ikon.astro';
+import CarThumb from '../components/CarThumb.astro';
+import HomeAnswer from '../components/edisi/HomeAnswer.astro';
+import Dock from '../components/edisi/Dock.astro';
+import ModelRail from '../components/edisi/ModelRail.astro';
+import ToolsRail from '../components/edisi/ToolsRail.astro';
+import TerkiniRail from '../components/edisi/TerkiniRail.astro';
+import HomeTypes from '../components/edisi/HomeTypes.astro';
+import '../styles/edisi-answer.css';
 import companies from '../data/companies.json';
 import carModels from '../data/car-models.json';
 import comparisons from '../data/comparisons.json';
@@ -19,6 +26,17 @@ const leadMyvi = carModels.find((car) => car.slug === 'perodua-myvi')!;
 const leadSmall55 = `RM${leadNum(leadAxia.premiumNCD55Min)}–RM${leadNum(leadMyvi.premiumNCD55Max)}`;
 const leadSmall0 = `RM${leadNum(leadAxia.premiumNCD0Min)}–RM${leadNum(leadMyvi.premiumNCD0Max)}`;
 const carModelCount = carModels.length;
+// Front-page picker: the most-searched models, in the concept's order. Figures come from car-models.json via carSteps.
+const pickSlugs = ['perodua-myvi', 'perodua-axia', 'perodua-bezza', 'proton-saga', 'honda-city', 'toyota-vios', 'proton-x50', 'perodua-alza'];
+const pickModels = pickSlugs.map((slug) => carModels.find((car) => car.slug === slug)).filter(Boolean);
+const calculators = [
+  { href: '/tools/ncd-calculator/', label: 'Kalkulator NCD' },
+  { href: '/tools/kalkulator-roadtax/', label: 'Kalkulator roadtax kereta' },
+  { href: '/tools/kalkulator-roadtax-motosikal/', label: 'Kalkulator roadtax motosikal' },
+  { href: '/tools/kalkulator-roadtax-ev/', label: 'Kalkulator roadtax kereta elektrik' },
+  { href: '/tools/kalkulator-insurans-rumah/', label: 'Kalkulator insurans rumah' },
+  { href: '/tools/kalkulator-coverage-nyawa/', label: 'Kalkulator coverage nyawa' },
+];
 const comparisonCount = comparisons.length;
 
 
@@ -31,432 +49,359 @@ const schema = {
   "inLanguage": ["ms", "en"]
 };
 
+// One source for the visible FAQ and its FAQPage JSON-LD. `ld: false` keeps the first question out of the
+// JSON-LD, as before; the JSON-LD answer is the visible answer as plain text (tags removed, whitespace collapsed).
+const homeFaqs = [
+  {
+    q: 'Wajib ke beli insurans kereta?',
+    a: `Ya, memang wajib. Minimum mesti ada <strong>insurans pihak ketiga (third-party)</strong>. Tanpa insurans yang sah,
+          anda tidak boleh renew roadtax. Jika ditangkap polis memandu tanpa insurans,
+          anda boleh didenda sehingga <strong>RM1,000</strong> atau dipenjara sehingga 3 bulan.
+          Ini bukan pilihan; ia ditetapkan dalam Road Transport Act 1987 (Akta Pengangkutan Jalan).`,
+    ld: false,
+  },
+  {
+    q: 'Third-party je cukup ke, atau kena ambil comprehensive?',
+    a: `Polisi pihak ketiga hanya melindungi kerosakan kereta <em>orang lain</em>. Kereta anda sendiri langsung tidak dilindungi.
+          Bandingkan polisi pihak ketiga dan <strong>komprehensif</strong> bersama nilai kereta, syarat pinjaman dan kemampuan anda menanggung kerugian.`,
+    ld: true,
+  },
+  {
+    q: 'Boleh ke renew insurans kereta online?',
+    a: `Boleh, dan lebih mudah daripada pergi ke pejabat. Semak NCD sebenar di MyCarInfo atau dengan syarikat insurans. Gunakan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> untuk mengira potongan premium, kemudian minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
+          (<a href="/insurans-online/#beli-terus">lihat senarai beli online di insurans.co/insurans-online/</a>).
+          Bayar online dan anda terus dapat e-cover note, kemudian renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
+          <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.`,
+    ld: true,
+  },
+  {
+    q: 'Apa jadi kalau NCD reset sebab claim?',
+    a: `Claim own damage biasa boleh menyebabkan NCD kembali kepada <strong>0%</strong> pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Jika NCD anda 55%, premium tahun depan boleh naik RM1,000+.
+          Sebab itu, untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik memilih untuk bayar sendiri. Jangan meneka; kira dahulu dengan
+          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa dan kos baiki, untuk membandingkan kos baiki, excess dan kesan terhadap NCD.`,
+    ld: true,
+  },
+  {
+    q: 'Insurans dan takaful: sama ke beza?',
+    a: `Bezanya dari segi konsep. <strong>Takaful</strong> menggunakan prinsip saling bantu-membantu (ta'awun) dan patuh Syariah.
+          Lebihan dana boleh dikongsi mengikut syarat sijil dan nisbah yang ditetapkan. Agihan kepada peserta tidak dijamin. Bagi <strong>insurans konvensional</strong>, premium masuk ke syarikat
+          dan keuntungannya milik syarikat. Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk.
+          Jika anda mahu pilihan yang patuh Syariah, pilih takaful. Jika tidak kisah, pilih yang harga dan servisnya paling sesuai.`,
+    ld: true,
+  },
+  {
+    q: 'Apa tu "agreed value" dan "market value"?',
+    a: `<strong>Market value</strong> (nilai pasaran): syarikat membayar berdasarkan nilai kereta semasa claim. Nilai kereta susut setiap tahun,
+          jadi bayaran mungkin kurang daripada yang dijangka. <strong>Agreed value</strong> (nilai dipersetujui): anda dan syarikat bersetuju dengan satu jumlah
+          tetap semasa membeli polisi. Bandingkan premium dan syarat kedua-duanya tanpa menganggap satu kaedah sentiasa lebih mahal.
+          Dengan agreed value, jumlah yang dipersetujui menjadi asas penyelesaian total loss, tertakluk pada terma polisi.`,
+    ld: true,
+  },
+];
+const plainText = (html: string) => html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Third-party je cukup ke, atau kena ambil comprehensive?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Third-party cuma cover kerosakan kereta orang lain. Kereta sendiri langsung tak dilindungi. Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil comprehensive. Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000."
-      }
+  "mainEntity": homeFaqs.filter((faq) => faq.ld).map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": plainText(faq.a),
     },
-    {
-      "@type": "Question",
-      "name": "Boleh ke renew insurans kereta online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan Kalkulator NCD, lepas tu minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my (lihat senarai beli online di insurans.co/insurans-online/). Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh: cara renew insurans kereta online."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa jadi kalau NCD reset sebab claim?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+. Sebab tu untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik pilih bayar sendiri. Jangan agak-agak — kira dulu dengan Kalkulator NCD: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Insurans dan takaful — sama ke beza?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Beza dari segi konsep. Takaful guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah. Lebihan dana dikongsi balik kepada peserta. Insurans konvensional — premium masuk syarikat, untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je. Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa tu \"agreed value\" dan \"market value\"?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Market value — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun, so payout mungkin kurang dari yang dijangka). Agreed value — anda dan syarikat setuju satu jumlah tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss. Untuk kereta baru atau kereta mahal, agreed value lagi selamat."
-      }
-    }
-  ]
+  })),
 };
 ---
 
 <Base
-  title="Anggaran Harga Insurans Kereta Malaysia 2026"
-  description={`Panduan insurans bebas, bukan ejen atau broker: anggaran harga insurans ${carModelCount} model kereta, kalkulator NCD & roadtax, perbandingan dan profil syarikat.`}
+  title="Insurans Malaysia 2026: Kereta, Medical Card & Takaful"
+  description={`Panduan insurans bebas, bukan ejen atau broker: anggaran harga insurans kereta ${carModelCount} model, kalkulator NCD & roadtax, medical card, nyawa, rumah dan takaful.`}
   schema={schema}
   pageType="home"
 >
-  <!-- Utility Masthead -->
-  <section class="border-b-2 border-stone-900 bg-krim-50">
-    <div class="container-wide py-10 sm:py-16">
-      <div class="mx-auto max-w-3xl">
-        <h1 class="font-serif text-headline-mobile lg:text-headline-lg text-stone-900 mb-5">
-          Harga Insurans Kereta Malaysia 2026
-        </h1>
-        <p class="text-lg font-semibold leading-relaxed text-stone-800">
-          Bukan ejen. Bukan broker.
-        </p>
+  <div class="ep hp">
+    <div class="ep-main">
+      <HomeAnswer h1="Harga Insurans Kereta Malaysia 2026" models={pickModels} initial={exampleModel.slug} allCount={carModelCount} />
 
-        <div class="mt-7">
-          <ModelPicker />
-        </div>
+      <HomeTypes />
 
-        <div class="mt-6">
-          <AnswerCard
-            slug={exampleModel.slug}
-            model={exampleModel.fullName}
-            year="2026"
-            premium0={{ min: exampleModel.premiumNCD0Min, max: exampleModel.premiumNCD0Max }}
-            premium55={{ min: exampleModel.premiumNCD55Min, max: exampleModel.premiumNCD55Max }}
-            compact
-          />
-        </div>
-        <div class="mt-3 mr-2">
+      <!-- Who writes this, and how it is checked -->
+      <section class="mod" aria-labelledby="tentang">
+        <h2 class="mod-bar" id="tentang">Bukan ejen. Bukan broker.</h2>
+        <div class="mod-in">
+          <p class="ix-s">
+            Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar <strong class="numeric">{leadSmall55}</strong> setahun dengan NCD 55%, dan <span class="numeric">{leadSmall0}</span> tanpa NCD. Insurans.co membantu anda menyemak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online tanpa jargon.
+          </p>
+          <div class="hp-by">
+            <a href="/penulis/amir-ariff/" class="hp-by-img"><img src="/images/penulis/amir-ariff-colour-192.webp" alt="Amir Ariff" width="56" height="56" loading="lazy" decoding="async" /></a>
+            <p>Oleh <a href="/penulis/amir-ariff/">Amir Ariff</a> · Pengasas &amp; Editor</p>
+          </div>
+          <p class="hp-trust" data-section="trust-strip">
+            Disunting oleh Amir Ariff <span aria-hidden="true">·</span> Tiada affiliate atau tajaan <span aria-hidden="true">·</span>
+            <a href="/kaedah-editorial/">Cara kami menyemak</a>
+          </p>
           <EditorialStamp
             premiumReviewed={exampleModel.premiumReviewed}
             sources={exampleModel.sources}
           />
+          <p class="ix-src">{carModelCount} model · {companyCount} syarikat · {comparisonCount} perbandingan · bebas daripada ejen dan broker.</p>
         </div>
-        <a
-          href="/tools/ncd-calculator/"
-          data-cta="hero_secondary"
-          class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:text-hijau-600"
-        >
-          Tak pasti NCD? Kira NCD saya →
-        </a>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-700">
-          Berapa patut anda bayar untuk insurans kereta? Harga insurans kereta di Malaysia untuk Axia/Myvi sekitar {leadSmall55} setahun dengan NCD 55%, dan {leadSmall0} tanpa NCD. Insurans.co bantu anda semak anggaran ikut 39 model, kira NCD, bandingkan 12 syarikat, dan renew online — tanpa jargon.
-        </p>
-        <p class="mt-5 border-t border-stone-300 pt-4 text-sm font-semibold text-stone-600" data-section="trust-strip">
-          Disunting oleh Amir Ariff <span aria-hidden="true">·</span> Tiada affiliate atau tajaan <span aria-hidden="true">·</span>
-          <a href="/kaedah-editorial/" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:text-hijau-600">Cara kami menyemak</a>
-        </p>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Main Actions -->
-  <section class="container-wide py-10 sm:py-12">
-    <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-6 sm:gap-8">
-      <a href="/car-insurance/" data-cta="card_car" class="card-editorial group block border-2 border-stone-900">
-        <h2 class="font-serif text-headline-md text-stone-900 mb-3 group-hover:text-hijau-700 transition-colors">
-          Harga insurans kereta popular 2026
-        </h2>
-        <p class="text-stone-600 leading-relaxed mb-5">
-          Terus tengok range premium untuk Axia, Myvi, Saga, Vios, City dan model lain — termasuk NCD 0% vs 55%.
-        </p>
-        <div class="grid sm:grid-cols-2 gap-3 numeric">
-          {popularCars.slice(0, 4).map(car => (
-            <div class="bg-krim-100 border border-stone-200 p-4">
-              <p class="font-semibold text-stone-900">{car.fullName}</p>
-              <p class="text-xs text-stone-600 mt-1">NCD 55%</p>
-              <p class="font-serif text-xl text-hijau-800 mt-1">{car.premiumNCD55}</p>
-            </div>
-          ))}
+      <!-- Car: the site's strongest section -->
+      <section class="hp-sec" aria-labelledby="kereta-h">
+        <h2 class="hp-sec-h" id="kereta-h">Insurans kereta</h2>
+        <div class="hp-grid">
+        <section class="mod" aria-labelledby="popular">
+          <h3 class="mod-bar mod-lab" id="popular">Julat premium ikut model: NCD 0% vs 55%</h3>
+          <div class="mod-in">
+            <p class="ix-s">Terus lihat julat premium untuk Axia, Myvi, Saga, Vios, City dan model lain, termasuk NCD 0% dan 55%.</p>
+            <a href="#harga-sebenar" class="hp-more">Lihat harga {popularCars.length} model dalam panduan ini <Ikon name="i-bawah" size={18} /></a>
+            <a href="/car-insurance/" data-cta="card_car" class="hp-more">Bandingkan ikut model <Ikon name="i-kanan" size={18} /></a>
+          </div>
+        </section>
+        <section class="mod" data-tint="pink" aria-labelledby="kalk-ncd">
+          <h3 class="mod-bar" id="kalk-ncd">Kira dulu “patut ke claim?” sebelum NCD reset</h3>
+          <div class="mod-in">
+            <p class="ix-s">Masukkan premium asal dan pilih tahap NCD. Termasuk kiraan “patut ke claim?” sebelum NCD hilang.</p>
+            <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="ea-btn ea-btn-o">Kira NCD sekarang <Ikon name="i-kanan" size={20} /></a>
+          </div>
+        </section>
         </div>
-        <span class="mt-5 inline-block text-sm font-semibold text-hijau-700 group-hover:text-hijau-600">
-          Bandingkan ikut model →
-        </span>
-      </a>
-
-      <div class="space-y-6">
-        <a href="/tools/ncd-calculator/" data-cta="card_ncd" class="card-editorial group block border-2 border-hijau-700 bg-hijau-50 hover:bg-hijau-100 transition-colors">
-          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
-            Kalkulator NCD — kira berapa anda jimat
-          </h2>
-          <p class="text-stone-700 text-sm leading-relaxed mb-3">
-            Masukkan premium asal, pilih NCD level. Termasuk kira-kira “patut ke claim?” sebelum NCD reset.
+      <!-- Harga sebenar -->
+      <section class="mod" aria-labelledby="harga-sebenar">
+        <h3 class="mod-bar" id="harga-sebenar">Anggaran polisi komprehensif setahun</h3>
+        <div class="mod-in">
+          <p class="ix-s">
+            Kami kumpulkan anggaran harga untuk model kereta yang disenaraikan.
+            Harga di bawah ialah untuk polisi komprehensif setahun.
           </p>
-          <span class="text-sm font-semibold text-hijau-700">Kira NCD sekarang →</span>
-        </a>
-
-        <div class="card-editorial">
-          <a href="/perbandingan/" data-cta="card_compare" class="group block">
-            <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
-              Pilih antara dua syarikat?
-            </h2>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              {comparisonCount} perbandingan head-to-head — Etiqa vs Allianz, Takaful vs konvensional, harga dan claim line.
-            </p>
-          </a>
-          <ul class="mt-4 space-y-2 text-sm">
-            <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA — mana medical card lagi power?</a></li>
-            <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich — insurans kereta mana lagi murah?</a></li>
-            <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich — coverage premium, mana berbaloi?</a></li>
+          <ul class="hp-cars numeric">
+            {popularCars.map(car => (
+              <li>
+                <a href={`/car-insurance/${car.slug}/`}>
+                  <CarThumb slug={car.slug} />
+                  <span class="hp-car-n">{car.fullName}</span>
+                  <span class="hp-car-m">Harga pasaran: {car.marketValueRange}</span>
+                  <span class="hp-car-l">NCD 55%</span>
+                  <span class="hp-car-p">{car.premiumNCD55}</span>
+                  <span class="hp-car-z">NCD 0%: {car.premiumNCD0}</span>
+                  <span class="hp-car-go">Bandingkan syarikat <Ikon name="i-kanan" size={18} /></span>
+                </a>
+              </li>
+            ))}
           </ul>
-        </div>
-
-        <a href="/takaful/" data-cta="card_takaful" class="card-editorial group block">
-          <h2 class="font-serif text-headline-sm text-stone-900 mb-2 group-hover:text-hijau-700 transition-colors">
-            Takaful atau insurans konvensional?
-          </h2>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            Coverage lebih kurang sama. Beza utama: takaful patuh Syariah, lebihan dana boleh dikongsi.
+          <p class="ix-src">
+            Nota: Harga di atas ialah anggaran untuk tahun 2026. Harga sebenar bergantung pada
+            umur kereta, lokasi, rekod pemanduan, dan syarikat insurans yang dipilih.
+            Selepas liberalisasi tarif motor 2017, setiap syarikat boleh menetapkan harga sendiri.
           </p>
-        </a>
-      </div>
+        </div>
+      </section>
+
+      <!-- Cara renew -->
+      <section class="mod" data-section="renew" data-tint="sky" aria-labelledby="renew-h">
+        <details class="hp-fold">
+        <summary class="mod-bar"><h3 id="renew-h">Renew online dalam 4 langkah, tak perlu ke pejabat</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
+        <div class="mod-in">
+          <p class="ix-s">Anda tidak perlu pergi ke pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.</p>
+          <ol class="hp-steps">
+            <li>
+              <h4>Semak NCD anda</h4>
+              <p>Semak di <a href="https://www.myeg.com.my" target="_blank" rel="noopener">MyEG</a> atau tanya ejen. Ini penting kerana NCD mempengaruhi harga premium.</p>
+            </li>
+            <li>
+              <h4>Dapatkan quotation</h4>
+              <p>Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>).</p>
+            </li>
+            <li>
+              <h4>Bayar &amp; dapat e-cover note</h4>
+              <p>Bayar online (FPX, kad kredit). E-cover note dihantar terus ke e-mel. Simpan PDF itu.</p>
+            </li>
+            <li>
+              <h4>Renew roadtax</h4>
+              <p>Boleh renew di JPJ, MyEG, Pos Malaysia, atau kaunter di pusat beli-belah.</p>
+            </li>
+          </ol>
+        </div>
+        </details>
+      </section>
+
+      <CtaBand
+        trackingSection="renew"
+        level={3}
+        heading="Minta sebut harga terus daripada syarikat insurans"
+        body="Kira NCD dahulu, kemudian semak senarai syarikat yang menjual insurans kereta secara online di laman rasmi mereka."
+        primary={{ label: 'Lihat senarai beli online →', href: '/insurans-online/#beli-terus' }}
+        disclosure="Tiada hubungan berbayar atau affiliate dengan mana-mana syarikat. Pembelian polisi dibuat di laman syarikat, bukan di Insurans.co."
+      />
+
+      <!-- Company directory -->
+      <section class="mod" aria-labelledby="syarikat">
+        <details class="hp-fold">
+        <summary class="mod-bar"><h3 id="syarikat">Senarai syarikat insurans motor, bukan ranking</h3><Ikon name="i-bawah" size={22} class="hp-fold-i" /></summary>
+        <div class="mod-in">
+          <p class="ix-s">Senarai syarikat, bukan ranking. Baca profil setiap syarikat.</p>
+          <ul class="hp-co">
+            {topMotorInsurers.map((company) => (
+              <li>
+                <h4>
+                  <a href={`/companies/${company.slug}/`}>{company.name}</a>
+                  {company.takaful && <span class="hp-tag">Takaful</span>}
+                </h4>
+                <p>{company.verdictBM}</p>
+                {company.claimLine && <p class="hp-co-c">Claim: {company.claimLine}</p>}
+              </li>
+            ))}
+          </ul>
+          <a href="/companies/" class="hp-more">Semua syarikat <Ikon name="i-kanan" size={18} /></a>
+        </div>
+        </details>
+      </section>
+
+      <!-- FAQ -->
+      <section class="mod" aria-labelledby="soalan">
+        <h3 class="mod-bar" id="soalan">Insurans kereta wajib: sekurang-kurangnya perlindungan pihak ketiga</h3>
+        <div class="mod-in hp-faq">
+      {homeFaqs.map((faq, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary>{faq.q}</summary>
+          <p set:html={faq.a} />
+        </details>
+      ))}
+        </div>
+      </section>
+      </section>
+
+      <!-- Beyond car: one tool and the comparisons -->
+      <section class="hp-sec" aria-labelledby="lain-h">
+        <h2 class="hp-sec-h" id="lain-h">Rumah, kesihatan dan takaful</h2>
+        <div class="hp-grid">
+          <section class="mod" aria-labelledby="kalk-rumah">
+            <h3 class="mod-bar mod-lab" id="kalk-rumah">Kalkulator insurans rumah</h3>
+            <div class="mod-in">
+              <p class="ix-s">Fahami beza houseowner, householder dan fire-only.</p>
+              <a href="/tools/kalkulator-insurans-rumah/" data-cta="card_home_calc" class="ea-btn ea-btn-o">Kira insurans rumah <Ikon name="i-kanan" size={20} /></a>
+            </div>
+          </section>
+
+        <section class="mod" aria-labelledby="takaful-q">
+          <h3 class="mod-bar" id="takaful-q">Takaful patuh Syariah, dan lebihan dana boleh dikongsi</h3>
+          <div class="mod-in">
+            <p class="ix-s">Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk. Beza utama: takaful patuh Syariah, dan lebihan dana boleh dikongsi.</p>
+            <a href="/takaful/" data-cta="card_takaful" class="hp-more">Baca tentang takaful <Ikon name="i-kanan" size={18} /></a>
+          </div>
+        </section>
+        </div>
+        <section class="mod" aria-labelledby="banding">
+          <h3 class="mod-bar mod-lab" id="banding">{comparisonCount} perbandingan satu lawan satu</h3>
+          <div class="mod-in">
+            <p class="ix-s">{comparisonCount} perbandingan satu lawan satu: Etiqa vs Allianz, takaful vs konvensional, produk, talian claim dan saluran digital.</p>
+            <ul class="hp-links">
+              <li><a href="/perbandingan/prudential-vs-aia/">Prudential vs AIA: perbandingan medical card</a></li>
+              <li><a href="/perbandingan/etiqa-vs-zurich/">Etiqa vs Zurich: perbandingan harga insurans kereta</a></li>
+              <li><a href="/perbandingan/allianz-vs-zurich/">Allianz vs Zurich: perbandingan perlindungan dan premium</a></li>
+            </ul>
+            <a href="/perbandingan/" data-cta="card_compare" class="hp-more">Semua perbandingan <Ikon name="i-kanan" size={18} /></a>
+          </div>
+        </section>
+      </section>
+
+
+
+
+
+
     </div>
-  </section>
-  <section class="container-wide py-4">
-    <p class="text-base leading-6 text-stone-700">{carModelCount} model · {companyCount} syarikat · {comparisonCount} perbandingan · bebas daripada ejen dan broker.</p>
-  </section>
 
-  <div class="divider-bold container-wide"></div>
+    <aside class="ep-tools" aria-label="Alat">
+      <ToolsRail model={exampleModel} related={[]} calculatorUrl={`/tools/ncd-calculator/?model=${exampleModel.slug}`} hooks />
+      <nav class="mod" aria-labelledby="kalkulator">
+        <h2 class="mod-bar mod-lab" id="kalkulator">{calculators.length} kalkulator: NCD, roadtax, rumah, nyawa</h2>
+        <ul class="hp-calc">
+          {calculators.map((c) => (
+            <li><a href={c.href}><span>{c.label}</span></a></li>
+          ))}
+          <li><a href="/tools/"><span>Semua alat</span><Ikon name="i-kanan" size={18} /></a></li>
+        </ul>
+      </nav>
+      <TerkiniRail />
+    </aside>
 
-  <!-- Cara Renew — Practical Section -->
-  <section data-section="renew" class="bg-hijau-50 border-y border-hijau-200 py-10 sm:py-12">
-    <div class="container-wide">
-      <h2 class="font-serif text-headline-md text-stone-900 mb-4">
-        Nak renew insurans kereta online?
-      </h2>
-      <p class="text-stone-600 mb-8 max-w-2xl">
-        Tak perlu pergi pejabat insurans. Semak NCD, bandingkan harga, bayar online, kemudian renew roadtax.
-      </p>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="relative pl-10">
-          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">1.</span>
-          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Semak NCD anda</h3>
-          <p class="text-sm text-stone-600">
-            Pergi <a href="https://www.myeg.com.my" target="_blank" rel="noopener" class="text-hijau-700 underline">MyEG</a>
-            atau check dengan ejen. Penting sebab NCD affect harga premium.
-          </p>
-        </div>
-        <div class="relative pl-10">
-          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">2.</span>
-          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Dapatkan quotation</h3>
-          <p class="text-sm text-stone-600">
-            Minta sebut harga terus daripada dua atau tiga syarikat insurans untuk perlindungan yang sama
-            (<a href="/insurans-online/#beli-terus" class="text-hijau-700 underline">lihat senarai beli online</a>).
-          </p>
-        </div>
-        <div class="relative pl-10">
-          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">3.</span>
-          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Bayar &amp; dapat e-cover note</h3>
-          <p class="text-sm text-stone-600">
-            Bayar online (FPX, kad kredit). E-cover note terus masuk email. Simpan PDF tu.
-          </p>
-        </div>
-        <div class="relative pl-10">
-          <span class="absolute left-0 top-0 font-serif text-2xl text-hijau-600">4.</span>
-          <h3 class="font-semibold text-stone-900 mb-1 text-sm">Renew roadtax</h3>
-          <p class="text-sm text-stone-600">
-            Boleh renew di <strong>JPJ</strong>, <strong>MyEG</strong>, <strong>Pos Malaysia</strong>, atau kaunter di shopping mall.
-          </p>
-        </div>
-      </div>
+    <div class="ep-models">
+      <ModelRail current="" />
     </div>
-  </section>
-
-  <div class="container-wide py-10 sm:py-12">
-    <CtaBand
-      trackingSection="renew"
-      heading="Minta sebut harga terus daripada syarikat insurans"
-      body="Kira NCD dahulu, kemudian semak senarai syarikat yang menjual insurans kereta secara online di laman rasmi mereka."
-      primary={{ label: 'Lihat senarai beli online →', href: '/insurans-online/#beli-terus' }}
-      disclosure="Tiada hubungan berbayar atau affiliate dengan mana-mana syarikat. Pembelian polisi dibuat di laman syarikat, bukan di Insurans.co."
-    />
   </div>
-
-  <!-- Company Directory — Editorial Style -->
-  <section class="container-wide py-10 sm:py-12">
-    <div class="flex items-baseline justify-between mb-8">
-      <div>
-        <h2 class="font-serif text-headline-md text-stone-900 mb-2">Syarikat insurans motor</h2>
-        <p class="text-stone-600 text-sm">Senarai syarikat, bukan ranking — baca profil setiap syarikat.</p>
-      </div>
-      <a href="/companies/" class="hidden sm:inline text-sm font-semibold text-hijau-700 hover:text-hijau-600">
-        Semua syarikat →
-      </a>
-    </div>
-
-    <div class="space-y-4">
-      {topMotorInsurers.map((company, i) => (
-        <article class="card-editorial flex flex-col sm:flex-row sm:items-start gap-4">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-baseline gap-3 mb-1.5">
-              <h3 class="font-semibold text-stone-900">
-                <a href={`/companies/${company.slug}/`} class="hover:text-hijau-700 transition-colors">{company.name}</a>
-              </h3>
-              {company.takaful && (
-                <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
-              )}
-            </div>
-            <p class="text-sm text-stone-600 mb-2">{company.verdictBM}</p>
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-500">
-              {company.claimLine && <span>Claim: {company.claimLine}</span>}
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
-
-    <div class="mt-6 sm:hidden">
-      <a href="/companies/" class="text-sm font-semibold text-hijau-700">Lihat semua syarikat →</a>
-    </div>
-  </section>
-
-  <div class="divider-bold container-wide"></div>
-
-  <!-- Harga Sebenar Section -->
-  <section class="container-wide py-10 sm:py-12">
-    <h2 class="font-serif text-headline-md text-stone-900 mb-3">
-      Berapa harga insurans kereta sebenar?
-    </h2>
-    <p class="text-stone-600 mb-8 max-w-2xl">
-      Kami compile anggaran harga untuk kereta-kereta popular di Malaysia.
-      Harga di bawah adalah untuk polisi <strong>comprehensive</strong> setahun.
-    </p>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 numeric">
-      {popularCars.map(car => (
-        <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">
-          <p class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">{car.fullName}</p>
-          <p class="text-xs text-stone-500 mt-1">Harga pasaran: {car.marketValueRange}</p>
-          <div class="mt-4 pt-4 border-t border-stone-200">
-            <p class="text-xs uppercase tracking-widest text-stone-500 font-bold">NCD 55%</p>
-            <p class="font-serif text-2xl text-hijau-800 mt-1">{car.premiumNCD55}</p>
-            <p class="text-sm text-stone-500 mt-1">NCD 0%: {car.premiumNCD0}</p>
-          </div>
-          <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Bandingkan syarikat →</span>
-        </a>
-      ))}
-    </div>
-
-    <div class="info-box mt-6">
-      <p class="text-sm text-stone-700">
-        <strong>Nota:</strong> Harga di atas adalah anggaran untuk tahun 2026. Harga sebenar bergantung pada
-        umur kereta, lokasi, rekod pemanduan, dan syarikat insurans yang dipilih.
-        Selepas liberalisasi tarif motor 2017, setiap syarikat boleh set harga sendiri.
-      </p>
-    </div>
-  </section>
-
-  <div class="divider container-wide"></div>
-
-  <!-- FAQ — Conversational BM -->
-  <section class="container-article py-10 sm:py-12">
-    <h2 class="font-serif text-headline-md text-stone-900 mb-8">
-      Soalan yang ramai orang tanya
-    </h2>
-
-    <div>
-      <details class="faq-item" open>
-        <summary>Wajib ke beli insurans kereta?</summary>
-        <p>
-          Ya, memang wajib. Minimum kena ada <strong>third-party insurance</strong>. Tanpa insurans yang sah,
-          anda tak boleh renew roadtax. Kalau kena tangkap polis memandu tanpa insurans,
-          boleh kena denda sehingga <strong>RM1,000</strong> atau penjara sehingga 3 bulan.
-          Ini bukan optional — memang dalam Road Transport Act 1987.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Third-party je cukup ke, atau kena ambil comprehensive?</summary>
-        <p>
-          Third-party cuma cover kerosakan kereta <em>orang lain</em>. Kereta sendiri langsung tak dilindungi.
-          Kalau kereta anda masih bernilai dan anda tak mampu bayar cash kalau accident, ambil <strong>comprehensive</strong>.
-          Third-party sesuai untuk kereta lama yang nilai dah sangat rendah — contohnya kereta bawah RM10,000.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Boleh ke renew insurans kereta online?</summary>
-        <p>
-          Boleh, dan lagi senang dari pergi pejabat. Semak NCD dulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a>, lepas tu minta sebut harga terus daripada syarikat insurans, contohnya di etiqa.com.my
-          (<a href="/insurans-online/#beli-terus">lihat senarai beli online</a>).
-          Bayar online, dapat e-cover note terus, lepas tu renew roadtax di MyEG atau Pos Malaysia. Langkah penuh:
-          <a href="/guides/renew-car-insurance/">cara renew insurans kereta online</a>.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Apa jadi kalau NCD reset sebab claim?</summary>
-        <p>
-          Claim own damage biasa boleh menyebabkan NCD kembali kepada <strong>0%</strong> pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD. Kalau NCD anda 55%, premium tahun depan boleh naik RM1,000+.
-          Sebab tu untuk calar kecil bawah RM1,000–RM2,000, sesetengah pemilik pilih bayar sendiri. Jangan agak-agak — kira dulu dengan
-          <a href="/tools/ncd-calculator/">Kalkulator NCD</a>: masukkan premium asal, NCD semasa, dan kos repair, tool akan tunjuk sama ada berbaloi claim atau tidak.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Insurans dan takaful — sama ke beza?</summary>
-        <p>
-          Beza dari segi konsep. <strong>Takaful</strong> guna prinsip saling bantu-membantu (ta'awun) dan patuh Syariah.
-          Lebihan dana dikongsi balik kepada peserta. <strong>Insurans konvensional</strong> — premium masuk syarikat,
-          untung pun milik syarikat. Dari segi coverage dan proses claim, lebih kurang sama je.
-          Kalau anda nak yang patuh Syariah, pilih takaful. Kalau tak kisah, pilih mana yang harga dan servis paling sesuai.
-        </p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Apa tu "agreed value" dan "market value"?</summary>
-        <p>
-          <strong>Market value</strong> — syarikat bayar berdasarkan nilai kereta masa claim (kereta depreciate setiap tahun,
-          so payout mungkin kurang dari yang dijangka). <strong>Agreed value</strong> — anda dan syarikat setuju satu jumlah
-          tetap masa beli polisi. Premium agreed value lebih mahal, tapi anda tahu exactly berapa dapat kalau total loss.
-          Untuk kereta baru atau kereta mahal, agreed value lagi selamat.
-        </p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Type Categories -->
-  <section class="bg-krim-50 border-t-2 border-stone-900 py-10 sm:py-12">
-    <div class="container-wide">
-      <h2 class="font-serif text-headline-md text-stone-900 mb-6">Jenis-jenis insurans lain</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        <a href="/car-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Kereta</p>
-          <p class="text-xs text-stone-500 mt-1">Motor & motosikal</p>
-        </a>
-        <a href="/health-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Kesihatan</p>
-          <p class="text-xs text-stone-500 mt-1">Medical card</p>
-        </a>
-        <a href="/medical-cards/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Medical Card</p>
-          <p class="text-xs text-stone-500 mt-1">Pelan hospital</p>
-        </a>
-        <a href="/life-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Nyawa</p>
-          <p class="text-xs text-stone-500 mt-1">Life & investment-linked</p>
-        </a>
-        <a href="/personal-accident/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Kemalangan Diri</p>
-          <p class="text-xs text-stone-500 mt-1">Perlindungan kemalangan</p>
-        </a>
-        <a href="/takaful/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Takaful</p>
-          <p class="text-xs text-stone-500 mt-1">Patuh Syariah</p>
-        </a>
-        <a href="/critical-illness/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Penyakit Kritikal</p>
-          <p class="text-xs text-stone-500 mt-1">Critical illness</p>
-        </a>
-        <a href="/bantuan-insurans/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Bantuan &amp; EPF</p>
-          <p class="text-xs text-stone-500 mt-1">mySalam, i-Lindung, Tenang</p>
-        </a>
-        <a href="/travel-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Perjalanan</p>
-          <p class="text-xs text-stone-500 mt-1">Travel insurance</p>
-        </a>
-        <a href="/insurans-online/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Online</p>
-          <p class="text-xs text-stone-500 mt-1">Banding & beli online</p>
-        </a>
-        <a href="/home-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Rumah</p>
-          <p class="text-xs text-stone-500 mt-1">Fire, houseowner & householder</p>
-        </a>
-        <a href="/motorcycle-insurance/" class="p-4 border border-stone-200 hover:border-hijau-400 hover:bg-hijau-50 transition-colors group">
-          <p class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700">Insurans Motosikal</p>
-          <p class="text-xs text-stone-500 mt-1">Roadtax & coverage</p>
-        </a>
-      </div>
-    </div>
-  </section>
 
   {/* Inject FAQ schema separately */}
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Dock answer="[data-ea]" control=".ea-ncd" name={'[data-ha] [data-f="short"]'} />
 </Base>
+
+<style>
+  .hp-grid { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 64rem) { .hp-grid { grid-template-columns: 1fr 1fr; } }
+  .hp-by { display: flex; align-items: center; gap: 0.75rem; }
+  .hp-by-img { flex: none; display: block; border-radius: 50%; }
+  .hp-by-img img { display: block; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1.5px var(--ink); }
+  .hp-by p { font-size: 1rem; }
+  .hp-by p a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; }
+  .hp-trust { font-size: 0.9375rem; font-weight: 500; line-height: 1.6; }
+  .hp-trust a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .hp-more { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; justify-self: start; }
+  .hp-mini { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
+  .hp-mini li { display: grid; gap: 0.1rem; padding: 0.6rem 0.75rem; background: var(--tray); border-radius: var(--r-1); }
+  .hp-mini-n { font-weight: 700; }
+  .hp-mini-l, .hp-car-l { font-size: 0.875rem; color: var(--ink-2); }
+  .hp-mini-p { font: 800 1.25rem/1.15 var(--fd); }
+  .hp-links { list-style: none; margin: 0; padding: 0; display: grid; }
+  .hp-links li + li { border-top: 1px solid rgb(0 0 0 / 0.15); }
+  .hp-links a { display: flex; align-items: center; min-height: 2.75rem; padding: 0.3rem 0; }
+  .hp-steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 0.9rem; }
+  @media (min-width: 40rem) { .hp-steps { grid-template-columns: 1fr 1fr; } }
+  .hp-steps li { counter-increment: s; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.6rem; }
+  .hp-steps li::before { content: counter(s); grid-row: span 2; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: #000; color: #fff; font: 800 1.125rem/1 var(--fd); }
+  .hp-steps h4 { font: 800 1.0625rem/1.25 var(--fd); align-self: center; }
+  .hp-steps p { font-size: 1rem; line-height: 1.5; margin-top: 0.15rem; }
+  .hp-co { list-style: none; margin: 0; padding: 0; display: grid; }
+  .hp-co li { padding: 0.75rem 0; border-top: 1px solid rgb(0 0 0 / 0.15); }
+  .hp-co li:first-child { border-top: 0; padding-top: 0; }
+  .hp-co h4 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; font: 750 1.0625rem/1.25 var(--fd); }
+  .hp-co h4 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .hp-co p { font-size: 1rem; line-height: 1.5; }
+  .hp-co .hp-co-c { font-size: 0.875rem; color: var(--ink-2); margin-top: 0.25rem; }
+  .hp-tag { font: 650 0.875rem/1 var(--f); padding: 0.3em 0.55em; border-radius: var(--r-pill); background: var(--tint-yellow); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.35); }
+  .hp-cars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr)); }
+  @media (min-width: 48rem) { .hp-cars { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); } }
+  .hp-cars a { display: grid; align-content: start; gap: 0.15rem; height: 100%; padding: 0.7rem 0.75rem; border-radius: var(--r-2); box-shadow: inset 0 0 0 1px var(--rule); color: var(--ink); text-decoration: none !important; }
+  .hp-cars a:hover { box-shadow: inset 0 0 0 2px var(--ink); }
+  .hp-cars { --ct-w: 4.5rem; }
+  .hp-car-n { font: 750 1.0625rem/1.2 var(--fd); }
+  .hp-car-m { font-size: 0.875rem; color: var(--ink-2); padding-bottom: 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.15); margin-bottom: 0.35rem; }
+  .hp-car-p { font: 800 1.375rem/1.1 var(--fd); overflow-wrap: anywhere; }
+  .hp-car-z { font-size: 0.9375rem; }
+  .hp-car-go { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.4rem; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; }
+  .hp-faq { gap: 0; }
+  .hp-faq :global(.faq-item p) { font-size: 1rem; line-height: 1.55; }
+  .hp-sec { display: grid; gap: 1rem; }
+  .hp-sec-h { display: flex; align-items: center; gap: 0.55rem; padding-bottom: 0.55rem; border-bottom: 2px solid var(--ink); font: 750 1.375rem/1.15 var(--fd); }
+  .hp-fold > summary { list-style: none; cursor: pointer; }
+  .hp-fold > summary::-webkit-details-marker { display: none; }
+  .hp-fold > summary h3 { display: flex; align-items: center; gap: 0.6rem; flex: 1; margin: 0; font: inherit; color: inherit; }
+  .hp-fold > summary :global(.hp-fold-i) { margin-left: auto; transition: transform 0.15s ease; }
+  .hp-fold[open] > summary :global(.hp-fold-i) { transform: rotate(180deg); }
+  .hp summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  @media (prefers-reduced-motion: reduce) { .hp-fold > summary :global(.hp-fold-i) { transition: none; } }
+  .hp-grid { gap: 1rem; }
+  .hp > .ep-main { gap: 1.5rem; }
+  .hp-grid .ea-btn-o { justify-self: start; background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .hp-grid .ea-btn-o:hover { background: var(--tray); } }
+  .hp :global(.mod-in) { gap: 0.6rem; }
+  .hp-calc { list-style: none; margin: 0; padding: 0; }
+  .hp-calc a { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.35rem 0.9rem; border-top: 1px solid rgb(0 0 0 / 0.12); color: var(--ink); font-weight: 650; text-decoration: none !important; }
+  .hp-calc li:first-child a { border-top: 0; }
+  .hp-calc a:hover { background: var(--tray); }
+  .hp-calc a:hover span { text-decoration: underline; }
+  .hp a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+</style>

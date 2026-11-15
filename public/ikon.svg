@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<!-- insurans.co icons, drawn from the logo. 13 Nov 2026. Original work for this project; no stock icons.
+     Grid 24 by 24 with a 2 unit margin. One stroke, 2.25, round caps and joins, in currentColor.
+     One knob in every icon: r 1.57, which is 1.4 times the stroke as in the logo, and never touching a stroke.
+     Two CSS custom properties reach inside (written here without their two leading hyphens, which an XML
+     comment may not hold): icon-knob, the knob colour, default #D0106F; icon-stroke, the line weight, default 2.25.
+     Use: <svg class="ix-i" aria-hidden="true"><use href="icons.svg#i-kereta"/></svg>
+     Source: the redesign worktree, docs/eeat-revamp-2026-11/round4/icons/icons.svg (copied via the Edisi concept's ikon.svg).
+     No generator for this sprite exists in this repository: edit this file by hand, keeping the grid and knob rules above. -->
+<defs>
+
+<!-- Kereta dan perlindungan (cars and cover) -->
+<symbol id="i-kereta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Model</title>
+  <path d="M6.1 9.5l1.19-4.06A2 2 0 0 1 9.21 4h5.58a2 2 0 0 1 1.92 1.44L17.9 9.5"/>
+  <rect x="3.13" y="9.5" width="17.74" height="8.25" rx="3.25"/>
+  <path d="M5.5 19.9h2M16.5 19.9h2"/>
+  <circle cx="16.5" cy="13.63" r="1.57" fill="currentColor" stroke="none"/>
+  <circle cx="7.5" cy="13.63" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-kemalangan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Kemalangan</title>
+  <path d="M3.69 13.35L3.94 10.24A1.1 1.1 0 0 1 4.85 9.24L6.91 8.88A1.1 1.1 0 0 1 8.1 9.5L9.4 12.35"/>
+  <path d="M3.18 15.07A1.6 1.6 0 0 1 4.48 13.21L8.62 12.48A1.6 1.6 0 0 1 10.47 13.78L10.52 14.08A1.6 1.6 0 0 1 9.22 15.93L5.09 16.66A1.6 1.6 0 0 1 3.23 15.36Z"/>
+  <path d="M4.41 18L5 17.89M9.73 17.06L10.32 16.96"/>
+  <path d="M14.6 12.35L15.9 9.5A1.1 1.1 0 0 1 17.09 8.88L19.15 9.24A1.1 1.1 0 0 1 20.06 10.24L20.31 13.35"/>
+  <path d="M13.53 13.78A1.6 1.6 0 0 1 15.38 12.48L19.52 13.21A1.6 1.6 0 0 1 20.82 15.07L20.77 15.36A1.6 1.6 0 0 1 18.91 16.66L14.78 15.93A1.6 1.6 0 0 1 13.48 14.08Z"/>
+  <path d="M13.68 16.96L14.27 17.06M19 17.89L19.59 18"/>
+  <circle cx="12" cy="6.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-tayar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Betterment</title>
+  <circle cx="12" cy="12" r="8.87"/>
+  <path d="M12 7.8V3.13M15.99 10.7l4.45-1.44M14.47 15.4l2.74 3.78M9.53 15.4l-2.74 3.78M8.01 10.7L3.56 9.26"/>
+  <circle cx="12" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-lindung" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Apa dilindungi</title>
+  <path d="M8.63 6.8L3.13 10.9M15.37 6.8l5.5 4.1"/>
+  <path d="M9.1 15.48L9.89 12.45A1.1 1.1 0 0 1 10.95 11.63H13.05A1.1 1.1 0 0 1 14.11 12.45L14.9 15.48"/>
+  <path d="M8.3 17.08A1.6 1.6 0 0 1 9.9 15.48H14.1A1.6 1.6 0 0 1 15.7 17.08V17.38A1.6 1.6 0 0 1 14.1 18.98H9.9A1.6 1.6 0 0 1 8.3 17.38Z"/>
+  <path d="M9 20.18L9.6 20.18M14.4 20.18L15 20.18"/>
+  <circle cx="12" cy="4.3" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-tanda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Dilindungi</title>
+  <path d="M5.2 13.5l4.3 4.3 6.3-7.9"/>
+  <circle cx="18.41" cy="6.62" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-tambah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Kena tambah</title>
+  <path d="M12 4.6v14.8M5 12h9.1"/>
+  <circle cx="18.3" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+
+<!-- Harga dan kiraan (price and sums) -->
+<symbol id="i-dompet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Excess</title>
+  <rect x="3.13" y="8.6" width="17.74" height="11.3" rx="3"/>
+  <path d="M3.13 11.6V7.4a2.9 2.9 0 0 1 2.9-2.9h10.57"/>
+  <circle cx="16.3" cy="14.25" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-kalkulator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Kira</title>
+  <rect x="4.63" y="3.13" width="14.74" height="17.74" rx="3"/>
+  <path d="M8.6 7.6h6.8"/>
+  <circle cx="9.2" cy="12" r="1.57" fill="currentColor" stroke="none"/>
+  <circle cx="14.8" cy="12" r="1.57" fill="currentColor" stroke="none"/>
+  <circle cx="9.2" cy="16.65" r="1.57" fill="currentColor" stroke="none"/>
+  <circle cx="14.8" cy="16.65" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+
+<!-- Dokumen dan masa (papers and time) -->
+<symbol id="i-resit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Resit</title>
+  <path d="M5.13 20.87V6.13a3 3 0 0 1 3-3h7.74a3 3 0 0 1 3 3v14.74l-2.29-1.6-2.29 1.6L12 19.27l-2.29 1.6-2.29-1.6z"/>
+  <path d="M8.9 7.8h6.2M8.9 11.8h3"/>
+  <circle cx="14.3" cy="15.5" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+
+<!-- Antara muka (interface) -->
+<symbol id="i-kanan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Seterusnya</title>
+  <path d="M8.7 5.5l6.5 6.5-6.5 6.5"/>
+  <circle cx="9.26" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-kiri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Kembali</title>
+  <path d="M15.3 5.5L8.8 12l6.5 6.5"/>
+  <circle cx="14.74" cy="12" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-bawah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Buka</title>
+  <path d="M5.5 8.7l6.5 6.5 6.5-6.5"/>
+  <circle cx="12" cy="9.26" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-luar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Pautan luar</title>
+  <path d="M10.9 6.2H7.13a3 3 0 0 0-3 3v7.67a3 3 0 0 0 3 3h7.67a3 3 0 0 0 3-3V13.1"/>
+  <path d="M14.6 4.13h5.27V9.4M19.87 4.13l-6.5 6.5"/>
+  <circle cx="10.4" cy="13.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-utama" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Utama</title>
+  <path d="M8.63 6.1L3.13 10.2M15.37 6.1l5.5 4.1"/>
+  <path d="M5.6 12.6v5.27a3 3 0 0 0 3 3h6.8a3 3 0 0 0 3-3V12.6"/>
+  <circle cx="12" cy="3.6" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-orang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Penulis</title>
+  <circle cx="12" cy="7.33" r="4.2"/>
+  <path d="M4.4 20.87a7.96 7.96 0 0 1 15.2 0"/>
+  <circle cx="12" cy="7.33" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+<symbol id="i-amaran" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--icon-stroke,2.25)">
+  <title>Amaran</title>
+  <path d="M10.24 4.54A2 2 0 0 1 13.76 4.54L20.47 17.06A2.2 2.2 0 0 1 18.53 20.3L5.47 20.3A2.2 2.2 0 0 1 3.53 17.06Z"/>
+  <path d="M12 9.4V12"/>
+  <circle cx="12" cy="16.2" r="1.57" fill="#D0106F" stroke="none" style="fill:var(--icon-knob,#D0106F)"/>
+</symbol>
+</defs>
+</svg>

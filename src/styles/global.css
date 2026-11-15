@@ -1,150 +1,136 @@
+/*
+ * Edisi type: Gabarito (display: price, headings, title bars) and Figtree (all text).
+ * Both variable, Latin subset, OFL (public/fonts/OFL-*.txt), self-hosted.
+ */
 @font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/fraunces-500-latin.woff2') format('woff2');
+  font-family: 'Gabarito';
+  src: url('/fonts/gabarito-var-latin.woff2') format('woff2-variations'), url('/fonts/gabarito-var-latin.woff2') format('woff2');
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/fraunces-600-latin.woff2') format('woff2');
+  font-family: 'Figtree';
+  src: url('/fonts/figtree-var-latin.woff2') format('woff2-variations'), url('/fonts/figtree-var-latin.woff2') format('woff2');
   font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-400-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-500-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-600-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/fonts/source-sans-3-700-latin.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 300 900;
   font-display: swap;
 }
 
 /*
- * Metric-matched fallbacks: while the web fonts load (font-display: swap), text is drawn
- * in a local font scaled to the same average width, ascent and descent, so the swap does
- * not reflow lines. Values from @capsizecss/metrics (size-adjust = ratio of average glyph
- * widths; overrides = primary metric / size-adjust). Liberation/Arimo/Tinos are metric
- * clones of Arial/Times, so they share the same numbers. Roboto and Noto Serif are the
- * Android system fonts. unicode-range matches the self-hosted Latin subset, so characters
- * outside it (e.g. the → arrow) still come from the system font, exactly as before.
+ * Metric-matched fallbacks (kept from main's layout-shift work): while the web fonts load
+ * (font-display: swap), text is drawn in a local font scaled to the same average width,
+ * ascent and descent, so the swap does not reflow lines. size-adjust = ratio of average
+ * glyph widths (capsize xWidthAvg: Gabarito 0.442, Figtree 0.444 at the default instance,
+ * Arial 0.4414, Roboto 0.4448); overrides = primary metric / size-adjust (Gabarito
+ * 940/-260, Figtree 950/-250 per 1000). Bold faces are estimated, not measured.
+ * Liberation/Arimo are metric clones of Arial; Roboto is the Android system font.
+ * unicode-range matches the self-hosted Latin subset.
  */
 @font-face {
-  font-family: 'Fraunces Fallback';
-  src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'), local('Tinos');
-  size-adjust: 115.45%;
-  ascent-override: 84.71%;
-  descent-override: 22.09%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Fraunces Fallback Android';
-  src: local('Noto Serif'), local('NotoSerif');
-  size-adjust: 97.51%;
-  ascent-override: 100.3%;
-  descent-override: 26.15%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/*
- * Price figures ("RM 330 – RM 670") are mostly digits, spaces and "RM", whose widths
- * differ from average prose. These faces are sized on such strings (Fraunces 500 vs the
- * fallback), so a price line wraps the same way before and after the swap.
- */
-@font-face {
-  font-family: 'Fraunces Figures Fallback';
-  src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'), local('Tinos');
-  size-adjust: 109%;
-  ascent-override: 89.72%;
-  descent-override: 23.39%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Fraunces Figures Fallback Android';
-  src: local('Noto Serif'), local('NotoSerif');
-  size-adjust: 102.47%;
-  ascent-override: 95.44%;
-  descent-override: 24.89%;
-  line-gap-override: 0%;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Source Sans 3 Fallback';
+  font-family: 'Gabarito Fallback';
   src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
-  size-adjust: 93.76%;
-  ascent-override: 109.21%;
-  descent-override: 42.66%;
+  size-adjust: 100.1%;
+  ascent-override: 93.9%;
+  descent-override: 26%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/*
- * Real bold faces for semibold/bold text, so the fallback is not synthetically emboldened.
- * Sized on Source Sans 3 600 (the site's usual "font-semibold") against Arial Bold:
- * 89.8% (700 would be 92.3%). Roboto Bold uses the same values (Roboto tracks Arial within 0.2%).
- */
 @font-face {
-  font-family: 'Source Sans 3 Fallback';
+  font-family: 'Gabarito Fallback';
   src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
-  font-weight: 600 700;
-  size-adjust: 90%;
-  ascent-override: 113.78%;
-  descent-override: 44.44%;
+  font-weight: 600 900;
+  size-adjust: 98%;
+  ascent-override: 95.9%;
+  descent-override: 26.5%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Source Sans 3 Fallback Android';
+  font-family: 'Gabarito Fallback Android';
   src: local('Roboto Bold'), local('Roboto-Bold');
-  font-weight: 600 700;
-  size-adjust: 90%;
-  ascent-override: 113.78%;
-  descent-override: 44.44%;
+  font-weight: 600 900;
+  size-adjust: 97.4%;
+  ascent-override: 96.5%;
+  descent-override: 26.7%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Source Sans 3 Fallback Android';
+  font-family: 'Gabarito Fallback Android';
   src: local('Roboto'), local('Roboto-Regular');
-  size-adjust: 93.97%;
-  ascent-override: 108.97%;
-  descent-override: 42.57%;
+  size-adjust: 99.4%;
+  ascent-override: 94.6%;
+  descent-override: 26.2%;
   line-gap-override: 0%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+  size-adjust: 100.6%;
+  ascent-override: 94.4%;
+  descent-override: 24.9%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Arimo Bold');
+  font-weight: 600 900;
+  size-adjust: 96%;
+  ascent-override: 99%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback Android';
+  src: local('Roboto Bold'), local('Roboto-Bold');
+  font-weight: 600 900;
+  size-adjust: 96%;
+  ascent-override: 99%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree Fallback Android';
+  src: local('Roboto'), local('Roboto-Regular');
+  size-adjust: 99.8%;
+  ascent-override: 95.2%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Edisi magenta world, light only (tokens.css). The Tailwind tokens carry the same values. */
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF; --card: #FFFFFF; --tray: #F3F3F3; --chip: #E9E9E9;
+  --ink: #000000; --ink-2: #4A4A4A; --rule: #767676; --rule-strong: #000000;
+  --kick: #D0106F; --kick-ink: #FFFFFF; --sel: #D0106F; --sel-ink: #FFFFFF;
+  --mark: #FFF3B0; --mark-ink: #000000; --link: #000000; --red: #B8291E;
+  --knob: #D0106F; --ghost: #949494;
+  --tint-pink: #FBD3E4; --tint-yellow: #FFF3B0; --tint-sky: #CFE8FA;
+  --focus: #000000; --focus-on-dark: #FFFFFF;
+  --glass: rgb(255 255 255 / 0.97); --glass-t: rgb(255 255 255 / 0.8);
+  --glass-edge: rgb(0 0 0 / 0.16); --glass-rim: rgb(255 255 255 / 0.85); --glass-spec: rgb(255 255 255 / 0.9);
+  --shade: 0 0 0;
+  --r-1: 6px; --r-2: 8px; --r-pill: 999px;
+  --fd: 'Gabarito', 'Gabarito Fallback', 'Gabarito Fallback Android', system-ui, sans-serif;
+  --f: 'Figtree', 'Figtree Fallback', 'Figtree Fallback Android', system-ui, sans-serif;
+  --gutter: max(1rem, env(safe-area-inset-left));
+  --page-max: 92rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @tailwind base;
@@ -154,31 +140,42 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 74px;
+    /* The masthead scrolls away on phones and tablets; on desktop the glass tab capsule stays. */
+    scroll-padding-top: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 70rem) {
     html {
-      scroll-padding-top: 82px;
+      scroll-padding-top: 5rem;
     }
   }
 
   body {
-    @apply text-stone-800 bg-krim-50 font-sans;
+    @apply text-stone-900 bg-krim-50 font-sans;
     font-feature-settings: 'kern' 1, 'liga' 1;
-    font-optical-sizing: auto;
+    accent-color: var(--sel);
+    caret-color: var(--sel);
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  b, strong {
+    font-weight: 650;
   }
 
   h1, h2, h3 {
     @apply font-serif;
   }
 
-  h1, h2, h3, .font-serif {
-    font-optical-sizing: auto;
-    /* SOFT axis applies only if a variable Fraunces is installed; static instances ignore it. */
-    font-variation-settings: "SOFT" 35;
+  /* Gabarito carries headings at a heavy weight (Edisi: 750); a weight utility on the element still wins. */
+  h1, h2, h3 {
+    font-weight: 750;
+    text-wrap: balance;
   }
 
   h4, h5, h6 {
@@ -187,13 +184,15 @@
 
   /* Editorial link style */
   .prose-editorial a {
-    @apply text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600 transition-colors;
+    @apply text-edisi-ink underline decoration-edisi-rule hover:decoration-edisi-ink transition-colors;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
   /* Better focus styles */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-stone-900;
-    outline-style: solid;
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
   }
 
   button:focus-visible,
@@ -201,12 +200,13 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    box-shadow: 0 0 0 2px #FAFAF7;
+    box-shadow: 0 0 0 2px #FFFFFF;
   }
 
   /* Selection color */
   ::selection {
-    @apply bg-emas-200 text-stone-900;
+    background: var(--mark);
+    color: var(--mark-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -241,20 +241,75 @@
     @apply border-t-2 border-stone-900 my-8;
   }
 
-  /* Category label */
+  /* Category label: quiet metadata in sentence case (Edisi drops the shouted kicker). */
   .label {
-    @apply text-xs font-sans font-bold uppercase tracking-widest text-hijau-700;
+    @apply text-sm font-sans font-semibold text-edisi-ink-2;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   /* Card — minimal, editorial */
   .card-editorial {
-    @apply bg-krim-50 border border-stone-200 p-5 sm:p-6;
-    @apply hover:border-stone-400 transition-colors;
+    @apply bg-edisi-card border border-edisi-rule rounded-lg p-5 sm:p-6;
+    @apply hover:border-edisi-ink transition-colors;
+    min-width: 0;
   }
+
+  /* A card that is a link: the border goes ink on hover and the inner title underlines. */
+  a.card-editorial:hover :is(h2, h3, .card-t) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  /* Plain link tile (state shortcuts and similar). */
+  .tile-link {
+    @apply block rounded-lg border border-edisi-rule bg-edisi-card p-3 text-left text-edisi-ink no-underline transition-colors hover:border-edisi-ink;
+    min-height: 44px;
+  }
+
+  /*
+   * Notes. Each colour keeps one job (system.md, critique 18):
+   *   .note-warn  white, 2px ink border, red heading: warnings and exclusions;
+   *   .note-term  yellow, ink border: totals, limits and policy terms only;
+   *   .note-info  blue: explanations, short answers, what is covered;
+   *   .note-price pink: price examples and working;
+   *   .note-plain tray: neutral asides and disclaimers.
+   */
+  .note-warn, .note-term, .note-info, .note-price, .note-plain {
+    @apply rounded-lg p-4 sm:p-5 text-edisi-ink;
+    border: 1px solid var(--rule);
+  }
+  .note-warn { background: var(--card); border: 2px solid var(--ink); }
+  .note-term { background: var(--tint-yellow); border-color: var(--ink); }
+  .note-info { background: var(--tint-sky); }
+  .note-price { background: var(--tint-pink); }
+  .note-plain { background: var(--tray); }
+  .note-t {
+    @apply font-sans font-semibold text-edisi-ink;
+    margin-bottom: 0.25rem;
+  }
+  /* Restrained red for the heading of a warning only (6.2:1 on white). */
+  .note-warn > .note-t { color: var(--red); }
+  :is(.note-warn, .note-term, .note-info, .note-price, .note-plain) :is(p, li) { color: var(--ink); }
+
+  /* "Not covered" marks in tables and lists: Edisi red, 6.2:1 on white. */
+  .mark-no { color: var(--red); font-weight: 700; }
+
+  /* Flood-risk chips: a flag, so red text for high, yellow for medium, plain for low. No green. */
+  .risk-tinggi, .risk-sederhana, .risk-rendah {
+    border: 1px solid var(--rule);
+    border-radius: var(--r-1);
+    color: var(--ink);
+    background: var(--card);
+  }
+  .risk-tinggi { color: var(--red); border-color: var(--red); }
+  .risk-sederhana { background: var(--tint-yellow); border-color: var(--ink); }
+  .risk-rendah { background: var(--tray); }
 
   /* Verdict badge */
   .verdict {
-    @apply inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1;
+    @apply inline-block text-xs font-bold px-2.5 py-1 rounded;
   }
 
   .verdict-best {
@@ -269,67 +324,140 @@
     @apply verdict bg-verdict-warn-bg text-verdict-warn-ink border border-verdict-warn-border;
   }
 
-  /* Info box */
+  /* Info box: explanation, so blue (Edisi: blue is for explanation). */
   .info-box {
-    @apply bg-emas-50 border border-emas-800 p-4 sm:p-5;
+    @apply bg-edisi-sky border border-edisi-rule rounded-lg p-4 sm:p-5 text-edisi-ink;
   }
 
   .info-box > p:first-child > strong:first-child {
-    @apply block font-bold text-emas-800;
+    @apply block font-bold text-edisi-ink;
     margin-bottom: 0.25rem;
   }
 
-  /* Table styles */
-  .table-editorial {
+  /* Tables: black header bar, comfortable rows; the wrapper scrolls on phones, never the page. */
+  .overflow-x-auto:has(> table) {
+    position: relative; /* contains sr-only text in cells, which would otherwise widen the page */
+    max-width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-2);
+    background: var(--card);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* A grid column holding a scrolling table must be allowed to shrink, or the page scrolls sideways. */
+  .grid > :has(.overflow-x-auto > table) {
+    min-width: 0;
+  }
+
+  .table-editorial,
+  .prose-editorial table {
     @apply w-full text-sm;
+    border-collapse: collapse;
   }
 
-  .table-editorial thead {
-    @apply border-b-2 border-stone-900;
+  .table-editorial thead,
+  .prose-editorial table thead,
+  .overflow-x-auto > table > thead {
+    background: var(--ink);
+    color: #FFFFFF;
   }
 
-  .table-editorial th {
-    @apply text-left font-sans font-bold text-stone-900 py-3 pr-4;
+  .table-editorial th,
+  .prose-editorial table th {
+    @apply text-left font-display font-bold;
+    padding: 0.7rem 0.85rem;
+    vertical-align: top;
   }
 
-  .table-editorial td {
-    @apply py-3 pr-4 border-b border-stone-100;
+  .table-editorial thead th,
+  .prose-editorial table thead th {
+    vertical-align: bottom;
+  }
+
+  .table-editorial tbody th {
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+  }
+
+  .table-editorial caption,
+  .prose-editorial table caption {
+    padding: 0.5rem 0.85rem;
+    text-align: left;
+  }
+
+  .table-editorial thead th,
+  .prose-editorial table thead th,
+  .overflow-x-auto > table > thead th {
+    color: #FFFFFF;
+    border: 0;
+  }
+
+  .table-editorial tbody th {
+    @apply text-edisi-ink;
+  }
+
+  .table-editorial td,
+  .prose-editorial table td {
+    padding: 0.7rem 0.85rem;
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+    vertical-align: top;
     font-variant-numeric: tabular-nums;
   }
 
-  .table-editorial tbody tr:last-child td {
-    @apply border-b-0;
+  .table-editorial tbody tr:first-child td {
+    border-top: 0;
   }
 
-  /* FAQ accordion */
-  .faq-item {
-    @apply border-b border-stone-200 py-4;
+  /* FAQ and disclosures (Edisi .faq): hairline rows, a chevron on the right. */
+  .faq-item,
+  .prose-editorial details:not([class]) {
+    border-bottom: 1px solid rgb(0 0 0 / 0.25);
+    @apply py-1;
   }
 
-  .faq-item summary {
+  .faq-item summary,
+  .prose-editorial details:not([class]) > summary {
     min-height: 48px;
     display: flex;
-    align-items: flex-start;
-    @apply font-sans font-semibold text-stone-900 cursor-pointer list-none;
-    @apply hover:text-hijau-700 transition-colors;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    @apply font-sans font-semibold text-edisi-ink cursor-pointer list-none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
-  .faq-item summary::-webkit-details-marker {
+  @media (hover: hover) and (pointer: fine) {
+    .faq-item summary:hover,
+    .prose-editorial details:not([class]) > summary:hover { text-decoration-line: underline; }
+  }
+
+  .faq-item summary::-webkit-details-marker,
+  .prose-editorial details:not([class]) > summary::-webkit-details-marker {
     display: none;
   }
 
-  .faq-item summary::before {
-    content: '+';
-    @apply inline-block w-6 text-stone-600 mr-2;
-    speak: never;
+  .faq-item summary::after,
+  .prose-editorial details:not([class]) > summary::after {
+    content: '';
+    flex: none;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-right: 0.3rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 150ms var(--ease-out);
   }
 
-  .faq-item[open] summary::before {
-    content: '−';
+  .faq-item[open] summary::after,
+  .prose-editorial details:not([class])[open] > summary::after {
+    transform: rotate(-135deg);
   }
 
   .faq-item p {
-    @apply mt-3 text-stone-600 leading-relaxed pl-0 sm:pl-8;
+    @apply mt-1 mb-3 text-edisi-ink leading-relaxed;
+    max-width: 62ch;
   }
 
   /* Button styles */
@@ -340,18 +468,21 @@
   }
 
   .btn-hijau {
-    @apply btn px-5 py-2.5 bg-hijau-700 text-white hover:bg-hijau-800;
+    /* The main button: magenta, white text (Edisi .btn-p). */
+    @apply btn px-5 py-2.5 rounded-lg border-[1.5px] border-edisi-magenta bg-edisi-magenta text-white hover:bg-edisi-magenta-deep hover:border-edisi-magenta-deep;
     min-height: 48px;
   }
 
   .btn-outline {
-    @apply btn px-5 py-2.5 border-2 border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white;
+    @apply btn px-5 py-2.5 rounded-lg border-[1.5px] border-edisi-ink bg-edisi-card text-edisi-ink hover:bg-edisi-ink hover:text-white;
     min-height: 44px;
   }
 
-  /* Prose for article content */
+  /* Prose for article content (Edisi .prosa, penulis.html). */
   .prose-editorial {
-    @apply text-stone-700 leading-relaxed;
+    @apply text-edisi-ink;
+    font-size: 1.0625rem;
+    line-height: 1.6;
   }
 
   .prose-editorial p {
@@ -359,31 +490,414 @@
   }
 
   .prose-editorial h2 {
-    @apply font-serif text-headline-md text-stone-900 mt-10 mb-4;
+    @apply font-serif text-headline-md text-edisi-ink mt-12 mb-4;
+    padding-top: 0.75rem;
+    border-top: 2px solid var(--ink);
   }
 
   .prose-editorial h3 {
-    @apply font-serif text-headline-sm text-stone-900 mt-8 mb-3;
+    @apply font-serif text-headline-sm text-edisi-ink mt-8 mb-3;
+  }
+
+  .prose-editorial > h2:first-child {
+    margin-top: 0;
   }
 
   .prose-editorial ul, .prose-editorial ol {
-    @apply mb-4 pl-5 space-y-2;
+    @apply mb-5 pl-5 space-y-2;
   }
 
+  .prose-editorial ul:not([class]) { list-style: disc; }
+  .prose-editorial ol:not([class]) { list-style: decimal; }
+  .prose-editorial li::marker { color: var(--ink); }
+
   .prose-editorial li {
-    @apply text-stone-700;
+    @apply text-edisi-ink;
   }
 
   .prose-editorial strong {
-    @apply text-stone-900 font-semibold;
+    @apply text-edisi-ink font-semibold;
   }
+
+  /* Figures in the display face: one weight next to 750 headings, tabular digits. */
+  .figure {
+    @apply font-display;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Any display-face text without its own weight utility gets the Edisi weight (zero specificity, so a font-* utility wins). */
+:where(.font-serif, .font-display) {
+  font-weight: 750;
 }
 
 @layer utilities {
   .numeric { font-variant-numeric: tabular-nums; }
-  /* Serif price figures use the fallback sized for price strings (see @font-face above). */
-  .numeric.font-serif,
-  .numeric .font-serif {
-    font-family: Fraunces, 'Fraunces Figures Fallback', 'Fraunces Figures Fallback Android', Georgia, serif;
+  /* Form controls take the chosen-state colour (magenta), not the hijau-700 text shade (ink). */
+  .accent-hijau-700 { accent-color: var(--sel); }
+}
+
+/* ==== W4 hubs: plan cards on phones (begin) ====
+ * A table with .plan-table stays a table from 48rem up. Below that each body row becomes a card:
+ * the first cell is a black title bar, [data-sub] and [data-chip] cells join the bar (provider, type chip),
+ * every other cell shows its column name from data-label and sits in a two-up grid; [data-wide] spans both.
+ * Same DOM, same text; only the column names are repeated, as CSS generated content. */
+@media (max-width: 47.99rem) {
+  .overflow-x-auto:has(> table.plan-table) {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
+  table.plan-table,
+  table.plan-table.table-editorial {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  table.plan-table > caption {
+    display: block;
+    padding: 0 0 0.75rem;
+  }
+  table.plan-table > thead {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  table.plan-table > tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  table.plan-table > tbody > tr {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--ink);
+    border-radius: var(--r-2);
+    overflow: hidden;
+    background: var(--card);
+  }
+  table.plan-table > tbody > tr > :is(th, td) {
+    display: block;
+    flex: 1 1 50%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+    overflow-wrap: anywhere;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  /* The shared table rule drops the first body row's top rules; cards need them back between facts. */
+  table.plan-table.table-editorial > tbody > tr:first-child > td:not([data-sub], [data-chip], :first-child) {
+    border-top: 1px solid rgb(0 0 0 / 0.14);
+  }
+  table.plan-table > tbody > tr > [data-wide] {
+    flex-basis: 100%;
+  }
+  table.plan-table > tbody > tr > td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink-2);
+  }
+  /* Title bar: plan name (and provider when it sits in the same cell), white on black. */
+  table.plan-table > tbody > tr > :first-child {
+    flex: 1 1 100%;
+    background: var(--ink);
+    color: #FFFFFF;
+    border-top: 0;
+    font-family: var(--fd);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    padding: 0.75rem 1rem 0.6rem;
+  }
+  table.plan-table > tbody > tr > :first-child::before { content: none; }
+  table.plan-table > tbody > tr > :first-child :is(a, span) { color: #FFFFFF; }
+  table.plan-table > tbody > tr > :first-child span { color: rgb(255 255 255 / 0.82); font-family: var(--f); }
+  table.plan-table > tbody > tr > :first-child:has(+ [data-chip]) { flex-basis: 0; flex-grow: 1; }
+  table.plan-table > tbody > tr > [data-sub],
+  table.plan-table > tbody > tr > [data-chip] {
+    background: var(--ink);
+    color: rgb(255 255 255 / 0.82);
+    border-top: 0;
+    font-size: 0.875rem;
+  }
+  /* Provider fills the bar line beside the chip (55% + chip at most 45%), so facts always start a new line. */
+  table.plan-table > tbody > tr > [data-sub] { flex: 1 1 55%; padding-top: 0; }
+  table.plan-table > tbody > tr > [data-sub]::before,
+  table.plan-table > tbody > tr > [data-chip]::before { content: none; }
+  table.plan-table > tbody > tr > [data-chip] {
+    flex: 0 0 auto;
+    max-width: 45%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: 0.25rem;
+  }
+  table.plan-table > tbody > tr > [data-chip] > .plan-chip {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--r-pill);
+    background: #FFFFFF;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+  }
+  /* Bar cells after a chip (provider under the name) start a new line in the bar. */
+  table.plan-table > tbody > tr > [data-chip] + [data-sub] { flex-basis: 100%; }
+  table.plan-table > tbody > tr > :first-child + [data-sub] + [data-chip] { padding-top: 0; }
+  /* Links: 44px targets; white focus ring on the black bar. */
+  table.plan-table > tbody > tr a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  table.plan-table > tbody > tr > :first-child a {
+    min-height: 0;
+    padding: 0.7rem 0;
+    margin: -0.7rem 0;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  table.plan-table > tbody > tr > :first-child a:focus-visible {
+    outline: 2px solid var(--focus-on-dark);
+    outline-offset: 2px;
+  }
+  table.plan-table > tbody > tr > :first-child span.block { margin-top: 0.3rem; }
+  table.plan-table > tbody > tr > td ul { margin: 0; }
+  table.plan-table > tbody > tr > td ul > li + li { margin-top: 0; }
+}
+
+/* Type jump chips (anchor links to the grouped sections; no script). */
+.type-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.type-chips a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out);
+}
+.type-chips a:hover { border-color: var(--ink); background: var(--tray); }
+.type-chips a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+/* ==== W4 hubs: plan cards on phones (end) ==== */
+
+/* ==== Audit fixes, site-wide (begin) ==== */
+
+/* P1-2: placeholder text. #595959 is 7.0:1 on white, 5.18:1 on the pink plate, 6.24:1 on yellow,
+   5.53:1 on blue, 6.31:1 on the grey tray and 5.77:1 on the chip grey. */
+::placeholder {
+  color: #595959;
+  opacity: 1;
+}
+
+/* P2-4: sidebar link lists ("Baca juga" and similar): each link is a 44px row.
+   The rows replace the old 0.625rem gap between items. */
+ul.space-y-2\.5.text-sm > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+ul.space-y-2\.5.text-sm > li:not([hidden]) ~ li:not([hidden]) {
+  margin-top: 0;
+}
+
+/* P2-6: one-word links in the model page's insurer list ("AIA", "Etiqa"): at least 44px wide. */
+ul.grid.gap-x-8 > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* P2-7: links that stand alone in table header cells and description lists, and the
+   `.tap-link` helper for standalone links in lists and cards: 44px tall. */
+th > a,
+dd > a,
+.tap-link,
+.tap-links > li > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+th > a,
+.tap-link,
+.tap-links > li > a {
+  min-width: 2.75rem;
+}
+
+/* P1-3: the group pill on product hub plan cards. The row may wrap: at normal text sizes the
+   name block (10rem basis) and the pill share the line as before; with enlarged text the pill
+   moves under the name instead of pushing the card wider. */
+.flex.justify-between:has(> span.max-w-\[50\%\].rounded-full) {
+  flex-wrap: wrap;
+}
+.flex.justify-between:has(> span.max-w-\[50\%\].rounded-full) > div {
+  flex: 1 1 10rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.flex.justify-between > span.max-w-\[50\%\].rounded-full {
+  overflow-wrap: break-word;
+}
+
+/* P3-12: print. */
+@media print {
+  @page { margin: 1.5cm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  header.mast,
+  #mobile-menu-btn,
+  #mobile-menu,
+  .foot-map,
+  [data-privacy-settings],
+  ins.adsbygoogle,
+  .google-auto-placed,
+  iframe,
+  aside.ep-tools,
+  aside.lg\:col-span-1,
+  nav[aria-labelledby="tukar-model"],
+  nav[aria-label="Jejak navigasi"],
+  .hub-crumbs,
+  fieldset.ea-ncd,
+  .skip-link {
+    display: none !important;
+  }
+  /* One column: the rails are hidden, so the page grids drop their side columns. */
+  .ep { grid-template-columns: minmax(0, 1fr) !important; grid-template-areas: "main" !important; max-width: none !important; padding-inline: 0 !important; }
+  [class*="lg:grid-cols-"], [class*="md:grid-cols-"] { grid-template-columns: minmax(0, 1fr) !important; }
+  [class*="lg:col-span-"] { grid-column: auto !important; }
+  .container-wide, .container-article { max-width: none !important; padding-inline: 0 !important; }
+  /* Show collapsed answers (Chrome supports this; elsewhere they print as they are). */
+  details::details-content { content-visibility: visible; display: block; }
+  details > summary { list-style: none; font-weight: 700; }
+  /* Flat panels: black on white with a thin rule. */
+  .ea, .ea-hero, .ea-sum, .ix, .ix-bar, .ix-t, .ix-body, [class*="note-"], .mod, .info-box,
+  .card-editorial, [data-tint] {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  .ea, .ix, [class*="note-"]:not(.note-t), .info-box, .card-editorial {
+    border: 1px solid #000 !important;
+  }
+  .ea *, .ix *, [class*="note-"] * { color: #000 !important; background-color: transparent !important; }
+  a { color: #000 !important; }
+  /* URL after external links in running text. */
+  :is(p, li, td, dd) > a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+  }
+  [class*="note-"], .card-editorial, .mod, figure, tr, .rows li, .faq-item { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+}
+
+/* ==== Audit fixes, site-wide (end) ==== */
+
+/* ==========================================================================================================
+ * Edisi shared modules (moved here so every template can use them; edisi-answer.css keeps identical rules for
+ * the home and model pages, so those render unchanged). Used by src/components/edisi/PageAnswer.astro, the
+ * shared page opening (Hero.astro, .ea-h1) and section title bars (.prose-bars h2, .mod-bar).
+ * ======================================================================================================== */
+.ea-h1 { font: 750 1.625rem/1.08 var(--fd); letter-spacing: -0.01em; text-wrap: balance; color: var(--ink); max-width: 22ch; }
+@media (min-width: 48rem) { .ea-h1 { font-size: 2rem; max-width: none; } }
+.mod { border: 1px solid var(--rule); border-radius: var(--r-2); overflow: clip; background: var(--card); min-width: 0; }
+.mod[data-tint="pink"] { background: var(--tint-pink); }
+.mod[data-tint="sky"] { background: var(--tint-sky); }
+.mod[data-tint="yellow"] { background: var(--tint-yellow); }
+.mod-bar { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0.55rem 0.9rem; background: #000; color: #fff; margin: 0; }
+.mod-bar, .mod-bar h2 { font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; }
+.mod-in { padding: 0.9rem; display: grid; gap: 0.75rem; grid-template-columns: minmax(0, 1fr); }
+.mod a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.mod a:not([class*="btn"]) { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+
+/* Page answer (PageAnswer.astro): finding in the bar, facts as label/value rows. */
+.pa { max-width: 40rem; margin-block: 1rem; }
+.pa-rows { margin: 0; padding: 0.35rem 0.9rem 0.5rem; display: grid; }
+.pa-r { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.15rem 1rem; padding: 0.55rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+.pa-r:last-child { border-bottom: 0; }
+.pa-r dt { color: var(--ink); font-size: 1rem; line-height: 1.35; }
+.pa-r dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.35; min-width: 0; }
+.pa-r[data-role] .pa-v { display: inline-block; padding: 0.1rem 0.45rem; border-radius: var(--r-1); color: var(--ink); }
+.pa-r[data-role="price"] .pa-v { background: var(--tint-pink); }
+.pa-r[data-role="term"] .pa-v { background: var(--mark); }
+.pa-r[data-long] { display: block; }
+.pa-r[data-long] dt { font-weight: 700; }
+.pa-r[data-long] dd { font-weight: 400; margin-top: 0.15rem; }
+/* Details rows under a plan answer box: paragraphs, so plain weight under a bold label. */
+.mod:not(.pa) > .pa-rows > .pa-r { display: block; }
+.mod:not(.pa) > .pa-rows > .pa-r dt { font-weight: 700; }
+.mod:not(.pa) > .pa-rows > .pa-r dd { font-weight: 400; margin-top: 0.15rem; }
+.pa-r dd a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+/* Phone numbers and short hyphenated tokens stay whole; the value drops under its label instead. */
+.pa-nw, .pa a[href^="tel:"] { white-space: nowrap; }
+.pa-note { margin: 0; padding: 0.6rem 0.9rem 0.75rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); border-top: 1px solid rgb(0 0 0 / 0.15); }
+
+/* Section title bars for articles that opt in (class "prose-bars" next to prose-editorial). The H2 keeps its
+   level and id; it just takes the module bar look in place of the old ruled heading. */
+.prose-editorial.prose-bars h2, .prose-bars .prose-editorial h2, .h2-bar {
+  font: 800 1.125rem/1.2 var(--fd); text-wrap: balance; background: #000; color: #fff;
+  border: 0; border-radius: var(--r-2) var(--r-2) 0 0; padding: 0.75rem 0.9rem; min-height: 3rem;
+  margin-top: 2.5rem; margin-bottom: 1rem;
+}
+@media print { .mod-bar, .prose-bars h2, .h2-bar { background: #fff; color: #000; border-bottom: 2px solid #000; } }
+
+/* Long unbroken runs (e.g. "RM100,000/200,000/300,000") wrap instead of pushing the page sideways at 320px. */
+main :where(p, li, dd, dt, h1, h2, h3, figcaption, blockquote, a, summary, cite) { overflow-wrap: anywhere; }
+main :where(.grid) > * { min-width: 0; }
+/* Source markers [n]: never under 14px. */
+main sup { font-size: 0.875rem; line-height: 0; }
+main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0.25rem; }
+
+/* ==========================================================================================================
+ * Page answer: lead and sentence (PageAnswer.astro optional props, final Edisi wave).
+ * The lead is one decisive number: a 40px numeral at 320px, 48px from 390px, in a pink (price) or yellow
+ * (term/total) band. It breaks only after a dash. The sentence is the answer on pages with no number.
+ * Also: quiet section labels, once-only list labels and plan-card fixes for the product/company pages.
+ * ======================================================================================================== */
+.pa-lead { padding: 0.8rem 0.9rem 0.85rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+.pa-lead[data-role="price"] { background: var(--tint-pink); }
+.pa-lead[data-role="term"] { background: var(--mark); }
+.pa-lead-v { margin: 0; font: 800 clamp(2.5rem, 12.3vw, 3rem)/1.02 var(--fd); letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pa-lead-p { display: inline-block; }
+.pa-lead-l { margin: 0.35rem 0 0; font-size: 1rem; line-height: 1.35; color: var(--ink); }
+.pa-sent { margin: 0; padding: 0.75rem 0.9rem; font-size: 1.0625rem; line-height: 1.45; color: var(--ink); }
+.pa-sent + .pa-rows, .pa-lead + .pa-sent { border-top: 0; }
+/* A section heading without a finding: quiet label, not a black bar. Keeps its level and id. */
+.prose-editorial.prose-bars h2.h2-quiet, .prose-bars .prose-editorial h2.h2-quiet, h2.h2-quiet {
+  background: none; color: var(--ink); border-radius: 0; padding: 0 0 0.4rem; min-height: 0;
+  border-bottom: 2px solid var(--ink); font: 800 1.125rem/1.25 var(--fd);
+}
+.sr-only-x { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* ==== Page answer: lead and sentence (end) ==== */
+/* Plan cards: an empty condition cell is not a row on phones; a link cell named by its own text drops the label. */
+@media (max-width: 47.99rem) {
+  table.plan-table > tbody > tr > td[data-empty] { display: none; }
+  table.plan-table > tbody > tr > td[data-nolabel]::before { content: none; }
 }

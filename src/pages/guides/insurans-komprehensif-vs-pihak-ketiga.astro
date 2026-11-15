@@ -1,13 +1,15 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import carModels from '../../data/car-models.json';
 
 // Comprehensive-premium figures on this page read from car-models.json, the same data the model
 // pages and the car-insurance hub use, so the guide cannot drift from them.
 const bySlug = Object.fromEntries(carModels.map((car) => [car.slug, car])) as Record<string, (typeof carModels)[number]>;
 const num = (value: number) => value.toLocaleString('en-MY');
-const range = (min: number, max: number) => `RM${num(min)} – RM${num(max)}`;
+const range = (min: number, max: number) => `RM${num(min)}–RM${num(max)}`;
 const tightRange = (min: number, max: number) => `RM${num(min)}–RM${num(max)}`;
 const myvi = bySlug['perodua-myvi'];
 const city = bySlug['honda-city'];
@@ -52,19 +54,20 @@ const schema = {
   ads={true}
 >
   <!-- Breadcrumb + Header -->
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/guides/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Panduan</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Komprehensif vs Pihak Ketiga</span>
-      </nav>
-      <p class="label mb-3">Panduan Insurans</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Komprehensif vs Pihak Ketiga' }]} />
+      <h1 class="ea-h1 mb-1">
         Insurans Komprehensif vs Pihak Ketiga: Mana Lebih Baik untuk Anda?
       </h1>
+      <PageAnswer
+        finding="Insurans komprehensif memberi perlindungan paling luas antara tiga jenis polisi."
+        facts={[
+          { label: 'Komprehensif', value: 'lindungi kereta sendiri dan pihak ketiga; banjir perlukan add-on special perils' },
+          { label: 'TPFT', value: 'lindungi kecurian + kebakaran + pihak ketiga' },
+          { label: 'Pihak Ketiga', value: 'lindungi orang lain sahaja' },
+        ]}
+      />
       <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Komprehensif dan pihak ketiga ialah dua jenis insurans kereta yang paling asas. Panduan ini menerangkan beza kedua-duanya untuk membantu anda membuat keputusan.
@@ -76,30 +79,30 @@ const schema = {
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <!-- Main Content -->
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
 
           <h2>Apa itu Insurans Komprehensif?</h2>
           <p>
-            Insurans komprehensif (atau "all risks") adalah perlindungan paling lengkap yang boleh anda beli
-            untuk kereta. Ia melindungi dua pihak — anda <em>dan</em> orang lain. Kalau accident, samada
+            Insurans komprehensif (atau "all risks") ialah perlindungan paling lengkap yang boleh anda beli
+            untuk kereta. Ia melindungi dua pihak: anda <em>dan</em> orang lain. Jika berlaku kemalangan, sama ada
             kesalahan anda atau bukan, kereta anda tetap dilindungi.
           </p>
           <p>
-            Insurans komprehensif cover kerosakan pada kereta anda sendiri akibat accident, kecurian penuh,
+            Insurans komprehensif melindungi kerosakan pada kereta anda sendiri akibat kemalangan, kecurian penuh,
             kerosakan akibat kebakaran, dan (dengan add-on) banjir serta bencana alam. Ini juga melindungi
-            pihak ketiga — orang lain yang terlibat dalam accident dengan anda.
+            pihak ketiga: orang lain yang terlibat dalam kemalangan dengan anda.
           </p>
 
           <h2>Apa itu Insurans Pihak Ketiga (Third Party)?</h2>
           <p>
-            Insurans pihak ketiga (TP) adalah insurans minimum yang diwajibkan oleh undang-undang Malaysia.
-            Ia <strong>hanya melindungi pihak ketiga</strong> — orang lain yang terlibat dalam accident dengan anda.
+            Insurans pihak ketiga (TP) ialah insurans minimum yang diwajibkan oleh undang-undang Malaysia.
+            Ia <strong>hanya melindungi pihak ketiga</strong>: orang lain yang terlibat dalam kemalangan dengan anda.
             Kereta anda sendiri <em>tidak</em> dilindungi sama sekali.
           </p>
           <p>
-            Ada juga varian tengah yang dipanggil <strong>Third Party Fire and Theft (TPFT)</strong> —
-            ia melindungi pihak ketiga, dan kereta anda sendiri kalau kena curi atau terbakar,
-            tapi tidak cover kerosakan accident biasa.
+            Ada juga varian tengah yang dipanggil <strong>Third Party Fire and Theft (TPFT)</strong>.
+            Ia melindungi pihak ketiga, dan kereta anda sendiri jika dicuri atau terbakar,
+            tetapi tidak melindungi kerosakan akibat kemalangan biasa.
           </p>
 
           <h2>Perbandingan: Apa Yang Dilindungi</h2>
@@ -118,22 +121,22 @@ const schema = {
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium">Kerosakan kereta sendiri (accident)</td>
+                <td class="font-medium">Kerosakan kereta sendiri (kemalangan)</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kecurian kereta sendiri</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kebakaran kereta sendiri</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
-                <td class="text-red-500 font-bold">✗ Tidak</td>
+                <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
                 <td class="font-medium">Kerosakan kereta orang lain</td>
@@ -150,8 +153,8 @@ const schema = {
               <tr>
                 <td class="font-medium">Banjir &amp; bencana alam (special perils)</td>
                 <td class="text-stone-500">Add-on</td>
-                <td class="text-red-500 font-bold">✗</td>
-                <td class="text-red-500 font-bold">✗</td>
+                <td class="mark-no">✗</td>
+                <td class="mark-no">✗</td>
               </tr>
               <tr>
                 <td class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</td>
@@ -163,10 +166,10 @@ const schema = {
           </table>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Pilihan Berdasarkan Umur Kereta</h2>
           <p>
-            Cara paling mudah untuk buat keputusan: tengok umur dan nilai kereta anda.
+            Cara paling mudah untuk membuat keputusan: lihat umur dan nilai kereta anda.
           </p>
 
           <h3>Kereta baru atau bernilai tinggi (lebih RM30,000)</h3>
@@ -174,7 +177,7 @@ const schema = {
             Komprehensif wajar diutamakan. Kereta baru bernilai tinggi; jika kemalangan teruk atau kereta dicuri, insurans pihak ketiga tidak melindungi kereta anda, dan kos membaiki atau mengganti kereta boleh mencecah puluhan ribu ringgit.
           </p>
 
-          <h3>Kereta sederhana (RM10,000 – RM30,000)</h3>
+          <h3>Kereta sederhana (RM10,000–RM30,000)</h3>
           <p>
             Komprehensif masih patut dipertimbangkan, tetapi kira dahulu. Jika premium komprehensif lebih daripada 10% nilai kereta, TPFT mungkin wajar dipertimbangkan. Ingat, dengan TPFT anda menanggung sendiri kos jika kereta rosak teruk dalam kemalangan.
           </p>
@@ -186,9 +189,7 @@ const schema = {
 
           <div class="info-box my-6">
             <p class="text-sm">
-              <strong>Peraturan mudah:</strong> Kalau nilai kereta lebih dari RM15,000, ambil komprehensif.
-              Kalau di bawah RM10,000 dan dah tua, boleh pertimbangkan TPFT. Jangan ambil risiko dengan
-              pihak ketiga sahaja kecuali kereta memang dah tak bernilai.
+              <strong>Cara membandingkan:</strong> Bandingkan premium komprehensif, TPFT dan pihak ketiga bersama nilai kereta, syarat pinjaman dan kos kerosakan yang anda mampu tanggung.
             </p>
           </div>
 
@@ -201,9 +202,9 @@ const schema = {
             <li><strong>TPFT dan pihak ketiga:</strong> lebih murah, tetapi kami belum mengesahkan angkanya. Minta sebut harga untuk kereta anda.</li>
           </ul>
 
-          <div class="not-prose bg-blue-50 border border-blue-200 rounded-lg p-4 my-6">
-            <p class="font-semibold text-blue-800 mb-2">Contoh Kos: {myvi.fullName}</p>
-            <ul class="text-blue-700 text-sm space-y-1">
+          <div class="not-prose note-price my-6">
+            <p class="note-t mb-2">Contoh Kos: {myvi.fullName}</p>
+            <ul class="text-sm space-y-1">
               <li>• <strong>Komprehensif (NCD 55%):</strong> ~{tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}/tahun (belum termasuk special perils)</li>
               <li>• <strong>Komprehensif (tanpa NCD):</strong> ~{tightRange(myvi.premiumNCD0Min, myvi.premiumNCD0Max)}/tahun</li>
               <li>• <strong>Pihak Ketiga:</strong> minta sebut harga; kami belum mengesahkan angkanya</li>
@@ -212,11 +213,11 @@ const schema = {
           </div>
           <p>
             Beza antara komprehensif dan pihak ketiga untuk Myvi biasanya beberapa ratus ringgit setahun; minta sebut harga untuk angka tepat.
-            Tapi kalau kereta kena curi atau accident teruk, anda boleh rugi RM20,000 – RM50,000.
+            Tetapi jika kereta dicuri atau terlibat dalam kemalangan teruk, anda boleh rugi RM20,000–RM50,000.
             Untuk kereta yang masih bernilai, komprehensif biasanya lebih wajar dipertimbangkan.
           </p>
 
-          <h2>Kesimpulan</h2>
+          <h2>Komprehensif memberi perlindungan paling luas</h2>
           <p>
             Insurans komprehensif <strong>memberi perlindungan paling luas</strong> antara tiga jenis polisi. Untuk kereta yang masih bernilai tinggi, bandingkan beza premium dengan kos yang perlu anda tanggung sendiri jika kereta rosak atau dicuri. Jika anda tinggal di kawasan banjir, semak kos add-on special perils, lazimnya sekitar 0.2%–0.5% daripada sum insured setahun.
           </p>
@@ -232,7 +233,7 @@ const schema = {
           </p>
           <div class="flex flex-wrap gap-3">
             <a href="/insurans-online/" class="btn-hijau text-sm">
-              Semakan platform insurans online →
+              Semakan platform insurans online
             </a>
             <a href="/car-insurance/" class="btn-outline text-sm">
               Panduan insurans kereta
@@ -242,8 +243,8 @@ const schema = {
 
         <!-- Lihat Juga -->
         <div class="not-prose bg-stone-50 border border-stone-200 rounded-xl p-6 my-8">
-          <h3 class="font-semibold text-stone-800 mb-4">Lihat Juga — Harga Insurans Kereta Popular</h3>
-          <p class="text-sm text-stone-600 mb-4">Nak tahu harga insurans komprehensif untuk kereta anda? Semak anggaran untuk model popular:</p>
+          <h3 class="font-semibold text-stone-800 mb-4">Lihat Juga: Harga Insurans Kereta Popular</h3>
+          <p class="text-sm text-stone-600 mb-4">Mahu tahu harga insurans komprehensif untuk kereta anda? Semak anggaran untuk model popular:</p>
           <ul class="space-y-3">
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
               <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold hover:underline">{myvi.fullName}</a>
@@ -264,27 +265,10 @@ const schema = {
       <!-- Sidebar -->
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan Pantas</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex items-start gap-2">
-                <span class="text-hijau-600 font-bold flex-shrink-0">✓</span>
-                <span><strong>Komprehensif</strong> — lindungi kereta sendiri dan pihak ketiga; banjir perlukan add-on special perils</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-stone-400 flex-shrink-0">~</span>
-                <span><strong>TPFT</strong> — cover kecurian + kebakaran + pihak ketiga</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-red-400 font-bold flex-shrink-0">✗</span>
-                <span><strong>Pihak Ketiga</strong> — cover orang lain sahaja</span>
-              </li>
-            </ul>
-          </div>
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan berkaitan</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — jimat sehingga 55%</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: jimat sehingga 55%</a></li>
               <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 hover:text-hijau-600">10 cara turunkan premium</a></li>
               <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:text-hijau-600">Insurans kereta banjir</a></li>
               <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim</a></li>

@@ -1,11 +1,18 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
+import LogoTile from '../../components/LogoTile.astro';
+import Ikon from '../../components/Ikon.astro';
 
 const conventional = companies.filter(c => c.type === 'conventional');
 const takafulOnly = companies.filter(c => c.type === 'takaful');
 const withTakaful = companies.filter(c => c.takaful);
 const sortedCompanies = [...companies].sort((a, b) => a.name.localeCompare(b.name, 'ms'));
+// Product-category labels as on the earlier company cards.
+const PRODUCT_LABELS: Record<string, string> = {
+  car: 'Kereta', motorcycle: 'Motosikal', health: 'Kesihatan', life: 'Nyawa', travel: 'Travel', home: 'Rumah', 'personal-accident': 'PA',
+};
 
 const schema = {
   "@context": "https://schema.org",
@@ -28,35 +35,49 @@ const schema = {
   description="Senarai 12 syarikat insurans dan takaful Malaysia — profil, produk, status takaful dan nombor claim Etiqa, Allianz, AIA, Prudential, Zurich."
   schema={schema}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Syarikat</span>
-      </nav>
-      <p class="label mb-3">Direktori Syarikat 2026</p>
-      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Syarikat' }]} />
+      <h1 class="ea-h1 mb-1">
         Syarikat Insurans & Takaful di Malaysia: Senarai, Profil & Nombor Claim
       </h1>
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Senarai syarikat insurans dan takaful berlesen di Malaysia — 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Semak produk, status takaful dan nombor claim hotline setiap syarikat sebelum renew.
+      <section class="mod co-list" aria-labelledby="senarai-syarikat">
+        <h2 id="senarai-syarikat" class="mod-bar">{companies.length} syarikat insurans dan takaful berlesen di Malaysia</h2>
+        <ul class="co-rows">
+          {sortedCompanies.map((company) => (
+            <li class="co-r">
+              <a href={`/companies/${company.slug}/`} class="co-a"><LogoTile company={company.slug} size="m" />{company.name}<Ikon name="i-kanan" size={18} /></a>
+              <span class="co-t">{company.type === 'takaful' ? 'Takaful' : company.takaful ? 'Ada takaful' : 'Insurans'}</span>
+              <span class="co-f">{company.verdictBM}</span>
+              <details class="co-d">
+                <summary>Butiran</summary>
+                <dl>
+                  <div><dt>Nama berdaftar</dt><dd>{company.fullName}</dd></div>
+                  {company.parent && <div><dt>Kumpulan induk</dt><dd>{company.parent}</dd></div>}
+                  {company.founded && <div><dt>Ditubuhkan</dt><dd>{company.founded}</dd></div>}
+                  <div><dt>Produk</dt><dd>{company.products.map((product: string) => PRODUCT_LABELS[product] ?? product).join(', ')}</dd></div>
+                </dl>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
+        Senarai syarikat insurans dan takaful berlesen di Malaysia: 12 syarikat termasuk Etiqa, Allianz, Zurich, AIA dan Prudential. Semak produk, status takaful dan nombor claim hotline setiap syarikat sebelum renew.
       </p>
 
-      <div class="flex flex-wrap gap-4 mt-6 text-sm text-stone-600">
-        <span><strong class="text-stone-900">{companies.length}</strong> syarikat</span>
-        <span>•</span>
-        <span><strong class="text-stone-900">{withTakaful.length}</strong> ada takaful</span>
-        <span>•</span>
-        <span><strong class="text-stone-900">{takafulOnly.length}</strong> takaful sahaja</span>
-      </div>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-base text-stone-700">
+        <li><strong class="text-stone-900">{companies.length}</strong> syarikat</li>
+        <li><strong class="text-stone-900">{withTakaful.length}</strong> ada takaful</li>
+        <li><strong class="text-stone-900">{takafulOnly.length}</strong> takaful sahaja</li>
+      </ul>
     </div>
   </section>
 
   <section class="container-wide py-10 sm:py-14">
-    <h2 id="claim-hotline" class="font-serif text-headline-md text-stone-900 mb-3">Nombor claim hotline syarikat insurans</h2>
+    <h2 id="claim-hotline" class="h2-bar">Nombor claim hotline syarikat insurans</h2>
     <p class="text-stone-600 max-w-3xl mb-6">
-      Nak buat claim, call terus hotline rasmi di bawah — bukan ejen. Semua nombor disalin dari laman rasmi syarikat. Klik nombor untuk call terus dari mobile.
+      Mahu membuat claim? Hubungi terus hotline rasmi di bawah, bukan ejen. Semua nombor disalin daripada laman rasmi syarikat. Klik nombor untuk menelefon terus dari telefon bimbit.
     </p>
     <div class="overflow-x-auto mb-3">
       <table class="table-editorial">
@@ -85,75 +106,60 @@ const schema = {
         </tbody>
       </table>
     </div>
-    <p class="text-sm text-stone-500 mb-3">Disahkan 10 Sep 2026 dari laman rasmi</p>
-    <p class="text-sm text-stone-600 mb-10">Nak banding dua syarikat terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a> · <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> · <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
+    <p class="text-sm text-stone-700 mb-3">Disahkan 10 Sep 2026 daripada laman rasmi</p>
+    <p class="text-sm text-stone-600 mb-10">Mahu banding dua syarikat secara terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a>, <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> atau <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
 
-    <!-- Company list -->
-    <div class="space-y-4">
-      {sortedCompanies.map((company) => (
-        <div class="card-editorial group block">
-          <a href={`/companies/${company.slug}/`} class="block">
-            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+  </section>
 
-              <!-- Content -->
-              <div class="flex-1 min-w-0">
-                <div class="flex items-baseline flex-wrap gap-2 mb-1.5">
-                  <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors">
-                    {company.name}
-                  </h2>
-                  {company.type === 'takaful' ? (
-                    <span class="text-xs font-medium text-hijau-700 bg-hijau-50 px-2 py-0.5">Takaful</span>
-                  ) : company.takaful ? (
-                    <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Ada Takaful</span>
-                  ) : null}
-                </div>
-
-                <p class="text-xs text-stone-500 mb-2">
-                  {company.fullName}
-                  {company.parent && <span> · {company.parent}</span>}
-                </p>
-
-                <p class="text-sm text-stone-600 mb-3">{company.verdictBM}</p>
-
-                <!-- Products -->
-                <div class="flex flex-wrap gap-1.5 mb-3">
-                  {company.products.map((product: string) => (
-                    <span class="text-xs bg-stone-100 text-stone-600 px-2 py-0.5">
-                      {product === 'car' ? 'Kereta' :
-                       product === 'motorcycle' ? 'Motosikal' :
-                       product === 'health' ? 'Kesihatan' :
-                       product === 'life' ? 'Nyawa' :
-                       product === 'travel' ? 'Travel' :
-                       product === 'home' ? 'Rumah' :
-                       product === 'personal-accident' ? 'PA' : product}
-                    </span>
-                  ))}
-                </div>
-
-                <!-- Meta -->
-                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-500">
-                  <span>Est. {company.founded}</span>
-                  {company.claimLine && <span>Claim: {company.claimLine}</span>}
-                </div>
-              </div>
-            </div>
-          </a>
-
-          {(company.slug === 'prudential' || company.slug === 'aia' || company.slug === 'etiqa' || company.slug === 'zurich' || company.slug === 'allianz') && (
-            <ul class="mt-4 space-y-1 text-sm">
-              {(company.slug === 'prudential' || company.slug === 'aia') && (
-                <li><a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA — bandingkan dua life insurer terbesar</a></li>
-              )}
-              {(company.slug === 'etiqa' || company.slug === 'zurich') && (
-                <li><a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich — mana lagi murah untuk kereta?</a></li>
-              )}
-              {(company.slug === 'allianz' || company.slug === 'zurich') && (
-                <li><a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich — dua brand global head-to-head</a></li>
-              )}
-            </ul>
-          )}
-        </div>
-      ))}
+  <section class="bg-white border-t border-stone-200 py-10">
+    <div class="container-article prose-editorial prose-bars">
+          <h2 id="panduan-am" class="h2-bar">Panduan am memilih syarikat insurans</h2>
+                        <h3>Entiti dan lesen</h3>
+            <p>
+            Kenal pasti entiti yang mengeluarkan polisi atau sijil anda. Nama entiti tersebut membantu anda mencari saluran tuntutan dan khidmat pelanggan yang betul. Rujuk dokumen produk untuk manfaat, kelayakan dan had perlindungan.
+          </p>
+<p>
+            Semak nama pengendali pada dokumen perlindungan anda. Insurans konvensional menggunakan polisi, manakala takaful menggunakan sijil. Tarikh sejarah kumpulan dan jenama boleh berbeza daripada tarikh penubuhan entiti yang mengeluarkan dokumen tersebut.
+          </p>
+          <p>
+            Untuk membandingkan perlindungan dengan adil, kenal pasti dahulu entiti yang menanggung risiko, jenis produk dan saluran servisnya. Hubungan dengan kumpulan bank atau syarikat antarabangsa ialah maklumat korporat; ia tidak menggantikan semakan terma kontrak, had perlindungan, pengecualian atau proses aduan bagi produk tertentu.
+          </p>
+            <h3>Membandingkan produk</h3>
+            <p>
+            Untuk insurans motor, bandingkan jenis perlindungan, nilai diinsuranskan, excess, betterment, manfaat tambahan dan had tunda dalam quotation serta wording sebenar. Untuk perubatan atau hayat, semak had tahunan/seumur hidup, perkongsian kos, syarat kelayakan dan tempoh menunggu. Nama manfaat dalam ringkasan ini tidak menjamin tuntutan akan diluluskan.
+          </p>
+          <p>
+            Harga insurans kereta bergantung pada butiran risiko, kenderaan, perlindungan dan pilihan tambahan. Dapatkan quotation terus daripada penyedia dan bandingkan skop perlindungan yang setara.
+          </p>
+            <h3>Tuntutan dan aduan</h3>
+            <p>
+            Proses tuntutan berubah mengikut kategori perlindungan. Gunakan arahan yang sepadan dengan polisi atau sijil anda; nombor bantuan kemalangan, meja tuntutan dan careline umum tidak semestinya menjalankan fungsi yang sama.
+          </p>
+<p>
+            Jika melibatkan kemalangan, hubungi penyedia melalui saluran rasmi dan simpan maklumat berkaitan kejadian. Jangan anggap nombor hotline sebagai kelulusan tuntutan atau jaminan tempoh bayaran. Minta senarai dokumen serta arahan bertulis untuk tuntutan anda, dan gunakan bantuan tunda yang dilantik apabila penyedia mensyaratkannya.
+          </p>
+          <p>
+            Jika aduan tidak selesai selepas keputusan akhir penyedia, Financial Markets Ombudsman Service (FMOS) ialah saluran ombudsman bersama untuk pertikaian kewangan yang layak. Pertikaian motor dan perubatan/kesihatan termasuk takaful boleh dipertimbangkan secara percuma; had masa yang dinyatakan ialah enam bulan selepas keputusan akhir. Sahkan skop bidang kuasa dan syarat terkini terus dengan FMOS.
+          </p>
+            <h3>Aplikasi</h3>
+            <p>
+            Sebelum bergantung pada aplikasi ketika kecemasan, semak sama ada polisi anda telah dipautkan, kaedah log masuk berfungsi dan talian telefon masih tersedia. Semak fungsi yang tersedia untuk polisi anda dengan penyedia; portal web dan aplikasi mungkin menawarkan kemudahan yang berbeza.
+          </p>
+            <h3>Menghubungi penyedia</h3>
+            <p>
+            Gunakan saluran rasmi yang sepadan dengan urusan anda. Talian servis yang berasingan membantu membezakan pertanyaan polisi, tuntutan, bantuan jalan raya dan bantuan perubatan; periksa waktu operasi sebelum membuat panggilan bagi urusan bukan kecemasan.
+          </p>
+<p>
+            Untuk isu yang tidak sesuai dengan talian khusus di atas, lawati laman penyedia dan cari saluran khidmat pelanggan terkini. Simpan nombor rujukan, tarikh komunikasi dan dokumen yang dihantar. Insurans.co tidak menerima permohonan, mengurus tuntutan atau mewakili pelanggan dengan mana-mana syarikat di halaman ini.
+          </p>
+            <h3>Sebelum membeli</h3>
+            <p>
+            Padankan produk dan saluran perkhidmatan dengan keperluan anda. Pertimbangkan bajet, tanggungan, risiko dan syarat kelayakan sebelum membeli.
+          </p>
+<p>
+            Sebelum membeli, bandingkan sekurang-kurangnya dua quotation dengan jumlah diinsuranskan dan tambahan yang sama. Baca helaian pendedahan produk serta wording polisi/sijil untuk had, excess, pengecualian, kewajipan pemberitahuan tuntutan dan cara membuat aduan. Pastikan manfaat yang anda perlukan dinyatakan dalam dokumen polisi atau sijil.
+          </p>
+          
     </div>
   </section>
 
@@ -169,3 +175,21 @@ const schema = {
     </div>
   </section>
 </Base>
+
+<style>
+  .co-list { max-width: 48rem; margin-block: 1rem 1.25rem; }
+  .co-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  @media (min-width: 48rem) { .co-rows { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
+  .co-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; padding: 0.35rem 0 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .co-a { display: inline-flex; align-items: center; gap: 0.35rem 0.6rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .co-t { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+  .co-f { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--ink); }
+  .co-d { grid-column: 1 / -1; font-size: 0.875rem; color: var(--ink); margin-top: 0.25rem; }
+  .co-d summary { cursor: pointer; font-weight: 600; min-height: 2.75rem; display: flex; align-items: center; text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-d summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .co-d dl { display: grid; gap: 0.2rem; margin: 0 0 0.35rem; }
+  .co-d dl div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.5rem; }
+  .co-d dt { font-weight: 600; }
+  .co-d dd { margin: 0; overflow-wrap: anywhere; }
+</style>

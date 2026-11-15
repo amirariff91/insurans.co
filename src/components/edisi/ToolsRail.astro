@@ -1,0 +1,54 @@
+---
+/**
+ * Right rail: "Patut ke claim?" (the NCD rule already stated on main, applied to this car's own
+ * figures; no new logic, the calculator does the sum) and related models.
+ */
+import Ikon from '../Ikon.astro';
+import CarThumb from '../CarThumb.astro';
+import Px from './Px.astro';
+import { carSteps, rmRange } from './steps';
+import { rm } from '../../lib/ncd';
+
+interface Props {
+  model: any;
+  related: any[];
+  calculatorUrl: string;
+  /** Front page only: hooks so its car picker can swap this module's figures in place. */
+  hooks?: boolean;
+}
+const { model, related, calculatorUrl, hooks = false } = Astro.props;
+const f = (key: string) => (hooks ? key : undefined);
+const s = carSteps(model);
+const formatRange = (min: number, max: number) => rmRange(min, max, rm);
+---
+<section class="mod" data-tint="pink" aria-labelledby="patut-claim">
+  <h2 class="mod-bar" id="patut-claim">Sebelum claim, bandingkan kos baiki dengan diskaun yang hilang</h2>
+  <div class="mod-in">
+    <p class="ix-s">Claim own damage biasa boleh menyebabkan NCD kembali kepada 0% pada renew seterusnya. Claim OD-KfK yang layak apabila pihak lain bersalah, dan claim windscreen di bawah add-on windscreen, tidak menjejaskan NCD.</p>
+    <dl class="kb">
+      <div class="kb-r"><dt>{hooks ? <span data-f="rail-name">{model.model}</span> : model.model} pada NCD <Px v={s.pct} data-f={f('pct')} /></dt><dd><Px v={s.ins} data-f={f('rail-ins')} /></dd></div>
+      <div class="kb-r"><dt>Selepas claim (NCD 0%)</dt><dd data-f={f('rail-zero')}>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max)}</dd></div>
+    </dl>
+    <a class="ea-btn ea-btn-o" href={calculatorUrl} data-calculator-link data-cta="rail-claim" data-f={f('calc')}>Kira dengan kos baiki anda <Ikon name="i-kanan" size={20} /></a>
+  </div>
+</section>
+
+{related.length > 0 && (
+  <section class="mod" aria-labelledby="model-berkaitan">
+    <h2 class="mod-bar mod-lab" id="model-berkaitan">Model lain yang mungkin sesuai</h2>
+    <div class="mod-in">
+      <ul class="rel">
+        {related.map((r: any) => (
+          <li>
+            <span class="rel-h"><CarThumb slug={r.slug} /><a href={`/car-insurance/${r.slug}/`}>{r.fullName}</a></span>
+            <p class="ix-src" style="border:0;padding:0">{r.segment}, {r.engineCC}</p>
+            <dl>
+              <div><dt>NCD 55%</dt><dd>{formatRange(r.premiumNCD55Min, r.premiumNCD55Max)}</dd></div>
+              <div><dt>NCD 0%</dt><dd>{formatRange(r.premiumNCD0Min, r.premiumNCD0Max)}</dd></div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

@@ -1,0 +1,147 @@
+---
+/**
+ * A car model's cut-out photo (Malaysian-market, from Wikimedia Commons) with its short credit line,
+ * or, for a model without a photo, a name card in the same slot. Data: src/data/car-photos.json.
+ * Colours read the Edisi tokens when present and fall back to fixed values before the token port.
+ */
+import carPhotos from '../data/car-photos.json';
+import carModels from '../data/car-models.json';
+import Ikon from './Ikon.astro';
+import { photoSrcset } from './edisi/photo';
+
+interface Props {
+  slug: string;
+  /** Load immediately (above the fold). Default: lazy. */
+  eager?: boolean;
+  /** The `sizes` attribute for the srcset. */
+  sizes?: string;
+  class?: string;
+}
+
+const { slug, eager = false, sizes = '(min-width: 48rem) 24rem, 90vw', class: className } = Astro.props;
+
+const photo = carPhotos.find((p) => p.slug === slug) as any;
+const model = carModels.find((m) => m.slug === slug);
+if (!photo || !model) {
+  throw new Error(`CarPhoto: unknown car slug "${slug}"`);
+}
+
+// Brand on one line, model on the next; the longer of the two sets the type size so both fit the plate.
+const fitChars = Math.max(model.brand.length, model.model.length, 4);
+const creditHref = `/kredit-foto/#${slug}`;
+const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace(/\.$/, '') : null;
+---
+
+{photo.hasPhoto ? (
+  <figure class:list={['cp', className]}>
+    <img
+      class="cp-img"
+      src={photo.src400}
+      srcset={photoSrcset(photo)}
+      sizes={sizes}
+      width={photo.width}
+      height={photo.height}
+      alt={photo.alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={eager ? 'high' : undefined}
+    />
+    <figcaption class="cp-credit">
+      Foto: <a href={photo.credit!.source} rel="noopener">{photo.credit!.copyrightNotice ?? photo.credit!.author}</a>,{' '}
+      <a href={photo.credit!.licenceUrl} rel="license noopener">{photo.credit!.licence}</a>,{' '}
+      {aiNote ? (
+        <>Wikimedia Commons. <a href={creditHref}>{aiNote}</a></>
+      ) : (
+        <a href={creditHref}>diubah suai</a>
+      )}
+    </figcaption>
+  </figure>
+) : (
+  <div class:list={['cp', 'cp-card', className]} role="img" aria-label={model.fullName} style={`--fit:${fitChars}`}>
+    <span class="cp-card-name"><span class="cp-card-brand">{model.brand}</span> <span class="cp-card-model">{model.model}</span></span>
+    <span class="cp-card-meta">{model.segment}, {model.engineCC}</span>
+    <span class="cp-card-car"><Ikon name="i-kereta" size={96} /></span>
+  </div>
+)}
+
+<style>
+  .cp {
+    margin: 0;
+    inline-size: 100%;
+  }
+  .cp-img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+  }
+  .cp-credit {
+    margin-block-start: 0.4rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--edisi-muted, #57534e);
+  }
+  .cp-credit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .cp-credit a:hover {
+    color: var(--edisi-ink, #1c1917);
+  }
+
+  /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box: brand and
+     model large and tight on the left, body type and engine small beneath, the car pictogram on the right.
+     Pale blue like the photo plate (pink is kept for prices); the pictogram's dot is ink, not the knob colour.
+     One compact layout at every width. */
+  .cp-card {
+    container-type: inline-size;
+    display: grid;
+    grid-template:
+      'name car' 1fr
+      'meta car' auto / minmax(0, 1fr) auto;
+    align-content: end;
+    align-items: end;
+    gap: 0.3rem 0.75rem;
+    padding: 0.85rem 1rem 0.75rem;
+    border: 2px solid var(--ink, #000);
+    border-radius: var(--r-2, 0.5rem);
+    background: var(--tint-sky, #cfe8fa);
+    color: var(--ink, #000);
+    overflow: hidden;
+  }
+  .cp-card-name {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    font-family: var(--fd, inherit);
+    font-weight: 800;
+    font-size: clamp(1.5rem, calc(110cqi / var(--fit)), 2.75rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    /* Break only between words; a long single word (Mercedes-Benz) wraps at its hyphen, never mid-word. */
+    overflow-wrap: normal;
+    hyphens: manual;
+  }
+  .cp-card-name > span { min-width: 0; }
+  .cp-card-meta {
+    grid-area: meta;
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 650;
+    line-height: 1.25;
+  }
+  .cp-card-car {
+    grid-area: car;
+    align-self: center;
+    justify-self: end;
+    --icon-stroke: 2;
+    --icon-knob: var(--ink, #000);
+    line-height: 0;
+  }
+  .cp-card-car :global(.ikon) {
+    inline-size: clamp(3rem, 18cqi, 4.25rem);
+    block-size: auto;
+  }
+</style>

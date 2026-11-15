@@ -1,12 +1,15 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { homeFacts } from '../../data/home-facts';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Panduan Takaful Malaysia 2026 — Beza Insurans vs Takaful",
-  "description": "Panduan lengkap takaful di Malaysia. Apa beza sebenar insurans konvensional dan takaful? Mana satu lebih bagus? Syarikat takaful terbaik.",
+  "description": "Panduan takaful di Malaysia: beza insurans konvensional dan takaful, cara dana diurus, jenis perlindungan dan syarikat yang menawarkannya.",
   "url": "https://insurans.co/takaful/",
   "datePublished": "2026-02-01",
   "dateModified": "2026-02-10",
@@ -28,44 +31,43 @@ const schema = {
 
 <Base
   title="Takaful Malaysia 2026 — Beza Insurans vs Takaful & Panduan Lengkap"
-  description="Panduan takaful Malaysia 2026. Apa beza insurans dan takaful? Mana yang lebih murah? Syarikat takaful terbaik. Ditulis dalam BM."
+  description="Panduan takaful Malaysia 2026: beza insurans dan takaful, faktor harga, perkongsian lebihan dan senarai syarikat. Ditulis dalam BM."
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
   modifiedTime="2026-02-10"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Takaful</span>
-      </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Takaful' }]} />
+      <h1 class="ea-h1">
         Takaful Malaysia — Apa Beza Dengan Insurans?
       </h1>
+      <PageAnswer
+        finding="Takaful: patuh Syariah, tidak terhad kepada orang Islam"
+        facts={[
+          { label: 'Perkongsian lebihan?', value: 'Tidak dijamin; ada tahun tanpa lebihan' },
+          { label: 'Harga', value: 'Bergantung pada pelan dan syarikat' },
+          { label: 'Syarikat takaful di Malaysia', value: 'Semak direktori BNM' },
+        ]}
+      />
       <Byline dateModified={schema.dateModified} />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Ramai orang beli takaful tapi tak faham apa beza sebenar dengan insurans konvensional. 
-        Jom kita explain sekali — tak perlu jadi ustaz untuk faham benda ni.
-      </p>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
 
           <p class="text-lg text-stone-700 leading-relaxed">
-            Secara ringkas: <strong>takaful = insurans yang patuh Syariah</strong>. 
-            Dari segi fungsi — protect anda kalau berlaku musibah — sama je. 
-            Yang beza adalah <strong>konsep di sebalik</strong> dan <strong>cara duit diurus</strong>.
+            <strong>Takaful ialah insurans yang patuh Syariah.</strong>
+            Jenis perlindungan boleh serupa, tetapi manfaat dan syarat bergantung pada produk.
+            Yang berbeza ialah konsepnya dan cara wang peserta diurus.
           </p>
 
-          <h2>Beza utama insurans vs takaful</h2>
+          <h2>Beza insurans dan takaful, aspek demi aspek</h2>
         </article>
 
         <div class="overflow-x-auto my-8">
@@ -91,11 +93,11 @@ const schema = {
               <tr>
                 <td class="font-medium text-stone-900">Keuntungan</td>
                 <td>Milik syarikat sepenuhnya</td>
-                <td class="text-hijau-700 font-medium">Dikongsi — surplus diagih kepada peserta</td>
+                <td class="text-hijau-700 font-medium">Lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil; agihan tidak dijamin.</td>
               </tr>
               <tr>
                 <td class="font-medium text-stone-900">Pelaburan</td>
-                <td>Bebas (termasuk non-halal)</td>
+                <td>Tidak perlu patuh Syariah, tetapi tetap tertakluk pada peraturan yang berkenaan.</td>
                 <td class="text-hijau-700 font-medium">Patuh Syariah sahaja</td>
               </tr>
               <tr>
@@ -110,51 +112,49 @@ const schema = {
               </tr>
               <tr>
                 <td class="font-medium text-stone-900">Harga</td>
-                <td>Competitive</td>
-                <td>Competitive (kadang lebih murah, kadang sama)</td>
+                <td>Kompetitif</td>
+                <td>{homeFacts.takaful.price}.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <article class="prose-editorial">
-          <h2>Macam mana takaful berfungsi?</h2>
+        <article class="prose-editorial prose-bars">
+          <h2>Sumbangan boleh dibahagi kepada tabung risiko dan tabung pelaburan</h2>
 
           <p>
-            Dalam takaful, duit anda masuk dua "tabung":
+            Struktur dana bergantung pada produk. Sesetengah pelan keluarga ada komponen simpanan atau pelaburan.
+            Semak pembahagian sumbangan, fi dan nisbah perkongsian dalam dokumen produk.
           </p>
 
           <ol class="list-decimal pl-5 space-y-3">
             <li>
-              <strong>Tabung Risiko (Tabarru')</strong> — Sebahagian sumbangan anda masuk tabung bersama. 
-              Kalau ada peserta yang kena musibah, duit dari tabung ni yang bayar. 
-              Anda secara sukarela "derma" bahagian ni untuk bantu sesama peserta.
+              <strong>Tabung Risiko (Tabarru')</strong>: sebahagian sumbangan anda masuk ke tabung bersama.
+              Tabung ini membayar peserta yang ditimpa musibah.
+              Bahagian ini ialah derma sukarela anda kepada peserta lain.
             </li>
             <li>
-              <strong>Tabung Pelaburan</strong> — Baki sumbangan dilaburkan dalam instrumen patuh Syariah 
-              (sukuk, equiti halal, hartanah). Keuntungan dikongsi antara anda dan syarikat takaful 
-              mengikut nisbah yang dipersetujui (biasanya 50:50 atau 70:30).
+              <strong>Tabung Pelaburan</strong>: baki sumbangan dilaburkan dalam instrumen patuh Syariah
+              (sukuk, ekuiti halal, hartanah). Anda dan syarikat takaful berkongsi keuntungan
+              mengikut nisbah dalam dokumen produk.
             </li>
           </ol>
 
           <p>
-            <strong>Apa yang best:</strong> kalau tabung risiko ada lebihan (surplus) di hujung tahun, 
-            anda boleh dapat balik sebahagian. Dalam insurans konvensional, 
-            kalau tak claim, premium tu dah gone — milik syarikat.
+            Jika tabung risiko ada lebihan (surplus), lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil.
+            Agihan tidak dijamin. Dalam insurans konvensional, premium menjadi milik syarikat walaupun anda tidak membuat claim.
           </p>
 
-          <h2>Takaful untuk apa?</h2>
-
-          <p>Takaful ada untuk semua jenis perlindungan — sama macam insurans konvensional:</p>
+          <h2>Takaful ada untuk motor, kesihatan, hayat dan am</h2>
 
           <ul>
-            <li><strong>Takaful Motor</strong> — Untuk kereta dan motosikal. Wajib ada untuk renew roadtax.</li>
-            <li><strong>Takaful Kesihatan</strong> — Medical card patuh Syariah.</li>
-            <li><strong>Takaful Hayat</strong> — Life insurance versi Syariah.</li>
-            <li><strong>Takaful Am</strong> — Fire insurance, travel, personal accident.</li>
+            <li><strong>Takaful Motor</strong>: untuk kereta dan motosikal. Anda perlu insurans atau takaful motor yang sah untuk renew roadtax.</li>
+            <li><strong>Takaful Kesihatan</strong>: medical card patuh Syariah.</li>
+            <li><strong>Takaful Hayat</strong>: insurans hayat versi Syariah.</li>
+            <li><strong>Takaful Am</strong>: perlindungan kebakaran, perjalanan dan kemalangan diri.</li>
           </ul>
 
-          <h2>Syarikat takaful utama di Malaysia</h2>
+          <h2>Syarikat takaful di Malaysia</h2>
         </article>
 
         <div class="space-y-4 my-8">
@@ -164,14 +164,13 @@ const schema = {
               <div>
                 <div class="flex items-baseline gap-2 mb-1">
                   <h3 class="font-semibold text-stone-900">Etiqa Takaful</h3>
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Full Takaful</span>
+                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
                 </div>
                 <p class="text-sm text-stone-600 mb-2">
-                  Subsidiary Maybank. Paling besar dan paling accessible. Boleh beli online 
-                  untuk motor takaful dan travel takaful. Harga competitive — kadang-kadang 
-                  lebih murah dari insurans konvensional.
+                  Anak syarikat Maybank. Takaful motor dan takaful perjalanan boleh dibeli dalam talian.
+                  Harga boleh lebih rendah, sama atau lebih tinggi daripada insurans konvensional.
                 </p>
-                <p class="text-xs text-stone-500">Motor, kesihatan, hayat, am — semua ada.</p>
+                <p class="text-xs text-stone-500">Ada takaful motor, kesihatan, hayat dan am.</p>
               </div>
             </div>
           </div>
@@ -182,11 +181,11 @@ const schema = {
               <div>
                 <div class="flex items-baseline gap-2 mb-1">
                   <h3 class="font-semibold text-stone-900">Takaful Malaysia (Syarikat Takaful Malaysia Keluarga)</h3>
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Full Takaful</span>
+                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
                 </div>
                 <p class="text-sm text-stone-600 mb-2">
-                  Syarikat takaful pertama di Malaysia (sejak 1984). Subsidiary BIMB. 
-                  Strong untuk family takaful dan medical takaful. Network ejen yang luas.
+                  Syarikat takaful pertama di Malaysia (sejak 1984). Anak syarikat BIMB.
+                  Ia menawarkan takaful keluarga dan takaful perubatan melalui rangkaian ejen.
                 </p>
               </div>
             </div>
@@ -198,11 +197,11 @@ const schema = {
               <div>
                 <div class="flex items-baseline gap-2 mb-1">
                   <h3 class="font-semibold text-stone-900">Zurich Takaful</h3>
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Full Takaful</span>
+                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
                 </div>
                 <p class="text-sm text-stone-600 mb-2">
-                  Dulu dikenali sebagai MAA Takaful. Sekarang under Zurich Group. 
-                  Competitive untuk motor takaful. Digital experience yang okay.
+                  Dulu dikenali sebagai MAA Takaful. Kini di bawah Zurich Group.
+                  Semak urusan yang boleh dibuat melalui saluran digital Zurich.
                 </p>
               </div>
             </div>
@@ -214,11 +213,11 @@ const schema = {
               <div>
                 <div class="flex items-baseline gap-2 mb-1">
                   <h3 class="font-semibold text-stone-900">Prudential BSN Takaful</h3>
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Full Takaful</span>
+                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
                 </div>
                 <p class="text-sm text-stone-600 mb-2">
-                  JV antara Prudential dan BSN. Strong untuk family takaful plans. 
-                  Good untuk orang yang nak coverage hayat + medical dalam satu plan takaful.
+                  Usaha sama (JV) antara Prudential dan BSN. Ia menawarkan pelan takaful keluarga dengan pilihan manfaat hayat dan perubatan.
+                  Semak struktur setiap pelan.
                 </p>
               </div>
             </div>
@@ -230,63 +229,59 @@ const schema = {
               <div>
                 <div class="flex items-baseline gap-2 mb-1">
                   <h3 class="font-semibold text-stone-900">AIA Public Takaful</h3>
-                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Full Takaful</span>
+                  <span class="text-xs font-medium text-emas-700 bg-emas-50 px-2 py-0.5">Takaful</span>
                 </div>
                 <p class="text-sm text-stone-600 mb-2">
-                  JV antara AIA dan Public Bank. Leverage AIA punya medical network 
-                  tapi dalam wrapper takaful. Good untuk medical takaful.
+                  Usaha sama (JV) antara AIA dan Public Bank. Ia menawarkan takaful perubatan dan menggunakan rangkaian perubatan AIA.
+                  Semak pelan dan hospital panel yang berkaitan.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <article class="prose-editorial">
-          <h2>Siapa patut pilih takaful?</h2>
+        <article class="prose-editorial prose-bars">
+          <h2>Takaful tidak terhad kepada orang Islam</h2>
 
-          <p>Honestly? <strong>Sesiapa pun boleh beli takaful</strong> — tak kira agama. Tapi secara praktikal:</p>
+          <p>Kelayakan lain bergantung pada produk dan pengendali. Takaful mungkin sesuai untuk:</p>
 
           <ul>
             <li>
-              <strong>Muslim yang nak patuh Syariah</strong> — Ini obvious. Takaful memang direka untuk ini. 
-              Majlis Fatwa Kebangsaan dah putuskan insurans konvensional harus tapi takaful lebih digalakkan.
+              <strong>Muslim yang mahu patuh Syariah</strong>: takaful direka untuk tujuan ini.
+              Untuk persoalan hukum dan keadaan khusus, rujuk pihak berautoriti agama.
             </li>
             <li>
-              <strong>Sesiapa yang suka konsep surplus sharing</strong> — Kalau tabung risiko ada lebihan, 
-              anda boleh dapat balik. Ini fair.
+              <strong>Sesiapa yang suka konsep perkongsian lebihan</strong>: lebihan boleh diagihkan mengikut kedudukan dana dan syarat sijil, tetapi agihan tidak dijamin.
             </li>
             <li>
-              <strong>Sesiapa yang nak pelaburan halal</strong> — Duit anda hanya dilaburkan 
-              dalam instrumen patuh Syariah. Tiada arak, judi, riba.
+              <strong>Sesiapa yang mahu pelaburan halal</strong>: sumbangan anda hanya dilaburkan
+              dalam instrumen patuh Syariah: tiada arak, judi atau riba.
             </li>
           </ul>
 
           <p>
-            <strong>Bottom line:</strong> Dari segi coverage dan proses claim, takaful dan insurans 
-            konvensional hampir sama. Kalau harga dan coverage lebih kurang, dan anda Muslim — 
-            pilih takaful. Simple.
+            Jika pematuhan Syariah penting bagi anda, pertimbangkan takaful.
+            Perlindungannya boleh serupa dengan insurans konvensional, tetapi manfaat dan syarat tetap bergantung pada produk.
           </p>
         </article>
 
         <div class="info-box my-8">
           <p class="text-sm text-stone-700">
-            <strong>Fakta menarik:</strong> Malaysia adalah antara pasaran takaful terbesar di dunia. 
-            Kita punya 15 syarikat takaful berlesen — lebih dari kebanyakan negara. 
-            Industri takaful Malaysia bernilai lebih RM30 bilion dalam aset.
+            <strong>Senarai berlesen:</strong> semak direktori BNM untuk pengendali takaful berlesen.
+            Untuk statistik pasaran, rujuk laporan industri terkini.
           </p>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Soalan lazim tentang takaful</h2>
         </article>
 
         <div class="my-8">
           <details class="faq-item" open>
-            <summary>Takaful lebih mahal ke dari insurans biasa?</summary>
+            <summary>Takaful lebih mahal ke daripada insurans biasa?</summary>
             <p>
-              Tak semestinya. Untuk motor takaful, harga biasanya <strong>sama atau kadang-kadang lebih murah</strong> 
-              dari insurans konvensional. Untuk medical dan life, bergantung pada plan dan syarikat. 
-              Bandingkan seperti biasa: minta sebut harga terus daripada syarikat insurans dan syarikat takaful
+              Tidak semestinya. Harga boleh lebih rendah, sama atau lebih tinggi.
+              Minta sebut harga untuk perlindungan dan profil yang sama, terus daripada syarikat insurans dan syarikat takaful
               (<a href="/insurans-online/#beli-terus" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">lihat senarai beli online</a>).
             </p>
           </details>
@@ -294,37 +289,36 @@ const schema = {
           <details class="faq-item">
             <summary>Non-Muslim boleh beli takaful?</summary>
             <p>
-              <strong>Ya, 100% boleh.</strong> Takaful terbuka untuk semua — tak kira agama, bangsa, atau kewarganegaraan. 
-              Ramai non-Muslim beli takaful motor sebab harga competitive.
+              Takaful tidak terhad kepada orang Islam. Kelayakan lain bergantung pada produk dan pengendali.
             </p>
           </details>
 
           <details class="faq-item">
             <summary>Apa tu surplus? Berapa biasanya dapat?</summary>
             <p>
-              Surplus adalah lebihan dalam tabung risiko (tabarru') selepas bayar semua claim. 
-              Kalau ada lebihan, ia dikongsi kepada peserta. Jumlah bergantung pada performance tabung — 
-              biasanya <strong>5-20% daripada sumbangan tabarru'</strong>. 
-              Tapi bukan setiap tahun ada surplus — kalau banyak claim, mungkin takde.
+              Surplus ialah lebihan dalam tabung risiko (tabarru') selepas semua claim dibayar.
+              Lebihan yang boleh diagihkan bergantung pada kedudukan dana dan syarat sijil.
+              Jumlah serta kelayakan perkongsian tidak dijamin, dan ada tahun tanpa agihan.
             </p>
           </details>
 
           <details class="faq-item">
             <summary>Claim takaful susah ke?</summary>
             <p>
-              Proses claim takaful <strong>sama je macam insurans konvensional</strong>. 
-              Submit documents, tunggu approval, dapat payout. 
-              Kalau motor — bawa ke panel workshop, cashless repair. 
-              Kalau medical — guna medical card di hospital panel. Tak ada beza dari segi process.
+              Langkah asasnya boleh serupa: hantar dokumen, tunggu kelulusan, terima bayaran.
+              Dokumen, syarat, kelulusan dan saluran bayaran bergantung pada produk dan pengendali.
+              Untuk motor, bawa kenderaan ke bengkel panel untuk pembaikan cashless.
+              Untuk perubatan, guna medical card di hospital panel.
             </p>
           </details>
 
           <details class="faq-item">
             <summary>Takaful ada NCD untuk motor?</summary>
             <p>
-              Ya, <strong>sama macam insurans motor biasa</strong>. NCD sehingga 55% selepas 5 tahun tanpa claim. 
-              Peraturan yang sama terpakai: claim yang menjejaskan NCD boleh menyebabkan kadar kembali kepada 0% pada renew seterusnya, kecuali claim OD-KfK yang layak atau claim windscreen di bawah add-on windscreen. 
-              NCD juga boleh transfer antara takaful dan insurans konvensional kalau anda tukar.
+              Ya, sama seperti insurans motor biasa: NCD (diskaun tanpa tuntutan) sehingga 55% selepas 5 tahun tanpa claim.
+              Claim yang menjejaskan NCD boleh menyebabkan kadar kembali kepada 0% pada renew seterusnya.
+              Pengecualiannya ialah claim OD-KfK yang layak, atau claim windscreen di bawah add-on windscreen.
+              NCD juga boleh dipindahkan antara takaful dan insurans konvensional jika anda bertukar.
             </p>
           </details>
         </div>
@@ -332,37 +326,12 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Takaful vs Insurans</h3>
-            <dl class="space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Patuh Syariah?</dt>
-                <dd class="font-semibold text-hijau-700">Ya ✓</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Surplus sharing?</dt>
-                <dd class="font-semibold text-hijau-700">Ya — kalau ada lebihan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga</dt>
-                <dd class="font-semibold text-stone-900">Competitive (sama/lebih murah)</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Non-Muslim boleh?</dt>
-                <dd class="font-semibold text-stone-900">Ya, terbuka untuk semua</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Syarikat takaful di MY</dt>
-                <dd class="font-semibold text-stone-900">15 berlesen</dd>
-              </div>
-            </dl>
-          </div>
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>
             <ul class="space-y-2.5 text-sm">
               <li><a href="/guides/insurance-vs-takaful/" class="text-hijau-700 hover:text-hijau-600">Beza insurans dan takaful (detail)</a></li>
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kereta — panduan lengkap</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kereta: panduan lengkap</a></li>
               <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Kesihatan / Medical Card</a></li>
               <li><a href="/life-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans Nyawa</a></li>
               <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>

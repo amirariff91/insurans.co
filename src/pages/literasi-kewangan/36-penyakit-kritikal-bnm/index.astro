@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Byline from '../../../components/Byline.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
 
 const asAt = '2026-09-12';
@@ -15,22 +16,22 @@ const description = buildDescription(
 const h1 = '36 Penyakit Kritikal: Apa Standard BNM Sebenarnya Cover?';
 const canonicalUrl = 'https://insurans.co/literasi-kewangan/36-penyakit-kritikal-bnm/';
 const sources = [
-  { label: 'MSIG — standardisasi definisi CI', url: 'https://www.msig.com.my/highlights/standardization-of-critical-illness-definitions/' },
+  { label: 'MSIG: standardisasi definisi CI', url: 'https://www.msig.com.my/highlights/standardization-of-critical-illness-definitions/' },
   { label: 'Senarai kondisi AIA', url: 'https://www.aia.com.my/content/dam/my/en/docs/our-products/36_Critical_Illnesses_Listing.pdf' },
 ];
 
 const faqs = [
   {
-    q: '36 penyakit — siapa tetapkan senarai ini?',
-    a: 'Bank Negara Malaysia: definisi diseragamkan untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016. Senarai verbatim dalam data kami dari PDF rasmi AIA; komposisi tepat boleh berbeza sedikit ikut penginsurans atau sijil.',
+    q: '36 penyakit: siapa tetapkan senarai ini?',
+    a: 'Bank Negara Malaysia: definisi diseragamkan untuk polisi baharu atau diperbaharui berkuat kuasa 1 April 2016. Senarai verbatim dalam data kami diambil daripada PDF rasmi AIA; komposisi tepat boleh berbeza sedikit ikut penginsurans atau sijil.',
   },
   {
-    q: 'Kanser awal cover tak?',
-    a: 'Ikut wording standard 36 — kanser sangat awal (very early) dikecualikan; bar ialah “tahap tertentu”. Nak perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich) — bukan assume standard 36 bayar awal.',
+    q: 'Kanser peringkat awal dilindungi tak?',
+    a: 'Ikut wording standard 36: kanser sangat awal (very early) dikecualikan; syaratnya ialah “tahap tertentu”. Jika mahu perlindungan peringkat awal, cari plan dengan early-stage benefit yang jelas peratusnya (contoh 50% seperti Zurich). Jangan anggap standard 36 membayar pada peringkat awal.',
   },
   {
     q: 'SOCSO dah cover penyakit kritikal kan?',
-    a: 'Tak sama. Skim Keilatan PERKESO berasaskan pekerjaan — hilang upaya kekal hingga tak mampu jana 1/3 pendapatan biasa, faedah berbentuk pencen atau elaun bulanan, bukan lump sum. CI swasta atau takaful bayar sekaligus bila didiagnos. Dua benda berbeza, boleh saling melengkapi.',
+    a: 'Tidak sama. Skim Keilatan PERKESO berasaskan pekerjaan, iaitu hilang upaya kekal hingga tidak mampu menjana 1/3 pendapatan biasa, dan faedahnya berbentuk pencen atau elaun bulanan, bukan bayaran sekali gus (lump sum). CI swasta atau takaful membayar sekali gus apabila didiagnos. Dua perkara berbeza yang boleh saling melengkapi.',
   },
 ];
 
@@ -83,85 +84,86 @@ const schema = {
       Standard BNM ialah 36 definisi penyakit kritikal peringkat teruk (severe-stage), bukan janji bahawa semua diagnosis awal
       akan dibayar. Rider, standalone dan early-stage mempunyai kesan berbeza.
     </p>
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">36 itu lantai, bukan siling</h2>
-      <p class="mt-3 text-sm leading-6 text-stone-700">
-        Definisi seragam BNM berkuat kuasa 1 April 2016 dan merujuk severe-stage. Produk boleh menambah kondisi atau early-stage
-        sendiri — baca wording, peratus payout dan baki sum assured.
-      </p>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Standard BNM: 36 definisi penyakit kritikal"
+      facts={[
+        { label: 'Standard BNM', value: '36 definisi penyakit kritikal' },
+        { label: 'Definisi seragam BNM berkuat kuasa', value: '1 April 2016', role: 'term' },
+        { label: 'Baca', value: 'wording, peratus payout dan baki sum assured' },
+      ]}
+    />
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={asAt} sources={sources} sourcesLabel="Rujukan" showReviewed={false} />
     </div>
   </Hero>
 
   <div class="container-article py-8 sm:py-12">
-    <article class="prose-editorial">
+    <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
         Bank Negara Malaysia mewajibkan semua penginsurans guna <strong>definisi seragam untuk 36 penyakit kritikal</strong>
         bagi polisi baharu atau diperbaharui berkuat kuasa <strong>1 April 2016</strong>. Set ini ialah standard rujukan
         peringkat teruk (severe-stage), bukan senarai yang automatik membayar semua diagnosis awal.
       </p>
-      <p class="border-l-4 border-hijau-700 bg-hijau-50 px-4 py-3 text-sm leading-6 text-stone-700">
-        <strong>Kami bukan ejen, bukan broker — maklumat am sahaja.</strong> Jangan bergantung pada angka besar di brosur; minta
+      <p class="note-plain text-sm leading-6">
+        <strong>Kami bukan ejen, bukan broker. Maklumat am sahaja.</strong> Jangan bergantung pada angka besar di brosur; minta
         senarai dan definisi dalam PDS.
       </p>
 
       <h2 id="fakta">Fakta asas: standard sejak 1 April 2016</h2>
       <p>
-        Tujuannya: definisi “kanser”, “strok” dan “serangan jantung” sama walau beli dari syarikat mana — tak boleh sorok di
-        sebalik takrifan pelik. Set 36 ini semuanya <strong>peringkat teruk (severe-stage)</strong> — bar tinggi. Contoh:
+        Tujuannya: definisi “kanser”, “strok” dan “serangan jantung” sama walau beli daripada syarikat mana, jadi syarikat tidak boleh bersembunyi di
+        sebalik takrifan pelik. Set 36 ini semuanya <strong>peringkat teruk (severe-stage)</strong>, jadi syaratnya ketat. Contoh:
         kanser mesti tahap tertentu; kanser sangat awal (very early) tidak dilindungi ikut wording standard. Contoh lain dalam
         senarai: strok, serangan jantung, pembedahan pintasan arteri koronari, kegagalan buah pinggang, koma, lumpuh anggota,
         penyakit Alzheimer atau demensia teruk. Senarai penuh 36 dalam BM dan BI ada di halaman senarai kami.
       </p>
       <p>
-        Nota jujur: komposisi tepat boleh berbeza sedikit ikut penginsurans — contoh appendix Hong Leong MSIG Takaful
-        menggantikan item tertentu dengan Full-blown AIDS dan SLE dengan komplikasi buah pinggang teruk. Nombor besar macam
-        “180 kondisi” (contoh AIA) ialah pengembangan per produk, bukan standard 36.
+        Nota jujur: komposisi tepat boleh berbeza sedikit ikut penginsurans. Contoh appendix Hong Leong MSIG Takaful
+        menggantikan item tertentu dengan Full-blown AIDS dan SLE dengan komplikasi buah pinggang teruk. Nombor besar seperti
+        “180 kondisi” (contoh AIA) ialah pengembangan bagi setiap produk, bukan standard 36.
       </p>
 
       <h2 id="struktur">Rider vs standalone: dua cara beli, dua kesan</h2>
       <ul>
         <li>
-          <strong>Rider (tumpangan)</strong> — menempel pada polisi asas; payout “accelerated” ditolak dari sum assured polisi
-          asas. Contoh disahkan: Prudential Crisis Cover Benefit — rider atas pelan asas macam PRUCash, bayar pendahuluan dari
-          coverage pelan asas bila didiagnos salah satu 36 CI. Great Eastern SMART Early Payout CriticalCare — rider
-          unit-deduction atas pelan investment-linked, mesti dilekatkan dengan IL Critical Illness Benefit Rider. Rider mungkin
+          <strong>Rider</strong>: perlindungan tambahan yang dilekatkan pada polisi asas; bayaran “accelerated” ditolak daripada sum assured polisi
+          asas. Contoh disahkan: Prudential Crisis Cover Benefit, iaitu rider pada pelan asas seperti PRUCash yang membayar pendahuluan daripada
+          coverage pelan asas apabila didiagnos salah satu daripada 36 CI. Great Eastern SMART Early Payout CriticalCare, iaitu rider
+          unit-deduction pada pelan investment-linked, mesti dilekatkan dengan IL Critical Illness Benefit Rider. Rider mungkin
           sesuai jika sudah ada polisi asas, tetapi claim mengecilkan polisi induk.
         </li>
         <li>
-          <strong>Standalone (sendiri)</strong> — polisi berasingan, tak usik polisi lain. Contoh disahkan: Etiqa Critical Care
-          Plus — 42 kondisi, early cash payout, cancer care benefit, tanpa pemeriksaan perubatan. Caruman berasingan.
+          <strong>Standalone (sendiri)</strong>: polisi berasingan, tidak menjejaskan polisi lain. Contoh disahkan: Etiqa Critical Care
+          Plus: 42 kondisi, early cash payout, cancer care benefit, tanpa pemeriksaan perubatan. Caruman berasingan.
         </li>
         <li>
-          <strong>Skim (bukan produk)</strong> — mySalam, skim percuma untuk penerima STR (RM8,000 one-off + RM50/hari hospital,
-          maksimum 14 hari setahun). Bukan pengganti CI swasta, tapi asas yang tak perlu dibeli semula.
+          <strong>Skim (bukan produk)</strong>: mySalam, skim percuma untuk penerima STR (RM8,000 sekali bayar + RM50/hari di hospital,
+          maksimum 14 hari setahun). Bukan pengganti CI swasta, tetapi perlindungan asas yang tidak perlu dibeli semula.
         </li>
       </ul>
 
       <h2 id="early-stage">Early-stage: bayar awal, jumlah separa</h2>
       <p>
-        Standard 36 bayar bila dah teruk. <strong>Early-stage benefit</strong> bayar lebih awal tapi jumlah separa, dan
-        mengurangkan sum assured — baki kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care):
-        carcinoma-in-situ bayar <strong>50% rider sum assured</strong> (tambah faedah pemulihan 12% sebulan × 12 bulan + RM2,000
-        pendapat perubatan kedua); kegagalan buah pinggang peringkat akhir kemudian bayar 100% dari baki 50%. Di situ early
-        stage dilindungi hingga umur 85, end stage hingga 100.
+        Standard 36 membayar apabila penyakit sudah teruk. <strong>Early-stage benefit</strong> boleh membayar lebih awal; peratus bayaran dan kesannya terhadap sum assured bergantung pada produk. Contohnya, jumlahnya separa, dan
+        mengurangkan sum assured, dan bakinya kekal untuk claim peringkat akhir. Contoh kerja yang disahkan (Zurich Early Care):
+        carcinoma-in-situ bayar <strong>50% rider sum assured</strong> (tambah faedah pemulihan 12% keseluruhan, iaitu 1% sebulan selama 12 bulan, + RM2,000
+        pendapat perubatan kedua); bayaran bagi kegagalan buah pinggang peringkat akhir kemudian ialah 100% daripada baki 50%. Dalam plan itu, peringkat
+        awal dilindungi hingga umur 85, peringkat akhir hingga 100.
       </p>
       <p>
-        Soalan betul sebelum beli bukan “cover berapa penyakit?” tetapi: <strong>“bayar pada tahap mana, berapa peratus, dan
+        Soalan yang betul sebelum membeli bukan “cover berapa penyakit?” tetapi: <strong>“bayar pada tahap mana, berapa peratus, dan
         baki tinggal berapa?”</strong>
       </p>
 
-      <h2 id="semak">Tiga soalan sebelum sign</h2>
+      <h2 id="semak">Tiga soalan sebelum menandatangani</h2>
       <ol>
-        <li>Produk ini rider atau standalone? Kalau rider — polisi asas apa, dan claim tolak dari mana?</li>
-        <li>Early-stage termasuk atau severe-stage saja? Kalau termasuk — peratus dan umur tamat?</li>
-        <li>Definisi ikut standard BNM 2016? Minta tunjuk senarai 36 dalam PDS, bukan brosur.</li>
+        <li>Produk ini rider atau standalone? Kalau rider: polisi asas apa, dan claim ditolak daripada mana?</li>
+        <li>Early-stage termasuk atau severe-stage sahaja? Kalau termasuk: peratus dan umur tamat?</li>
+        <li>Definisi ikut standard BNM 2016? Minta ditunjukkan senarai 36 dalam PDS, bukan brosur.</li>
       </ol>
       <p>
-        Standard BNM melindungi anda dari definisi sorok — gunakan kelebihan itu. Baca <a href="/critical-illness/senarai-penyakit-kritikal/">senarai penuh</a>, faham bar “peringkat teruk”, baru putuskan rider atau standalone.
+        Standard BNM melindungi anda daripada definisi tersembunyi. Gunakan kelebihan itu. Baca <a href="/critical-illness/senarai-penyakit-kritikal/">senarai penuh</a>, fahami syarat “peringkat teruk”, kemudian barulah putuskan rider atau standalone.
       </p>
     </article>
 
@@ -177,7 +179,7 @@ const schema = {
     </nav>
 
     <section id="faq" class="mt-10 sm:mt-14">
-      <div class="prose-editorial">
+      <div class="prose-editorial prose-bars">
         <h2>Soalan lazim 36 penyakit kritikal</h2>
       </div>
       <div class="mt-5">

@@ -1,13 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Ikon from '../../components/Ikon.astro';
 
 const guides = [
   { href: '/guides/renew-car-insurance/', title: 'Cara renew insurans kereta online', blurb: 'Langkah demi langkah: semak NCD, banding quotation, bayar, renew roadtax.' },
   { href: '/guides/ncd-explained/', title: 'NCD (No Claim Discount): panduan lengkap', blurb: 'Jadual NCD 25%–55%, bila reset, dan bila lebih jimat bayar sendiri.' },
-  { href: '/guides/how-to-claim/', title: 'Cara buat claim insurans kereta', blurb: 'Apa nak buat lepas accident, dokumen yang perlu, dan tempoh proses claim.' },
-  { href: '/guides/cara-turun-premium-insurans-kereta/', title: '10 cara turunkan premium insurans kereta', blurb: 'NCD, sum insured ikut nilai pasaran, add-on yang perlu saja, dan lain-lain.' },
-  { href: '/guides/insurans-komprehensif-vs-pihak-ketiga/', title: 'Komprehensif vs pihak ketiga', blurb: 'Apa yang dilindungi, berapa beza harga, dan bila third-party memadai.' },
+  { href: '/guides/how-to-claim/', title: 'Cara buat claim insurans kereta', blurb: 'Apa yang perlu dibuat selepas kemalangan, dokumen yang diperlukan, dan tempoh proses claim.' },
+  { href: '/guides/cara-turun-premium-insurans-kereta/', title: '10 cara turunkan premium insurans kereta', blurb: 'NCD, sum insured ikut nilai pasaran, add-on yang perlu sahaja, dan lain-lain.' },
+  { href: '/guides/insurans-komprehensif-vs-pihak-ketiga/', title: 'Komprehensif vs pihak ketiga', blurb: 'Apa yang dilindungi, berapa beza harga, dan bila polisi pihak ketiga memadai.' },
   { href: '/guides/insurans-kereta-banjir/', title: 'Insurans kereta dan banjir', blurb: 'Special perils: apa yang dilindungi, berapa kos, dan siapa patut ambil.' },
   { href: '/guides/insurance-vs-takaful/', title: 'Beza takaful dan insurans', blurb: 'Perbezaan konsep, kos, dan cara pilih antara takaful dan insurans konvensional.' },
 ];
@@ -39,11 +40,22 @@ const schema = {
   description="Panduan insurans kereta Malaysia dalam Bahasa Malaysia: renew online, NCD, cara claim, komprehensif vs pihak ketiga, banjir, dan takaful."
   schema={schema}
 >
-  <section class="border-b border-stone-200">
+  <section>
     <div class="container-wide py-8 sm:py-12">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
-      <h1 class="max-w-2xl font-serif text-headline-mobile text-stone-900 sm:text-headline-lg">Panduan insurans kereta</h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-stone-700">Ditulis untuk rakyat Malaysia biasa — bukan ejen, bukan broker. Mulakan dengan renew dan NCD; itu dua perkara yang paling kerap ditanya.</p>
+      <h1 class="ea-h1 mb-1">Panduan insurans kereta</h1>
+      <section class="mod gl-list" aria-labelledby="senarai-panduan">
+        <h2 id="senarai-panduan" class="mod-bar">{guides.length} panduan insurans kereta: mulakan dengan renew dan NCD</h2>
+        <ul class="gl-rows">
+          {guides.map((g) => (
+            <li class="gl-r">
+              <a href={g.href} class="gl-a">{g.title}<Ikon name="i-kanan" size={18} /></a>
+              <span class="gl-b">{g.blurb}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-stone-700">Ditulis untuk rakyat Malaysia biasa. Kami bukan ejen atau broker. Mulakan dengan renew dan NCD; itu dua perkara yang paling kerap ditanya.</p>
     </div>
   </section>
 
@@ -59,16 +71,15 @@ const schema = {
         Jika mahu mula dengan tugas tertentu, baca <a href="/guides/renew-car-insurance/">panduan renew</a>, <a href="/guides/ncd-explained/">panduan NCD</a>, atau <a href="/guides/how-to-claim/">cara buat claim</a>. Untuk anggaran roadtax, anda juga boleh cuba <a href="/tools/kalkulator-roadtax/">kalkulator roadtax</a>.
       </p>
     </div>
-    <ul class="grid gap-4 sm:grid-cols-2">
-      {guides.map((g) => (
-        <li>
-          <article class="card-editorial h-full">
-            <h2 class="font-serif text-headline-sm text-stone-900"><a href={g.href} class="hover:text-hijau-700">{g.title}</a></h2>
-            <p class="mt-2 text-base leading-6 text-stone-700">{g.blurb}</p>
-            <a href={g.href} class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-hijau-700 hover:underline">Baca panduan →</a>
-          </article>
-        </li>
-      ))}
-    </ul>
   </section>
 </Base>
+
+<style>
+  .gl-list { max-width: 48rem; margin-block: 1rem 0.5rem; }
+  .gl-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  .gl-r { display: grid; gap: 0.05rem; padding: 0.3rem 0 0.55rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .gl-r:last-child { border-bottom: 0; }
+  .gl-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .gl-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .gl-b { font-size: 0.9375rem; color: var(--ink); }
+</style>

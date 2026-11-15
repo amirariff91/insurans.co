@@ -1,0 +1,19 @@
+---
+/**
+ * Jump chips to a hub's grouped sections. Plain anchor links (work without JavaScript);
+ * the labels are the group headings already on the page, so no new copy.
+ */
+interface Props {
+  groups: { id: string; label: string }[];
+  label: string;
+  class?: string;
+}
+const { groups, label, class: className } = Astro.props;
+---
+{groups.length > 1 && (
+  <nav aria-label={label} class:list={['type-chips', className]}>
+    {groups.map((group) => (
+      <a href={`#${group.id}`}>{group.label}</a>
+    ))}
+  </nav>
+)}

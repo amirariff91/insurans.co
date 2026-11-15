@@ -1,6 +1,8 @@
 ---
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
   {
@@ -67,35 +69,50 @@ const schema = {
   modifiedTime="2026-10-10"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5" aria-label="Jejak halaman">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/car-insurance/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Insurans Kereta</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Cara Claim</span>
-      </nav>
-      <p class="label mb-3">Panduan</p>
-      <h1 class="font-serif text-headline-lg text-stone-900 mb-4">Cara Buat Claim Insurans Kereta</h1>
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Kereta', href: '/car-insurance/' }, { label: 'Cara Claim' }]} />
+      <h1 class="ea-h1 mb-1">Cara Buat Claim Insurans Kereta</h1>
+      <div class="hc-steps">
+      <PageAnswer
+        finding="Utamakan keselamatan, simpan bukti dan buat laporan polis dalam 24 jam"
+        facts={[
+          { label: 'Langkah 1', value: 'Utamakan keselamatan, kemudian simpan bukti', href: '#langkah-1' },
+          { label: 'Langkah 2', value: 'Buat laporan polis dalam 24 jam', href: '#langkah-2' },
+          { label: 'Langkah 3', value: 'Maklumkan syarikat: ini berasingan daripada laporan polis', href: '#langkah-3' },
+          { label: 'Langkah 4', value: 'Bezakan own damage, tuntutan pihak ketiga dan OD-KfK', href: '#langkah-4' },
+          { label: 'Langkah 5', value: 'Pilih bengkel diluluskan, jangan mulakan pembaikan dahulu', href: '#langkah-5' },
+          { label: 'Langkah 6', value: 'Susun fail tuntutan dan semak status', href: '#langkah-6' },
+        ]}
+      />
+      </div>
       <Byline dateModified="2026-10-10" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed" id="jawapan-ringkas">
-        Untuk claim insurans kereta di Malaysia, utamakan keselamatan, simpan bukti kemalangan dan buat laporan polis dalam 24 jam. Hubungi syarikat insurans segera untuk memilih laluan tuntutan serta bengkel yang diluluskan. Own damage biasa boleh menjejaskan NCD; OD-KfK yang layak dan tuntutan cermin di bawah add-on berkenaan boleh mengekalkannya.
+        Utamakan keselamatan, simpan bukti kemalangan dan buat laporan polis dalam 24 jam. Hubungi syarikat insurans segera untuk memilih laluan tuntutan serta bengkel yang diluluskan. Own damage biasa boleh menjejaskan NCD. OD-KfK yang layak dan tuntutan cermin di bawah add-on berkenaan boleh mengekalkannya.
       </p>
     </div>
   </section>
 
   <div class="container-article py-10 sm:py-14">
-    <article class="prose-editorial">
+    <article class="prose-editorial prose-bars">
       <figure class="not-prose mb-8">
         <img src="/images/guides/how-to-claim.webp" alt="Ilustrasi empat langkah tuntutan insurans kereta: kereta rosak, borang, dokumen dan bengkel" width="1200" height="630" class="w-full h-auto rounded-xl" decoding="async" fetchpriority="high" />
       </figure>
-      <h2>1. Utamakan keselamatan, kemudian simpan bukti</h2>
+      <h2 id="langkah-1" class="h2-quiet">1. Utamakan keselamatan, kemudian simpan bukti</h2>
       <p>
-        Periksa keadaan diri dan penumpang dahulu. Jika ada kecederaan atau kecemasan, hubungi <strong>999</strong>. Panduan Etiqa menyarankan anda mengalihkan kereta ke tepi jalan dan memasang lampu kecemasan jika selamat dilakukan. Jangan berdiri di laluan trafik semata-mata untuk mengambil gambar. Jika kereta tidak boleh dipandu, gunakan bantuan tunda yang diatur melalui syarikat anda. <a href="#rujukan-kemalangan">[1]</a>
+        Periksa keadaan diri dan penumpang dahulu. Jika ada kecederaan atau kecemasan, hubungi <strong>999</strong>. Panduan Etiqa menyarankan anda mengalihkan kereta ke tepi jalan dan memasang lampu kecemasan jika selamat dilakukan. <a href="#rujukan-kemalangan">[1]</a>
       </p>
       <p>
-        Apabila keadaan selamat, ambil gambar kedudukan kenderaan, nombor pendaftaran, kerosakan dekat dan jauh, tanda jalan, lampu isyarat serta keadaan permukaan jalan. Simpan rakaman dashcam sebelum ia ditindih rakaman baharu. Catat masa, lokasi dan maklumat saksi jika ada. Bukti awal membantu menerangkan apa yang berlaku. Polis dan syarikat masih perlu menjalankan siasatan serta penilaian. <a href="#rujukan-kemalangan">[1]</a>
+        Jangan berdiri di laluan trafik semata-mata untuk mengambil gambar. Jika kereta tidak boleh dipandu, gunakan bantuan tunda yang diatur melalui syarikat anda.
+      </p>
+      <p>Apabila keadaan selamat, kumpulkan bukti:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>gambar kedudukan kenderaan, nombor pendaftaran, kerosakan dekat dan jauh, tanda jalan, lampu isyarat serta keadaan permukaan jalan;</li>
+        <li>rakaman dashcam, disimpan sebelum ia ditindih rakaman baharu;</li>
+        <li>masa, lokasi dan maklumat saksi jika ada.</li>
+      </ul>
+      <p>
+        Bukti awal membantu menerangkan apa yang berlaku. Polis dan syarikat masih perlu menjalankan siasatan serta penilaian. <a href="#rujukan-kemalangan">[1]</a>
       </p>
       <ul class="list-disc pl-5 space-y-2">
         <li><strong>Tukar maklumat:</strong> nama, nombor pengenalan, telefon, alamat, butiran lesen, nombor pendaftaran dan syarikat insurans pihak lain jika tersedia.</li>
@@ -103,30 +120,43 @@ const schema = {
         <li><strong>Jangan mengaku salah atau menandatangani dokumen di tempat kejadian:</strong> berikan fakta kepada pihak berkuasa dan syarikat untuk siasatan.</li>
         <li><strong>Hubungi saluran rasmi:</strong> semak nombor bantuan pada polisi, aplikasi atau laman syarikat. Pastikan destinasi tunda ialah bengkel yang syarikat benarkan.</li>
       </ul>
-      <p>Langkah pengumpulan maklumat dan larangan mengaku salah ini diterangkan dalam panduan kemalangan Etiqa. <a href="#rujukan-kemalangan">[1]</a></p>
+      <p>Panduan kemalangan Etiqa menerangkan langkah pengumpulan maklumat dan larangan mengaku salah ini. <a href="#rujukan-kemalangan">[1]</a></p>
 
-      <h2>2. Buat laporan polis dalam 24 jam</h2>
+      <h2 id="langkah-2" class="h2-quiet">2. Buat laporan polis dalam 24 jam</h2>
       <p>
-        Panduan Etiqa menyatakan laporan polis perlu dibuat dalam <strong>24 jam selepas kemalangan, tanpa mengira siapa yang bersalah</strong>. Pergi ke balai polis berhampiran tempat kejadian dengan MyKad, lesen memandu, gambar, bukti dan maklumat pihak lain. Selepas laporan dibuat, anda mungkin diminta ke balai polis trafik. Ikut arahan pegawai penyiasat. Panggilan kepada bengkel sahaja tidak menggantikan laporan polis. <a href="#rujukan-kemalangan">[1]</a>
+        Panduan Etiqa menyatakan laporan polis perlu dibuat dalam <strong>24 jam selepas kemalangan, tanpa mengira siapa yang bersalah</strong>. Panggilan kepada bengkel sahaja tidak menggantikan laporan polis. <a href="#rujukan-kemalangan">[1]</a>
       </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Pergi ke balai polis berhampiran tempat kejadian. Bawa MyKad, lesen memandu, gambar, bukti dan maklumat pihak lain.</li>
+        <li>Terangkan urutan kejadian berdasarkan apa yang anda lihat: arah perjalanan, lorong, tempat pelanggaran dan kerosakan. Bezakan pemerhatian sendiri daripada andaian tentang tindakan pemandu lain.</li>
+        <li>Simpan nombor laporan dan salinan dokumen untuk tuntutan.</li>
+        <li>Jika diminta ke balai polis trafik selepas laporan dibuat, ikut arahan pegawai penyiasat.</li>
+      </ul>
       <p>
-        Terangkan urutan kejadian berdasarkan apa yang anda lihat: arah perjalanan, lorong, tempat pelanggaran dan kerosakan. Bezakan pemerhatian sendiri daripada andaian tentang tindakan pemandu lain. Simpan nombor laporan dan salinan dokumen untuk tuntutan. Jika anda cedera dan tidak dapat menguruskan laporan seperti biasa, dapatkan bantuan untuk menghubungi polis dan syarikat segera. Kesukaran itu tidak menghapuskan kewajipan laporan secara automatik.
-      </p>
-
-      <h2>3. Maklumkan syarikat: ini berasingan daripada laporan polis</h2>
-      <p>
-        Hubungi syarikat secepat mungkin walaupun anda belum memilih sama ada hendak menuntut pembaikan sendiri. Berikan nombor polisi, nombor pendaftaran, masa dan lokasi kejadian, keadaan kereta serta maklumat kecederaan. Minta nombor rujukan, senarai dokumen dan pengesahan bengkel. PDS Etiqa menyarankan pemberitahuan segera, borang tuntutan dan dokumen sokongan. <a href="#rujukan-pds">[2]</a>
-      </p>
-      <p>
-        Perhatikan tarikh pemberitahuan kepada syarikat dan penghantaran borang tuntutan selain tempoh 24 jam untuk polis. Sebagai contoh, kontrak Etiqa menetapkan pemberitahuan dalam tujuh hari jika anda tidak hilang upaya fizikal atau dimasukkan ke hospital. Aturannya berbeza jika anda hilang upaya dan dimasukkan ke hospital akibat kejadian. Borang tuntutan pula perlu dipulangkan dalam 21 hari daripada pemberitahuan mengikut klausa kontrak. Ikut polisi anda dan maklumkan segera sebelum hari terakhir. <a href="#rujukan-kontrak">[3]</a>
-      </p>
-      <p>
-        Jika menerima surat tuntutan, surat peguam, writ atau saman pihak ketiga, hantar kepada syarikat tanpa berlengah. Kontrak Etiqa menghendaki dokumen tersebut dikemukakan dan melarang rundingan atau pengakuan tuntutan tanpa persetujuan syarikat. Keputusan membayar calar sendiri tidak bermaksud tiada pihak lain akan menuntut terhadap polisi anda. <a href="#rujukan-kontrak">[3]</a>
+        Jika anda cedera dan tidak dapat menguruskan laporan seperti biasa, dapatkan bantuan untuk menghubungi polis dan syarikat segera. Kesukaran itu tidak menghapuskan kewajipan laporan secara automatik.
       </p>
 
-      <h2>4. Bezakan own damage, tuntutan pihak ketiga dan OD-KfK</h2>
+      <h2 id="langkah-3" class="h2-quiet">3. Maklumkan syarikat: ini berasingan daripada laporan polis</h2>
       <p>
-        Laluan tuntutan bergantung pada perlindungan yang anda beli dan keadaan kemalangan. PIAM menerangkan bahawa polisi pihak ketiga melindungi liabiliti terhadap orang atau harta pihak lain, manakala komprehensif turut melindungi kerosakan kereta sendiri akibat kemalangan mengikut syarat polisi. Semak jadual polisi sebelum menganggap semua kos pembaikan kereta anda boleh dituntut. <a href="#rujukan-piam">[4]</a>
+        Hubungi syarikat secepat mungkin, walaupun anda belum memutuskan sama ada mahu menuntut pembaikan sendiri. Berikan nombor polisi, nombor pendaftaran, masa dan lokasi kejadian, keadaan kereta serta maklumat kecederaan. Minta nombor rujukan, senarai dokumen dan pengesahan bengkel. PDS Etiqa menyarankan pemberitahuan segera, borang tuntutan dan dokumen sokongan. <a href="#rujukan-pds">[2]</a>
+      </p>
+      <p>
+        Tempoh 24 jam itu untuk polis. Syarikat ada tarikh akhir sendiri untuk pemberitahuan dan borang tuntutan. Contohnya, dalam kontrak Etiqa:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Pemberitahuan perlu dibuat dalam tujuh hari jika anda tidak hilang upaya fizikal atau dimasukkan ke hospital. Aturannya berbeza jika anda hilang upaya dan dimasukkan ke hospital akibat kejadian.</li>
+        <li>Borang tuntutan perlu dipulangkan dalam 21 hari daripada pemberitahuan.</li>
+      </ul>
+      <p>
+        Ikut polisi anda dan maklumkan segera, sebelum hari terakhir. <a href="#rujukan-kontrak">[3]</a>
+      </p>
+      <p>
+        Jika menerima surat tuntutan, surat peguam, writ atau saman pihak ketiga, hantar kepada syarikat tanpa berlengah. Kontrak Etiqa menghendaki dokumen tersebut dikemukakan. Ia juga melarang rundingan atau pengakuan tuntutan tanpa persetujuan syarikat. Jika anda membayar calar sendiri, pihak lain masih boleh menuntut terhadap polisi anda. <a href="#rujukan-kontrak">[3]</a>
+      </p>
+
+      <h2 id="langkah-4" class="h2-quiet">4. Bezakan own damage, tuntutan pihak ketiga dan OD-KfK</h2>
+      <p>
+        Laluan tuntutan bergantung pada perlindungan yang anda beli dan keadaan kemalangan. Menurut PIAM, polisi pihak ketiga melindungi liabiliti terhadap orang atau harta pihak lain. Komprehensif turut melindungi kerosakan kereta sendiri akibat kemalangan, mengikut syarat polisi. Semak jadual polisi sebelum menganggap semua kos baiki kereta anda boleh dituntut. <a href="#rujukan-piam">[4]</a>
       </p>
       <div class="overflow-x-auto my-8">
         <table class="table-editorial">
@@ -142,35 +172,69 @@ const schema = {
         </table>
       </div>
       <p>
-        <strong>KfK tetap mengambil kira siapa yang bersalah.</strong> PIAM menyatakan OD-KfK memudahkan tuntutan melalui syarikat sendiri tanpa perlu melantik penilai sendiri. NCD tidak hilang apabila kecuaian pihak ketiga serta ketidakbersalahan anda disahkan polis. Minta syarikat mendaftarkan kategori tuntutan yang betul. Own damage biasa dan OD-KfK ialah dua laluan berbeza. <a href="#rujukan-piam">[4]</a>
+        <strong>KfK tetap mengambil kira siapa yang bersalah.</strong> Menurut PIAM, OD-KfK memudahkan tuntutan melalui syarikat sendiri tanpa perlu melantik penilai sendiri. NCD tidak hilang apabila polis mengesahkan kecuaian pihak ketiga dan bahawa anda tidak bersalah. Minta syarikat mendaftarkan kategori tuntutan yang betul, kerana own damage biasa dan OD-KfK ialah dua laluan berbeza. <a href="#rujukan-piam">[4]</a>
       </p>
       <p>
-        Syarat kontrak tetap penting. Pengecualian NCD dalam kontrak Etiqa memerlukan syarikat berpendapat anda tidak bersalah. Kenderaan yang melanggar mesti dikenal pasti, bukan kenderaan membawa penumpang untuk sewa atau upah, dan diinsuranskan oleh syarikat berlesen Malaysia. Tiada tuntutan kematian atau kecederaan diri boleh terlibat. Jika salah satu perkara itu berbeza, minta penerangan tentang kelayakan sebelum membuat keputusan. <a href="#rujukan-kontrak">[3]</a>
+        Syarat kontrak tetap penting. Dalam kontrak Etiqa, pengecualian NCD memerlukan semua perkara ini:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>syarikat berpendapat anda tidak bersalah;</li>
+        <li>kenderaan yang melanggar dikenal pasti;</li>
+        <li>kenderaan itu bukan kenderaan membawa penumpang untuk sewa atau upah;</li>
+        <li>kenderaan itu diinsuranskan oleh syarikat berlesen Malaysia;</li>
+        <li>tiada tuntutan kematian atau kecederaan diri terlibat.</li>
+      </ul>
+      <p>
+        Jika salah satu perkara itu berbeza, minta penerangan tentang kelayakan sebelum membuat keputusan. <a href="#rujukan-kontrak">[3]</a>
       </p>
       <p>
-        Untuk OD-KfK, panduan Etiqa menyenaraikan laporan polis anda, laporan pihak ketiga dan keputusan siasatan. Simpan bukti tambahan seperti dashcam. Rakaman itu sahaja tidak memastikan NCD kekal. Baca <a href="/guides/ncd-explained/">panduan NCD</a> untuk memahami kesan kategori tuntutan pada pembaharuan seterusnya. <a href="#rujukan-kemalangan">[1]</a>
+        Untuk OD-KfK, panduan Etiqa menyenaraikan laporan polis anda, laporan pihak ketiga dan keputusan siasatan. Simpan juga bukti tambahan seperti dashcam, walaupun rakaman itu sahaja tidak memastikan NCD kekal. Baca <a href="/guides/ncd-explained/">panduan NCD</a> untuk memahami kesan kategori tuntutan pada pembaharuan seterusnya. <a href="#rujukan-kemalangan">[1]</a>
       </p>
 
-      <h2>5. Pilih bengkel diluluskan, jangan mulakan pembaikan dahulu</h2>
+      <h2 id="langkah-5" class="h2-quiet">5. Pilih bengkel diluluskan, jangan mulakan pembaikan dahulu</h2>
       <p>
-        Sahkan bengkel dengan syarikat sebelum kereta ditunda atau dibaiki. Kontrak Etiqa mentakrifkan Approved Repairer sebagai bengkel panel atau bengkel lain yang diberi kebenaran khas. Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan. Anda perlu mendapatkan persetujuan bertulis sebelum pembaikan atau perbelanjaan tuntutan dibuat. Sahkan kerja yang syarikat akan bayar sebelum bergantung pada janji bengkel. <a href="#rujukan-kontrak">[3]</a>
+        Sahkan bengkel dengan syarikat sebelum kereta ditunda atau dibaiki. Kontrak Etiqa mentakrifkan Approved Repairer sebagai bengkel panel atau bengkel lain yang diberi kebenaran khas. <a href="#rujukan-kontrak">[3]</a>
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Syarikat perlu memeriksa kereta sebelum meluluskan pembaikan.</li>
+        <li>Anda perlu mendapatkan persetujuan bertulis sebelum pembaikan atau perbelanjaan tuntutan dibuat.</li>
+        <li>Sahkan kerja yang syarikat akan bayar sebelum bergantung pada janji bengkel.</li>
+      </ul>
+      <p>
+        Bank Negara Malaysia mengeluarkan Insurers and Takaful Operators-Repairers Code of Conduct yang berkuat kuasa 2 Januari 2025. Kod Tatakelakuan ini menetapkan piawaian minimum urusan tuntutan dan pembaikan. Bengkel panel wajib menyertainya melalui perjanjian dengan syarikat, manakala bengkel bukan panel boleh menyertai secara sukarela. Penyertaan kod tidak bermaksud bengkel itu automatik diluluskan untuk polisi anda. <a href="#rujukan-bnm">[5]</a>
       </p>
       <p>
-        Bank Negara Malaysia mengeluarkan <strong>Insurers and Takaful Operators-Repairers Code of Conduct</strong> yang berkuat kuasa 2 Januari 2025. Kod Tatakelakuan ini menetapkan piawaian minimum urusan tuntutan dan pembaikan. Bengkel panel wajib menyertai melalui perjanjian mereka dengan syarikat. Bengkel bukan panel boleh menyertai secara sukarela. Penyertaan kod tidak bermaksud bengkel itu automatik diluluskan untuk polisi anda. <a href="#rujukan-bnm">[5]</a>
-      </p>
-      <p>
-        Minta anggaran kerja, senarai bahagian yang hendak diganti dan penjelasan kos yang perlu dibayar sendiri. Bezakan excess daripada betterment, iaitu sumbangan kos apabila alat ganti baharu memperbaiki keadaan kereta berbanding sebelum kerosakan. PIAM dan kontrak Etiqa menerangkan perbezaan ini. Simpan kelulusan serta perubahan skop kerja secara bertulis supaya bil akhir boleh dibandingkan dengan apa yang dipersetujui. <a href="#rujukan-piam">[4]</a> <a href="#rujukan-kontrak">[3]</a>
+        Minta anggaran kerja, senarai bahagian yang hendak diganti dan penjelasan kos yang perlu dibayar sendiri. Bezakan excess daripada betterment. Betterment ialah sumbangan kos apabila alat ganti baharu memperbaiki keadaan kereta berbanding sebelum kerosakan; PIAM dan kontrak Etiqa menerangkan perbezaan ini. Simpan kelulusan serta perubahan skop kerja secara bertulis, supaya bil akhir boleh dibandingkan dengan apa yang dipersetujui. <a href="#rujukan-piam">[4]</a> <a href="#rujukan-kontrak">[3]</a>
       </p>
 
-      <h2>6. Susun fail tuntutan dan semak status</h2>
+      <h2 id="langkah-6" class="h2-quiet">6. Susun fail tuntutan dan semak status</h2>
+      <p>Minta senarai dokumen khusus untuk kategori tuntutan anda. Sebagai persediaan, kumpulkan:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>nombor polisi dan nombor tuntutan;</li>
+        <li>laporan polis;</li>
+        <li>gambar kerosakan dan bukti tempat kejadian;</li>
+        <li>dokumen pengenalan dan lesen;</li>
+        <li>maklumat pendaftaran kereta;</li>
+        <li>anggaran bengkel.</li>
+      </ul>
       <p>
-        Minta senarai dokumen khusus untuk kategori tuntutan anda. Sebagai persediaan, kumpulkan nombor polisi dan tuntutan, laporan polis, gambar kerosakan, bukti tempat kejadian, dokumen pengenalan dan lesen, maklumat pendaftaran kereta serta anggaran bengkel. Set dokumen boleh berbeza mengikut tuntutan. OD-KfK memerlukan maklumat pihak ketiga dan keputusan siasatan yang mungkin belum tersedia pada hari pertama. <a href="#rujukan-kemalangan">[1]</a> <a href="#rujukan-pds">[2]</a>
+        Set dokumen boleh berbeza mengikut tuntutan. OD-KfK memerlukan maklumat pihak ketiga dan keputusan siasatan, yang mungkin belum tersedia pada hari pertama. <a href="#rujukan-kemalangan">[1]</a> <a href="#rujukan-pds">[2]</a>
       </p>
       <p>
-        Isi bahagian borang yang berkenaan dengan lengkap. Kontrak Etiqa mengingatkan supaya tidak sekadar menulis “rujuk laporan polis”. Simpan salinan semua penghantaran dan catat tarikh syarikat mengesahkan penerimaan dokumen. Untuk contoh saluran digital, Etiqa membolehkan penyerahan dan semakan tuntutan melalui Etiqa+. Gunakan portal atau saluran rasmi syarikat anda. Akaun peribadi pihak yang tidak mengendalikan polisi tidak sesuai untuk urusan ini. <a href="#rujukan-kontrak">[3]</a> <a href="#rujukan-portal">[6]</a>
+        Isi bahagian borang yang berkenaan dengan lengkap. Kontrak Etiqa mengingatkan supaya tidak sekadar menulis “rujuk laporan polis”. Simpan salinan semua penghantaran dan catat tarikh syarikat mengesahkan penerimaan dokumen. <a href="#rujukan-kontrak">[3]</a>
       </p>
       <p>
-        Apabila membuat susulan, tanya tahap sebenar: dokumen masih kurang, penilaian belum selesai, pembaikan belum diluluskan atau alat ganti belum sampai? Minta tarikh kemas kini seterusnya dan nama unit yang mengendalikan kes. Kelulusan tuntutan tidak bermakna kereta sudah siap dibaiki. Semak kerja dan bil ketika mengambil kereta. Dapatkan penjelasan bagi kos yang tidak sepadan dengan kelulusan.
+        Gunakan portal atau saluran rasmi syarikat anda; contohnya, Etiqa membolehkan penyerahan dan semakan tuntutan melalui Etiqa+. Akaun peribadi pihak yang tidak mengendalikan polisi tidak sesuai untuk urusan ini. <a href="#rujukan-portal">[6]</a>
+      </p>
+      <p>Apabila membuat susulan, tanya tahap sebenar kes anda:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>dokumen masih kurang;</li>
+        <li>penilaian belum selesai;</li>
+        <li>pembaikan belum diluluskan; atau</li>
+        <li>alat ganti belum sampai.</li>
+      </ul>
+      <p>
+        Minta tarikh kemas kini seterusnya dan nama unit yang mengendalikan kes. Kelulusan tuntutan tidak bermakna kereta sudah siap dibaiki. Semak kerja dan bil ketika mengambil kereta, dan minta penjelasan bagi kos yang tidak sepadan dengan kelulusan.
       </p>
 
       <h2>Contoh kiraan: tuntutan RM3,000 dengan excess RM500</h2>
@@ -181,36 +245,44 @@ const schema = {
           <li>Bahagian yang anda tanggung = <strong>RM500</strong>.</li>
         </ul>
         <p>
-          Excess ialah bahagian awal tuntutan yang ditanggung sendiri seperti diterangkan dalam kontrak Etiqa. Pengiraan ini tidak menganggarkan kesan NCD tahun depan. Untuk own damage biasa, semak kesan NCD secara berasingan; bagi OD-KfK yang layak, minta pengesahan NCD dan urusan mendapatkan semula excess daripada pihak ketiga jika berkenaan. <a href="#rujukan-kontrak">[3]</a>
+          Excess ialah bahagian awal tuntutan yang ditanggung sendiri, seperti diterangkan dalam kontrak Etiqa. Pengiraan ini tidak menganggarkan kesan NCD tahun depan. Untuk own damage biasa, semak kesan NCD secara berasingan. Untuk OD-KfK yang layak, minta pengesahan NCD dan tanya cara mendapatkan semula excess daripada pihak ketiga jika berkenaan. <a href="#rujukan-kontrak">[3]</a>
         </p>
       </div>
       <p>
-        Gunakan <a href="/tools/ncd-calculator/">kalkulator NCD</a> untuk ilustrasi premium berdasarkan kadar yang telah disahkan. Kewajipan melapor kemalangan dan pilihan laluan tuntutan memerlukan pertimbangan selain hasil kalkulator. Kalkulator ini tidak menentukan kesalahan, kelayakan OD-KfK atau jumlah yang syarikat akan luluskan.
+        Gunakan <a href="/tools/ncd-calculator/">kalkulator NCD</a> untuk ilustrasi premium berdasarkan kadar yang telah disahkan. Kalkulator ini tidak menentukan kesalahan, kelayakan OD-KfK atau jumlah yang syarikat akan luluskan. Kewajipan melapor kemalangan dan pilihan laluan tuntutan perlu ditimbang secara berasingan.
       </p>
 
       <h2>Cermin pecah dan banjir: semak perlindungan tambahan</h2>
       <p>
-        Jika kerosakan hanya pada cermin, semak windscreen add-on dahulu. Endorsement 89 Etiqa menyatakan tuntutan kaca sahaja tanpa kerosakan lain tidak dikenakan excess dan tidak menghilangkan NCD mengikut syaratnya. Selepas kaca diganti, perlindungan endorsement itu tamat. Anda perlu membelinya semula untuk sambungan. Jika kaca dibaiki, had berkurang mengikut kos pembaikan. Semak aturan syarikat anda sebelum menganggap had asal masih penuh. <a href="#rujukan-kontrak">[3]</a>
+        Jika kerosakan hanya pada cermin, semak windscreen add-on dahulu. Endorsement 89 Etiqa menyatakan tuntutan kaca sahaja tanpa kerosakan lain tidak dikenakan excess dan tidak menghilangkan NCD, mengikut syaratnya.
       </p>
       <p>
-        Untuk banjir, PIAM menerangkan bahawa komprehensif boleh diperluas melalui special perils dengan premium tambahan. Polisi komprehensif asas tidak semestinya merangkumi bencana alam. Semak jadual dan endorsement. Kemudian, baca <a href="/guides/insurans-kereta-banjir/">panduan insurans kereta banjir</a>. Pilih perlindungan sebelum kejadian. Perlindungan itu tidak boleh ditambah selepas kerosakan berlaku. <a href="#rujukan-piam">[4]</a> <a href="#rujukan-pindah">[7]</a>
+        Selepas kaca diganti, perlindungan endorsement itu tamat dan anda perlu membelinya semula untuk sambungan. Jika kaca dibaiki, had berkurang mengikut kos pembaikan. Semak aturan syarikat anda sebelum menganggap had asal masih penuh. <a href="#rujukan-kontrak">[3]</a>
+      </p>
+      <p>
+        Untuk banjir, PIAM menerangkan bahawa komprehensif boleh diperluas melalui special perils dengan premium tambahan. Polisi komprehensif asas tidak semestinya merangkumi bencana alam, jadi semak jadual dan endorsement. Pilih perlindungan ini sebelum kejadian, kerana ia tidak boleh ditambah selepas kerosakan berlaku. Baca juga <a href="/guides/insurans-kereta-banjir/">panduan insurans kereta banjir</a>. <a href="#rujukan-piam">[4]</a> <a href="#rujukan-pindah">[7]</a>
       </p>
 
       <h2>Jika keputusan tuntutan dipertikaikan: aduan syarikat, kemudian FMOS</h2>
       <p>
-        Minta alasan bertulis, klausa polisi yang digunakan dan pecahan jumlah jika anda tidak bersetuju dengan keputusan. Buat aduan rasmi kepada unit aduan syarikat. Sertakan nombor tuntutan, bukti dan hasil yang anda minta. Kod bengkel BNM menyediakan proses pertikaian dalaman antara syarikat dengan bengkel. Ia bukan pengganti saluran aduan pengguna. <a href="#rujukan-bnm">[5]</a>
+        Jika anda tidak bersetuju dengan keputusan, minta alasan bertulis, klausa polisi yang digunakan dan pecahan jumlah. Buat aduan rasmi kepada unit aduan syarikat, dengan nombor tuntutan, bukti dan hasil yang anda minta. Kod bengkel BNM ada proses pertikaian dalaman antara syarikat dengan bengkel, tetapi ia bukan pengganti saluran aduan pengguna. <a href="#rujukan-bnm">[5]</a>
       </p>
       <p>
-        <strong>Ombudsman for Financial Services (OFS) kini sebahagian daripada Financial Markets Ombudsman Service (FMOS).</strong> FMOS menerangkan bahawa ia ditubuhkan pada 1 Januari 2025 melalui penggabungan OFS dan SIDREC oleh BNM serta Suruhanjaya Sekuriti. Perkhidmatannya bebas dan percuma bagi pengguna yang layak selepas aduan kepada penyedia perkhidmatan tidak selesai. <a href="#rujukan-fmos">[8]</a>
+        <strong>Ombudsman for Financial Services (OFS) kini sebahagian daripada Financial Markets Ombudsman Service (FMOS).</strong> Menurut FMOS, ia ditubuhkan pada 1 Januari 2025 melalui penggabungan OFS dan SIDREC oleh BNM serta Suruhanjaya Sekuriti. Perkhidmatannya bebas dan percuma bagi pengguna yang layak, selepas aduan kepada penyedia perkhidmatan tidak selesai. <a href="#rujukan-fmos">[8]</a>
       </p>
+      <p>Menurut FAQ FMOS, anda boleh merujuk pertikaian:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>dalam enam bulan selepas menerima keputusan akhir bertulis syarikat; atau</li>
+        <li>jika syarikat gagal menjawab dalam 60 hari selepas aduan pertama.</li>
+      </ul>
       <p>
-        Menurut FAQ FMOS, anda boleh merujuk pertikaian dalam enam bulan selepas menerima keputusan akhir bertulis syarikat, atau jika syarikat gagal menjawab dalam 60 hari selepas aduan pertama. Skopnya merangkumi kerugian kewangan langsung sehingga RM250,000, termasuk tuntutan motor dan kerosakan harta pihak ketiga. Tuntutan kecederaan badan atau kematian pihak ketiga berada di luar skopnya. Semak kelayakan kes dengan FMOS. FMOS tidak menerima semua jenis tuntutan. <a href="#rujukan-fmos">[8]</a>
+        Skopnya merangkumi kerugian kewangan langsung sehingga RM250,000, termasuk tuntutan motor dan kerosakan harta pihak ketiga. Tuntutan kecederaan badan atau kematian pihak ketiga berada di luar skopnya. FMOS tidak menerima semua jenis tuntutan, jadi semak kelayakan kes anda dengan FMOS. <a href="#rujukan-fmos">[8]</a>
       </p>
       <p>
         Jika polisi hampir tamat ketika tuntutan berjalan, rujuk <a href="/guides/renew-car-insurance/">panduan renew</a> dan minta syarikat mengesahkan kadar NCD untuk sebut harga baharu. Untuk menyemak jenis perlindungan yang anda perlukan selepas ini, baca <a href="/car-insurance/">panduan insurans kereta</a>.
       </p>
 
-      <h2>Soalan lazim</h2>
+      <h2 class="h2-quiet">Soalan lazim</h2>
       {faqItems.map(item => (
         <details class="faq-item">
           <summary>{item.q}</summary>
@@ -220,18 +292,30 @@ const schema = {
       <p class="text-sm text-stone-600">Panduan ini memberikan maklumat am, bukan penentuan liabiliti atau jaminan bayaran. Kontrak, bukti kejadian dan keputusan syarikat menentukan tuntutan anda.</p>
 
       <section id="rujukan" class="border-t border-stone-200 pt-6 mt-8" aria-labelledby="tajuk-rujukan">
-        <h2 id="tajuk-rujukan">Rujukan</h2>
+        <h2 id="tajuk-rujukan" class="h2-quiet">Rujukan</h2>
         <ol class="list-decimal pl-5 space-y-2">
-          <li id="rujukan-kemalangan"><a href="https://www.etiqa.com.my/claims/road-accident-guide" target="_blank" rel="noopener noreferrer">Etiqa — keselamatan, bukti, laporan polis 24 jam dan dokumen OD-KfK.</a></li>
-          <li id="rujukan-pds"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf" target="_blank" rel="noopener noreferrer">Etiqa — PDS kereta: pemberitahuan tuntutan dan bengkel diluluskan.</a></li>
-          <li id="rujukan-kontrak"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Private_Car_Insurance_Policy_Contract.pdf" target="_blank" rel="noopener noreferrer">Etiqa — kontrak kereta: NCD, excess, betterment, syarat tuntutan, Approved Repairer dan cermin.</a></li>
-          <li id="rujukan-piam"><a href="https://piam.org.my/insurance-101/individual/motor/" target="_blank" rel="noopener noreferrer">PIAM — jenis perlindungan motor, manfaat OD-KfK dan special perils.</a></li>
-          <li id="rujukan-bnm"><a href="https://www.bnm.gov.my/-/ito-repairer-coc" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia — Kod Tatakelakuan syarikat insurans, pengendali takaful dan bengkel.</a></li>
-          <li id="rujukan-portal"><a href="https://www.etiqa.com.my/claims/car" target="_blank" rel="noopener noreferrer">Etiqa — penyerahan, semakan tuntutan dan direktori bengkel melalui saluran rasmi.</a></li>
-          <li id="rujukan-pindah"><a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">PIAM — kesan tuntutan cermin dan kepentingan perlindungan sebelum kejadian.</a></li>
-          <li id="rujukan-fmos"><a href="https://www.fmos.org.my/en/faq/" target="_blank" rel="noopener noreferrer">FMOS — penggabungan OFS, proses aduan, had, tempoh rujukan dan pengecualian skop.</a></li>
+          <li id="rujukan-kemalangan"><a href="https://www.etiqa.com.my/claims/road-accident-guide" target="_blank" rel="noopener noreferrer">Etiqa: keselamatan, bukti, laporan polis 24 jam dan dokumen OD-KfK.</a></li>
+          <li id="rujukan-pds"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf" target="_blank" rel="noopener noreferrer">Etiqa (PDS kereta): pemberitahuan tuntutan dan bengkel diluluskan.</a></li>
+          <li id="rujukan-kontrak"><a href="https://www.etiqa.com.my/pdfs/en/insurance/Private_Car_Insurance_Policy_Contract.pdf" target="_blank" rel="noopener noreferrer">Etiqa (kontrak kereta): NCD, excess, betterment, syarat tuntutan, Approved Repairer dan cermin.</a></li>
+          <li id="rujukan-piam"><a href="https://piam.org.my/insurance-101/individual/motor/" target="_blank" rel="noopener noreferrer">PIAM: jenis perlindungan motor, manfaat OD-KfK dan special perils.</a></li>
+          <li id="rujukan-bnm"><a href="https://www.bnm.gov.my/-/ito-repairer-coc" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia: Kod Tatakelakuan syarikat insurans, pengendali takaful dan bengkel.</a></li>
+          <li id="rujukan-portal"><a href="https://www.etiqa.com.my/claims/car" target="_blank" rel="noopener noreferrer">Etiqa: penyerahan, semakan tuntutan dan direktori bengkel melalui saluran rasmi.</a></li>
+          <li id="rujukan-pindah"><a href="https://piam.org.my/news-media/stay-ahead/articles/page/how-to-transfer-your-ncd-when-buying-a-new-car-in-malaysia/" target="_blank" rel="noopener noreferrer">PIAM: kesan tuntutan cermin dan kepentingan perlindungan sebelum kejadian.</a></li>
+          <li id="rujukan-fmos"><a href="https://www.fmos.org.my/en/faq/" target="_blank" rel="noopener noreferrer">FMOS: penggabungan OFS, proses aduan, had, tempoh rujukan dan pengecualian skop.</a></li>
         </ol>
       </section>
     </article>
   </div>
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with a topic, not a finding. */
+  /* Step rows: same shape for every step (label above, step name as a link), whatever its length. */
+  .hc-steps :global(.pa-r) { display: block; }
+  .hc-steps :global(.pa-r dt) { font-weight: 700; }
+  .hc-steps :global(.pa-r dd) { font-weight: 400; }
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>

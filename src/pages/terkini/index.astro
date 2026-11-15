@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import { terkini, KIND_LABEL, TERKINI_URL, formatTarikh } from '../../lib/terkini';
+import '../../styles/terkini.css';
+
+const latest = terkini[0].date;
+const title = 'Terkini: Perubahan Harga & Peraturan Insurans — Insurans.co';
+const description = 'Perubahan bertarikh yang menjejaskan harga atau perlindungan insurans di Malaysia: peraturan, harga, pelan dan pembetulan angka kami, setiap satu dengan sumber rasmi.';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Terkini: perubahan harga dan peraturan insurans",
+      "url": TERKINI_URL,
+      "description": description,
+      "inLanguage": "ms",
+      "dateModified": latest,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": terkini.map((item, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "url": `${TERKINI_URL}${item.slug}/`,
+          "name": item.title,
+        })),
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Utama", "item": "https://insurans.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Terkini", "item": TERKINI_URL },
+      ],
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={TERKINI_URL}
+  schema={schema}
+  ads={false}
+  rss={{ href: '/terkini/rss.xml', title: 'Insurans.co Terkini' }}
+>
+  <article class="bg-white">
+    <div class="container-article pt-6 pb-10 sm:pt-8 sm:pb-14">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Terkini' }]} />
+      <h1 class="ea-h1 mb-1">Terkini: perubahan harga dan peraturan insurans</h1>
+      <PageAnswer
+        finding={`${terkini.length} perubahan bertarikh, setiap satu dengan sumber rasmi`}
+        sentence="Perubahan yang menjejaskan harga yang anda bayar atau perlindungan yang anda dapat, termasuk pembetulan pada angka kami sendiri."
+      />
+
+      <ol class="tk-list">
+        {terkini.map((item) => (
+          <li class="tk-item">
+            <div class="tk-meta">
+              <time datetime={item.date}>{formatTarikh(item.date)}</time>
+              <span class="tk-chip" data-kind={item.kind}>{KIND_LABEL[item.kind]}</span>
+            </div>
+            <h2><a href={`/terkini/${item.slug}/`}>{item.title}</a></h2>
+            <p>{item.summary}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-8">
+        <Byline dateModified={latest} />
+      </div>
+      <p class="tk-lede">
+        Halaman ini mencatat perubahan yang menjejaskan harga yang anda bayar atau perlindungan yang anda dapat: peraturan roadtax, pengumuman BNM atau PIAM, perubahan pada sesuatu pelan, dan pembetulan pada angka kami sendiri. Setiap catatan menamakan sumber rasminya dan memaut ke halaman yang dikemas kini. Promosi, ulasan dan cerita industri yang tidak mengubah harga atau perlindungan tidak dimasukkan. Senarai penuh pembetulan ada dalam <a class="underline underline-offset-2" href="/kaedah-editorial/#log-pembetulan">log pembetulan</a>.
+      </p>
+
+      <p class="tk-rss">Ikuti melalui <a href="/terkini/rss.xml">suapan RSS</a>.</p>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,130 @@
+---
+/**
+ * Edisi answer block for a car model page: H1, the big price, one support line, the yellow yearly
+ * total with roadtax, the NCD control (six native radios; prices follow it through CSS :has(), so it
+ * works without JavaScript), the two next-step buttons, the car photo, and the working ("kiraan").
+ */
+import CarPhoto from '../CarPhoto.astro';
+import LogoTile from '../LogoTile.astro';
+import carPhotos from '../../data/car-photos.json';
+import Ikon from '../Ikon.astro';
+import Px from './Px.astro';
+import { STEPS, carSteps, span, rmRange } from './steps';
+import { rm } from '../../lib/ncd';
+import { MODEL_PHOTO_SIZES } from './photo';
+
+interface Props {
+  model: any;
+  h1: string;
+  nameWithEngine: string;
+  totalSign: string;
+  calculatorUrl: string;
+}
+const { model, h1, nameWithEngine, totalSign, calculatorUrl } = Astro.props;
+const s = carSteps(model);
+const reviewed: string | undefined = model.premiumReviewed;
+const reviewedText = reviewed
+  ? new Date(`${reviewed}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
+  : '';
+const priceVars = STEPS.map((st) => `--u${st.k}:${s.units[st.k]}`).join(';') + `;--umin:${s.umin}`;
+const formatRange = rmRange;
+const rmExact = (n: number) => {
+  const hasSen = Math.round(n * 100) % 100 !== 0;
+  return `RM ${n.toLocaleString('ms-MY', { minimumFractionDigits: hasSen ? 2 : 0, maximumFractionDigits: 2 })}`;
+};
+const kiraanId = `kiraan-${model.slug}`;
+---
+<div class="ea" data-ea data-slug={model.slug}>
+  <h1 class="ea-h1">{h1}</h1>
+
+  <p class="ea-hero">
+    <span class="ea-fit">
+      <span class="ea-price" style={priceVars} data-price><span class="ea-cur">RM</span><Px v={s.price} class="ea-pnum" data-tick /></span>
+    </span>
+    <span class="ea-sub">setahun, NCD <Px v={s.pct} /> (<Px v={s.long} class="px-w" />). Anggaran{reviewedText && <>, disemak <time datetime={reviewed}>{reviewedText}</time></>}.</span>
+    {model.estimateScope && <span class="ea-sub ea-scope" data-estimate-scope>{model.estimateScope}</span>}
+    {s.hasRt && (
+      <span class="ea-sum">
+        <span>Campur roadtax <b>{s.roadtaxText}</b> (Semenanjung):</span>
+        <span class="ea-sum-b">{totalSign === '≈' && '≈ '}<Px v={s.total} tag="b" class="ea-sum-t" data-tick /> setahun</span>
+      </span>
+    )}
+  </p>
+
+  <fieldset class="ea-ncd">
+    <legend><span>Berapa tahun anda tak claim?</span><span class="ea-mark" aria-hidden="true"><span class="mk-c">Contoh</span><span class="mk-p">Pilihan anda</span></span></legend>
+    <div class="ea-bars">
+      {STEPS.map((st) => (
+        <label class="ea-bar" style={`--h:${st.pay}`}>
+          <input type="radio" name="ncd" id={`ncd-${st.k}`} value={st.k} data-tier={st.tier} aria-label={st.aria} checked={st.k === '55'} />
+          <span class="ea-col" aria-hidden="true"></span>
+          <span class="ea-y" aria-hidden="true">{st.years}</span>
+          <span class="ea-p" aria-hidden="true">{st.pct}</span>
+        </label>
+      ))}
+      <span class="ea-track" aria-hidden="true"><span class="ea-knob"></span></span>
+    </div>
+    <ul class="ea-static">
+      {STEPS.map((st) => <li><span>NCD {st.pct} ({st.long})</span> <b>{s.ins[st.k]}</b></li>)}
+    </ul>
+    <p class="ea-save"><Px v={s.saving} class="px-w" /></p>
+  </fieldset>
+
+  <div class="ea-cta" data-section="quotation">
+    <div class="ea-btns">
+      <a href="/insurans-online/#beli-terus" data-cta="direct-insurer-list" class="ea-btn ea-btn-p">Lihat senarai beli online <Ikon name="i-kanan" size={20} /></a>
+      <a data-calculator-link data-cta="ncd-calculator" href={calculatorUrl} class="ea-btn ea-btn-o">Kira NCD saya <Ikon name="i-kalkulator" size={20} /></a>
+    </div>
+    <p class="ea-quote">
+      Untuk sebut harga sebenar, minta terus daripada syarikat insurans.
+      Tiada hubungan berbayar atau affiliate dengan mana-mana syarikat.
+    </p>
+  </div>
+
+  <div class="ea-photo-w">
+    <CarPhoto slug={model.slug} eager sizes={MODEL_PHOTO_SIZES} class="ea-photo" />
+    {/* A name card already prints the brand; the logo goes on photos only. */}
+    {carPhotos.some((p) => p.slug === model.slug && p.hasPhoto) && <LogoTile brand={model.brand} size="s" eager class="ea-photo-logo" />}
+  </div>
+
+  <section class="ix ix-pink" id="kos-tahunan" aria-labelledby={`${kiraanId}-t`}>
+    <div class="ix-bar"><h2 class="ix-t" id={`${kiraanId}-t`}><Px v={s.title} class="px-w" /></h2></div>
+    <div class="ix-body">
+      <dl class="kb">
+        <div class="kb-r"><dt>Harga penuh, tanpa NCD (0%)</dt><dd>{formatRange(model.premiumNCD0Min, model.premiumNCD0Max, rm)}</dd></div>
+        <div class="kb-r kb-you"><dt>Anda bayar pada NCD <Px v={s.pct} /></dt><dd><Px v={s.ins} data-tick /></dd></div>
+        {s.hasRt && <div class="kb-r"><dt>Roadtax (Semenanjung)</dt><dd>{formatRange(model.roadtaxMin, model.roadtaxMax, rmExact)}</dd></div>}
+        {s.hasRt && <div class="kb-r kb-tot"><dt>Jumlah setahun</dt><dd>{totalSign === '≈' && '≈ '}<Px v={s.total} /></dd></div>}
+      </dl>
+      <p class="kb-m"><Px v={s.monthly} /> <span class="kb-note">Setara tahunan ÷ 12; bukan pelan ansuran.</span></p>
+      <p class="ix-s">NCD ialah diskaun kerana tidak claim. Anda bayar <Px v={s.pay} /> daripada harga penuh.</p>
+      {s.hasRt && (
+        <p class="ix-s">
+          Anggaran setahun (Semenanjung) untuk {nameWithEngine}: insurans <span class="numeric">{formatRange(model.premiumNCD55Min, model.premiumNCD55Max, rm)}</span> (NCD 55%)
+          + roadtax <span class="numeric">{formatRange(model.roadtaxMin, model.roadtaxMax, rmExact)}</span>
+          {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
+        </p>
+      )}
+      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote.replace(/\.?\s*$/, '.')} Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
+      <details class="baca">
+        <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: jadual {model.fullName} ikut tahap NCD</span></summary>
+        <div class="baca-in">
+          <div class="tbl"><table class="work"><caption>Premium {model.fullName} ikut tahap NCD (anggaran, setahun)</caption>
+            <thead><tr><th scope="col">NCD</th><th scope="col">Baki</th><th scope="col">Anda bayar</th>{s.hasRt && <th scope="col">Dengan roadtax</th>}</tr></thead>
+            <tbody>
+              {STEPS.map((st) => (
+                <tr data-n={st.k}><th scope="row">{st.pct}<span class="yrs">{st.long}</span></th><td>× {st.pay}%</td><td><b>{s.ins[st.k]}</b></td>{s.hasRt && <td>{s.total[st.k]}</td>}</tr>
+              ))}
+            </tbody>
+          </table></div>
+        </div>
+      </details>
+      <p class="ix-src">Anggaran editorial, bukan quotation. <a href="/about/">Kaedah &amp; sumber</a></p>
+    </div>
+  </section>
+  <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>
+</div>
+
+<script>
+  import '../../scripts/edisi-ncd';
+</script>

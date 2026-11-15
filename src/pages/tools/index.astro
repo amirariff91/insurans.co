@@ -1,4 +1,6 @@
 ---
+import Ikon from '../../components/Ikon.astro';
+import '../../components/edisi-tools/edisi-tools.css';
 import Base from '../../layouts/Base.astro';
 
 const schema = {
@@ -27,20 +29,47 @@ const schema = {
   description="Tools percuma untuk bantu anda faham insurans Malaysia. Kalkulator NCD, panduan claim, dan lebih banyak lagi."
   schema={schema}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-2 sm:pt-8">
+      <nav class="text-sm text-stone-700 mb-5">
+        <a href="/" class="inline-flex min-h-11 items-center text-stone-700 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
         <span class="mx-2">›</span>
-        <span class="text-stone-700">Tools</span>
+        <span class="text-stone-700">Kalkulator</span>
       </nav>
-      <p class="label mb-3">Percuma</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">Tools Insurans</h1>
-      <p class="text-lg text-stone-600 max-w-2xl">Kalkulator dan tools percuma untuk bantu anda buat keputusan insurans yang lebih bijak.</p>
+      <h1 class="ea-h1 mb-1">Tools Insurans</h1>
+      <section class="mod tl-list" aria-labelledby="senarai-kalkulator">
+        <h2 id="senarai-kalkulator" class="mod-bar">6 kalkulator percuma untuk bantu anda buat keputusan insurans</h2>
+        <ul class="tl-rows">
+          <li class="tl-r">
+            <a href="/tools/ncd-calculator/" class="tl-a"><span>Kalkulator NCD</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Kira kesan NCD pada premium kereta anda</span>
+          </li>
+          <li class="tl-r">
+            <a href="/tools/kalkulator-coverage-nyawa/" class="tl-a"><span>Kalkulator Coverage Nyawa</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Anggarkan jurang perlindungan nyawa untuk keluarga</span>
+          </li>
+          <li class="tl-r">
+            <a href="/tools/kalkulator-roadtax/" class="tl-a"><span>Kalkulator Roadtax</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Asingkan kos roadtax kereta daripada premium insurans</span>
+          </li>
+          <li class="tl-r">
+            <a href="/tools/kalkulator-roadtax-motosikal/" class="tl-a"><span>Kalkulator Roadtax Motosikal</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Semak kadar roadtax motosikal persendirian</span>
+          </li>
+          <li class="tl-r">
+            <a href="/tools/kalkulator-roadtax-ev/" class="tl-a"><span>Kalkulator Roadtax Kereta Elektrik</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Roadtax kereta elektrik ikut kuasa motor (kW), bukan cc</span>
+          </li>
+          <li class="tl-r">
+            <a href="/tools/kalkulator-insurans-rumah/" class="tl-a"><span>Kalkulator Insurans Rumah</span><Ikon name="i-kanan" size={18} /></a>
+            <span class="tl-w">Anggaran awal premium houseowner atau householder</span>
+          </li>
+        </ul>
+      </section>
     </div>
   </section>
 
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide py-10 sm:py-14 et">
     <section aria-labelledby="pilih-alat" class="info-box mb-8">
       <h2 id="pilih-alat" class="mb-3 font-serif text-headline-sm text-stone-900">Alat mana patut anda gunakan?</h2>
       <p class="text-base leading-7 text-stone-700">
@@ -61,39 +90,6 @@ const schema = {
         Jika anda membandingkan perlindungan kereta, baca <a href="/car-insurance/">panduan insurans kereta</a> sebelum menilai sebut harga. Panduan itu membantu anda membezakan jenis perlindungan, memahami NCD dan menyemak add-on supaya pengiraan bajet tidak terpisah daripada apa yang dilindungi.
       </p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <a href="/tools/ncd-calculator/" class="card-editorial group block">
-        <div class="text-3xl mb-3">🧮</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator NCD</h2>
-        <p class="text-sm text-stone-600">Gunakan alat ini sebelum renew untuk mengira kesan NCD pada premium kereta anda. Masukkan premium asas dan kadar NCD yang berkaitan, kemudian semak anggaran penjimatan. Jika anda sedang menimbang tuntutan kerosakan kecil, gunakan bahagian "patut ke claim?" untuk membandingkan kos pembaikan dengan kesan kehilangan NCD, sambil merujuk syarat tuntutan polisi anda.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
-      </a>
-      <a href="/tools/kalkulator-coverage-nyawa/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Life</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Coverage Nyawa</h2>
-        <p class="text-sm text-stone-600">Gunakan alat ini apabila anda mahu menganggarkan jurang perlindungan nyawa untuk keluarga. Sediakan angka pendapatan, hutang, simpanan dan coverage sedia ada supaya pengiraan tidak bergantung pada tekaan. Hasilnya membantu anda menyusun perbincangan tentang keperluan tanggungan; ia bukan keputusan bahawa anda mesti membeli jumlah perlindungan tersebut atau cadangan produk tertentu.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
-      </a>
-      <a href="/tools/kalkulator-roadtax/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motor</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax</h2>
-        <p class="text-sm text-stone-600">Gunakan kalkulator ini apabila anda mahu mengasingkan kos roadtax kereta daripada premium insurans semasa renew. Pilih kapasiti enjin dalam cc, wilayah dan jenis badan kereta persendirian yang betul. Semak butiran pada dokumen kenderaan, kerana pilihan kategori yang salah boleh menghasilkan kadar yang tidak sesuai walaupun kapasiti enjin nampak hampir sama.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
-      </a>
-      <a href="/tools/kalkulator-roadtax-motosikal/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Motosikal</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Roadtax Motosikal</h2>
-        <p class="text-sm text-stone-600">Gunakan alat ini untuk menyemak kadar roadtax motosikal persendirian sebelum menyediakan bajet tahunan. Masukkan kapasiti enjin dan pilih wilayah yang berkaitan dengan kenderaan anda. Pengiraan ini untuk cukai jalan motosikal, bukan premium insurans atau jumlah bayaran renew keseluruhan; asingkan sebut harga perlindungan serta apa-apa caj perkhidmatan dalam bajet anda.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
-      </a>
-      <a href="/tools/kalkulator-insurans-rumah/" class="card-editorial group block">
-        <div class="mb-3 text-xs font-bold uppercase tracking-widest text-hijau-700">Rumah</div>
-        <h2 class="font-serif text-xl text-stone-900 group-hover:text-hijau-700 transition-colors mb-1">Kalkulator Insurans Rumah</h2>
-        <p class="text-sm text-stone-600">Gunakan alat ini sebagai anggaran awal premium houseowner atau householder sebelum meminta sebut harga. Pengiraan menggunakan kadar tarif kebakaran dan jumlah diinsuranskan, jadi semak dahulu nilai perlindungan yang anda masukkan. Bandingkan hasil dengan skop bangunan atau kandungan yang hendak dilindungi, kemudian semak tambahan, pengecualian dan jumlah akhir dalam sebut harga penyedia.</p>
-        <p class="text-xs text-hijau-700 font-semibold mt-3">Cuba sekarang →</p>
-      </a>
-    </div>
-
     <section aria-labelledby="semak-pengiraan" class="prose-editorial mt-12">
       <h2 id="semak-pengiraan">Cara membaca hasil kalkulator</h2>
       <h3>Semak input dan andaian</h3>
@@ -162,3 +158,16 @@ const schema = {
     </section>
   </div>
 </Base>
+
+<style>
+  /* Tool name above each card's finding: sentence case, not tracked caps (critique 27). */
+  .et :global(.et-kicker) { text-transform: none; letter-spacing: 0; font-size: 0.875rem; }
+  .et :global(.et-go) { display: flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; }
+  .tl-list { max-width: 48rem; margin-block: 1rem 1.25rem; }
+  .tl-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  .tl-r { display: grid; gap: 0.05rem; padding: 0.3rem 0 0.55rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .tl-r:last-child { border-bottom: 0; }
+  .tl-a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .tl-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .tl-w { font-size: 0.9375rem; color: var(--ink); }
+</style>

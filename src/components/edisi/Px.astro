@@ -1,0 +1,17 @@
+---
+/**
+ * One price-like value that follows the NCD control. The HTML holds one value (the NCD 55% one);
+ * the other five steps sit in data-p* attributes and CSS swaps them in from the checked radio
+ * (works without JavaScript). See src/styles/edisi-answer.css.
+ */
+import type { Values } from './steps';
+
+interface Props {
+  v: Values;
+  class?: string;
+  tag?: 'span' | 'b' | 'strong';
+  [key: string]: any;
+}
+const { v, class: className, tag: Tag = 'span', ...rest } = Astro.props;
+---
+<Tag class:list={['px', className]} data-p0={v['0']} data-p25={v['25']} data-p30={v['30']} data-p38={v['38']} data-p45={v['45']} {...rest}><span class="pv">{v['55']}</span></Tag>

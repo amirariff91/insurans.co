@@ -1,0 +1,34 @@
+---
+/**
+ * Right rail: the three newest Terkini items (date and title), linked, plus the full list.
+ * Quiet label (.mod-lab), not a black bar: it names the list, it states no finding, and it keeps the
+ * phone's black-bar count on home and model pages where it was.
+ */
+import Ikon from '../Ikon.astro';
+import { terkini, formatTarikh } from '../../lib/terkini';
+
+const items = terkini.slice(0, 3);
+---
+<nav class="mod" aria-labelledby="terkini-rail">
+  <h2 class="mod-bar mod-lab" id="terkini-rail">Terkini: perubahan harga dan peraturan</h2>
+  <div class="mod-in">
+    <ul class="tkr">
+      {items.map((item) => (
+        <li>
+          <time datetime={item.date}>{formatTarikh(item.date)}</time>
+          <a href={`/terkini/${item.slug}/`}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
+    <a class="tkr-all" href="/terkini/">Semua kemas kini <Ikon name="i-kanan" size={18} /></a>
+  </div>
+</nav>
+
+<style>
+  .tkr { list-style: none; margin: 0; padding: 0; display: grid; }
+  .tkr li { display: grid; gap: 0.1rem; padding: 0.45rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.18); }
+  .tkr li:first-child { padding-top: 0; }
+  .tkr time { font-size: 0.875rem; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .tkr a { display: flex; align-items: center; min-height: 2.75rem; font-size: 0.9375rem; line-height: 1.35; font-weight: 600; }
+  .tkr-all { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 650; }
+</style>

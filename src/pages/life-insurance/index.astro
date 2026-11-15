@@ -1,13 +1,15 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { homeFacts } from '../../data/home-facts';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
-import VerdictBadge from '../../components/VerdictBadge.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Panduan Insurans Nyawa Malaysia 2026",
-  "description": "Panduan lengkap insurans nyawa / life insurance Malaysia. Berapa coverage yang anda perlukan, jenis polisi, dan syarikat yang menawarkannya.",
+  "description": "Panduan lengkap insurans nyawa / life insurance Malaysia. Berapa perlindungan yang anda perlukan, jenis polisi, dan syarikat yang menawarkannya.",
   "url": "https://insurans.co/life-insurance/",
   "datePublished": "2026-02-01",
   "dateModified": "2026-11-15",
@@ -28,25 +30,29 @@ const schema = {
 ---
 
 <Base
-  title="Insurans Nyawa Malaysia 2026 — Panduan, Harga & Perbandingan"
-  description="Panduan insurans nyawa Malaysia 2026: berapa coverage yang anda perlu, beza term life, whole life dan ILP, anggaran harga, dan senarai syarikat. Dalam BM."
+  title="Insurans Nyawa Malaysia 2026: Term, Whole Life & ILP"
+  description="Panduan insurans nyawa Malaysia 2026: berapa perlindungan yang anda perlu, beza term life, whole life dan ILP, cara membandingkan sebut harga, dan senarai syarikat. Dalam BM."
   schema={schema}
   ogType="article"
   publishedTime="2026-02-01"
   modifiedTime="2026-11-15"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Insurans Nyawa</span>
-      </nav>
-      <p class="label mb-3">Panduan Lengkap</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Nyawa' }]} />
+      <h1 class="ea-h1">
         Insurans Nyawa Malaysia 2026
       </h1>
+      <PageAnswer
+        finding="Panduan kasar: 10 kali pendapatan tahunan"
+        sentence="Ini panduan kasar, bukan peraturan. Kira keperluan sebenar anda berdasarkan baki pinjaman, kos hidup keluarga, pendidikan anak dan simpanan sedia ada."
+        facts={[
+          { label: 'Contoh panduan kasar', value: 'Gaji RM60,000 setahun: angka rujukan RM600,000' },
+          { label: 'Term life', value: 'Perlindungan untuk tempoh tertentu (10, 20 atau 30 tahun)' },
+          { label: 'Pelepasan cukai', value: `${homeFacts.lifeTaxRelief.value}/tahun (${homeFacts.lifeTaxRelief.assessmentYear}), ${homeFacts.lifeTaxRelief.shared}`, role: 'term' },
+        ]}
+      />
       <Byline dateModified={schema.dateModified} />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
         Jika anda ada tanggungan seperti pasangan, anak atau ibu bapa, insurans nyawa melindungi mereka yang anda tinggalkan.
@@ -57,7 +63,7 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
 
           <p class="text-lg text-stone-700 leading-relaxed">
             Bayangkan anda meninggal dunia hari ini. Siapa yang akan membayar pinjaman rumah?
@@ -65,7 +71,7 @@ const schema = {
             Jika jawapannya tidak jelas, insurans nyawa ialah salah satu cara untuk menutup jurang itu.
           </p>
 
-          <h2>Berapa coverage yang anda perlukan?</h2>
+          <h2>Berapa perlindungan yang anda perlukan?</h2>
 
           <p>
             Panduan kasar yang sering digunakan: <strong>10 kali pendapatan tahunan</strong>. Contohnya, gaji RM5,000 sebulan (RM60,000 setahun) memberi angka rujukan <strong>RM600,000</strong>. Ini bukan peraturan; kira keperluan sebenar anda seperti di bawah.
@@ -74,16 +80,16 @@ const schema = {
           <p>Kiraan yang lebih tepat:</p>
 
           <ul>
-            <li><strong>Baki loan rumah</strong> — Contoh: RM300,000</li>
-            <li><strong>Kos hidup keluarga × tahun</strong> — RM4,000/bulan × 10 tahun = RM480,000</li>
-            <li><strong>Pendidikan anak</strong> — RM100,000 – RM300,000 per anak</li>
-            <li><strong>Kos pengebumian & hutang lain</strong> — RM20,000 – RM50,000</li>
-            <li><strong>Tolak savings & EPF</strong> — Contoh: -RM200,000</li>
+            <li><strong>Baki pinjaman rumah</strong>: contohnya RM300,000</li>
+            <li><strong>Kos hidup keluarga × tahun</strong>: RM4,000/bulan × 10 tahun = RM480,000</li>
+            <li><strong>Pendidikan anak</strong>: RM100,000–RM300,000 bagi setiap anak</li>
+            <li><strong>Kos pengebumian dan hutang lain</strong>: RM20,000–RM50,000</li>
+            <li><strong>Tolak simpanan dan EPF</strong>: contohnya -RM200,000</li>
           </ul>
 
           <p>
-            Jumlah: boleh jadi <strong>RM700,000 – RM1.5 juta</strong> bergantung pada situasi. 
-            Jika coverage sedia ada anda hanya RM50,000 hingga RM100,000, bandingkan dengan jumlah ini untuk melihat jurangnya.
+            Jumlah: boleh jadi <strong>RM700,000–RM1.5 juta</strong> bergantung pada situasi. 
+            Jika perlindungan sedia ada anda hanya RM50,000 hingga RM100,000, bandingkan dengan jumlah ini untuk melihat jurangnya.
           </p>
 
           <h2>Tiga jenis insurans nyawa utama</h2>
@@ -91,39 +97,35 @@ const schema = {
 
         <div class="space-y-4 my-8">
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">1. Term Life Insurance</h3>
-              <VerdictBadge tone="best" label="Premium Terendah untuk Coverage Sama" />
+              <span class="verdict bg-stone-100 text-stone-600">Tempoh tertentu</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Coverage untuk tempoh tertentu (10, 20 atau 30 tahun). Jika anda meninggal dunia dalam tempoh itu, keluarga menerima bayaran. Jika tidak, polisi tamat tanpa nilai tunai. Premiumnya <strong>paling rendah</strong> bagi jumlah coverage yang sama.
-            </p>
-            <p class="text-sm text-stone-600 mb-2">
-              Contoh: Lelaki 30 tahun, coverage RM500,000, term 20 tahun — 
-              premium sekitar <strong>RM80 – RM150/bulan</strong>.
+              Perlindungan untuk tempoh tertentu (10, 20 atau 30 tahun). Jika anda meninggal dunia dalam tempoh itu, keluarga menerima bayaran. Jika tidak, polisi tamat tanpa nilai tunai. Term life biasanya menawarkan premium lebih rendah berbanding polisi dengan komponen nilai tunai bagi jumlah perlindungan yang setara.
             </p>
             <p class="text-sm text-stone-500">
-              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu coverage tinggi dengan bajet terhad, terutamanya jika anda ada pinjaman rumah dan anak kecil.
+              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu perlindungan tinggi dengan bajet terhad, terutamanya jika anda ada pinjaman rumah dan anak kecil.
             </p>
           </div>
 
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">2. Whole Life Insurance</h3>
               <span class="verdict bg-emas-50 text-emas-700">Premium Lebih Tinggi</span>
             </div>
             <p class="text-sm text-stone-600 leading-relaxed mb-3">
-              Coverage seumur hidup, dengan nilai tunai yang terkumpul dari semasa ke semasa dan boleh
-              dikeluarkan jika polisi diserahkan (surrender). Premiumnya beberapa kali ganda lebih tinggi
-              daripada term life untuk coverage yang sama (lihat jadual di bawah).
+              Perlindungan seumur hidup, dengan nilai tunai yang terkumpul dari semasa ke semasa dan boleh
+              dikeluarkan jika polisi diserahkan (surrender). Premiumnya biasanya lebih tinggi
+              daripada term life untuk jumlah perlindungan yang sama.
             </p>
             <p class="text-sm text-stone-500">
-              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu coverage seumur hidup dengan komponen nilai tunai, atau untuk perancangan harta pusaka.
+              <strong>Sesuai dipertimbangkan jika:</strong> anda mahu perlindungan seumur hidup dengan komponen nilai tunai, atau untuk perancangan harta pusaka.
             </p>
           </div>
 
           <div class="card-editorial">
-            <div class="flex items-start justify-between mb-2">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
               <h3 class="font-serif text-xl text-stone-900">3. Investment-Linked Plan (ILP)</h3>
               <span class="verdict bg-stone-100 text-stone-600">Ada Komponen Pelaburan</span>
             </div>
@@ -138,79 +140,47 @@ const schema = {
           </div>
         </div>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Harga insurans nyawa di Malaysia</h2>
-          <p>Anggaran premium bulanan untuk lelaki, non-smoker, sihat:</p>
+          <p>
+            Premium insurans nyawa bergantung pada umur, jantina, status merokok, jumlah perlindungan (sum assured),
+            tempoh polisi dan keputusan pengunderaitan (underwriting) syarikat, termasuk sejarah kesihatan anda.
+            Jadi dua orang yang sebaya boleh menerima sebut harga yang berbeza.
+          </p>
+          <p>
+            Insurans.co tidak menerbitkan anggaran premium insurans nyawa kerana kami tiada kadar yang diterbitkan
+            oleh syarikat insurans untuk dirujuk. Angka tanpa sumber boleh mengelirukan bajet anda.
+          </p>
+          <p>Cara membandingkan harga:</p>
+          <ol class="list-decimal pl-5 space-y-3">
+            <li>Tetapkan jumlah perlindungan dan tempoh dahulu, menggunakan kiraan di atas.</li>
+            <li>Dapatkan sebut harga daripada sekurang-kurangnya dua atau tiga syarikat insurans atau pengendali takaful untuk jumlah perlindungan dan tempoh yang sama.</li>
+            <li>Bandingkan premium bersama manfaat, pengecualian dan caj dalam Helaian Pendedahan Produk (PDS) setiap pelan, bukan premium sahaja.</li>
+          </ol>
         </article>
 
-        <div class="overflow-x-auto my-8">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th>Umur</th>
-                <th>Term Life (RM500K, 20 thn)</th>
-                <th>Whole Life (RM500K)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-medium text-stone-900">25 tahun</td>
-                <td class="font-semibold text-hijau-700">RM60 – RM100/bulan</td>
-                <td>RM400 – RM700/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">30 tahun</td>
-                <td class="font-semibold text-hijau-700">RM80 – RM150/bulan</td>
-                <td>RM500 – RM900/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">35 tahun</td>
-                <td class="font-semibold text-hijau-700">RM120 – RM200/bulan</td>
-                <td>RM700 – RM1,200/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">40 tahun</td>
-                <td class="font-semibold text-hijau-700">RM180 – RM300/bulan</td>
-                <td>RM1,000 – RM1,800/bulan</td>
-              </tr>
-              <tr>
-                <td class="font-medium text-stone-900">45 tahun</td>
-                <td class="font-semibold text-hijau-700">RM280 – RM450/bulan</td>
-                <td>RM1,500 – RM2,500/bulan</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-sm text-stone-500 -mt-6 mb-8">Anggaran kasar untuk gambaran sahaja, bukan sebut harga. Premium sebenar bergantung pada syarikat, umur, kesihatan dan underwriting.</p>
-
-        <div class="info-box mb-8">
-          <p class="text-sm text-stone-700">
-            <strong>Beza premium.</strong> Bagi lelaki 30 tahun, anggaran premium term life dengan coverage RM500,000 ialah RM80–150 sebulan, manakala whole life dengan coverage yang sama RM500–900 sebulan. Whole life ada komponen nilai tunai; term life tidak. Mana yang sesuai bergantung pada keperluan dan bajet anda. Semak dengan ejen atau penasihat kewangan berlesen.
-          </p>
-        </div>
-
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Syarikat insurans nyawa di Malaysia</h2>
-          <p>Berikut antara syarikat yang menawarkan insurans nyawa di Malaysia. Senarai ini bukan kedudukan atau cadangan — bandingkan pelan, caj dan pengecualian dalam Helaian Pendedahan Produk (PDS) setiap syarikat.</p>
+          <p>Syarikat di bawah menawarkan insurans nyawa di Malaysia. Senarai ini bukan kedudukan atau cadangan. Bandingkan pelan, caj dan pengecualian dalam Helaian Pendedahan Produk (PDS) setiap syarikat.</p>
 
           <ul class="list-disc pl-5 space-y-3">
             <li>
-              <strong>AIA</strong> — Menawarkan pelan term life.
+              <strong>AIA</strong>: menawarkan pelan term life.
               Maklumat polisi boleh disemak melalui aplikasi AIA+.
             </li>
             <li>
-              <strong>Etiqa</strong> — Menawarkan pelan insurans hayat dan takaful keluarga.
+              <strong>Etiqa</strong>: menawarkan pelan insurans hayat dan takaful keluarga.
               Sesetengah pelan asas boleh dibeli dalam talian.
             </li>
             <li>
-              <strong>Great Eastern</strong> — Menawarkan pelan term life, whole life dan ILP.
+              <strong>Great Eastern</strong>: menawarkan pelan term life, whole life dan ILP.
               Rujuk laporan tahunan syarikat untuk maklumat tuntutan yang dibayar.
             </li>
             <li>
-              <strong>Prudential</strong> — PRUTerm dan PRUTerm Premier untuk term life; PRUWith You Plus ialah pelan insurans hayat dan pelaburan.
+              <strong>Prudential</strong>: PRUTerm dan PRUTerm Premier untuk term life; PRUWith You Plus ialah pelan insurans hayat dan pelaburan.
             </li>
             <li>
-              <strong>Zurich</strong> — Menawarkan Zurich TermLife dan Zurich Direct Term.
+              <strong>Zurich</strong>: menawarkan Zurich TermLife dan Zurich Direct Term.
               Permohonan Zurich Direct Term dibuat dalam talian.
             </li>
           </ul>
@@ -219,7 +189,7 @@ const schema = {
 
           <ol class="list-decimal pl-5 space-y-3">
             <li>
-              <strong>Bandingkan term life dengan jenis lain.</strong> Term life biasanya memberi coverage lebih tinggi untuk premium yang sama;
+              <strong>Bandingkan term life dengan jenis lain.</strong> Term life biasanya memberi perlindungan lebih tinggi untuk premium yang sama;
               whole life dan ILP ada komponen nilai tunai atau pelaburan. Semak dengan ejen atau penasihat kewangan berlesen mana yang sesuai.
             </li>
             <li>
@@ -227,26 +197,25 @@ const schema = {
               Ambil masa, bandingkan, dan fahami apa yang anda beli.
             </li>
             <li>
-              <strong>Disclose semua medical history.</strong> Kalau tak disclose dan kemudian kena claim, 
-              insurer boleh reject. Jujur masa application — walau premium naik sikit.
+              <strong>Isytiharkan semua sejarah perubatan anda.</strong> Jika anda tidak mengisytiharkannya dan kemudian perlu membuat claim,
+              insurer boleh menolak claim itu. Berterus terang semasa memohon, walaupun premium naik sedikit.
             </li>
             <li>
               <strong>Pelepasan cukai.</strong> Premium insurans hayat atau sumbangan takaful keluarga layak pelepasan cukai sehingga <strong>RM3,000 setahun</strong>. Had ini berasingan daripada had RM4,000 untuk caruman KWSP (jumlah RM7,000, tahun taksiran 2025). Had RM3,000 itu dikongsi dengan caruman sukarela tambahan KWSP, jadi jangan kira dua kali; semak jadual pelepasan <a href="https://www.hasil.gov.my/individu/pelepasan-cukai/" target="_blank" rel="noopener noreferrer">LHDN</a>. Contohnya, premium RM200 sebulan (RM2,400 setahun) masih di bawah had RM3,000.
             </li>
             <li>
-              <strong>Review setiap 3-5 tahun.</strong> Bila gaji naik, anak bertambah, atau beli rumah baru — 
-              coverage kena naik juga.
+              <strong>Semak semula setiap 3-5 tahun.</strong> Apabila pendapatan, tanggungan atau hutang berubah, kira semula jurang perlindungan anda.
             </li>
           </ol>
         </article>
 
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <h2>Soalan lazim insurans nyawa</h2>
         </article>
 
         <div class="my-8">
           <details class="faq-item" open>
-            <summary>Single, takde tanggungan — perlu ke insurans nyawa?</summary>
+            <summary>Bujang, tiada tanggungan: perlu ke insurans nyawa?</summary>
             <p>
               Jika tiada sesiapa bergantung pada pendapatan anda, keperluannya kurang mendesak. Premium biasanya lebih rendah jika polisi dibeli semasa muda dan sihat, dan masalah kesihatan kemudian hari boleh menaikkan premium atau menyebabkan pengecualian. Timbang perkara ini dengan ejen atau penasihat kewangan berlesen.
             </p>
@@ -255,19 +224,16 @@ const schema = {
           <details class="faq-item">
             <summary>EPF dah ada death benefit, tak cukup ke?</summary>
             <p>
-              EPF bagi <strong>RM2,500</strong> death benefit — seriously, RM2,500 je. 
-              KWSP nominee(s) akan dapat semua savings anda, tapi tu duit retirement anda. 
-              Kalau anda mati muda dan KWSP baru RM50K-100K, itu tak cukup untuk cover 
-              semua tanggungan. Insurans nyawa ni sebagai supplement, bukan replacement.
+              Bantuan Kematian KWSP sebanyak <strong>RM2,500</strong> tertakluk pada syarat kelayakan. Pengeluaran simpanan selepas kematian mengikut peraturan KWSP.
+              Bandingkan sumber yang tersedia dengan keperluan tanggungan anda sebelum menentukan jurang perlindungan.
             </p>
           </details>
 
           <details class="faq-item">
-            <summary>Smoker boleh beli insurans nyawa?</summary>
+            <summary>Perokok boleh membeli insurans nyawa?</summary>
             <p>
-              Boleh, tapi premium <strong>50-100% lebih mahal</strong> dari non-smoker. 
-              Kalau anda quit smoking dan dah setahun smoke-free, sesetengah insurer akan reassess 
-              dan turunkan premium. Satu lagi sebab untuk quit.
+              Perokok boleh memohon, tetapi premium dan penerimaan bergantung pada produk serta pengunderaitan.
+              Jika sudah berhenti merokok, tanya syarikat tentang syarat penilaian semula.
             </p>
           </details>
 
@@ -292,27 +258,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h3 class="font-serif text-lg text-stone-900 mb-3">Ringkasan</h3>
-            <dl class="space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Panduan kasar coverage</dt>
-                <dd class="font-semibold text-stone-900">10× pendapatan tahunan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Premium terendah (coverage sama)</dt>
-                <dd class="font-semibold text-hijau-700">Term Life Insurance</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Anggaran term life (umur 30)</dt>
-                <dd class="font-semibold text-stone-900">RM80 – RM150/bulan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Pelepasan cukai</dt>
-                <dd class="font-semibold text-hijau-700">RM3,000/tahun (berasingan daripada had RM4,000 KWSP)</dd>
-              </div>
-            </dl>
-          </div>
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h3>

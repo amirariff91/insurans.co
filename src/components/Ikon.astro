@@ -1,0 +1,43 @@
+---
+/**
+ * One pictogram from the Edisi icon sprite (public/ikon.svg, 16 symbols, ids in src/data/ikon-names.json).
+ * Without `label` the icon is decorative and hidden from assistive technology; keep a visible word beside it.
+ * The knob colour and stroke weight follow the CSS custom properties --icon-knob and --icon-stroke.
+ */
+import ikonNames from '../data/ikon-names.json';
+
+interface Props {
+  /** Symbol id, e.g. "i-kereta". */
+  name: string;
+  /** Width and height in px. */
+  size?: number;
+  /** Accessible name. Omit for a decorative icon. */
+  label?: string;
+  class?: string;
+}
+
+const { name, size = 20, label, class: className } = Astro.props;
+
+if (!(ikonNames as string[]).includes(name)) {
+  throw new Error(`Ikon: unknown icon name "${name}". Valid names are in src/data/ikon-names.json.`);
+}
+---
+
+{label ? (
+  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 24 24" role="img" aria-label={label} focusable="false">
+    <title>{label}</title>
+    <use href={`/ikon.svg#${name}`} />
+  </svg>
+) : (
+  <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <use href={`/ikon.svg#${name}`} />
+  </svg>
+)}
+
+<style>
+  .ikon {
+    display: inline-block;
+    flex: none;
+    vertical-align: middle;
+  }
+</style>

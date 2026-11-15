@@ -1,6 +1,8 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -37,59 +39,59 @@ const schema = {
   modifiedTime="2026-11-15"
   ads={true}
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/guides/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Panduan</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">Cara Turunkan Premium</span>
-      </nav>
-      <p class="label mb-3">Panduan Jimat</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan', href: '/guides/' }, { label: 'Cara Turunkan Premium' }]} />
+      <h1 class="ea-h1 mb-1">
         10 Cara Turunkan Premium Insurans Kereta Anda
       </h1>
+      <PageAnswer
+        finding="NCD: diskaun sehingga 55% selepas 5 tahun tanpa tuntutan"
+        facts={[
+          { label: 'NCD selepas 5 tahun tanpa tuntutan', value: 'Sehingga 55% diskaun', role: 'term' },
+          { label: 'Contoh dengan NCD', value: 'Premium RM2,000 boleh turun kepada RM900', role: 'price' },
+          { label: 'Voluntary excess RM500, kerosakan RM2,000', value: 'Insurans bayar RM1,500, anda bayar RM500' },
+          { label: 'Bandingkan harga', value: 'Harga premium untuk kereta yang sama boleh berbeza antara syarikat insurans' },
+        ]}
+      />
       <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Premium insurans kereta boleh jadi beban jika tidak tahu cara nak jimatkan. Berita baiknya —
-        ada pelbagai cara yang sah dan mudah untuk kurangkan premium anda tanpa kurangkan coverage penting.
+        Premium insurans kereta boleh menjadi beban jika anda tidak tahu cara menjimatkannya. Berita baiknya,
+        ada pelbagai cara yang sah dan mudah untuk mengurangkan premium tanpa mengurangkan perlindungan penting.
       </p>
     </div>
   </section>
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
-      <article class="lg:col-span-2 prose-editorial">
+      <article class="lg:col-span-2 prose-editorial prose-bars">
 
-        <h2>1. Jaga NCD (No-Claim Discount) Anda</h2>
+        <h2 class="h2-quiet">1. Jaga NCD (No-Claim Discount) anda</h2>
         <p>
-          NCD adalah diskaun paling besar yang boleh anda dapat — sehingga <strong>55% diskaun</strong> selepas
+          NCD ialah diskaun paling besar yang boleh anda dapat: sehingga <strong>55% diskaun</strong> selepas
           5 tahun tanpa membuat tuntutan. Ini bermakna premium RM2,000 boleh turun kepada RM900 sahaja.
-          Kunci untuk kekalkan NCD: jangan buat claim untuk kerosakan kecil. Kalau calar kecil atau
-          bumper rosak sikit, lebih baik bayar sendiri daripada membuat claim yang boleh menjejaskan NCD anda.
+          Untuk kerosakan kecil, bandingkan kos baiki, excess dan kesan sebenar terhadap NCD sebelum memilih cara tuntutan.
         </p>
         <p>
-          Nak tahu berapa diskaun NCD anda? Guna <a href="/tools/ncd-calculator/" class="text-hijau-700 underline">Kalkulator NCD kami</a> untuk kira semula premium dengan NCD semasa anda.
+          Mahu tahu berapa diskaun NCD anda? Guna <a href="/tools/ncd-calculator/" class="text-hijau-700 underline">Kalkulator NCD kami</a> untuk kira semula premium dengan NCD semasa anda.
         </p>
 
-        <h2>2. Pasang Alat Anti-Kecurian (Anti-Theft Device)</h2>
+        <h2 class="h2-quiet">2. Pasang alat anti-kecurian (anti-theft device)</h2>
         <p>
           Sesetengah syarikat insurans memberi diskaun jika kereta anda ada alat anti-kecurian yang diluluskan, contohnya immobilizer, steering lock atau GPS tracker. Kadar diskaun berbeza mengikut syarikat dan jenis alat; tanya syarikat insurans anda. Pastikan alat tersebut
           dipasang oleh bengkel bertauliah dan anda ada resit sebagai bukti.
         </p>
 
-        <h2>3. Pilih Voluntary Excess Yang Lebih Tinggi</h2>
+        <h2 class="h2-quiet">3. Pilih voluntary excess yang lebih tinggi</h2>
         <p>
-          <em>Voluntary excess</em> bermaksud anda bersetuju untuk tanggung sebahagian kos kerosakan
-          sendiri sebelum insurans bayar. Contohnya, kalau anda pilih voluntary excess RM500, dan
-          kerosakan berjumlah RM2,000 — insurans bayar RM1,500, anda bayar RM500.
-          Dengan memilih excess yang lebih tinggi, syarikat insurans akan kurangkan premium anda kerana
-          mereka tanggung risiko yang lebih rendah. Sesuai untuk pemandu berhati-hati yang jarang
+          <em>Voluntary excess</em> bermaksud anda bersetuju untuk menanggung sendiri sebahagian kos kerosakan
+          sebelum insurans membayar. Contohnya, jika anda pilih voluntary excess RM500 dan
+          kerosakan berjumlah RM2,000, insurans bayar RM1,500 dan anda bayar RM500.
+          Excess sukarela yang lebih tinggi boleh mengurangkan premium, bergantung pada sebut harga syarikat. Sesuai untuk pemandu berhati-hati yang jarang
           mengalami kemalangan.
         </p>
 
-        <h2>4. Semak Pemandu Dinamakan dan Excess</h2>
+        <h2 class="h2-quiet">4. Semak pemandu dinamakan dan excess</h2>
         <p>
           Pemandu yang mendapat kebenaran pemilik boleh dilindungi, tertakluk kepada polisi. Excess
           wajib tambahan boleh dikenakan jika pemandu tidak dinamakan, berumur bawah 21 tahun atau
@@ -97,46 +99,46 @@ const schema = {
           tersebut. Semak syarat polisi anda; pembelian dalam talian bukan sebab excess ini dikenakan.
         </p>
 
-        <h2>5. Bandingkan Harga dari Pelbagai Syarikat</h2>
+        <h2 class="h2-quiet">5. Bandingkan harga daripada pelbagai syarikat</h2>
         <p>
-          Ini cara paling mudah dan berkesan. Harga premium untuk kereta yang sama boleh berbeza antara syarikat insurans sejak liberalisasi tarif motor 2017. Minta sebut harga daripada beberapa syarikat insurans, sama ada terus di laman syarikat atau melalui platform perbandingan yang diluluskan BNM (lihat <a href="/insurans-online/" class="text-hijau-700 underline">semakan platform insurans online</a>).
+          Ini cara yang mudah. Harga premium untuk kereta yang sama boleh berbeza antara syarikat insurans sejak liberalisasi tarif motor 2017. Minta sebut harga daripada beberapa syarikat insurans, sama ada terus di laman syarikat atau melalui platform perbandingan yang diluluskan BNM (lihat <a href="/insurans-online/" class="text-hijau-700 underline">semakan platform insurans online</a>).
         </p>
 
-        <h2>6. Semak Semula Sum Insured Kereta Anda</h2>
+        <h2 class="h2-quiet">6. Semak semula sum insured kereta anda</h2>
         <p>
           Semak sama ada polisi menggunakan <strong>nilai pasaran</strong> atau <strong>nilai
           dipersetujui</strong> (agreed value). Bagi polisi nilai pasaran, sum insured patut mengikut
-          penilaian semasa kereta, bukan harga beli baru; nilai pasaran kereta lama biasanya menurun,
+          penilaian semasa kereta, bukan harga beli baharu; nilai pasaran kereta lama biasanya menurun,
           jadi semak sum insured setiap kali renew. Bagi polisi nilai dipersetujui, semak jumlah dan
           syarat yang dipersetujui dengan syarikat. Bandingkan premium tanpa menganggap satu kaedah
           sentiasa lebih mahal.
         </p>
 
-        <h2>7. Pilih Add-On Yang Betul-Betul Diperlukan Sahaja</h2>
+        <h2 class="h2-quiet">7. Pilih add-on yang betul-betul diperlukan sahaja</h2>
         <p>
-          Add-on seperti windscreen cover, special perils, dan breakdown towing memang berguna —
-          tapi jangan tambah semuanya kalau tidak perlu. Contohnya, jika anda tidak tinggal di
+          Add-on seperti windscreen cover, special perils, dan breakdown towing memang berguna,
+          tetapi jangan tambah semuanya jika tidak perlu. Contohnya, jika anda tidak tinggal di
           kawasan banjir, special perils mungkin tidak diperlukan. Jika kereta sudah lama dan
           nilainya rendah, windscreen cover mungkin tidak berbaloi. Nilai setiap add-on ikut
           keperluan sebenar anda.
         </p>
 
-        <h2>8. Renew Sebelum Polisi Tamat</h2>
+        <h2 class="h2-quiet">8. Renew sebelum polisi tamat</h2>
         <p>
-          Renew sebelum polisi tamat untuk mengelakkan jurang coverage. Premium baharu tetap
+          Renew sebelum polisi tamat untuk mengelakkan jurang perlindungan. Premium baharu tetap
           bergantung pada sebut harga dan syarat syarikat; renew awal tidak menjamin harga lebih
           rendah.
         </p>
 
-        <h2>9. Gabungkan Insurans dengan Syarikat Sama</h2>
+        <h2 class="h2-quiet">9. Gabungkan insurans dengan syarikat sama</h2>
         <p>
-          Sesetengah syarikat menawarkan diskaun jika anda ambil lebih dari satu polisi dengan mereka —
+          Sesetengah syarikat menawarkan diskaun jika anda mengambil lebih daripada satu polisi dengan mereka,
           contohnya insurans kereta dan insurans rumah serentak. Ini dikenali sebagai <em>bundling
-          discount</em>. Tanya syarikat anda sama ada tawaran ini ada, terutama jika anda sudah
-          pelanggan lama mereka.
+          discount</em>. Tanya syarikat anda sama ada tawaran ini ada, terutamanya jika anda sudah
+          menjadi pelanggan lama mereka.
         </p>
 
-        <h2>10. Semak Kelayakan Diskaun Khas</h2>
+        <h2 class="h2-quiet">10. Semak kelayakan diskaun khas</h2>
         <p>
           Ada beberapa kategori pemandu yang mungkin layak mendapat diskaun khas:
         </p>
@@ -144,43 +146,43 @@ const schema = {
           <li><strong>OKU (Orang Kurang Upaya):</strong> Semak dengan JPJ tentang pengecualian roadtax dan tanya syarikat insurans tentang diskaun.</li>
           <li><strong>Warga emas:</strong> Sesetengah syarikat ada program khas untuk pemandu berumur 60+.</li>
           <li><strong>Kakitangan kerajaan:</strong> Sesetengah syarikat ada perjanjian khas dengan badan-badan kerajaan.</li>
-          <li><strong>Ahli kesatuan atau persatuan:</strong> Tanya majikan atau persatuan anda — ada yang ada perjanjian kumpulan dengan syarikat insurans.</li>
+          <li><strong>Ahli kesatuan atau persatuan:</strong> Tanya majikan atau persatuan anda kerana sesetengahnya ada perjanjian kumpulan dengan syarikat insurans.</li>
         </ul>
 
         <div class="info-box not-prose mt-8">
           <p class="text-sm text-stone-700 leading-relaxed">
-            <strong>Ingat:</strong> Jimat pada premium adalah baik, tapi jangan sampai kurangkan
-            coverage penting. Pastikan anda masih dilindungi untuk risiko utama seperti kemalangan
-            pihak ketiga, dan jika tinggal di kawasan banjir — jangan skip special perils.
+            <strong>Ingat:</strong> Menjimatkan premium memang baik, tetapi jangan sampai mengurangkan
+            perlindungan penting. Pastikan anda masih dilindungi untuk risiko utama seperti kemalangan
+            pihak ketiga, dan jika anda tinggal di kawasan banjir, jangan abaikan special perils.
           </p>
         </div>
 
         <p class="text-xs text-stone-500 mt-8 pt-4 border-t border-stone-200">Artikel ini ditulis dan disunting oleh Amir Ariff, pengasas dan editor Insurans.co. Beliau bukan penasihat kewangan atau ejen insurans berlesen. Untuk maklumat rasmi, sila rujuk <a href="https://www.piam.org.my" class="underline" target="_blank" rel="noopener noreferrer">PIAM</a> atau <a href="https://www.bnm.gov.my" class="underline" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia</a>.</p>
 
         <div class="not-prose bg-hijau-50 border border-hijau-200 rounded-xl p-6 mt-8">
-          <h3 class="font-semibold text-hijau-900 mb-3">Alat & Perbandingan untuk Jimat Premium</h3>
+          <h3 class="font-semibold text-hijau-900 mb-3">Alat & perbandingan untuk jimat premium</h3>
           <p class="text-sm text-stone-700 mb-4">Gunakan alat dan panduan perbandingan ini sebelum minta sebut harga:</p>
           <ul class="space-y-3">
             <li>
-              <a href="/tools/ncd-calculator/" class="inline-flex items-center gap-2 text-hijau-700 font-semibold hover:underline">
-                Kalkulator NCD →
+              <a href="/tools/ncd-calculator/" class="inline-flex min-h-11 items-center gap-2 text-hijau-700 font-semibold hover:underline">
+                Kalkulator NCD
               </a>
-              <span class="text-sm text-stone-600"> — Kira berapa premium anda patut bayar lepas NCD</span>
+              <span class="text-sm text-stone-600">: kira berapa premium yang anda patut bayar selepas NCD</span>
             </li>
             <li>
               <a href="/perbandingan/etiqa-vs-allianz/" class="text-hijau-700 font-medium hover:underline">Etiqa vs Allianz</a>
-              <span class="text-sm text-stone-600"> — Bandingkan Etiqa dan Allianz</span>
+              <span class="text-sm text-stone-600">: bandingkan Etiqa dan Allianz</span>
             </li>
             <li>
               <a href="/perbandingan/etiqa-vs-tokio-marine/" class="text-hijau-700 font-medium hover:underline">Etiqa vs Tokio Marine</a>
-              <span class="text-sm text-stone-600"> — Pilih yang lebih berbaloi untuk anda</span>
+              <span class="text-sm text-stone-600">: pilih yang lebih berbaloi untuk anda</span>
             </li>
             <li>
               <a href="/perbandingan/tokio-marine-vs-allianz/" class="text-hijau-700 font-medium hover:underline">Tokio Marine vs Allianz</a>
-              <span class="text-sm text-stone-600"> — Bandingkan Tokio Marine dan Allianz</span>
+              <span class="text-sm text-stone-600">: bandingkan Tokio Marine dan Allianz</span>
             </li>
             <li>
-              <a href="/perbandingan/" class="text-hijau-700 font-medium hover:underline">Lihat semua perbandingan →</a>
+              <a href="/perbandingan/" class="tap-link text-hijau-700 font-medium hover:underline">Lihat semua perbandingan</a>
             </li>
           </ul>
         </div>
@@ -191,9 +193,9 @@ const schema = {
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Alat & Panduan</h3>
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Alat & panduan</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/tools/ncd-calculator/" class="text-hijau-700 hover:underline">Kalkulator NCD →</a></li>
+              <li><a href="/tools/ncd-calculator/" class="text-hijau-700 hover:underline">Kalkulator NCD</a></li>
               <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:underline">Panduan NCD lengkap</a></li>
               <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/" class="text-hijau-700 hover:underline">Komprehensif vs Pihak Ketiga</a></li>
               <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:underline">Insurans banjir</a></li>
@@ -202,13 +204,13 @@ const schema = {
           </div>
 
           <div class="card-editorial bg-hijau-50 border-hijau-200">
-            <h3 class="font-semibold text-sm text-stone-900 mb-2">Dapatkan Quotation</h3>
+            <h3 class="font-semibold text-sm text-stone-900 mb-2">Dapatkan quotation</h3>
             <p class="text-xs text-stone-600 mb-3 leading-relaxed">
               Minta sebut harga terus daripada syarikat insurans atau melalui platform perbandingan yang diluluskan BNM.
             </p>
             <a href="/insurans-online/"
                class="block text-center btn-hijau text-sm">
-              Semakan platform insurans online →
+              Semakan platform insurans online
             </a>
           </div>
         </div>
@@ -216,3 +218,11 @@ const schema = {
     </div>
   </div>
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with a topic, not a finding. */
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>

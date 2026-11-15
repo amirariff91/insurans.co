@@ -1,0 +1,12 @@
+{
+  "removed": [
+    {
+      "url": "/motorcycle-insurance/etiqa-myrider/",
+      "reason": "Fails the site's own ads gate after the generated FAQ block was removed (15 Nov 2026): 631 words, under the 700-word minimum. Ads stay off until the page has enough original content."
+    },
+    {
+      "url": "/motorcycle-insurance/msig-motorcycle-online/",
+      "reason": "Fails the site's own ads gate after the generated FAQ block was removed (15 Nov 2026): text overlap 0.353 with its nearest page, over the 0.35 limit. Ads stay off until the page has enough original content."
+    }
+  ]
+}

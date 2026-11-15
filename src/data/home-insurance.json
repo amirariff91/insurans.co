@@ -11,7 +11,7 @@
     "minPremium": 60,
     "stamp": 10
   },
-  "calculatorNote": "Kalkulator premium kebakaran (houseowner/householder) menggunakan kadar tariff × jumlah diinsuranskan, dinaikkan ke minimum premium RM60 jika lebih rendah, tambah setem RM10. Hanya kadar tariff awam atau input pengguna memandu kiraan — tiada anggaran premium insurer. Kadar fire-only asas bank tidak diterbitkan (perlu quotation) dan tidak dikira di sini.",
+  "calculatorNote": "Kalkulator premium kebakaran (houseowner/householder) menggunakan kadar tariff × jumlah diinsuranskan, dinaikkan ke minimum premium RM60 jika lebih rendah, tambah setem RM10. Hanya kadar tariff awam atau input pengguna memandu kiraan, bukan anggaran premium insurer. Kadar fire-only asas bank tidak diterbitkan (perlu quotation) dan tidak dikira di sini.",
   "calculatorTestCases": [
     { "propertyType": "landed", "constructionClass": "1A", "buildingSumInsured": 200000, "contentsSumInsured": 0, "expectHouseowner": 180, "expectHouseholder": 0, "expectTotal": 190 },
     { "propertyType": "flat", "constructionClass": "1A", "buildingSumInsured": 150000, "contentsSumInsured": 50000, "expectHouseowner": 139.5, "expectHouseholder": 169, "expectTotal": 318.5 },
@@ -289,7 +289,7 @@
       "planName": "BSN Houseowner Insurance",
       "type": "houseowner-comprehensive",
       "coversWhat": "Bangunan: fire/kilat/letupan, pesawat, kenderaan, paip pecah, kecurian pecah masuk, windstorm, gempa, banjir; loss of rent 10%; riot; subsidence; alteration 25% SI; liability RM50,000; tempoh 2 tahun",
-      "tariffRates": "Comprehensive: 0.2235% rumah berteres/semi-D/detached; 0.2273% flat/apartment/condo (contoh RM150,000 x 0.2235% = RM335.25/tahun; 2 tahun dinyatakan PDS sebagai RM680.50 — sic, 335.25 x 2 = RM670.50)",
+      "tariffRates": "Comprehensive: 0.2235% rumah berteres/semi-D/detached; 0.2273% flat/apartment/condo (contoh RM150,000 x 0.2235% = RM335.25/tahun; 2 tahun dinyatakan PDS sebagai RM680.50, sedangkan 335.25 x 2 = RM670.50)",
       "minPremium": null,
       "sumInsuredBasis": "Market value atau reinstatement; contoh average clause RM250,000 x 200,000/250,000",
       "quoteGated": "struktur berbeza (pakej 2-tahun bank); bukan kadar tariff asas",

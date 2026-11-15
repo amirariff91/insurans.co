@@ -1,0 +1,30 @@
+---
+/** "Tukar model": every model by brand with its NCD 55% range. Desktop left rail; below the answer on phones. */
+import carModels from '../../data/car-models.json';
+import { span } from './steps';
+import CarThumb from '../CarThumb.astro';
+import LogoTile from '../LogoTile.astro';
+
+interface Props { current: string }
+const { current } = Astro.props;
+const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
+const brands = [...new Set(carModels.map((c) => c.brand))];
+const ordered = [...brandOrder.filter((b) => brands.includes(b)), ...brands.filter((b) => !brandOrder.includes(b)).sort()];
+const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => c.brand === brand).sort((a, b) => a.model.localeCompare(b.model)) }));
+---
+<nav class="mod" aria-labelledby="tukar-model">
+  <h2 class="mod-bar mod-lab" id="tukar-model">Tukar model</h2>
+  <p class="mod-cap">Insurans setahun, NCD 55%</p>
+  <ul class="mlist">
+    {groups.map((g) => (
+      <li>
+        <span class="mlist-g"><span class="mlist-b"><LogoTile brand={g.brand} size="s" />{g.brand}</span><span aria-hidden="true">{g.models.length}</span></span>
+        <ul class="mlist">
+          {g.models.map((c) => (
+            <li><a href={`/car-insurance/${c.slug}/`} aria-current={c.slug === current ? 'page' : undefined}><span class="mlist-n"><CarThumb slug={c.slug} /><span>{c.model}</span></span><span class="mp">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span></a></li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+</nav>

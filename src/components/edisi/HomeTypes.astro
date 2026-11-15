@@ -1,0 +1,112 @@
+---
+/**
+ * Homepage "every type of insurance" module. One tile per vertical hub that exists under src/pages/, each with
+ * one fact its hub page already states. Counts and rates read from the hub's own data file; facts the hub's answer
+ * box states in words come from src/data/home-facts.ts, which the hub reads too, so the two cannot disagree.
+ * Long facts keep their qualifications and take a full-width row on two-column phones (`wide`).
+ */
+import Ikon from '../Ikon.astro';
+import carModels from '../../data/car-models.json';
+import medicalCards from '../../data/medical-cards.json';
+import ci from '../../data/critical-illness.json';
+import travel from '../../data/travel-insurance.json';
+import personalAccident from '../../data/personal-accident.json';
+import { homeFacts as f } from '../../data/home-facts';
+
+interface Tile { href: string; icon: string; name: string; fact: string; group: 'cover' | 'scheme'; wide?: boolean }
+const tiles: Tile[] = [
+  { href: '/car-insurance/', icon: 'i-kereta', name: 'Kereta', fact: `${carModels.length} model, anggaran ikut NCD`, group: 'cover' },
+  { href: '/motorcycle-insurance/', icon: 'i-tayar', name: 'Motosikal', fact: f.motorcycle.roadtax, group: 'cover' },
+  { href: '/medical-cards/', icon: 'i-resit', name: 'Medical card', fact: `${medicalCards.records.length} pelan: standalone, rider, takaful`, group: 'cover' },
+  { href: '/critical-illness/', icon: 'i-amaran', name: 'Penyakit kritikal', fact: `${ci.records.length} pelan dan skim`, group: 'cover' },
+  { href: '/life-insurance/', icon: 'i-orang', name: 'Nyawa', fact: `Pelepasan cukai sehingga ${f.lifeTaxRelief.value} setahun (${f.lifeTaxRelief.assessmentYear}), ${f.lifeTaxRelief.shared}`, group: 'cover', wide: true },
+  { href: '/home-insurance/', icon: 'i-utama', name: 'Rumah', fact: `${f.home.tileCover} ${f.home.construction}: kadar asas ${f.home.value} ${f.home.basis}`, group: 'cover', wide: true },
+  { href: '/takaful/', icon: 'i-lindung', name: 'Takaful', fact: f.takaful.price, group: 'cover' },
+  { href: '/travel-insurance/', icon: 'i-luar', name: 'Perjalanan', fact: `${travel.records.length} pelan, single dan annual`, group: 'cover' },
+  { href: '/personal-accident/', icon: 'i-kemalangan', name: 'Kemalangan diri', fact: `${personalAccident.records.length} pelan PA`, group: 'cover' },
+  { href: '/bantuan-insurans/perkeso/', icon: 'i-tanda', name: 'PERKESO', fact: `${f.perkeso.plan}: ${f.perkeso.value} ${f.perkeso.unit}`, group: 'scheme' },
+  { href: '/i-lindung/', icon: 'i-dompet', name: 'i-Lindung', fact: `Dari ${f.iLindung.value} ${f.iLindung.unit}`, group: 'scheme' },
+  { href: '/bantuan-insurans/mysalam/', icon: 'i-tambah', name: 'mySalam', fact: f.mysalam.cost, group: 'scheme' },
+];
+---
+<section class="mod htp" aria-labelledby="jenis">
+  <h2 class="mod-bar mod-lab" id="jenis">Bukan kereta sahaja: {tiles.length} jenis insurans dan skim</h2>
+  <div class="mod-in">
+    <ul class="htp-g">
+      {tiles.map((t) => (
+        <li data-g={t.group} data-wide={t.wide ? '' : undefined}>
+          <a href={t.href}>
+            <span class="htp-i"><Ikon name={t.icon} size={22} /></span>
+            <b>{t.name}</b>
+            <span class="htp-f">{t.fact}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="htp-more">
+      <a href="/bantuan-insurans/">Semua bantuan kerajaan</a>
+      <a href="/health-insurance/">Panduan insurans kesihatan</a>
+      <a href="/insurans-online/">Insurans online</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .htp-g {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border-radius: var(--r-2);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--rule);
+  }
+  .htp-g li[data-wide] { grid-column: span 2; }
+  @media (min-width: 40rem) {
+    .htp-g { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .htp-g li[data-wide] { grid-column: auto; }
+  }
+  @media (min-width: 90rem) { .htp-g { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .htp-g li { display: flex; background: var(--card); }
+  .htp-g li[data-g='scheme'] { background: var(--tray); }
+  .htp-g a {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: 0.55rem;
+    row-gap: 0.35rem;
+    align-items: start;
+    min-height: 4.25rem;
+    padding: 0.65rem 0.7rem 0.7rem;
+    color: var(--ink);
+    text-decoration: none !important;
+    transition: background-color 150ms var(--ease-out);
+  }
+  .htp-i {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+    background: var(--card);
+  }
+  .htp-g b { font: 800 1.0625rem/1.2 var(--fd); overflow-wrap: break-word; align-self: center; }
+  /* Under ~352px the name column beside the icon is too narrow for "Kemalangan"; stack icon, name and fact. */
+  @media (max-width: 21.99rem) { .htp-g a { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; } }
+  .htp-f { grid-column: 1 / -1; font-size: 0.875rem; line-height: 1.35; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  @media (hover: hover) and (pointer: fine) {
+    .htp-g a:hover { background: var(--tint-sky); }
+    .htp-g a:hover b { text-decoration: underline; text-underline-offset: 0.18em; }
+  }
+  .htp-g a:active .htp-i { transform: scale(0.94); }
+  .htp-g a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  .htp-more { display: flex; flex-wrap: wrap; column-gap: 1.1rem; font-size: 0.9375rem; font-weight: 600; }
+  .htp-more a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .htp-more a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .htp-g a { transition: none; } }
+</style>

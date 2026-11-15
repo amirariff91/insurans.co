@@ -15,6 +15,7 @@ const dataDatesByPath = {
   '/tools/kalkulator-insurans-rumah/': readJson('./src/data/home-insurance.json').asAt,
   '/tools/kalkulator-roadtax/': readJson('./src/data/roadtax-rates.json').asAt,
   '/tools/kalkulator-roadtax-motosikal/': readJson('./src/data/roadtax-motorcycle.json').asAt,
+  '/tools/kalkulator-roadtax-ev/': readJson('./src/data/roadtax-ev.json').asAt,
 };
 const isoDate = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -29,10 +30,10 @@ function pageContentDate(url) {
   }
   const dataDate = dataDatesByPath[path];
   if (isoDate.test(dataDate ?? '')) return dataDate;
-  // Every model page carries a content date. If one has none, the reader above no longer
-  // matches the built HTML (output folder, attribute order or JSON spacing changed):
+  // Every model page and Terkini page (index and items) carries a content date. If one has none, the
+  // reader above no longer matches the built HTML (output folder, attribute order or JSON spacing changed):
   // fail the build instead of silently dropping <lastmod> from the sitemap.
-  if (/^\/car-insurance\/[^/]+\/$/.test(path)) {
+  if (/^\/car-insurance\/[^/]+\/$/.test(path) || /^\/terkini\/([^/]+\/)?$/.test(path)) {
     throw new Error(`sitemap lastmod: no content date found for ${path} (looked in ${file})`);
   }
   return undefined;
@@ -47,7 +48,9 @@ export default defineConfig({
       filter: (page) => !/\/negeri\/[^/]+\/$/.test(new URL(page).pathname),
       serialize(item) {
         const date = pageContentDate(item.url);
-        return date ? { ...item, lastmod: date } : item;
+        // Content dates are Malaysian calendar dates: midnight MYT, not midnight UTC, so a page
+        // dated today is never stamped eight hours in the future.
+        return date ? { ...item, lastmod: `${date}T00:00:00+08:00` } : item;
       },
     }),
     preact(),

@@ -1,4 +1,6 @@
 ---
+import Ikon from './Ikon.astro';
+
 interface PrimaryAction {
   label: string;
   href: string;
@@ -17,6 +19,10 @@ interface Props {
   outbound?: OutboundAction[];
   disclosure?: string;
   trackingSection?: string;
+  /** A plain heading instead of a black bar, where the heading names an action rather than a finding. */
+  quiet?: boolean;
+  /** Heading level; 3 where the band sits inside an h2 section. The outbound sub-heading goes one level below. */
+  level?: 2 | 3;
 }
 
 const {
@@ -26,23 +32,32 @@ const {
   outbound = [],
   disclosure,
   trackingSection = 'cta-band',
+  quiet = false,
+  level = 2,
 } = Astro.props;
+
+// A note with a link comes in the "disclosure" slot; a plain-text note can still come as the prop.
+const escapeHtml = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const slotted = Astro.slots.has('disclosure');
+const note = slotted ? await Astro.slots.render('disclosure') : disclosure;
 ---
 
-<section class="border-2 border-stone-900 bg-krim-100 p-5 sm:p-6" data-section={trackingSection}>
-  <div class="lg:flex lg:items-start lg:justify-between lg:gap-10">
-    <div class="max-w-2xl">
-      <h2 class="font-serif text-headline-sm text-stone-900">{heading}</h2>
-      {body && <p class="mt-2 text-base leading-6 text-stone-700">{body}</p>}
-    </div>
-    <a href={primary.href} data-cta="cta-band-primary" class="btn-hijau mt-5 w-full justify-center lg:mt-0 lg:w-auto">
+<section class="mod cta-mod" data-section={trackingSection}>
+  {level === 3
+    ? <h3 class:list={['mod-bar', { 'mod-lab': quiet }]}>{heading}</h3>
+    : <h2 class:list={['mod-bar', { 'mod-lab': quiet }]}>{heading}</h2>}
+  <div class="mod-in lg:flex lg:items-center lg:justify-between lg:gap-10">
+    {body && <p class="max-w-2xl text-base leading-6 text-edisi-ink">{body}</p>}
+    <a href={primary.href} data-cta="cta-band-primary" class="btn-hijau w-full justify-center lg:w-auto lg:flex-none">
       {primary.label}
     </a>
   </div>
 
   {outbound.length > 0 && (
-    <div class="mt-6 border-t border-stone-300 pt-5">
-      <h3 class="text-base font-semibold text-stone-900">Pilihan quotation · Laman luar</h3>
+    <div class="mx-[0.9rem] mb-[0.9rem] border-t border-edisi-rule pt-4">
+      {level === 3
+        ? <h4 class="text-base font-semibold text-edisi-ink">Pilihan quotation di laman luar</h4>
+        : <h3 class="text-base font-semibold text-edisi-ink">Pilihan quotation di laman luar</h3>}
       <div class="mt-3 flex flex-wrap gap-2">
         {outbound.map((action) => {
           const relationship = action.relationship ?? 'unknown';
@@ -55,15 +70,22 @@ const {
               data-relationship={relationship}
               class="btn-outline"
             >
-              {action.label} <span aria-hidden="true">↗</span><span class="sr-only"> (buka tab baharu)</span>
+              {action.label} <Ikon name="i-luar" size={16} /><span class="sr-only"> (buka tab baharu)</span>
             </a>
           );
         })}
       </div>
-      {disclosure && <p class="mt-3 text-sm leading-5 text-stone-600">{disclosure}</p>}
+      {note && <p class="mt-3 text-sm leading-5 text-edisi-ink-2" set:html={slotted ? note : escapeHtml(note)} />}
     </div>
   )}
-  {outbound.length === 0 && disclosure && (
-    <p class="mt-5 border-t border-stone-300 pt-5 text-sm leading-5 text-stone-600">{disclosure}</p>
+  {outbound.length === 0 && note && (
+    <p class="mx-[0.9rem] mb-[0.9rem] border-t border-edisi-rule pt-4 text-sm leading-5 text-edisi-ink-2" set:html={slotted ? note : escapeHtml(note)} />
   )}
 </section>
+
+<style>
+  /* The band is a .mod: keep the buttons' own colours against the module link rule (global.css). */
+  .cta-mod a.btn-hijau, .cta-mod a.btn-hijau:hover, .cta-mod a.btn-hijau:focus-visible { color: #fff; text-decoration: none; }
+  .cta-mod a.btn-outline { color: var(--ink); text-decoration: none; }
+  .cta-mod a.btn-outline:hover { color: #fff; }
+</style>

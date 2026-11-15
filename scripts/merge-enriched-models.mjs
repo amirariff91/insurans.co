@@ -13,7 +13,6 @@ const ENRICHED_FIELDS = [
   'premiumMethodology',
   'premiumReviewed',
   'claimFrequencyNote',
-  'theftRiskDetail',
   'floodRiskNote',
   'modelYearNotes',
   'windscreenPrice',

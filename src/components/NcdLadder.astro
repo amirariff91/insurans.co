@@ -25,7 +25,7 @@ const {
 )}
 {mode === 'selector' ? (
   <fieldset id={id} data-ncd-selector data-js-only={initiallyHidden ? '' : undefined} class="mt-6">
-    <legend class="mb-3 text-base font-semibold text-stone-900">Pilih NCD — contoh bermula 55%</legend>
+    <legend class="mb-3 text-base font-semibold text-stone-900">Pilih NCD (contoh bermula 55%)</legend>
     <div class="grid grid-cols-3 gap-2">
       {NCD_TIERS.map((tier) => {
         const isSelected = tier.value === selectedTier;
@@ -59,7 +59,7 @@ const {
     <p class="mt-3 text-sm text-stone-600">NCD ialah diskaun tanpa tuntutan pada premium asas.</p>
   </fieldset>
 ) : (
-  <div id={id} class="mt-6" data-ncd-diagram>
+  <div id={id} class="mt-6 max-w-full overflow-x-auto" data-ncd-diagram>
     <div class="mb-2 grid grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)_auto] gap-3 px-3 text-xs font-bold uppercase tracking-wide text-stone-600">
       <span>Tahun tanpa tuntutan</span>
       <span>NCD</span>

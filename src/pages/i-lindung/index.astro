@@ -1,9 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { homeFacts } from '../../data/home-facts';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
 const asAt = '2026-10-10';
@@ -132,24 +135,15 @@ const schema = {
       i-Lindung ialah saluran layan diri dalam KWSP i-Akaun untuk membeli perlindungan di bawah Pelan Perlindungan Ahli. Pembelian menggunakan simpanan Akaun Sejahtera anda. Bandingkan manfaat untuk diri, pasangan dan anak sebelum memilih pelan.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Jawapan ringkas</p>
-      <h2 class="mt-2 font-serif text-headline-sm text-stone-900">Perlindungan melalui KWSP i-Akaun</h2>
-      <dl class="mt-4 space-y-3 text-sm">
-        <div>
-          <dt class="text-stone-500">Akaun yang digunakan</dt>
-          <dd class="font-semibold text-stone-900">Akaun Sejahtera (dahulu Akaun 2)</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">Akaun Persaraan</dt>
-          <dd class="font-semibold text-hijau-700">Akaun 1 tidak terjejas</dd>
-        </div>
-        <div>
-          <dt class="text-stone-500">Harga permulaan</dt>
-          <dd class="font-semibold text-stone-900">Dari RM12 setahun untuk produk tertentu</dd>
-        </div>
-      </dl>
-    </div>
+    <PageAnswer
+      slot="answer"
+      finding="Perlindungan melalui KWSP i-Akaun"
+      lead={{ value: homeFacts.iLindung.value, label: `Harga permulaan ${homeFacts.iLindung.unit}, ${homeFacts.iLindung.qualification}`, role: 'price' }}
+      facts={[
+        { label: 'Akaun yang digunakan', value: 'Akaun Sejahtera (dahulu Akaun 2)' },
+        { label: 'Akaun Persaraan', value: 'Akaun 1 tidak terjejas' },
+      ]}
+    />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -163,7 +157,7 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <p class="text-lg leading-7 text-stone-700">
           Melalui i-Lindung, ahli KWSP membeli pelan hayat dan penyakit kritikal daripada pengendali panel menggunakan simpanan Akaun Sejahtera. Perlindungan juga boleh dibeli untuk pasangan dan anak, tertakluk pada kelayakan produk. Rujuk <a href="https://www.kwsp.gov.my/ms/ahli/kesihatan/i-lindung" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">panduan rasmi i-Lindung KWSP</a> dan semak manfaat dalam i-Akaun sebelum memohon.
         </p>
@@ -184,7 +178,7 @@ const schema = {
 
       <div class="overflow-x-auto">
         <table class="w-full min-w-[40rem] border-collapse text-left text-sm">
-          <caption class="mb-3 text-left text-sm text-stone-600">Pilihan produk i-Lindung setakat {asAt}</caption>
+          <caption class="mb-3 text-left text-sm text-stone-600">Pilihan produk i-Lindung setakat {tarikh(asAt)}</caption>
           <thead>
             <tr class="border-b-2 border-stone-900">
               <th scope="col" class="px-3 py-3 font-semibold text-stone-900">Pengendali</th>
@@ -214,7 +208,7 @@ const schema = {
         Brosur <a href={fwdBrochure} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">FWD i-Lindung Critical Illness Plan</a> menerangkan perlindungan penyakit kritikal dari peringkat awal hingga lanjut serta kematian. Sumbangan bergantung pada umur, jantina dan jumlah perlindungan; semak tempoh menunggu dan pengecualian dalam dokumen sijil.
       </p>
 
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <h2 id="beli">Cara beli</h2>
         <ol>
           <li>Buka aplikasi KWSP i-Akaun dan pilih tab i-Lindung.</li>
@@ -226,7 +220,7 @@ const schema = {
           Jika mahu rujukan saluran, <a href="https://www.kwsp.gov.my/i-lindung" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">semak di portal rasmi KWSP</a>. Pembelian, terma polisi dan soalan kesihatan dibuat di saluran KWSP atau pengendali; Insurans.co tidak mengambil permohonan.
         </p>
         <p>
-          Polisi biasanya bertempoh satu tahun dan merupakan perlindungan tulen tanpa nilai tunai; pelepasan cukai tertakluk pada syarat LHDN serta produk.
+          Polisi ini biasanya bertempoh satu tahun dan menyediakan perlindungan tulen tanpa nilai tunai; pelepasan cukai tertakluk pada syarat LHDN serta produk.
         </p>
 
 
@@ -237,8 +231,8 @@ const schema = {
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
-          <h2>Soalan lazim — i-Lindung</h2>
+        <div class="prose-editorial prose-bars">
+          <h2>Soalan lazim: i-Lindung</h2>
         </div>
         <div class="mt-5">
           {faqs.map((faq, index) => (
@@ -251,7 +245,7 @@ const schema = {
       </section>
 
       <p class="text-sm leading-5 text-stone-600">Kami bukan ejen atau broker dan tidak mengambil permohonan polisi.</p>
-      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemas kini {asAt}. Semak harga dan terma semasa di portal pengendali sebelum membeli.</p>
+      <p class="border-t border-stone-200 pt-4 text-sm leading-5 text-stone-600">Maklumat dikemas kini {tarikh(asAt)}. Semak harga dan terma semasa di portal pengendali sebelum membeli.</p>
     </div>
   </div>
 

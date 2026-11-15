@@ -5,6 +5,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
 import companies from '../../data/companies.json';
 import platforms from '../../data/platforms.json';
 
@@ -157,6 +159,15 @@ const schema = {
     ],
   },
 };
+// Page answer (Edisi): the rows of the old platform box (model, platform, parent company); key fact as the note.
+const answerFacts = [
+  { label: 'Model', value: modelLabel },
+  ...(platform.digitalPlatform ? [{ label: 'Platform', value: platform.digitalPlatform }] : []),
+  ...(parentCompany && parentCompanySlug
+    ? [{ label: 'Syarikat induk', value: parentCompany.name, href: `/companies/${parentCompanySlug}/` }]
+    : []),
+];
+
 ---
 
 <Base
@@ -183,27 +194,8 @@ const schema = {
       Kenali produk {platform.name}, cara pembelian online, bayaran dan perkara penting sebelum memilih perlindungan.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p class="label">Platform online</p>
-          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{platform.name}</h2>
-          <p class="mt-1 text-sm leading-5 text-stone-600">{platform.digitalPlatform}</p>
-        </div>
-        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
-          {modelLabel}
-        </span>
-      </div>
-      <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
-      {parentCompany && parentCompanySlug && (
-        <p class="mt-3 text-sm leading-5 text-stone-600">
-          Syarikat induk:{' '}
-          <a href={`/companies/${parentCompanySlug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
-            {parentCompany.name}
-          </a>
-        </p>
-      )}
-    </div>
+    <PageAnswer slot="answer" finding={platform.name} facts={answerFacts} note={platform.keyFact} />
+    <ProductCss />
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -217,7 +209,7 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         <p class="text-lg text-stone-700">{platform.keyFact}</p>
 
         <h2 id="produk">Apa boleh buat di sini?</h2>
@@ -235,7 +227,7 @@ const schema = {
           <>
             <h2 id="kaotim-review">Kaotim MediKad: ulasan ringkas</h2>
             <p>
-              <strong>Ringkasan:</strong> Kaotim ialah platform takaful digital milik Takaful Malaysia — direct channel,
+              <strong>Ringkasan:</strong> Kaotim ialah platform takaful digital milik Takaful Malaysia: direct channel,
               bukan aggregator, bukan ejen. MediKad ialah kad perubatan takaful standalone dalam platform tu: quote, apply,
               e-certificate dan e-medical card semua online tanpa ejen. Model ini berasaskan urusan takaful bajet secara kendiri;
               terma perlu disemak dalam dokumen produk.
@@ -250,12 +242,12 @@ const schema = {
             </p>
             <h3>Pertimbangan utama</h3>
             <p>
-              Model tanpa ejen; bajet takaful asas. Pertimbangkan: premium naik ikut umur, pre-existing kena declare, GP rutin
-              tak dilindungi. Semak PDS MediKad semasa.
+              Model tanpa ejen; bajet takaful asas. Pertimbangkan: premium naik ikut umur, penyakit sedia ada (pre-existing) perlu diisytiharkan, rawatan GP rutin
+              tidak dilindungi. Semak PDS MediKad semasa.
             </p>
-            <h3>Caveat kena hadam</h3>
+            <h3>Perkara kena hadam</h3>
             <p>
-              Premium naik ikut age band; pre-existing tetap kena declare; rawatan GP rutin tidak dilindungi — medical card bayar
+              Premium naik ikut age band; pre-existing tetap kena declare; rawatan GP rutin tidak dilindungi: medical card bayar
               inpatient/day surgery dan outpatient tersenarai saja. Semak PDS MediKad semasa untuk terma dan pengecualian.
             </p>
           </>
@@ -265,7 +257,7 @@ const schema = {
           <>
             <h2 id="fwd-review">FWD: beli insurans &amp; takaful online tanpa ejen</h2>
             <p>
-              <strong>Ringkasan:</strong> FWD Malaysia ialah insurer-langsung — FWD Insurance Berhad (konvensional) dan FWD
+              <strong>Ringkasan:</strong> FWD Malaysia ialah insurer-langsung: FWD Insurance Berhad (konvensional) dan FWD
               Takaful Berhad (takaful keluarga). Saluran "Buy Online" di fwd.com.my membolehkan pembelian terus tanpa ejen.
               Semak manfaat, kelayakan dan dokumen produk sebelum memohon.
             </p>
@@ -285,7 +277,7 @@ const schema = {
               Rujuk <a href="https://www.fwd.com.my/files/v3/assets/bltca8cd6b067df6d1c/bltcdda9742a1440734/68d363633653b77049b4928e/FWD_i-Lindung_Critical_Illness_Plan_P2_EN_V0.1.pdf?branch=capricorn" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">brosur rasmi FWD i-Lindung</a>
               untuk kelayakan umur, tempoh menunggu dan pengecualian.
             </p>
-            <h3>Caveat utama</h3>
+            <h3>Perkara utama untuk diingat</h3>
             <p>
               Jawab soalan kesihatan dengan tepat dan semak tempoh menunggu serta pengecualian dalam dokumen produk.
               Untuk FWD i-Lindung Critical Illness Plan, sumbangan bergantung pada jumlah perlindungan, umur dan jantina
@@ -293,7 +285,7 @@ const schema = {
             </p>
             <p>
               Kami tiada hubungan berbayar dengan FWD. Semak PDS FWD (had, waiting, exclusion, COI tidak dijamin) dan quotation
-              semasa sebelum bayar — terma menentukan perlindungan sebenar.
+              semasa sebelum bayar kerana terma menentukan perlindungan sebenar.
             </p>
           </>
         )}
@@ -302,8 +294,8 @@ const schema = {
           <>
             <h2 id="shopee-review">Shopee Insurance: apa deal sebenarnya?</h2>
             <p>
-              <strong>Ringkasan:</strong> Shopee Insurance bukan penginsurans — ia marketplace dalam app Shopee/ShopeePay yang
-              dikendalikan entiti agensi SeaMoney. Shopee jadi ejen digital; risiko ditanggung Allianz, Zurich dan rakan lain.
+              <strong>Ringkasan:</strong> Shopee Insurance bukan penginsurans: ia marketplace dalam app Shopee/ShopeePay yang
+              dikendalikan entiti agensi SeaMoney. Shopee bertindak sebagai ejen digital; risiko ditanggung Allianz, Zurich dan rakan lain.
               Model ini bermaksud platform menjadi saluran pembelian, manakala risiko ditanggung oleh penyedia.
             </p>
             <h3>Pilihan produk dalam Shopee</h3>
@@ -324,7 +316,7 @@ const schema = {
             <h3>Pertimbangan</h3>
             <p>
               Model ini menggunakan self-service dan pilihan ansuran. Marketplace tidak menggantikan ejen atau penasihat untuk
-              struktur cover atau kes claim kompleks. Kami bukan ejen dan tiada affiliate dengan Shopee — semak had perubatan,
+              struktur cover atau kes claim kompleks. Kami bukan ejen dan tiada affiliate dengan Shopee. Semak had perubatan,
               status COVID (add-on vs standard) dan threshold delay dalam PDS atau laman insurer sebelum bayar.
             </p>
           </>
@@ -365,7 +357,7 @@ const schema = {
               menyatakan tuntutan akan diurus secara adil dan dengan segera yang munasabah. Terma juga menyebut tempoh
               cooling-off tujuh hari untuk refund motor. Rujuk <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">terma perniagaan dan senarai pembayaran</a>.
             </p>
-            <h3>Caveat</h3>
+            <h3>Perkara perlu diingat</h3>
             <p>
               Drive+ dipilih semasa checkout. Bayaran keahlian dan manfaatnya berasingan daripada premium polisi;
               semak yuran, kelayakan baucar serta terma pembayaran sebelum membeli.
@@ -414,7 +406,7 @@ const schema = {
               Simpan resit dan nombor polisi supaya pasukan sokongan boleh menyemak urusan anda.
               Rujuk <a href="https://bjak.my/en/trust/is-bjak-legit" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">penerangan rasmi sokongan Bjak</a>.
             </p>
-            <h3>Caveat — pertikaian JPJ 2024</h3>
+            <h3>Pertikaian JPJ 2024</h3>
             <p>
               Dalam kenyataan bertarikh 6 Mei 2024, JPJ menyatakan bahawa Bjak tidak mendapat kelulusan untuk
               pembaharuan roadtax dan sistemnya tidak berintegrasi dengan MySikap. Kenyataan itu turut merekodkan aduan
@@ -422,7 +414,7 @@ const schema = {
               Baca <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">kenyataan asal JPJ pada 6 Mei 2024</a>.
               Untuk urusan pembaharuan, JPJ menyenaraikan kaunter, kios, MyJPJ, portal awam serta rakan niaganya sebagai
               saluran yang boleh digunakan dalam kenyataan tersebut.
-              Setakat semakan kami, status semasa kebenaran JPJ bagi aliran roadtax Bjak masih belum disahkan — semak terus dengan JPJ atau MyJPJ sebelum membayar.
+              Setakat semakan kami, status semasa kebenaran JPJ bagi aliran roadtax Bjak masih belum disahkan. Semak terus dengan JPJ atau MyJPJ sebelum membayar.
             </p>
             <h3>Pertimbangan</h3>
             <p>
@@ -463,7 +455,7 @@ const schema = {
               Sebelum membayar, semak pecahan premium, yuran perkhidmatan dan penghantaran dalam jumlah akhir.
               Untuk tuntutan polisi, hubungi insurer yang mengeluarkan perlindungan dan ikut arahan dalam dokumen polisi.
             </p>
-            <h3>Caveat</h3>
+            <h3>Perkara perlu diingat</h3>
             <p>
               Semak insurer yang mengeluarkan polisi, manfaat bantuan tepi jalan dan kos penghantaran yang dipilih.
               Simpan dokumen polisi serta resit pembaharuan untuk urusan susulan.
@@ -479,8 +471,8 @@ const schema = {
       </article>
 
       <section id="faq">
-        <div class="prose-editorial">
-          <h2>Soalan lazim — {platform.name}</h2>
+        <div class="prose-editorial prose-bars">
+          <h2>Soalan lazim: {platform.name}</h2>
         </div>
         <div class="mt-5">
           {faqs.map((faq, index) => (
@@ -495,7 +487,7 @@ const schema = {
       <CtaBand
         heading={`Laman rasmi ${platform.name}`}
         body="Pautan ini membuka laman atau saluran rasmi platform untuk semakan lanjut; ia bukan ranking atau pengesyoran."
-        primary={{ label: 'Kembali ke hub insurans online →', href: '/insurans-online/' }}
+        primary={{ label: 'Kembali ke hub insurans online', href: '/insurans-online/' }}
         outbound={[{ label: platform.name, href: platformRoot, relationship: 'unpaid' }]}
         disclosure="Insurans.co bukan ejen atau broker dan tiada hubungan berbayar atau affiliate. Sahkan quotation, PDS dan syarat terkini di laman penyedia sebelum membuat keputusan."
       />

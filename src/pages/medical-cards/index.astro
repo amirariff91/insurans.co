@@ -1,7 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import Ikon from '../../components/Ikon.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TypeChips from '../../components/edisi/TypeChips.astro';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 
@@ -29,28 +35,28 @@ const cardGroups = typeOrder
 
 const faqs = [
   {
-    q: "Medical card murah di Malaysia — apa yang sebenarnya murah tu?",
-    a: "Harga perlu dibaca bersama had tahunan dan bayaran sendiri. Medic Plus dalam brosur 07/2023 ialah perlindungan tambahan dengan deductible RM10,000 setiap disability setiap tahun polisi, atau RM5,000 di hospital kerajaan. GREAT MedCare menawarkan deductible pilihan RM2,000–RM20,000 dengan julat diskaun premium 5%–50%. Kaotim MediKad menawarkan deductible RM2,000 atau RM3,000 setiap disability dengan diskaun sumbangan 20% atau 30%. Bandingkan pilihan yang sama dalam sebut harga individu, termasuk perlindungan asas dan rider.",
+    q: "Medical card murah di Malaysia: apa yang sebenarnya murah tu?",
+    a: "Baca harga bersama had tahunan dan bayaran sendiri. Dalam brosur 07/2023, Medic Plus ialah perlindungan tambahan dengan deductible RM10,000 setiap disability setiap tahun polisi, atau RM5,000 di hospital kerajaan. GREAT MedCare menawarkan deductible pilihan RM2,000–RM20,000, dengan julat diskaun premium 5%–50%. Kaotim MediKad menawarkan deductible RM2,000 atau RM3,000 setiap disability, dengan diskaun sumbangan 20% atau 30%. Bandingkan pilihan yang sama dalam sebut harga individu, termasuk perlindungan asas dan rider.",
   },
   {
-    q: "Best medical card Malaysia — yang mana patut saya ambil?",
-    a: "Keperluan dan bajet menentukan pilihan. SmartMedic Shield menyediakan RM1,000,000–RM2,000,000 setahun, atau sehingga RM4,000,000 bersama Extender. A-Plus Health360 menyediakan RM3,000,000. PRUMillion Med 2.0 menyediakan RM2,000,000. OneMedical menawarkan RM50,000, RM100,000 atau RM150,000. myMedik menawarkan RM150,000–RM500,000, atau RM900,000–RM1,500,000 bersama MedikBooster. Semua pelan ini tiada had keseluruhan seumur hidup, namun manfaat tertentu masih mempunyai had khusus. Nilai deductible, perkongsian kos, kelayakan bilik dan tempoh perlindungan pada halaman setiap pelan.",
+    q: "“Best medical card Malaysia”: bagaimana mahu membandingkan pelan?",
+    a: "Keperluan dan bajet menentukan pilihan. SmartMedic Shield menyediakan RM1,000,000–RM2,000,000 setahun, atau sehingga RM4,000,000 bersama Extender. A-Plus Health360 menyediakan RM3,000,000. PRUMillion Med 2.0 menyediakan RM2,000,000. OneMedical menawarkan RM50,000, RM100,000 atau RM150,000. myMedik menawarkan RM150,000–RM500,000, atau RM900,000–RM1,500,000 bersama MedikBooster. Semua pelan ini tiada had keseluruhan seumur hidup, namun manfaat tertentu masih mempunyai had khusus. Bandingkan deductible, perkongsian kos, kelayakan bilik dan tempoh perlindungan pada halaman setiap pelan.",
   },
   {
-    q: "Waiting period medical card — berapa lama kena tunggu sebelum boleh claim?",
-    a: "Dokumen AIA, SmartMedic Shield, GREAT MedCare, OneMedical, i-MedicalCard Elite, Prudential, myMedik, MediKad dan brosur Medic Plus menyatakan tempoh penyakit umum 30 hari serta penyakit tertentu 120 hari. Syarat kecederaan kemalangan, pengembalian polisi dan manfaat khusus berbeza mengikut pelan. AIA juga mempunyai ketetapan gejala kanser pesakit luar dalam 60 hari pertama dan dialisis dalam 30 hari pertama. Brosur Medic Plus 07/2023 membenarkan keadaan sedia ada yang diisytiharkan serta diterima tanpa syarat selepas 12 bulan. Untuk IKHLAS Medik, minta PDS dan sijil daripada ejen bagi syarat tempoh menunggu.",
+    q: "Waiting period medical card: berapa lama kena tunggu sebelum boleh claim?",
+    a: "Tempoh menunggu ialah 30 hari untuk penyakit umum dan 120 hari untuk penyakit tertentu. Ini dinyatakan dalam dokumen AIA, SmartMedic Shield, GREAT MedCare, OneMedical, i-MedicalCard Elite, Prudential, myMedik, MediKad dan brosur Medic Plus. Syarat kecederaan kemalangan, pengembalian polisi dan manfaat khusus berbeza mengikut pelan. AIA juga mempunyai ketetapan gejala kanser pesakit luar dalam 60 hari pertama dan dialisis dalam 30 hari pertama. Brosur Medic Plus 07/2023 membenarkan keadaan sedia ada yang diisytiharkan serta diterima tanpa syarat selepas 12 bulan. Untuk IKHLAS Medik, minta PDS dan sijil daripada ejen bagi syarat tempoh menunggu.",
   },
   {
-    q: "Kaotim MediKad review — okay ke?",
+    q: "Kaotim MediKad review: okay ke?",
     a: "Kaotim MediKad ialah sijil takaful perubatan langsung dalam talian tanpa komisen ejen. Kelayakan bilik Standard, Pro dan Max ialah RM100, RM150 dan RM200 sehari. Had bersama MediBooster ialah RM550,000, RM825,000 dan RM1,100,000; rider hanya boleh dipilih ketika permohonan. PDS semasa menggunakan nilai templat untuk had tahunan, jadi dapatkan had asas pada sebut harga individu. Pilihan Full Coverage RM0 atau deductible RM2,000/RM3,000 setiap disability mempunyai struktur bayaran sendiri berbeza. Elaun hospital kerajaan RM100 sehari tersedia bagi semua pelan. Perlindungan sehingga 85 ANB, dengan tempoh menunggu dan pengecualian dalam sijil.",
   },
   {
-    q: "Medical card untuk baby dan family — umur berapa boleh masuk?",
-    a: "A-Plus Health360 dan SmartMedic Shield menerima anak dari 14 hari serta mempunyai pilihan kemasukan anak dalam kandungan pada 13–35 minggu dan 13–36 minggu kehamilan masing-masing. OneMedical dan i-MedicalCard Elite menerima anak dari 14 hari hingga 16 ANB melalui ibu bapa atau pendaftaran pihak ketiga. OneMedical mempunyai diskaun pakej keluarga 5% dan had tahunan setiap ahli. IKHLAS Medik menerima kemasukan dari 30 hari hingga 70 ANB. myMedik dan MediKad menerima anak 6–18 ANB melalui pemegang sijil induk sekurang-kurangnya 19 ANB. Bandingkan kelayakan anak dan syarat setiap permohonan.",
+    q: "Medical card untuk baby dan family: umur berapa boleh masuk?",
+    a: "A-Plus Health360 dan SmartMedic Shield menerima anak dari 14 hari. Kedua-duanya ada pilihan kemasukan anak dalam kandungan, pada 13–35 minggu dan 13–36 minggu kehamilan masing-masing. OneMedical dan i-MedicalCard Elite menerima anak dari 14 hari hingga 16 ANB melalui ibu bapa atau pendaftaran pihak ketiga. OneMedical mempunyai diskaun pakej keluarga 5% dan had tahunan setiap ahli. IKHLAS Medik menerima kemasukan dari 30 hari hingga 70 ANB. myMedik dan MediKad menerima anak 6–18 ANB melalui pemegang sijil induk sekurang-kurangnya 19 ANB. Bandingkan kelayakan anak dan syarat setiap permohonan.",
   },
   {
     q: "Medical card cover outpatient (klinik/GP) tak?",
-    a: "Manfaat pesakit luar bergantung pada item yang dinamakan dalam kontrak. A-Plus Health360 menggunakan Health Wallet untuk rawatan primer RM50 setiap lawatan, 3 lawatan setahun rider, serta saringan atau vaksinasi dalam had gabungan RM1,000 setiap 2 tahun rider. IKHLAS Medik menyediakan fisioterapi, akupunktur atau bekam RM1,500, RM2,000 atau RM3,000 setiap disability mengikut pelan. i-MedicalCard Elite menyediakan rawatan denggi pesakit luar sehingga RM2,000 setahun sijil. OneMedical mempunyai bayaran tunai penyakit berjangkit RM2,000 yang memerlukan diagnosis dan kemasukan hospital sekurang-kurangnya 24 jam di Malaysia. Rujuk fakta manfaat dan pengecualian pelan yang dipilih.",
+    a: "Manfaat pesakit luar bergantung pada item yang dinamakan dalam kontrak. A-Plus Health360 menggunakan Health Wallet untuk rawatan primer: RM50 setiap lawatan, 3 lawatan setahun rider. Rawatan primer, saringan dan vaksinasi berkongsi had gabungan RM1,000 setiap 2 tahun rider. IKHLAS Medik menyediakan fisioterapi, akupunktur atau bekam RM1,500, RM2,000 atau RM3,000 setiap disability mengikut pelan. i-MedicalCard Elite menyediakan rawatan denggi pesakit luar sehingga RM2,000 setahun sijil. OneMedical mempunyai bayaran tunai penyakit berjangkit RM2,000 yang memerlukan diagnosis dan kemasukan hospital sekurang-kurangnya 24 jam di Malaysia. Rujuk fakta manfaat dan pengecualian pelan yang dipilih.",
   },
 ];
 
@@ -91,20 +97,23 @@ const schema = {
   modifiedTime={updatedAt}
   ads={true}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
           { label: 'Medical Card' },
         ]}
       />
-      <p class="label mb-3">Panduan Data</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">Medical Card Malaysia 2026</h1>
+      <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
+      <PageAnswer
+        finding={`${cards.length} pelan medical card: standalone, rider, takaful`}
+        sentence="Mulakan dengan had tahunan, kemudian semak room & board, co-payment atau deductible dan tempoh menunggu."
+        note="Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia."
+      />
       <Byline dateModified={updatedAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
-        Bandingkan pilihan medical card berdasarkan data manfaat yang dinyatakan dalam PDS atau brosur rasmi.
-        Tiada harga premium direka; semak quotation dan syarat terkini dengan penyedia.
+      <p class="max-w-2xl text-lg leading-7 text-stone-600">
+        Data manfaat di halaman ini diambil daripada PDS atau brosur rasmi.
       </p>
     </div>
   </section>
@@ -112,41 +121,43 @@ const schema = {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="min-w-0 lg:col-span-2">
-        <article class="prose-editorial">
+        <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
-            Setiap rekod memaparkan had tahunan, room &amp; board, pilihan kos sendiri, tempoh menunggu dan ciri utama
-            apabila medan itu dinyatakan dalam sumber. Klik pelan untuk melihat sumber rasmi dan ringkasan penuh.
+            Setiap rekod memaparkan medan yang dinyatakan dalam sumber: had tahunan, room &amp; board, pilihan kos sendiri,
+            tempoh menunggu dan ciri utama. Klik nama pelan untuk melihat sumber rasmi dan ringkasan penuh.
           </p>
           <h2 id="jadual-perbandingan">Jadual perbandingan medical card</h2>
-          <div class="overflow-x-auto my-8">
-            <table class="table-editorial min-w-[60rem]">
+          <TypeChips class="not-prose mt-5" label="Jenis pelan" groups={cardGroups.map((group) => ({ id: group.type, label: group.label }))} />
+          <ProductCss />
+          <div class="pp-plans overflow-x-auto my-8">
+            <table role="table" class="table-editorial plan-table min-w-[60rem]">
               <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
-                Dikemaskini <time datetime={updatedAt}>{updatedAt}</time>
+                Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Pelan</th>
-                  <th scope="col">Penyedia</th>
-                  <th scope="col">Jenis pelan</th>
-                  <th scope="col">Had tahunan</th>
-                  <th scope="col">Room &amp; board</th>
-                  <th scope="col">Ciri utama</th>
-                  <th scope="col">Sumber</th>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Pelan</th>
+                  <th role="columnheader" scope="col">Penyedia</th>
+                  <th role="columnheader" scope="col">Jenis pelan</th>
+                  <th role="columnheader" scope="col">Had tahunan</th>
+                  <th role="columnheader" scope="col">Room &amp; board</th>
+                  <th role="columnheader" scope="col">Ciri utama</th>
+                  <th role="columnheader" scope="col">Sumber</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {cards.map((card) => (
-                  <tr>
-                    <th scope="row">
-                      <a href={`/medical-cards/${card.slug}/`}>{card.planName || '—'}</a>
+                  <tr role="row">
+                    <th role="rowheader" scope="row">
+                      <a href={`/medical-cards/${card.slug}/`}>{card.planName || 'Tidak dinyatakan'}</a>
                     </th>
-                    <td>{card.insurer || '—'}</td>
-                    <td>{typeLabels[card.type] ?? '—'}</td>
-                    <td>{card.annualLimit || '—'}</td>
-                    <td>{card.roomBoard || '—'}</td>
-                    <td>{card.standoutFeature || '—'}</td>
-                    <td>
-                      {card.sources[0] ? <a href={card.sources[0]}>Sumber rasmi</a> : '—'}
+                    <td role="cell" data-label="Penyedia" data-sub>{card.insurer || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[card.type] ?? 'Tidak dinyatakan'}</span></td>
+                    <td role="cell" data-label="Had tahunan">{card.annualLimit || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Room &amp; board">{card.roomBoard || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Ciri utama" data-wide>{card.standoutFeature || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Sumber" data-wide>
+                      {card.sources[0] ? <a href={card.sources[0]}>Sumber rasmi</a> : 'Tidak dinyatakan'}
                     </td>
                   </tr>
                 ))}
@@ -155,19 +166,23 @@ const schema = {
           </div>
           <h3>Cara membaca jadual ini</h3>
           <p>
-            Bandingkan had tahunan dan kadar room &amp; board mengikut pilihan pelan yang sama.
-            Tanda — menunjukkan maklumat tidak dinyatakan.
-            Semak deductible, co-payment dan syarat pembaharuan melalui pautan sumber rasmi sebelum memilih pelan.
+            Bandingkan had tahunan dan kadar room &amp; board bagi pilihan pelan yang sama.
+            Sel yang tiada maklumat ditulis “Tidak dinyatakan”.
           </p>
-          <h2 id="bandingkan">Apa yang patut dibanding?</h2>
-          <p>
-            Mulakan dengan had tahunan yang sesuai, kemudian semak room &amp; board, had seumur hidup, co-payment atau
-            deductible, tempoh menunggu, hospital panel dan kemudahan cashless. Jangan bandingkan premium sahaja;
-            baca pengecualian, syarat pembaharuan dan PDS setiap pelan.
-          </p>
+          <h2 id="bandingkan">Bandingkan pelan dalam urutan ini</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Pilih had tahunan yang sesuai.</li>
+            <li>Semak room &amp; board dan had seumur hidup.</li>
+            <li>Semak co-payment atau deductible, dan tempoh menunggu.</li>
+            <li>Semak hospital panel dan kemudahan cashless.</li>
+            <li>Baca pengecualian, syarat pembaharuan dan PDS setiap pelan. Jangan bandingkan premium sahaja.</li>
+            <li>Sahkan deductible, co-payment dan syarat pembaharuan melalui pautan sumber rasmi sebelum memilih pelan.</li>
+          </ol>
         </article>
 
-        <div class="mt-8 space-y-10 sm:mt-10">
+        <details class="pp-more mt-8 sm:mt-10">
+          <summary>Butiran setiap pelan</summary>
+          <div class="mt-8 space-y-10 sm:mt-10">
           {cardGroups.map((group) => (
             <section id={group.type}>
               <div class="flex flex-wrap items-baseline justify-between gap-3">
@@ -182,11 +197,12 @@ const schema = {
                 {group.cards.map((card) => (
                   <a href={`/medical-cards/${card.slug}/`} class="card-editorial group block">
                     <div class="flex items-start justify-between gap-3">
-                      <div>
+                      <LogoTile company={card.insurer} />
+                      <div class="min-w-0 flex-1">
                         <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{card.planName}</h3>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{card.insurer}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">{group.label}</span>
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
                     </div>
                     <dl class="mt-5 space-y-2 text-sm">
                       <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-stone-200 pt-2">
@@ -199,16 +215,17 @@ const schema = {
                       </div>
                     </dl>
                     <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{card.standoutFeature}</p>
-                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">Lihat butiran →</span>
+                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
                   </a>
                 ))}
               </div>
             </section>
           ))}
         </div>
+        </details>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim medical card</h2>
           </div>
           <div class="mt-5">
@@ -224,27 +241,7 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="space-y-6 lg:sticky lg:top-20">
-          <div class="border-2 border-stone-900 bg-white p-5">
-            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
-            <dl class="mt-4 space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Bilangan rekod</dt>
-                <dd class="font-semibold text-stone-900">{cards.length} pelan</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Kategori</dt>
-                <dd class="font-semibold text-stone-900">Standalone, rider, takaful</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{medicalCards.asAt}</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga premium</dt>
-                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
-              </div>
-            </dl>
-          </div>
+
           <div class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900">Baca juga</h2>
             <ul class="mt-3 space-y-2.5 text-sm">

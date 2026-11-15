@@ -1,0 +1,204 @@
+---
+/**
+ * Edisi answer block for the front page. Same parts and data as the model page's ModelAnswer (carSteps,
+ * Px, the six NCD radios that work through CSS :has()), cut to the first screen: H1, a car picker,
+ * the big price, one support line, the yellow yearly total with roadtax, the NCD control and two actions.
+ *
+ * Picker: plain links to the model pages, so it works without JavaScript. With JavaScript a tap swaps the
+ * figures in place from data rendered here at build time (the same carSteps values the model pages show).
+ */
+import Ikon from '../Ikon.astro';
+import Px from './Px.astro';
+import CarThumb from '../CarThumb.astro';
+import { STEPS, carSteps, rmRange } from './steps';
+import { rm } from '../../lib/ncd';
+
+interface Props {
+  h1: string;
+  /** Models offered in the picker, in display order. */
+  models: any[];
+  /** Slug shown before the reader picks. */
+  initial: string;
+  allCount: number;
+}
+const { h1, models, initial, allCount } = Astro.props;
+
+const reviewedText = (reviewed?: string) =>
+  reviewed
+    ? new Date(`${reviewed}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
+    : '';
+// No ?ncd= in the HTML: edisi-ncd.ts adds the chosen step, so a link without JavaScript is never on the wrong step.
+const calcUrl = (slug: string) => `/tools/ncd-calculator/?model=${slug}`;
+const entries = models.map((m) => {
+  const s = carSteps(m);
+  const rtSen = s.rtSen;
+  return {
+    slug: m.slug,
+    name: m.fullName,
+    short: m.model,
+    href: `/car-insurance/${m.slug}/`,
+    calc: calcUrl(m.slug),
+    reviewed: m.premiumReviewed ?? '',
+    reviewedText: reviewedText(m.premiumReviewed),
+    rt: s.roadtaxText,
+    sign: rtSen ? '≈ ' : '',
+    hasRt: s.hasRt,
+    vars: STEPS.map((st) => `--u${st.k}:${s.units[st.k]}`).join(';') + `;--umin:${s.umin}`,
+    price: s.price,
+    total: s.total,
+    pct: s.pct,
+    long: s.long,
+    monthly: s.monthly,
+    zero: rmRange(m.premiumNCD0Min, m.premiumNCD0Max, rm),
+  };
+});
+const cur = entries.find((e) => e.slug === initial) ?? entries[0];
+const data = Object.fromEntries(entries.map((e) => [e.slug, e]));
+---
+<div class="ea ha" data-ea data-ha data-slug={cur.slug}>
+  <h1 class="ea-h1">{h1}</h1>
+
+  <nav class="ha-pick" aria-labelledby="ha-pick-l">
+    <p class="ha-pick-l" id="ha-pick-l">Pilih kereta:</p>
+    <ul class="ha-chips">
+      {entries.map((e) => (
+        <li><a class="ha-chip" href={e.href} data-pick={e.slug} aria-current={e.slug === cur.slug ? 'true' : undefined}><CarThumb slug={e.slug} size="s" eager />{e.short}</a></li>
+      ))}
+      <li><a class="ha-chip ha-chip-all" href="/car-insurance/" data-cta="hero_primary">Semua {allCount}</a></li>
+    </ul>
+  </nav>
+
+  <p class="ea-hero">
+    <span class="ha-name" data-f="name">{cur.name}</span>
+    <span class="ea-fit">
+      <span class="ea-price" style={cur.vars} data-price><span class="ea-cur">RM</span><Px v={cur.price} class="ea-pnum" data-tick data-f="price" /></span>
+    </span>
+    <span class="ea-sub">setahun, NCD <Px v={cur.pct} data-f="pct" /> (<Px v={cur.long} class="px-w" data-f="long" />).</span>
+    {cur.hasRt && (
+      <span class="ea-sum">
+        <span>Campur roadtax <b data-f="rt">{cur.rt}</b> (Semenanjung):</span>
+        <span class="ea-sum-b"><span data-f="sign">{cur.sign}</span><Px v={cur.total} tag="b" class="ea-sum-t" data-tick data-f="total" /> setahun</span>
+      </span>
+    )}
+  </p>
+
+  <fieldset class="ea-ncd">
+    <legend><span>Berapa tahun anda tak claim?</span><span class="ea-mark" aria-hidden="true"><span class="mk-c">Contoh</span><span class="mk-p">Pilihan anda</span></span></legend>
+    <div class="ea-bars">
+      {STEPS.map((st) => (
+        <label class="ea-bar" style={`--h:${st.pay}`}>
+          <input type="radio" name="ncd" id={`ncd-${st.k}`} value={st.k} data-tier={st.tier} aria-label={st.aria} checked={st.k === '55'} />
+          <span class="ea-col" aria-hidden="true"></span>
+          <span class="ea-y" aria-hidden="true">{st.years}</span>
+          <span class="ea-p" aria-hidden="true">{st.pct}</span>
+        </label>
+      ))}
+      <span class="ea-track" aria-hidden="true"><span class="ea-knob"></span></span>
+    </div>
+    <ul class="ea-static">
+      {STEPS.map((st) => <li><span>NCD {st.pct} ({st.long})</span> <b>RM{cur.price[st.k]}</b></li>)}
+    </ul>
+  </fieldset>
+
+  <div class="ha-cta">
+    <a class="ea-btn ea-btn-p" href={cur.href} data-f="href" data-cta="hero_model"><span>Harga penuh <span data-f="short">{cur.short}</span></span> <Ikon name="i-kanan" size={20} /></a>
+    <a class="ea-btn ea-btn-o" href={cur.calc} data-calculator-link data-cta="hero_secondary">Kira NCD saya <Ikon name="i-kalkulator" size={20} /></a>
+  </div>
+  <p class="ha-note"><span class="ha-mo">(<Px v={cur.monthly} data-f="monthly" />)</span> <span class="ha-mo-note">Setara tahunan ÷ 12; bukan pelan ansuran.</span> Anggaran{cur.reviewedText && <>, disemak <time datetime={cur.reviewed} data-f="reviewed">{cur.reviewedText}</time></>}.</p>
+  <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>
+  <script type="application/json" id="ha-data" set:html={JSON.stringify(data)} />
+</div>
+
+<style>
+  .ha { gap: 0.75rem; }
+  .ha-pick { display: grid; gap: 0.4rem; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+  .ha-pick-l { font-size: 1rem; color: var(--ink); }
+  .ha-chips {
+    display: flex; gap: 0.4rem; margin: 0; padding: 0.15rem 0.15rem 0.35rem; list-style: none;
+    overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scroll-snap-type: x proximity;
+    max-width: min(36rem, 100%);
+  }
+  .ha-chips li { flex: none; scroll-snap-align: start; }
+  .ha-chip {
+    display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.75rem; padding: 0 0.95rem 0 0.4rem;
+    border-radius: var(--r-2); box-shadow: inset 0 0 0 1.5px var(--ink); background: var(--card);
+    color: var(--ink); font: 650 1.0625rem/1 var(--f); text-decoration: none; white-space: nowrap;
+  }
+  .ha a.ha-chip { text-decoration: none; }
+  .ha a.ha-chip-all { text-decoration: underline; text-underline-offset: 0.18em; }
+  .ha-chip[aria-current] { background: var(--ink); color: #fff; }
+  .ha-chip.ha-chip-all { padding-inline: 0.95rem; }
+  .ha-chip-all { box-shadow: inset 0 0 0 1.5px var(--rule); text-decoration: underline; text-underline-offset: 0.18em; }
+  .ha-chip:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) { .ha-chip:not([aria-current]):hover { background: var(--tray); } }
+  .ha-mo { white-space: nowrap; }
+  .ha-note { font-size: 0.9375rem; line-height: 1.4; color: var(--ink-2); max-width: 36rem; }
+  .ha-name { display: block; font: 750 1.25rem/1.1 var(--fd); color: var(--ink); }
+  .ha-cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: 0.5rem; max-width: 36rem; }
+  .ha-cta > * { min-width: 0; }
+  .ha .ea-btn { padding-inline: 0.75rem; text-align: center; }
+  .ea-btn-o { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+  @media (hover: hover) and (pointer: fine) { .ea-btn-o:hover { background: var(--tray); } }
+  @media (max-width: 22rem) { .ha-cta { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  import '../../scripts/edisi-ncd';
+
+  // Picker enhancement: swap the figures in place from the build-time data; the links stay real links.
+  const root = document.querySelector<HTMLElement>('[data-ha]');
+  const raw = document.getElementById('ha-data')?.textContent;
+  // Without :has() the NCD bars are hidden and the static list shows; the chips stay plain links to the model pages.
+  if (root && raw && CSS.supports('selector(:has(*))')) {
+    const data = JSON.parse(raw) as Record<string, any>;
+    const KEYS = ['0', '25', '30', '38', '45'];
+    const setPx = (el: HTMLElement, v: Record<string, string>) => {
+      KEYS.forEach((k) => { el.dataset[`p${k}`] = v[k]; });
+      const pv = el.querySelector('.pv');
+      if (pv) pv.textContent = v['55'];
+    };
+    const tier = () => document.querySelector<HTMLInputElement>('input[name="ncd"]:checked')?.dataset.tier ?? '55';
+    const fields = (key: string) => Array.from(document.querySelectorAll<HTMLElement>(`[data-f="${key}"]`));
+    const show = (slug: string) => {
+      const e = data[slug];
+      if (!e) return;
+      root.dataset.slug = slug;
+      fields('name').forEach((el) => { el.textContent = e.name; });
+      fields('short').forEach((el) => { el.textContent = e.short; });
+      fields('rt').forEach((el) => { el.textContent = e.rt; });
+      fields('sign').forEach((el) => { el.textContent = e.sign; });
+      fields('reviewed').forEach((el) => { el.textContent = e.reviewedText; el.setAttribute('datetime', e.reviewed); });
+      fields('href').forEach((el) => el.setAttribute('href', e.href));
+      (['price', 'total', 'pct', 'long', 'monthly'] as const).forEach((k) => fields(k).forEach((el) => setPx(el, e[k])));
+      fields('rail-ins').forEach((el) => setPx(el, railIns(e)));
+      fields('rail-name').forEach((el) => { el.textContent = e.short; });
+      fields('rail-zero').forEach((el) => { el.textContent = e.zero ?? el.textContent; });
+      const price = root.querySelector<HTMLElement>('[data-price]');
+      if (price) price.setAttribute('style', e.vars);
+      document.querySelectorAll<HTMLAnchorElement>('[data-calculator-link], [data-f="calc"]').forEach((a) => {
+        a.setAttribute('href', `/tools/ncd-calculator/?model=${slug}&ncd=${tier()}`);
+      });
+      root.querySelectorAll<HTMLAnchorElement>('[data-pick]').forEach((a) => {
+        if (a.dataset.pick === slug) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      root.querySelectorAll<HTMLElement>('[data-tick]').forEach((el) => {
+        el.classList.remove('tick');
+        void el.offsetWidth;
+        el.classList.add('tick');
+      });
+      const live = root.querySelector('[data-ncd-announcement]');
+      const k = document.querySelector<HTMLInputElement>('input[name="ncd"]:checked')?.value ?? '55';
+      if (live) live.textContent = `${e.name}, NCD ${tier()}%: insurans RM${e.price[k]} setahun${e.total[k] ? `, dengan roadtax ${e.total[k]}` : ''}.`;
+    };
+    // The rail shows insurance only ("RM330–670"), the hero price without "RM": rebuild it from the price values.
+    const railIns = (e: any) => Object.fromEntries(Object.entries(e.price as Record<string, string>).map(([k, v]) => [k, `RM${v}`]));
+    root.querySelectorAll<HTMLAnchorElement>('[data-pick]').forEach((a) => {
+      a.addEventListener('click', (ev) => {
+        if (ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+        ev.preventDefault();
+        show(a.dataset.pick!);
+      });
+    });
+  }
+</script>

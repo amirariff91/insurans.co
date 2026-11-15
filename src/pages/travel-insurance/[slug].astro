@@ -5,8 +5,12 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import travel from '../../data/travel-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type TravelPlan = (typeof travel.records)[number];
 
@@ -53,16 +57,23 @@ const description = buildDescription(
   `${planName} (${plan.insurer}): kelayakan umur, had manfaat, syarat pembatalan dan perbandingan dengan ${siblingName}. Analisis bertarikh ${plan.analysisAsAt}.`,
 );
 const faqTopics = [
-  { label: 'Tempoh maksimum perjalanan', question: `Berapa lama perjalanan boleh dilindungi oleh ${planName}?` },
-  { label: 'Umur penyertaan', question: `Siapa yang layak menyertai ${planName}?` },
-  { label: 'Pembatalan perjalanan', question: `Berapa had pembatalan perjalanan ${planName}?` },
-  { label: 'Perlindungan COVID-19', question: `Apakah skop COVID-19 dalam ${planName}?` },
-  { label: 'Tarikh akhir notis tuntutan', question: `Bila perlu menghantar tuntutan ${planName}?` },
+  { label: 'Tempoh maksimum perjalanan', question: `Berapa lama perjalanan yang dilindungi ${planName}?` },
+  { label: 'Umur penyertaan', question: 'Siapa yang layak?' },
+  { label: 'Pembatalan perjalanan', question: 'Berapa had pembatalan perjalanan?' },
+  { label: 'Perlindungan COVID-19', question: 'COVID-19 dilindungi ke?' },
+  { label: 'Tarikh akhir notis tuntutan', question: 'Bila tuntutan perlu dihantar?' },
 ];
-const faqs = faqTopics.flatMap((topic) => {
+const faqCandidates = faqTopics.flatMap((topic) => {
   const fact = analysis.facts.find((candidate) => candidate.label === topic.label);
   return fact ? [{ q: topic.question, a: fact.value }] : [];
 });
+// Each answer is a fact row printed in full above; freshFaqs drops answers that only repeat the page.
+const faqs = freshFaqs(faqCandidates, [
+  analysis.bestFor,
+  ...analysis.facts.map((fact) => fact.value),
+  analysis.tradeoffs,
+  ...analysis.siblingDifferences,
+]);
 
 const schema = {
   '@context': 'https://schema.org',
@@ -87,6 +98,25 @@ const schema = {
     ],
   },
 };
+// Page answer (Edisi): the plan's own key facts that the old summary box showed, at most four.
+// PA: the death benefit is already the intro line under the byline, so it is not repeated in the box.
+// The bar states the plan's type and insurer (the H1 already names the plan). No lead: medicalCoverLimit is never a
+// single figure in these records (tiers and variants), so no loud number is promoted.
+const tripLabel = plan.tripType === 'single' ? 'single trip' : 'single trip dan annual';
+const finding = `Travel insurance ${tripLabel} oleh ${plan.insurer.replace(/\.$/, '')}`;
+const answerSkip: string[] = [];
+const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
+  .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
+// Rows whose value is a paragraph (over 160 characters) move to the details list below, so the box ends inside the
+// first phone screen; short facts keep their order.
+const answerTop = answerAll.filter((spec) => String(spec.value ?? '').length <= 160).slice(0, 4);
+const answerFacts = answerTop.map((spec) => ({
+  label: spec.label,
+  value: spec.value,
+  role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+}));
+const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
+
 ---
 
 <Base
@@ -110,29 +140,25 @@ const schema = {
       ]}
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
-      Analisis {planName} oleh {plan.insurer}, dikemas kini pada {plan.analysisAsAt}.
+      Analisis manfaat dikemas kini pada {tarikh(plan.analysisAsAt)}.
       Had dan kelayakan dipisahkan mengikut varian dalam dokumen rasmi yang dipautkan pada setiap fakta.
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p class="label">Travel insurance</p>
-          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{planName}</h2>
-          <p class="mt-1 text-sm leading-5 text-stone-600">{plan.insurer}</p>
-        </div>
-      </div>
+    <PageAnswer slot="answer" finding={finding} facts={answerFacts} />
+    <ProductCss />
 
-      <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Apa yang anda dapat</h2>
-      <dl class="mt-4 space-y-3 text-sm">
-        {specItems.map((spec) => (
-          <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
-            <dt class="text-stone-500">{spec.label}</dt>
-            <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </div>
+    {answerRest.length > 0 && (
+      <div class="mod">
+        <dl class="pa-rows">
+          {answerRest.map((spec) => (
+            <div class="pa-r">
+              <dt>{spec.label}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )}
 
     <div class="mt-4 mr-2">
       <EditorialStamp
@@ -146,11 +172,11 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
-        <h2 id="sesuai">Siapa yang sesuai dengan {planName}</h2>
+      <article class="prose-editorial prose-bars">
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {planName}</h2>
+        <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
           {analysis.facts.map((fact) => (
             <div class="border-t border-stone-200 pt-4">
@@ -177,30 +203,32 @@ const schema = {
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial">
-          <h2>Soalan lazim — {planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <CtaBand
         heading="Semak semua pilihan travel insurance"
-        body="Gunakan halaman hub untuk membandingkan pelan berdasarkan manfaat, syarat dan sumber rasmi."
-        primary={{ label: 'Lihat semua travel insurance →', href: '/travel-insurance/' }}
+        body="Senarai semua travel insurance di laman ini, dengan sumber rasmi setiap pelan."
+        primary={{ label: 'Lihat semua travel insurance', href: '/travel-insurance/' }}
         disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
       />
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -211,5 +239,5 @@ const schema = {
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>

@@ -1,27 +1,51 @@
 ---
+/**
+ * The shared page opening (Edisi, critique 6): breadcrumbs, H1 at the answer-block size (.ea-h1), the answer
+ * (slot "answer", usually <PageAnswer>), then the byline, then the intro. No kicker, no hairline.
+ */
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+// No default slot (insurer, comparison pages): at 1024px+ the answer sits left and the byline and intro fill the
+// right track, instead of a narrow text column beside an empty one.
+const hasAside = Astro.slots.has('default');
+// Optional insurer logo tile(s) above the H1 (LogoTile.astro, identification only).
+const hasMark = Astro.slots.has('mark');
 ---
 
-<section class="border-b border-stone-200">
-  <div class="container-wide py-8 sm:py-12">
+<section>
+  <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
     <slot name="breadcrumbs" />
 
-    <div class="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
-      <div>
-        <h1 class="max-w-2xl font-serif text-headline-mobile text-stone-900 sm:text-headline-lg">
+    {hasAside ? (
+      <div class="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
+        <div>
+          {hasMark && <div class="mb-3 flex items-center gap-2 empty:hidden"><slot name="mark" /></div>}
+          <h1 class="ea-h1">
+            {title}
+          </h1>
+          <slot name="answer" />
+          <div class="mt-3"><slot name="byline" /></div>
+          <slot name="description" />
+        </div>
+        <div class="mt-8 lg:mt-0">
+          <slot />
+        </div>
+      </div>
+    ) : (
+      <div class="lg:grid lg:grid-cols-[minmax(0,40rem)_minmax(0,1fr)] lg:items-start lg:gap-x-12">
+        {hasMark && <div class="mb-3 flex items-center gap-2 empty:hidden lg:col-span-2"><slot name="mark" /></div>}
+        <h1 class="ea-h1 lg:col-span-2">
           {title}
         </h1>
-        <slot name="byline" />
-        <slot name="description" />
+        <div><slot name="answer" /></div>
+        <div class="lg:pt-4">
+          <div class="mt-3 lg:mt-0"><slot name="byline" /></div>
+          <slot name="description" />
+        </div>
       </div>
-
-      <div class="mt-8 lg:mt-0">
-        <slot />
-      </div>
-    </div>
+    )}
   </div>
 </section>

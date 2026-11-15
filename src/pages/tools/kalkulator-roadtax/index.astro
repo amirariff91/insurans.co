@@ -1,13 +1,16 @@
 ---
+import Ikon from '../../../components/Ikon.astro';
+import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
 import Byline from '../../../components/Byline.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import Hero from '../../../components/Hero.astro';
+import { docName, readerDate } from '../../../components/edisi-tools/labels';
+import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 import rates from '../../../data/roadtax-rates.json';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax/';
 const description = 'Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.';
-const intro = 'Masukkan cc kereta dan wilayah — tengok roadtax JPJ setahun dalam beberapa saat. Ini roadtax sahaja, belum termasuk premium insurans. Bukan ejen, bukan broker — nombor ini ikut jadual JPJ awam.';
+const intro = 'Masukkan cc kereta dan wilayah: tengok roadtax JPJ setahun dalam beberapa saat. Ini roadtax sahaja, belum termasuk premium insurans. Bukan ejen, bukan broker: nombor ini ikut jadual JPJ awam.';
 const faqs = [
   {
     q: 'Roadtax ini untuk kereta apa?',
@@ -51,6 +54,12 @@ const schema = {
     ],
   },
 };
+// The opening shows the intro's first sentence; the rest follows the tool.
+const [introLead, ...introMore] = intro.split(/(?<=\.)\s+/);
+const introRest = introMore.join(' ');
+// Worked example for the method sentence, from the same rate table (Semenanjung saloon, 1,601-1,800cc band).
+const exBand = rates.rates.semenanjung.saloon.find((b) => b.minCc === 1601)!;
+const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 ---
 
 <Base
@@ -60,8 +69,7 @@ const schema = {
   schema={schema}
   pageType="tool"
 >
-  <Hero title="Kalkulator Roadtax Kereta 2026">
-    <Byline slot="byline" dateModified={rates.asAt} />
+  <ToolOpening title="Kalkulator Roadtax Kereta 2026">
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -70,41 +78,38 @@ const schema = {
         { label: 'Kalkulator Roadtax Kereta' },
       ]}
     />
-    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">{intro}</p>
+    <p class="et-lede">{introLead}</p>
+  </ToolOpening>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <p class="label">Alat percuma</p>
-      <p class="mt-2 font-serif text-headline-sm text-stone-900">Kadar JPJ, bukan teka-teki</p>
-      <p class="mt-2 text-sm leading-5 text-stone-600">Kiraan untuk kereta persendirian menggunakan jadual kadar awam JPJ.</p>
-    </div>
-  </Hero>
-
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide py-10 sm:py-14 et">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <section id="calculator" aria-labelledby="calculator-heading" class="border-2 border-stone-900 bg-white p-6 sm:p-8">
+        <noscript><style is:inline>.et .et-wait { display: none; }</style></noscript>
+        <section id="calculator" aria-labelledby="calculator-heading" class="et-panel et-calc">
+          <div class="et-bar"><h2 id="calculator-heading" class="et-bar-t">Roadtax kereta ikut cc, wilayah dan jenis badan: saloon {exBand.maxCc.toLocaleString("en-MY")}cc di Semenanjung RM{exRate.toFixed(2)}</h2></div>
           <p class="label">Kalkulator percuma</p>
-          <h2 id="calculator-heading" class="mt-2 font-serif text-headline-md text-stone-900">Kira roadtax kereta anda</h2>
           <p class="mt-2 text-sm leading-5 text-stone-600">Masukkan maklumat dalam geran atau VOC kereta. Pilih kategori yang paling tepat.</p>
 
-          <form id="roadtax-form" class="mt-6 space-y-5">
+          <noscript><p class="mt-4 note-warn et-noscript">Kalkulator ini memerlukan JavaScript. Hidupkan JavaScript dalam pelayar anda.</p></noscript>
+          <form id="roadtax-form" method="dialog" class="mt-6 space-y-5">
             <div>
               <label for="engine-cc" class="mb-1.5 block text-sm font-semibold text-stone-700">
                 Kapasiti enjin (cc)
               </label>
+              <p id="engine-cc-hint" class="et-hint">cth: 1498 atau 1.5</p>
               <input
-                type="number"
+                type="text"
                 id="engine-cc"
                 name="cc"
-                inputmode="numeric"
-                min="1"
-                step="1"
+                inputmode="decimal"
+                autocomplete="off"
                 required
-                placeholder="cth: 1498"
-                aria-describedby="engine-cc-help"
-                class="w-full border border-stone-300 px-4 py-3 text-lg font-medium text-stone-900 outline-none transition-colors focus:border-hijau-500 focus:ring-2 focus:ring-hijau-100"
+                aria-describedby="engine-cc-hint engine-cc-help engine-cc-understood"
+                class="w-full px-4 py-3 text-lg font-medium text-stone-900"
               />
-              <p id="engine-cc-help" class="mt-1.5 text-xs text-stone-500">Tengok dalam geran/VOC kereta anda.</p>
+              <p id="engine-cc-help" class="mt-1.5 text-sm text-stone-700">Tengok dalam geran/VOC kereta anda. Tulis dalam cc (cth: 1496) atau liter (cth: 1.5).</p>
+              <p class="et-worked">Contoh: kereta saloon {exBand.maxCc.toLocaleString("en-MY")}cc di Semenanjung berada dalam band {exBand.minCc.toLocaleString("en-MY")}–{exBand.maxCc.toLocaleString("en-MY")}cc, iaitu RM{exBand.base} + RM{exBand.perCc.toFixed(2)} × {exBand.maxCc - (exBand.minCc - 1)}cc = <strong>RM{exRate.toFixed(2)}</strong>.</p>
+              <p id="engine-cc-understood" class="et-msg" aria-live="polite"></p>
             </div>
 
             <fieldset>
@@ -119,7 +124,7 @@ const schema = {
                   <span>Sabah &amp; Sarawak</span>
                 </label>
               </div>
-              <p class="mt-2 border-l-2 border-emas-800 bg-emas-50 px-3 py-2 text-xs leading-5 text-stone-600">
+              <p class="mt-2 et-note">
                 <strong>Nota:</strong> {rates.displayNotes.dutyFree}
               </p>
             </fieldset>
@@ -143,7 +148,9 @@ const schema = {
             </button>
           </form>
 
-          <div
+          <div class="et-out" style="min-height:10rem">
+<p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
+<div
             id="roadtax-result"
             role="status"
             aria-live="polite"
@@ -154,40 +161,47 @@ const schema = {
             <p id="roadtax-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
             <p id="roadtax-breakdown" class="mt-4 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></p>
           </div>
+</div>
 
           <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
-            Roadtax + premium insurans (selepas NCD) = belanja renew tahun ni.
+            Roadtax + premium insurans (selepas NCD) = belanja renew tahun ini.
             <a href="/tools/ncd-calculator/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Semak NCD →</a>
           </p>
-          <p id="roadtax-handoff-note" hidden role="alert" class="mt-4 border border-emas-800 bg-emas-50 p-3 text-sm leading-5 text-stone-800"></p>
+          <p id="roadtax-handoff-note" hidden role="alert" class="mt-4 et-note"></p>
         </section>
 
+        <div class="et-after">
+          <Byline dateModified={rates.asAt} />
+          {introRest && <p>{introRest}</p>}
+          <p><strong>Alat percuma.</strong> Kiraan untuk kereta persendirian menggunakan jadual kadar awam JPJ.</p>
+        </div>
+
         <article class="prose-editorial mt-10">
-          <h2>Macam mana kami kira?</h2>
+          <h2>Jadual kadar ikut wilayah dan jenis badan, kemudian band cc</h2>
           <p>Kami pilih jadual kadar berdasarkan wilayah dan jenis badan, kemudian cari band yang mengandungi kapasiti enjin anda.</p>
           <ul>
-            <li>Formula: <code>{rates.formula}</code>.</li>
+            <li>Roadtax ialah kadar asas band itu, ditambah kadar per-cc bagi setiap cc daripada cc pertama band sehingga cc enjin anda. Contoh: kereta saloon {exBand.maxCc.toLocaleString("en-MY")}cc di Semenanjung berada dalam band {exBand.minCc.toLocaleString("en-MY")}–{exBand.maxCc.toLocaleString("en-MY")}cc, iaitu RM{exBand.base} + RM{exBand.perCc.toFixed(2)} × {exBand.maxCc - (exBand.minCc - 1)}cc = RM{exRate.toFixed(2)}.</li>
             <li>Kadar rata kekal sebagai kadar asas; band progresif menambah kadar per-cc mengikut cc tambahan dalam band.</li>
             <li>Nilai sen dikekalkan. Alat ini tidak membundarkan kadar ke RM penuh.</li>
           </ul>
 
-          <h3>Caveat penting</h3>
+          <h3>Perkara penting</h3>
           <ul>
             <li>{rates.displayNotes.company}</li>
-            <li>{rates.displayNotes.ev}</li>
+            <li>{rates.displayNotes.ev} <a href="/tools/kalkulator-roadtax-ev/">Kira roadtax kereta elektrik ikut kW →</a></li>
             <li>{rates.displayNotes.motorcycle}</li>
             <li>{rates.displayNotes['>3000cc']}</li>
           </ul>
 
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Disclaimer:</strong> Anggaran ikut jadual kadar JPJ awam (disemak {rates.asAt}). Roadtax sahaja — bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
+              <strong>Disclaimer:</strong> Anggaran ikut jadual kadar JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
             </p>
             <div class="mt-3 text-sm leading-5 text-stone-700">
               <strong>Sumber:</strong>
               <ul class="mt-1 list-disc pl-5">
                 {rates.sources.map((source) => (
-                  <li><a href={source} target="_blank" rel="noopener" class="break-all text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{source}</a></li>
+                  <li><a href={source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{docName(source)}</a></li>
                 ))}
               </ul>
             </div>
@@ -230,7 +244,7 @@ const schema = {
           </div>
 
           <div class="card-editorial">
-            <h2 class="text-sm font-semibold text-stone-900">Nota penting</h2>
+            <h2 class="text-sm font-semibold text-stone-900">Semakan awal: sahkan dengan JPJ atau MyEG</h2>
             <p class="mt-2 text-sm leading-5 text-stone-600">Angka ini semakan awal berdasarkan jadual kadar awam. Untuk bayaran dan pengesahan, rujuk JPJ atau MyEG.</p>
           </div>
         </div>
@@ -292,6 +306,41 @@ const schema = {
     return `RM\u00a0${value.toLocaleString('ms-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   }
 
+  /**
+   * Accepts the engine size as cc ("1496", "1,496", "1496cc") or litres ("1.5", "1,5", "1.5l", "1.5 liter").
+   * An explicit unit wins. A bare number from 0.5 to 9.9 is read as litres, from 50 to 9999 as cc;
+   * anything else (for example 15 or 15cc) is rejected and the reader is asked for cc.
+   */
+  function parseEngineSize(raw: string): { cc: number; note: string } {
+    const compact = raw.trim().replace(/\s+/g, '').toLowerCase();
+    if (compact === '') return { cc: Number.NaN, note: '' };
+    const unitMatch = compact.match(/^(.*?)(cc|liter|litre|l)?$/);
+    const text = unitMatch ? unitMatch[1] : compact;
+    const unit = unitMatch && unitMatch[2] ? (unitMatch[2] === 'cc' ? 'cc' : 'l') : null;
+    let normalised = text;
+    if (/^\d{1,3}(,\d{3})+$/.test(text)) normalised = text.replace(/,/g, '');
+    else if (/^\d+,\d+$/.test(text)) normalised = text.replace(',', '.');
+    const value = /^\d+(\.\d+)?$/.test(normalised) ? Number(normalised) : Number.NaN;
+    if (!Number.isFinite(value) || value <= 0) return { cc: Number.NaN, note: '' };
+    const asLitres = unit === 'l' || (unit === null && value >= 0.5 && value <= 9.9);
+    const asCc = unit === 'cc' || (unit === null && value >= 50 && value <= 9999);
+    if (asLitres && value >= 0.5 && value <= 9.9) {
+      const cc = Math.round(value * 1000);
+      return {
+        cc,
+        note: `Kami baca "${raw.trim()}" sebagai ${value.toLocaleString('ms-MY')} liter = ${formatCc(cc)}cc. Untuk band yang tepat, guna cc dalam geran (cth: 1,496cc).`,
+      };
+    }
+    if (asCc && value >= 50 && value <= 9999) {
+      const cc = Number.isInteger(value) ? value : Math.round(value);
+      return { cc, note: `Dikira sebagai ${formatCc(cc)}cc.` };
+    }
+    return {
+      cc: Number.NaN,
+      note: `Kami tidak dapat membaca "${raw.trim()}" sebagai kapasiti enjin kereta. Tulis dalam cc seperti dalam geran/VOC (cth: 1,496cc).`,
+    };
+  }
+
   function showMessage(message: string): void {
     const resultEl = getElement('roadtax-result');
     const errorEl = getElement('roadtax-error');
@@ -318,7 +367,10 @@ const schema = {
     const breakdownEl = getElement('roadtax-breakdown');
     if (!resultEl || !errorEl || !valueEl || !breakdownEl) return;
 
-    const cc = engineInput ? Number(engineInput.value) : Number.NaN;
+    const parsed = parseEngineSize(engineInput ? engineInput.value : '');
+    const understoodEl = getElement('engine-cc-understood');
+    if (understoodEl) understoodEl.textContent = parsed.note;
+    const cc = parsed.cc;
     if (!Number.isFinite(cc) || cc <= 0 || !regionInput || !bodyInput || !isRegion(regionInput.value) || !isBody(bodyInput.value)) {
       showMessage('Sila isi kapasiti enjin yang sah dan pilih wilayah serta jenis badan.');
       return;

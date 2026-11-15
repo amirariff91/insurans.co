@@ -1,0 +1,15 @@
+---
+// Edisi opening for the /tools/ calculators: breadcrumbs, H1 at the answer-block size and one
+// sentence, so the first input sits in the first phone screen. The byline follows the tool.
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="container-wide et-open">
+  <slot name="breadcrumbs" />
+  <h1 class="et-h1">{title}</h1>
+  <slot />
+</div>

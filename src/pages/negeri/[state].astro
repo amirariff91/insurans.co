@@ -1,6 +1,8 @@
 ---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import states from '../../data/states.json';
 
 export function getStaticPaths() {
@@ -62,6 +64,27 @@ const schema = {
     },
   ],
 };
+// Answer box: every word is already on this page (flood label, the flood section, the JPJ section, tariff region).
+const firstFlood = state.floodHistory[0] as { text: string; source: string } | undefined;
+const answerFinding = state.floodRisk
+  ? (firstFlood
+      ? `Risiko banjir ${state.floodRisk}: periksa perlindungan banjir dalam dokumen polisi`
+      : `Risiko banjir ${state.floodRisk}: kerosakan banjir memerlukan perlindungan tambahan Special Perils`)
+  : 'Kerosakan banjir memerlukan perlindungan tambahan Special Perils';
+const answerFacts: { label: string; value: string; href?: string }[] = [
+  { label: 'Risiko banjir', value: state.floodRisk || 'Tidak dinyatakan' },
+  ...(firstFlood ? [{ label: 'Rekod banjir (sumber kejadian)', value: firstFlood.text, href: firstFlood.source }] : []),
+  { label: `Pejabat JPJ di ${state.displayName}`, value: state.jpjOffice.text },
+  ...(state.slug !== 'labuan' ? [{ label: 'Wilayah tarif', value: state.tariffRegion }] : []),
+];
+const answerNote = state.floodRisk
+  ? undefined
+  : `Halaman ini tidak memberi label risiko banjir untuk ${state.displayName}. Semak amaran cuaca rasmi dan keadaan laluan sebelum perjalanan.`;
+function formatDate(value: string): string {
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date);
+}
 ---
 
 <Base
@@ -74,22 +97,15 @@ const schema = {
   noindex
   noindexFollow
 >
-  <section class="bg-white border-b border-stone-200">
-    <div class="container-wide py-10 sm:py-14">
-      <nav class="text-sm text-stone-400 mb-5" aria-label="Breadcrumb">
-        <a href="/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Utama</a>
-        <span class="mx-2">›</span>
-        <a href="/negeri/" class="text-stone-500 underline decoration-stone-300 underline-offset-2 hover:text-hijau-700">Negeri</a>
-        <span class="mx-2">›</span>
-        <span class="text-stone-700">{state.displayName}</span>
-      </nav>
-      <p class="label mb-3">Panduan Insurans Mengikut Negeri</p>
-      <h1 class="font-serif text-headline-lg sm:text-headline-xl text-stone-900 mb-4">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Negeri', href: '/negeri/' }, { label: `${state.displayName}` }]} />
+      <h1 class="ea-h1 mb-1">
         Insurans Kereta {state.displayName}
       </h1>
+      <PageAnswer finding={answerFinding} facts={answerFacts} note={answerNote} />
       <Byline dateModified={state.asAt} />
-      <p class="text-sm text-stone-500 mt-2 mb-4">Maklumat disemak setakat {state.asAt}</p>
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Rujukan untuk pemandu {state.displayName}: fakta wilayah, perlindungan yang wajar dibandingkan,
         pejabat JPJ dan pautan kepada sumber asal.
       </p>
@@ -100,18 +116,18 @@ const schema = {
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
         <div class="bg-stone-50 border border-stone-200 p-6 mb-8">
-          <div class="flex flex-wrap gap-4 items-start">
+          <div class="flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-start">
             <div class="flex-1 min-w-0">
               <h2 class="font-serif text-xl text-stone-900 mb-1">{state.name}</h2>
               <p class="text-sm text-stone-500 mb-3">Ibu negeri: {state.capital}</p>
               <p class="text-stone-600 text-sm leading-relaxed">{state.notes}</p>
             </div>
             {state.floodRisk && (
-              <div class="flex-shrink-0">
-                <span class={`inline-block px-3 py-1.5 text-sm font-semibold border ${
-                  state.floodRisk === 'Tinggi' ? 'bg-red-100 text-red-700 border-red-200' :
-                  state.floodRisk === 'Sederhana' ? 'bg-yellow-100 text-yellow-700 border-yellow-200' :
-                  'bg-green-100 text-green-700 border-green-200'
+              <div class="sm:flex-shrink-0">
+                <span class={`inline-block px-3 py-1.5 text-sm font-semibold ${
+                  state.floodRisk === 'Tinggi' ? 'risk-tinggi' :
+                  state.floodRisk === 'Sederhana' ? 'risk-sederhana' :
+                  'risk-rendah'
                 }`}>
                   Risiko banjir: {state.floodRisk}
                 </span>
@@ -120,8 +136,8 @@ const schema = {
           </div>
         </div>
 
-        <article class="prose-editorial">
-          <h2>Wilayah tarif &amp; cukai jalan</h2>
+        <article class="prose-editorial prose-bars">
+          <h2><span aria-hidden="true">Sejak 1 Julai 2017, insurer menentukan harga insurans motor</span><span class="sr-only">Wilayah tarif &amp; cukai jalan</span></h2>
           <p>
             Sejak 1 Julai 2017, BNM membenarkan insurer menentukan harga insurans motor komprehensif
             dan pihak ketiga, kebakaran serta kecurian (TPFT) berdasarkan penilaian risiko masing-masing.
@@ -145,7 +161,7 @@ const schema = {
           <p>{state.roadtaxNote}</p>
         </article>
 
-        <article class="prose-editorial mt-10">
+        <article class="prose-editorial prose-bars mt-10">
           <h2>{state.floodHistory.length ? `Sejarah banjir di ${state.displayName}` : 'Cuaca dan perlindungan banjir'}</h2>
           {state.floodHistory.length > 0 ? (
             <>
@@ -176,7 +192,7 @@ const schema = {
         </article>
 
         {state.roadSafety && (
-          <article class="prose-editorial mt-10">
+          <article class="prose-editorial prose-bars mt-10">
             <h2>Keselamatan jalan raya</h2>
             <p>
               {state.roadSafety.text}{' '}
@@ -192,7 +208,7 @@ const schema = {
           </article>
         )}
 
-        <article class="prose-editorial mt-10">
+        <article class="prose-editorial prose-bars mt-10">
           <h2>Pejabat JPJ di {state.displayName}</h2>
           <p>
             {state.jpjOffice.text}{' '}
@@ -208,7 +224,7 @@ const schema = {
         </article>
 
         {state.crossBorder && (
-          <article class="prose-editorial mt-10">
+          <article class="prose-editorial prose-bars mt-10">
             <h2>Merentas sempadan dari {state.displayName}</h2>
             <p>
               {state.crossBorder.text}{' '}
@@ -224,8 +240,8 @@ const schema = {
           </article>
         )}
 
-        <article class="prose-editorial mt-10">
-          <h2>Tip khusus {state.displayName}</h2>
+        <article class="prose-editorial prose-bars mt-10">
+          <h2 class="h2-quiet">Tip khusus {state.displayName}</h2>
           <p>
             Bandingkan perlindungan dengan mengambil kira perjalanan harian, tempat parkir dan urusan
             kenderaan anda. Semak jadual manfaat serta pengecualian, kemudian minta penjelasan bertulis
@@ -248,8 +264,8 @@ const schema = {
           </ol>
         </article>
 
-        <article class="prose-editorial mt-10">
-          <h2>Soalan lazim — insurans kereta {state.displayName}</h2>
+        <article class="prose-editorial prose-bars mt-10">
+          <h2 class="h2-quiet">Soalan lazim: insurans kereta {state.displayName}</h2>
         </article>
         <div class="my-6">
           {faqItems.map((faq, i) => (
@@ -260,9 +276,9 @@ const schema = {
           ))}
         </div>
 
-        <article class="prose-editorial mt-10">
-          <h2>Sumber</h2>
-          <p>Fakta dan alamat di halaman ini disemak setakat {state.asAt}. Rujuk dokumen asal untuk konteks penuh.</p>
+        <article class="prose-editorial prose-bars mt-10">
+          <h2 class="h2-quiet">Sumber</h2>
+          <p>Fakta dan alamat di halaman ini disemak setakat {formatDate(state.asAt)}. Rujuk dokumen asal untuk konteks penuh.</p>
           <ul>
             {state.sources.map((source: { title: string; url: string }) => (
               <li>
@@ -324,7 +340,7 @@ const schema = {
               <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:text-hijau-600">Insurans kereta banjir</a></li>
               <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
               <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Direktori syarikat insurans</a></li>
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD — panduan lengkap</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: panduan lengkap</a></li>
             </ul>
           </div>
         </div>
@@ -332,3 +348,11 @@ const schema = {
     </div>
   </div>
 </Base>
+
+<style>
+  /* Quiet section label: a plain heading where the section opens with advice rather than a finding. */
+  .prose-editorial.prose-bars h2.h2-quiet {
+    background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
+    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+  }
+</style>

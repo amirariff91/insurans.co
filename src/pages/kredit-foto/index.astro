@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+import carPhotos from '../../data/car-photos.json';
+import carModels from '../../data/car-models.json';
+import { PUBLISHER } from '../../lib/schema';
+import { BRAND_LOGOS, COMPANY_LOGOS } from '../../lib/logos';
+import LogoTile from '../../components/LogoTile.astro';
+
+const ALL_LOGOS = [...BRAND_LOGOS, ...COMPANY_LOGOS].filter((r) => r.kind === 'logo');
+const commonsCount = ALL_LOGOS.filter((r) => r.source === 'Wikimedia Commons').length;
+const officialCount = ALL_LOGOS.filter((r) => r.source === 'official site').length;
+const host = (u: string) => new URL(u).hostname.replace(/^www\./, '');
+const tarikh = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const logoGroups = [
+  { id: 'logo-jenama', title: 'Logo jenama kereta', rows: BRAND_LOGOS, prop: 'brand' as const },
+  { id: 'logo-syarikat', title: 'Logo syarikat insurans', rows: COMPANY_LOGOS, prop: 'company' as const },
+];
+
+const title = 'Kredit Foto Kereta — Insurans.co';
+const description =
+  'Kredit setiap foto kereta di Insurans.co: pengarang, lesen Creative Commons, pautan sumber di Wikimedia Commons, dan cara foto itu diubah suai.';
+
+const nameOf = (slug: string) => carModels.find((m) => m.slug === slug)?.fullName ?? slug;
+const byName = (a: { slug: string }, b: { slug: string }) => nameOf(a.slug).localeCompare(nameOf(b.slug), 'ms');
+
+const photos = carPhotos.filter((p) => p.hasPhoto).sort(byName);
+const noPhoto = carPhotos.filter((p) => !p.hasPhoto).sort(byName).map((p) => nameOf(p.slug));
+const aiPhotos = photos.filter((p) => p.aiRetouched);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: 'https://insurans.co/kredit-foto/',
+  description,
+  inLanguage: 'ms',
+  publisher: PUBLISHER,
+};
+---
+
+<Base title={title} description={description} schema={schema} ads={false}>
+  <article class="bg-white">
+    <div>
+      <div class="container-article pt-6 pb-4 sm:pt-8">
+        <h1 class="ea-h1 mb-3">Kredit foto kereta</h1>
+        <p class="text-lg text-stone-700 leading-relaxed">
+          Setiap foto ialah karya pengarangnya di Wikimedia Commons, dan hanya foto kereta pasaran Malaysia digunakan.
+          Kami membuang latar, menukar ke hitam putih dan, jika kelihatan, menutup nombor plat. Versi yang diubah suai
+          di laman ini tersedia di bawah lesen yang sama dengan foto asalnya, seperti yang tertulis bagi setiap foto di
+          bawah. Setiap kredit memaparkan tajuk asal, pengarang serta notis hak cipta yang diberikannya, lesen, sumber
+          dan ubah suai yang dibuat.
+        </p>
+      </div>
+    </div>
+
+    <div class="container-article py-10 sm:py-14">
+      <div class="prose-editorial prose-bars max-w-none">
+        <h2 id="alat-ai">Foto yang disunting dengan alat AI</h2>
+        <p>
+          {aiPhotos.length} foto ({aiPhotos.map((p) => nameOf(p.slug)).join(', ')}) disunting dengan alat AI untuk
+          membuang halangan di sekeliling kereta. Ubah suai setiap satu, seperti yang tertulis dalam kreditnya:
+        </p>
+        <ul>
+          {aiPhotos.map((p) => (
+            <li>
+              <a href={`#${p.slug}`}><strong>{nameOf(p.slug)}</strong></a>: {p.modifications}
+              {p.aiRetouch?.reconstructedParts && ` Pada ${nameOf(p.slug)}, bahagian kereta yang terlindung dibina semula dengan AI.`}
+            </li>
+          ))}
+        </ul>
+
+        <h2 id="senarai">{photos.length} foto yang digunakan</h2>
+      </div>
+
+      <ol class="mt-6 divide-y divide-stone-200 border-y border-stone-200">
+        {photos.map((p) => (
+          <li id={p.slug} class="flex flex-col sm:flex-row gap-4 py-5 scroll-mt-24">
+            <img
+              src={p.src400}
+              width={p.width}
+              height={p.height}
+              alt={p.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-40 h-auto shrink-0 self-start"
+            />
+            <div class="text-sm leading-relaxed text-stone-700 min-w-0">
+              <h3 class="font-semibold text-base text-stone-900 mb-1">{nameOf(p.slug)}</h3>
+              <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+                <dt class="text-stone-500">Tajuk asal</dt>
+                <dd class="break-words"><cite class="not-italic">{p.credit!.title}</cite></dd>
+                <dt class="text-stone-500">Pengarang</dt>
+                <dd>{p.credit!.copyrightNotice ?? p.credit!.author}</dd>
+                <dt class="text-stone-500">Lesen</dt>
+                <dd><a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a></dd>
+                <dt class="text-stone-500">Sumber</dt>
+                <dd class="break-words"><a class="underline" href={p.credit!.source} rel="noopener">Wikimedia Commons</a></dd>
+                <dt class="text-stone-500">Ubah suai</dt>
+                <dd>{p.modifications}{p.aiRetouched && <strong class="ml-1">(alat AI)</strong>}</dd>
+                <dt class="text-stone-500">Lesen versi ini</dt>
+                <dd>Versi yang diubah suai di laman ini tersedia di bawah lesen yang sama, <a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a>.</dd>
+              </dl>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="prose-editorial prose-bars max-w-none mt-10">
+        <h2 id="gambar-kecil">Gambar kecil dalam senarai model</h2>
+        <p>
+          Gambar kecil di sebelah nama model dalam senarai (halaman utama, hab insurans kereta dan halaman model) ialah
+          potongan kecil foto yang sama di atas. Kredit, lesen dan ubah suai setiap foto di atas terpakai juga pada gambar
+          kecilnya. Model tanpa foto memaparkan ikon kereta di tempat yang sama.
+        </p>
+
+        <h2 id="tiada-foto">Model tanpa foto</h2>
+        <p>
+          {noPhoto.length} model belum ada foto kereta pasaran Malaysia di Wikimedia Commons: {noPhoto.join(', ')}.
+          Halaman model itu memaparkan kad nama model; kami tidak guna foto kereta pasaran lain.
+        </p>
+
+        <h2 id="tanda-dagangan">Logo dan tanda dagangan</h2>
+        <p>
+          Logo dan nama jenama kereta serta syarikat insurans di laman ini ialah tanda dagangan pemilik masing-masing.
+          Kami memaparkannya hanya untuk mengenal pasti syarikat dan kereta yang dibincangkan. Insurans.co ialah laman
+          bebas: kami bukan ejen, rakan kongsi atau affiliate mana-mana syarikat ini, dan kami tidak dibayar oleh mereka.
+        </p>
+        <p>
+          {commonsCount} logo diambil daripada Wikimedia Commons, yang menyatakan fail itu domain awam kerana ia logo teks
+          atau bentuk ringkas; tanda dagangannya kekal milik syarikat. {officialCount} logo lagi diambil daripada laman web
+          rasmi syarikat itu sendiri di Malaysia, dan disimpan di laman ini sebagai tanda dagangan untuk pengenalan
+          sahaja. Semua logo dipaparkan dalam warna asalnya, tanpa diubah, hanya untuk mengenal pasti syarikat atau
+          kereta. Senarai di bawah menyatakan sumber, fail asal dan tarikh setiap logo diambil.
+        </p>
+      </div>
+
+      {logoGroups.map((g) => (
+        <section class="mt-6" aria-labelledby={g.id}>
+          <h3 id={g.id} class="font-semibold text-base text-stone-900 mb-2">{g.title}</h3>
+          <ul class="divide-y divide-stone-200 border-y border-stone-200">
+            {g.rows.map((r) => (
+              <li class="flex items-center gap-4 py-3">
+                <LogoTile {...{ [g.prop]: (r as any)[g.prop] }} />
+                <div class="text-sm leading-relaxed text-stone-700 min-w-0">
+                  <strong class="text-stone-900">{r.name}</strong>{r.source === 'official site' && r.sourceUrl ? (
+                    <>: laman rasmi <a class="underline break-words" href={r.sourceUrl} rel="noopener">{host(r.sourceUrl)}</a>. Tanda dagangan, dipaparkan untuk pengenalan sahaja.{r.retrieved && ` Diambil ${tarikh(r.retrieved)}.`}</>
+                  ) : r.commonsPage ? (
+                    <>: <a class="underline break-words" href={r.commonsPage} rel="noopener">{r.commonsFile!.replace(/^File:/, '')}</a>, Wikimedia Commons. {r.licence}.{r.retrieved && ` Diambil ${tarikh(r.retrieved)}.`}</>
+                  ) : (
+                    <>: {r.licence}.</>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <div class="prose-editorial prose-bars max-w-none mt-10">
+        <h2 id="lapor">Lapor kesilapan kredit</h2>
+        <p>
+          Jika anda pengarang foto, atau anda nampak kredit, lesen atau pautan yang salah, e-mel
+          <a href="mailto:hello@insurans.co">hello@insurans.co</a> dengan nama model dan butiran pembetulan. Kami akan
+          membetulkan kredit itu atau membuang foto tersebut.
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>

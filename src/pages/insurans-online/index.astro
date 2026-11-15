@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import Byline from '../../components/Byline.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import Ikon from '../../components/Ikon.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import platforms from '../../data/platforms.json';
 import directOnline from '../../data/direct-online.json';
@@ -23,7 +28,7 @@ const productLabels: Record<string, string> = {
 const modelGroups = [
   {
     key: 'insurer-langsung',
-    label: 'Insurer-langsung — beli terus tanpa ejen',
+    label: 'Insurer-langsung: beli terus tanpa ejen',
     description: 'Beli terus daripada penginsurans atau takaful melalui saluran digital mereka.',
     records: platforms.records.filter((platform) => platform.model.startsWith('insurer-langsung')),
   },
@@ -35,13 +40,13 @@ const modelGroups = [
   },
   {
     key: 'platform-jpj',
-    label: 'Penyedia kontrak JPJ — bukan eksklusif',
+    label: 'Penyedia kontrak JPJ: bukan eksklusif',
     description: 'Penyedia berkontrak JPJ yang turut menawarkan urusan digital lain.',
     records: platforms.records.filter((platform) => platform.model.startsWith('platform berkontrak JPJ')),
   },
   {
     key: 'marketplace',
-    label: 'Marketplace — beli dalam platform besar',
+    label: 'Marketplace: beli dalam platform besar',
     description: 'Akses produk penyedia melalui platform pihak ketiga yang turut menawarkan urusan lain.',
     records: platforms.records.filter((platform) => platform.model === 'marketplace'),
   },
@@ -115,56 +120,54 @@ const schema = {
   modifiedTime={updatedAt}
   ads={false}
 >
-  <section class="border-b border-stone-200 bg-white">
-    <div class="container-wide py-10 sm:py-14">
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-2 sm:pt-8 sm:pb-4">
       <Breadcrumbs
         items={[
           { label: 'Utama', href: '/' },
           { label: 'Insurans Online' },
         ]}
       />
-      <p class="label mb-3">Panduan platform</p>
-      <h1 class="mb-4 font-serif text-headline-lg text-stone-900 sm:text-headline-xl">
-        Compare Insurance Malaysia &amp; Beli Insurance Online
-      </h1>
+      <h1 class="ea-h1">Compare Insurance Malaysia &amp; Beli Insurance Online</h1>
+      <PageAnswer
+        finding={`Beli terus daripada ${directOnline.records.length} syarikat insurans atau ${platforms.records.length} platform`}
+        note="Senarai ini bukan kedudukan atau cadangan."
+        facts={[
+          { label: 'Model', value: 'Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ' },
+          { label: 'Data dikemas kini', value: tarikh(platforms.asAt) },
+        ]}
+      />
       <Byline dateModified={updatedAt} />
-      <p class="mt-4 max-w-2xl text-lg leading-7 text-stone-600">
-        Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
-        Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
-      </p>
     </div>
   </section>
 
-  <div class="container-wide py-10 sm:py-14">
+  <div class="container-wide pt-4 pb-10 sm:pt-6 sm:pb-14">
     <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
       <div class="lg:col-span-2">
-        <section id="beli-terus" class="scroll-mt-24 border-2 border-stone-900 bg-white p-5 sm:p-6" data-section="direct-insurer">
-          <h2 class="font-serif text-headline-md text-stone-900">Beli terus daripada syarikat insurans</h2>
-          <p class="mt-2 text-sm leading-5 text-stone-700">
-            Syarikat insurans dan takaful di bawah menjual insurans kereta secara online melalui saluran mereka sendiri.
-            Senarai ini bukan kedudukan atau cadangan. Semak PDS dan harga akhir sebelum membayar. Insurans.co tiada
-            hubungan berbayar dengan mana-mana syarikat.
-          </p>
+        <ProductCss />
+        <section id="beli-terus" class="scroll-mt-24 rounded-lg border border-edisi-rule bg-edisi-card p-5 sm:p-6" data-section="direct-insurer">
+          <h2 class="h2-bar -mx-5 !-mt-5 !mb-0 sm:-mx-6 sm:!-mt-6">Beli terus daripada syarikat insurans</h2>
           <p class="mt-2 text-sm font-semibold text-stone-600">Disemak: 15 Nov 2026</p>
-          <div class="mt-4 overflow-x-auto">
-            <table class="w-full min-w-[40rem] border-collapse text-left text-sm">
-              <thead>
-                <tr class="border-b-2 border-stone-900 text-stone-900">
-                  <th scope="col" class="py-2 pr-3 font-semibold">Syarikat</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Insurans/takaful</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Beli online</th>
-                  <th scope="col" class="py-2 pr-3 font-semibold">Syarat</th>
-                  <th scope="col" class="py-2 font-semibold">Pautan rasmi</th>
+          <p class="mt-1 text-sm text-stone-700">Syarat yang tidak disenaraikan: semak di laman syarikat.</p>
+          <div class="pp-plans mt-4 overflow-x-auto">
+            <table role="table" class="table-editorial plan-table min-w-[40rem]">
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader" scope="col">Syarikat</th>
+                  <th role="columnheader" scope="col">Insurans/takaful</th>
+                  <th role="columnheader" scope="col">Beli online</th>
+                  <th role="columnheader" scope="col">Syarat</th>
+                  <th role="columnheader" scope="col">Pautan rasmi</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {directOnline.records.map((row) => (
-                  <tr class="border-b border-stone-200 align-top">
-                    <th scope="row" class="py-2 pr-3 font-semibold text-stone-900">{row.company}</th>
-                    <td class="py-2 pr-3 text-stone-700">{row.licence}</td>
-                    <td class="py-2 pr-3 text-stone-700">Kereta · {row.channel}</td>
-                    <td class="py-2 pr-3 text-stone-700">{row.conditions ?? 'Semak di laman syarikat'}</td>
-                    <td class="py-2">
+                  <tr role="row">
+                    <th role="rowheader" scope="row"><span class="flex flex-col items-start gap-1.5"><LogoTile company={row.company} size="s" />{row.company}</span></th>
+                    <td role="cell" data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
+                    <td role="cell" data-label="Beli online" data-wide>Kereta · {row.channel}</td>
+                    <td role="cell" data-label="Syarat" data-wide data-empty={row.conditions ? undefined : ''}>{row.conditions ?? ''}</td>
+                    <td role="cell" data-label="Pautan rasmi" data-wide data-nolabel>
                       <a
                         href={row.url}
                         target="_blank"
@@ -181,6 +184,11 @@ const schema = {
             </table>
           </div>
           <p class="mt-4 text-sm leading-5 text-stone-700">
+            Syarikat insurans dan takaful di atas menjual insurans kereta secara online melalui saluran mereka sendiri.
+            Senarai ini bukan kedudukan atau cadangan. Semak PDS dan harga akhir sebelum membayar. Insurans.co tiada
+            hubungan berbayar dengan mana-mana syarikat.
+          </p>
+          <p class="mt-2 text-sm leading-5 text-stone-700">
             <strong>Roadtax:</strong> selepas insurans aktif, roadtax boleh diperbaharui melalui MyJPJ (aplikasi rasmi JPJ) atau <a href="https://www.myeg.com.my/" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">MyEG</a>,
             yang disenaraikan sebagai rakan niaga JPJ dalam
             <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2">kenyataan JPJ pada 6 Mei 2024</a>.
@@ -192,15 +200,19 @@ const schema = {
           </p>
         </section>
 
-        <article class="prose-editorial mt-10 sm:mt-14">
+        <article class="prose-editorial prose-bars mt-10 sm:mt-14">
+          <p class="text-lg leading-7 text-stone-600">
+            Kenali saluran insurance online Malaysia, pilihan produk dan syarat pembelian.
+            Bandingkan quotation serta manfaat sebelum membeli atau memperbaharui perlindungan.
+          </p>
           <p class="text-lg leading-7 text-stone-700">
-            Nak banding dan beli insurans online di Malaysia — start dengan faham siapa penjualnya. Salurannya berbeza.
-            <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen — contoh FWD (term/CI/medical +
+            Mahu banding dan beli insurans online di Malaysia? Mulakan dengan memahami siapa penjualnya. Salurannya berbeza.
+            <strong>Insurer-langsung:</strong> beli terus dari penginsurans/takaful tanpa ejen. Contoh FWD (term/CI/medical +
             i-Lindung melalui KWSP) dan Kaotim, jenama takaful digital milik Takaful Malaysia (MediKad, Car/Motor dan Legasi).
             <strong>Aggregator:</strong> banding beberapa insurer. Bjak menyenaraikan 16 insurer/takaful dan diluluskan BNM
             sebagai FA/IFA sejak Oktober 2025. Polisea, entiti PolicyStreet, juga diluluskan sebagai FA/IFA.
             PolicyStreet menawarkan Drive+, keahlian pilihan berbayar yang dipilih semasa checkout. Rujuk <a href="https://bjak.my/en/approved-financial-adviser" target="_blank" rel="noopener">Bjak</a> dan
-            <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar — Shopee Insurance (Allianz
+            <a href="https://policystreet.com.my/en/terms-business" target="_blank" rel="noopener">PolicyStreet</a>. <strong>Marketplace:</strong> beli dalam platform besar, seperti Shopee Insurance (Allianz
             Travel + Zurich Travel Takaful, motor takaful, PA; ansur SPayLater 3–12 bulan; Shopee hanya ejen SeaMoney, bukan
             insurer). <strong>Urusan JPJ:</strong> MyEG disenaraikan sebagai rakan niaga JPJ dalam
             <a href="https://www.jpj.gov.my/wp-content/uploads/2024/08/LATEST-PR-PENJELASAN-BJAK.pdf" target="_blank" rel="noopener">kenyataan JPJ pada 6 Mei 2024</a>.
@@ -213,7 +225,7 @@ const schema = {
 
         <div class="info-box mt-8 sm:mt-10">
           <p>
-            <strong>Flow:</strong> banding → bayar FPX/kad → e-policy → renew roadtax. Insurans.co bukan ejen, broker atau
+            <strong>Aliran:</strong> banding, bayar FPX/kad, e-policy, renew roadtax. Insurans.co bukan ejen, broker atau
             affiliate; pautan platform ialah rujukan untuk semakan sendiri, bukan ranking.
           </p>
         </div>
@@ -237,13 +249,13 @@ const schema = {
                         <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{platform.name}</h3>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{platform.digitalPlatform}</p>
                       </div>
-                      <span class="shrink-0 border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600">
+                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
                         {platform.model.startsWith('insurer-langsung') ? 'Insurer-langsung' : platform.model}
                       </span>
                     </div>
                     <p class="mt-4 text-sm leading-5 text-stone-700">{platform.keyFact}</p>
                     <div class="mt-4 border-t border-stone-200 pt-3">
-                      <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Produk / urusan</p>
+                      <p class="text-sm font-semibold text-stone-600">Produk dan urusan</p>
                       <p class="mt-1 text-sm leading-5 text-stone-600">
                         {platform.products.map((product) => productLabels[product] ?? product).join(' · ')}
                       </p>
@@ -251,8 +263,8 @@ const schema = {
                     <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
                       <span class="font-semibold text-stone-900">Perhatian:</span> {platform.caveat}
                     </p>
-                    <span class="mt-4 inline-block text-sm font-semibold text-hijau-700">
-                      {['kaotim', 'fwd', 'shopee'].includes(platform.slug) ? 'Baca semakan' : 'Butiran platform'} {platform.name} →
+                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">
+                      {['kaotim', 'fwd', 'shopee'].includes(platform.slug) ? 'Baca semakan' : 'Butiran platform'} {platform.name} <Ikon name="i-kanan" size={16} />
                     </span>
                   </a>
                 ))}
@@ -262,7 +274,7 @@ const schema = {
         </div>
 
         <section id="faq" class="mt-10 sm:mt-14">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Soalan lazim insurans online Malaysia</h2>
           </div>
           <div class="mt-5">
@@ -281,27 +293,6 @@ const schema = {
 
       <aside class="lg:col-span-1">
         <div class="space-y-6 lg:sticky lg:top-20">
-          <div class="border-2 border-stone-900 bg-white p-5">
-            <h2 class="font-serif text-headline-sm text-stone-900">Ringkasan</h2>
-            <dl class="mt-4 space-y-3 text-sm">
-              <div>
-                <dt class="text-stone-500">Bilangan platform</dt>
-                <dd class="font-semibold text-stone-900">{platforms.records.length} platform</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Model</dt>
-                <dd class="font-semibold text-stone-900">Insurer-langsung, aggregator + FA/IFA, marketplace, penyedia kontrak JPJ</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Data dikemas kini</dt>
-                <dd class="font-semibold text-hijau-700">{platforms.asAt}</dd>
-              </div>
-              <div>
-                <dt class="text-stone-500">Harga quotation</dt>
-                <dd class="font-semibold text-stone-900">Tiada anggaran</dd>
-              </div>
-            </dl>
-          </div>
           <div class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900">Nota kebebasan editorial</h2>
             <p class="mt-3 text-sm leading-5 text-stone-600">

@@ -1,0 +1,15 @@
+/**
+ * Reader-facing dates on product pages: "10 Okt 2026", the same format as Byline.astro.
+ * The ISO value stays in datetime attributes and JSON-LD; only the visible text changes.
+ */
+export function tarikh(value: string | undefined | null): string {
+  if (!value) return '';
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date);
+}
+
+/** Role for a fact in the page answer: premiums and contributions are prices, every other figure is a term. */
+export function factRole(label: string): 'price' | 'term' {
+  return /premium|sumbangan|harga/i.test(label) ? 'price' : 'term';
+}

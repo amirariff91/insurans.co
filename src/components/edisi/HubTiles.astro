@@ -1,0 +1,49 @@
+---
+/** A row of tiles that jump to sections on the same page by anchor. Labels are the page's own section names. */
+
+interface Tile { href: string; label: string }
+interface Props { tiles: Tile[]; label: string }
+const { tiles, label } = Astro.props;
+---
+<nav class="ht" aria-label={label}>
+  <ul>
+    {tiles.map((t) => (
+      <li><a href={t.href}><span>{t.label}</span></a></li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .ht ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
+    gap: 0.5rem;
+  }
+  .ht a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    height: 100%;
+    padding: 0.5rem 0.4rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--r-2);
+    background: var(--card);
+    color: var(--ink);
+    text-align: center;
+    text-decoration: none;
+    font: 700 0.9375rem/1.15 var(--fd);
+    transition: background-color 150ms var(--ease-out);
+  }
+  .ht a:hover {
+    background: var(--tint-pink);
+  }
+  .ht a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+</style>

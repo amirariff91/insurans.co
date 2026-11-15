@@ -1,0 +1,41 @@
+---
+/**
+ * Page-level overrides for the product families (medical, CI, travel, home, PA, motorcycle, online, bantuan).
+ * Wrap a plan table's container in class "pp-plans" to set plan names on white with a 2px ink rule under the
+ * bar (critique 9: 10-15 solid black slabs per phone page were too heavy). The shared .plan-table rules in
+ * global.css stay as they are; these selectors only add an ancestor.
+ */
+---
+<style is:global>
+  @media (max-width: 47.99rem) {
+    .pp-plans table.plan-table > tbody > tr > :first-child,
+    .pp-plans table.plan-table > tbody > tr > [data-sub],
+    .pp-plans table.plan-table > tbody > tr > [data-chip] {
+      background: var(--card);
+      color: var(--ink);
+    }
+    .pp-plans table.plan-table > tbody > tr > :first-child :is(a, span) { color: var(--ink); }
+    .pp-plans table.plan-table > tbody > tr > :first-child span { color: var(--ink-2); }
+    .pp-plans table.plan-table > tbody > tr > [data-sub] { color: var(--ink-2); }
+    .pp-plans table.plan-table > tbody > tr > [data-chip] > .plan-chip { background: var(--chip); border: 1px solid var(--ink); }
+    .pp-plans table.plan-table > tbody > tr > :first-child a:focus-visible { outline: 3px solid var(--focus); }
+    /* The 2px ink rule under the bar runs the full card width: a flex item of its own between bar and facts. */
+    .pp-plans table.plan-table > tbody > tr::before {
+      content: ''; order: 1; flex: 0 0 100%; height: 2px; background: var(--ink);
+    }
+    .pp-plans table.plan-table > tbody > tr > :is(:first-child, [data-sub], [data-chip]) { order: 0; }
+    .pp-plans table.plan-table > tbody > tr > td:not([data-sub], [data-chip]) { order: 2; }
+  }
+  /* Older card list folded under the plan cards ("Butiran setiap pelan"). */
+  .pp-more > summary {
+    display: flex; align-items: center; gap: 0.5rem; min-height: 3rem; padding: 0.6rem 0.9rem; cursor: pointer;
+    border: 2px solid var(--ink); border-radius: var(--r-2); font: 800 1.125rem/1.2 var(--fd); color: var(--ink);
+    background: var(--card); list-style: none;
+  }
+  .pp-more > summary::-webkit-details-marker { display: none; }
+  .pp-more > summary::after { content: '+'; margin-left: auto; font-size: 1.5rem; line-height: 1; }
+  .pp-more[open] > summary::after { content: '\2212'; }
+  .pp-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .pp-arrow { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .pp-arrow .ikon { flex: none; }
+</style>

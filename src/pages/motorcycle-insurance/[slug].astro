@@ -5,16 +5,18 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import ProductCss from '../../components/edisi/ProductCss.astro';
+import { tarikh } from '../../components/edisi/ProductFormat';
 import motorcycleInsurance from '../../data/motorcycle-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type MotorcycleRecord = (typeof motorcycleInsurance.records)[number];
 
 // Ads opt-in (Base defaults to ads off). From the programmatic audit on 2026-11-15: at least
 // 700 words in <main> and a 5-gram Jaccard below 0.35 against every sibling.
 const adsEnabledSlugs = new Set([
-  'etiqa-myrider',
-  'msig-motorcycle-online',
   'zurich-z-rider',
 ]);
 const records = motorcycleInsurance.records;
@@ -52,43 +54,53 @@ const description = buildDescription(
     ? `${record.planName} oleh ${record.insurer}: ringkasan jenis perlindungan, asas premium, contoh PDS jika ada dan sumber rasmi. Tiada jadual premium motosikal mengikut cc direka.`
     : `${record.planName} oleh ${record.insurer}: nama dan jenis produk direkodkan, tetapi manfaat serta premium belum disahkan daripada sumber primer yang dibaca.`,
 );
-const faqs = record.figureVerified
+const barTypes: Record<string, string> = {
+  'third-party': 'Insurans motosikal third party',
+  comprehensive: 'Insurans motosikal comprehensive',
+  'comprehensive-takaful': 'Motosikal comprehensive / takaful',
+  'motorcycle-add-on': 'Add-on motosikal',
+};
+const barType = barTypes[record.type] ?? typeLabel;
+const faqCandidates = record.figureVerified
   ? [
       {
         q: `${record.planName} ini jenis perlindungan apa?`,
         a: record.type === 'motorcycle-add-on'
           ? `${record.planName} ialah add-on pilihan yang perlu dibeli bersama polisi motosikal Comprehensive yang berkenaan; ia bukan polisi comprehensive atau takaful yang berdiri sendiri. Semak PDS untuk syarat dan pengecualian.`
-          : `Rekod ini dikelaskan sebagai ${typeLabel}. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini ${record.planName}.`,
+          : `${barType}. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini ${record.planName}.`,
       },
       {
-        q: `Apa yang dilindungi oleh ${record.planName}?`,
-        a: `${record.coversWhat} Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.`,
+        q: 'Macam mana premium ditentukan?',
+        a: `${record.premiumBasis} Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia.`,
       },
       {
-        q: `Bagaimana premium ${record.planName} ditentukan?`,
-        a: `${record.premiumBasis} Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.`,
-      },
-      {
-        q: `Adakah contoh premium ini ialah harga untuk semua motosikal?`,
+        q: 'Contoh premium ini harga untuk semua motosikal ke?',
         a: record.workedExample
           ? `${record.workedExample}. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.`
-          : 'Tiada contoh premium yang disahkan untuk rekod ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda.',
+          : 'Tiada contoh premium yang disahkan untuk produk ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda.',
       },
       {
-        q: `Apa yang perlu disemak sebelum membeli ${record.planName}?`,
+        q: 'Apa yang perlu disemak sebelum membeli?',
         a: 'Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini.',
       },
     ]
   : [
       {
-        q: `Adakah butiran ${record.planName} sudah disahkan?`,
+        q: `Butiran ${record.planName} sudah disahkan ke?`,
         a: honestyLine,
       },
       {
-        q: `Di mana boleh semak ${record.planName}?`,
+        q: 'Di mana boleh semak?',
         a: `Gunakan sumber rasmi ${record.insurer} yang dipautkan pada halaman ini untuk menyemak manfaat, premium, syarat dan status produk terkini. Jangan gunakan halaman ini sebagai pengganti PDS atau quotation.`,
       },
     ];
+// The coverage and premium basis are printed above; an answer made only of those sentences is dropped.
+const faqs = freshFaqs(faqCandidates, [
+  record.coversWhat,
+  record.premiumBasis,
+  record.workedExample,
+  record.figureVerified ? undefined : honestyLine,
+]);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -112,6 +124,17 @@ const schema = {
     ],
   },
 };
+// Page answer (Edisi). Verified records: type plus the recorded facts (at most four rows). Unverified records:
+// only the type, with the existing honesty line as the note, so no unverified figure is promoted.
+// Rows whose value is a paragraph (over 160 characters) move to a details list under the box.
+const answerSpecs = record.figureVerified ? specItems.slice(0, 4) : [];
+const answerTop = answerSpecs.filter((spec) => String(spec.value ?? '').length <= 160);
+const answerRest = answerSpecs.filter((spec) => !answerTop.includes(spec));
+// The type sits in the bar with the insurer, so it is not repeated as a row. No lead: no single headline figure.
+const answerFacts = [
+  ...answerTop.map((spec) => ({ label: spec.label, value: spec.value ?? "", role: spec.label === 'Contoh premium PDS' ? ('price' as const) : ('term' as const) })),
+];
+
 ---
 
 <Base
@@ -136,38 +159,30 @@ const schema = {
     />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
       {record.figureVerified
-        ? `Data ringkas ${record.planName} oleh ${record.insurer}, berdasarkan sumber rasmi yang dibaca pada ${record.asAt}.`
-        : `Rekod nama ${record.planName} oleh ${record.insurer} berdasarkan sumber yang dikenal pasti pada ${record.asAt}; butiran produk belum disahkan.`}
+        ? `Data ringkas berdasarkan sumber rasmi yang dibaca pada ${tarikh(record.asAt)}.`
+        : `Rekod nama berdasarkan sumber yang dikenal pasti pada ${tarikh(record.asAt)}; butiran produk belum disahkan.`}
     </p>
 
-    <div class="border-2 border-stone-900 bg-white p-5 sm:p-6">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p class="label">Insurans motosikal</p>
-          <h2 class="mt-2 font-serif text-headline-sm text-stone-900">{record.planName}</h2>
-          <p class="mt-1 text-sm leading-5 text-stone-600">{record.insurer}</p>
-        </div>
-        <span class="inline-flex w-fit border border-hijau-700 bg-hijau-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-hijau-800">
-          {typeLabel}
-        </span>
-      </div>
+    <PageAnswer
+      slot="answer"
+      finding={`${barType} oleh ${record.insurer.replace(/\.$/, '')}`}
+      facts={answerFacts}
+      note={record.figureVerified ? undefined : honestyLine}
+    />
+    <ProductCss />
 
-      {record.figureVerified ? (
-        <>
-          <h2 class="mt-7 font-serif text-headline-sm text-stone-900">Apa yang direkodkan</h2>
-          <dl class="mt-4 space-y-3 text-sm">
-            {specItems.map((spec) => (
-              <div class="border-t border-stone-200 pt-3 first:border-t-0 first:pt-0">
-                <dt class="text-stone-500">{spec.label}</dt>
-                <dd class="mt-1 font-semibold leading-5 text-stone-900">{spec.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </>
-      ) : (
-        <p class="mt-7 border-t border-stone-200 pt-4 text-sm leading-6 text-stone-600">{honestyLine}</p>
-      )}
-    </div>
+    {answerRest.length > 0 && (
+      <div class="mod">
+        <dl class="pa-rows">
+          {answerRest.map((spec) => (
+            <div class="pa-r">
+              <dt>{spec.label}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )}
 
     <div class="mt-4 mr-2">
       <EditorialStamp articleDate={record.asAt} sources={sourceLinks} sourcesLabel="Sumber" showReviewed={false} />
@@ -176,16 +191,16 @@ const schema = {
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
-      <article class="prose-editorial">
+      <article class="prose-editorial prose-bars">
         {record.figureVerified ? (
           <>
             <p class="text-lg text-stone-700">
-              Halaman ini merumuskan apa yang dinyatakan dalam sumber rasmi {record.planName}. Ringkasan ini bukan quotation;
-              semak PDS, wording polisi atau sijil terkini sebelum membeli.
+              Ringkasan ini bukan quotation; semak PDS, wording polisi atau sijil terkini {record.planName} sebelum
+              membeli.
             </p>
-            <h2 id="bandingkan">Apa yang patut dibanding?</h2>
+            <h2 id="bandingkan">Sebelum membandingkan quotation</h2>
             <p>
-              Bandingkan jenis cover, skop liabiliti, perlindungan motosikal sendiri, jumlah diinsuranskan, NCD, excess,
+              Bandingkan jenis cover, skop liabiliti, perlindungan motosikal sendiri, jumlah diinsuranskan, had manfaat, NCD, excess,
               add-on pembonceng dan pengecualian. Premium motosikal tidak boleh disimpulkan daripada jadual roadtax atau
               angka pasaran yang tidak mempunyai sumber primer.
             </p>
@@ -199,25 +214,27 @@ const schema = {
         )}
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial">
-          <h2>Soalan lazim — {record.planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       {record.figureVerified && relatedRecords.length > 0 && (
         <section id="related">
-          <div class="prose-editorial">
+          <div class="prose-editorial prose-bars">
             <h2>Produk motosikal berkaitan</h2>
-            <p>Rekod lain dalam set data yang sama; buka setiap halaman untuk melihat status sumbernya.</p>
+            <p>Setiap halaman menyatakan sama ada manfaat dan premiumnya sudah disahkan daripada sumber primer.</p>
           </div>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             {relatedRecords.map((related) => (
@@ -241,14 +258,14 @@ const schema = {
       <CtaBand
         heading={`Semak ${record.planName} dengan penyedia`}
         body="Pautan rasmi di bawah ialah rujukan tanpa hubungan berbayar. Sahkan quotation, PDS dan syarat terkini terus dengan penyedia."
-        primary={{ label: 'Kembali ke insurans motosikal →', href: '/motorcycle-insurance/' }}
+        primary={{ label: 'Kembali ke insurans motosikal', href: '/motorcycle-insurance/' }}
         outbound={[{ label: `Semak sumber rasmi ${record.insurer}`, href: record.sources[0], relationship: 'unpaid' }]}
         disclosure="Insurans.co bukan ejen atau broker. Pautan luar tidak bermakna pengesyoran; pembelian dan quotation dibuat di laman penyedia."
       />
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -259,5 +276,5 @@ const schema = {
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>
