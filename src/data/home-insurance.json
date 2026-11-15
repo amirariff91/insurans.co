@@ -581,7 +581,7 @@
       "analysisAsAt": "2026-10-10",
       "analysis": {
         "bestFor": "Allianz Smart Home Cover sesuai untuk pemilik yang mahu memilih komponen perlindungan mengikut kegunaan rumah. HouseOwner dan HouseHolder boleh disusun bersama pilihan HomeFix, Landlord Insurance atau Mortgage Loan Installment Protection. Modul Landlord menyediakan manfaat tertentu bagi kerosakan berniat jahat oleh penyewa dan penyewa yang melarikan diri. HomeFix pula mempunyai had pembaikan paip pecah serta perkhidmatan penjagaan rumah mengikut pilihan. Pembeli boleh menilai polisi Annual satu tahun atau Multi-Year tiga tahun. Multi-Year menggunakan nilai dipersetujui dengan peningkatan jumlah diinsuranskan 3% setahun. Panel penjimatan rasmi membandingkan jumlah RM1,368.56 bagi susunan Annual dengan RM1,046.70 bagi Multi-Year. Angka itu merujuk gabungan komponen dalam contoh, bukan premium bangunan sahaja.",
-        "tradeoffs": "Komponen pilihan Allianz perlu dinilai berasingan kerana manfaat HomeFix, Landlord dan perlindungan ansuran tidak terpakai secara automatik kepada setiap pembeli. HomeFix dan HouseHolder kerugian pertama mempunyai batas kelayakan kawasan berisiko banjir, walaupun banjir termasuk dalam peril asas. Harga HouseOwner bergantung pada asas nilai dan sebut harga; risalah menyatakan diskaun sehingga 30% daripada tarif. Harta pembantu rumah dikecualikan. Kerosakan paip semasa bangunan tidak berpenghuni juga dikecualikan. Mendapan, runtuhan tanah dan rusuhan memerlukan premium tambahan. Pengecualian lain merangkumi pembakaran spontan, perang, nuklear, data atau perisian dan liabiliti berkaitan asbestos. Jumlah diinsuranskan perlu dipantau untuk mengelakkan klausa purata. Wording Annual menetapkan tuntutan lengkap dalam 30 hari selepas insiden.",
+        "tradeoffs": "Komponen pilihan Allianz perlu dinilai berasingan kerana manfaat HomeFix, Landlord dan perlindungan ansuran tidak terpakai secara automatik kepada setiap pembeli. Harga HouseHolder kerugian pertama dalam risalah tidak termasuk kawasan berisiko banjir, walaupun banjir termasuk dalam peril asas. Harga HouseOwner bergantung pada asas nilai dan sebut harga; risalah menyatakan diskaun sehingga 30% daripada tarif. Harta pembantu rumah dikecualikan. Kerosakan paip semasa bangunan tidak berpenghuni juga dikecualikan. Mendapan, runtuhan tanah dan rusuhan memerlukan premium tambahan. Pengecualian lain merangkumi pembakaran spontan, perang, nuklear, data atau perisian dan liabiliti berkaitan asbestos. Jumlah diinsuranskan perlu dipantau untuk mengelakkan klausa purata. Wording Annual menetapkan tuntutan lengkap dalam 30 hari selepas insiden.",
         "siblingSlug": "zurich-z-homeprotect",
         "siblingDifferences": [
           "Allianz mempunyai Annual 1 tahun dan Multi-Year 3 tahun dengan peningkatan jumlah diinsuranskan 3% setahun. Zurich menawarkan polisi 1 tahun; kadar bangunan Kelas 1A bertanah yang diterbitkan ialah 0.063%.",
@@ -602,7 +602,7 @@
         },
         {
           "label": "Banjir dan kelayakan pilihan",
-          "value": "Banjir termasuk, tertakluk kepada ekses dan pengecualian kerosakan akibat mendapan atau runtuhan tanah. HomeFix dan HouseHolder kerugian pertama tidak tersedia bagi kawasan berisiko banjir.",
+          "value": "Banjir termasuk, tertakluk kepada ekses dan pengecualian kerosakan akibat mendapan atau runtuhan tanah.",
           "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/PDS_SHC_AZ0624_ENG.pdf"
         },
         {
@@ -622,7 +622,7 @@
         },
         {
           "label": "Struktur harga diterbitkan",
-          "value": "Risalah SHC_Brochure_ENG_2406 menyatakan diskaun HouseOwner sehingga 30% daripada tarif. Jumlah diinsuranskan menggunakan kalkulator Allianz atau kos pembinaan semula yang dicadangkan. Jadual pilihan berasingan diterbitkan untuk HouseHolder, HomeFix, Mortgage Loan Installment Protection dan Landlord Insurance. Batas kawasan berisiko banjir dinyatakan untuk HouseHolder kerugian pertama dan HomeFix.",
+          "value": "Risalah SHC_Brochure_ENG_2406 menyatakan diskaun HouseOwner sehingga 30% daripada tarif. Jumlah diinsuranskan menggunakan kalkulator Allianz atau kos pembinaan semula yang dicadangkan. Jadual pilihan berasingan diterbitkan untuk HouseHolder, HomeFix, Mortgage Loan Installment Protection dan Landlord Insurance. Nota pada harga HouseHolder kerugian pertama menyatakan harga itu tidak termasuk kawasan berisiko banjir.",
           "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/home/smart-home-cover/SHC_Brochure_ENG_2406.pdf"
         },
         {
