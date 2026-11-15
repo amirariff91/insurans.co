@@ -14,7 +14,7 @@ const canonicalUrl = 'https://insurans.co/tools/kalkulator-insurans-rumah/';
 const description =
   'Kira anggaran premium insurans rumah (houseowner/householder) dari kadar tariff kebakaran × jumlah diinsuranskan. Kadar awam, bukan quotation insurer.';
 const intro =
-  'Masukkan jumlah diinsuranskan (kos pembinaan semula) untuk melihat anggaran premium houseowner dan householder ikut kadar tarif kebakaran. Ini kiraan daripada kadar awam, bukan quotation. Bukan ejen, bukan broker.';
+  'Masukkan jumlah diinsuranskan (kos pembinaan semula) untuk melihat anggaran premium houseowner dan householder ikut kadar tarif kebakaran. Ini kiraan daripada kadar awam, bukan quotation.';
 
 const rateSources = [
   'https://www.berjayasompo.com.my/product/houseowner-householder',
@@ -25,7 +25,7 @@ const rateSources = [
 const faqs = [
   {
     q: 'Kalkulator ini kira apa sebenarnya?',
-    a: `Ia mengira premium houseowner (bangunan) dan householder (isi rumah) menggunakan kadar tariff kebakaran × jumlah diinsuranskan, kemudian dinaikkan ke minimum premium RM${tariff.minPremium} jika lebih rendah dan ditambah setem RM${tariff.stamp}. Kadar 1A: houseowner ${tariff.ho_landed_1A.toFixed(3)}% landed / ${tariff.ho_flat_1A.toFixed(3)}% flat; householder ${tariff.hh_1A.toFixed(3)}%. Ia bukan quotation daripada insurer.`,
+    a: `Ia mengira premium houseowner (bangunan) dan householder (isi rumah) menggunakan kadar tarif kebakaran × jumlah diinsuranskan, kemudian dinaikkan ke minimum premium RM${tariff.minPremium} jika lebih rendah dan ditambah setem RM${tariff.stamp}. Kadar 1A: houseowner ${tariff.ho_landed_1A.toFixed(3)}% landed / ${tariff.ho_flat_1A.toFixed(3)}% flat; householder ${tariff.hh_1A.toFixed(3)}%. Ia bukan quotation daripada insurer.`,
   },
   {
     q: 'Jumlah diinsuranskan patut guna harga rumah atau kos pembinaan?',
@@ -37,10 +37,10 @@ const faqs = [
   },
   {
     q: 'Kenapa ada minimum premium RM60?',
-    a: `Tariff menetapkan minimum premium RM${tariff.minPremium} bagi polisi. Jika kadar × jumlah diinsuranskan lebih rendah daripada RM${tariff.minPremium}, premium bersih dinaikkan ke RM${tariff.minPremium} sebelum setem RM${tariff.stamp} ditambah.`,
+    a: `Tarif menetapkan minimum premium RM${tariff.minPremium} bagi polisi. Jika kadar × jumlah diinsuranskan lebih rendah daripada RM${tariff.minPremium}, premium bersih dinaikkan ke RM${tariff.minPremium} sebelum setem RM${tariff.stamp} ditambah.`,
   },
   {
-    q: 'Adakah angka ini muktamad?',
+    q: 'Angka ini muktamad ke?',
     a: 'Tidak. Ia anggaran daripada kadar tarif awam. Bank Negara sedang meliberalisasikan tarif kebakaran, jadi harga bukan tarif atau deviasi mungkin berlaku. Add-on (contoh banjir/special perils, kecurian penuh, liabiliti tambahan) juga menambah premium. Sahkan jumlah, skop dan wording dengan penyedia.',
   },
 ];
@@ -195,12 +195,12 @@ const introRest = introMore.join(' ');
         <div class="et-after">
           <Byline dateModified={home.asAt} />
           {introRest && <p>{introRest}</p>}
-          <p><strong>Alat percuma.</strong> Kiraan houseowner/householder menggunakan kadar tariff kebakaran awam.</p>
+          <p>Kiraan houseowner/householder menggunakan kadar tarif kebakaran awam, dan alat ini percuma.</p>
         </div>
 
         <article class="prose-editorial mt-10">
           <h2>Macam mana kami kira?</h2>
-          <p>Premium = kadar tariff × jumlah diinsuranskan, untuk setiap bahagian yang anda isi:</p>
+          <p>Premium = kadar tarif × jumlah diinsuranskan, untuk setiap bahagian yang anda isi:</p>
           <ul>
             <li>Houseowner (bangunan): {tariff.ho_landed_1A.toFixed(3)}% (1A landed) / {tariff.ho_flat_1A.toFixed(3)}% (1A flat) / {tariff.ho_landed_1B.toFixed(3)}% (1B landed) / {tariff.ho_flat_1B.toFixed(3)}% (1B flat).</li>
             <li>Householder (isi rumah): {tariff.hh_1A.toFixed(3)}% (1A) / {tariff.hh_1B.toFixed(3)}% (1B).</li>
@@ -212,7 +212,7 @@ const introRest = introMore.join(' ');
             <li>Jumlah diinsuranskan mesti kos pembinaan semula, bukan harga pasaran atau tanah. Kurang insurans mencetuskan <em>average clause</em>.</li>
             <li>Kelayakan householder kelas 1B tidak seragam: sesetengah pengendali (contoh Takaful Malaysia) tidak menerima householder 1B, manakala yang lain (contoh Pacific) menerbitkan kadar 1B {tariff.hh_1B.toFixed(3)}%. Sahkan kelayakan dengan penyedia sebelum bergantung pada kiraan 1B.</li>
             <li>Kadar polisi fire-only asas bank tidak diterbitkan (quote-gated) dan tidak dikira di sini; sesetengah pakej bank menggunakan struktur berbeza.</li>
-            <li>Bank Negara sedang meliberalisasikan tariff kebakaran: harga bukan tariff atau deviasi mungkin berlaku.</li>
+            <li>Bank Negara sedang meliberalisasikan tarif kebakaran: harga bukan tarif atau deviasi mungkin berlaku.</li>
             <li>Add-on (banjir/special perils, kecurian penuh, liabiliti tambahan) menambah premium dan tidak termasuk dalam kiraan asas ini.</li>
           </ul>
 

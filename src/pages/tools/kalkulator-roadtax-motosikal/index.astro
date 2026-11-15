@@ -12,7 +12,7 @@ const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax-motosikal/';
 const description =
   'Kira kadar roadtax JPJ untuk motosikal persendirian mengikut cc dan wilayah. Kadar awam JPJ, bukan premium insurans. Bukan ejen, bukan broker.';
 const intro =
-  'Masukkan cc motosikal dan wilayah: tengok roadtax JPJ setahun. Ini roadtax sahaja, bukan premium insurans. Nombor ikut jadual JPJ awam; motosikal 150cc ke bawah ialah "kadar sedia ada".';
+  'Masukkan cc motosikal dan wilayah untuk melihat roadtax JPJ setahun. Ini roadtax sahaja, bukan premium insurans. Nombor ikut jadual JPJ awam; motosikal 150cc ke bawah ialah "kadar sedia ada".';
 
 const chips = [
   { label: 'Honda EX5 (110cc)', cc: 110 },
@@ -179,7 +179,7 @@ const introRest = introMore.join(' ');
         <div class="et-after">
           <Byline dateModified={rates.asAt} />
           {introRest && <p>{introRest}</p>}
-          <p><strong>Alat percuma.</strong> Kiraan untuk motosikal persendirian menggunakan jadual kadar awam JPJ.</p>
+          <p>Kiraan untuk motosikal persendirian menggunakan jadual kadar awam JPJ, dan alat ini percuma.</p>
         </div>
 
         <article class="prose-editorial mt-10">
