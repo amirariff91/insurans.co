@@ -989,3 +989,5 @@ time { white-space: nowrap; }
    .numeric marks figures in running text; .hp-car-p is the home card's price line. Where a row is too narrow,
    the row wraps between label and price instead (each of these sits in a wrapping flex row or in text). */
 .px:not(.px-w), .mp, .numeric, .hp-car-p { white-space: nowrap; }
+/* A quiet module label (also defined in edisi-answer.css; here so every template has it). */
+.mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0; font: 800 1.125rem/1.25 var(--fd); }
