@@ -10,6 +10,7 @@ import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import personalAccident from '../../data/personal-accident.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type PersonalAccidentRecord = (typeof personalAccident.records)[number];
 
@@ -61,7 +62,12 @@ const pageTitle = `${record.planName} — PA`;
 const description = buildDescription(
   `${record.planName}: kelayakan, skala hilang upaya, had manfaat dan pengecualian. Bandingan dengan ${siblingRecord.planName} menggunakan dokumen rasmi.`,
 );
-const faqs = analysis.faqs;
+const faqs = freshFaqs(analysis.faqs, [
+  analysis.bestFor,
+  ...analysis.facts.map((fact) => fact.value),
+  analysis.tradeoffs,
+  ...analysis.siblingDifferences,
+]);
 
 const schema = {
   '@context': 'https://schema.org',
@@ -157,10 +163,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial prose-bars">
-        <h2 id="sesuai">Siapa yang sesuai dengan {record.planName}</h2>
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {record.planName}</h2>
+        <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
           {analysis.facts.map((fact) => (
             <div class="border-t border-stone-200 pt-4">
@@ -192,19 +198,21 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim: {record.planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section id="sumber" class="prose-editorial prose-bars">
         <h2>Sumber rasmi {record.planName}</h2>
@@ -222,7 +230,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       <CtaBand
         heading={`Semak sumber rasmi ${record.planName}`}
         body="Gunakan sumber rasmi untuk membaca PDS, semak quotation dan sahkan syarat sebelum membeli. Insurans.co tidak menjual polisi."
-        primary={{ label: 'Kembali ke hub PA', href: '/personal-accident/' }}
+        primary={{ label: 'Kembali ke insurans kemalangan diri', href: '/personal-accident/' }}
         outbound={sourceLinks.map((source) => ({
           label: `Sumber ${source.label}`,
           href: source.url,
@@ -234,7 +242,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -245,5 +253,5 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>

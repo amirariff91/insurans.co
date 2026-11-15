@@ -10,6 +10,7 @@ import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import homeInsurance from '../../data/home-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type HomeInsuranceRecord = (typeof homeInsurance.records)[number];
 
@@ -52,30 +53,37 @@ const specItems = record.facts.filter((fact) =>
 );
 const faqTopics = [
   {
-    q: `Pelan ${record.planName} ini jenis insurans rumah apa?`,
+    q: `${record.planName} ini insurans rumah jenis apa?`,
     labels: ['Jenis dan tempoh polisi', 'Jenis dan tempoh sijil', 'Komponen dan tempoh polisi'],
   },
   {
-    q: `Apa yang dilindungi oleh ${record.planName}?`,
+    q: 'Apa yang dilindungi?',
     labels: ['Risiko yang dilindungi', 'Risiko dan bahagian perlindungan', 'Risiko asas bangunan dan isi rumah'],
   },
   {
-    q: `Apakah contoh premium atau sumbangan rasmi untuk ${record.planName}?`,
+    q: 'Berapa contoh premium yang diterbitkan?',
     labels: ['Contoh premium rasmi', 'Contoh sumbangan rasmi', 'Contoh premium rasmi dan percanggahan'],
   },
   {
-    q: `Bagaimana menentukan jumlah diinsuranskan untuk ${record.planName}?`,
+    q: 'Macam mana nak tentukan jumlah diinsuranskan?',
     labels: ['Asas jumlah diinsuranskan', 'Asas jumlah dilindungi', 'Asas nilai bangunan dan isi rumah', 'Asas nilai dan peningkatan perlindungan'],
   },
   {
-    q: `${record.planName} melindungi banjir?`,
+    q: 'Banjir dilindungi ke?',
     labels: ['Banjir dan ekses', 'Banjir dan kelayakan pilihan'],
   },
 ];
-const faqs = faqTopics.flatMap((topic) => {
+const faqCandidates = faqTopics.flatMap((topic) => {
   const fact = record.facts.find((candidate) => topic.labels.includes(candidate.label));
   return fact ? [{ q: topic.q, a: fact.value }] : [];
 });
+// Each answer is a fact row printed in full above; freshFaqs drops answers that only repeat the page.
+const faqs = freshFaqs(faqCandidates, [
+  record.analysis.bestFor,
+  ...record.facts.map((fact) => fact.value),
+  record.analysis.tradeoffs,
+  ...record.analysis.siblingDifferences,
+]);
 
 const title = buildTitle(`${record.planName} — Insurans Rumah`);
 const description = buildDescription(
@@ -180,10 +188,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial prose-bars">
-        <h2 id="sesuai">Siapa yang sesuai dengan {record.planName}</h2>
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{record.analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {record.planName}</h2>
+        <h2 id="fakta">Perlindungan, had dan syarat</h2>
         <dl class="mt-5 space-y-5">
           {record.facts.map((fact) => (
             <div class="border-t border-stone-200 pt-4">
@@ -213,19 +221,21 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim: {record.planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section id="sumber" class="prose-editorial prose-bars">
         <h2>Sumber rasmi {record.planName}</h2>
@@ -248,7 +258,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -259,5 +269,5 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>

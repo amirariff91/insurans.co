@@ -10,6 +10,7 @@ import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import travel from '../../data/travel-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type TravelPlan = (typeof travel.records)[number];
 
@@ -56,16 +57,23 @@ const description = buildDescription(
   `${planName} (${plan.insurer}): kelayakan umur, had manfaat, syarat pembatalan dan perbandingan dengan ${siblingName}. Analisis bertarikh ${plan.analysisAsAt}.`,
 );
 const faqTopics = [
-  { label: 'Tempoh maksimum perjalanan', question: `Berapa lama perjalanan boleh dilindungi oleh ${planName}?` },
-  { label: 'Umur penyertaan', question: `Siapa yang layak menyertai ${planName}?` },
-  { label: 'Pembatalan perjalanan', question: `Berapa had pembatalan perjalanan ${planName}?` },
-  { label: 'Perlindungan COVID-19', question: `Apakah skop COVID-19 dalam ${planName}?` },
-  { label: 'Tarikh akhir notis tuntutan', question: `Bila perlu menghantar tuntutan ${planName}?` },
+  { label: 'Tempoh maksimum perjalanan', question: `Berapa lama perjalanan yang dilindungi ${planName}?` },
+  { label: 'Umur penyertaan', question: 'Siapa yang layak?' },
+  { label: 'Pembatalan perjalanan', question: 'Berapa had pembatalan perjalanan?' },
+  { label: 'Perlindungan COVID-19', question: 'COVID-19 dilindungi ke?' },
+  { label: 'Tarikh akhir notis tuntutan', question: 'Bila tuntutan perlu dihantar?' },
 ];
-const faqs = faqTopics.flatMap((topic) => {
+const faqCandidates = faqTopics.flatMap((topic) => {
   const fact = analysis.facts.find((candidate) => candidate.label === topic.label);
   return fact ? [{ q: topic.question, a: fact.value }] : [];
 });
+// Each answer is a fact row printed in full above; freshFaqs drops answers that only repeat the page.
+const faqs = freshFaqs(faqCandidates, [
+  analysis.bestFor,
+  ...analysis.facts.map((fact) => fact.value),
+  analysis.tradeoffs,
+  ...analysis.siblingDifferences,
+]);
 
 const schema = {
   '@context': 'https://schema.org',
@@ -165,10 +173,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial prose-bars">
-        <h2 id="sesuai">Siapa yang sesuai dengan {planName}</h2>
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {planName}</h2>
+        <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
           {analysis.facts.map((fact) => (
             <div class="border-t border-stone-200 pt-4">
@@ -195,30 +203,32 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim: {planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <CtaBand
         heading="Semak semua pilihan travel insurance"
-        body="Gunakan halaman hub untuk membandingkan pelan berdasarkan manfaat, syarat dan sumber rasmi."
+        body="Senarai semua travel insurance di laman ini, dengan sumber rasmi setiap pelan."
         primary={{ label: 'Lihat semua travel insurance', href: '/travel-insurance/' }}
         disclosure="Tiada hubungan berbayar atau affiliate. Pautan luar, jika ada, hanya rujukan; pembelian polisi dibuat di laman penyedia, bukan di Insurans.co."
       />
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -229,5 +239,5 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>

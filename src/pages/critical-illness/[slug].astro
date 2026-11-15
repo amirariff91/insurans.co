@@ -10,6 +10,7 @@ import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import ci from '../../data/critical-illness.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import { freshFaqs } from '../../lib/plan-faq';
 
 type CriticalIllnessRecord = (typeof ci.records)[number];
 
@@ -59,16 +60,23 @@ const description = buildDescription(
 );
 
 const faqTopics = [
-  { q: `Bagaimana ${record.planName} dibeli atau diperoleh?`, labels: ['Jenis dan saluran pelan'] },
-  { q: `Apakah penyakit yang dilindungi oleh ${record.planName}?`, labels: ['Penyakit yang dilindungi', 'Definisi kanser'] },
-  { q: `Bagaimana manfaat ${record.planName} dibayar?`, labels: ['Bayaran mengikut peringkat', 'Peraturan tuntutan'] },
-  { q: `Apakah syarat masa tuntutan ${record.planName}?`, labels: ['Tempoh menunggu', 'Tempoh hidup selepas diagnosis', 'Keadaan yang memburuk selepas 2025'] },
-  { q: `Siapa layak dan berapa lama ${record.planName} melindungi mereka?`, labels: ['Umur kemasukan', 'Umur dalam jadual kadar', 'Kelayakan dan umur', 'Tempoh perlindungan'] },
+  { q: `Macam mana ${record.planName} dibeli?`, labels: ['Jenis dan saluran pelan'] },
+  { q: 'Penyakit apa yang dilindungi?', labels: ['Penyakit yang dilindungi', 'Definisi kanser'] },
+  { q: 'Berapa yang dibayar ikut peringkat penyakit?', labels: ['Bayaran mengikut peringkat', 'Peraturan tuntutan'] },
+  { q: 'Berapa lama perlu tunggu sebelum boleh claim?', labels: ['Tempoh menunggu', 'Tempoh hidup selepas diagnosis', 'Keadaan yang memburuk selepas 2025'] },
+  { q: 'Siapa layak, dan sampai umur berapa dilindungi?', labels: ['Umur kemasukan', 'Umur dalam jadual kadar', 'Kelayakan dan umur', 'Tempoh perlindungan'] },
 ];
-const faqs = faqTopics.map((topic) => ({
+const faqCandidates = faqTopics.map((topic) => ({
   q: topic.q,
   a: analysis.facts.filter((fact) => topic.labels.includes(fact.label)).map((fact) => fact.value).join(' '),
 }));
+// Each answer joins fact rows printed in full above; freshFaqs drops answers that only repeat the page.
+const faqs = freshFaqs(faqCandidates.filter((faq) => faq.a), [
+  analysis.bestFor,
+  ...analysis.facts.map((fact) => fact.value),
+  analysis.tradeoffs,
+  ...analysis.siblingDifferences,
+]);
 
 const schema = {
   '@context': 'https://schema.org',
@@ -172,10 +180,10 @@ const answerRest = [
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       <article class="prose-editorial prose-bars">
-        <h2 id="sesuai">Siapa yang sesuai dengan {record.planName}</h2>
+        <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
 
-        <h2 id="fakta">Fakta utama {record.planName}</h2>
+        <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="not-prose my-6 divide-y divide-stone-200 border-y border-stone-200">
           {analysis.facts.map((fact) => (
             <div class="py-4 sm:grid sm:grid-cols-[12rem_1fr] sm:gap-6">
@@ -207,19 +215,21 @@ const answerRest = [
         </p>
       </article>
 
-      <section id="faq">
-        <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim: {record.planName}</h2>
-        </div>
-        <div class="mt-5">
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <section id="faq">
+          <div class="prose-editorial prose-bars">
+            <h2>Soalan lazim</h2>
+          </div>
+          <div class="mt-5">
+            {faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section id="sumber" class="prose-editorial prose-bars">
         <h2>Sumber rasmi {record.planName}</h2>
@@ -243,7 +253,7 @@ const answerRest = [
     </div>
   </div>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {faqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -254,5 +264,5 @@ const answerRest = [
         text: faq.a,
       },
     })),
-  })} />
+  })} />}
 </Base>
