@@ -4,6 +4,7 @@
  * figures; no new logic, the calculator does the sum) and related models.
  */
 import Ikon from '../Ikon.astro';
+import CarThumb from '../CarThumb.astro';
 import Px from './Px.astro';
 import { carSteps, rmRange } from './steps';
 import { rm } from '../../lib/ncd';
@@ -40,7 +41,7 @@ const formatRange = (min: number, max: number) => rmRange(min, max, rm);
       <ul class="rel">
         {related.map((r: any) => (
           <li>
-            <a href={`/car-insurance/${r.slug}/`}>{r.fullName}</a>
+            <span class="rel-h"><CarThumb slug={r.slug} /><a href={`/car-insurance/${r.slug}/`}>{r.fullName}</a></span>
             <p class="ix-src" style="border:0;padding:0">{r.segment}, {r.engineCC}</p>
             <dl>
               <div><dt>NCD 55%</dt><dd>{formatRange(r.premiumNCD55Min, r.premiumNCD55Max)}</dd></div>
