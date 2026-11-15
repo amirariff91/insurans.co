@@ -209,7 +209,7 @@ const answerRest = [
 
       <section id="faq">
         <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim — {record.planName}</h2>
+          <h2>Soalan lazim: {record.planName}</h2>
         </div>
         <div class="mt-5">
           {faqs.map((faq, index) => (
@@ -229,7 +229,7 @@ const answerRest = [
             const document = source.pathname.endsWith('.pdf')
               ? decodeURIComponent(source.pathname.split('/').pop()!)
               : source.searchParams.get('url') ?? 'Halaman produk';
-            return <li><a href={url} class="break-words">{source.hostname.replace(/^www\./, '')} — {document}</a></li>;
+            return <li><a href={url} class="break-words">{source.hostname.replace(/^www\./, '')}: {document}</a></li>;
           })}
         </ol>
       </section>

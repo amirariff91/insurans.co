@@ -12,7 +12,7 @@ const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax-motosikal/';
 const description =
   'Kira kadar roadtax JPJ untuk motosikal persendirian mengikut cc dan wilayah. Kadar awam JPJ, bukan premium insurans. Bukan ejen, bukan broker.';
 const intro =
-  'Masukkan cc motosikal dan wilayah — tengok roadtax JPJ setahun. Ini roadtax sahaja, bukan premium insurans. Nombor ikut jadual JPJ awam; motosikal 150cc ke bawah ialah "kadar sedia ada".';
+  'Masukkan cc motosikal dan wilayah: tengok roadtax JPJ setahun. Ini roadtax sahaja, bukan premium insurans. Nombor ikut jadual JPJ awam; motosikal 150cc ke bawah ialah "kadar sedia ada".';
 
 const chips = [
   { label: 'Honda EX5 (110cc)', cc: 110 },
@@ -25,7 +25,7 @@ const chips = [
 const faqs = [
   {
     q: 'Berapa roadtax motosikal 150cc ke bawah (contoh EX5, LC135, Y15)?',
-    a: 'Bagi motosikal 150cc dan ke bawah, garis panduan JPJ yang dirujuk menulis "dikekalkan pada kadar sedia ada" tanpa menyatakan angka. Nilai RM2 sering dilaporkan di laman pihak ketiga, tetapi ia tidak dinyatakan dalam PDF rasmi yang kami baca. Sebab itu kalkulator ini tidak memaparkan angka rekaan untuk band ini — semak JPJ atau MyEG untuk pengesahan.',
+    a: 'Bagi motosikal 150cc dan ke bawah, garis panduan JPJ yang dirujuk menulis "dikekalkan pada kadar sedia ada" tanpa menyatakan angka. Nilai RM2 sering dilaporkan di laman pihak ketiga, tetapi ia tidak dinyatakan dalam PDF rasmi yang kami baca. Sebab itu kalkulator ini tidak memaparkan angka rekaan untuk band ini. Semak JPJ atau MyEG untuk pengesahan.',
   },
   {
     q: 'Berapa roadtax motosikal 250cc dan 1000cc?',
@@ -171,7 +171,7 @@ const introRest = introMore.join(' ');
 </div>
 
           <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
-            Roadtax sahaja — premium insurans motosikal tiada jadual awam mengikut cc.
+            Roadtax sahaja: premium insurans motosikal tiada jadual awam mengikut cc.
             <a href="/motorcycle-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Panduan insurans motosikal →</a>
           </p>
         </section>
@@ -186,7 +186,7 @@ const introRest = introMore.join(' ');
           <h2>Macam mana kami kira?</h2>
           <p>Kami pilih band cc mengikut wilayah, kemudian paparkan kadar tetap JPJ untuk band itu. Tiada formula per-cc; setiap band ialah kadar rata.</p>
           <ul>
-            <li>Motosikal <strong>150cc dan ke bawah</strong>: JPJ menulis <em>"kadar sedia ada"</em> tanpa angka — kami tidak menggantikannya dengan nombor rekaan.</li>
+            <li>Motosikal <strong>150cc dan ke bawah</strong>: JPJ menulis <em>"kadar sedia ada"</em> tanpa angka: kami tidak menggantikannya dengan nombor rekaan.</li>
             <li>Melebihi 150cc: kadar tetap mengikut band (lihat jadual pada <a href="/motorcycle-insurance/#roadtax">panduan insurans motosikal</a>).</li>
           </ul>
 
@@ -200,7 +200,7 @@ const introRest = introMore.join(' ');
 
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Penafian:</strong> Anggaran ikut jadual kadar LKM JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja — bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
+              <strong>Penafian:</strong> Anggaran ikut jadual kadar LKM JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
             </p>
             <div class="mt-3 text-sm leading-5 text-stone-700">
               <strong>Sumber:</strong>
@@ -352,7 +352,7 @@ const introRest = introMore.join(' ');
 
       if (result.kadarSediaAda) {
         valueEl.textContent = 'Kadar sedia ada';
-        breakdownEl.textContent = `Motosikal ${formatCc(cc)}cc (${regionLabels[region]}): JPJ menulis "kadar sedia ada" tanpa menyatakan angka dalam garis panduan yang dirujuk. Nilai RM2 sering dilaporkan tetapi tidak disahkan dalam PDF rasmi — semak JPJ/MyEG.`;
+        breakdownEl.textContent = `Motosikal ${formatCc(cc)}cc (${regionLabels[region]}): JPJ menulis "kadar sedia ada" tanpa menyatakan angka dalam garis panduan yang dirujuk. Nilai RM2 sering dilaporkan tetapi tidak disahkan dalam PDF rasmi. Semak JPJ/MyEG.`;
       } else if (result.rate !== null) {
         const maxCc = result.band.maxCc === 99999 ? '∞' : formatCc(result.band.maxCc);
         valueEl.textContent = `Roadtax setahun: ${formatRate(result.rate)}`;

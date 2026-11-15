@@ -48,7 +48,7 @@ const { analysis } = card;
 const sibling = cards.find((candidate) => candidate.slug === analysis.siblingSlug)!;
 const sourceUrls = [...new Set([...card.sources, ...analysis.facts.map((fact) => fact.source)])];
 const sourceLinks = sourceUrls.map((url, index) => ({
-  label: `[${index + 1}] ${decodeURIComponent(new URL(url).pathname.split('/').filter(Boolean).pop()!)} — ${new URL(url).hostname.replace(/^www\./, '')}`,
+  label: `[${index + 1}] ${decodeURIComponent(new URL(url).pathname.split('/').filter(Boolean).pop()!)} (${new URL(url).hostname.replace(/^www\./, '')})`,
   url,
 }));
 const specItems = analysis.facts.filter((fact) =>
@@ -63,9 +63,9 @@ const faqFacts = [
   { label: 'Perkongsian kos', q: `Apakah perkongsian kos ${card.planName}?` },
   { label: 'Tempoh menunggu', q: `Bilakah perlindungan penyakit ${card.planName} bermula?` },
   { label: 'Panel dan kemasukan tanpa tunai', q: `Bagaimana kemasukan hospital panel ${card.planName}?` },
-  ...analysis.facts.filter((fact) => fact.label.startsWith('Manfaat —')).slice(0, 2).map((fact) => ({
+  ...analysis.facts.filter((fact) => fact.label.startsWith('Manfaat: ')).slice(0, 2).map((fact) => ({
     label: fact.label,
-    q: `Apakah ${fact.label.replace('Manfaat — ', '')} dalam ${card.planName}?`,
+    q: `Apakah ${fact.label.replace('Manfaat: ', '')} dalam ${card.planName}?`,
   })),
 ];
 const faqs = faqFacts.flatMap(({ label, q }) => {
@@ -219,7 +219,7 @@ const answerRest = [
 
       <section id="faq">
         <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim — {card.planName}</h2>
+          <h2>Soalan lazim: {card.planName}</h2>
         </div>
         <div class="mt-5">
           {faqs.map((faq, index) => (

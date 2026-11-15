@@ -39,7 +39,7 @@ const recordGroups = typeOrder
   }))
   .filter((group) => group.records.length > 0);
 const sourceLinks = [
-  { label: 'JPJ — Garis Panduan LKM', url: jpjSource },
+  { label: 'JPJ: Garis Panduan LKM', url: jpjSource },
   ...records.flatMap((record) =>
     record.sources.map((url) => ({
       label: new URL(url).hostname.replace(/^www\./, ''),
