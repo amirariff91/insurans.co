@@ -120,6 +120,16 @@
     "height": 96
   },
   {
+    "slug": "honda-civic",
+    "from": "/images/kereta/honda-civic-800.webp",
+    "src144": "/images/kereta/kecil/honda-civic-144.webp",
+    "bytes144": 3020,
+    "src96": "/images/kereta/kecil/honda-civic-96.webp",
+    "bytes96": 1776,
+    "width": 144,
+    "height": 96
+  },
+  {
     "slug": "honda-hrv",
     "from": "/images/kereta/honda-hrv-800.webp",
     "src144": "/images/kereta/kecil/honda-hrv-144.webp",
@@ -280,6 +290,46 @@
     "height": 96
   },
   {
+    "slug": "hyundai-tucson",
+    "from": "/images/kereta/hyundai-tucson-800.webp",
+    "src144": "/images/kereta/kecil/hyundai-tucson-144.webp",
+    "bytes144": 2472,
+    "src96": "/images/kereta/kecil/hyundai-tucson-96.webp",
+    "bytes96": 1550,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "hyundai-elantra",
+    "from": "/images/kereta/hyundai-elantra-800.webp",
+    "src144": "/images/kereta/kecil/hyundai-elantra-144.webp",
+    "bytes144": 2710,
+    "src96": "/images/kereta/kecil/hyundai-elantra-96.webp",
+    "bytes96": 1598,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "kia-sportage",
+    "from": "/images/kereta/kia-sportage-800.webp",
+    "src144": "/images/kereta/kecil/kia-sportage-144.webp",
+    "bytes144": 2102,
+    "src96": "/images/kereta/kecil/kia-sportage-96.webp",
+    "bytes96": 1344,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "suzuki-swift",
+    "from": "/images/kereta/suzuki-swift-800.webp",
+    "src144": "/images/kereta/kecil/suzuki-swift-144.webp",
+    "bytes144": 2714,
+    "src96": "/images/kereta/kecil/suzuki-swift-96.webp",
+    "bytes96": 1528,
+    "width": 144,
+    "height": 96
+  },
+  {
     "slug": "bmw-3-series",
     "from": "/images/kereta/bmw-3-series-800.webp",
     "src144": "/images/kereta/kecil/bmw-3-series-144.webp",
@@ -290,12 +340,52 @@
     "height": 96
   },
   {
+    "slug": "bmw-x1",
+    "from": "/images/kereta/bmw-x1-800.webp",
+    "src144": "/images/kereta/kecil/bmw-x1-144.webp",
+    "bytes144": 2714,
+    "src96": "/images/kereta/kecil/bmw-x1-96.webp",
+    "bytes96": 1620,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "mercedes-c-class",
+    "from": "/images/kereta/mercedes-c-class-800.webp",
+    "src144": "/images/kereta/kecil/mercedes-c-class-144.webp",
+    "bytes144": 1838,
+    "src96": "/images/kereta/kecil/mercedes-c-class-96.webp",
+    "bytes96": 1114,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "mercedes-glb",
+    "from": "/images/kereta/mercedes-glb-800.webp",
+    "src144": "/images/kereta/kecil/mercedes-glb-144.webp",
+    "bytes144": 2504,
+    "src96": "/images/kereta/kecil/mercedes-glb-96.webp",
+    "bytes96": 1370,
+    "width": 144,
+    "height": 96
+  },
+  {
     "slug": "honda-jazz",
     "from": "/images/kereta/honda-jazz-800.webp",
     "src144": "/images/kereta/kecil/honda-jazz-144.webp",
     "bytes144": 2248,
     "src96": "/images/kereta/kecil/honda-jazz-96.webp",
     "bytes96": 1370,
+    "width": 144,
+    "height": 96
+  },
+  {
+    "slug": "toyota-raize",
+    "from": "/images/kereta/toyota-raize-800.webp",
+    "src144": "/images/kereta/kecil/toyota-raize-144.webp",
+    "bytes144": 2876,
+    "src96": "/images/kereta/kecil/toyota-raize-96.webp",
+    "bytes96": 1748,
     "width": 144,
     "height": 96
   }

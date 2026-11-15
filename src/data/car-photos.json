@@ -254,7 +254,25 @@
   },
   {
     "slug": "honda-civic",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/honda-civic-400.webp",
+    "src800": "/images/kereta/honda-civic-800.webp",
+    "width": 800,
+    "height": 470,
+    "alt": "Honda Civic, foto pasaran Malaysia",
+    "credit": {
+      "title": "2021 Honda Civic RS",
+      "author": "Chanokchon",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_Honda_Civic_RS.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: Chanokchon, CC BY-SA 4.0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "honda-hrv",
@@ -606,19 +624,92 @@
   },
   {
     "slug": "hyundai-tucson",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/hyundai-tucson-400.webp",
+    "src800": "/images/kereta/hyundai-tucson-800.webp",
+    "width": 800,
+    "height": 441,
+    "alt": "Hyundai Tucson, foto pasaran Malaysia",
+    "credit": {
+      "title": "Hyundai Tucscon 1.6 T-GDI Hybrid Prime (IV) – f 25042024",
+      "author": "M 93",
+      "copyrightNotice": "© M 93",
+      "licence": "CC BY-SA 3.0 de",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Hyundai_Tucscon_1.6_T-GDI_Hybrid_Prime_(IV)_%E2%80%93_f_25042024.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "hyundai-elantra",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/hyundai-elantra-400.webp",
+    "src800": "/images/kereta/hyundai-elantra-800.webp",
+    "width": 800,
+    "height": 442,
+    "alt": "Hyundai Elantra, foto pasaran Malaysia",
+    "credit": {
+      "title": "2021 Hyundai Elantra 1.6AT High Spec red front view in Brunei",
+      "author": "AIMHO'S REBELLION 8490s",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_Hyundai_Elantra_1.6AT_High_Spec_red_front_view_in_Brunei.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: AIMHO'S REBELLION 8490s, CC BY-SA 4.0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "kia-sportage",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/kia-sportage-400.webp",
+    "src800": "/images/kereta/kia-sportage-800.webp",
+    "width": 800,
+    "height": 358,
+    "alt": "Kia Sportage, foto pasaran Malaysia",
+    "credit": {
+      "title": "2025 Kia Sportage GT-Line facelift front",
+      "author": "LuvsMG481",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2025_Kia_Sportage_GT-Line_facelift_front.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: LuvsMG481, CC BY-SA 4.0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih, nombor plat ditutup."
+    },
+    "modifications": "latar dibuang, hitam putih, nombor plat ditutup.",
+    "platesCovered": 1,
+    "aiRetouched": false
   },
   {
     "slug": "suzuki-swift",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/suzuki-swift-400.webp",
+    "src800": "/images/kereta/suzuki-swift-800.webp",
+    "width": 800,
+    "height": 498,
+    "alt": "Suzuki Swift, foto pasaran Malaysia",
+    "credit": {
+      "title": "2021 Suzuki Swift Sport 1.4 AT red front view in Brunei",
+      "author": "AIMHO'S REBELLION 8490s",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_Suzuki_Swift_Sport_1.4_AT_red_front_view_in_Brunei.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: AIMHO'S REBELLION 8490s, CC BY-SA 4.0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "bmw-3-series",
@@ -643,15 +734,71 @@
   },
   {
     "slug": "bmw-x1",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/bmw-x1-400.webp",
+    "src800": "/images/kereta/bmw-x1-800.webp",
+    "width": 800,
+    "height": 408,
+    "alt": "BMW X1, foto pasaran Malaysia",
+    "credit": {
+      "title": "BMW X1 (U11) – f 15122024",
+      "author": "M 93",
+      "copyrightNotice": "© M 93",
+      "licence": "CC BY-SA 3.0 de",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:BMW_X1_(U11)_%E2%80%93_f_15122024.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "mercedes-c-class",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/mercedes-c-class-400.webp",
+    "src800": "/images/kereta/mercedes-c-class-800.webp",
+    "width": 800,
+    "height": 354,
+    "alt": "Mercedes-Benz C-Class, foto pasaran Malaysia",
+    "credit": {
+      "title": "Mercedes-Benz C 200 AMG Line (W 206) – f 18042025",
+      "author": "M 93",
+      "copyrightNotice": "© M 93",
+      "licence": "CC BY-SA 3.0 de",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_C_200_AMG_Line_(W_206)_%E2%80%93_f_18042025.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "mercedes-glb",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/mercedes-glb-400.webp",
+    "src800": "/images/kereta/mercedes-glb-800.webp",
+    "width": 800,
+    "height": 636,
+    "alt": "Mercedes-Benz GLB, foto pasaran Malaysia",
+    "credit": {
+      "title": "Mercedes-Benz GLB 200 d 4MATIC (X247) front",
+      "author": "Tokumeigakarinoaoshima",
+      "licence": "CC0",
+      "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_GLB_200_d_4MATIC_(X247)_front.jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: Tokumeigakarinoaoshima, CC0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   },
   {
     "slug": "honda-jazz",
@@ -677,6 +824,24 @@
   },
   {
     "slug": "toyota-raize",
-    "hasPhoto": false
+    "hasPhoto": true,
+    "src400": "/images/kereta/toyota-raize-400.webp",
+    "src800": "/images/kereta/toyota-raize-800.webp",
+    "width": 800,
+    "height": 440,
+    "alt": "Toyota Raize, foto pasaran Malaysia",
+    "credit": {
+      "title": "2022 Toyota Raize 1.0T G (front)",
+      "author": "Alex Neman",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022_Toyota_Raize_1.0T_G_(front).jpg",
+      "sourceSite": "Wikimedia Commons",
+      "retrieved": "2026-11-15",
+      "line": "Foto: Alex Neman, CC BY-SA 4.0, Wikimedia Commons. Diubah suai: latar dibuang, hitam putih."
+    },
+    "modifications": "latar dibuang, hitam putih.",
+    "platesCovered": 0,
+    "aiRetouched": false
   }
 ]
