@@ -6,7 +6,7 @@ import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
   {
-    q: "Adakah insurans kereta standard melindungi kerosakan akibat banjir?",
+    q: "Insurans kereta standard cover banjir ke?",
     a: "Tidak. Insurans komprehensif standard tidak melindungi kerosakan banjir. Anda perlu tambah add-on 'Special Perils' atau 'Bencana Khas' secara berasingan untuk mendapat perlindungan banjir."
   },
   {
@@ -14,7 +14,7 @@ const faqItems = [
     a: "Kos add-on special perils dikira sebagai peratusan daripada sum insured, lazimnya 0.2% hingga 0.5% setahun, bergantung kepada syarikat insurans dan tahap perlindungan. Contohnya, untuk kereta dengan sum insured RM50,000, premium tambahan ialah sekitar RM100 hingga RM250 setahun. Minta sebut harga untuk angka tepat."
   },
   {
-    q: "Apa yang perlu dilakukan jika kereta dilanda banjir?",
+    q: "Kereta kena banjir, apa yang perlu dibuat?",
     a: "Jangan hidupkan enjin selepas kereta ditenggelami air kerana ini boleh menambah kerosakan dan menjejaskan claim. Ambil gambar/video kerosakan segera. Maklumkan syarikat insurans anda secepat mungkin dan semak tempoh pemberitahuan dalam polisi anda. Bawa kereta ke panel bengkel yang dilantik oleh syarikat insurans anda."
   }
 ];
@@ -77,7 +77,7 @@ const schema = {
       />
       <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
-        Hanya 13% kenderaan bermotor di Malaysia mempunyai perlindungan banjir (PIAM, Oktober 2026, dilaporkan oleh <a href="https://ringgitplus.com/ms/blog/utama/piam-monsun-hampir-tiba-87-kenderaan-masih-tiada-perlindungan-banjir.html" class="underline" target="_blank" rel="noopener noreferrer">RinggitPlus</a>). Ketahui cara menambah perlindungan banjir pada polisi anda.
+        Hanya 13% kenderaan bermotor di Malaysia mempunyai perlindungan banjir (PIAM, Oktober 2026, dilaporkan oleh <a href="https://ringgitplus.com/ms/blog/utama/piam-monsun-hampir-tiba-87-kenderaan-masih-tiada-perlindungan-banjir.html" class="underline" target="_blank" rel="noopener noreferrer">RinggitPlus</a>).
       </p>
     </div>
   </section>
@@ -89,15 +89,14 @@ const schema = {
         <!-- Warning box -->
         <div class="not-prose note-warn mb-8">
           <p class="text-sm leading-relaxed">
-            Anda perlu tambah
-            add-on <strong>Special Perils</strong> secara berasingan. Jika anda tinggal di kawasan
-            banjir dan tidak ada add-on ini, anda menanggung sepenuhnya kos kerosakan banjir.
+            Jika anda tinggal di kawasan banjir dan tiada add-on <strong>Special Perils</strong>,
+            anda menanggung sepenuhnya kos kerosakan banjir.
           </p>
         </div>
 
-        <h2>Apa itu special perils (Bencana Khas)?</h2>
+        <h2>Special perils (Bencana Khas) melindungi banjir, ribut dan tanah runtuh</h2>
         <p>
-          <em>Special Perils</em> atau <em>Bencana Khas</em> ialah add-on tambahan kepada polisi
+          <em>Special Perils</em> atau <em>Bencana Khas</em> ialah add-on kepada polisi
           insurans kereta anda yang melindungi kerosakan akibat bencana alam dan kejadian luar biasa.
           Ini termasuk:
         </p>
@@ -114,10 +113,10 @@ const schema = {
         </p>
 
         <h2><span aria-hidden="true">Kos special perils: sekitar 0.2%–0.5% daripada sum insured setahun</span><span class="sr-only">Berapa kos special perils?</span></h2>
-        <p>Kos special perils dikira sebagai peratusan daripada sum insured kereta anda:</p>
+        <p>Kadarnya dikira daripada sum insured kereta anda:</p>
         <ul>
           <li>Kadar lazim: <strong>sekitar 0.2%–0.5% daripada sum insured setahun</strong></li>
-          <li>Contoh: sum insured RM50,000 → sekitar RM100–RM250 setahun</li>
+          <li>Contoh: sum insured RM50,000, sekitar RM100–RM250 setahun</li>
           <li>Kadar dan tahap perlindungan (penuh atau separa) berbeza mengikut syarikat insurans</li>
         </ul>
         <p class="text-sm text-stone-500">
@@ -127,22 +126,18 @@ const schema = {
           Kos membaiki kereta yang rosak akibat banjir boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan. Bandingkan kos itu dengan premium tambahan special perils untuk kereta anda.
         </p>
 
-        <div class="note-warn my-6">
-          <p class="note-t mb-2">Contoh Nyata: Banjir Klang 2021</p>
-          <p class="text-sm">Banjir besar di Lembah Klang pada Disember 2021 merosakkan banyak kenderaan. Tanpa perlindungan <em>special perils</em>, kos membaiki kereta yang rosak akibat banjir perlu ditanggung sendiri dan boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan.</p>
-        </div>
 
         <h2>Negeri berisiko tinggi banjir</h2>
         <p>
-          Jika anda tinggal atau selalu memandu di negeri-negeri berikut, special perils <strong>wajar dipertimbangkan dengan serius</strong>. Ia add-on pilihan, bukan kewajipan undang-undang:
+          Jika anda tinggal atau selalu memandu di negeri-negeri berikut, special perils wajar dipertimbangkan. Ia add-on pilihan, bukan kewajipan undang-undang:
         </p>
         <ul>
-          <li><a href="/negeri/kelantan/" class="text-hijau-700 underline"><strong>Kelantan</strong></a>: antara negeri paling kerap dilanda banjir di Malaysia</li>
-          <li><a href="/negeri/terengganu/" class="text-hijau-700 underline"><strong>Terengganu</strong></a>: pesisiran Laut China Selatan, monsun timur laut</li>
-          <li><a href="/negeri/pahang/" class="text-hijau-700 underline"><strong>Pahang</strong></a>: banjir sungai dan kawasan pedalaman</li>
-          <li><a href="/negeri/kedah/" class="text-hijau-700 underline"><strong>Kedah</strong></a>: banjir musim tengkujuh</li>
-          <li><a href="/negeri/selangor/" class="text-hijau-700 underline"><strong>Selangor</strong></a>: kawasan Klang, Shah Alam, Subang kerap banjir kilat</li>
-          <li><strong>Johor</strong>: banjir besar pernah berlaku di Johor Bahru</li>
+          <li><a href="/negeri/kelantan/" class="text-hijau-700 underline">Kelantan</a>: antara negeri paling kerap dilanda banjir di Malaysia</li>
+          <li><a href="/negeri/terengganu/" class="text-hijau-700 underline">Terengganu</a>: pesisiran Laut China Selatan, monsun timur laut</li>
+          <li><a href="/negeri/pahang/" class="text-hijau-700 underline">Pahang</a>: banjir sungai dan kawasan pedalaman</li>
+          <li><a href="/negeri/kedah/" class="text-hijau-700 underline">Kedah</a>: banjir musim tengkujuh</li>
+          <li><a href="/negeri/selangor/" class="text-hijau-700 underline">Selangor</a>: kawasan Klang, Shah Alam, Subang kerap banjir kilat</li>
+          <li>Johor: banjir besar pernah berlaku di Johor Bahru</li>
         </ul>
         <p>
           Lihat <a href="/negeri/" class="text-hijau-700 underline">panduan insurans mengikut negeri</a>
@@ -152,37 +147,37 @@ const schema = {
         <div class="not-prose grid grid-cols-2 sm:grid-cols-3 gap-2 my-6">
           <a href="/negeri/kelantan/" class="tile-link group">
             <span class="block font-semibold">Kelantan</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
           </a>
           <a href="/negeri/terengganu/" class="tile-link group">
             <span class="block font-semibold">Terengganu</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
           </a>
           <a href="/negeri/pahang/" class="tile-link group">
             <span class="block font-semibold">Pahang</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
           </a>
           <a href="/negeri/kedah/" class="tile-link group">
             <span class="block font-semibold">Kedah</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
           </a>
           <a href="/negeri/selangor/" class="tile-link group">
             <span class="block font-semibold">Selangor</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko Banjir: Tinggi</span>
+            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
           </a>
           <a href="/negeri/" class="tile-link group">
-            <span class="block font-semibold">Semua Negeri</span>
+            <span class="block font-semibold">Semua negeri</span>
             <span class="text-sm text-stone-700">16 negeri di Malaysia</span>
           </a>
         </div>
 
         <h2>Cara tambah special perils ke polisi anda</h2>
         <p>
-          Tambah special perils adalah mudah:
+          Ada tiga cara:
         </p>
         <ol>
           <li>
-            <strong>Semasa renew insurans:</strong> Ini masa paling mudah. Semasa renew, tandakan
+            <strong>Semasa renew insurans:</strong> cara paling mudah. Tandakan
             pilihan "Special Perils" atau "Bencana Khas" dalam senarai add-on.
           </li>
           <li>
@@ -196,9 +191,9 @@ const schema = {
           </li>
         </ol>
 
-        <h2>Apa yang tidak dilindungi</h2>
+        <h2>Special perils pun ada had</h2>
         <p>
-          Walaupun ada special perils, ada had tertentu yang perlu anda tahu:
+          Kerosakan atau kerugian ini mungkin tidak dibayar:
         </p>
         <ul>
           <li>Kerosakan akibat anda sengaja meredah air yang dalam (boleh menjejaskan claim; semak terma polisi)</li>
@@ -253,7 +248,7 @@ const schema = {
         <div class="lg:sticky lg:top-20 space-y-6">
 
           <div class="note-warn">
-            <h3 class="note-t mb-2 text-base">Perlu Special Perils?</h3>
+            <h3 class="note-t mb-2 text-base">Perlu special perils?</h3>
             <p class="text-sm mb-3 leading-relaxed">
               Jika anda tinggal di kawasan yang kerap banjir, semak kos add-on special perils semasa renew. Lazimnya 0.2%–0.5% daripada sum insured setahun.
             </p>
@@ -264,7 +259,7 @@ const schema = {
           </div>
 
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan Berkaitan</h3>
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan berkaitan</h3>
             <ul class="space-y-2.5 text-sm">
               <li><a href="/negeri/" class="text-hijau-700 hover:underline">Risiko banjir mengikut negeri</a></li>
               <li><a href="/guides/insurans-komprehensif-vs-pihak-ketiga/" class="text-hijau-700 hover:underline">Komprehensif vs Pihak Ketiga</a></li>
@@ -274,7 +269,7 @@ const schema = {
           </div>
 
           <div class="card-editorial">
-            <h3 class="font-semibold text-sm text-stone-900 mb-3">Contoh Syarikat dengan Special Perils</h3>
+            <h3 class="font-semibold text-sm text-stone-900 mb-3">Contoh syarikat dengan special perils</h3>
             <p class="text-xs text-stone-500 mb-3">Antara syarikat yang menawarkan add-on special perils:</p>
             <ul class="tap-links space-y-2 text-sm">
               <li><a href="/companies/etiqa/" class="text-hijau-700 hover:underline">Etiqa</a></li>
