@@ -215,7 +215,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
       <section id="faq">
         <div class="prose-editorial prose-bars">
-          <h2>Soalan lazim — {record.planName}</h2>
+          <h2>Soalan lazim: {record.planName}</h2>
         </div>
         <div class="mt-5">
           {faqs.map((faq, index) => (
@@ -232,7 +232,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
         <ol>
           {sourceLinks.map((source, index) => (
             <li>
-              <a href={source.url}>{source.label} — rujukan {index + 1}</a>
+              <a href={source.url}>{source.label}: rujukan {index + 1}</a>
             </li>
           ))}
         </ol>

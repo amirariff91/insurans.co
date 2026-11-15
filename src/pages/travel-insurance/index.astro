@@ -132,15 +132,15 @@ const schema = {
                 {plans.map((plan) => (
                   <tr role="row">
                     <th role="rowheader" scope="row">
-                      <a href={`/travel-insurance/${plan.slug}/`}>{plan.planName || '—'}</a>
+                      <a href={`/travel-insurance/${plan.slug}/`}>{plan.planName || 'Tidak dinyatakan'}</a>
                     </th>
-                    <td role="cell" data-label="Penyedia" data-sub>{plan.insurer || '—'}</td>
-                    <td role="cell" data-label="Tempoh perjalanan" data-wide>{plan.duration || '—'}</td>
-                    <td role="cell" data-label="COVID-19" data-wide>{plan.covidCovered || '—'}</td>
-                    <td role="cell" data-label="Pembatalan perjalanan" data-wide>{plan.tripCancellation || '—'}</td>
-                    <td role="cell" data-label="Ciri utama" data-wide>{plan.standoutFeature || '—'}</td>
+                    <td role="cell" data-label="Penyedia" data-sub>{plan.insurer || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Tempoh perjalanan" data-wide>{plan.duration || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="COVID-19" data-wide>{plan.covidCovered || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Pembatalan perjalanan" data-wide>{plan.tripCancellation || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Ciri utama" data-wide>{plan.standoutFeature || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Sumber" data-wide>
-                      {plan.sources[0] ? <a href={plan.sources[0]}>Sumber rasmi</a> : '—'}
+                      {plan.sources[0] ? <a href={plan.sources[0]}>Sumber rasmi</a> : 'Tidak dinyatakan'}
                     </td>
                   </tr>
                 ))}
@@ -151,11 +151,11 @@ const schema = {
           <p>
             Bandingkan tempoh maksimum setiap perjalanan dengan jadual perjalanan anda.
             Semak syarat COVID-19 dan sebab pembatalan yang dilindungi melalui pautan sumber rasmi.
-            Tanda — menunjukkan maklumat tidak dinyatakan.
+            Sel yang tiada maklumat ditulis “Tidak dinyatakan”.
           </p>
           <h2 id="bandingkan">Apa yang patut dibanding?</h2>
           <p>
-            Mulakan dengan destinasi dan jenis perjalanan — single atau annual — kemudian semak had perubatan,
+            Mulakan dengan destinasi dan jenis perjalanan (single atau annual), kemudian semak had perubatan,
             pengecualian, claim window dan proses bantuan. Had besar bukan satu-satunya ukuran; sub-cap evakuasi,
             syarat pembatalan, threshold delay, bagasi dan status COVID-19 boleh mengubah nilai sebenar plan.
             Jika mencari best travel insurance Malaysia atau travel insurance online, bandingkan fakta ini dan jangan pilih berdasarkan harga sahaja; takaful travel insurance juga perlu dibandingkan pada manfaat, pengecualian dan proses tuntutan.
@@ -164,7 +164,7 @@ const schema = {
           <h3>Evakuasi vs repatriasi</h3>
           <p>
             Evakuasi membawa anda ke hospital terdekat yang mampu merawat, manakala repatriasi membawa anda pulang ke
-            Malaysia selepas stabil. Kedua-duanya faedah berlainan dan boleh mempunyai sub-cap sendiri — angka besar
+            Malaysia selepas stabil. Kedua-duanya faedah berlainan dan boleh mempunyai sub-cap sendiri. Angka besar
             seperti “RM1 juta” selalunya gabungan, bukan had setiap faedah.
           </p>
 
@@ -204,7 +204,7 @@ const schema = {
 
           <h3>Kelayakan, claim dan takaful</h3>
           <p>
-            Syarat umur dan tempoh maksimum perjalanan berbeza ikut plan dan wording — semak PDS plan yang dipilih.
+            Syarat umur dan tempoh maksimum perjalanan berbeza ikut plan dan wording: semak PDS plan yang dipilih.
           </p>
         </article>
 

@@ -326,7 +326,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
                 <li>
                   <Ikon name={addonIcon(addon.name)} size={24} />
                   <div>
-                    <b>{addon.name} — {addon.recommended ? 'RECOMMENDED' : 'BERGANTUNG'}</b>
+                    <b>{addon.name}: {addon.recommended ? 'Recommended' : 'Bergantung'}</b>
                     <p>{addon.price} setahun untuk {model.model}.</p>
                   </div>
                 </li>
@@ -392,7 +392,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- FAQ -->
       <section id="faq" class="mod" aria-labelledby="faq-h">
-        <h2 class="mod-bar mod-lab" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim — Insurans {model.fullName}</h2>
+        <h2 class="mod-bar mod-lab" id="faq-h"><Ikon name="i-info" size={22} /> Soalan lazim: Insurans {model.fullName}</h2>
         <div class="mod-in">
           {modelFaqs.length > 0 ? (
             modelFaqs.map((faq: any, i: number) => (

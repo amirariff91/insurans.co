@@ -164,11 +164,11 @@ const schema = {
                 <tr role="row">
                   <th role="rowheader" scope="row" class="align-top">
                     <a href={`/personal-accident/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
-                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
+                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? 'Tidak dinyatakan'}</span>
                   </th>
-                  <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
-                  <td role="cell" class="min-w-64 align-top" data-label="Had &amp; manfaat" data-wide>{record.plansAndBenefits ?? '—'}</td>
-                  <td role="cell" class="min-w-64 align-top" data-label="Premium diterbitkan" data-wide>{record.premiumPublished ?? '—'}</td>
+                  <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? 'Tidak dinyatakan'}</span></td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Had &amp; manfaat" data-wide>{record.plansAndBenefits ?? 'Tidak dinyatakan'}</td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Premium diterbitkan" data-wide>{record.premiumPublished ?? 'Tidak dinyatakan'}</td>
                   <td role="cell" class="align-top" data-label="Sumber" data-wide>
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
@@ -176,7 +176,7 @@ const schema = {
                           <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{sourceLabel(url)}</a></li>
                         ))}
                       </ul>
-                    ) : '—'}
+                    ) : 'Tidak dinyatakan'}
                   </td>
                 </tr>
               ))}
@@ -188,7 +188,7 @@ const schema = {
           <p class="mt-2">
             Bandingkan had AD (kematian akibat kemalangan) dan PPD (hilang upaya kekal) mengikut varian pelan.
             Premium mengekalkan syarat harga asal; contoh PDS ialah ilustrasi pengiraan.
-            Tanda “—” menunjukkan maklumat tidak dinyatakan; rujuk pautan sumber untuk syarat penuh.
+            Sel yang tiada maklumat ditulis “Tidak dinyatakan”; rujuk pautan sumber untuk syarat penuh.
           </p>
         </div>
       </section>
@@ -295,7 +295,7 @@ const schema = {
           <div class="prose-editorial prose-bars">
             <h2>Harga yang diterbitkan</h2>
             <p>
-              Berikut ialah angka yang muncul dalam sumber rasmi sahaja. Setiap baris mengekalkan qualifier asal; ia bukan quotation peribadi dan bukan harga yang dikira daripada jumlah perlindungan. Contoh PDS Etiqa ditanda sebagai contoh, bukan harga jualan umum.
+              Angka di bawah hanya yang muncul dalam sumber rasmi. Setiap baris mengekalkan qualifier asal; ia bukan quotation peribadi dan bukan harga yang dikira daripada jumlah perlindungan. Contoh PDS Etiqa ditanda sebagai contoh, bukan harga jualan umum.
             </p>
           </div>
 

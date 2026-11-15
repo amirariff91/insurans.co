@@ -72,7 +72,7 @@ const answerFacts = [
 ];
 const canonicalUrl = `https://insurans.co/companies/${company.slug}/`;
 const companyOgName = company.fullName !== company.name ? `${company.name} (${company.fullName})` : company.name;
-const companyOgImageAlt = `${companyOgName} — entiti, produk, tuntutan dan sumber rasmi.`;
+const companyOgImageAlt = `${companyOgName}: entiti, produk, tuntutan dan sumber rasmi.`;
 const productsSummary = company.productDetails.map((product) =>
   product.names.length ? `${product.line}: ${product.names.join(', ')}` : product.line
 ).join('; ');
@@ -359,7 +359,7 @@ const schema = {
 
         <section id="faq" class="mt-10 sm:mt-14">
           <div class="prose-editorial prose-bars">
-            <h2 class="h2-quiet">Soalan lazim — {company.name}</h2>
+            <h2 class="h2-quiet">Soalan lazim: {company.name}</h2>
             <p>Jawapan ini merumuskan rekod di atas; syarat kontrak dan keputusan tuntutan ditentukan oleh dokumen serta penilaian penyedia.</p>
           </div>
           <div class="mt-5">

@@ -108,7 +108,7 @@ const modelReferences = Object.fromEntries(
           <div class="et-pair">
             <div>
               <label for="base-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
-                Premium Asas (sebelum NCD) — RM
+                Premium Asas (sebelum NCD): RM
               </label>
               <p id="base-premium-hint" class="et-hint">cth: 2000</p>
               <div class="rm">
@@ -218,7 +218,7 @@ const modelReferences = Object.fromEntries(
           <div class="space-y-5 mt-5">
             <div>
               <label for="current-premium" class="block text-base font-semibold text-stone-900 mb-1.5">
-                Premium Asas Semasa (selepas NCD) — RM
+                Premium Asas Semasa (selepas NCD): RM
               </label>
               <p id="current-premium-hint" class="et-hint">cth: 900</p>
               <div class="rm">
@@ -241,7 +241,7 @@ const modelReferences = Object.fromEntries(
 
             <div>
               <label for="repair-cost" class="block text-base font-semibold text-stone-900 mb-1.5">
-                Anggaran Kos Repair — RM
+                Anggaran Kos Repair: RM
               </label>
               <p id="repair-cost-hint" class="et-hint">cth: 800</p>
               <div class="rm">
@@ -252,7 +252,7 @@ const modelReferences = Object.fromEntries(
 
             <div>
               <label for="excess" class="block text-base font-semibold text-stone-900 mb-1.5">
-                Excess Polisi Anda — RM
+                Excess Polisi Anda: RM
               </label>
               <div class="rm">
                 <span aria-hidden="true">RM</span>
@@ -261,7 +261,7 @@ const modelReferences = Object.fromEntries(
             </div>
 
             <button id="claim-calc-btn" type="button" class="et-btn sm:max-w-[24rem]">
-              Kira — Patut Claim Tak?
+              Kira: Patut Claim Tak?
             </button>
           </div>
 
@@ -589,7 +589,7 @@ const modelReferences = Object.fromEntries(
   const referenceRangeEl = document.getElementById('model-reference-range');
   if (modelReference && referenceEl && referenceNameEl && referenceRangeEl) {
     referenceNameEl.textContent = modelReference.fullName;
-    referenceRangeEl.textContent = `${rm(modelReference.premiumNCD0Min)} – ${rm(modelReference.premiumNCD0Max)}`;
+    referenceRangeEl.textContent = `${rm(modelReference.premiumNCD0Min)}–${rm(modelReference.premiumNCD0Max)}`;
     referenceEl.hidden = false;
   }
 

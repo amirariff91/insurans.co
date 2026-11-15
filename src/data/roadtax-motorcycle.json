@@ -1,5 +1,5 @@
 {
-  "methodologyNote": "Jadual kadar Lesen Kenderaan Motor (LKM/roadtax) JPJ untuk MOTOSIKAL persendirian (kod AA), dibaca terus dari PDF rasmi JPJ 'Garis Panduan Pengiraan LKM (pindaan selepas Bajet 2009)' pada 2026-09-13. Motosikal 150cc dan ke bawah: JPJ menulis 'dikekalkan pada kadar sedia ada' tanpa menyatakan angka dalam garis panduan ini — kami TIDAK menggantikannya dengan nombor yang tidak dinyatakan (rate: null). Kadar melebihi 150cc adalah tetap (flat) mengikut band. Sabah dan Sarawak berkongsi jadual yang sama dalam garis panduan ini. Labuan = 50% kadar Sabah; Pulau Pangkor & Langkawi = 50% kadar Semenanjung (bagi >150cc sahaja) — rujuk JPJ. Bukan premium insurans.",
+  "methodologyNote": "Jadual kadar Lesen Kenderaan Motor (LKM/roadtax) JPJ untuk MOTOSIKAL persendirian (kod AA), dibaca terus dari PDF rasmi JPJ 'Garis Panduan Pengiraan LKM (pindaan selepas Bajet 2009)' pada 2026-09-13. Motosikal 150cc dan ke bawah: JPJ menulis 'dikekalkan pada kadar sedia ada' tanpa menyatakan angka dalam garis panduan ini. Kami tidak menggantikannya dengan nombor yang tidak dinyatakan (rate: null). Kadar melebihi 150cc adalah tetap (flat) mengikut band. Sabah dan Sarawak berkongsi jadual yang sama dalam garis panduan ini. Labuan = 50% kadar Sabah; Pulau Pangkor & Langkawi = 50% kadar Semenanjung (bagi >150cc sahaja). Rujuk JPJ. Bukan premium insurans.",
   "asAt": "2026-09-13",
   "sources": [
     "https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf"
@@ -37,9 +37,9 @@
     { "region": "sabahSarawak", "cc": 900, "expect": 42 }
   ],
   "displayNotes": {
-    "kadarSediaAda": "Motosikal 150cc dan ke bawah: JPJ menulis 'kadar sedia ada' tanpa angka dalam garis panduan ini. Nilai RM2 sering dilaporkan tetapi TIDAK dinyatakan dalam PDF rasmi yang dirujuk — semak JPJ atau MyEG untuk pengesahan.",
+    "kadarSediaAda": "Motosikal 150cc dan ke bawah: JPJ menulis 'kadar sedia ada' tanpa angka dalam garis panduan ini. Nilai RM2 sering dilaporkan tetapi tidak dinyatakan dalam PDF rasmi yang dirujuk. Semak JPJ atau MyEG untuk pengesahan.",
     "dutyFree": "Pulau Pangkor & Langkawi: >150cc = 50% kadar Semenanjung. Labuan: >150cc = 50% kadar Sabah. Bahagian 150cc ke bawah kekal 'kadar sedia ada'.",
     "ev": "Motosikal elektrik dikenakan LKM mengikut kuasa motor (watt): RM2 setahun bagi 7,500 W ke bawah; RM9–RM42 kadar asas di atasnya. Pekeliling JPJ Bil.01/2026 bertarikh 1 April 2026 menyatakan pengecualian 50% kadar asas; garis panduan JPJ terdahulu tidak menyebutnya.",
-    "premium": "Ini roadtax sahaja. Premium insurans motosikal tiada jadual awam mengikut cc dan bergantung pada NCD, cc, umur dan lokasi — dapatkan quotation daripada penyedia."
+    "premium": "Ini roadtax sahaja. Premium insurans motosikal tiada jadual awam mengikut cc dan bergantung pada NCD, cc, umur dan lokasi. Dapatkan quotation daripada penyedia."
   }
 }
