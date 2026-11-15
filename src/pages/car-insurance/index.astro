@@ -162,20 +162,20 @@ const schema = {
         </article>
 
         <!-- Price Table -->
-        <div class="overflow-x-auto my-8">
+        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="harga">
           <table class="table-editorial">
             <thead>
               <tr>
-                <th>Kereta</th>
-                <th>Nilai pasaran</th>
-                <th>Premium (0% NCD)</th>
-                <th>Premium (55% NCD)</th>
+                <th scope="col">Kereta</th>
+                <th scope="col">Nilai pasaran</th>
+                <th scope="col">Premium (0% NCD)</th>
+                <th scope="col">Premium (55% NCD)</th>
               </tr>
             </thead>
             <tbody>
               {tableRows.map(({ label, marketValue, car }) => (
                 <tr>
-                  <td class="font-medium text-stone-900">{label}</td>
+                  <th scope="row" class="font-medium text-stone-900">{label}</th>
                   <td>{marketValue}</td>
                   <td>{range(car.premiumNCD0Min, car.premiumNCD0Max)}</td>
                   <td class="font-semibold text-hijau-700">{range(car.premiumNCD55Min, car.premiumNCD55Max)}</td>
@@ -263,43 +263,43 @@ const schema = {
         </article>
 
         <!-- NCD Table -->
-        <div class="overflow-x-auto my-8">
+        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="ncd">
           <table class="table-editorial">
             <thead>
               <tr>
-                <th>Tahun tanpa claim</th>
-                <th>NCD</th>
-                <th>Contoh: premium asal RM2,000</th>
+                <th scope="col">Tahun tanpa claim</th>
+                <th scope="col">NCD</th>
+                <th scope="col">Contoh: premium asal RM2,000</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Tahun pertama polisi tanpa NCD terdahulu</td>
+                <th scope="row">Tahun pertama polisi tanpa NCD terdahulu</th>
                 <td class="font-semibold">0%</td>
                 <td>Bayar penuh: <strong>RM2,000</strong></td>
               </tr>
               <tr>
-                <td>Selepas 1 tahun tanpa claim</td>
+                <th scope="row">Selepas 1 tahun tanpa claim</th>
                 <td class="font-semibold">25%</td>
                 <td>Bayar: <strong>RM1,500</strong></td>
               </tr>
               <tr>
-                <td>Selepas 2 tahun</td>
+                <th scope="row">Selepas 2 tahun</th>
                 <td class="font-semibold">30%</td>
                 <td>Bayar: <strong>RM1,400</strong></td>
               </tr>
               <tr>
-                <td>Selepas 3 tahun</td>
+                <th scope="row">Selepas 3 tahun</th>
                 <td class="font-semibold">38.33%</td>
                 <td>Bayar: <strong>RM1,233</strong></td>
               </tr>
               <tr>
-                <td>Selepas 4 tahun</td>
+                <th scope="row">Selepas 4 tahun</th>
                 <td class="font-semibold">45%</td>
                 <td>Bayar: <strong>RM1,100</strong></td>
               </tr>
               <tr>
-                <td>Selepas 5+ tahun</td>
+                <th scope="row">Selepas 5+ tahun</th>
                 <td class="font-semibold text-hijau-700">55%</td>
                 <td>Bayar: <strong class="text-hijau-700">RM900</strong></td>
               </tr>

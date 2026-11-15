@@ -37,11 +37,14 @@ const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.p
     transform: translateY(calc(100% + 1rem)); visibility: hidden;
     transition: transform 200ms var(--ease-out), visibility 0s linear 200ms;
   }
-  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .dock { background: var(--glass-t); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* The dock is opaque paper already; with more contrast its hairline ring becomes ink. */
+  @media (prefers-contrast: more) {
+    .dock { box-shadow: 0 0 0 1.5px var(--ink); }
   }
-  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-    .dock { background: var(--card) !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 0 0 1.5px var(--ink); }
+  /* Forced colours drop the ring: the dock keeps a border so it stays apart from the page under it. */
+  @media (forced-colors: active) {
+    .dock { border: 1px solid CanvasText; }
+    .dock-b { border: 1px solid ButtonText; }
   }
   html.dock-on .dock { transform: none; visibility: visible; transition: transform 200ms var(--ease-out); }
   html.dock-on body { padding-bottom: calc(var(--dock-h, 3.5rem) + 1rem + env(safe-area-inset-bottom)); }

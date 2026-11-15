@@ -231,13 +231,18 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     .mast-in { background: var(--paper); max-width: none; padding-inline: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter))); }
     .tabs { position: sticky; top: 0.5rem; z-index: 40; margin-top: -0.5rem; padding-bottom: 0; pointer-events: none; }
     .tabs ul { pointer-events: auto; }
-    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      .tabs ul { background: var(--glass-t); -webkit-backdrop-filter: none; backdrop-filter: none; }
-    }
   }
 
-  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-    .tabs ul { background: var(--card) !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 0 0 1.5px var(--ink); }
+  /* The strip is already opaque paper; with more contrast its hairline ring becomes ink. */
+  @media (prefers-contrast: more) {
+    .tabs ul { box-shadow: 0 0 0 1.5px var(--ink); }
+  }
+  /* Forced colours drop rings and fills: the strip gets a border, the current tab a Highlight fill. */
+  @media (forced-colors: active) {
+    .ins-word { fill: CanvasText; }
+    .tabs ul { border: 1px solid CanvasText; }
+    .tabs a[aria-current='page'] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+    .menu-panel a[aria-current='page'] { text-decoration-color: CanvasText; }
   }
 </style>
 

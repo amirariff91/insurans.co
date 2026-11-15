@@ -113,9 +113,9 @@ const schema = {
           <h2 id="jadual-perbandingan">Jadual perbandingan penyakit kritikal</h2>
           <TypeChips class="not-prose mt-5" label="Jenis" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
           <ProductCss />
-          <div class="pp-plans overflow-x-auto my-8">
+          <div class="pp-plans overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="jadual-pelan">
             <table role="table" class="table-editorial plan-table min-w-[60rem]">
-              <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+              <caption id="jadual-pelan" class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
               <thead role="rowgroup">
