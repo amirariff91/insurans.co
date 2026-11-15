@@ -27,14 +27,10 @@ function companyName(slug: string) {
   return companyNames[slug] ?? slug;
 }
 
-// Preserve the read-only data's limitations as practical checks for the buyer.
+// The data states each source limit as its own sentence about what we found ("Kami tidak menemui … dalam
+// sumber yang kami semak"). No phrase is rewritten at render time, so no limit can be joined into another clause.
 function buyerCopy(text: string) {
-  return text.replace(
-    /tidak disahkan(?: dalam sumber rasmi yang kami semak)?|[Ss]umber yang disemak/g,
-    (phrase) => phrase.startsWith('tidak')
-      ? 'tidak dinyatakan dalam rujukan kami; semak terus dengan penyedia'
-      : (phrase.startsWith('S') ? 'Maklumat produk yang tersedia' : 'maklumat produk yang tersedia'),
-  );
+  return text;
 }
 
 export function getStaticPaths() {
@@ -114,15 +110,15 @@ const FINDINGS: Record<string, string> = {
   'aia-vs-great-eastern': 'Lebih berbeza pada gabungan kesihatan, insurans am dan takaful.',
   'etiqa-vs-tokio-marine': 'Tunda: Etiqa percuma hingga 200 km; Tokio Marine melalui Auto Partner.',
   'msig-vs-zurich': 'MSIG: Smart Towing. Zurich: bantuan jalan melalui MyZurich.',
-  'allianz-vs-aia': 'Bantuan jalan 24 jam: Allianz Road Rangers; AIA tiada maklumat disahkan.',
+  'allianz-vs-aia': 'Bantuan jalan 24 jam: Allianz Road Rangers; untuk AIA, tiada dalam sumber kami.',
   'etiqa-vs-msig': 'Etiqa: tunda percuma hingga 200 km. MSIG: Smart Towing.',
   'berjaya-sompo-vs-lonpac': 'Berjaya Sompo: talian kerosakan 24 jam. Lonpac: meja tuntutan motor.',
   'prudential-vs-aia': 'Prudential: tanpa motor am. AIA: motor melalui AIA General.',
   'tokio-marine-vs-allianz': 'Tunda: Tokio Marine melalui Auto Partner; Allianz melalui Road Rangers.',
   'etiqa-vs-zurich': 'Tunda: Etiqa percuma hingga 200 km; Zurich melalui Roadside Assistance.',
   'takaful-malaysia-vs-etiqa': 'Takaful Malaysia: Tele Bantuan. Etiqa: tunda hingga 200 km.',
-  'great-eastern-vs-msig': 'Bantuan jalan 24 jam: MSIG Motor Assist; Great Eastern tiada maklumat disahkan.',
-  'aia-vs-msig': 'Bantuan jalan 24 jam: MSIG Motor Assist; AIA tiada maklumat disahkan.',
+  'great-eastern-vs-msig': 'Bantuan jalan 24 jam: MSIG Motor Assist; untuk Great Eastern, tiada dalam sumber kami.',
+  'aia-vs-msig': 'Bantuan jalan 24 jam: MSIG Motor Assist; untuk AIA, tiada dalam sumber kami.',
 };
 const finding = FINDINGS[comp.slug] ?? comp.summary.split(/(?<=\.)\s/)[0];
 
@@ -186,9 +182,8 @@ const schema = {
         <section class="prose-editorial prose-bars mb-8">
           <h2 class="h2-quiet">Skop perbandingan</h2>
           <p>
-            Semak siapa mengeluarkan polisi, pilihan takaful, manfaat motor, saluran tuntutan dan urusan
-            digital bagi setiap penyedia. Untuk produk yang anda pertimbangkan, minta jadual manfaat
-            dan dokumen polisi terkini supaya anda boleh membandingkan perlindungan yang sama.
+            Untuk produk yang anda pertimbangkan, minta jadual manfaat dan dokumen polisi terkini supaya
+            anda membandingkan perlindungan yang sama.
           </p>
         </section>
 
@@ -196,13 +191,12 @@ const schema = {
           <div class="prose-editorial prose-bars mb-5">
             <h2 id="dimensions-heading">Perbezaan mengikut kriteria</h2>
             <p>
-              Setiap kad menunjukkan fakta untuk kedua-dua pihak dan nota tentang cara mentafsir bezanya.
-              Tiada skor atau pemenang tunggal: pilihan bergantung pada kontrak, keperluan dan sebut harga
-              yang tersedia kepada anda.
+              Kami tidak memberi skor atau memilih pemenang: pilihan bergantung pada kontrak, keperluan dan
+              sebut harga yang tersedia kepada anda.
             </p>
           </div>
           <div class="compare-rows">
-            {dims.map((dimension, index) => (
+            {dims.map((dimension) => (
               <article class="compare-row">
                 <h3 class="compare-row-t">{dimension.label}</h3>
                 <div class="compare-cols">
@@ -215,9 +209,7 @@ const schema = {
                     <p>{buyerCopy(dimension.b)}</p>
                   </div>
                 </div>
-                <p class="compare-note">
-                  {index === 0 ? <strong>Cara membaca perbezaan ini:</strong> : <span class="sr-only-x">Cara membaca perbezaan ini:</span>} {buyerCopy(dimension.note)}
-                </p>
+                <p class="compare-note">{buyerCopy(dimension.note)}</p>
               </article>
             ))}
           </div>
@@ -228,8 +220,8 @@ const schema = {
             <h2 id="choose-heading">Tiada skor atau pemenang tunggal</h2>
             <p>
               Senarai ini bukan pengesyoran keseluruhan atau penarafan syarikat. Ia memadankan ciri yang
-              disahkan dengan keutamaan tertentu supaya anda boleh menyemak sama ada polisi yang ditawarkan
-              benar-benar memenuhi keperluan tersebut.
+              disebut dalam sumber dengan keutamaan tertentu, supaya anda boleh menyemak sama ada polisi yang
+              ditawarkan memenuhi keperluan itu.
             </p>
           </div>
           <div class="grid sm:grid-cols-2 gap-5">
@@ -272,7 +264,7 @@ const schema = {
         <section aria-labelledby="sources-heading" class="mb-10">
           <div class="prose-editorial prose-bars mb-4">
             <h2 class="h2-quiet" id="sources-heading">Sumber</h2>
-            <p>Sumber rasmi dan rujukan yang digunakan untuk fakta di atas. Tarikh semakan: {formatDate(comp.asAt)}.</p>
+            <p>Tarikh semakan: {formatDate(comp.asAt)}.</p>
           </div>
           <ul class="tap-links list-disc pl-5 space-y-2 text-sm">
             {comp.sources.map((source: { label: string; url: string }) => (
