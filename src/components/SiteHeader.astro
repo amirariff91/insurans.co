@@ -158,13 +158,16 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .menu-i { width: 1.25rem; height: 1.25rem; }
 
   .menu-panel { border-top: 1px solid var(--rule); background: var(--card); }
-  .menu-panel ul { margin: 0; padding: 0.5rem var(--gutter) 0.75rem; list-style: none; display: grid; }
+  .menu-panel ul { margin: 0; padding: 0.5rem calc(var(--gutter) - 0.5rem) 0.75rem; list-style: none; display: grid; }
   .menu-panel li + li { border-top: 1px solid var(--chip); }
   .menu-panel a {
-    display: flex; align-items: center; min-height: 3rem; padding: 0 0.25rem;
+    display: flex; align-items: center; min-height: 3rem; padding: 0 0.75rem;
     color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.125rem;
   }
-  .menu-panel a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; text-decoration-color: var(--sel); }
+  /* The reader's current choice: an ink row with paper text (the same treatment as the current tab). */
+  .menu-panel a { border-radius: var(--r-1); }
+  .menu-panel a[aria-current='page'] { background: var(--ink); color: var(--paper); }
+  .menu-panel a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
   .tabs { display: none; }
 
@@ -201,7 +204,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     }
     .menu-btn, .menu-panel, .menu-nojs { display: none; }
 
-    /* Section tabs: a strip on tablet, a glass capsule on desktop (glass only on navigation). */
+    /* Section tabs: a strip on tablet, a capsule on desktop that sits in an opaque paper band when stuck. */
     .tabs { display: block; padding: 0 var(--gutter) 0.5rem; }
     .tabs ul {
       display: flex; gap: 2px; width: fit-content; max-width: 100%; margin: 0 auto; padding: 0.25rem;
@@ -229,20 +232,35 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     .mast-in { --wm-h: 4.5rem; padding-bottom: 0.75rem; }
     .mast { position: relative; z-index: 41; display: contents; }
     .mast-in { background: var(--paper); max-width: none; padding-inline: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter))); }
-    .tabs { position: sticky; top: 0.5rem; z-index: 40; margin-top: -0.5rem; padding-bottom: 0; pointer-events: none; }
-    .tabs ul { pointer-events: auto; }
+    /* The band is always there (paper, 8px above and below the capsule, a 1px mute rule under it), so sticking
+       never shifts layout and no text shows beside or through it. At rest its rule closes the masthead. 69px tall:
+       under html scroll-padding-top (5rem) and the side rails' top (lg:top-20), so it covers neither. */
+    .mast-in { padding-bottom: 0.25rem; }
+    .tabs {
+      position: sticky; top: 0; z-index: 40; padding: 0.5rem var(--gutter);
+      background: var(--paper); border-bottom: 1px solid var(--mute);
+    }
+    /* A stuck tab lies inside html's scroll-padding-top (5rem), so focusing one scrolled the page up about 450px per
+       Tab press. Moving its snap area down by the same 5rem marks it as already in view: focus no longer scrolls. */
+    .tabs a { scroll-margin-top: -5rem; }
+  }
+  /* The model pages' sticky left rail (edisi-answer.css, from 80rem) sat at top: 1rem, under the band: it starts
+     below it instead, like the other side rails (lg:top-20). */
+  @media (min-width: 80rem) {
+    :global(.ep .ep-models) { top: 5rem; max-height: calc(100vh - 6rem); }
   }
 
   /* The strip is already opaque paper; with more contrast its hairline ring becomes ink. */
   @media (prefers-contrast: more) {
     .tabs ul { box-shadow: 0 0 0 1.5px var(--ink); }
+    .tabs { border-bottom-color: var(--ink); }
   }
   /* Forced colours drop rings and fills: the strip gets a border, the current tab a Highlight fill. */
   @media (forced-colors: active) {
     .ins-word { fill: CanvasText; }
     .tabs ul { border: 1px solid CanvasText; }
     .tabs a[aria-current='page'] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
-    .menu-panel a[aria-current='page'] { text-decoration-color: CanvasText; }
+    .menu-panel a[aria-current='page'] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
   }
 </style>
 

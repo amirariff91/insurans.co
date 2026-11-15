@@ -30,25 +30,28 @@ const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.p
 
 <style is:global>
   .dock {
-    position: fixed; z-index: 30; left: var(--gutter); right: var(--gutter); bottom: calc(0.5rem + env(safe-area-inset-bottom));
-    display: flex; align-items: center; gap: 0.5rem; max-width: 30rem; margin: 0 auto; padding: 0.25rem 0.25rem 0.25rem 0.75rem;
-    border-radius: var(--r-pill); color: var(--ink); background: var(--glass);
-    box-shadow: 0 0 0 1px var(--glass-edge), inset 0 1px 0 var(--glass-spec);
+    /* A full-bleed paper band on the bottom edge with a 1px mute rule on top: nothing shows beside, under or
+       through it. Its content keeps the old 30rem measure, centred. */
+    position: fixed; z-index: 30; left: 0; right: 0; bottom: 0;
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem max(var(--gutter), calc((100% - 30rem) / 2)) calc(0.5rem + env(safe-area-inset-bottom));
+    color: var(--ink); background: var(--paper); border-top: 1px solid var(--mute);
     transform: translateY(calc(100% + 1rem)); visibility: hidden;
     transition: transform 200ms var(--ease-out), visibility 0s linear 200ms;
   }
-  /* The dock is opaque paper already; with more contrast its hairline ring becomes ink. */
+  /* With more contrast its top rule becomes ink. */
   @media (prefers-contrast: more) {
-    .dock { box-shadow: 0 0 0 1.5px var(--ink); }
+    .dock { border-top-color: var(--ink); }
   }
-  /* Forced colours drop the ring: the dock keeps a border so it stays apart from the page under it. */
+  /* Forced colours: the top rule in CanvasText keeps the dock apart from the page under it. */
   @media (forced-colors: active) {
-    .dock { border: 1px solid CanvasText; }
+    .dock { border-top-color: CanvasText; }
     .dock-b { border: 1px solid ButtonText; }
   }
   html.dock-on .dock { transform: none; visibility: visible; transition: transform 200ms var(--ease-out); }
-  html.dock-on body { padding-bottom: calc(var(--dock-h, 3.5rem) + 1rem + env(safe-area-inset-bottom)); }
-  html.dock-on { scroll-padding-bottom: calc(var(--dock-h, 3.5rem) + 1.5rem + env(safe-area-inset-bottom)); }
+  /* --dock-h is the band's measured height, safe-area inset included. */
+  html.dock-on body { padding-bottom: calc(var(--dock-h, 4rem) + 1rem); }
+  html.dock-on { scroll-padding-bottom: calc(var(--dock-h, 4rem) + 1rem); }
   .dock-t { flex: 1; min-width: 0; margin: 0; display: grid; font-variant-numeric: tabular-nums; }
   /* Two lines, each one line high. Line 1: the car's name, which alone truncates (full name in its title), then
      the NCD step, never cut. Line 2: the price and its unit, which fit at 320px for every model. */
@@ -154,20 +157,27 @@ const { answer, control, name = '', car = '', result = '', unit = '' } = Astro.p
       const res = document.querySelector(dock.dataset.result);
       if (res) new MutationObserver(() => past && fill()).observe(res, { childList: true, characterData: true, subtree: true });
     }
-    // Never cover the focused element.
+    // Never cover the focused element. Not for the focus "Tukar" moves itself: its target is still below the dock
+    // while the smooth scroll runs, and a scrollBy here would cut that scroll short.
+    let moving = false;
     document.addEventListener('focusin', (ev) => {
       const t = ev.target as HTMLElement;
-      if (!html.classList.contains('dock-on') || dock.contains(t)) return;
+      if (moving || !html.classList.contains('dock-on') || dock.contains(t)) return;
       const over = t.getBoundingClientRect().bottom - dock.getBoundingClientRect().top + 8;
       if (over > 0) scrollBy(0, over);
     });
     dock.querySelector('[data-dock-b]')!.addEventListener('click', () => {
       const c = document.querySelector<HTMLElement>(dock.dataset.control!);
       if (!c) return;
-      c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-      const f = c.querySelector<HTMLElement>('input:checked') ?? c;
+      // A control (checked step) goes mid-screen; a section heading (the car hub's #ncd) goes to the top, so the
+      // reader lands on its first lines instead of the prose before it.
+      const ctl = c.querySelector<HTMLElement>('input:checked');
+      c.scrollIntoView({ block: ctl ? 'center' : 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      const f = ctl ?? c;
       if (f === c && !c.hasAttribute('tabindex')) c.tabIndex = -1;
+      moving = true;
       f.focus({ preventScroll: true });
+      moving = false;
     });
   }
 </script>
