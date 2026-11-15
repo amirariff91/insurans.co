@@ -171,6 +171,7 @@ const schema = {
           <ul>
             {company.entities.map((entity) => <li>{entity}</li>)}
           </ul>
+          <p>Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.</p>
 
           <h2 id="produk-utama">Produk utama</h2>
           <p>
@@ -215,12 +216,14 @@ const schema = {
         </div>
         <article class="prose-editorial prose-bars">
           {company.claims.roadside && <p><strong>Bantuan tepi jalan:</strong> {company.claims.roadside}</p>}
+          <p>Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan.</p>
 
           <h2 class="h2-quiet" id="digital">Aplikasi &amp; saluran digital</h2>
           <h3>{company.app.name}</h3>
           <ul>
             {company.app.features.map((feature) => <li>{feature}</li>)}
           </ul>
+          <p>Semak fungsi yang tersedia untuk polisi atau sijil anda terus dengan {company.name}.</p>
 
           <h2 class="h2-quiet" id="hubungi">Hubungi</h2>
         </article>
