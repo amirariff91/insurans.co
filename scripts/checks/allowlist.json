@@ -851,7 +851,7 @@
       "values": [
         "RM5,984–14,148"
       ],
-      "reason": "Tokio Marine Medic Plus renewal row 96-100 corrected: the cited brochure table (MEDICPLUS-EN072023, rates from 02/04/2023, archived copy 1 Feb 2024) prints 96-100 as 14,148.00/12,032.00/10,536.00/8,981.00; 5,984.00 is the 91-95 row. Needs editor sign-off (removed figure) (15 Nov 2026)."
+      "reason": "Tokio Marine Medic Plus renewal range replaced: the old figure came from the archived brochure MEDICPLUS-EN072023 and misread its 96-100 row. The record now uses the live brochure MEDICPLUS-EN062026 (rates from 1 Jun 2026), which prints renewal at ANB 75 as RM911-1,857 and at ANB 100 as RM6,914-14,148. The editor approved this replacement on 15 Nov 2026."
     },
     {
       "check": "contract",
@@ -870,6 +870,7 @@
       "field": "rm",
       "url": "^/medical-cards/tokio-marine-medic-plus/$",
       "values": [
+        "RM10",
         "RM118–193",
         "RM15,000",
         "RM160",
@@ -877,6 +878,16 @@
         "RM911–1,857"
       ],
       "reason": "Tokio Marine Medic Plus refreshed from the archived brochure MEDICPLUS-EN072023 (rates from 02/04/2023) to the live brochure MEDICPLUS-EN062026 (rates from 01/06/2026; fifth plan MPE with RM15,000 deductible). Old-edition figures removed with the editor's advance approval for this record (15 Nov 2026)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/medical-cards/tokio-marine-medic-plus/$",
+      "values": [
+        "8%"
+      ],
+      "reason": "Tokio Marine Medic Plus price conditions from the live brochure MEDICPLUS-EN062026 (p6 notes): rates exclude RM10 stamp duty, and corporate or group policies carry 8% service tax. Added beside the premium figures after the 15 Nov 2026 review (finding 2)."
     },
     {
       "check": "contract",
