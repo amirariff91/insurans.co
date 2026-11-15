@@ -33,7 +33,7 @@ const faqs = [
     a: 'Etiqa TripCare 360, Allianz Travel Easy dan MSIG Travel SafeGuard memerlukan pembelian sekurang-kurangnya 7 hari sebelum perjalanan untuk manfaat pembatalan. Generali SmartTraveller Enhanced menetapkan sekurang-kurangnya 14 hari bagi Cancellation or Postponement serta Travel Curtailment.',
   },
   {
-    q: 'Apakah perbezaan had evakuasi dalam jadual ini?',
+    q: 'Berapa had evakuasi setiap pelan?',
     a: 'Zurich Z-Travel Silver, Gold dan Diamond serta Zurich Travel Takaful mempunyai evakuasi perubatan tanpa had. Generali SmartTraveller Enhanced juga menyediakan evakuasi tanpa had. Etiqa Platinum menghadkan evakuasi dan repatriasi perubatan kepada RM1,500,000 seorang; MSIG Travel Max menetapkan RM1,000,000 untuk evakuasi. Allianz Travel Easy menggabungkan evakuasi, repatriasi perubatan dan penghantaran pulang jenazah dalam had agregat RM1,000,000.',
   },
   {
@@ -92,7 +92,7 @@ const schema = {
       <PageAnswer
         finding={`${plans.length} pelan travel insurance: single dan annual`}
         sentence="Mulakan dengan destinasi dan jenis perjalanan, kemudian semak had perubatan, pengecualian, claim window dan proses bantuan."
-        note="Tiada harga premium, had atau syarat yang tidak dinyatakan dalam data ini direka; semak quotation dan PDS terkini dengan penyedia."
+        note="Kami tidak menganggarkan premium, dan had atau syarat yang tiada dalam sumber tidak kami isi sendiri; semak quotation dan PDS terkini dengan penyedia."
       />
       <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-600">
@@ -106,7 +106,7 @@ const schema = {
       <div class="min-w-0 lg:col-span-2">
         <article class="prose-editorial prose-bars">
           <p class="text-lg leading-7 text-stone-700">
-            Travel insurance Malaysia meliputi manfaat perubatan dan gangguan perjalanan mengikut pelan. Bandingkan
+            Travel insurance meliputi manfaat perubatan dan gangguan perjalanan mengikut pelan. Bandingkan
             pembatalan atau curtailment, flight delay dan bagasi, serta faedah evakuasi dan repatriasi. Jika anda
             menganggap rawatan untuk pelancong sentiasa percuma di luar negara, semak semula: caj, akses hospital dan
             bantuan kecemasan bergantung pada destinasi, provider dan polisi.
@@ -156,10 +156,10 @@ const schema = {
           </p>
           <h2 id="bandingkan">Apa yang patut dibanding?</h2>
           <p>
-            Mulakan dengan destinasi dan jenis perjalanan (single atau annual), kemudian semak had perubatan,
+            Tentukan destinasi dan jenis perjalanan (single atau annual) dahulu, kemudian semak had perubatan,
             pengecualian, claim window dan proses bantuan. Had besar bukan satu-satunya ukuran; sub-cap evakuasi,
             syarat pembatalan, threshold delay, bagasi dan status COVID-19 boleh mengubah nilai sebenar plan.
-            Jika mencari best travel insurance Malaysia atau travel insurance online, bandingkan fakta ini dan jangan pilih berdasarkan harga sahaja; takaful travel insurance juga perlu dibandingkan pada manfaat, pengecualian dan proses tuntutan.
+            Jangan pilih berdasarkan harga sahaja, termasuk semasa membeli travel insurance online. Pelan travel takaful juga perlu dibandingkan pada manfaat, pengecualian dan proses tuntutan.
           </p>
 
           <h3>Evakuasi vs repatriasi</h3>
@@ -216,7 +216,7 @@ const schema = {
             <div class="flex flex-wrap items-baseline justify-between gap-3">
               <div>
                 <h2 class="font-serif text-headline-md text-stone-900">Pelan travel insurance</h2>
-                <p class="mt-1 text-sm text-stone-600">Ringkasan manfaat yang dinyatakan dalam rekod rasmi.</p>
+                <p class="mt-1 text-sm text-stone-600">Ringkasan manfaat yang dinyatakan dalam sumber rasmi.</p>
               </div>
               <span class="text-sm text-stone-500">{plans.length} pelan</span>
             </div>
