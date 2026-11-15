@@ -30,7 +30,7 @@ const leadMid55 = `RM${num(Math.min(bySlug['honda-city'].premiumNCD55Min, bySlug
 const kValue = (n: number) => `RM${Math.round(n / 1000)}K`;
 const tableRows = ['perodua-axia', 'perodua-myvi', 'proton-saga', 'proton-x50', 'toyota-vios', 'honda-city', 'honda-civic', 'toyota-hilux', 'mazda-cx5'].map((slug) => {
   const car = bySlug[slug];
-  return { slug, label: car.fullName, marketValue: `${kValue(car.marketValueMin)} – ${kValue(car.marketValueMax)}`, car };
+  return { slug, label: car.fullName, marketValue: `${kValue(car.marketValueMin)}–${kValue(car.marketValueMax)}`, car };
 });
 const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
 
@@ -416,7 +416,7 @@ const schema = {
 
           <p>
             Insurans kereta murah bermakna bayar kurang untuk perlindungan yang sama, bukan memilih perlindungan paling nipis.
-            Lima cara: (1) <strong>Jaga NCD</strong>: NCD 55% memberi potongan 55% daripada premium asas, manakala perlindungan tambahan dan bayaran lain dikira berasingan;
+            Lima cara: (1) <strong>Jaga NCD</strong>. NCD 55% memberi potongan 55% daripada premium asas, manakala perlindungan tambahan dan bayaran lain dikira berasingan;
             kira dahulu dengan <a href="/tools/ncd-calculator/">Kalkulator NCD</a> sama ada berbaloi claim atau bayar sendiri.
             (2) <strong>Semak sum insured</strong>: bagi polisi nilai pasaran, ikut penilaian semasa, bukan harga beli baru; bagi polisi nilai dipersetujui (agreed value), semak jumlah yang dipersetujui.
             (3) <strong>Bandingkan 2–3 quotation</strong> setiap tahun: harga berbeza ikut syarikat selepas liberalisasi 2017.
@@ -586,7 +586,7 @@ const schema = {
           <details class="faq-item">
             <summary>Apa jadi kalau insurans lapse (tamat dan tak renew)?</summary>
             <p>
-              Dua masalah besar: (1) Anda memandu tanpa insurans: <strong>tidak sah di sisi undang-undang</strong>.
+              Dua masalah besar: (1) Anda memandu tanpa insurans, dan ini <strong>tidak sah di sisi undang-undang</strong>.
               Jika ditangkap, denda RM1,000 atau penjara 3 bulan.
               (2) NCD yang tidak digunakan boleh berkurang mengikut skala dan syarat polisi; ia tidak semestinya terus menjadi 0%.
               Jadi, jangan tunggu saat akhir untuk renew.
@@ -661,7 +661,7 @@ const schema = {
               </li>
               <li>
                 <a href="https://etiqa.com.my" target="_blank" rel="noopener" class="text-hijau-700 font-medium hover:text-hijau-600">Etiqa Online</a>
-                <span class="text-stone-500">: beli terus</span>
+                <span class="text-stone-500">(beli terus)</span>
               </li>
             </ul>
           </div>

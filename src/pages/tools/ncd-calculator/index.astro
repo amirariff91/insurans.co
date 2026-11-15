@@ -589,7 +589,7 @@ const modelReferences = Object.fromEntries(
   const referenceRangeEl = document.getElementById('model-reference-range');
   if (modelReference && referenceEl && referenceNameEl && referenceRangeEl) {
     referenceNameEl.textContent = modelReference.fullName;
-    referenceRangeEl.textContent = `${rm(modelReference.premiumNCD0Min)} – ${rm(modelReference.premiumNCD0Max)}`;
+    referenceRangeEl.textContent = `${rm(modelReference.premiumNCD0Min)}–${rm(modelReference.premiumNCD0Max)}`;
     referenceEl.hidden = false;
   }
 

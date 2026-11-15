@@ -179,12 +179,12 @@ const schema = {
                 <tr role="row">
                   <th role="rowheader" scope="row" class="align-top">
                     <a href={`/home-insurance/${record.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{record.planName}</a>
-                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? '—'}</span>
+                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-500">{record.insurer ?? 'Tidak dinyatakan'}</span>
                   </th>
-                  <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? '—'}</span></td>
-                  <td role="cell" class="min-w-64 align-top" data-label="Kadar / contoh premium" data-wide>{record.tariffRates ?? '—'}</td>
-                  <td role="cell" class="align-top" data-label="Premium minimum" data-wide>{record.minPremium ?? '—'}</td>
-                  <td role="cell" class="min-w-64 align-top" data-label="Asas jumlah diinsuranskan" data-wide>{record.sumInsuredBasis ?? '—'}</td>
+                  <td role="cell" class="align-top" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[record.type] ?? record.type ?? 'Tidak dinyatakan'}</span></td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Kadar / contoh premium" data-wide>{record.tariffRates ?? 'Tidak dinyatakan'}</td>
+                  <td role="cell" class="align-top" data-label="Premium minimum" data-wide>{record.minPremium ?? 'Tidak dinyatakan'}</td>
+                  <td role="cell" class="min-w-64 align-top" data-label="Asas jumlah diinsuranskan" data-wide>{record.sumInsuredBasis ?? 'Tidak dinyatakan'}</td>
                   <td role="cell" class="align-top" data-label="Sumber" data-wide>
                     {record.sources.length > 0 ? (
                       <ul class="space-y-2">
@@ -192,7 +192,7 @@ const schema = {
                           <li><a href={url} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{new URL(url).hostname.replace(/^www\./, '')}</a></li>
                         ))}
                       </ul>
-                    ) : '—'}
+                    ) : 'Tidak dinyatakan'}
                   </td>
                 </tr>
               ))}
@@ -204,7 +204,7 @@ const schema = {
           <p class="mt-2">
             Baca kadar dan contoh premium bersama jumlah diinsuranskan serta tempoh perlindungan.
             Premium minimum ialah nilai minimum yang dinyatakan bagi produk.
-            Tanda “—” menunjukkan maklumat tidak dinyatakan; rujuk pautan sumber untuk skop dan syarat penuh.
+            Sel yang tiada maklumat ditulis “Tidak dinyatakan”; rujuk pautan sumber untuk skop dan syarat penuh.
           </p>
         </div>
       </section>

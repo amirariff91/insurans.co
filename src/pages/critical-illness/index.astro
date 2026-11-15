@@ -132,15 +132,15 @@ const schema = {
                 {records.map((record) => (
                   <tr role="row">
                     <th role="rowheader" scope="row">
-                      <a href={`/critical-illness/${record.slug}/`}>{record.planName || '—'}</a>
+                      <a href={`/critical-illness/${record.slug}/`}>{record.planName || 'Tidak dinyatakan'}</a>
                     </th>
-                    <td role="cell" data-label="Penyedia" data-sub>{record.insurer || '—'}</td>
-                    <td role="cell" data-label="Jenis" data-chip><span class="plan-chip">{typeLabels[record.type] ?? '—'}</span></td>
-                    <td role="cell" data-label="Kondisi dilindungi">{record.conditionsCovered || '—'}</td>
-                    <td role="cell" data-label="Peringkat awal">{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : '—'}</td>
-                    <td role="cell" data-label="Struktur bayaran" data-wide>{record.payoutStructure || '—'}</td>
+                    <td role="cell" data-label="Penyedia" data-sub>{record.insurer || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Jenis" data-chip><span class="plan-chip">{typeLabels[record.type] ?? 'Tidak dinyatakan'}</span></td>
+                    <td role="cell" data-label="Kondisi dilindungi">{record.conditionsCovered || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Peringkat awal">{record.earlyStageCovered === 'yes' ? 'Ya' : record.earlyStageCovered === 'no' ? 'Tidak' : 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Struktur bayaran" data-wide>{record.payoutStructure || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Sumber" data-wide>
-                      {record.sources[0] ? <a href={record.sources[0]}>Sumber rasmi</a> : '—'}
+                      {record.sources[0] ? <a href={record.sources[0]}>Sumber rasmi</a> : 'Tidak dinyatakan'}
                     </td>
                   </tr>
                 ))}
@@ -151,7 +151,7 @@ const schema = {
           <p>
             Bilangan kondisi perlu dibaca bersama tahap penyakit dan definisi dalam polisi atau sijil.
             Bayaran accelerated mengurangkan baki perlindungan; mySalam mempunyai manfaat dan syarat kelayakan skim sendiri.
-            Tanda: menunjukkan maklumat tidak dinyatakan.
+            Sel yang tiada maklumat ditulis “Tidak dinyatakan”.
           </p>
 
           <h2 id="apa-itu">Apa itu insurans penyakit kritikal?</h2>
