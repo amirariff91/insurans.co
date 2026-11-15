@@ -3,7 +3,7 @@
 /*
  * Edisi on fixed tokens (15 Nov 2026). DESIGN.md "Tokens" is the reference.
  *
- * Five colours, one spacing scale, one type scale. Everything a template can ask for resolves to
+ * Five colours (paper, ink, mute, mark, magenta), one spacing scale, one type scale. Everything a template can ask for resolves to
  * one of them: the old class names (hijau, emas, krim, stone, verdict, edisi.*) are kept as
  * ALIASES so the templates keep working, but no alias has a value of its own.
  * `scripts/design/snap-tokens.py --check` fails if a stylesheet drifts off the scales.
@@ -11,7 +11,7 @@
 const paper = '#FFFFFF'; // page and every surface
 const ink = '#000000'; // text, title bars, strong rules, focus
 const mute = '#595959'; // secondary text, borders of controls (7:1 on paper)
-const line = '#DADADA'; // hairline dividers and unchosen fills (decoration only, never text)
+const mark = '#FFF3B0'; // yellow, only behind the reader's figure (total, price, result); text on it is ink
 const magenta = '#D0106F'; // the one action and the chosen state; text on it is paper
 
 const ramp = (map) => Object.fromEntries(Object.entries(map).flatMap(([v, ks]) => ks.map((k) => [k, v])));
@@ -35,13 +35,13 @@ export default {
       inherit: 'inherit',
       white: paper,
       black: ink,
-      paper, ink, mute, line, magenta,
-      edisi: { paper, card: paper, tray: paper, chip: line, ink, 'ink-2': mute, rule: mute, magenta, 'magenta-deep': ink, pink: paper, yellow: paper, sky: paper, red: ink },
-      stone: ramp({ [paper]: [50], [line]: [100, 200], [mute]: [300, 400, 500, 600], [ink]: [700, 800, 900, 950] }),
+      paper, ink, mute, mark, magenta,
+      edisi: { paper, card: paper, tray: paper, chip: paper, ink, 'ink-2': mute, rule: mute, magenta, 'magenta-deep': ink, pink: paper, yellow: mark, sky: paper, red: ink },
+      stone: ramp({ [paper]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900, 950] }),
       hijau: ramp({ [paper]: [50, 100], [mute]: [200, 300, 600], [magenta]: [400, 500], [ink]: [700, 800, 900, 950] }),
-      emas: ramp({ [paper]: [50, 100], [line]: [200, 300], [mute]: [400, 500, 600], [ink]: [700, 800, 900] }),
-      krim: ramp({ [paper]: [50, 100], [line]: [200, 300] }),
-      red: ramp({ [paper]: [50], [line]: [200], [ink]: [700] }),
+      emas: ramp({ [mark]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900] }),
+      krim: ramp({ [paper]: [50, 100, 200], [mute]: [300] }),
+      red: ramp({ [paper]: [50], [mute]: [200], [ink]: [700] }),
       verdict: {
         best: { bg: paper, ink, border: magenta },
         good: { bg: paper, ink, border: mute },

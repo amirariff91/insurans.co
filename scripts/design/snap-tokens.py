@@ -20,7 +20,7 @@ import re, sys, pathlib, colorsys
 
 SPACE = [0, 2, 4, 8, 12, 16, 24, 32, 48, 64, 96]          # px
 TYPE = [14, 16, 18, 22, 28, 36]                            # px
-TOK = {'paper': '#FFFFFF', 'ink': '#000000', 'mute': '#595959', 'line': '#DADADA', 'magenta': '#D0106F'}
+TOK = {'paper': '#FFFFFF', 'ink': '#000000', 'mute': '#595959', 'mark': '#FFF3B0', 'magenta': '#D0106F'}
 CHECK = '--check' in sys.argv
 report = []
 
@@ -88,13 +88,12 @@ def classify(r, g, b, a=1.0):
     h, l, s = colorsys.rgb_to_hls(r/255, g/255, b/255)
     if a < 1:
         if l > 0.9: return 'paper'
-        if s < 0.2: return 'line' if a <= 0.3 else ('mute' if a <= 0.65 else 'ink')
+        if s < 0.2: return 'mute' if a <= 0.65 else 'ink'
     if s > 0.45 and 0.25 < l < 0.75 and (h > 0.86 or h < 0.02):
         return 'magenta' if l > 0.38 and h > 0.86 else 'ink'   # deep magenta and red become ink
-    if s > 0.25 and l >= 0.75: return 'paper'                  # pastel tints
+    if s > 0.25 and l >= 0.75: return 'mark' if 0.11 < h < 0.2 else 'paper'   # yellow is the mark; other pastels go
     if s > 0.25: return 'mute' if l > 0.3 else 'ink'           # ochres etc.
-    if l >= 0.94: return 'paper'
-    if l >= 0.80: return 'line'
+    if l >= 0.86: return 'paper'
     if l >= 0.25: return 'mute'
     return 'ink'
 
@@ -140,7 +139,7 @@ DECL = re.compile(r'(?P<pre>(?:^|[;{])\s*)(?P<prop>--[\w-]+|[a-z-]+)(?P<colon>\s
 def transform_css(css):
     def f(m):
         prop, val = m.group('prop'), m.group('val')
-        if prop in ('--paper', '--ink', '--mute', '--line', '--magenta'): return m.group(0)
+        if prop in ('--paper', '--ink', '--mute', '--mark', '--magenta'): return m.group(0)
         if val.lstrip().startswith(('url(', '"', "'")) and 'gradient' not in val: return m.group(0)
         new = val
         if SPACING_PROPS.match(prop): new = snap_spacing(new)

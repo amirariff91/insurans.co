@@ -221,7 +221,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     .tabs a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
     .tabs a[aria-current='page']:focus-visible { outline-color: var(--sel); }
     @media (hover: hover) and (pointer: fine) {
-      .tabs a:not([aria-current]):hover { background: var(--line); }
+      .tabs a:not([aria-current]):hover { background: var(--mark); }
     }
   }
 

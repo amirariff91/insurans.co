@@ -115,15 +115,17 @@
 /* Edisi magenta world, light only (tokens.css). The Tailwind tokens carry the same values. */
 :root {
   color-scheme: light;
-  /* The five colour tokens. Every other colour name below is an alias of one of them. */
-  --paper: #FFFFFF; --ink: #000000; --mute: #595959; --line: #DADADA; --magenta: #D0106F;
+  /* The five colour tokens: paper, ink, mute, mark (yellow, only behind the reader's figure), magenta. Every other colour name below is an alias of one of them. */
+  --paper: #FFFFFF; --ink: #000000; --mute: #595959; --mark: #FFF3B0; --magenta: #D0106F;
+  /* `line` was a token until the 15 Nov review; it is now an alias, so every divider is a 1px mute rule. */
+  --line: var(--mute);
   --measure: 44rem;
-  --card: var(--paper); --tray: var(--paper); --chip: var(--line);
+  --card: var(--paper); --tray: var(--paper); --chip: var(--paper);
   --ink-2: var(--mute); --rule: var(--mute); --rule-strong: var(--ink);
   --kick: var(--magenta); --kick-ink: var(--paper); --sel: var(--magenta); --sel-ink: var(--paper);
-  --mark: var(--paper); --mark-ink: var(--ink); --link: var(--ink); --red: var(--ink);
+  --mark-ink: var(--ink); --link: var(--ink); --red: var(--ink);
   --knob: var(--magenta); --ghost: var(--mute);
-  --tint-pink: var(--paper); --tint-yellow: var(--paper); --tint-sky: var(--paper);
+  --tint-pink: var(--paper); --tint-yellow: var(--mark); --tint-sky: var(--paper);
   --focus: var(--ink); --focus-on-dark: var(--paper);
   --glass: var(--paper); --glass-t: var(--paper);
   --glass-edge: var(--mute); --glass-rim: var(--paper); --glass-spec: var(--paper);
@@ -745,7 +747,7 @@
   text-decoration: none;
   transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out);
 }
-.type-chips a:hover { border-color: var(--ink); background: var(--line); }
+.type-chips a:hover { border-color: var(--ink); background: var(--mark); }
 .type-chips a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 /* ==== W4 hubs: plan cards on phones (end) ==== */
 
@@ -886,7 +888,7 @@ th > a,
 .pa-r dt { color: var(--ink); font-size: 1rem; line-height: 1.35; }
 .pa-r dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; min-width: 0; }
 .pa-r[data-role] .pa-v { display: inline-block; padding: 2px 0.5rem; border-radius: var(--r-1); color: var(--ink); }
-.pa-r[data-role="price"] .pa-v { background: var(--tint-pink); }
+.pa-r[data-role="price"] .pa-v { background: var(--mark); }
 .pa-r[data-role="term"] .pa-v { background: var(--mark); }
 .pa-r[data-long] { display: block; }
 .pa-r[data-long] dt { font-weight: 600; }
@@ -924,7 +926,7 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
  * Also: quiet section labels, once-only list labels and plan-card fixes for the product/company pages.
  * ======================================================================================================== */
 .pa-lead { padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--line); }
-.pa-lead[data-role="price"] { background: var(--tint-pink); }
+.pa-lead[data-role="price"] { background: var(--mark); }
 .pa-lead[data-role="term"] { background: var(--mark); }
 .pa-lead-v { margin: 0; font: 800 2.25rem/1.02 var(--fd); letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .pa-lead-p { display: inline-block; }
@@ -947,8 +949,7 @@ main sup a { display: inline-block; padding: 0.75rem 0.5rem; margin: -0.75rem -0
  *   2px ink    = a section start, a table head, the yearly total;
  *   1px line   = dividers inside a module;  1px mute = the edge of a control or module.
  * Side rails never invert: they are navigation, and the main column carries the answer. */
-.pa-r[data-role="price"] .pa-v, .pa-r[data-role="term"] .pa-v,
-.pa-lead[data-role="price"], .pa-lead[data-role="term"] { background: none; font-weight: 600; }
+.pa-r[data-role] .pa-v, .pa-lead[data-role] { font-weight: 600; }
 /* The first section sits right under the page opening: the container's own padding is the gap. */
 .prose-editorial > h2:first-child, .prose-editorial > :first-child > h2:first-child { margin-top: 0; }
 /* Guide illustrations are drawn in their own colours; on the page they read as ink, like the car photos. */
