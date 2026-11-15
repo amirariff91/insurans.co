@@ -89,7 +89,7 @@ const editorialSchema = {
         <div class="divider" />
 
         <!-- Author bio section -->
-        <div id="pasukan" class="bg-stone-50 border border-stone-200 p-6 sm:p-8 not-prose">
+        <div id="pasukan" class="note-plain not-prose">
           <p class="label mb-4">Editor: Amir Ariff</p>
           <h2 class="font-serif text-headline-sm text-stone-900 mb-4">Siapa yang menulis dan menyemak</h2>
 
@@ -99,7 +99,7 @@ const editorialSchema = {
               <div>
                 <p class="font-sans font-semibold text-stone-900"><a href="/penulis/amir-ariff/">Amir Ariff</a></p>
                 <p class="text-sm text-stone-500 mb-2">Pengasas &amp; Editor, Insurans.co</p>
-                <p class="text-sm text-stone-600 leading-relaxed">
+                <p class="about-bio text-base text-stone-900 leading-relaxed">
                   Insurans.co dikendalikan oleh seorang editor, Amir Ariff. Draf kandungan disediakan dengan bantuan alat AI, kemudian Amir menyemaknya dengan sumber primer dan menyuntingnya sebelum diterbitkan, dan beliau bertanggungjawab ke atas semua kandungan yang diterbitkan (butirannya dalam <a href="/kaedah-editorial/#ai">Kaedah editorial</a>). Amir bukan penasihat kewangan berlesen; beliau menyediakan penerangan dan rujukan untuk membantu pembaca memahami pilihan insurans.
                 </p>
               </div>
@@ -107,10 +107,10 @@ const editorialSchema = {
           </div>
 
           <div class="mt-6 pt-6 border-t border-stone-200">
-            <p class="text-xs font-sans font-semibold uppercase tracking-wider text-stone-500 mb-3">Bidang kepakaran kandungan</p>
+            <p class="text-sm font-sans font-semibold text-stone-600 mb-3">Bidang kepakaran kandungan</p>
             <div class="flex flex-wrap gap-2">
               {['Insurans Kereta', 'Insurans Kesihatan', 'Takaful', 'Insurans Nyawa', 'NCD & Roadtax', 'Tuntutan Insurans'].map(tag => (
-                <span class="text-xs font-sans font-medium px-3 py-1 bg-white border border-stone-300 text-stone-700">
+                <span class="about-tag">
                   {tag}
                 </span>
               ))}
@@ -169,3 +169,22 @@ const editorialSchema = {
     </div>
   </article>
 </Base>
+
+<style>
+  /* AI disclosure is content: body size and ink, held to the article measure. */
+  .about-bio { max-width: var(--measure); }
+  /* Topic tags are chips: pills, as everywhere else on the site. */
+  .about-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-pill);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+</style>

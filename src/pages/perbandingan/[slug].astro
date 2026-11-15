@@ -225,13 +225,13 @@ const schema = {
             </p>
           </div>
           <div class="grid sm:grid-cols-2 gap-5">
-            <section class="bg-stone-50 border border-stone-200 p-5">
+            <section class="note-plain">
               <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameA} jika:</h3>
               <ul class="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
                 {comp.chooseA.map((item: string) => <li>{item}</li>)}
               </ul>
             </section>
-            <section class="bg-stone-50 border border-stone-200 p-5">
+            <section class="note-plain">
               <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameB} jika:</h3>
               <ul class="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
                 {comp.chooseB.map((item: string) => <li>{item}</li>)}
@@ -322,10 +322,10 @@ const schema = {
           <section class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h2>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/perbandingan/" class="text-hijau-700 hover:text-hijau-600">Semua perbandingan</a></li>
-              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: panduan lengkap</a></li>
+              <li><a href="/perbandingan/" class="text-hijau-700 underline">Semua perbandingan</a></li>
+              <li><a href="/companies/" class="text-hijau-700 underline">Semua syarikat insurans</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 underline">Panduan insurans kereta</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline">NCD: panduan lengkap</a></li>
             </ul>
           </section>
         </div>
