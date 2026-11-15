@@ -7,7 +7,7 @@ import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
-import { factRole, tarikh } from '../../components/edisi/ProductFormat';
+import { archivedCopy, factRole, tarikh } from '../../components/edisi/ProductFormat';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
 import { freshFaqs } from '../../lib/plan-faq';
@@ -48,10 +48,14 @@ const passesUniqueness = adsEnabledSlugs.has(card.slug);
 const { analysis } = card;
 const sibling = cards.find((candidate) => candidate.slug === analysis.siblingSlug)!;
 const sourceUrls = [...new Set([...card.sources, ...analysis.facts.map((fact) => fact.source)])];
-const sourceLinks = sourceUrls.map((url, index) => ({
-  label: `[${index + 1}] ${decodeURIComponent(new URL(url).pathname.split('/').filter(Boolean).pop()!)} (${new URL(url).hostname.replace(/^www\./, '')})`,
-  url,
-}));
+const sourceLinks = sourceUrls.map((url, index) => {
+  const file = decodeURIComponent(new URL(url).pathname.split('/').filter(Boolean).pop()!);
+  const archived = archivedCopy(url);
+  const where = archived
+    ? `salinan arkib ${archived.site}, ${archived.captured}`
+    : new URL(url).hostname.replace(/^www\./, '');
+  return { label: `[${index + 1}] ${file} (${where})`, url };
+});
 const specItems = analysis.facts.filter((fact) =>
   ['Had tahunan', 'Bilik dan penginapan', 'Had seumur hidup', 'Deductible', 'Perkongsian kos'].includes(fact.label),
 );
