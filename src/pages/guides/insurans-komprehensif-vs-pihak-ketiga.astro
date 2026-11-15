@@ -109,55 +109,55 @@ const schema = {
         </article>
 
         <!-- Comparison Table -->
-        <div class="overflow-x-auto my-8">
+        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-label="Perbandingan: apa yang dilindungi">
           <table class="table-editorial">
             <thead>
               <tr>
-                <th>Jenis Perlindungan</th>
-                <th>Komprehensif</th>
-                <th>TPFT</th>
-                <th>Pihak Ketiga</th>
+                <th scope="col">Jenis Perlindungan</th>
+                <th scope="col">Komprehensif</th>
+                <th scope="col">TPFT</th>
+                <th scope="col">Pihak Ketiga</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium">Kerosakan kereta sendiri (kemalangan)</td>
+                <th scope="row" class="font-medium">Kerosakan kereta sendiri (kemalangan)</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kecurian kereta sendiri</td>
+                <th scope="row" class="font-medium">Kecurian kereta sendiri</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kebakaran kereta sendiri</td>
+                <th scope="row" class="font-medium">Kebakaran kereta sendiri</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kerosakan kereta orang lain</td>
+                <th scope="row" class="font-medium">Kerosakan kereta orang lain</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
               </tr>
               <tr>
-                <td class="font-medium">Kecederaan orang lain</td>
+                <th scope="row" class="font-medium">Kecederaan orang lain</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
               </tr>
               <tr>
-                <td class="font-medium">Banjir &amp; bencana alam (special perils)</td>
+                <th scope="row" class="font-medium">Banjir &amp; bencana alam (special perils)</th>
                 <td class="text-stone-500">Add-on</td>
                 <td class="mark-no">✗</td>
                 <td class="mark-no">✗</td>
               </tr>
               <tr>
-                <td class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</td>
+                <th scope="row" class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</th>
                 <td class="font-semibold text-stone-900">{range(lowest55.premiumNCD55Min, highest55.premiumNCD55Max)}</td>
                 <td class="font-semibold text-stone-900">Minta sebut harga</td>
                 <td class="font-semibold text-stone-900">Minta sebut harga</td>

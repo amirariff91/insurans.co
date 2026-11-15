@@ -146,9 +146,9 @@ const schema = {
         <p class="mt-2 text-sm text-stone-600">Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>.</p>
         <TypeChips class="mt-5" label="Jenis pelan" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
         <ProductCss />
-        <div class="pp-plans mt-6 overflow-x-auto">
+        <div class="pp-plans mt-6 overflow-x-auto" role="region" tabindex="0" aria-labelledby="jadual-pelan">
           <table role="table" class="table-editorial plan-table min-w-[60rem]">
-            <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+            <caption id="jadual-pelan" class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
               Had manfaat dan premium untuk {records.length} pelan kemalangan diri
             </caption>
             <thead role="rowgroup">
@@ -338,7 +338,7 @@ const schema = {
             <h2>PA vs medical card vs life insurance</h2>
             <p>Ketiga-tiganya boleh melengkapi, tetapi pencetus tuntutan dan bentuk bayaran tidak sama.</p>
           </div>
-          <div class="pp-plans mt-6 overflow-x-auto">
+          <div class="pp-plans mt-6 overflow-x-auto" role="region" tabindex="0" aria-label="PA vs medical card vs life insurance">
             <table role="table" class="table-editorial plan-table">
               <thead role="rowgroup">
                 <tr role="row">
