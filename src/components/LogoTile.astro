@@ -1,10 +1,11 @@
 ---
 /**
  * A brand or insurer logo on a calm white tile (1px rule border), for identification only: never a link to the
- * brand, never an endorsement (/kredit-foto/#tanda-dagangan). Logos render in greyscale, like the site's car photos,
- * so no brand colour competes with the pink. Without a reusable logo file the tile prints the short name in the
- * site's display type instead (a wordmark tile), in the same box, so mixed rows still line up.
- * Sizes: 's' 1.75rem tall (logo up to 1.125rem), 'm' 2.25rem (1.5rem), 'l' 3rem (1.75rem). Width is fixed per size.
+ * brand, never an endorsement (/kredit-foto/#tanda-dagangan). Logos render in their own colours, unaltered, in a
+ * fixed box so mixed logos sit calmly; `scale` in the data corrects optical size. A record without a logo file
+ * renders nothing unless `wordmark` is set (only where the tile is the only label, e.g. the comparison header):
+ * then the tile prints the short name in the site's display type, in the same box.
+ * Sizes: 's' 5rem by 1.875rem, 'm' 7rem by 2.5rem, 'l' 9rem by 3.25rem; the logo is contained in the padded box.
  */
 import { brandLogo, companyLogo } from '../lib/logos';
 
@@ -13,16 +14,18 @@ interface Props {
   company?: string | null;
   size?: 's' | 'm' | 'l';
   eager?: boolean;
+  /** Show a name tile when there is no logo file. Only where no name is printed beside the tile. */
+  wordmark?: boolean;
   class?: string;
 }
-const { brand, company, size = 'm', eager = false, class: className } = Astro.props;
+const { brand, company, size = 'm', eager = false, wordmark = false, class: className } = Astro.props;
 const rec = brand ? brandLogo(brand) : companyLogo(company);
 const label = rec?.name ?? brand ?? '';
 // Intrinsic box for width/height attributes (the img is contained in the tile, so only the ratio matters).
-const dims = { s: [64, 28], m: [88, 36], l: [120, 48] }[size];
+const dims = { s: [80, 30], m: [112, 40], l: [144, 52] }[size];
 ---
-{rec && (
-  <span class:list={['lt', `lt-${size}`, rec.kind === 'wordmark' && 'lt-word', className]}>
+{rec && (rec.kind === 'logo' || wordmark) && (
+  <span class:list={['lt', `lt-${size}`, rec.kind === 'wordmark' && 'lt-word', rec.wide && 'lt-wide', className]}>
     {rec.kind === 'logo' && rec.path ? (
       <img class="lt-img" style={rec.scale ? `scale:${rec.scale}` : undefined} src={rec.path} alt={`Logo ${label}`} width={dims[0]} height={dims[1]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
     ) : (
@@ -37,8 +40,8 @@ const dims = { s: [64, 28], m: [88, 36], l: [120, 48] }[size];
     display: inline-grid;
     place-items: center;
     box-sizing: border-box;
-    inline-size: 5.5rem;
-    block-size: 2.25rem;
+    inline-size: 7rem;
+    block-size: 2.5rem;
     padding: 0.375rem 0.5rem;
     border: 1px solid var(--rule, #d6d3d1);
     border-radius: var(--r-1, 6px);
@@ -47,8 +50,8 @@ const dims = { s: [64, 28], m: [88, 36], l: [120, 48] }[size];
     vertical-align: middle;
     position: relative;
   }
-  .lt-s { inline-size: 4rem; block-size: 1.75rem; padding: 0.3rem 0.4rem; }
-  .lt-l { inline-size: 7.5rem; block-size: 3rem; padding: 0.5rem 0.65rem; }
+  .lt-s { inline-size: 5rem; block-size: 1.875rem; padding: 0.3rem 0.4rem; }
+  .lt-l { inline-size: min(9rem, 40vw); block-size: 3.25rem; padding: 0.5rem 0.65rem; }
   .lt-l .lt-img { inset: 0.5rem 0.65rem; inline-size: calc(100% - 1.3rem); block-size: calc(100% - 1rem); }
   .lt-s .lt-img { inset: 0.25rem 0.35rem; inline-size: calc(100% - 0.7rem); block-size: calc(100% - 0.5rem); }
   /* Absolutely placed in the padded box: object-fit keeps each logo's own ratio whatever the width/height hint. */
@@ -58,8 +61,9 @@ const dims = { s: [64, 28], m: [88, 36], l: [120, 48] }[size];
     inline-size: calc(100% - 0.9rem);
     block-size: calc(100% - 0.6rem);
     object-fit: contain;
-    filter: grayscale(1) contrast(1.15);
   }
+  /* Very wide logos (a long name set beside the mark): use the tile's full width so the type stays readable. */
+  .lt-wide .lt-img { inset-inline: 0.2rem; inline-size: calc(100% - 0.4rem); }
   .lt-name {
     font: 800 0.875rem/1 var(--fd, inherit);
     letter-spacing: -0.01em;

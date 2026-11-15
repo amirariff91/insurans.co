@@ -170,9 +170,9 @@ const schema = {
 >
   <Hero title={comparisonTitle}>
     <Fragment slot="mark">
-      <LogoTile company={comp.company1} size="l" eager />
+      <LogoTile company={comp.company1} size="l" eager wordmark />
       <span class="px-1 font-bold text-stone-700" aria-hidden="true">vs</span>
-      <LogoTile company={comp.company2} size="l" eager />
+      <LogoTile company={comp.company2} size="l" eager wordmark />
     </Fragment>
     <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan', href: '/perbandingan/' }, { label: `${nameA} vs ${nameB}` }]} />
     <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt) }]} />

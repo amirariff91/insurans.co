@@ -1,5 +1,5 @@
 {
-  "note": "Logo jenama kereta untuk pengenalan sahaja. Sumber dan status lesen seperti yang dinyatakan di Wikimedia Commons pada tarikh diambil.",
+  "note": "Logo jenama kereta untuk pengenalan sahaja, dalam warna asal. source: \"Wikimedia Commons\" atau \"official site\"; sourceUrl: fail tepat yang diambil.",
   "records": [
     {
       "brand": "perodua",
@@ -10,18 +10,22 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Perodua_Logo_(2008_-_Present).svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perodua_Logo_(2008_-_Present).svg"
     },
     {
       "brand": "proton",
       "name": "Proton",
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/jenama/proton.webp",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://cms-assets.proton.com/proton-cms-blob/media/mlvmigt0/proton-logo.png"
     },
     {
       "brand": "honda",
@@ -32,7 +36,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Honda_auto_logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honda_auto_logo.svg"
     },
     {
       "brand": "toyota",
@@ -43,7 +49,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Toyota_carlogo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toyota_carlogo.svg"
     },
     {
       "brand": "nissan",
@@ -54,7 +62,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Nissan_2020_logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nissan_2020_logo.svg"
     },
     {
       "brand": "mazda",
@@ -65,7 +75,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Mazda_logo_2024.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mazda_logo_2024.svg"
     },
     {
       "brand": "mitsubishi",
@@ -76,7 +88,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Mitsubishi_motors_new_logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitsubishi_motors_new_logo.svg"
     },
     {
       "brand": "hyundai",
@@ -87,7 +101,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Hyundai_Motor_Company_logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyundai_Motor_Company_logo.svg"
     },
     {
       "brand": "kia",
@@ -98,7 +114,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:KIA_logo3.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:KIA_logo3.svg"
     },
     {
       "brand": "bmw",
@@ -109,7 +127,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:BMW.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BMW.svg"
     },
     {
       "brand": "mercedes-benz",
@@ -120,7 +140,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_(2025).svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta)",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_(2025).svg"
     },
     {
       "brand": "suzuki",
@@ -131,7 +153,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Suzuki_logo_2025.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_logo_2025.svg"
     }
   ]
 }

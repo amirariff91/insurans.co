@@ -1,6 +1,7 @@
 // Brand and insurer logos for identification only (src/data/brand-logos.json, company-logos.json; sources and
-// licence status are listed on /kredit-foto/#tanda-dagangan). A record without a reusable Commons file is a
-// wordmark: LogoTile.astro prints the short name in the site's type in the same box.
+// licence status are listed on /kredit-foto/#tanda-dagangan). Each file comes from Wikimedia Commons or from the
+// company's own Malaysian website (source, sourceUrl). A record without a file is a wordmark: LogoTile.astro shows it
+// only where the tile is the only label (opt-in `wordmark`).
 import brandLogos from '../data/brand-logos.json';
 import companyLogos from '../data/company-logos.json';
 
@@ -11,12 +12,17 @@ export interface LogoRecord {
   commonsFile: string | null;
   commonsPage: string | null;
   licence: string;
-  retrieved: string;
+  retrieved: string | null;
+  source?: 'Wikimedia Commons' | 'official site';
+  /** The exact file that was downloaded (Commons file page or the official site's own URL). */
+  sourceUrl?: string | null;
   brand?: string;
   company?: string;
   match?: string[];
   /** Optical size correction for a logo that looks heavier than the others at the same box (0.5 to 1). */
   scale?: number;
+  /** A very wide logo (about 5:1 or wider): LogoTile trims the side padding so its type stays readable. */
+  wide?: boolean;
 }
 
 export const BRAND_LOGOS = brandLogos.records as LogoRecord[];

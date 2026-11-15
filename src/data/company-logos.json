@@ -1,5 +1,5 @@
 {
-  "note": "Logo syarikat insurans untuk pengenalan sahaja. Sumber dan status lesen seperti yang dinyatakan di Wikimedia Commons pada tarikh diambil. match: corak (regex, huruf kecil) untuk nama syarikat dalam data lain.",
+  "note": "Logo syarikat insurans untuk pengenalan sahaja, dalam warna asal. source: \"Wikimedia Commons\" atau \"official site\" (laman rasmi syarikat di Malaysia); sourceUrl: fail tepat yang diambil. match: corak (regex, huruf kecil) untuk nama syarikat dalam data lain. scale: pembetulan saiz optik (0.5 hingga 1).",
   "records": [
     {
       "company": "etiqa",
@@ -7,13 +7,16 @@
       "match": [
         "etiqa"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/etiqa.webp",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.etiqa.com.my/_next/static/media/Logo.f341760a.png",
+      "scale": 0.85
     },
     {
       "company": "allianz",
@@ -27,7 +30,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Allianz_logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Allianz_logo.svg"
     },
     {
       "company": "tokio-marine",
@@ -41,7 +46,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Tokio_Marine_Logo.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokio_Marine_Logo.svg"
     },
     {
       "company": "aia",
@@ -56,7 +63,9 @@
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
       "retrieved": "2026-11-15",
-      "scale": 0.62
+      "scale": 0.62,
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AIA_wordmark_logo.svg"
     },
     {
       "company": "great-eastern",
@@ -64,13 +73,15 @@
       "match": [
         "^great eastern"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/great-eastern.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.greateasternlife.com/content/dam/corp-site/my/homepage/personal-insurance/icons/ge-logo.svg"
     },
     {
       "company": "zurich",
@@ -84,7 +95,9 @@
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Zurich_Insurance_Group_Logo_Horizontal.svg",
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zurich_Insurance_Group_Logo_Horizontal.svg"
     },
     {
       "company": "prudential",
@@ -92,13 +105,16 @@
       "match": [
         "prudential"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/prudential.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.prudential.com.my/content/dam/prudential-aem-common/header/Prudential-Logo.svg",
+      "wide": true
     },
     {
       "company": "takaful-malaysia",
@@ -106,13 +122,16 @@
       "match": [
         "takaful malaysia"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/takaful-malaysia.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.takaful-malaysia.com.my/wp-content/uploads/2023/03/takaful_malaysia_logo.svg",
+      "wide": true
     },
     {
       "company": "berjaya-sompo",
@@ -120,13 +139,16 @@
       "match": [
         "berjaya sompo"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/berjaya-sompo.webp",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.berjayasompo.com.my/sites/default/files/logo-2x.png",
+      "wide": true
     },
     {
       "company": "msig",
@@ -134,13 +156,15 @@
       "match": [
         "^msig"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/msig.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.msig.com.my/media/tlepoprk/logo.svg"
     },
     {
       "company": "rhb",
@@ -155,7 +179,9 @@
       "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
       "retrieved": "2026-11-15",
-      "scale": 0.85
+      "scale": 0.85,
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RHB_Logo.svg"
     },
     {
       "company": "lonpac",
@@ -163,13 +189,16 @@
       "match": [
         "lonpac"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/lonpac.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.lonpac.com/images/Lonpac/GFX_Lonpac-Logo.svg",
+      "wide": true
     },
     {
       "company": "liberty",
@@ -177,13 +206,16 @@
       "match": [
         "^liberty"
       ],
-      "kind": "wordmark",
-      "path": null,
-      "commonsFile": "File:Liberty Mutual logo.svg",
-      "commonsPage": "https://commons.wikimedia.org/wiki/File:Liberty_Mutual_logo.svg",
-      "licence": "Fail domain awam (tanda dagangan) ada di Wikimedia Commons tetapi belum dimuat turun; dipaparkan sebagai nama dalam huruf laman ini",
-      "commonsLicence": "Public domain",
-      "retrieved": null
+      "kind": "logo",
+      "path": "/images/syarikat/liberty.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.libertyinsurance.com.my/sites/default/files/liberty-my-logo.png",
+      "note": "Fail Commons yang ada ialah tanda induk \"Liberty Mutual\", bukan jenama Malaysia \"Liberty Insurance\"; diambil daripada laman rasmi Malaysia."
     },
     {
       "company": "generali",
@@ -191,13 +223,16 @@
       "match": [
         "generali"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/generali.svg",
       "commonsFile": "File:Generali wordmark logo.svg",
       "commonsPage": "https://commons.wikimedia.org/wiki/File:Generali_wordmark_logo.svg",
-      "licence": "Fail domain awam (tanda dagangan) ada di Wikimedia Commons tetapi belum dimuat turun; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
       "commonsLicence": "Public domain",
-      "retrieved": null
+      "retrieved": "2026-11-15",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Generali_wordmark_logo.svg",
+      "wide": true
     },
     {
       "company": "pacific-orient",
@@ -205,13 +240,15 @@
       "match": [
         "pacific & orient"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/pacific-orient.webp",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.poi2u.com/wp-content/uploads/2022/03/logopoinew.png"
     },
     {
       "company": "tune-protect",
@@ -219,13 +256,15 @@
       "match": [
         "^tune"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/tune-protect.webp",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.tuneprotect.com/my/wp-content/themes/tuneprotect/images/logo.png"
     },
     {
       "company": "takaful-ikhlas",
@@ -233,13 +272,15 @@
       "match": [
         "takaful ikhlas"
       ],
-      "kind": "wordmark",
-      "path": null,
+      "kind": "logo",
+      "path": "/images/syarikat/takaful-ikhlas.svg",
       "commonsFile": null,
       "commonsPage": null,
-      "licence": "Tiada fail logo yang boleh diguna semula di Wikimedia Commons; dipaparkan sebagai nama dalam huruf laman ini",
+      "licence": "trademark; shown for identification",
       "commonsLicence": null,
-      "retrieved": "2026-11-15"
+      "retrieved": "2026-11-15",
+      "source": "official site",
+      "sourceUrl": "https://www.takaful-ikhlas.com.my/assets/images/logos/Takaful-Ikhlas_logo.svg"
     }
   ]
 }

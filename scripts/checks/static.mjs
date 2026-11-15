@@ -373,7 +373,25 @@ export function photoCredits(dist, pages, repo) {
       else r.passes++;
     }
   }
-  r.info = `${used.size} photo files used`;
+  // Brand and insurer logos (/images/jenama/, /images/syarikat/): every file needs a record in brand-logos.json or
+  // company-logos.json with its source, exact source URL and date, and /kredit-foto/ must link that URL.
+  const logoRecs = ['src/data/brand-logos.json', 'src/data/company-logos.json']
+    .flatMap((f) => JSON.parse(fs.readFileSync(path.join(repo, f), 'utf8')).records);
+  const kfHtml = kf ? kf.root.toString() : '';
+  let logoFiles = 0;
+  for (const dir of ['jenama', 'syarikat']) {
+    const d = path.join(dist, 'images', dir);
+    if (!fs.existsSync(d)) continue;
+    for (const f of fs.readdirSync(d)) {
+      logoFiles++;
+      const src = `/images/${dir}/${f}`;
+      const rec = logoRecs.find((x) => x.path === src);
+      if (!rec || !rec.source || !rec.sourceUrl || !rec.retrieved) r.fails.push({ page: src, check: 'logo without source/sourceUrl/retrieved record', value: f, source: 'src/data/*-logos.json' });
+      else if (!kfHtml.includes(`href="${rec.sourceUrl}"`)) r.fails.push({ page: '/kredit-foto/', check: 'logo source not linked on the credits page', value: src, source: 'src/pages/kredit-foto/index.astro' });
+      else r.passes++;
+    }
+  }
+  r.info = `${used.size} photo files used, ${logoFiles} logo files`;
   return r;
 }
 
