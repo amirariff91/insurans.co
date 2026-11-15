@@ -24,7 +24,7 @@ const dims = { s: [64, 28], m: [88, 36], l: [120, 48] }[size];
 {rec && (
   <span class:list={['lt', `lt-${size}`, rec.kind === 'wordmark' && 'lt-word', className]}>
     {rec.kind === 'logo' && rec.path ? (
-      <img class="lt-img" src={rec.path} alt={`Logo ${label}`} width={dims[0]} height={dims[1]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+      <img class="lt-img" style={rec.scale ? `scale:${rec.scale}` : undefined} src={rec.path} alt={`Logo ${label}`} width={dims[0]} height={dims[1]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
     ) : (
       <span class="lt-name" aria-hidden="true">{rec.name}</span>
     )}

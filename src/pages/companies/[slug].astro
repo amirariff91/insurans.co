@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Byline from '../../components/Byline.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
+import { companyLogo } from '../../lib/logos';
 import Ikon from '../../components/Ikon.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import companies from '../../data/companies.json';
@@ -142,6 +144,8 @@ const schema = {
   ogImageAlt={companyOgImageAlt}
 >
   <Hero title={company.name}>
+    {/* Only a real logo: a wordmark tile above the H1 would repeat the name. */}
+    {companyLogo(company.slug)?.kind === 'logo' && <LogoTile slot="mark" company={company.slug} size="l" eager />}
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

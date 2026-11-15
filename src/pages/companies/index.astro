@@ -2,6 +2,7 @@
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
+import LogoTile from '../../components/LogoTile.astro';
 import Ikon from '../../components/Ikon.astro';
 
 const conventional = companies.filter(c => c.type === 'conventional');
@@ -45,7 +46,7 @@ const schema = {
         <ul class="co-rows">
           {sortedCompanies.map((company) => (
             <li class="co-r">
-              <a href={`/companies/${company.slug}/`} class="co-a">{company.name}<Ikon name="i-kanan" size={18} /></a>
+              <a href={`/companies/${company.slug}/`} class="co-a"><LogoTile company={company.slug} size="m" />{company.name}<Ikon name="i-kanan" size={18} /></a>
               <span class="co-t">{company.type === 'takaful' ? 'Takaful' : company.takaful ? 'Ada takaful' : 'Insurans'}</span>
               <span class="co-f">{company.verdictBM}</span>
               <details class="co-d">
@@ -128,7 +129,7 @@ const schema = {
   .co-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
   @media (min-width: 48rem) { .co-rows { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
   .co-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; padding: 0.35rem 0 0.5rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
-  .co-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .co-a { display: inline-flex; align-items: center; gap: 0.35rem 0.6rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .co-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
   .co-t { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
   .co-f { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--ink); }

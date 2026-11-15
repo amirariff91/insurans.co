@@ -228,6 +228,7 @@
 .mlist-n { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; }
 .rel { --ct-w: 4.5rem; }
 .rel-h { display: flex; align-items: center; gap: 0.75rem; }
+.rel-h a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .hp-cars .ct { margin-bottom: 0.35rem; }
 .mod-cap { font-size: 0.875rem; color: var(--ink-2); padding: 0.6rem 0.75rem 0.5rem; }
 .rel { list-style: none; margin: 0; padding: 0; display: grid; }

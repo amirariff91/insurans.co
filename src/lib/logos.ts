@@ -15,6 +15,8 @@ export interface LogoRecord {
   brand?: string;
   company?: string;
   match?: string[];
+  /** Optical size correction for a logo that looks heavier than the others at the same box (0.5 to 1). */
+  scale?: number;
 }
 
 export const BRAND_LOGOS = brandLogos.records as LogoRecord[];

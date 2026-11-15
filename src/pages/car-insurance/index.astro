@@ -475,6 +475,7 @@ const schema = {
           {carInsurers.map((company) => (
             <a href={`/companies/${company.slug}/`} class="card-editorial group block">
               <div class="flex items-start gap-4">
+                <LogoTile company={company.slug} />
                 <div class="flex-1 min-w-0">
                   <div class="flex items-baseline flex-wrap gap-2 mb-1">
                     <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">

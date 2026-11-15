@@ -3,6 +3,13 @@ import Base from '../../layouts/Base.astro';
 import carPhotos from '../../data/car-photos.json';
 import carModels from '../../data/car-models.json';
 import { PUBLISHER } from '../../lib/schema';
+import { BRAND_LOGOS, COMPANY_LOGOS } from '../../lib/logos';
+import LogoTile from '../../components/LogoTile.astro';
+
+const logoGroups = [
+  { id: 'logo-jenama', title: 'Logo jenama kereta', rows: BRAND_LOGOS, prop: 'brand' as const },
+  { id: 'logo-syarikat', title: 'Logo syarikat insurans', rows: COMPANY_LOGOS, prop: 'company' as const },
+];
 
 const title = 'Kredit Foto Kereta — Insurans.co';
 const description =
@@ -107,6 +114,41 @@ const schema = {
           Halaman model itu memaparkan kad nama model; kami tidak guna foto kereta pasaran lain.
         </p>
 
+        <h2 id="tanda-dagangan">Logo dan tanda dagangan</h2>
+        <p>
+          Logo dan nama jenama kereta serta syarikat insurans di laman ini ialah tanda dagangan pemilik masing-masing.
+          Kami memaparkannya hanya untuk mengenal pasti syarikat dan kereta yang dibincangkan. Insurans.co ialah laman
+          bebas: kami bukan ejen, rakan kongsi atau affiliate mana-mana syarikat ini, dan kami tidak dibayar oleh mereka.
+        </p>
+        <p>
+          Setiap logo diambil daripada Wikimedia Commons, yang menyatakan fail itu domain awam kerana ia logo teks atau
+          bentuk ringkas; tanda dagangannya kekal milik syarikat. Kami memaparkannya dalam hitam putih. Jenama atau
+          syarikat tanpa fail logo yang boleh diguna semula dipaparkan sebagai nama sahaja, dalam huruf laman ini.
+        </p>
+      </div>
+
+      {logoGroups.map((g) => (
+        <section class="mt-6" aria-labelledby={g.id}>
+          <h3 id={g.id} class="font-semibold text-base text-stone-900 mb-2">{g.title}</h3>
+          <ul class="divide-y divide-stone-200 border-y border-stone-200">
+            {g.rows.map((r) => (
+              <li class="flex items-center gap-4 py-3">
+                <LogoTile {...{ [g.prop]: (r as any)[g.prop] }} />
+                <div class="text-sm leading-relaxed text-stone-700 min-w-0">
+                  <strong class="text-stone-900">{r.name}</strong>
+                  {r.commonsPage ? (
+                    <>: <a class="underline break-words" href={r.commonsPage} rel="noopener">{r.commonsFile!.replace(/^File:/, '')}</a>, Wikimedia Commons. {r.licence}.{r.retrieved && ` Diambil ${new Date(`${r.retrieved}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}.`}</>
+                  ) : (
+                    <>: {r.licence}.</>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <div class="prose-editorial prose-bars max-w-none mt-10">
         <h2 id="lapor">Lapor kesilapan kredit</h2>
         <p>
           Jika anda pengarang foto, atau anda nampak kredit, lesen atau pautan yang salah, e-mel
