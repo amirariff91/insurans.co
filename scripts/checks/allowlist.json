@@ -829,6 +829,19 @@
       "old": "Tokio Marine menawarkan rangkaian hayat dan am serta produk AutoPro dengan manfaat motor yang dinyatakan secara terperinci. MSIG Malaysia ialah penanggung insurans am yang membezakan tawaran motor melalui ciri telematik, bantuan jalan digital dan penjejakan trak tunda; kedua-duanya perlu dibandingkan berdasarkan skop polisi sebenar.",
       "new": "Tokio Marine ada perniagaan hayat dan am, dan AutoPro menyenaraikan manfaat motornya satu persatu. MSIG Malaysia ialah penanggung insurans am, dengan ciri telematik, bantuan jalan digital dan penjejakan trak tunda. Bandingkan kedua-duanya ikut skop polisi sebenar.",
       "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/home-insurance/$",
+      "values": [
+        "RM238.8",
+        "RM306.46",
+        "RM50",
+        "RM75"
+      ],
+      "reason": "Allianz Smart Home Cover tariffRates corrected from SHC_Brochure_ENG_2406 (valid from 1 March 2024), p3: HomeFix annual premiums RM50/RM75/RM100 for Options 1-3 (RM100 already on the page) and HouseHolder First Loss Options 4-5 annual RM238.80/RM306.46, which the old text left out (15 Nov 2026)."
     }
   ]
 }
