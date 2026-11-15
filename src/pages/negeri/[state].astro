@@ -115,7 +115,7 @@ function formatDate(value: string): string {
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <div class="bg-stone-50 border border-stone-200 p-6 mb-8">
+        <div class="note-plain mb-8">
           <div class="flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-start">
             <div class="flex-1 min-w-0">
               <h2 class="font-serif text-xl text-stone-900 mb-1">{state.name}</h2>
@@ -293,9 +293,9 @@ function formatDate(value: string): string {
 
       <aside class="lg:col-span-1">
         <div class="lg:sticky lg:top-20 space-y-6">
-          <div class="bg-white border-2 border-stone-900 p-5">
-            <h2 class="font-serif text-lg text-stone-900 mb-3">{state.displayName}</h2>
-            <dl class="space-y-3 text-sm">
+          <div class="mod">
+            <h2 class="mod-bar mod-lab">{state.displayName}</h2>
+            <dl class="mod-in text-sm">
               <div>
                 <dt class="text-stone-500">Ibu negeri</dt>
                 <dd class="font-semibold text-stone-900">{state.capital}</dd>
@@ -321,14 +321,14 @@ function formatDate(value: string): string {
               <ul class="space-y-2 text-sm">
                 {relatedStates.map((s: any) => (
                   <li>
-                    <a href={`/negeri/${s.slug}/`} class="text-hijau-700 hover:text-hijau-600 font-medium">
+                    <a href={`/negeri/${s.slug}/`} class="text-hijau-700 underline font-medium">
                       {s.displayName}
                     </a>
                     <span class="text-xs ml-2 text-stone-500">Risiko banjir: {s.floodRisk}</span>
                   </li>
                 ))}
               </ul>
-              <a href="/negeri/" class="block mt-4 text-xs text-stone-500 hover:text-hijau-700 font-medium">
+              <a href="/negeri/" class="block mt-4 text-xs text-stone-500 underline font-medium">
                 Semua negeri
               </a>
             </div>
@@ -337,10 +337,10 @@ function formatDate(value: string): string {
           <div class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h2>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:text-hijau-600">Insurans kereta banjir</a></li>
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
-              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Direktori syarikat insurans</a></li>
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: panduan lengkap</a></li>
+              <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 underline">Insurans kereta banjir</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 underline">Panduan insurans kereta</a></li>
+              <li><a href="/companies/" class="text-hijau-700 underline">Direktori syarikat insurans</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline">NCD: panduan lengkap</a></li>
             </ul>
           </div>
         </div>
@@ -350,6 +350,10 @@ function formatDate(value: string): string {
 </Base>
 
 <style>
+  /* Quiet module label, as .mod-lab in edisi-answer.css (that file is not loaded here; global.css has
+     .mod-bar but not .mod-lab): the module names its topic, so no black bar. */
+  .mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0; font: 800 1.125rem/1.25 var(--fd); }
+
   /* Quiet section label: a plain heading where the section opens with advice rather than a finding. */
   .prose-editorial.prose-bars h2.h2-quiet {
     background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;

@@ -94,10 +94,10 @@ const schema = {
           {sortedCompanies.map((company) => (
             <tr>
               <td>
-                <a href={`/companies/${company.slug}/`}>{company.name}</a>
+                <a href={`/companies/${company.slug}/`} class="underline">{company.name}</a>
               </td>
-              <td>
-                <a href={`tel:${company.claimLine.replace(/\s+/g, '')}`}>{company.claimLine}</a>
+              <td class="whitespace-nowrap">
+                <a href={`tel:${company.claimLine.replace(/\s+/g, '')}`} class="underline">{company.claimLine}</a>
               </td>
               <td>{company.takaful ? 'Ya' : 'Tidak'}</td>
               <td>{company.claimLineNote}</td>
@@ -107,7 +107,7 @@ const schema = {
       </table>
     </div>
     <p class="text-sm text-stone-700 mb-3">Disahkan 10 Sep 2026 daripada laman rasmi</p>
-    <p class="text-sm text-stone-600 mb-10">Mahu banding dua syarikat secara terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Etiqa vs Zurich</a>, <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Allianz vs Zurich</a> atau <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 hover:text-hijau-600 hover:underline">Prudential vs AIA</a></p>
+    <p class="text-sm text-stone-600 mb-10">Mahu banding dua syarikat secara terus? <a href="/perbandingan/etiqa-vs-zurich/" class="text-hijau-700 underline">Etiqa vs Zurich</a>, <a href="/perbandingan/allianz-vs-zurich/" class="text-hijau-700 underline">Allianz vs Zurich</a> atau <a href="/perbandingan/prudential-vs-aia/" class="text-hijau-700 underline">Prudential vs AIA</a></p>
 
   </section>
 
