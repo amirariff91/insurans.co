@@ -72,6 +72,23 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     cursor: pointer;
   }
   .hm-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  /* Open/closed indicator, the site's disclosure chevron (as .faq-item), and the mark on hover. */
+  .hm-more > summary { justify-content: space-between; gap: 1rem; list-style: none; }
+  .hm-more > summary::-webkit-details-marker { display: none; }
+  .hm-more > summary::after {
+    content: '';
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.25rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 150ms var(--ease-out);
+  }
+  .hm-more[open] > summary::after { transform: rotate(-135deg); }
+  @media (hover: hover) and (pointer: fine) { .hm-more > summary:hover { background: var(--mark); } }
+  @media (prefers-reduced-motion: reduce) { .hm-more > summary::after { transition: none; } }
 
   .hm {
     border: 2px solid var(--ink);
@@ -148,8 +165,21 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     white-space: nowrap;
     max-width: 100%;
   }
-  @media (max-width: 23rem) {
-    .hm-pill { white-space: normal; overflow-wrap: anywhere; }
+  /* A price range stays on one line at every width. On phones the pill sits under the name instead of beside it,
+     so neither the range nor the name ("Alz/a", "Sportag/e") has to break. */
+  @media (max-width: 25rem) {
+    .hm-list a {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: "t n c" "t p c";
+      column-gap: 0.75rem;
+      row-gap: 0.25rem;
+      padding-block: 0.5rem;
+    }
+    .hm-list a > :first-child { grid-area: t; }
+    .hm-name { grid-area: n; overflow-wrap: break-word; }
+    .hm-pill { grid-area: p; justify-self: start; padding: 0; }
+    .hm-chev { grid-area: c; }
   }
   .hm-chev {
     flex: none;
