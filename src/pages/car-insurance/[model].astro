@@ -225,7 +225,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
           <ul class="rows">
             <li><div><b>Kerosakan kereta sendiri</b></div></li>
             <li><div><b>Liabiliti pihak ketiga</b></div></li>
-            <li><div><b>Kecurian</b></div></li>
+            <li><div><b>Kecurian</b><p>Semak had, pengecualian dan syarat perlindungan kecurian dalam polisi anda.</p></div></li>
             <li><div><b>Kebakaran</b></div></li>
           </ul>
           <p class="ix-s">Butiran sebenar bergantung pada polisi dan syarikat.</p>
@@ -324,7 +324,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
         <h2 class="mod-bar" id="risiko-h">Risiko yang mempengaruhi premium {model.model}</h2>
         <div class="mod-in">
           <ul class="rows">
-            <li><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
+            {model.theftCoverNote && <li><div><b>Semakan perlindungan kecurian</b><p>{model.theftCoverNote}</p></div></li>}
             <li><div><b>Kos baiki</b><p>{model.riskProfile.repairCost}</p></div></li>
             <li><div><b>Contoh risiko kerosakan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
             {!model.floodRiskNote && model.riskProfile.notes && <li><div><b>Nota</b><p>{model.riskProfile.notes}</p></div></li>}
