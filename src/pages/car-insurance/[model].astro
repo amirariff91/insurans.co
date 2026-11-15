@@ -76,7 +76,7 @@ const marketValueText = Number.isFinite(model.marketValueMin) && Number.isFinite
   ? rmRange(model.marketValueMin, model.marketValueMax)
   : model.marketValueRange;
 const specialPerils = specialPerilsRange(model);
-const specialPerilsEstimate = specialPerils ? ` (untuk sum insured ${marketValueText}: sekitar ${specialPerils} setahun, sebelum cukai)` : '';
+const specialPerilsEstimate = specialPerils ? ` untuk sum insured ${marketValueText}: sekitar ${specialPerils} setahun, sebelum cukai` : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
@@ -140,7 +140,10 @@ const description = descriptionCandidates.find((d) => d.length <= 155)
   ?? `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
-const repairHeadline = model.riskProfile.repairCost.split('—')[0].trim();
+// Bold only the price range of the windscreen string; the variant note after it stays plain.
+const windscreenMatch = typeof model.windscreenPrice === 'string' ? model.windscreenPrice.match(/^(RM[\d,]+–RM[\d,]+)(.*)$/) : null;
+const windscreenRange = windscreenMatch ? windscreenMatch[1] : model.windscreenPrice;
+const windscreenRest = windscreenMatch ? windscreenMatch[2] : '';
 const modelYearNotes = isEnriched && Array.isArray(model.modelYearNotes) ? model.modelYearNotes : [];
 const addOnsDetail = isEnriched && Array.isArray(model.addOnsDetail) ? model.addOnsDetail : [];
 const modelFaqs = isEnriched && Array.isArray(model.modelFAQs) ? model.modelFAQs : [];
@@ -215,21 +218,17 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">
-        <h2 class="mod-bar" id="harga">Anggaran ini ialah untuk polisi komprehensif</h2>
+        <h2 class="mod-bar" id="harga">Apa yang termasuk dalam anggaran komprehensif {model.model}</h2>
         <div class="mod-in">
           <p class="ix-s">{model.description}</p>
-          <p class="ix-s">
-            Anggaran di atas ialah untuk polisi <strong>komprehensif</strong> {model.fullName}.
-            Perlindungan ini biasanya merangkumi kerosakan kereta sendiri, liabiliti pihak ketiga,
-            kecurian dan kebakaran, tetapi butiran sebenar bergantung pada polisi dan syarikat.
-          </p>
-          <h3 class="rows-h">Dilindungi</h3>
+          <h3 class="rows-h">Biasanya dilindungi</h3>
           <ul class="rows">
             <li><div><b>Kerosakan kereta sendiri</b></div></li>
             <li><div><b>Liabiliti pihak ketiga</b></div></li>
             <li><div><b>Kecurian</b></div></li>
             <li><div><b>Kebakaran</b></div></li>
           </ul>
+          <p class="ix-s">Butiran sebenar bergantung pada polisi dan syarikat.</p>
           <h3 class="rows-h">Kena tambah, setahun</h3>
           <ul class="rows">
             <li id="nota-banjir"><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
@@ -238,14 +237,10 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             <>
             <h3 class="rows-h">Kos gantian cermin</h3>
             <ul class="rows">
-              <li><div><b>Cermin depan</b><p>Anggaran gantian cermin depan: <strong>{model.windscreenPrice}</strong>. Sahkan harga dan keperluan penentukuran (calibration) dengan bengkel panel sebelum memilih windscreen cover.</p></div></li>
+              <li><div><b>Cermin depan</b><p>Anggaran <strong>{windscreenRange}</strong>{windscreenRest}. Sahkan harga dan keperluan penentukuran (calibration) dengan bengkel panel sebelum memilih windscreen cover.</p></div></li>
             </ul>
             </>
           )}
-          <p class="ix-s">
-            Nilai pasaran {model.fullName} dianggarkan {marketValueText}.
-            Roadtax dan perlindungan tambahan ditunjukkan berasingan supaya julat premium kekal jelas.
-          </p>
         </div>
       </section>
 
@@ -281,17 +276,13 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- NCD Section -->
       <section id="ncd" class="mod" data-tint="sky" aria-labelledby="ncd-h">
-        <h2 class="mod-bar" id="ncd-h">Tahun tanpa tuntutan mengurangkan premium asas</h2>
+        <h2 class="mod-bar" id="ncd-h">Diskaun NCD ikut berapa tahun anda tidak claim</h2>
         <div class="mod-in">
-          <p class="ix-s">
-            NCD (diskaun tanpa tuntutan) mengurangkan premium asas selepas tahun-tahun tanpa tuntutan.
-            Jadual di bawah membezakan kadar diskaun daripada baki premium asas.
-          </p>
           <details class="baca">
             <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: tangga NCD</span></summary>
             <div class="baca-in"><NcdLadder mode="diagram" selectedTier={55} /></div>
           </details>
-          <p class="ix-s"><strong>Nota NCD:</strong> Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.</p>
+          <p class="ix-s">Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.</p>
           <p><a href="/guides/ncd-explained/" class="inline-flex min-h-11 items-center">Panduan NCD →</a></p>
         </div>
       </section>
@@ -300,16 +291,13 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
       <section id="addons" class="mod" aria-labelledby="addons-h">
         <h2 class="mod-bar" id="addons-h">Perlindungan tambahan bukan automatik untuk semua polisi</h2>
         <div class="mod-in">
-          <p class="ix-s">
-            Perlindungan tambahan bukan automatik untuk semua polisi. Pilih berdasarkan penggunaan kereta,
-            lokasi dan kos yang anda sanggup tanggung sendiri.
-          </p>
+          <p class="ix-s">Pilih berdasarkan penggunaan kereta, lokasi dan kos yang anda sanggup tanggung sendiri.</p>
           {addOnsDetail.length > 0 ? (
             <ul class="rows">
               {addOnsDetail.map((addon: any) => (
                 <li>
                   <div>
-                    <b>{addon.name}, {addon.verdict}</b>
+                    <b>{addon.name}: {addon.verdict}</b>
                     <p>Anggaran: {addon.priceBM}.{/special perils/i.test(addon.name) && specialPerilsEstimate && <> <a href="#nota-banjir">Anggaran untuk {model.model}: lihat nota banjir di atas</a>.</>} Perlindungan tertakluk pada had, pengecualian dan syarat tuntutan dalam polisi.</p>
                     <details class="baca" open={/special perils/i.test(addon.name)}><summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh</span></summary><div class="baca-in"><p>{addon.whyBM}</p></div></details>
                   </div>
@@ -333,25 +321,24 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Risk Profile -->
       <section id="risiko" class="mod" aria-labelledby="risiko-h">
-        <h2 class="mod-bar" id="risiko-h">Faktor risiko yang berbeza</h2>
+        <h2 class="mod-bar" id="risiko-h">Risiko yang mempengaruhi premium {model.model}</h2>
         <div class="mod-in">
-          <p class="ix-s">Setiap model mempunyai faktor risiko yang berbeza. Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.</p>
           <ul class="rows">
             <li><div><b>Risiko kecurian</b><p>{model.theftRiskDetail || model.riskProfile.theftRate}</p></div></li>
-            <li><div><b>Kos repair: {repairHeadline}</b><p>{model.riskProfile.repairCost}</p></div></li>
+            <li><div><b>Kos baiki</b><p>{model.riskProfile.repairCost}</p></div></li>
             <li><div><b>Contoh risiko kerosakan</b><p>{model.claimFrequencyNote || model.riskProfile.claimFrequency}</p></div></li>
-            <li><div><b>Nota banjir dan had data</b><p>{model.floodRiskNote ? <a href="#nota-banjir">Lihat nota banjir {model.model} di atas</a> : model.riskProfile.notes}</p></div></li>
+            {!model.floodRiskNote && model.riskProfile.notes && <li><div><b>Nota</b><p>{model.riskProfile.notes}</p></div></li>}
           </ul>
+          <p class="ix-s">Lokasi, cara penggunaan, umur kereta dan syarat syarikat juga mempengaruhi premium.</p>
         </div>
       </section>
 
       <!-- Tips Section -->
       <section id="tips" class="mod" aria-labelledby="tips-h">
-        <h2 class="mod-bar mod-lab" id="tips-h">Beberapa perkara praktikal untuk pemilik {model.model}</h2>
+        <h2 class="mod-bar mod-lab" id="tips-h">Tip untuk pemilik {model.model}</h2>
         <div class="mod-in">
-          <p class="ix-s">Beberapa perkara praktikal untuk pemilik {model.model}:</p>
           <details class="baca">
-            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: {model.tips.length} tips</span></summary>
+            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: {model.tips.length} tip</span></summary>
             <ol class="baca-in list-decimal pl-5">
               {model.tips.map((tip: string) => <li>{tip}</li>)}
             </ol>
@@ -361,12 +348,9 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- Neutral company directory -->
       <section class="mod" aria-labelledby="syarikat-h">
-        <h2 class="mod-bar" id="syarikat-h">Direktori ini titik mula: semak quotation sebenar</h2>
+        <h2 class="mod-bar" id="syarikat-h">Syarikat insurans kereta untuk quotation {model.model}</h2>
         <div class="mod-in">
-          <p class="ix-s">
-            Harga dan ciri polisi boleh berbeza antara syarikat untuk {model.model}.
-            Gunakan direktori ini sebagai titik mula, kemudian semak syarat dan quotation sebenar.
-          </p>
+          <p class="ix-s">Harga dan ciri polisi boleh berbeza antara syarikat, jadi semak syarat dan quotation sebenar setiap satu.</p>
           <ul class="grid gap-x-8 sm:grid-cols-2">
             {carInsurers.map((company) => (
               <li><a href={`/companies/${company.slug}/`} class="inline-flex min-h-11 items-center font-semibold">{company.name}</a></li>
@@ -387,7 +371,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
 
       <!-- FAQ -->
       <section id="faq" class="mod" aria-labelledby="faq-h">
-        <h2 class="mod-bar mod-lab" id="faq-h">Soalan lazim: Insurans {model.fullName}</h2>
+        <h2 class="mod-bar mod-lab" id="faq-h">Soalan lazim tentang insurans {model.fullName}</h2>
         <div class="mod-in">
           {modelFaqs.length > 0 ? (
             modelFaqs.map((faq: any, i: number) => (
