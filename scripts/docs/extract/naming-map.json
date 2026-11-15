@@ -1,0 +1,183 @@
+{
+ "$comment": "Maps a second extraction's table and column names onto extraction A's, per document. Applied to folder B by compare.mjs --map. Built for ~/.cache/insurans-docs/extract-b (image transcription, 2026-11-15). Rules: tables renames a table and may move a group label from the table name to the front of the column key (colPrefix), or move the printed row label verbatim to the front of the column key and take the row from the table name (rowToCol + row); dropFromCol removes unit captions only. Row label text, annotations and values are never changed.",
+ "tune-protect-pa-shield-brochure-072025": {
+  "dropFromCol": [
+   "Premium (RM) > "
+  ]
+ },
+ "allianz-travel-easy-brochure-en": {
+  "dropFromCol": [
+   "Premium (RM) > "
+  ],
+  "tables": {
+   "premium adults (18 to 70 years old) and children (30 days to 17 years old)": {
+    "table": "premium adults and children"
+   },
+   "premium senior citizens (71 to 85 years old)": {
+    "table": "premium senior citizens"
+   },
+   "optional benefit high altitude mountaineering (above 3,500 metres and up to 5,500 metres)": {
+    "table": "premium high altitude mountaineering"
+   }
+  }
+ },
+ "etiqa-onemedical-premium-table-jun2026": {
+  "dropFromCol": [
+   " (RM)"
+  ],
+  "tables": {
+   "annual premium no deductible (male & female)": {
+    "table": "annual premium no deductible"
+   },
+   "annual premium RM1,000 deductible (male & female)": {
+    "table": "annual premium RM1,000 deductible"
+   }
+  }
+ },
+ "etiqa-onemedical-premium-table-until-may2026": {
+  "dropFromCol": [
+   " (RM)"
+  ],
+  "tables": {
+   "annual premium no deductible (male & female)": {
+    "table": "annual premium no deductible"
+   },
+   "annual premium RM1,000 deductible (male & female)": {
+    "table": "annual premium RM1,000 deductible"
+   }
+  }
+ },
+ "kaotim-medikad-pds-en-29072026": {},
+ "zurich-z-travel-international-premium-20250701": {
+  "dropFromCol": [
+   " (RM)"
+  ],
+  "tables": {
+   "premium without Section G Covid-19 Benefits Area 1": {
+    "table": "premium without Section G Covid-19 benefits",
+    "colPrefix": "Area 1"
+   },
+   "additional premium Section G Covid-19 Benefits (optional) Area 1": {
+    "table": "additional premium Section G Covid-19 benefits",
+    "colPrefix": "Area 1"
+   },
+   "premium without Section G Covid-19 Benefits Area 2": {
+    "table": "premium without Section G Covid-19 benefits",
+    "colPrefix": "Area 2"
+   },
+   "additional premium Section G Covid-19 Benefits (optional) Area 2": {
+    "table": "additional premium Section G Covid-19 benefits",
+    "colPrefix": "Area 2"
+   },
+   "premium without Section G Covid-19 Benefits Area 3": {
+    "table": "premium without Section G Covid-19 benefits",
+    "colPrefix": "Area 3"
+   },
+   "additional premium Section G Covid-19 Benefits (optional) Area 3": {
+    "table": "additional premium Section G Covid-19 benefits",
+    "colPrefix": "Area 3"
+   }
+  }
+ },
+ "msig-travel-safeguard-brochure": {
+  "dropFromCol": [
+   " (RM)"
+  ],
+  "tables": {
+   "single trip insured only Area 1": {
+    "table": "single trip insured only",
+    "colPrefix": "Area 1"
+   },
+   "single trip insured only Area 2": {
+    "table": "single trip insured only",
+    "colPrefix": "Area 2"
+   },
+   "single trip insured only Area 3": {
+    "table": "single trip insured only",
+    "colPrefix": "Area 3"
+   },
+   "single trip insured only Area 4*": {
+    "table": "single trip insured only",
+    "colPrefix": "Area 4*"
+   },
+   "single trip insured & spouse Area 1": {
+    "table": "single trip insured & spouse",
+    "colPrefix": "Area 1"
+   },
+   "single trip insured & spouse Area 2": {
+    "table": "single trip insured & spouse",
+    "colPrefix": "Area 2"
+   },
+   "single trip insured & spouse Area 3": {
+    "table": "single trip insured & spouse",
+    "colPrefix": "Area 3"
+   },
+   "single trip insured & spouse Area 4*": {
+    "table": "single trip insured & spouse",
+    "colPrefix": "Area 4*"
+   },
+   "single trip family Area 1": {
+    "table": "single trip family",
+    "colPrefix": "Area 1"
+   },
+   "single trip family Area 2": {
+    "table": "single trip family",
+    "colPrefix": "Area 2"
+   },
+   "single trip family Area 3": {
+    "table": "single trip family",
+    "colPrefix": "Area 3"
+   },
+   "single trip family Area 4*": {
+    "table": "single trip family",
+    "colPrefix": "Area 4*"
+   },
+   "annual cover premium*": {
+    "table": "annual cover"
+   },
+   "add-on Alternative Transport Top-Up single trip premium": {
+    "table": "alternative transport top-up single trip"
+   },
+   "add-on Alternative Transport Top-Up annual cover premium*": {
+    "table": "alternative transport top-up annual cover"
+   },
+   "add-on Cruise premium per cruise trip Insured Only": {
+    "table": "cruise benefit per cruise trip",
+    "rowToCol": true,
+    "row": "Insured Only"
+   },
+   "add-on Cruise premium per cruise trip Insured & Spouse": {
+    "table": "cruise benefit per cruise trip",
+    "rowToCol": true,
+    "row": "Insured & Spouse"
+   },
+   "add-on Cruise premium per cruise trip Family": {
+    "table": "cruise benefit per cruise trip",
+    "rowToCol": true,
+    "row": "Family"
+   },
+   "add-on Cruise premium per cruise trip for annual cover* Insured Only": {
+    "table": "cruise benefit per cruise trip annual cover",
+    "rowToCol": true,
+    "row": "Insured Only"
+   },
+   "add-on Golf single trip premium Area 1-3": {
+    "table": "golf benefit single trip",
+    "colPrefix": "Area 1-3"
+   },
+   "add-on Golf single trip premium Area 4*": {
+    "table": "golf benefit single trip",
+    "colPrefix": "Area 4*"
+   },
+   "add-on Golf annual cover premium*": {
+    "table": "golf benefit annual cover"
+   },
+   "add-on Pet single trip premium": {
+    "table": "pet benefit single trip"
+   },
+   "add-on Pet annual cover premium*": {
+    "table": "pet benefit annual cover"
+   }
+  }
+ }
+}

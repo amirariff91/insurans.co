@@ -1,38 +1,36 @@
 #!/usr/bin/env node
-// Compare two folders of cell files, cell by cell.
-//   node scripts/docs/extract/compare.mjs <folder A> <folder B> [--report <file.md>]
+// Compare two folders of cell files, cell by cell, strictly.
+//   node scripts/docs/extract/compare.mjs <folder A> <folder B> [--map <naming-map.json>] [--report <file.md>]
+// --map renames folder B's tables and columns onto folder A's names (see naming-map.json);
+// it never changes a row label's text or a value.
 // Report defaults to ~/.cache/insurans-docs/compare-report.md (outside the repo).
-// Exit 1 if any cell disagrees or is in only one folder, 2 on bad input.
+// Exit 1 if any cell disagrees, is in only one folder, or a key is duplicated; 2 on bad input.
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { basename, dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 
 const args = process.argv.slice(2);
-let report = join(homedir(), '.cache', 'insurans-docs', 'compare-report.md');
-const ri = args.indexOf('--report');
-if (ri >= 0) {
-  report = args[ri + 1];
-  args.splice(ri, 2);
-}
+const opt = (name) => {
+  const i = args.indexOf(name);
+  if (i < 0) return undefined;
+  const v = args[i + 1];
+  args.splice(i, 2);
+  return v;
+};
+const report = opt('--report') ?? join(homedir(), '.cache', 'insurans-docs', 'compare-report.md');
+const mapPath = opt('--map');
 if (args.length !== 2) {
-  console.error('usage: compare.mjs <folder A> <folder B> [--report <file.md>]');
+  console.error('usage: compare.mjs <folder A> <folder B> [--map <naming-map.json>] [--report <file.md>]');
   process.exit(2);
 }
 const [dirA, dirB] = args.map((a) => resolve(a));
-if (resolve(report).startsWith(resolve(dirname(new URL(import.meta.url).pathname), '..', '..', '..')))
-  console.warn(`warning: report path ${report} is inside the repo`);
 
-/** Lower case; dash variants to "-"; spaces around dashes and runs of spaces collapsed;
- *  footnote marks (*, ^, †, ‡, superscript digits) dropped before NFKC (which would turn
- *  ¹ into 1); unit captions "(RM)" dropped. */
+/** Formatting only: lower case, dash variants to "-", spaces around "-" and ">" and runs of
+ *  spaces collapsed. Footnote marks and other annotations are kept and must match. */
 function normLabel(s) {
   return String(s)
-    .replace(/[¹²³⁰-₟]/g, '') // superscript digits (footnote marks)
-    .replace(/[*^†‡§]/g, '')
-    .normalize('NFKC')
     .toLowerCase()
     .replace(/[‐-―−﹘﹣－]/g, '-')
-    .replace(/\(rm\)/g, '')
     .replace(/\s*-\s*/g, ' - ')
     .replace(/\s*>\s*/g, ' > ')
     .replace(/\s+/g, ' ')
@@ -40,30 +38,80 @@ function normLabel(s) {
 }
 const key = (c) => [c.table, c.row, c.col].map(normLabel).join(' | ');
 
-function parseNum(v) {
-  const s = String(v).trim().replace(/,/g, '');
-  return /^-?\d+(\.\d+)?$/.test(s) ? Number(s) : null;
+const NUM = /^(\d{1,3}(,\d{3})+|\d+)(\.\d+)?$/;
+/** Canonical decimal string, or null if the value is not a plainly printed number.
+ *  Commas are accepted only in proper groups of three. "1,539" -> "1539", "86.00" -> "86". */
+function canonical(v) {
+  const s = String(v).trim();
+  if (!NUM.test(s)) return null;
+  let [int, frac = ''] = s.replace(/,/g, '').split('.');
+  int = int.replace(/^0+(?=\d)/, '');
+  frac = frac.replace(/0+$/, '');
+  return frac ? `${int}.${frac}` : int;
 }
 function same(a, b) {
-  const x = parseNum(a);
-  const y = parseNum(b);
-  if (x !== null && y !== null) return Math.abs(x - y) < 1e-9;
-  return normLabel(a) === normLabel(b);
+  const x = canonical(a);
+  const y = canonical(b);
+  if (x !== null && y !== null) return x === y;
+  return String(a) === String(b);
 }
 
-function load(dir) {
+function loadMap(path) {
+  if (!path) return {};
+  const m = JSON.parse(readFileSync(path, 'utf8'));
+  for (const [id, entry] of Object.entries(m)) {
+    if (id.startsWith('$')) continue;
+    for (const d of entry.dropFromCol ?? [])
+      if (typeof d !== 'string' || !d.includes('(RM)') && !d.includes('(%)'))
+        throw new Error(`map ${id}: dropFromCol may only remove unit captions, got ${JSON.stringify(d)}`);
+    for (const [from, t] of Object.entries(entry.tables ?? {})) {
+      if (typeof t.table !== 'string') throw new Error(`map ${id} / ${from}: "table" is required`);
+      if (t.rowToCol && typeof t.row !== 'string') throw new Error(`map ${id} / ${from}: rowToCol needs "row"`);
+      for (const k of Object.keys(t))
+        if (!['table', 'colPrefix', 'rowToCol', 'row'].includes(k)) throw new Error(`map ${id} / ${from}: unknown field ${k}`);
+    }
+  }
+  return m;
+}
+
+/** Apply one document's naming map to a cell (folder B side). Values are never touched. */
+function mapCell(c, entry, used) {
+  if (!entry) return c;
+  let { table, row, col } = c;
+  for (const d of entry.dropFromCol ?? []) col = col.split(d).join('');
+  const t = entry.tables?.[table];
+  if (t) {
+    used.add(table);
+    table = t.table;
+    if (t.rowToCol) {
+      // The table name carried the group (e.g. insured type) and the row the area:
+      // the printed row label moves verbatim to the front of the column key.
+      col = `${row} > ${col}`;
+      row = t.row;
+    }
+    if (t.colPrefix) col = `${t.colPrefix} > ${col}`;
+  }
+  return { ...c, table, row, col };
+}
+
+function load(dir, map = {}) {
   const out = new Map();
   for (const f of readdirSync(dir).filter((n) => n.endsWith('.json')).sort()) {
     const doc = JSON.parse(readFileSync(join(dir, f), 'utf8'));
     if (!doc.id || !Array.isArray(doc.cells)) throw new Error(`${join(dir, f)}: not a cell file`);
+    if (out.has(doc.id)) throw new Error(`${dir}: two files carry id "${doc.id}": ${out.get(doc.id).file} and ${f}`);
+    const entry = map[doc.id];
+    const used = new Set();
     const cells = new Map();
     const dups = [];
-    for (const c of doc.cells) {
+    for (const raw of doc.cells) {
+      const c = mapCell(raw, entry, used);
       const k = key(c);
-      if (cells.has(k)) dups.push(k);
-      cells.set(k, c);
+      if (cells.has(k)) dups.push([k, cells.get(k).value, c.value]);
+      else cells.set(k, c);
     }
-    out.set(doc.id, { file: f, method: doc.method, cells, dups });
+    const unused = Object.keys(entry?.tables ?? {}).filter((t) => !used.has(t));
+    out.set(doc.id, { file: f, method: doc.method, cells, dups, unused });
   }
   return out;
 }
@@ -71,13 +119,14 @@ function load(dir) {
 let A, B;
 try {
   A = load(dirA);
-  B = load(dirB);
+  B = load(dirB, loadMap(mapPath));
 } catch (e) {
   console.error(e.message);
   process.exit(2);
 }
+for (const [id, d] of B) if (d.unused.length) console.warn(`warning: ${id}: map tables not found in B: ${d.unused.join('; ')}`);
 
-const md = [`# Cell comparison`, '', `- A: \`${dirA}\``, `- B: \`${dirB}\``, `- Run: ${new Date().toISOString()}`, ''];
+const md = [`# Cell comparison`, '', `- A: \`${dirA}\``, `- B: \`${dirB}\``, `- Map applied to B: ${mapPath ? `\`${resolve(mapPath)}\`` : 'none'}`, `- Run: ${new Date().toISOString()}`, ''];
 const summary = ['| Document | Agree | Disagree | Only A | Only B | Duplicate keys |', '|---|---:|---:|---:|---:|---:|'];
 const detail = [];
 let bad = false;
@@ -125,7 +174,14 @@ for (const id of [...new Set([...A.keys(), ...B.keys()])].sort()) {
     if (!list.length) continue;
     detail.push(`### ${label}`, '', '| Table | Page | Row | Column | Value |', '|---|---|---|---|---|', ...list.map(cellRow), '');
   }
-  if (dups) detail.push('### Duplicate keys after normalising', '', ...[...a.dups.map((k) => `- A: ${k}`), ...b.dups.map((k) => `- B: ${k}`)], '');
+  if (dups)
+    detail.push(
+      '### Duplicate keys after normalising',
+      '',
+      ...a.dups.map(([k, v1, v2]) => `- A: ${k}: values ${v1} and ${v2}`),
+      ...b.dups.map(([k, v1, v2]) => `- B: ${k}: values ${v1} and ${v2}`),
+      '',
+    );
   if (!differ.length && !onlyA.length && !onlyB.length && !dups) detail.push('All cells agree.', '');
 }
 
