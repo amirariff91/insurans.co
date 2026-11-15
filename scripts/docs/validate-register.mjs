@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 // Validate src/data/documents.json, the document register (see docs/document-register.md).
-// Usage: bun run docs:validate   (exit code 1 on any problem)
+// Usage: bun run docs:validate [register.json]   (exit code 1 on any problem)
+// The optional path checks another copy of the register (used by test-validate.mjs).
 import { readFileSync, existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const dataDir = join(root, 'src', 'data');
-const registerPath = join(dataDir, 'documents.json');
+const registerPath = process.argv[2] ? resolve(process.argv[2]) : join(dataDir, 'documents.json');
 
 const TYPES = ['pds', 'brochure', 'wording', 'price-table', 'flyer'];
 const LANGUAGES = ['en', 'ms', 'en+ms', 'zh', 'other'];
@@ -39,6 +40,7 @@ function isPosInt(n) { return Number.isInteger(n) && n > 0; }
 function checkPageRef(where, field, v, pages) {
   if (v === null || v === undefined) return;
   if (typeof v !== 'object' || Array.isArray(v)) return fail(where, `${field} must be an object { file, printed } or null`);
+  if (Array.isArray(v.file) && v.file.length === 0) fail(where, `${field}.file must not be an empty list`);
   const files = Array.isArray(v.file) ? v.file : [v.file];
   for (const p of files) {
     if (!isPosInt(p)) fail(where, `${field}.file must be a page number (or list of page numbers), got ${JSON.stringify(v.file)}`);
@@ -47,6 +49,9 @@ function checkPageRef(where, field, v, pages) {
   if (v.printed !== null && v.printed !== undefined) {
     if (Array.isArray(v.file)) {
       if (!Array.isArray(v.printed) || v.printed.length !== v.file.length) fail(where, `${field}.printed must be null or a list as long as ${field}.file`);
+      else v.printed.forEach((x, k) => {
+        if (typeof x !== 'string' || !x.trim()) fail(where, `${field}.printed[${k}] must be a non-empty string, got ${JSON.stringify(x)}`);
+      });
     } else if (typeof v.printed !== 'string') fail(where, `${field}.printed must be a string or null`);
   }
 }
@@ -92,7 +97,7 @@ reg.documents.forEach((d, i) => {
   for (const f of REQUIRED) if (d[f] === undefined || d[f] === null || d[f] === '') fail(where, `missing required field "${f}"`);
   for (const f of Object.keys(d)) if (!REQUIRED.includes(f) && !OPTIONAL.includes(f)) fail(where, `unknown field "${f}"`);
 
-  if (typeof d.id === 'string' && !SLUG.test(d.id)) fail(where, 'id must be a lower-case slug');
+  if (d.id !== undefined && d.id !== null && (typeof d.id !== 'string' || !SLUG.test(d.id))) fail(where, `id must be a lower-case slug string, got ${JSON.stringify(d.id)}`);
   if (ids.get(d.id) > 1) fail(where, `duplicate id "${d.id}"`);
   if (d.type !== undefined && !TYPES.includes(d.type)) fail(where, `type "${d.type}" is not one of ${TYPES.join(', ')}`);
   if (d.language !== undefined && !LANGUAGES.includes(d.language)) fail(where, `language "${d.language}" is not one of ${LANGUAGES.join(', ')}`);
@@ -115,6 +120,9 @@ reg.documents.forEach((d, i) => {
   checkPageRef(where, 'printedVersionPage', d.printedVersionPage, d.pages);
   checkPageRef(where, 'priceTablePages', d.priceTablePages, d.pages);
   if (['full', 'example'].includes(d.priceTable) && !d.priceTablePages) fail(where, `priceTable "${d.priceTable}" needs priceTablePages`);
+  else if (d.priceTable === 'full' && d.priceTablePages && typeof d.priceTablePages === 'object'
+    && !(Array.isArray(d.priceTablePages.file) ? d.priceTablePages.file.length : isPosInt(d.priceTablePages.file)))
+    fail(where, 'priceTable "full" needs at least one page in priceTablePages.file');
   if (d.priceTable === 'none' && d.priceTablePages) fail(where, 'priceTable "none" must not list priceTablePages');
 
   if (d.planSlug !== undefined && d.planSlug !== null) {
