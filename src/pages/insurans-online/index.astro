@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import Byline from '../../components/Byline.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
@@ -162,7 +163,7 @@ const schema = {
               <tbody role="rowgroup">
                 {directOnline.records.map((row) => (
                   <tr role="row">
-                    <th role="rowheader" scope="row">{row.company}</th>
+                    <th role="rowheader" scope="row"><span class="flex flex-col items-start gap-1.5"><LogoTile company={row.company} size="s" />{row.company}</span></th>
                     <td role="cell" data-label="Insurans/takaful" data-chip><span class="plan-chip">{row.licence}</span></td>
                     <td role="cell" data-label="Beli online" data-wide>Kereta · {row.channel}</td>
                     <td role="cell" data-label="Syarat" data-wide data-empty={row.conditions ? undefined : ''}>{row.conditions ?? ''}</td>

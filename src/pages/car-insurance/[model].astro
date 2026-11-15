@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -198,6 +199,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
   <div class="ep">
     <div class="ep-main">
       <div class="ep-crumbs">
+        <div class="ep-crumb-row">
         <Breadcrumbs
           items={[
             { label: 'Utama', href: '/' },
@@ -205,6 +207,8 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
             { label: model.fullName },
           ]}
         />
+        <LogoTile brand={model.brand} eager />
+        </div>
         <Byline dateModified={articleDate} />
         <div class="mt-4">
           <EditorialStamp

@@ -1,0 +1,55 @@
+---
+/**
+ * A car model's list thumbnail: a 3:2 sky plate with the car cut-out fitted inside (scripts/make-car-thumbs.mjs,
+ * a crop of the credited photo listed on /kredit-foto/#gambar-kecil). A model without a photo gets the same plate
+ * with the car pictogram, so every row keeps one height. Decorative: the model name always sits beside it.
+ * Width follows --ct-w (default 3.75rem phones, 4.5rem from 40rem); height is always two thirds of it.
+ */
+import thumbs from '../data/car-thumbs.json';
+import Ikon from './Ikon.astro';
+
+interface Props {
+  slug: string;
+  /** 's' = small (chips, 2.25rem wide), 'm' = list rows (default). */
+  size?: 's' | 'm';
+  eager?: boolean;
+  class?: string;
+}
+const { slug, size = 'm', eager = false, class: className } = Astro.props;
+const t = (thumbs as { slug: string; src144: string; src96: string; width: number; height: number }[]).find((x) => x.slug === slug);
+// The CSS width of each size (see the styles below); --ct-w overrides stay within 2.25rem to 4.5rem.
+const sizes = size === 's' ? '36px' : '(min-width: 40rem) 72px, 60px';
+---
+<span class:list={['ct', `ct-${size}`, !t && 'ct-none', className]} aria-hidden="true">
+  {t ? (
+    <img class="ct-img" src={t.src96} srcset={`${t.src96} 96w, ${t.src144} 144w`} sizes={sizes} width={t.width} height={t.height} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  ) : (
+    <Ikon name="i-kereta" size={24} />
+  )}
+</span>
+
+<style>
+  .ct {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    inline-size: var(--ct-w, 3.75rem);
+    aspect-ratio: 3 / 2;
+    border-radius: var(--r-1, 6px);
+    background: var(--tint-sky, #cfe8fa);
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+    overflow: hidden;
+    line-height: 0;
+  }
+  @media (min-width: 40rem) { .ct-m { inline-size: var(--ct-w, 4.5rem); } }
+  .ct-s { inline-size: var(--ct-w, 2.25rem); border-radius: 4px; }
+  .ct-img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  .ct-none { --icon-stroke: 1.75; --icon-knob: var(--ink, #000); color: rgb(0 0 0 / 0.55); }
+  .ct-none :global(.ikon) { inline-size: 55%; block-size: auto; }
+  .ct-s.ct-none :global(.ikon) { inline-size: 65%; }
+</style>

@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import HubModelList from '../../components/edisi/HubModelList.astro';
+import CarThumb from '../../components/CarThumb.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import HubTiles from '../../components/edisi/HubTiles.astro';
 import Dock from '../../components/edisi/Dock.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -473,6 +475,7 @@ const schema = {
           {carInsurers.map((company) => (
             <a href={`/companies/${company.slug}/`} class="card-editorial group block">
               <div class="flex items-start gap-4">
+                <LogoTile company={company.slug} />
                 <div class="flex-1 min-w-0">
                   <div class="flex items-baseline flex-wrap gap-2 mb-1">
                     <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700 transition-colors">
@@ -617,12 +620,13 @@ const schema = {
         <div class="my-6 space-y-6">
           {brandOrder.filter(brand => brandGroups[brand]).map((brand) => (
             <div>
-              <h3 class="font-serif text-headline-sm text-stone-900 mb-3">{brand}</h3>
+              <h3 class="font-serif text-headline-sm text-stone-900 mb-3 flex items-center gap-3"><LogoTile brand={brand} />{brand}</h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {brandGroups[brand].map((car) => (
                   <a href={`/car-insurance/${car.slug}/`} class="card-editorial group block">
-                    <div class="flex justify-between items-start">
-                      <div>
+                    <div class="flex justify-between items-center gap-3">
+                      <CarThumb slug={car.slug} />
+                      <div class="flex-1 min-w-0">
                         <h4 class="font-semibold text-sm text-stone-900 group-hover:text-hijau-700 transition-colors">
                           {car.fullName}
                         </h4>

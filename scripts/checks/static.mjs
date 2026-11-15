@@ -318,6 +318,23 @@ export function photoCredits(dist, pages, repo) {
   const data = JSON.parse(fs.readFileSync(path.join(repo, 'src/data/car-photos.json'), 'utf8'));
   const bySrc = new Map();
   for (const rec of data) for (const k of ['src400', 'src800', 'src']) if (rec[k]) bySrc.set(rec[k], rec);
+  // List thumbnails (/images/kereta/kecil/, scripts/make-car-thumbs.mjs) are crops of a credited photo: each maps through
+  // src/data/car-thumbs.json to the photo it was made from. They need no per-thumbnail credit on list pages, but
+  // their source photo must be credited and listed on /kredit-foto/, which must explain them (#gambar-kecil).
+  const thumbsFile = path.join(repo, 'src/data/car-thumbs.json');
+  const thumbs = fs.existsSync(thumbsFile) ? JSON.parse(fs.readFileSync(thumbsFile, 'utf8')) : [];
+  const thumbBySrc = new Map(thumbs.flatMap((t) => [t.src144, t.src96].filter(Boolean).map((s) => [s, t])));
+  const isThumb = (s) => /^\/images\/kereta\/kecil\//.test(s);
+  const thumbDir = path.join(dist, 'images/kereta/kecil');
+  if (fs.existsSync(thumbDir)) {
+    for (const f of fs.readdirSync(thumbDir)) {
+      const src = `/images/kereta/kecil/${f}`;
+      const t = thumbBySrc.get(src);
+      const rec = t && bySrc.get(t.from);
+      if (!rec?.credit?.author || !rec.credit.licence || !rec.credit.source) r.fails.push({ page: src, check: 'thumbnail without a credited source photo', value: f, source: 'src/data/car-thumbs.json' });
+      else r.passes++;
+    }
+  }
   const used = new Map(); // src -> pages
   for (const { url, root } of pages) {
     const srcs = new Set();
@@ -331,6 +348,12 @@ export function photoCredits(dist, pages, repo) {
     const html = root.toString();
     for (const s of srcs) {
       used.set(s, [...(used.get(s) || []), url]);
+      if (isThumb(s)) {
+        const t = thumbBySrc.get(s);
+        const src = t && bySrc.get(t.from);
+        if (!src?.credit?.author || !src.credit.licence || !src.credit.source) { ok = false; r.fails.push({ page: url, check: 'thumbnail without a credited source photo', value: s, source: 'src/data/car-thumbs.json' }); }
+        continue;
+      }
       const rec = bySrc.get(s);
       const c = rec?.credit;
       if (!c || !c.author || !c.licence || !c.source) { ok = false; r.fails.push({ page: url, check: 'photo without author/licence/source record', value: s, source: 'src/data/car-photos.json' }); continue; }
@@ -342,7 +365,8 @@ export function photoCredits(dist, pages, repo) {
   if (!kf) r.fails.push({ page: '/kredit-foto/', check: 'credits page missing' });
   else {
     const html = kf.root.toString();
-    const slugs = new Set([...used.keys()].map((s) => bySrc.get(s)?.slug).filter(Boolean));
+    const slugs = new Set([...used.keys()].map((s) => (isThumb(s) ? bySrc.get(thumbBySrc.get(s)?.from)?.slug : bySrc.get(s)?.slug)).filter(Boolean));
+    if ([...used.keys()].some(isThumb) && !kf.root.querySelector('#gambar-kecil')) r.fails.push({ page: '/kredit-foto/', check: 'list thumbnails used but not explained (#gambar-kecil)', source: 'src/pages/kredit-foto/index.astro' });
     for (const slug of slugs) {
       const rec = data.find((d) => d.slug === slug);
       if (!html.includes(rec.credit.source)) r.fails.push({ page: '/kredit-foto/', check: 'used photo not listed', value: slug, source: 'src/pages/kredit-foto.astro' });

@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import Byline from '../../components/Byline.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import Ikon from '../../components/Ikon.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import comparisons from '../../data/comparisons.json';
@@ -168,6 +169,11 @@ const schema = {
   ads={true}
 >
   <Hero title={comparisonTitle}>
+    <Fragment slot="mark">
+      <LogoTile company={comp.company1} size="l" eager />
+      <span class="px-1 font-bold text-stone-700" aria-hidden="true">vs</span>
+      <LogoTile company={comp.company2} size="l" eager />
+    </Fragment>
     <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan', href: '/perbandingan/' }, { label: `${nameA} vs ${nameB}` }]} />
     <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt) }]} />
     <Byline slot="byline" dateModified={comp.asAt} />

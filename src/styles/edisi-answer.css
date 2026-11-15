@@ -124,6 +124,10 @@
 .ea-save { margin-top: 0.5rem; font-size: 0.9375rem; color: var(--ink); font-weight: 600; }
 
 .ea-photo { max-width: 36rem; }
+/* The brand logo sits in the photo plate's top-left corner (identification only, LogoTile.astro). */
+.ea-photo-w { position: relative; max-width: 36rem; }
+@media (min-width: 48rem) { .ea-photo-w { max-width: 26rem; } }
+.ea-photo-w > .ea-photo-logo { position: absolute; top: 0.5rem; left: 0.5rem; }
 @media (min-width: 48rem) { .ea-photo { max-width: 26rem; } }
 /* The cut-out sits on a pale blue plate with an ink border; on phones it is capped low so the buttons above
    it stay in the first screen. */
@@ -215,6 +219,17 @@
 .mod .mlist a:hover { text-decoration: underline; }
 .mlist a[aria-current="page"] { background: var(--mark); font-weight: 700; }
 .mlist .mp { font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Model rows carry a car thumbnail (CarThumb.astro) before the name. */
+.mlist { --ct-w: 3.5rem; }
+.mlist-g { align-items: center; }
+.mlist-b { display: inline-flex; align-items: center; gap: 0.6rem; }
+.ep-crumb-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; }
+.ep-crumb-row > .lt { margin-top: 0.25rem; }
+.mlist-n { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; }
+.rel { --ct-w: 4.5rem; }
+.rel-h { display: flex; align-items: center; gap: 0.75rem; }
+.rel-h a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.hp-cars .ct { margin-bottom: 0.35rem; }
 .mod-cap { font-size: 0.875rem; color: var(--ink-2); padding: 0.6rem 0.75rem 0.5rem; }
 .rel { list-style: none; margin: 0; padding: 0; display: grid; }
 .rel li { padding: 0.6rem 0; border-top: 1px solid rgb(0 0 0 / 0.15); }

@@ -5,6 +5,8 @@
  */
 import carModels from '../../data/car-models.json';
 import { span } from './steps';
+import CarThumb from '../CarThumb.astro';
+import LogoTile from '../LogoTile.astro';
 
 const brandOrder = ['Perodua', 'Proton', 'Honda', 'Toyota', 'Nissan', 'Mazda', 'Mitsubishi', 'Hyundai', 'Kia', 'BMW', 'Mercedes-Benz', 'Suzuki'];
 const brands = [...new Set(carModels.map((c) => c.brand))];
@@ -17,11 +19,12 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   <ul class="hm-groups">
     {groups.slice(0, 1).map((g) => (
       <li class="hm-g">
-        <h3 class="hm-gh">{g.brand}</h3>
+        <h3 class="hm-gh"><LogoTile brand={g.brand} size="s" />{g.brand}</h3>
         <ul class="hm-list">
           {g.models.map((c) => (
             <li>
               <a href={`/car-insurance/${c.slug}/`}>
+                <CarThumb slug={c.slug} />
                 <span class="hm-name">{c.model}</span>
                 <span class="hm-pill">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span>
                 <svg class="hm-chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -37,11 +40,12 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     <ul class="hm-groups">
       {groups.slice(1).map((g) => (
       <li class="hm-g">
-        <h3 class="hm-gh">{g.brand}</h3>
+        <h3 class="hm-gh"><LogoTile brand={g.brand} size="s" />{g.brand}</h3>
         <ul class="hm-list">
           {g.models.map((c) => (
             <li>
               <a href={`/car-insurance/${c.slug}/`}>
+                <CarThumb slug={c.slug} />
                 <span class="hm-name">{c.model}</span>
                 <span class="hm-pill">RM{span(c.premiumNCD55Min, c.premiumNCD55Max)}</span>
                 <svg class="hm-chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -104,6 +108,9 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     break-inside: avoid;
   }
   .hm-gh {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     margin: 0;
     padding: 0.4rem 0.9rem;
     background: var(--tray);
@@ -119,7 +126,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     border-top: 1px solid rgb(0 0 0 / 0.12);
     color: var(--ink);
     text-decoration: none;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .hm-list li:first-child a {
     border-top: 0;
