@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: 'Betul ke plan co-payment lagi murah?',
-    a: 'Ya, itu fakta BNM: produk co-payment dilaporkan 19%–68% lebih murah kerana anda berkongsi risiko. Tetapi murah pada caruman, mahal semasa claim. Pilih ikut simpanan anda, bukan ikut harga brosur.',
+    a: 'Ya, itu fakta BNM: produk co-payment dilaporkan 19%–68% lebih murah kerana anda berkongsi risiko. Tetapi anda bayar lebih semasa claim, jadi pilih ikut simpanan yang ada untuk menanggungnya.',
   },
 ];
 
@@ -99,15 +99,15 @@ const schema = {
     <article class="prose-editorial prose-bars">
       <p class="text-lg leading-7 text-stone-700">
         <strong>Deductible</strong> ialah jumlah yang anda tanggung sendiri mengikut asas yang ditetapkan dalam polisi, seperti setiap disability atau tahun polisi. <strong>Co-insurance</strong>
-        biasanya dikira sebagai peratus; co-payment boleh berupa jumlah tetap atau peratus, mengikut pelan. Jadi “bayar dulu, kemudian kongsi” menentukan jumlah sebenar yang keluar
-        dari poket, bukan angka premium bulanan sahaja.
+        biasanya dikira sebagai peratus; co-payment boleh berupa jumlah tetap atau peratus, mengikut pelan. Premium bulanan sahaja tidak
+        memberitahu berapa tunai yang keluar dari poket semasa claim; dua angka inilah yang menentukannya.
       </p>
       <p class="note-plain text-sm leading-6">
         <strong>Kami bukan ejen, bukan broker. Maklumat am sahaja.</strong> Baca PDS dan wording polisi sebelum membuat
         keputusan; contoh di sini menerangkan cara kira, bukan sebut harga.
       </p>
 
-      <h2 id="maksud">Dua perkataan, satu idea: anda kongsi bil</h2>
+      <h2 id="maksud">Deductible ditolak dahulu, co-insurance dikira atas baki</h2>
       <ul>
         <li>
           <strong>Deductible (deduktibel)</strong>: jumlah yang anda tanggung sendiri mengikut asas yang ditetapkan dalam polisi, seperti setiap disability atau tahun polisi. Bil RM10,000, deductible RM500
@@ -119,35 +119,34 @@ const schema = {
         </li>
       </ul>
       <p>
-        Jumlah keluar poket: RM500 + RM475 = <strong>RM975</strong>. Insurer bayar RM9,025. Itu sahaja maksud “bayar dulu, kemudian
-        kongsi”.
+        Jumlah keluar poket: RM500 + RM475 = <strong>RM975</strong>. Insurer bayar RM9,025.
       </p>
 
       <h2 id="contoh">Contoh penuh dengan angka daripada plan sebenar</h2>
       <p>
-        Ambil struktur sebenar (bukan rekaan): A-Plus Health360 ada opsyen deductible RM500, RM1,000 atau RM3,000 per rider
+        Contoh daripada struktur plan sebenar: A-Plus Health360 ada opsyen deductible RM500, RM1,000 atau RM3,000 per rider
         year dengan co-insurance 5% dihadkan pada RM500. Contoh bil RM20,000 dengan deductible RM1,000:
       </p>
       <ol>
         <li>Tolak deductible: RM20,000 − RM1,000 = RM19,000.</li>
         <li>Co-insurance 5% atas baki = RM950, tetapi dihadkan (cap) pada RM500, jadi anda bayar RM500 sahaja.</li>
-        <li>Keluar poket: RM1,000 + RM500 = <strong>RM1,500</strong>. Cap itu penting kerana tanpanya anda bayar RM950.</li>
+        <li>Keluar poket: RM1,000 + RM500 = <strong>RM1,500</strong>. Tanpa cap, anda bayar RM950.</li>
       </ol>
       <p>
         Contoh lain: Takaful Malaysia myMedik guna Co-Takaful 5% atau 10% dihadkan pada RM500 atau RM1,000 per certificate
         year, dan dikecualikan jika dirawat di hospital kerajaan. Sentiasa baca dua angka: <strong>peratus dan cap</strong>.
       </p>
 
-      <h2 id="bnm">Kenapa wujud? Peraturan BNM 1 September 2024</h2>
+      <h2 id="bnm">Peraturan BNM 1 September 2024: pilihan co-payment wajib ditawarkan</h2>
       <p>
         Fakta awam BNM (6 Jul 2024): mulai <strong>1 September 2024 semua pengendali insurans atau takaful mesti menawarkan
-        produk dengan opsyen co-payment</strong>. Produk co-payment dilaporkan 19%–68% lebih murah. Logiknya telus: anda berjanji
-        berkongsi bil → caruman lebih rendah. Co-payment juga dikecualikan untuk kecemasan, follow-up kanser atau dialisis, dan
-        rawatan hospital kerajaan. Jadi deductible tinggi bukan “plan murah tipu”. Ia pilihan sah: bayar kurang setiap bulan,
+        produk dengan opsyen co-payment</strong>. Produk co-payment dilaporkan 19%–68% lebih murah. Anda bersetuju
+        berkongsi bil, jadi caruman lebih rendah. Co-payment juga dikecualikan untuk kecemasan, follow-up kanser atau dialisis, dan
+        rawatan hospital kerajaan. Deductible tinggi ialah pilihan sah: bayar kurang setiap bulan,
         bayar lebih semasa claim.
       </p>
 
-      <h3 id="bilik">Perangkap sebenar: naik taraf bilik</h3>
+      <h3 id="bilik">Naik taraf bilik boleh menambah kos claim anda</h3>
       <p>
         Satu punca claim “kurang daripada jangkaan”: memilih bilik melebihi kelayakan (contoh kelayakan RM250 sehari, ambil
         RM400). Anda bayar perbezaan bilik, dan sesetengah polisi mengenakan co-insurance atas baki bil (contoh GREAT MedCare:
@@ -157,11 +156,11 @@ const schema = {
       <h2 id="pilih">Cara pilih deductible anda</h2>
       <ul>
         <li>
-          Aliran tunai ketat, simpanan nipis → deductible rendah (RM300–500), kerana anda tidak mampu mengeluarkan RM5,000 secara tiba-tiba.
+          Aliran tunai ketat dan simpanan nipis: deductible rendah (RM300–500), kerana anda tidak mampu mengeluarkan RM5,000 secara tiba-tiba.
           Contoh: varian deductible RM300 wujud (Great Eastern SmartMedic Shield).
         </li>
         <li>
-          Simpanan kukuh, mahu caruman rendah → deductible tinggi (RM5,000–10,000; contoh Tokio Marine Medic Plus direka
+          Simpanan kukuh dan mahu caruman rendah: deductible tinggi (RM5,000–10,000; contoh Tokio Marine Medic Plus direka
           sebagai top-up dengan deductible RM10,000) berfungsi sebagai cover kedua atas polisi majikan.
         </li>
         <li>
