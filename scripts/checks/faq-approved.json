@@ -240,13 +240,13 @@
    "url": "/car-insurance/honda-civic/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "Comprehensive adalah asas — tanpa itu jangan pandu Civic. Tambah kunci stereng yang nampak (deterrent visual), parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk varian RS. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan — tanya ejen.",
-   "new": "Perlindungan komprehensif wajar diutamakan. Tambah kunci stereng yang nampak (sebagai pencegah visual), parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk varian RS. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan. Tanya ejen."
+   "new": "Semak had, pengecualian dan syarat perlindungan kecurian dalam polisi anda. Tambah kunci stereng yang nampak (sebagai pencegah visual), parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk varian RS. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan. Tanya ejen."
   },
   {
    "url": "/car-insurance/honda-civic/",
    "path": "FAQPage.mainEntity[1].name",
    "old": "Civic sasaran pencuri — apa patut buat selain comprehensive?",
-   "new": "Civic sasaran pencuri, apa patut buat selain comprehensive?"
+   "new": "Apa yang patut disemak selain perlindungan komprehensif?"
   },
   {
    "url": "/car-insurance/honda-civic/",
@@ -276,7 +276,7 @@
    "url": "/car-insurance/honda-crv/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "Comprehensive adalah asas. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko — tambah kunci stereng yang nampak, parkir berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat tawarkan diskaun untuk ciri anti-kecurian yang diluluskan.",
-   "new": "Perlindungan komprehensif wajar diutamakan. Walaupun CR-V bukan antara kereta paling banyak dicuri di Malaysia, SUV bernilai tinggi tetap berisiko. Tambah kunci stereng yang nampak, parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan."
+   "new": "Perlindungan komprehensif wajar diutamakan. Tambah kunci stereng yang nampak, parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan."
   },
   {
    "url": "/car-insurance/honda-crv/",
@@ -564,7 +564,7 @@
    "url": "/car-insurance/mazda-cx5/",
    "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
    "old": "X70 paling murah (jenama nasional), CX-5 dan CR-V seumpama — CR-V sedikit lebih tinggi kerana risiko kecurian Honda. Bezanya sekitar RM200–RM500/tahun pada NCD sama. Pilih ikut jenama dan ciri yang anda mahu.",
-   "new": "X70 paling murah (jenama nasional), CX-5 dan CR-V hampir sama. CR-V sedikit lebih tinggi kerana risiko kecurian Honda. Bezanya sekitar RM200–RM500/tahun pada NCD yang sama. Pilih ikut jenama dan ciri yang anda mahu."
+   "new": "X70 paling murah (jenama nasional), CX-5 dan CR-V hampir sama. CR-V sedikit lebih tinggi. Bezanya sekitar RM200–RM500/tahun pada NCD yang sama. Pilih ikut jenama dan ciri yang anda mahu."
   },
   {
    "url": "/car-insurance/mazda-cx5/",
@@ -1449,22 +1449,148 @@
    "new": "Yaris buat e-hailing, polisi biasa cover?"
   },
   {
+   "url": "/companies/aia/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "AIA Bhd, AIA General Berhad, AIA PUBLIC Takaful Bhd. AIA memulakan operasi di Malaysia dengan cawangan Kuala Lumpur pada 1948. AIA Group berpangkalan di Hong Kong; polisi motor Malaysia dikeluarkan oleh AIA General Berhad, entiti yang berasingan daripada AIA Bhd. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/aia/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan AIA?",
+   "new": "Boleh ke pertikaian dengan AIA dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/allianz/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Allianz General Insurance Company (Malaysia) Berhad, Allianz Life Insurance Malaysia Berhad. Allianz SE diasaskan di Berlin pada 1890. Allianz mula mengawal operasi insurans am Malaysia pada 2001 melalui Malaysia British Assurance; Commerce Assurance menyertai kumpulan pada 2007. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/allianz/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Allianz?",
+   "new": "Boleh ke pertikaian dengan Allianz dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/berjaya-sompo/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Berjaya Sompo Insurance Berhad. Perniagaan ini bermula pada 1974 sebagai pejabat cawangan dan dinamakan semula Berjaya General Insurance pada 1991. Sompo Japan mengambil pegangan 30% pada 2007 dan menaikkannya kepada 70% pada 2011. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/berjaya-sompo/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Berjaya Sompo?",
+   "new": "Boleh ke pertikaian dengan Berjaya Sompo dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/etiqa/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Etiqa General Insurance Berhad, Etiqa Life Insurance Berhad, Etiqa Family Takaful Berhad, Etiqa General Takaful Berhad. Jenama Etiqa diperkenalkan pada 2007 apabila Malaysia National Insurance dan Takaful Nasional dinamakan semula. Pada 2018, perniagaan Malaysia diasingkan kepada Etiqa General Insurance Berhad, Etiqa Life Insurance Berhad, Etiqa General Takaful Berhad dan Etiqa Family Takaful Berhad. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/etiqa/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Etiqa?",
+   "new": "Boleh ke pertikaian dengan Etiqa dibawa kepada FMOS?"
+  },
+  {
    "url": "/companies/great-eastern/",
-   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
-   "old": "Untuk tuntutan perubatan, rujuk panduan tuntutan dan senarai hospital panel Great Eastern yang berkaitan dengan polisi. Talian 1300-13-1088 ialah talian tuntutan insurans am; untuk pertanyaan umum, hubungi 1300-13-0088 dan pilih pilihan insurans am. Pemegang pelan korporat boleh menggunakan GEC untuk penyerahan dan penjejakan tuntutan atau Guarantee Letter. Talian yang diterbitkan: Tuntutan insurans am: 1300-13-1088; Careline umum — tekan 2 untuk insurans am: 1300-13-0088; Careline dari luar negara: +603 4259 8888; Bantuan tepi jalan Great Eastern General 24 jam: 03-6416 9622. Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan.",
-   "new": "Untuk tuntutan perubatan, rujuk panduan tuntutan dan senarai hospital panel Great Eastern yang berkaitan dengan polisi. Talian 1300-13-1088 ialah talian tuntutan insurans am; untuk pertanyaan umum, hubungi 1300-13-0088 dan pilih pilihan insurans am. Pemegang pelan korporat boleh menggunakan GEC untuk penyerahan dan penjejakan tuntutan atau Guarantee Letter. Talian yang diterbitkan: Tuntutan insurans am: 1300-13-1088; Careline umum: tekan 2 untuk insurans am: 1300-13-0088; Careline dari luar negara: +603 4259 8888; Bantuan tepi jalan Great Eastern General 24 jam: 03-6416 9622. Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan."
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Great Eastern Life Assurance (Malaysia) Berhad, Great Eastern General Insurance (Malaysia) Berhad, Great Eastern Takaful Berhad. Kumpulan Great Eastern bermula di Singapura pada 1908 dan kemudian membina operasi di Malaysia. Perniagaan hayat, insurans am dan takaful keluarga dijalankan oleh entiti berasingan. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/great-eastern/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Great Eastern?",
+   "new": "Boleh ke pertikaian dengan Great Eastern dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/lonpac/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Lonpac Insurance Bhd. LPI Capital bermula sebagai London and Pacific Insurance Co Ltd pada 1962 dan didaftarkan sebagai penanggung insurans diluluskan pada 1963. Perniagaan insurans dipindahkan kepada Lonpac Insurance Bhd pada 1 Mei 1999; Public Bank menyelesaikan pengambilalihan LPI Capital pada 4 Disember 2024. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/lonpac/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Lonpac?",
+   "new": "Boleh ke pertikaian dengan Lonpac dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/msig/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "MSIG Insurance (Malaysia) Bhd. MSIG Insurance (Malaysia) Bhd berkembang daripada perniagaan tempatan yang menggunakan nama Taisho Marine dan dinamakan semula pada 2001. Kerjasama strategik pada 2010 meletakkan Hong Leong Financial Group sebagai pemegang 30% syarikat Malaysia. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/msig/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan MSIG?",
+   "new": "Boleh ke pertikaian dengan MSIG dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/prudential/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Prudential Assurance Malaysia Berhad, Prudential BSN Takaful Berhad. Prudential plc dari United Kingdom telah beroperasi di Malaysia sejak 1924. Prudential BSN Takaful Berhad ditubuhkan pada 2006 sebagai usaha sama dengan BSN. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/prudential/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Prudential?",
+   "new": "Boleh ke pertikaian dengan Prudential dibawa kepada FMOS?"
   },
   {
    "url": "/companies/rhi/",
    "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
    "old": "RHB Insurance Berhad. RHB Insurance Berhad diperbadankan pada 7 Mac 1978 dan merupakan sebahagian daripada RHB Banking Group. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
-   "new": "RHB Insurance Berhad. RHB Insurance Berhad diperbadankan pada 7 Mac 1978. Syarikat ini ialah sebahagian daripada RHB Banking Group. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak."
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/rhi/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan RHB Insurance?",
+   "new": "Boleh ke pertikaian dengan RHB Insurance dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/takaful-malaysia/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Syarikat Takaful Malaysia Keluarga Berhad, Syarikat Takaful Malaysia Am Berhad. Syarikat Takaful Malaysia diperbadankan pada 29 November 1984 di bawah Akta Takaful 1984 dan memulakan operasi pada Julai 1985 sebagai pengendali takaful pertama di Malaysia. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/takaful-malaysia/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Takaful Malaysia?",
+   "new": "Boleh ke pertikaian dengan Takaful Malaysia dibawa kepada FMOS?"
   },
   {
    "url": "/companies/tokio-marine/",
-   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
-   "old": "Ikuti panduan tuntutan motor rasmi yang membezakan proses mengikut keadaan tuntutan. Hubungi hotline tuntutan motor 1800-88-0812 untuk mendapatkan arahan dan memaklumkan tuntutan. Untuk kerosakan atau tunda di tepi jalan, hubungi Auto Partner pada 1800-88-1301; sahkan skop bantuan bagi polisi anda. Talian yang diterbitkan: Tuntutan motor: 1800-88-0812; Auto Partner — kerosakan dan tunda: 1800-88-1301. Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan.",
-   "new": "Ikuti panduan tuntutan motor rasmi yang membezakan proses mengikut keadaan tuntutan. Hubungi hotline tuntutan motor 1800-88-0812 untuk mendapatkan arahan dan memaklumkan tuntutan. Untuk kerosakan atau tunda di tepi jalan, hubungi Auto Partner pada 1800-88-1301; sahkan skop bantuan bagi polisi anda. Talian yang diterbitkan: Tuntutan motor: 1800-88-0812; Auto Partner: kerosakan dan tunda: 1800-88-1301. Semak talian dan langkah mengikut jenis polisi sebelum menghantar dokumen atau mengatur bantuan."
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Tokio Marine Insurans (Malaysia) Berhad, Tokio Marine Life Insurance Malaysia Berhad. Tokio Marine Holdings bermula di Jepun pada 1879. Pengunderaitan bukan hayat di Malaysia bermula pada 1957 dan cawangan Kuala Lumpur dibuka pada 1974; sejarah entiti hayat Malaysia mempunyai laluan korporat tersendiri. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/tokio-marine/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Tokio Marine?",
+   "new": "Boleh ke pertikaian dengan Tokio Marine dibawa kepada FMOS?"
+  },
+  {
+   "url": "/companies/zurich/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Zurich General Insurance Malaysia Berhad, Zurich Life Insurance Malaysia Berhad, Zurich Takaful Malaysia Berhad, Zurich General Takaful Malaysia Berhad. Zurich Group diasaskan di Zürich pada 1872; operasi insurans Malaysia bermula pada 2011 selepas pengambilalihan MAA Assurance. Pengambilalihan MAA Takaful diselesaikan pada 2016 dan membentuk operasi takaful Zurich di Malaysia. Semak nama penerbit pada polisi atau sijil anda; nama kumpulan dan jenama tidak semestinya sama dengan entiti kontrak.",
+   "new": "Pertikaian motor dan perubatan/kesihatan termasuk takaful yang memenuhi syarat FMOS boleh dirujuk secara percuma selepas keputusan akhir penyedia. Had masa yang dinyatakan ialah enam bulan selepas keputusan akhir; semak skop kelayakan dan proses terus dengan FMOS."
+  },
+  {
+   "url": "/companies/zurich/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah entiti berlesen yang berkaitan dengan Zurich?",
+   "new": "Boleh ke pertikaian dengan Zurich dibawa kepada FMOS?"
   },
   {
    "url": "/critical-illness/",
@@ -1798,21 +1924,207 @@
   },
   {
    "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Rekod ini dikelaskan sebagai Comprehensive. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini SOMPO Motorcycle / Motorcycle +.",
+   "new": "Insurans motosikal comprehensive. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini SOMPO Motorcycle / Motorcycle +."
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Pilihan comprehensive, TPFT dan third party; add-on liabiliti pembonceng, special perils dan PA penunggang. Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.",
+   "new": "Premium bergantung pada jumlah diinsuranskan (SI), cc, NCD dan umur pemilik atau kenderaan; PDS memberikan satu contoh Honda Airblade. Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia."
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Apa yang dilindungi oleh SOMPO Motorcycle / Motorcycle +?",
+   "new": "Macam mana premium ditentukan?"
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Premium bergantung pada jumlah diinsuranskan (SI), cc, NCD dan umur pemilik atau kenderaan; PDS memberikan satu contoh Honda Airblade. Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.",
+   "new": "RM147.12: SI RM2,500, umur 8, NCD 25%, sebelum SST & setem. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bagaimana premium SOMPO Motorcycle / Motorcycle + ditentukan?",
+   "new": "Contoh premium ini harga untuk semua motosikal ke?"
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
    "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
    "old": "RM147.12 — SI RM2,500, umur 8, NCD 25%, sebelum SST & setem. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.",
-   "new": "RM147.12: SI RM2,500, umur 8, NCD 25%, sebelum SST & setem. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+   "new": "Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini."
+  },
+  {
+   "url": "/motorcycle-insurance/berjaya-sompo-motorcycle/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Adakah contoh premium ini ialah harga untuk semua motosikal?",
+   "new": "Apa yang perlu disemak sebelum membeli?"
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "MyRider ialah add-on pilihan kepada polisi Etiqa Motorcycle Comprehensive, bukan polisi comprehensive/takaful yang berdiri sendiri. MyRider (motosikal 249cc ke bawah): kematian akibat kemalangan/PPD RM8,000, compassionate cash RM500, perubatan RM500, elaun inconvenience bagi kehilangan/kerosakan RM500 dan banjir RM500; Etiqa Auto Assist 24/7 di Semenanjung Malaysia dengan towing tanpa had jarak. MyRider Plus (250cc ke atas): kematian/PPD RM10,000, compassionate cash RM500, perubatan sehingga RM2,000, kedua-dua elaun inconvenience RM500 dan Auto Assist yang sama. Add-on tidak melindungi kecederaan/kematian atau harta pihak ketiga, kerosakan/kecurian/kebakaran motosikal sendiri, kecederaan/kematian insured akibat kemalangan motosikal, liabiliti kepada pembonceng, kerosakan act-of-nature atau loss of use; cover motosikal utama kekal di bawah polisi asas. Laporan polis dalam 24 jam untuk tuntutan; Claim Assist 1300 88 1007 dan bengkel diluluskan. Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.",
+   "new": "Premium tahunan tetap: MyRider RM75 untuk motosikal 249cc ke bawah; MyRider Plus RM150 untuk 250cc ke atas. Perlu diambil bersama polisi Comprehensive Etiqa; permohonan/quotation online dan diskaun online 10% dinyatakan oleh Etiqa. Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia."
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Apa yang dilindungi oleh MyRider / MyRider Plus (motorcycle add-on)?",
+   "new": "Macam mana premium ditentukan?"
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Premium tahunan tetap: MyRider RM75 untuk motosikal 249cc ke bawah; MyRider Plus RM150 untuk 250cc ke atas. Perlu diambil bersama polisi Comprehensive Etiqa; permohonan/quotation online dan diskaun online 10% dinyatakan oleh Etiqa. Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.",
+   "new": "Tiada contoh premium yang disahkan untuk produk ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda."
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bagaimana premium MyRider / MyRider Plus (motorcycle add-on) ditentukan?",
+   "new": "Contoh premium ini harga untuk semua motosikal ke?"
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Tiada contoh premium yang disahkan untuk rekod ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda.",
+   "new": "Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini."
+  },
+  {
+   "url": "/motorcycle-insurance/etiqa-myrider/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Adakah contoh premium ini ialah harga untuk semua motosikal?",
+   "new": "Apa yang perlu disemak sebelum membeli?"
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Rekod ini dikelaskan sebagai Third party. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini Motor Insurance – Motorcycle (Third Party).",
+   "new": "Insurans motosikal third party. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini Motor Insurance – Motorcycle (Third Party)."
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Liabiliti pihak ketiga: kecederaan, maut, kerosakan atau kehilangan harta; motosikal sendiri tidak dilindungi kecuali add-on. Penumpang atau pembonceng memerlukan add-on, termasuk untuk keperluan masuk Singapura. Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.",
+   "new": "PDS menyenaraikan NCD, kuasa enjin (cc), umur kenderaan atau pemilik dan lokasi sebagai faktor rating; tiada jadual premium awam diterbitkan. Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia."
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Apa yang dilindungi oleh Motor Insurance – Motorcycle (Third Party)?",
+   "new": "Macam mana premium ditentukan?"
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "PDS menyenaraikan NCD, kuasa enjin (cc), umur kenderaan atau pemilik dan lokasi sebagai faktor rating; tiada jadual premium awam diterbitkan. Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.",
+   "new": "Tiada contoh premium yang disahkan untuk produk ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda."
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bagaimana premium Motor Insurance – Motorcycle (Third Party) ditentukan?",
+   "new": "Contoh premium ini harga untuk semua motosikal ke?"
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
+   "old": "Tiada contoh premium yang disahkan untuk rekod ini. Jangan anggap angka daripada produk lain terpakai pada motosikal atau keadaan anda.",
+   "new": "Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini."
+  },
+  {
+   "url": "/motorcycle-insurance/kurnia-motorcycle-third-party/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Adakah contoh premium ini ialah harga untuk semua motosikal?",
+   "new": "Apa yang perlu disemak sebelum membeli?"
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Rekod ini dikelaskan sebagai Comprehensive. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini MSIG Motorcycle Insurance (Take It Easy Online).",
+   "new": "Insurans motosikal comprehensive. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini MSIG Motorcycle Insurance (Take It Easy Online)."
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Keluarga produk MSIG Motorcycle menyediakan Comprehensive, TPFT dan Third Party serta Motorcycle 3PA untuk tempoh setahun. Motorcycle 3PA merangkumi kecederaan/kematian pihak ketiga, kerosakan harta pihak ketiga dan Rider's PA; ia tidak melindungi kerosakan, kebakaran atau kecurian motosikal sendiri. Add-on termasuk All Riders, Rider's PA, Legal Liability to Pillion, strike/riot/civil commotion, special perils dan MyMotorcycle Plus (Comprehensive sahaja). Rider's PA: kematian/PPD RM12,000 dan bereavement RM500. MyMotorcycle Plus menambah PA pembonceng RM12,000, bereavement RM500, elaun inconvenience kemalangan/kecurian RM150 dan banjir RM150, liabiliti pembonceng serta waiver compulsory excess. Pengecualian termasuk consequential loss, depreciation, wear and tear, kerosakan mekanikal/elektrikal dan perang; liabiliti pembonceng memerlukan add-on. Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.",
+   "new": "Premium mengikut tariff; faktor ilustrasi PDS: Yamaha 125Z 2023, lelaki 30 tahun, Kuala Lumpur, 124cc, SI RM6,000 dan NCD 0%. MSIG Motor Assist menyediakan bantuan tepi jalan 24/7. Beli online melalui Take It Easy atau melalui borang/ejen; notis tuntutan dalam 7 hari, tertakluk syarat bengkel diluluskan; ahli PIDM. Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia."
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Apa yang dilindungi oleh MSIG Motorcycle Insurance (Take It Easy Online)?",
+   "new": "Macam mana premium ditentukan?"
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Premium mengikut tariff; faktor ilustrasi PDS: Yamaha 125Z 2023, lelaki 30 tahun, Kuala Lumpur, 124cc, SI RM6,000 dan NCD 0%. MSIG Motor Assist menyediakan bantuan tepi jalan 24/7. Beli online melalui Take It Easy atau melalui borang/ejen; notis tuntutan dalam 7 hari, tertakluk syarat bengkel diluluskan; ahli PIDM. Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.",
+   "new": "RM338.06 setahun. Contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bagaimana premium MSIG Motorcycle Insurance (Take It Easy Online) ditentukan?",
+   "new": "Contoh premium ini harga untuk semua motosikal ke?"
   },
   {
    "url": "/motorcycle-insurance/msig-motorcycle-online/",
    "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
    "old": "RM338.06 setahun — contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah.. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.",
-   "new": "RM338.06 setahun. Contoh PDS (Yamaha 125Z 2023, 124cc, Kuala Lumpur, SI RM6,000, NCD 0%): premium asas RM163.84 + add-on RM139.92 (All Riders + MyMotorcycle Plus) + SST 8% RM24.30 + duti setem RM10; komisen 10% RM30.38 termasuk dalam jumlah. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+   "new": "Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini."
+  },
+  {
+   "url": "/motorcycle-insurance/msig-motorcycle-online/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Adakah contoh premium ini ialah harga untuk semua motosikal?",
+   "new": "Apa yang perlu disemak sebelum membeli?"
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+   "old": "Rekod ini dikelaskan sebagai Comprehensive / takaful. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini Z-Rider / Z-Rider Takaful.",
+   "new": "Motosikal comprehensive / takaful. Jenis perlindungan sebenar dan pengecualian masih tertakluk pada polisi, sijil dan PDS terkini Z-Rider / Z-Rider Takaful."
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[1].acceptedAnswer.text",
+   "old": "Pilihan Third Party dan Comprehensive bagi insurans dan takaful: kecederaan/kematian pihak ketiga, kerosakan harta pihak ketiga, kerosakan motosikal sendiri akibat kemalangan atau kebakaran, dan kecurian. PDS menyenaraikan TP dan Comprehensive; halaman produk turut menyenaraikan TPFT dalam keluarga produk. Add-on PDS: liabiliti pembonceng RM15; banjir/tanah runtuh RM10; strike/riot/civil commotion 0.3% SI; sambungan Thailand 20% premium selepas NCD; PA RM6–RM30 bagi SI RM4,000–RM20,000; PA penunggang+pembonceng RM10 bagi SI RM5,500; hospital income insured/penunggang RM5 bagi SI RM9,000; waiver betterment RM5; waiver compulsory excess RM4. Z-Rider Plus untuk motosikal bawah 250cc: special perils terhad RM1,000, towing kemalangan tambahan RM100, breakdown/emergency towing 60 km, PA RM5,500; perlindungan semua penunggang pada 50% premium asas. Sahkan had, pengecualian dan add-on dalam wording sebelum membeli.",
+   "new": "Premium dinilai mengikut motosikal/penunggang, SI nilai pasaran, NCD, cc dan profil penunggang; tiada jadual kadar cc awam. Wilayah Malaysia/Singapura/Brunei, renewal tahunan dan PIDM-protected. Beli online; CyclePAC dinyatakan dari RM13 setahun, Rider PA untuk sehingga dua penunggang bernama serta Pillion PA (penerimaan terjamin, umur 16–80). Bagi takaful, wakalah fee 29.5% (komisen 10%, pengurusan 19.5%); PDS menerangkan tabarru', conditional hibah, Ju'alah dan Qard. Halaman ini tidak memaparkan jadual premium mengikut cc; dapatkan quotation sebenar daripada penyedia."
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Apa yang dilindungi oleh Z-Rider / Z-Rider Takaful?",
+   "new": "Macam mana premium ditentukan?"
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
+   "old": "Premium dinilai mengikut motosikal/penunggang, SI nilai pasaran, NCD, cc dan profil penunggang; tiada jadual kadar cc awam. Wilayah Malaysia/Singapura/Brunei, renewal tahunan dan PIDM-protected. Beli online; CyclePAC dinyatakan dari RM13 setahun, Rider PA untuk sehingga dua penunggang bernama serta Pillion PA (penerimaan terjamin, umur 16–80). Bagi takaful, wakalah fee 29.5% (komisen 10%, pengurusan 19.5%); PDS menerangkan tabarru', conditional hibah, Ju'alah dan Qard. Tiada jadual premium per-cc umum dipaparkan dalam rekod ini; dapatkan quotation sebenar daripada penyedia.",
+   "new": "RM285.49 setahun: SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bagaimana premium Z-Rider / Z-Rider Takaful ditentukan?",
+   "new": "Contoh premium ini harga untuk semua motosikal ke?"
   },
   {
    "url": "/motorcycle-insurance/zurich-z-rider/",
    "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
    "old": "RM285.49 setahun — SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51.. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation.",
-   "new": "RM285.49 setahun: SI RM5,000, NCD 0%: premium asas RM205.08 + add-on RM50.00 + SST 8% RM20.41 + duti setem RM10; komisen 10% RM25.51. Itu hanya contoh PDS dengan pemboleh ubah yang dinyatakan, bukan kadar umum atau janji quotation."
+   "new": "Semak jenis cover, jumlah diinsuranskan, NCD, excess, add-on pembonceng, pengecualian, SST, setem dan tarikh kuat kuasa dalam quotation atau PDS. Syarat sebenar mengatasi ringkasan halaman ini."
+  },
+  {
+   "url": "/motorcycle-insurance/zurich-z-rider/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Adakah contoh premium ini ialah harga untuk semua motosikal?",
+   "new": "Apa yang perlu disemak sebelum membeli?"
   },
   {
    "url": "/panduan/checklist-medical-card/",
@@ -1897,6 +2209,102 @@
    "path": "FAQPage.mainEntity[1].name",
    "old": "SOCSO atau PERKESO sudah cover — masih perlu PA?",
    "new": "SOCSO atau PERKESO sudah cover, masih perlu PA?"
+  },
+  {
+   "url": "/personal-accident/allianz-personal-accident/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Apakah had umur Allianz Individual PA?",
+   "new": "Berapa had umur Allianz Individual PA?"
+  },
+  {
+   "url": "/personal-accident/allianz-personal-accident/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Adakah manfaat rawatan termasuk dalam pelan asas?",
+   "new": "Manfaat rawatan termasuk dalam pelan asas ke?"
+  },
+  {
+   "url": "/personal-accident/allianz-personal-accident/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Bolehkah orang dengan kekurangan keupayaan memohon?",
+   "new": "Orang dengan kekurangan keupayaan boleh memohon ke?"
+  },
+  {
+   "url": "/personal-accident/etiqa-buddy-pa-weekend-warrior/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Bolehkah pasangan dan anak menyertai Buddy PA Weekend Warrior?",
+   "new": "Pasangan dan anak boleh ikut serta ke?"
+  },
+  {
+   "url": "/personal-accident/etiqa-buddy-pa-weekend-warrior/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Adakah skydiving dan selam skuba termasuk dalam senarai sukan Etiqa?",
+   "new": "Skydiving dan selam skuba termasuk dalam senarai sukan Etiqa ke?"
+  },
+  {
+   "url": "/personal-accident/etiqa-buddy-pa-weekend-warrior/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Apakah tempoh yang penting untuk pembaharuan dan tuntutan?",
+   "new": "Tempoh mana yang penting untuk pembaharuan dan tuntutan?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-easy/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Adakah PA Easy melindungi perjalanan dengan motosikal?",
+   "new": "PA Easy melindungi perjalanan dengan motosikal ke?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-easy/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Bolehkah saya menggunakan PA Easy untuk sukan amatur?",
+   "new": "Boleh guna untuk sukan amatur?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-easy/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Siapa yang memenuhi syarat umur PA Easy?",
+   "new": "Siapa yang layak dari segi umur?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-easy/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Berapakah bantuan tunai semasa berada di hospital?",
+   "new": "Berapa bantuan tunai semasa di hospital?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-easy/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Bilakah PA Easy bermula dan bila tuntutan perlu diberitahu?",
+   "new": "Bila perlindungan bermula, dan bila tuntutan perlu diberitahu?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-shield/",
+   "path": "FAQPage.mainEntity[0].name",
+   "old": "Adakah PA Shield sesuai untuk penunggang dan pembonceng motosikal?",
+   "new": "PA Shield sesuai untuk penunggang dan pembonceng motosikal ke?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-shield/",
+   "path": "FAQPage.mainEntity[1].name",
+   "old": "Adakah manfaat mingguan termasuk dalam premium asas?",
+   "new": "Manfaat mingguan termasuk dalam premium asas ke?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-shield/",
+   "path": "FAQPage.mainEntity[2].name",
+   "old": "Adakah denggi mencetuskan pendapatan hospital PA Shield?",
+   "new": "Denggi layak untuk pendapatan hospital ke?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-shield/",
+   "path": "FAQPage.mainEntity[3].name",
+   "old": "Bilakah kemasukan hospital tanpa tunai boleh digunakan?",
+   "new": "Bila kemasukan hospital tanpa tunai boleh digunakan?"
+  },
+  {
+   "url": "/personal-accident/tune-protect-pa-shield/",
+   "path": "FAQPage.mainEntity[4].name",
+   "old": "Berapakah jumlah dalam contoh premium rasmi PA Shield?",
+   "new": "Berapa jumlah dalam contoh premium rasmi?"
   },
   {
    "url": "/tools/kalkulator-insurans-rumah/",

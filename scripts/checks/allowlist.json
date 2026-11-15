@@ -345,16 +345,6 @@
     },
     {
       "check": "contract",
-      "kind": "changed",
-      "field": "jsonld",
-      "url": "^/critical-illness/prudential-crisis-cover-benefit/$",
-      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$",
-      "old": "Rider insurans yang hanya boleh dilekatkan pada pelan asas PRUCash. Halaman rasmi yang diterbitkan pada 2026-09-23 menerangkan produk ini sebagai perlindungan tambahan kepada PRUCash.",
-      "new": "Rider insurans yang hanya boleh dilekatkan pada pelan asas PRUCash. Halaman rasmi yang diterbitkan pada 23 Sep 2026 menerangkan produk ini sebagai perlindungan tambahan kepada PRUCash.",
-      "reason": "Date presentation only: 2026-09-23 -> 23 Sep 2026 (no ISO dates in visible text)."
-    },
-    {
-      "check": "contract",
       "kind": "removed",
       "field": "pct",
       "url": "^/guides/insurance\\-vs\\-takaful/$",
@@ -637,8 +627,8 @@
       "field": "title",
       "url": "^/$",
       "old": "Anggaran Harga Insurans Kereta Malaysia 2026 | Insurans.co",
-      "new": "Insurans Malaysia 2026: Harga Kereta, Medical Card & Takaful | Insurans.co",
-      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+      "new": "Insurans Malaysia 2026: Kereta, Medical Card & Takaful | Insurans.co",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis. Corrected after the independent check: 'Harga Kereta' read as car prices; 'anggaran' restored in the description."
     },
     {
       "check": "contract",
@@ -646,8 +636,8 @@
       "field": "description",
       "url": "^/$",
       "old": "Panduan insurans bebas, bukan ejen atau broker: anggaran harga insurans 39 model kereta, kalkulator NCD & roadtax, perbandingan dan profil syarikat.",
-      "new": "Panduan insurans bebas, bukan ejen atau broker: harga insurans kereta 39 model, kalkulator NCD & roadtax, medical card, nyawa, rumah dan takaful, bersumber rasmi.",
-      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+      "new": "Panduan insurans bebas, bukan ejen atau broker: anggaran harga insurans kereta 39 model, kalkulator NCD & roadtax, medical card, nyawa, rumah dan takaful.",
+      "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis. Corrected after the independent check: 'Harga Kereta' read as car prices; 'anggaran' restored in the description."
     },
     {
       "check": "contract",
@@ -657,6 +647,188 @@
       "old": "Insurans Nyawa Malaysia 2026 — Panduan, Harga & Perbandingan | Insurans.co",
       "new": "Insurans Nyawa Malaysia 2026: Term, Whole Life & ILP | Insurans.co",
       "reason": "SEO review (15 Nov 2026): title, description or heading retitled on purpose. Car hub and homepage: low click-through at high impressions; homepage broadened to match its 12-type module so it stops competing with the car hub. Life hub: the price table was removed, so the title no longer promises 'Harga'. Health and critical-illness hubs: the old titles were cut off with a literal ellipsis."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/(medical-cards|critical-illness|home-insurance|travel-insurance|motorcycle-insurance)/[^/]+/$",
+      "path": "^FAQPage\\.",
+      "new": null,
+      "reason": "Plan pages (15 Nov 2026): generated FAQ items whose answers only repeated fact rows printed above were removed, so FAQPage JSON-LD items are gone (the JSON-LD mirrors the visible FAQ). The independent reader confirmed every removed answer's content is still on its page."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/companies/[^/]+/$",
+      "path": "^FAQPage\\.",
+      "new": null,
+      "reason": "Company profiles (15 Nov 2026): four FAQ questions per profile whose answers repeated the sections above were removed; the FMOS question stays. The three safeguards they carried were restored beside the entities, claims and apps sections."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "ads",
+      "url": "^/motorcycle\\-insurance/etiqa\\-myrider/$",
+      "reason": "Ads switched off: the page fails the site's ads gate after its generated FAQ was removed (see scripts/checks/ads-changes.json)."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "ads",
+      "url": "^/motorcycle\\-insurance/msig\\-motorcycle\\-online/$",
+      "reason": "Ads switched off: the page fails the site's ads gate after its generated FAQ was removed (see scripts/checks/ads-changes.json)."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/aia\\-vs\\-great\\-eastern/$",
+      "path": "^Article\\.description$",
+      "old": "AIA dan Great Eastern lebih berbeza pada gabungan perlindungan kesihatan, insurans am dan takaful berbanding bukti produk motor terperinci. AIA mempunyai aplikasi AIA+ dan manfaat perubatan A-Life; Great Eastern menggabungkan hayat, perubatan kumpulan dan entiti takaful keluarga, dengan fungsi aplikasi korporat yang jelas.",
+      "new": "Sumber yang kami semak lebih terperinci tentang kesihatan dan takaful keluarga AIA serta Great Eastern berbanding produk motor. AIA ada aplikasi AIA+ dan manfaat perubatan A-Life. Great Eastern ada hayat, perubatan kumpulan dan entiti takaful keluarga, serta aplikasi untuk pelanggan korporat.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/aia\\-vs\\-msig/$",
+      "path": "^Article\\.description$",
+      "old": "AIA menggabungkan hayat, perubatan, motor am dan takaful keluarga melalui entiti berlainan, dengan aplikasi AIA+ yang memberi tumpuan kepada perkhidmatan kesihatan. MSIG Malaysia ialah penanggung insurans am yang menunjukkan lebih banyak ciri motor telematik dan bantuan jalan digital. Bezakan skop motor daripada kesihatan sebelum meminta sebut harga.",
+      "new": "AIA menjual hayat, perubatan, motor am dan takaful keluarga melalui entiti berlainan, dan aplikasi AIA+ tertumpu pada kesihatan. MSIG Malaysia ialah penanggung insurans am, dan sumber yang kami semak menunjukkan lebih banyak ciri telematik dan bantuan jalan digital untuk motornya. Asingkan motor daripada kesihatan sebelum meminta sebut harga.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/allianz\\-vs\\-aia/$",
+      "path": "^Article\\.description$",
+      "old": "Allianz lebih menonjol dalam fakta motor yang disemak melalui Road Rangers dan Allianz Motorcycle Plus, sementara AIA menggabungkan entiti motor am berasingan dengan kekuatan maklumat kesihatan dan aplikasi AIA+. Kedua-duanya bukan pilihan takaful motor yang disahkan di sini; keputusan perlu berpandukan polisi, bukan reputasi kumpulan.",
+      "new": "Untuk motor, sumber yang kami semak lebih terperinci tentang Allianz: Road Rangers dan Allianz Motorcycle Plus. AIA menjual motor melalui entiti am yang berasingan, dan maklumatnya lebih banyak tentang kesihatan dan aplikasi AIA+. Kami tidak menemui pilihan takaful motor untuk mana-mana satu dalam sumber yang disemak. Buat keputusan ikut polisi, bukan reputasi kumpulan.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/allianz\\-vs\\-zurich/$",
+      "path": "^Article\\.description$",
+      "old": "Kedua-dua kumpulan menawarkan insurans motor konvensional dan mempunyai sokongan antarabangsa, tetapi pilihan kontrak berbeza. Allianz menonjol dengan Road Rangers dan Allianz Motorcycle Plus; Zurich menggabungkan insurans dengan beberapa entiti takaful serta bantuan jalan yang boleh diminta dan dijejak melalui MyZurich.",
+      "new": "Kedua-duanya menjual insurans motor konvensional. Allianz ada Road Rangers dan Allianz Motorcycle Plus. Zurich pula ada beberapa entiti takaful, dan bantuan jalannya boleh diminta serta dijejak melalui MyZurich.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/berjaya\\-sompo\\-vs\\-lonpac/$",
+      "path": "^Article\\.description$",
+      "old": "Berjaya Sompo mempunyai bantuan kerosakan 24 jam dan aplikasi MySOMPO, manakala Lonpac menyediakan butiran meja tuntutan motor serta rating insurer AM Best A yang diterbitkan.",
+      "new": "Berjaya Sompo ada bantuan kerosakan 24 jam dan aplikasi MySOMPO. Lonpac menyenaraikan meja tuntutan motor dan mempunyai rating AM Best A. Lonpac Road Assist menyediakan bantuan 24 jam untuk pelanggan kereta persendirian komprehensif, tertakluk pada terma.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/etiqa\\-vs\\-allianz/$",
+      "path": "^Article\\.description$",
+      "old": "Perbezaan utama ialah pilihan takaful dan keluasan servis motor yang dapat disahkan. Etiqa meletakkan insurans konvensional dan takaful di bawah satu jenama, sementara Allianz menonjol melalui Road Rangers 24/7 serta MyAllianz untuk urusan tuntutan dan bantuan selepas kemalangan.",
+      "new": "Etiqa menjual insurans konvensional dan takaful di bawah satu jenama. Kami tidak menemui operator takaful Allianz Malaysia dalam sumber yang disemak, tetapi Allianz ada Road Rangers 24/7 dan MyAllianz untuk urusan tuntutan dan bantuan selepas kemalangan.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/etiqa\\-vs\\-msig/$",
+      "path": "^Article\\.description$",
+      "old": "Etiqa menyediakan motor takaful dan insurans melalui entiti kumpulan, manakala MSIG Insurance Malaysia menawarkan insurans am dengan tambahan berasaskan penggunaan dan bantuan jalan digital. Kedua-duanya mempunyai pilihan tuntutan dan servis kenderaan, tetapi struktur takaful, skop digital dan produk lain berbeza.",
+      "new": "Etiqa menjual motor takaful dan insurans melalui entiti kumpulannya. MSIG Insurance Malaysia ialah penanggung insurans am, dengan tambahan berasaskan penggunaan dan bantuan jalan digital. Kedua-duanya ada saluran tuntutan dan servis kenderaan, tetapi pilihan takaful, skop digital dan produk lain berbeza.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/etiqa\\-vs\\-tokio\\-marine/$",
+      "path": "^Article\\.description$",
+      "old": "Etiqa membezakan tawaran melalui pilihan motor takaful dan insurans serta servis digital Etiqa+. Tokio Marine pula menawarkan AutoPro dengan senarai manfaat dan perlindungan tambahan yang terperinci, termasuk pilihan berkaitan kenderaan elektrik. Keputusan praktikal bergantung pada struktur polisi, servis yang diperlukan dan sebut harga individu.",
+      "new": "Etiqa ada motor takaful di samping insurans biasa, dan servis digital melalui Etiqa+. AutoPro Tokio Marine pula menyenaraikan manfaat dan tambahan dengan terperinci, termasuk pilihan untuk kenderaan elektrik. Pilihan anda bergantung pada struktur polisi, servis yang anda perlukan dan sebut harga.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/etiqa\\-vs\\-zurich/$",
+      "path": "^Article\\.description$",
+      "old": "Etiqa dan Zurich masing-masing menggabungkan insurans dan takaful dalam kumpulan, tetapi saluran bantuan serta bukti produk motor berbeza. Etiqa mempunyai tawaran motor takaful dan bantuan Auto Assist yang menyatakan had tunda, manakala Zurich menyediakan entiti takaful am dan bantuan jalan yang boleh dijejak melalui MyZurich.",
+      "new": "Kedua-dua kumpulan menjual insurans dan takaful. Bezanya pada bantuan jalan: Etiqa Auto Assist menyatakan had tundanya, manakala bantuan jalan Zurich boleh dijejak melalui MyZurich. Etiqa juga ada motor takaful, dan Zurich ada entiti takaful am sendiri.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/great\\-eastern\\-vs\\-msig/$",
+      "path": "^Article\\.description$",
+      "old": "Great Eastern menggabungkan entiti hayat, am dan takaful keluarga serta aplikasi GEC untuk peserta korporat; MSIG Malaysia yang disemak ialah penanggung insurans am dengan alat digital motor seperti Smart Towing. Bukti produk kesihatan dan motor tidak sama luas, jadi periksa jenis pelanggan dan kontrak yang ditawarkan.",
+      "new": "Great Eastern ada entiti hayat, am dan takaful keluarga, serta aplikasi GEC untuk peserta korporat. MSIG Malaysia ialah penanggung insurans am, dengan alat digital motor seperti Smart Towing. Sumber yang kami semak tidak sama terperinci untuk kesihatan dan motor, jadi semak jenis pelanggan dan kontrak yang ditawarkan kepada anda.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/msig\\-vs\\-zurich/$",
+      "path": "^Article\\.description$",
+      "old": "MSIG Insurance Malaysia ialah penyedia insurans am dengan ciri motor telematik dan Smart Towing, manakala Zurich mempunyai portfolio insurans dan takaful am serta saluran bantuan jalan melalui MyZurich. Perbandingan ini paling berguna untuk menilai proses digital, struktur takaful dan bantuan selepas kemalangan, bukan mencari satu pemenang umum.",
+      "new": "MSIG Insurance Malaysia menjual insurans am, dengan ciri motor telematik dan Smart Towing. Zurich menjual insurans dan takaful am, dan bantuan jalannya melalui MyZurich. Pasangan ini paling berguna untuk membandingkan proses digital, pilihan takaful dan bantuan selepas kemalangan.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/prudential\\-vs\\-aia/$",
+      "path": "^Article\\.description$",
+      "old": "Perbandingan Prudential dengan AIA bukan perbandingan dua penanggung insurans kereta setara: fakta yang disemak meletakkan Prudential pada perlindungan hayat dan kesihatan, tanpa perniagaan motor am. AIA pula mempunyai AIA General untuk motor bersama AIA Bhd, operator takaful keluarga dan aplikasi perubatan/digital.",
+      "new": "Prudential dan AIA bukan dua penanggung insurans kereta yang setara. Kami menemui perlindungan hayat dan kesihatan Prudential, tetapi tidak menemui perniagaan motor amnya dalam sumber yang disemak. AIA pula ada AIA General untuk motor, di samping AIA Bhd, operator takaful keluarga dan aplikasi perubatan.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/takaful\\-malaysia\\-vs\\-etiqa/$",
+      "path": "^Article\\.description$",
+      "old": "Kedua-duanya menyediakan motor takaful, namun struktur produk dan bantuan berbeza. Takaful Malaysia ialah pengendali khusus dengan Tele Bantuan dan panduan tuntutan yang menyatakan langkah masa; Etiqa menggabungkan motor takaful dengan insurans konvensional serta bantuan jalan yang menawarkan tunda sehingga 200 km.",
+      "new": "Kedua-duanya menjual motor takaful. Takaful Malaysia ialah pengendali takaful khusus, ada Tele Bantuan, dan panduan tuntutannya menyatakan tempoh untuk beberapa langkah tuntutan. Etiqa menjual motor takaful bersama insurans konvensional, dan bantuan jalannya menawarkan tunda sehingga 200 km.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/tokio\\-marine\\-vs\\-allianz/$",
+      "path": "^Article\\.description$",
+      "old": "Tokio Marine membezakan motor melalui AutoPro dan manfaat khusus kenderaan, manakala Allianz mempunyai respons kemalangan 24/7 melalui Road Rangers serta perlindungan Allianz Motorcycle Plus. Kedua-dua kumpulan mempunyai rating kumpulan AM Best dalam sumber disemak, tetapi rating tersebut berskala berlainan dan tidak menentukan polisi terbaik untuk setiap pemandu.",
+      "new": "Tokio Marine menjual motor melalui AutoPro, dengan manfaat khusus kenderaan. Allianz ada respons kemalangan 24/7 melalui Road Rangers dan perlindungan Allianz Motorcycle Plus. Kedua-duanya mempunyai rating AM Best pada peringkat kumpulan; rating itu bukan perbandingan langsung polisi motor Malaysia.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/perbandingan/tokio\\-marine\\-vs\\-msig/$",
+      "path": "^Article\\.description$",
+      "old": "Tokio Marine menawarkan rangkaian hayat dan am serta produk AutoPro dengan manfaat motor yang dinyatakan secara terperinci. MSIG Malaysia ialah penanggung insurans am yang membezakan tawaran motor melalui ciri telematik, bantuan jalan digital dan penjejakan trak tunda; kedua-duanya perlu dibandingkan berdasarkan skop polisi sebenar.",
+      "new": "Tokio Marine ada perniagaan hayat dan am, dan AutoPro menyenaraikan manfaat motornya satu persatu. MSIG Malaysia ialah penanggung insurans am, dengan ciri telematik, bantuan jalan digital dan penjejakan trak tunda. Bandingkan kedua-duanya ikut skop polisi sebenar.",
+      "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
     }
   ]
 }
