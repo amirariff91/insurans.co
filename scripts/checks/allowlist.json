@@ -829,6 +829,17 @@
       "old": "Tokio Marine menawarkan rangkaian hayat dan am serta produk AutoPro dengan manfaat motor yang dinyatakan secara terperinci. MSIG Malaysia ialah penanggung insurans am yang membezakan tawaran motor melalui ciri telematik, bantuan jalan digital dan penjejakan trak tunda; kedua-duanya perlu dibandingkan berdasarkan skop polisi sebenar.",
       "new": "Tokio Marine ada perniagaan hayat dan am, dan AutoPro menyenaraikan manfaat motornya satu persatu. MSIG Malaysia ialah penanggung insurans am, dengan ciri telematik, bantuan jalan digital dan penjejakan trak tunda. Bandingkan kedua-duanya ikut skop polisi sebenar.",
       "reason": "Comparison summary rewritten (15 Nov 2026) to say what differs for this pair and to stop describing the site's own data; corrected after the independent meaning check. It also feeds Article.description."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/(?:bmw\\-3\\-series|bmw\\-x1|honda\\-brv|honda\\-city|honda\\-civic|honda\\-crv|honda\\-hrv|honda\\-jazz|hyundai\\-elantra|hyundai\\-tucson|kia\\-sportage|mazda\\-2|mazda\\-3|mazda\\-cx5|mercedes\\-c\\-class|mercedes\\-glb|mitsubishi\\-triton|mitsubishi\\-xpander|nissan\\-almera|nissan\\-navara|perodua\\-alza|perodua\\-ativa|perodua\\-axia|perodua\\-bezza|perodua\\-myvi|proton\\-exora|proton\\-iriz|proton\\-persona|proton\\-saga|proton\\-x50|proton\\-x70|suzuki\\-swift|toyota\\-corolla|toyota\\-corolla\\-cross|toyota\\-hilux|toyota\\-raize|toyota\\-veloz|toyota\\-vios|toyota\\-yaris)/$",
+      "values": [
+        "0.2%",
+        "15%"
+      ],
+      "reason": "Add-on note on the 39 model pages (#nota-addon, 15 Nov 2026): published rates beside the site's add-on estimates. Zurich Z-Driver PDS (15 Nov 2025) p3: windscreen cover 15% of windscreen sum insured, special perils 0.2% of vehicle sum insured; HSBC Motor Insurance PDS (Allianz, valid 1 Jan 2026) p2 example matches (RM150 on RM1,000; RM102 on RM51,000). No existing figure changed."
     }
   ]
 }
