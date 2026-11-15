@@ -1,0 +1,120 @@
+---
+/**
+ * Homepage "every type of insurance" module. One tile per vertical hub that exists under src/pages/, each with
+ * one fact its hub page already states. Counts and rates read from the hub's own data file; facts the hub writes
+ * as literal text are read out of the hub's source (`?raw`) by a pattern, so a hub edit that drops the fact fails
+ * the build here instead of leaving a stale copy on the homepage.
+ */
+import Ikon from '../Ikon.astro';
+import carModels from '../../data/car-models.json';
+import medicalCards from '../../data/medical-cards.json';
+import ci from '../../data/critical-illness.json';
+import homeInsurance from '../../data/home-insurance.json';
+import travel from '../../data/travel-insurance.json';
+import personalAccident from '../../data/personal-accident.json';
+import motorSrc from '../../pages/motorcycle-insurance/index.astro?raw';
+import lifeSrc from '../../pages/life-insurance/index.astro?raw';
+import takafulSrc from '../../pages/takaful/index.astro?raw';
+import perkesoSrc from '../../pages/bantuan-insurans/perkeso/index.astro?raw';
+import iLindungSrc from '../../pages/i-lindung/index.astro?raw';
+import mysalamSrc from '../../pages/bantuan-insurans/mysalam/index.astro?raw';
+
+/** The hub's own wording, or a build error naming the hub. */
+const fromHub = (src: string, hub: string, re: RegExp) => {
+  const m = src.match(re);
+  if (!m) throw new Error(`HomeTypes: ${hub} no longer states ${re}; update the homepage tile.`);
+  return m[1] ?? m[0];
+};
+
+interface Tile { href: string; icon: string; name: string; fact: string; group: 'cover' | 'scheme' }
+const tiles: Tile[] = [
+  { href: '/car-insurance/', icon: 'i-kereta', name: 'Kereta', fact: `${carModels.length} model, anggaran ikut NCD`, group: 'cover' },
+  { href: '/motorcycle-insurance/', icon: 'i-tayar', name: 'Motosikal', fact: fromHub(motorSrc, '/motorcycle-insurance/', /finding="(Roadtax JPJ ikut cc dan wilayah)/), group: 'cover' },
+  { href: '/medical-cards/', icon: 'i-resit', name: 'Medical card', fact: `${medicalCards.records.length} pelan: standalone, rider, takaful`, group: 'cover' },
+  { href: '/critical-illness/', icon: 'i-amaran', name: 'Penyakit kritikal', fact: `${ci.records.length} pelan dan skim`, group: 'cover' },
+  { href: '/life-insurance/', icon: 'i-orang', name: 'Nyawa', fact: `Pelepasan cukai ${fromHub(lifeSrc, '/life-insurance/', /cukai sehingga <strong>(RM[\d,]+) setahun</)} setahun`, group: 'cover' },
+  { href: '/takaful/', icon: 'i-lindung', name: 'Takaful', fact: fromHub(takafulSrc, '/takaful/', /Harga boleh lebih rendah, sama atau lebih tinggi/), group: 'cover' },
+  { href: '/home-insurance/', icon: 'i-utama', name: 'Rumah', fact: `Kadar asas ${homeInsurance.tariff.ho_landed_1A.toFixed(3)}% (1A landed)`, group: 'cover' },
+  { href: '/travel-insurance/', icon: 'i-luar', name: 'Perjalanan', fact: `${travel.records.length} pelan, single dan annual`, group: 'cover' },
+  { href: '/personal-accident/', icon: 'i-kemalangan', name: 'Kemalangan diri', fact: `${personalAccident.records.length} pelan PA`, group: 'cover' },
+  { href: '/bantuan-insurans/perkeso/', icon: 'i-tanda', name: 'PERKESO', fact: `SPS ${fromHub(perkesoSrc, '/bantuan-insurans/perkeso/', /value: '(RM[\d.]+)'/)} sebulan`, group: 'scheme' },
+  { href: '/i-lindung/', icon: 'i-dompet', name: 'i-Lindung', fact: `Dari ${fromHub(iLindungSrc, '/i-lindung/', /value: '(RM\d+)'/)} setahun`, group: 'scheme' },
+  { href: '/bantuan-insurans/mysalam/', icon: 'i-tambah', name: 'mySalam', fact: fromHub(mysalamSrc, '/bantuan-insurans/mysalam/', /value: '(Percuma untuk penerima yang layak)'/), group: 'scheme' },
+];
+---
+<section class="mod htp" aria-labelledby="jenis">
+  <h2 class="mod-bar mod-lab" id="jenis"><Ikon name="i-cari" size={22} /> Bukan kereta sahaja: {tiles.length} jenis insurans dan skim</h2>
+  <div class="mod-in">
+    <ul class="htp-g">
+      {tiles.map((t) => (
+        <li data-g={t.group}>
+          <a href={t.href}>
+            <span class="htp-i"><Ikon name={t.icon} size={22} /></span>
+            <b>{t.name}</b>
+            <span class="htp-f">{t.fact}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="htp-more">
+      <a href="/bantuan-insurans/">Semua bantuan kerajaan</a>
+      <a href="/health-insurance/">Panduan insurans kesihatan</a>
+      <a href="/insurans-online/">Insurans online</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .htp-g {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border-radius: var(--r-2);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--rule);
+  }
+  @media (min-width: 40rem) { .htp-g { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 90rem) { .htp-g { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .htp-g li { display: flex; background: var(--card); }
+  .htp-g li[data-g='scheme'] { background: var(--tray); }
+  .htp-g a {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: 0.55rem;
+    row-gap: 0.1rem;
+    align-items: start;
+    min-height: 4.25rem;
+    padding: 0.65rem 0.7rem 0.7rem;
+    color: var(--ink);
+    text-decoration: none !important;
+    transition: background-color 150ms var(--ease-out);
+  }
+  .htp-i {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+    background: var(--card);
+  }
+  .htp-g b { font: 800 1.0625rem/1.2 var(--fd); overflow-wrap: anywhere; align-self: center; }
+  .htp-f { font-size: 0.875rem; line-height: 1.35; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  @media (hover: hover) and (pointer: fine) {
+    .htp-g a:hover { background: var(--tint-sky); }
+    .htp-g a:hover b { text-decoration: underline; text-underline-offset: 0.18em; }
+  }
+  .htp-g a:active .htp-i { transform: scale(0.94); }
+  .htp-g a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  .htp-more { display: flex; flex-wrap: wrap; column-gap: 1.1rem; font-size: 0.9375rem; font-weight: 600; }
+  .htp-more a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .htp-more a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .htp-g a { transition: none; } }
+</style>

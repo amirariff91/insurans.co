@@ -507,6 +507,46 @@
         "RM9–42"
       ],
       "reason": "Fact-checked electric-motorcycle note (displayNotes.ev): base rates RM9-RM42 above 7,500 W, from JPJ Pekeliling Bil.01/2026."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/$",
+      "values": [
+        "RM3,000"
+      ],
+      "reason": "Homepage types module, Nyawa tile: tax relief RM3,000 a year, read at build time from /life-insurance/ (its 'Pelepasan cukai' paragraph, 'sehingga RM3,000 setahun')."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/$",
+      "values": [
+        "RM13.1"
+      ],
+      "reason": "Homepage types module, PERKESO tile: SPS Pelan 1 RM13.10 a month, read at build time from the answer-box lead on /bantuan-insurans/perkeso/."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/$",
+      "values": [
+        "RM12"
+      ],
+      "reason": "Homepage types module, i-Lindung tile: 'Dari RM12 setahun', read at build time from the answer-box lead on /i-lindung/."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/$",
+      "values": [
+        "0.09%"
+      ],
+      "reason": "Homepage types module, Rumah tile: base rate 0.090% (1A landed, houseowner) from home-insurance.json tariff.ho_landed_1A, the same value as the answer-box lead on /home-insurance/."
     }
   ]
 }
