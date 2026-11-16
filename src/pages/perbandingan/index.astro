@@ -169,14 +169,14 @@ function getCompanyName(slug: string) {
 
 <style>
   .pb-list { max-width: 48rem; margin-block: 1rem; }
-  .pb-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
+  .pb-rows { list-style: none; margin: 0; padding: 0 1rem; display: grid; }
   @media (min-width: 64rem) { .pb-rows { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
-  .pb-r { display: grid; gap: 0.1rem; padding: 0.5rem 0 0.6rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
-  .pb-a { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .pb-r { display: grid; gap: 2px; padding: 0.5rem 0 0.5rem; border-bottom: 1px solid var(--line); }
+  .pb-a { display: inline-flex; align-items: center; gap: 0.25rem; min-height: 2.75rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .pb-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .pb-what { font-size: 0.9375rem; color: var(--ink); }
+  .pb-what { font-size: 1rem; color: var(--ink); }
   .pb-tk { font-size: 0.875rem; color: var(--ink-2); }
-  .pb-sum summary { display: inline-flex; align-items: center; min-height: 2.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .pb-sum summary { display: inline-flex; align-items: center; min-height: 2.75rem; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .pb-sum summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .pb-sum p { margin: 0 0 0.25rem; font-size: 0.9375rem; line-height: 1.5; color: var(--ink); }
+  .pb-sum p { margin: 0 0 0.25rem; font-size: 1rem; line-height: 1.5; color: var(--ink); }
 </style>

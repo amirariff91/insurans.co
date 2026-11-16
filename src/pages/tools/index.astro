@@ -162,12 +162,12 @@ const schema = {
 <style>
   /* Tool name above each card's finding: sentence case, not tracked caps (critique 27). */
   .et :global(.et-kicker) { text-transform: none; letter-spacing: 0; font-size: 0.875rem; }
-  .et :global(.et-go) { display: flex; align-items: center; gap: 0.35rem; min-height: 2.75rem; }
-  .tl-list { max-width: 48rem; margin-block: 1rem 1.25rem; }
-  .tl-rows { list-style: none; margin: 0; padding: 0 0.9rem; display: grid; }
-  .tl-r { display: grid; gap: 0.05rem; padding: 0.3rem 0 0.55rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
+  .et :global(.et-go) { display: flex; align-items: center; gap: 0.25rem; min-height: 2.75rem; }
+  .tl-list { max-width: 48rem; margin-block: 1rem 1.5rem; }
+  .tl-rows { list-style: none; margin: 0; padding: 0 1rem; display: grid; }
+  .tl-r { display: grid; gap: 0; padding: 0.25rem 0 0.5rem; border-bottom: 1px solid var(--line); }
   .tl-r:last-child { border-bottom: 0; }
-  .tl-a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.75rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
+  .tl-a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; }
   .tl-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .tl-w { font-size: 0.9375rem; color: var(--ink); }
+  .tl-w { font-size: 1rem; color: var(--ink); }
 </style>

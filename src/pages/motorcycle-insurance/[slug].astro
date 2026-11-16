@@ -157,7 +157,7 @@ const answerFacts = [
         { label: record.planName },
       ]}
     />
-    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-600">
+    <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-900">
       {record.figureVerified
         ? `Data ringkas berdasarkan sumber rasmi yang dibaca pada ${tarikh(record.asAt)}.`
         : `Rekod nama berdasarkan sumber yang dikenal pasti pada ${tarikh(record.asAt)}; butiran produk belum disahkan.`}
@@ -240,7 +240,7 @@ const answerFacts = [
             {relatedRecords.map((related) => (
               <div class="card-editorial">
                 <h3 class="font-semibold text-stone-900">
-                  <a href={`/motorcycle-insurance/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+                  <a href={`/motorcycle-insurance/${related.slug}/`} class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">
                     {related.planName}
                   </a>
                 </h3>

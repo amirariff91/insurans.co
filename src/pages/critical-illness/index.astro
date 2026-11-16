@@ -93,7 +93,7 @@ const schema = {
         note={`Kami tidak menganggarkan premium. Dikemas kini ${tarikh(updatedAt)}.`}
       />
       <Byline dateModified={updatedAt} />
-      <p class="max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Critical illness (CI): apa yang dilindungi, bagaimana struktur pelan berbeza dan syarat mana yang perlu dibaca
         dalam sumber rasmi.
       </p>
@@ -113,9 +113,9 @@ const schema = {
           <h2 id="jadual-perbandingan">Jadual perbandingan penyakit kritikal</h2>
           <TypeChips class="not-prose mt-5" label="Jenis" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
           <ProductCss />
-          <div class="pp-plans overflow-x-auto my-8">
+          <div class="pp-plans overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="jadual-perbandingan">
             <table role="table" class="table-editorial plan-table min-w-[60rem]">
-              <caption class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
+              <caption id="jadual-pelan" class="caption-top pb-3 text-left text-sm leading-5 text-stone-600">
                 Dikemas kini <time datetime={updatedAt}>{tarikh(updatedAt)}</time>
               </caption>
               <thead role="rowgroup">
@@ -245,7 +245,7 @@ const schema = {
                           <h3 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h3>
                           <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                         </div>
-                        <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
+                        <span class="max-w-[50%] rounded-full border border-stone-200 bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">{group.label}</span>
                       </div>
                       {(record.conditionsCovered || earlyStageLabel) && (
                         <dl class="mt-5 space-y-2 text-sm">
@@ -299,9 +299,9 @@ const schema = {
           <div class="card-editorial">
             <h2 class="text-sm font-semibold text-stone-900">Baca juga</h2>
             <ul class="mt-3 space-y-2.5 text-sm">
-              <li><a href="/critical-illness/senarai-penyakit-kritikal/" class="text-hijau-700 hover:text-hijau-600">Senarai 36 penyakit kritikal</a></li>
-              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kesihatan</a></li>
-              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Panduan takaful</a></li>
+              <li><a href="/critical-illness/senarai-penyakit-kritikal/" class="text-hijau-700 underline">Senarai 36 penyakit kritikal</a></li>
+              <li><a href="/health-insurance/" class="text-hijau-700 underline">Panduan insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 underline">Panduan takaful</a></li>
             </ul>
           </div>
         </div>

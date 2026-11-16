@@ -74,10 +74,10 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     object-fit: contain;
   }
   .cp-credit {
-    margin-block-start: 0.4rem;
+    margin-block-start: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.4;
-    color: var(--edisi-muted, #57534e);
+    color: var(--edisi-muted, var(--mute));
   }
   .cp-credit a {
     color: inherit;
@@ -85,7 +85,7 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     text-underline-offset: 2px;
   }
   .cp-credit a:hover {
-    color: var(--edisi-ink, #1c1917);
+    color: var(--edisi-ink, var(--ink));
   }
 
   /* No photo: the name card. A deliberate plate in the photo's slot, never an empty image box: brand and
@@ -99,12 +99,12 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
       'meta' auto / minmax(0, 1fr);
     align-content: end;
     align-items: end;
-    gap: 0.3rem 0.75rem;
-    padding: 0.85rem 1rem 0.75rem;
-    border: 2px solid var(--ink, #000);
+    gap: 0.25rem 0.75rem;
+    padding: 0.75rem 1rem 0.75rem;
+    border: 2px solid var(--ink);
     border-radius: var(--r-2, 0.5rem);
-    background: var(--tint-sky, #cfe8fa);
-    color: var(--ink, #000);
+    background: var(--paper);
+    color: var(--ink);
     overflow: hidden;
   }
   .cp-card-name {
@@ -126,7 +126,7 @@ const aiNote = photo.hasPhoto && photo.aiRetouched ? photo.modifications.replace
     grid-area: meta;
     margin: 0;
     font-size: 0.875rem;
-    font-weight: 650;
+    font-weight: 600;
     line-height: 1.25;
   }
 </style>

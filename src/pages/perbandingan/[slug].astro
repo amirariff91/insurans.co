@@ -225,13 +225,13 @@ const schema = {
             </p>
           </div>
           <div class="grid sm:grid-cols-2 gap-5">
-            <section class="bg-stone-50 border border-stone-200 p-5">
+            <section class="note-plain">
               <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameA} jika:</h3>
               <ul class="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
                 {comp.chooseA.map((item: string) => <li>{item}</li>)}
               </ul>
             </section>
-            <section class="bg-stone-50 border border-stone-200 p-5">
+            <section class="note-plain">
               <h3 class="font-semibold text-stone-900 mb-3">Pilih {nameB} jika:</h3>
               <ul class="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
                 {comp.chooseB.map((item: string) => <li>{item}</li>)}
@@ -322,10 +322,10 @@ const schema = {
           <section class="card-editorial">
             <h2 class="font-semibold text-sm text-stone-900 mb-3">Baca juga</h2>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/perbandingan/" class="text-hijau-700 hover:text-hijau-600">Semua perbandingan</a></li>
-              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
-              <li><a href="/car-insurance/" class="text-hijau-700 hover:text-hijau-600">Panduan insurans kereta</a></li>
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: panduan lengkap</a></li>
+              <li><a href="/perbandingan/" class="text-hijau-700 underline">Semua perbandingan</a></li>
+              <li><a href="/companies/" class="text-hijau-700 underline">Semua syarikat insurans</a></li>
+              <li><a href="/car-insurance/" class="text-hijau-700 underline">Panduan insurans kereta</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline">NCD: panduan lengkap</a></li>
             </ul>
           </section>
         </div>
@@ -335,16 +335,16 @@ const schema = {
 </Base>
 
 <style>
-  .compare-rows { border-top: 2px solid var(--ink, #111); }
-  .compare-row { padding-block: 1.25rem; border-bottom: 1px solid rgb(0 0 0 / 0.2); }
-  .compare-row-t { font: 800 1.125rem/1.25 var(--fd, inherit); color: var(--ink, #111); margin: 0 0 0.75rem; }
+  .compare-rows { border-top: 2px solid var(--ink); }
+  .compare-row { padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
+  .compare-row-t { font: 800 1.125rem/1.25 var(--fd, inherit); color: var(--ink); margin: 0 0 0.75rem; }
   .compare-cols { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 48rem) {
     .compare-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
-    .compare-cols > div + div { border-left: 1px solid rgb(0 0 0 / 0.2); padding-left: 1.25rem; }
-    .compare-cols > div:first-child { padding-right: 1.25rem; }
+    .compare-cols > div + div { border-left: 1px solid var(--line); padding-left: 1.5rem; }
+    .compare-cols > div:first-child { padding-right: 1.5rem; }
   }
-  .compare-name { font-weight: 700; color: var(--ink, #111); margin: 0 0 0.35rem; }
-  .compare-cols p, .compare-note { font-size: 1rem; line-height: 1.55; color: var(--ink, #111); margin: 0; }
-  .compare-note { margin-top: 0.9rem; color: var(--ink-2, #3a3a3a); }
+  .compare-name { font-weight: 600; color: var(--ink); margin: 0 0 0.25rem; }
+  .compare-cols p, .compare-note { font-size: 1rem; line-height: 1.55; color: var(--ink); margin: 0; }
+  .compare-note { margin-top: 1rem; color: var(--ink-2, var(--ink)); }
 </style>

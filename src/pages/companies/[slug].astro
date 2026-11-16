@@ -181,16 +181,18 @@ const schema = {
 
         <div class="my-6 grid gap-4 sm:grid-cols-2">
           {company.productDetails.map((product) => (
-            <article class="border border-stone-200 bg-white p-5">
-              <h3 class="font-semibold text-stone-900">{product.line}</h3>
-              {product.names.length > 0 && (
-                <ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-stone-700">
-                  {product.names.map((name) => <li>{name}</li>)}
-                </ul>
-              )}
-              <a href={product.url} target="_blank" rel="noopener noreferrer" class="tap-link mt-3 text-sm text-hijau-700 underline">
-                Lihat butiran produk <Ikon name="i-luar" size={16} />
-              </a>
+            <article class="mod">
+              <h3 class="mod-bar mod-lab">{product.line}</h3>
+              <div class="mod-in">
+                {product.names.length > 0 && (
+                  <ul class="list-disc space-y-1 pl-5 text-sm leading-6 text-stone-700">
+                    {product.names.map((name) => <li>{name}</li>)}
+                  </ul>
+                )}
+                <a href={product.url} target="_blank" rel="noopener noreferrer" class="tap-link text-sm text-hijau-700 underline">
+                  Lihat butiran produk <Ikon name="i-luar" size={16} />
+                </a>
+              </div>
             </article>
           ))}
         </div>
@@ -206,9 +208,9 @@ const schema = {
         </article>
         <div class="my-5 space-y-3">
           {company.claims.hotlines.filter((hotline) => hotline.number.trim()).map((hotline) => (
-            <div class="flex flex-wrap items-baseline justify-between gap-2 border border-stone-200 bg-krim-50 p-4 text-sm">
+            <div class="note-plain flex flex-wrap items-baseline justify-between gap-2 text-sm">
               <span class="font-medium text-stone-700">{hotline.label}</span>
-              <a href={`tel:${hotline.number.replace(/[^0-9+]/g, '')}`} class="tap-link font-semibold text-hijau-700 underline">
+              <a href={`tel:${hotline.number.replace(/[^0-9+]/g, '')}`} class="tap-link whitespace-nowrap font-semibold text-hijau-700 underline">
                 {hotline.number}
               </a>
             </div>
@@ -246,7 +248,7 @@ const schema = {
               <span class="text-stone-700">{company.contact.hours}</span>
             </div>
           )}
-          {company.contact.notes && <p class="border border-stone-200 bg-krim-50 p-4 text-sm leading-6 text-stone-700">{company.contact.notes}</p>}
+          {company.contact.notes && <p class="note-plain text-sm leading-6 text-stone-700">{company.contact.notes}</p>}
         </div>
 
         <article class="prose-editorial prose-bars">
@@ -313,9 +315,9 @@ const schema = {
         </section>
 
         {relatedComparisons.length > 0 && (
-          <section class="mt-10 border border-stone-200 bg-stone-50 p-5">
-            <h2 class="font-serif text-xl text-stone-900">Perbandingan berkaitan</h2>
-            <ul class="tap-links mt-3 space-y-2">
+          <section class="mod mt-10">
+            <h2 class="mod-bar mod-lab">Perbandingan berkaitan</h2>
+            <ul class="mod-in tap-links">
               {relatedComparisons.map((comparison) => {
                 const company1 = companies.find((candidate) => candidate.slug === comparison.company1);
                 const company2 = companies.find((candidate) => candidate.slug === comparison.company2);
@@ -339,7 +341,7 @@ const schema = {
             <ul class="space-y-2.5">
               {otherCompanies.map((otherCompany) => (
                 <li>
-                  <a href={`/companies/${otherCompany.slug}/`} class="tap-link text-sm font-medium text-hijau-700 hover:underline">
+                  <a href={`/companies/${otherCompany.slug}/`} class="tap-link text-sm font-medium text-hijau-700 underline">
                     {otherCompany.name}
                   </a>
                 </li>
@@ -352,10 +354,10 @@ const schema = {
             <h2 class="mb-3 text-sm font-semibold text-stone-900">Baca juga</h2>
             <ul class="space-y-2.5 text-sm">
               {company.products.includes('car') && (
-                <li><a href="/car-insurance/" class="text-hijau-700 hover:underline">Panduan insurans kereta</a></li>
+                <li><a href="/car-insurance/" class="text-hijau-700 underline">Panduan insurans kereta</a></li>
               )}
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:underline">Panduan NCD</a></li>
-              {company.takaful && <li><a href="/takaful/" class="text-hijau-700 hover:underline">Insurans dan takaful</a></li>}
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline">Panduan NCD</a></li>
+              {company.takaful && <li><a href="/takaful/" class="text-hijau-700 underline">Insurans dan takaful</a></li>}
             </ul>
           </div>
         </div>
@@ -374,3 +376,8 @@ const schema = {
   })} />
 </Base>
 
+<style>
+  /* Quiet module label, as .mod-lab in edisi-answer.css (that file is not loaded here; global.css has
+     .mod-bar but not .mod-lab): the module names its topic, so no black bar. */
+  .mod-bar.mod-lab { background: none; color: var(--ink); min-height: 0; padding: 0.75rem 1rem 0; font: 800 1.125rem/1.25 var(--fd); }
+</style>

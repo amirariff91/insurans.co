@@ -112,6 +112,7 @@ const introRest = introMore.join(' ');
                 id="engine-cc"
                 name="cc"
                 inputmode="numeric"
+                enterkeyhint="go"
                 min="1"
                 step="1"
                 required
@@ -155,16 +156,13 @@ const introRest = introMore.join(' ');
             </div>
           </div>
 
-          <div class="et-out" style="min-height:10rem">
+          <div class="et-out" role="status" aria-live="polite" aria-atomic="true" style="min-height:10rem">
 <p class="et-wait" aria-hidden="true">Hasil kiraan akan muncul di sini.</p>
 <div
             id="motor-result"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
             class="mt-6 hidden border border-hijau-200 bg-hijau-50 p-5"
           >
-            <p id="motor-error" hidden role="alert" class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+            <p id="motor-error" hidden class="border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
             <p id="motor-value" class="font-serif text-4xl font-bold text-hijau-700"></p>
             <p id="motor-breakdown" class="mt-4 border-t border-hijau-200 pt-4 text-sm leading-5 text-stone-600"></p>
           </div>
@@ -172,7 +170,7 @@ const introRest = introMore.join(' ');
 
           <p class="mt-5 border-t border-stone-200 pt-4 text-sm leading-5 text-stone-700">
             Roadtax sahaja: premium insurans motosikal tiada jadual awam mengikut cc.
-            <a href="/motorcycle-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">Panduan insurans motosikal →</a>
+            <a href="/motorcycle-insurance/" class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">Panduan insurans motosikal →</a>
           </p>
         </section>
 
@@ -206,7 +204,7 @@ const introRest = introMore.join(' ');
               <strong>Sumber:</strong>
               <ul class="mt-1 list-disc pl-5">
                 {rates.sources.map((source) => (
-                  <li><a href={source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">{docName(source)}</a></li>
+                  <li><a href={source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">{docName(source)}</a></li>
                 ))}
               </ul>
             </div>

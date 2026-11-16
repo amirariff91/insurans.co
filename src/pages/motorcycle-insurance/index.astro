@@ -138,7 +138,7 @@ const schema = {
         note="Rujukan neutral, bukan ejen. Satu contoh premium yang diterbitkan ada di bawah; ia bukan jadual harga atau quotation untuk semua motosikal."
       />
       <Byline dateModified={asAt} />
-      <p class="max-w-2xl text-lg leading-7 text-stone-600">
+      <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang diterbitkan
         dan pautan quotation rasmi. Kami tidak menganggarkan premium motosikal mengikut cc.
       </p>
@@ -171,7 +171,7 @@ const schema = {
           </p>
         </article>
 
-        <div class="my-6 overflow-x-auto">
+        <div class="my-6 overflow-x-auto" role="region" tabindex="0" aria-labelledby="roadtax">
           <table class="table-editorial">
             <thead>
               <tr>
@@ -182,32 +182,32 @@ const schema = {
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium text-stone-900">≤150cc</td>
+                <th scope="row" class="font-medium text-stone-900">≤150cc</th>
                 <td>Kadar sedia ada</td>
                 <td>Kadar sedia ada</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">151–200cc</td>
+                <th scope="row" class="font-medium text-stone-900">151–200cc</th>
                 <td>RM30</td>
                 <td>RM9</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">201–250cc</td>
+                <th scope="row" class="font-medium text-stone-900">201–250cc</th>
                 <td>RM50</td>
                 <td>RM12</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">251–500cc</td>
+                <th scope="row" class="font-medium text-stone-900">251–500cc</th>
                 <td>RM180</td>
                 <td>RM30</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">501–800cc</td>
+                <th scope="row" class="font-medium text-stone-900">501–800cc</th>
                 <td>RM250</td>
                 <td>RM40</td>
               </tr>
               <tr>
-                <td class="font-medium text-stone-900">&gt;800cc</td>
+                <th scope="row" class="font-medium text-stone-900">&gt;800cc</th>
                 <td>RM350</td>
                 <td>RM42</td>
               </tr>
@@ -223,7 +223,7 @@ const schema = {
             <a href={jpjSource}>Garis Panduan Pengiraan LKM JPJ</a> untuk konteks penuh.
           </p>
           <p class="mt-3 text-sm leading-6 text-stone-700">
-            <a href={roadtaxCalculatorUrl} class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-hijau-600">
+            <a href={roadtaxCalculatorUrl} class="font-semibold text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">
               Buka kalkulator roadtax motosikal →
             </a>
             <span class="block text-stone-600">Kalkulator khusus motosikal menggunakan jadual ini; premium insurans tetap perlu quotation.</span>
@@ -306,7 +306,7 @@ const schema = {
                         <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
                         <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
                       </div>
-                      <span class="max-w-[50%] rounded-full bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
+                      <span class="max-w-[50%] rounded-full border border-stone-200 bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
                         {group.label}
                       </span>
                     </div>
@@ -382,10 +382,10 @@ const schema = {
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900">Baca juga</h3>
             <ul class="mt-3 space-y-2.5 text-sm">
-              <li><a href="/personal-accident/" class="text-hijau-700 hover:text-hijau-600">Insurans kemalangan diri</a></li>
-              <li><a href="/health-insurance/" class="text-hijau-700 hover:text-hijau-600">Insurans kesihatan</a></li>
-              <li><a href="/takaful/" class="text-hijau-700 hover:text-hijau-600">Insurans vs takaful</a></li>
-              <li><a href={roadtaxCalculatorUrl} class="text-hijau-700 hover:text-hijau-600">Kalkulator roadtax motosikal</a></li>
+              <li><a href="/personal-accident/" class="text-hijau-700 underline">Insurans kemalangan diri</a></li>
+              <li><a href="/health-insurance/" class="text-hijau-700 underline">Insurans kesihatan</a></li>
+              <li><a href="/takaful/" class="text-hijau-700 underline">Insurans vs takaful</a></li>
+              <li><a href={roadtaxCalculatorUrl} class="text-hijau-700 underline">Kalkulator roadtax motosikal</a></li>
             </ul>
           </div>
         </div>

@@ -2,57 +2,49 @@
 name: Insurans.co (Edisi)
 description: A calm page around one loud number and one knob. The price comes first, with the NCD control that reprices it, and the logo dot echoes the knob.
 colors:
-  magenta: "#D0106F"
-  magenta-deep: "#A50C58"
-  magenta-light: "#E0559B"
-  pink: "#FBD3E4"
-  pink-pale: "#FDEDF4"
-  yellow: "#FFF3B0"
-  sky: "#CFE8FA"
-  red: "#B8291E"
-  ink: "#000000"
-  ink-2: "#4A4A4A"
-  rule: "#767676"
-  ghost: "#949494"
-  placeholder: "#595959"
   paper: "#FFFFFF"
-  tray: "#F3F3F3"
-  chip: "#E9E9E9"
-  hairline-grey: "#DADADA"
+  ink: "#000000"
+  mute: "#595959"
+  mark: "#FFF3B0"
+  magenta: "#D0106F"
 typography:
   price:
     fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
-    fontSize: "4.5rem"
-    fontWeight: 900
+    fontSize: "clamp(1.25rem, calc(var(--fit) / var(--u)), var(--price-max))"
+    fontWeight: 800
     lineHeight: 0.8
     letterSpacing: "-0.03em"
     fontFeature: "tnum"
   headline:
     fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
-    fontSize: "1.625rem"
-    fontWeight: 750
+    fontSize: "1.75rem"
+    fontWeight: 800
     lineHeight: 1.08
     letterSpacing: "-0.01em"
   headline-desktop:
     fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
-    fontSize: "2rem"
-    fontWeight: 750
+    fontSize: "2.25rem"
+    fontWeight: 800
     lineHeight: 1.08
     letterSpacing: "-0.01em"
   section:
     fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
-    fontSize: "1.75rem"
-    fontWeight: 750
-    lineHeight: 1.12
-    letterSpacing: "-0.005em"
+    fontSize: "1.375rem"
+    fontWeight: 800
+    lineHeight: 1.2
   title-bar:
     fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 800
     lineHeight: 1.2
+  subsection:
+    fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 800
+    lineHeight: 1.3
   body:
     fontFamily: "Figtree, Figtree Fallback, Figtree Fallback Android, system-ui, -apple-system, sans-serif"
-    fontSize: "1.0625rem"
+    fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.6
   body-ui:
@@ -62,104 +54,121 @@ typography:
     lineHeight: 1.5
   small:
     fontFamily: "Figtree, Figtree Fallback, Figtree Fallback Android, system-ui, -apple-system, sans-serif"
-    fontSize: "0.9375rem"
+    fontSize: "0.875rem"
     fontWeight: 400
-    lineHeight: 1.45
-  title-bar-tool:
-    fontFamily: "Gabarito, Gabarito Fallback, Gabarito Fallback Android, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 800
-    lineHeight: 1.2
+    lineHeight: 1.25rem
   label:
     fontFamily: "Figtree, Figtree Fallback, Figtree Fallback Android, system-ui, -apple-system, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
-    lineHeight: 1.4
+    lineHeight: 1.25rem
 rounded:
   sm: "4px"
-  md: "6px"
-  lg: "8px"
-  xl: "12px"
-  2xl: "16px"
-  pill: "9999px"
+  md: "8px"
+  pill: "999px"
 spacing:
-  gutter: "16px"
-  module-pad: "14.4px"
-  note-pad: "16px"
-  note-pad-wide: "20px"
-  stack: "40px"
-  page-max: "1472px"
+  s2: "2px"
+  s4: "4px"
+  s8: "8px"
+  s12: "12px"
+  s16: "16px"
+  s24: "24px"
+  s32: "32px"
+  s48: "48px"
+  s64: "64px"
+  s96: "96px"
 components:
   button-primary:
     backgroundColor: "{colors.magenta}"
     textColor: "{colors.paper}"
-    rounded: "{rounded.lg}"
-    padding: "10px 20px"
+    rounded: "{rounded.md}"
+    padding: "8px 16px"
     height: "48px"
   button-primary-hover:
-    backgroundColor: "{colors.magenta-deep}"
+    backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
   button-outline:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "10px 20px"
-    height: "44px"
+    rounded: "{rounded.md}"
+    padding: "8px 16px"
+    height: "48px"
   button-outline-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
+    backgroundColor: "{colors.mark}"
+    textColor: "{colors.ink}"
   title-bar:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
     typography: "{typography.title-bar}"
-    padding: "8.8px 14.4px"
+    padding: "8px 16px"
     height: "48px"
+  section-heading:
+    textColor: "{colors.ink}"
+    typography: "{typography.section}"
+    padding: "12px 0 0"
   module:
     backgroundColor: "{colors.paper}"
-    rounded: "{rounded.lg}"
-  note-info:
-    backgroundColor: "{colors.sky}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.md}"
     padding: "16px"
-  note-price:
-    backgroundColor: "{colors.pink}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "16px"
-  note-term:
-    backgroundColor: "{colors.yellow}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "16px"
-  note-warn:
+  note:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.md}"
     padding: "16px"
-  note-plain:
-    backgroundColor: "{colors.tray}"
+  total-band:
+    backgroundColor: "{colors.mark}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "16px"
+    rounded: "{rounded.md}"
+    padding: "8px 12px"
   chip:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
     padding: "0 16px"
     height: "44px"
-  total-band:
-    backgroundColor: "{colors.yellow}"
+  chip-hover:
+    backgroundColor: "{colors.mark}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "9.6px 12px"
+  input:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    height: "44px"
+  ncd-bar:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.md}"
+  ncd-bar-chosen:
+    backgroundColor: "{colors.magenta}"
+  rail-row-current:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    padding: "4px 12px"
+    height: "44px"
+  nav-tab-current:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    padding: "0 16px"
+    height: "44px"
 ---
 
 # Design System: Insurans.co (Edisi)
 
-This file describes the design that the code on branch `feat/edisi` actually ships (derived on 15 Nov 2026 from commit `76ea2aa`). Where the concept notes said something different, the code wins and the difference is listed in "Where the code differs from the concept" at the end. The machine-readable extras (colour ramps, shadows, motion, breakpoints, component snippets) are in `.impeccable/design.json`.
+This file describes what the code on branch `design/fix-styles` ships, derived on 15 Nov 2026 from commit `380fd17` ("rebuild the styles on fixed tokens"), `4bca439` ("yellow mark replaces the line grey") and the critique fixes after it. The code wins over any plan. The machine-readable extras (colour ramps, rings, motion, breakpoints, component snippets) are in `.impeccable/design.json`.
 
-Sources of truth in the repo: `tailwind.config.mjs`, `src/styles/global.css`, `src/styles/edisi-answer.css`, `src/components/edisi-tools/edisi-tools.css`, `src/components/edisi/`, `src/components/SiteHeader.astro`, `src/components/SiteFooter.astro`, `src/components/CarPhoto.astro`, `src/components/Ikon.astro`, `src/components/Byline.astro`, `src/components/Hero.astro`, `src/components/CtaBand.astro`, `src/layouts/Base.astro`, `public/fonts/` and `public/ikon.svg`.
+Sources of truth in the repo: `tailwind.config.mjs`, the `:root` block and the "Hierarchy on five colours" block at the end of `src/styles/global.css`, `src/styles/edisi-answer.css`, `src/components/edisi-tools/edisi-tools.css`, `src/components/edisi/`, `src/components/SiteHeader.astro`, `src/components/SiteFooter.astro`, `src/components/CarPhoto.astro`, `src/components/Ikon.astro`, `src/components/Byline.astro`, `src/components/Hero.astro`, `src/components/CtaBand.astro`, `src/layouts/Base.astro`, `public/fonts/`, `public/ikon.svg` and `scripts/design/snap-tokens.py`.
+
+## Tokens
+
+Everything a template can ask for resolves to one of these. Nothing else has a value of its own.
+
+- **Colours, five only:** paper `#FFFFFF`, ink `#000000`, mute `#595959`, mark `#FFF3B0`, magenta `#D0106F`. CSS custom properties `--paper`, `--ink`, `--mute`, `--mark`, `--magenta` on `:root`; Tailwind `paper`, `ink`, `mute`, `mark`, `magenta`. `line` was a token until 15 Nov 2026; `--line` is now an alias of mute, so every divider is a 1px mute rule.
+- **Spacing scale (px):** 2, 4, 8, 12, 16, 24, 32, 48, 64, 96. Two is an optical nudge only. Tailwind keeps its step names (`p-4`, `gap-6`) but every step snaps to this scale, so `p-5` is 24px, not 20px.
+- **Type scale (px):** 14, 16, 18, 22, 28, 36. Weights 400, 600 and 800 only.
+- **Reading measure:** `--measure`, 34rem (544px). Measured in Figtree on 15 Nov 2026, 18px prose sets about 64 to 70 characters a line and 16px text about 69 to 76.
+- **Radii:** 4px, 8px and pill (999px).
+- **Depth:** rings only (a `box-shadow` with no blur). No gradients, no blurred shadows, no backdrop blur (all three removed on 15 Nov 2026).
+- **The check:** `python3 scripts/design/snap-tokens.py --check` exits non-zero when any stylesheet in `src/` or any `<style>` block in an `.astro` file has a spacing, font size, weight, radius, colour or shadow off these scales. Without `--check` it rewrites them onto the scale. It leaves values inside `calc()`, `clamp()`, `var()`, `min()`, `max()` and `env()` alone and lists them, and it lists gradients without failing on them.
 
 ## Overview
 
@@ -167,212 +176,226 @@ Sources of truth in the repo: `tailwind.config.mjs`, `src/styles/global.css`, `s
 
 Edisi is the name of the redesign. The idea fits in one line: every page leads with the answer (on a car page, the yearly price), and the reader's no-claim discount (NCD, the discount a Malaysian driver earns for each claim-free year, from 0% up to 55%) is a knob that reprices it. The site's logo repeats the idea: the dot of the "i" in the wordmark is the knob, seated at NCD 55% and lifting one step for each lower NCD step the reader has chosen.
 
-The page is calm: white paper, black ink, black title bars, and one strong colour, magenta, used sparingly. Three pastel tints each have one job: pink for prices, yellow for totals and policy terms, blue for the car itself, what is covered and explanations. Type is two faces with fixed jobs: Gabarito, heavy and friendly, for the price, headings and title bars; Figtree, at regular weight, for everything else. The site is light mode only.
+The page is calm and nearly monochrome: white paper, black ink, one mid grey for secondary text, edges and dividers, a pale yellow mark behind the figure the reader came for, and one strong colour, magenta, for the one action and the chosen state. Hierarchy comes from weight, rules and a single inverted surface, not from tints. Type is two faces with fixed jobs: Gabarito, heavy and friendly, for the price, headings and title bars; Figtree, at regular weight, for everything else. The site is light mode only.
 
 The frame borrows from the mid-2000s web (three columns with working side rails, boxed modules whose solid title bars state a finding, breadcrumbs, a site-map footer), with modern behaviour: native controls that work without JavaScript, container queries, and motion that only uses transform and opacity.
 
 **Key Characteristics:**
 - Answer first: H1, answer box, byline, then intro, on every content template.
-- One magenta voice: the main button, the chosen state and the logo knob, never as text on a tint.
-- Colour by job: pink is price, yellow is total or term, blue is the car, coverage and explanation.
-- Black title bars that state a finding in words already on the page.
+- Five colours, two scales, one measure, one check that fails on drift.
+- One magenta voice: the main button, the chosen state and the logo knob, never as text.
+- Black title bars only where a module states a finding; prose sections are ruled headings.
 - Works without JavaScript: the NCD control reprices through CSS `:has()`.
-- Glass only on navigation, never behind reading text.
+- Flat paper: rings and rules, no shadows that blur, no glass.
 
 ## Colors
 
-A white-and-black page with one saturated accent and three pastel tints, each with a single job.
+A black-and-white page with one grey for quiet text and rules, one pale yellow mark for the reader's figure, and one saturated accent.
 
 ### Primary
-- **Edisi Magenta** (`magenta`): the main button (`.btn-hijau`, `.ea-btn-p`, `.et-btn`), the border or fill that marks the chosen or focused state (the chosen NCD bar, a checked calculator option, a focused input), the logo knob and the NCD knob. Text on magenta is white only (5.3:1).
-- **Deep Magenta** (`magenta-deep`): hover state of the main button.
-- **Light Magenta** (`magenta-light`): exists only as the legacy shade `hijau-400`; new work should not use it.
-
-### Secondary (the tints)
-- **Price Pink** (`pink`, CSS `--tint-pink`): prices and price working. `.note-price`, `.mod[data-tint="pink"]`, calculator panels (`.et-panel[data-tint="pink"]`), the price highlight in an answer row (`.pa-r[data-role="price"]`).
-- **Pale Pink** (`pink-pale`): the legacy shade `hijau-50`, a lighter pink used by older templates through `bg-hijau-50`.
-- **Total Yellow** (`yellow`, CSS `--mark` and `--tint-yellow`): yearly totals, limits and policy terms. The yearly total band under the price (`.ea-sum`), `.note-term`, `.pa-r[data-role="term"]`, the highlighted row of the NCD ladder table, the current model in the rail, calculator results, text selection.
-- **Explanation Blue** (`sky`, CSS `--tint-sky`): the car (the plate behind a car photo, the name card), what is covered, and explanations. `.note-info`, `.info-box`, `.mod[data-tint="sky"]`.
-
-### Tertiary
-- **Warning Red** (`red`): only the heading of a warning (`.note-warn > .note-t`), "not covered" marks (`.mark-no`) and the high flood-risk chip (`.risk-tinggi`). 6.2:1 on white.
+- **Edisi Magenta** (`magenta`): the main button (`.btn-hijau`, `.ea-btn-p`, `.et-btn`, calculator submit buttons), the border or fill that marks the chosen or focused state (the chosen NCD bar, a checked calculator option, a focused calculator input, the hovered tool card), the logo knob and the NCD knob, radio accent and caret colour, and text selection. Text on magenta is paper only (5.3:1).
 
 ### Neutral
-- **Ink** (`ink`): all text, links (underlined), title bars, table header bars, focus rings.
-- **Ink 2** (`ink-2`): secondary text such as captions and source lines (8.9:1 on white).
-- **Rule** (`rule`): borders of modules, chips, inputs at rest, notes (4.5:1 on white, so every border passes the 3:1 UI threshold).
-- **Ghost** (`ghost`): the paler track in the logo.
-- **Placeholder** (`placeholder`): input placeholder text (7.0:1 on white, at least 5.18:1 on every tint).
-- **Paper** (`paper`): the page and card background.
-- **Tray** (`tray`): neutral asides (`.note-plain`), the footer, hover fill, rail group headers.
-- **Chip** (`chip`): unchosen NCD bars, separators in the phone menu.
-- **Hairline Grey** (`hairline-grey`): `stone-200` and `krim-300`, light dividers in older templates.
+- **Ink** (`ink`): all body text and headings, links (underlined), title bars, the 2px rules that start a section and a table head, the 1px edge of the yearly total band, the current tab, the current model in the rail, the chosen NCD row and the calculator's 55% tier row, focus rings, and the hover state of the main button.
+- **Mute** (`mute`): secondary text (captions, source lines, the byline, breadcrumbs, the NCD percentage under each bar, placeholders), the 1px edge of a control or a module (module border, chips at rest, the masthead and footer rules), and every 1px divider (rows, table rows, FAQ rows, tab separators). 7.0:1 on paper, so it passes as text and as a UI edge.
+- **Paper** (`paper`): the page, every card, module, note, panel, the footer, the photo plate, and unchosen fills (the NCD bars at rest).
+
+### Mark
+- **Mark** (`mark`, `#FFF3B0`): pale yellow, only behind the reader's figure: the yearly total (`.ea-sum`, `.kb-tot`), price and term values in an answer box (`.pa-r[data-role] .pa-v`, `.pa-lead[data-role]`), and calculator results (`.et-out` result box, `.et-price`). It is also the hover fill (rail rows, tabs, chips, folded module bars, the outline button in the answer block, a hovered unchosen NCD bar). Text on mark is ink (18.7:1) or mute (6.2:1).
 
 ### Legacy token names (do not "fix" them)
 
-The Tailwind palette keeps the old Kira Hijau names (`hijau`, `emas`, `krim`, `stone`, `verdict`) so the templates keep working. Their values now follow Edisi's roles. New work should use the `edisi.*` names (`bg-edisi-sky`, `text-edisi-ink`) or the CSS custom properties.
+The old names stay so the templates keep working, but each is only an alias of one of the five. Removed on 15 Nov 2026: the pink and blue tints, the grey tray and chip fills, the line grey, warning red, deep magenta and light magenta. Their names now resolve as follows.
 
-| Legacy name | Now means | Value |
-|---|---|---|
-| `hijau-50`, `hijau-100` | pale pink, pink (price tints) | `#FDEDF4`, `#FBD3E4` |
-| `hijau-200`, `hijau-300` | rule grey | `#767676` |
-| `hijau-400` | light magenta | `#E0559B` |
-| `hijau-500` | magenta | `#D0106F` |
-| `hijau-600` | ink 2 (text) | `#4A4A4A` |
-| `hijau-700` to `hijau-950` | ink (text) | `#000000` |
-| `emas-50`, `emas-100` | yellow tints | `#FFF3B0`, `#FFEB85` |
-| `emas-200` to `emas-500` | darker yellows and ochre | `#FFE066`, `#F2CC3A`, `#C9A300`, `#8F7400` |
-| `emas-600` to `emas-900` | ink 2 and ink (text) | `#4A4A4A`, `#000000` |
-| `krim-50`, `krim-100`, `krim-200`, `krim-300` | paper, tray, chip, hairline grey | `#FFFFFF`, `#F3F3F3`, `#E9E9E9`, `#DADADA` |
-| `stone-50` to `stone-950` | a neutral grey ramp; `stone-900` and `stone-950` are ink | `#F6F6F6` to `#000000` |
-| `verdict.best/good/warn` | pink with magenta border, chip with rule border, yellow with ink border | see `tailwind.config.mjs` |
-| `font-serif` | Gabarito (no serif is loaded) | |
-| `.btn-hijau` | the magenta main button | |
-| `.accent-hijau-700` | accent colour = magenta (`--sel`) | |
-| `shadow-hard` | a soft lifted pane, no longer a hard offset block | |
+| Name | Resolves to |
+|---|---|
+| CSS `--card`, `--tray`, `--chip`, `--tint-pink`, `--tint-sky`, `--glass`, `--glass-t`, `--glass-rim`, `--glass-spec` | paper |
+| CSS `--tint-yellow` | mark |
+| CSS `--glass-edge` (the edge of the tab capsule and the phone dock) | mute |
+| CSS `--line`, `--ink-2`, `--rule`, `--ghost` | mute |
+| CSS `--rule-strong`, `--link`, `--red`, `--focus`, `--mark-ink` | ink |
+| CSS `--kick`, `--sel`, `--knob` | magenta |
+| Tailwind `edisi.paper/card/tray/chip/pink/sky` | paper |
+| Tailwind `edisi.yellow` | mark |
+| Tailwind `edisi.ink-2`, `edisi.rule` | mute |
+| Tailwind `edisi.magenta-deep`, `edisi.red` | ink |
+| `hijau-50/100` paper; `hijau-200/300/600` mute; `hijau-400/500` magenta; `hijau-700` to `950` ink | |
+| `emas-50/100` mark; `emas-200` to `600` mute; `emas-700` to `900` ink | |
+| `krim-50/100/200` paper; `krim-300` mute | |
+| `stone-50/100` paper; `stone-200` to `600` mute; `stone-700` to `950` ink | |
+| `red-50` paper; `red-200` mute; `red-700` ink | |
+| `verdict.best/good/warn` | paper with a magenta, mute or ink border |
+| `font-serif` | Gabarito (no serif is loaded) |
+| `shadow-hard` | a 1px mute ring; every other `shadow-*` is none |
+
+Classes such as `.note-price`, `.mod[data-tint="pink"]` and `.et-panel[data-tint="sky"]` still exist in the markup; they now render as plain paper.
 
 ### Named Rules
 
+**The Five Colours Rule.** A new colour is a design change, not a fix. If a template needs a value that is not paper, ink, mute, mark or magenta, the snap script will turn it into one of them.
+
 **The Three Magenta Things Rule.** In any first screen, magenta appears on at most three things: the logo knob, the NCD control (its knob and chosen bar count as one), and the one main button. A second action is an outline button (`.ea-btn-o`, `.btn-outline`). `bun run check:site` check 7 warns when a first screen has more than three magenta fills.
 
-**The One Job Per Tint Rule.** Pink is price. Yellow is a total or a term. Blue is the car, what is covered, or an explanation. A warning is white with a 2px ink border and a red heading, never yellow.
+**The Mark Is The Reader's Figure Rule.** Mark sits only behind the figure the reader came for (the yearly total, a price or term value in an answer box, a calculator result) and under a hover. It never marks a kind of content, and it is never text or an edge.
 
-**The Ink Links Rule.** Links are ink and underlined (1px, offset 0.18em). Magenta and mid-grey are never text on a tint or on a grey chip.
+**The Ink Links Rule.** Links are ink and underlined (1px, offset 0.18em). Magenta is never text.
 
 ## Typography
 
-**Display Font:** Gabarito (variable, weights 400 to 900; self-hosted `public/fonts/gabarito-var-latin.woff2`, OFL)
-**Body Font:** Figtree (variable, weights 300 to 900; self-hosted `public/fonts/figtree-var-latin.woff2`, OFL)
+**Display Font:** Gabarito (variable; self-hosted `public/fonts/gabarito-var-latin.woff2`, OFL)
+**Body Font:** Figtree (variable; self-hosted `public/fonts/figtree-var-latin.woff2`, OFL)
 
-**Character:** Gabarito is heavy and round, and carries the numbers and the headings; Figtree is a plain, open text face at regular weight. Strong text is weight 650.
+**Character:** Gabarito is heavy and round, and carries the numbers and the headings at 800; Figtree is a plain, open text face at 400. Strong text and labels are 600. Tailwind maps `font-medium`, `font-semibold` and `font-bold` to 600, and `font-extrabold` and `font-black` to 800.
 
 **Fallbacks.** While the web fonts load (`font-display: swap`), text is drawn in a local font scaled to the same width, ascent and descent so the swap does not reflow lines: `Gabarito Fallback` and `Figtree Fallback` (Arial, Liberation Sans or Arimo) and `Gabarito Fallback Android` and `Figtree Fallback Android` (Roboto). The values are in the `@font-face` rules at the top of `src/styles/global.css`; the bold fallbacks are estimated, not measured.
 
 ### Hierarchy
-- **Price** (Gabarito 900, fitted to its column, line-height 0.8, tabular figures): the big yearly price in the answer block (`.ea-price`). It is sized from the font's advance widths to fill 96% of its container (`--fit: 96cqi`), with a floor of 1.25rem and a cap of 4.5rem on phones and 6rem from 48rem.
-- **Headline, the one H1 size** (Gabarito 750, 1.625rem on phones and 2rem from 48rem, line-height 1.08): every page H1 uses `.ea-h1`. Check 7 fails a page whose H1 differs from the homepage `.ea-h1`.
-- **Section** (Gabarito 750, `text-headline-md` 1.75rem): H2 in running prose (`.prose-editorial h2`) when the article does not opt into title bars. H3 uses `text-headline-sm` (1.375rem).
-- **Title bar** (Gabarito 800, 1.125rem, line-height 1.2; 1.25rem in calculators): `.mod-bar`, `.ix-bar`, `.h2-bar`, `.prose-bars h2`, `.et-bar-t`.
-- **Body** (Figtree 400, 1.0625rem, line-height 1.6): article prose (`.prose-editorial`). UI text and module body text is 1rem.
-- **Small** (Figtree 400, 0.9375rem): rail rows, tables, plan cards, footer small print, chips.
-- **Label** (Figtree 600, 0.875rem): `.label`, source lines (`.ix-src`, `.et-src`), captions and the photo credit. Sentence case, no letter-spacing.
+- **Price** (Gabarito 800, fitted to its column, line-height 0.8, tabular figures): the big yearly price in the answer block (`.ea-price`). It is sized from the font's advance widths to fill 96% of its container (`--fit: 96cqi`), with a floor of 1.25rem and a cap of 4.5rem on phones and 6rem from 48rem. It is the one fluid size in the type system and the only one above 36px.
+- **Headline, the one H1 size** (Gabarito 800, 28px on phones and 36px from 48rem, line-height 1.08): every page H1 uses `.ea-h1`. Check 7 fails a page whose H1 differs from the homepage `.ea-h1`.
+- **Section** (Gabarito 800, 22px, line-height 1.2): every H2 in running prose (`.prose-editorial h2`, `.prose-bars h2`, `.h2-bar`, `h2.h2-quiet`), under a 2px ink rule.
+- **Subsection** (Gabarito 800, 18px, line-height 1.3): H3 in prose (`.prose-editorial h3`), no rule. A step under H2 in size as well as rule.
+- **Title bar** (Gabarito 800, 18px, line-height 1.2; 1.25 in calculators): `.mod-bar`, `.ix-bar`, `.et-bar-t`. Calculator bars were 22px and ran three to four lines at 390px, louder than the H1.
+- **Body** (Figtree 400, 18px, line-height 1.6): article prose (`.prose-editorial`). UI and module body text is 16px, and so is prose inside a calculator panel (`.et .et-panel .prose-editorial`).
+- **Figures in a module** (Gabarito 800, 22px): "Anda bayar" (`.kb-you dd`) and the yearly total under it (`.kb-tot dd`), so the total is never quieter than the row above.
+- **Small** (Figtree 400, 14px): tables, the byline, breadcrumbs, the answer-box note, the NCD percentage. Tailwind `text-xs` and `text-sm` are both 14px.
+- **Label** (Figtree 600, 14px): `.label`, source lines, captions and the photo credit. Sentence case, no letter-spacing.
 
 ### Named Rules
 
-**The 14px Floor Rule.** No visible text is under 14px. `text-xs` is remapped to 0.875rem in `tailwind.config.mjs`, footnote markers are 0.875rem, and check 6 fails any visible text under 14px at 320, 390 and 1280px.
+**The Six Sizes Rule.** Text is 14, 16, 18, 22, 28 or 36px. Tailwind's size names all resolve onto these (`text-lg` 18, `text-xl` and `text-2xl` 22, `text-3xl` 28, `text-4xl` and up 36), and the snap script moves any stylesheet size to the nearest step.
+
+**The 14px Floor Rule.** No visible text is under 14px. Check 6 fails any visible text under 14px at 320, 390 and 1280px.
 
 **The One H1 Size Rule.** One H1 per page, always `.ea-h1`. No kicker above it.
 
 ## Layout
 
-- **Page frame** (`.ep`, `src/styles/edisi-answer.css`): one column on phones in source order main, tools, models. From 48rem: main plus an 18rem tools rail. From 80rem: three columns, a 17rem model rail on the left (sticky), the main column, and a 20rem tools rail. Maximum width `--page-max` (92rem). Side gutter `--gutter`: at least 1rem, or the safe-area inset.
-- **Other templates** use `.container-wide` (Tailwind `max-w-6xl`) and `.container-article` (72ch) with `px-5 sm:px-6`. The shared opening `Hero.astro` places H1, answer, byline and intro in one column; with content in its default slot it becomes a two-track grid from `lg`.
-- **Page opening order**: breadcrumbs, H1 (`.ea-h1`), answer box, byline, intro. On model pages the breadcrumb comes first in the DOM but shows below the answer (`.ep-main > .ep-crumbs + .ea { order: -1; }`).
-- **Rhythm**: modules stack with 2.5rem gaps in `.ep-main`; module bodies pad 0.9rem with 0.75rem gaps; notes pad 1rem (1.25rem from 640px).
+- **Page frame** (`.ep`, `src/styles/edisi-answer.css`): one column on phones in source order main, tools, models. From 48rem: main plus an 18rem tools rail. From 80rem: three columns, a 17rem model rail on the left (sticky), the main column, and a 20rem tools rail. Maximum width `--page-max` (92rem). Side gutter `--gutter`: at least 16px, or the safe-area inset.
+- **One frame for other templates:** `.container-article` now shares `.container-wide`'s box (Tailwind `max-w-6xl`, 24px side padding), so an article starts on the same left edge as the page opening.
+- **One reading measure** (`--measure`, 34rem): every direct child of `.container-article`, every block in `.prose-editorial`, an opening paragraph set straight in `.container-wide`, FAQ answers, Terkini text and the calculators' running text. The measure is in rem, not ch, so blocks of different sizes share one edge. Tables are read across, not along: a table wrapper (`.overflow-x-auto:has(> table)`) or `.pp-plans` that is a direct child of the article container or of `.prose-editorial` takes the whole width of its column, and from 48rem a table's first column is at least 12ch with its words breaking only at spaces. The shared opening `Hero.astro` places H1, answer, byline and intro in one column; with content in its default slot it becomes a two-track grid from `lg`.
+- **Page opening order**: breadcrumbs, H1 (`.ea-h1`), answer box, byline, intro. On model pages the breadcrumb comes first in the DOM but shows below the answer (`.ep-main > .ep-crumbs + .ea { order: -1; }`). The first section heading sits right under the opening with no top margin: the container's padding is the gap.
+- **Rhythm** (all on the spacing scale): modules stack 48px apart in `.ep-main`, rails sit 32px from the main column; module bodies pad 16px with 12px gaps; notes pad 16px (24px from 640px); a prose section heading has 48px above it and a 12px pad under its rule.
 - **Container queries** (`ea`, `eprail`, `mast`) let prices, rails and the masthead wrap when text is enlarged to 200%.
-- **No horizontal page scroll** at 320px: tables scroll inside their own wrapper (`.overflow-x-auto:has(> table)`), long figures break (`overflow-wrap: anywhere` in `main`).
+- **No horizontal page scroll** at 320px: tables scroll inside their own wrapper (`.overflow-x-auto:has(> table)`), long runs break (`overflow-wrap: anywhere` in `main`). A price or range is one unit and never breaks after its dash (`.px`, `.mp`, `.numeric`, `.hp-car-p` are `nowrap`); a narrow row wraps between label and price instead. A date never breaks either (`time { white-space: nowrap }`).
 
 ## Elevation & Depth
 
-Flat by default. Depth comes from black title bars, 1px rule borders and tints, not shadows.
+Flat paper. Depth and grouping come from four devices, in this order of weight:
+
+- **Ink fill:** a module's finding (`.mod-bar`) and the reader's current choice (the current tab, the current model in the rail, the chosen NCD row, the calculator's 55% tier row, an open menu button).
+- **2px ink rule:** the start of a prose section, a table head.
+- **Mark fill:** the reader's figure (the yearly total, answer-box prices and terms, calculator results).
+- **1px mute rule:** the edge of a control or a module, and every divider inside one.
+
+One rule at a time: a `.divider`, or the last FAQ row's hairline, directly above a ruled H2 is dropped, because the heading's own rule is enough.
 
 ### Shadow Vocabulary
-- **Lifted pane** (`box-shadow: 0 12px 28px -14px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(0 0 0 / 0.16)`): Tailwind `shadow-hard`, used for the few lifted surfaces.
-- **Glass capsule** (navigation and the phone dock): the desktop section tabs (`.tabs ul` in `SiteHeader.astro`) are a pill of `--glass` white with an edge, rim and specular inset; from 70rem it becomes sticky and, where supported, `backdrop-filter: blur(16px) saturate(180%)` over `--glass-t` (0.8 white). The phone dock (`Dock.astro`, below 48rem) uses the same glass; where `backdrop-filter` is unsupported it is the solid `--glass` white, and with `prefers-reduced-transparency` or `prefers-contrast: more` it is a solid card with an ink ring.
-- **Menu drop** (`0 12px 24px -12px rgb(0 0 0 / 0.4)`): the no-JavaScript phone menu panel.
-- **Total band inset** (`inset 0 0 0 1px rgb(0 0 0 / 0.35)`): the yellow total under the price.
+
+Every `box-shadow` is a ring: zero offset or an inset, zero blur.
+
+- **Edge ring** (`box-shadow: 0 0 0 1px var(--mute)`): Tailwind `shadow-hard`.
+- **Control ring** (`box-shadow: inset 0 0 0 1.5px var(--ink)` or `2px` on `.ea-btn-o`): outline buttons, the marker pill, home tiles, the hovered unchosen NCD bar.
+- **Capsule edge** (`box-shadow: 0 0 0 1px` mute): the section tabs and the phone dock, on solid paper.
+- **Knob ring** (`box-shadow: 0 0 0 2.5px var(--paper), 0 0 0 4px var(--ink)`): the NCD knob.
+- **Focus inner ring** (`box-shadow: 0 0 0 2px var(--paper)`): under the focus outline on buttons and inputs.
 
 ### Named Rules
 
-**The Glass Is Navigation Rule.** Blur is used only on the floating navigation capsule. Nothing with reading text sits on a blurred layer. Under `prefers-reduced-transparency: reduce` or `prefers-contrast: more` the capsule turns solid white with a 1.5px ink ring.
+**The Rings Only Rule.** No blurred or offset shadow, no gradient, no backdrop blur. The snap script strips any blurred shadow layer and sets `backdrop-filter` to none. Navigation used to be glass; since 15 Nov 2026 the capsule is solid paper with a mute edge, and the old `@supports (backdrop-filter)` blocks in `SiteHeader.astro` and `Dock.astro` now set it to none.
+
+**The One Inverted Surface Rule.** The ink bar is for a module that states a finding. Prose sections are ruled headings, and side rails (`.ep-tools`, `.ep-models`, `aside`) do not invert: their module bars render as an ink heading over a 1px mute rule.
 
 ## Shapes
 
-Gently rounded rectangles. Modules, notes, tables, cards and buttons use 8px (`--r-2`, `rounded-lg`); inputs, calculator buttons and NCD bars use 6px (`--r-1`); chips, pills, the menu button and the section tabs are full pills (`--r-pill`). Borders are 1px `rule` at rest and turn ink on hover; warnings, the photo plate and outline buttons use 1.5px to 2px ink. The only round forms are the knob (logo and NCD) and the full stop of ".co" in the wordmark.
+Gently rounded rectangles. Modules, notes, tables, cards, buttons, inputs, NCD bars and the photo plate use 8px (`--r-1` and `--r-2` are both 8px; Tailwind `rounded` through `rounded-3xl` are all 8px). 4px is the small step (Tailwind `rounded-sm`, the bars in the calculator charts). Chips, the marker pill, the menu button, the section tabs and the phone dock are full pills (`--r-pill`, 999px). Prose section headings are square. Borders are 1px mute at rest and turn ink on hover; outline buttons, calculator inputs, warnings and the photo plate use 1.5px to 2px ink. The only round forms are the knob (logo and NCD) and the full stop of ".co" in the wordmark.
 
 ## Components
 
 ### Buttons
-- **Main button** (`.btn-hijau`, `.ea-btn.ea-btn-p`, `.et-btn` and calculator submit buttons): magenta fill, white text, 8px radius (6px in calculators), at least 48px tall. Hover turns deep magenta. One per screen.
-- **Outline button** (`.btn-outline`, `.ea-btn.ea-btn-o`): white with an ink border (inset 2px on `.ea-btn-o`); hover fills ink with white text (`.btn-outline`) or tray (`.ea-btn-o`). Use for every second action.
-- **Focus**: a 3px ink outline offset 2px on every control; a 2px white inner ring on buttons and inputs.
+- **Main button** (`.btn-hijau`, `.ea-btn.ea-btn-p`, `.et-btn` and calculator submit buttons): magenta fill, paper text, 8px radius, at least 48px tall. Hover turns it ink. One per screen.
+- **Outline button** (`.btn-outline`, `.ea-btn.ea-btn-o`): paper with an ink edge (inset 2px ring on `.ea-btn-o`, 1.5px border on `.btn-outline`); hover fills ink with paper text (`.btn-outline`) or mark (`.ea-btn-o`). Use for every second action.
+- **Focus**: a 3px ink outline offset 2px on every control; a 2px paper inner ring on buttons and inputs.
 - Icons in buttons come from `Ikon` (for example `i-kanan`), never a text arrow.
 
 ### Chips and pills
-- **Jump chips** (`.type-chips a`, from `TypeChips.astro`): white pill, 1px rule border, 44px tall, weight 600; hover gives an ink border on tray.
-- **Plan chip** (`.plan-chip`): white pill on a black plan-card bar.
-- **Flood-risk chips** (`.risk-tinggi`, `.risk-sederhana`, `.risk-rendah`): red text and border for high, yellow with ink border for medium, tray for low.
-- **Verdict badges** (`.verdict-best`, `.verdict-good`, `.verdict-warn`).
-- **Marker pill** (`.ea-mark`): the "Contoh" / "Pilihan anda" pill on the NCD control, ink inset ring.
+- **Jump chips** (`.type-chips a`, from `TypeChips.astro`; also the hub jump links): paper pill, 1px mute border, 44px tall, 16px weight 600; hover gives an ink border on a mark fill.
+- **Plan chip** (`.plan-chip`): paper pill on a black plan-card bar.
+- **Flood-risk chips** (`.risk-tinggi`, `.risk-sederhana`, `.risk-rendah`): all paper; high has ink text and an ink border, medium an ink border, low a mute border. The word carries the level.
+- **Verdict badges** (`.verdict-best`, `.verdict-good`, `.verdict-warn`): paper with a magenta, mute or ink border.
+- **Marker pill** (`.ea-mark`): the "Contoh" / "Pilihan anda" pill on the NCD control, 1.5px ink ring.
 
 ### Modules and title bars
-- **Module** (`.mod`, older name `.ix`): white box, 1px rule border, 8px radius, clipped; tint with `data-tint="pink|sky|yellow"`.
-- **Title bar** (`.mod-bar`, `.ix-bar`): black bar, white Gabarito 800, at least 3rem tall, text only (no icon before the text). The bar states the module's finding as a sentence ("Harga ini lindung 4 perkara. Banjir tak termasuk."), using only words and figures already in the module. In articles, `.prose-bars` turns H2s into the same bar (`.h2-bar` for a single heading).
-- **Answer box** (`PageAnswer.astro`, classes `.mod.pa`, `.pa-rows`, `.pa-r`, `.pa-note`): one per content template, directly under the H1. The bar (a `<p>`, so the outline keeps its own H2s) states the page's finding. Under it, each optional: a `lead` (one decisive number already on the page, as a large Gabarito numeral with its label, `.pa-lead`), a `sentence` (`.pa-sent`), and label/value rows (`.pa-rows`); a box may have a lead and no rows, or rows only. `role: 'price'` highlights the value pink, `role: 'term'` yellow; a value over 40 characters drops the highlight and sits as plain text (`data-long`).
-- **Calculator panel** (`.et .et-panel`, `.et-bar`, `.et-bar-t`, `.et-out`, `.et-wait`, `.et-msg`; `src/components/edisi-tools/edisi-tools.css`): the same black bar on a white or pink panel; inputs at least 44px with a 1.5px ink border; the result box is yellow with an ink border; space for the result is reserved so nothing moves when it appears. Every selector is scoped under `.et`.
+- **Module** (`.mod`, older name `.ix`): paper box, 1px mute border, 8px radius, clipped. `data-tint` is still accepted and renders paper.
+- **Title bar** (`.mod-bar`, `.ix-bar`): black bar, paper Gabarito 800 at 18px, at least 48px tall, text only (no icon before the text). The bar states the module's finding as a sentence ("Harga ini lindung 4 perkara. Banjir tak termasuk."), using only words and figures already in the module. In the side rails the same bar renders as an ink heading over a 1px mute rule.
+- **Section heading** (`.prose-editorial h2`, `.prose-bars h2`, `.h2-bar`, `h2.h2-quiet`): 22px Gabarito 800 with a 2px ink rule above it and 12px between rule and text. `.prose-bars` and `.h2-bar` no longer make an inverted bar; the class names are kept and render the same ruled heading.
+- **Answer box** (`PageAnswer.astro`, classes `.mod.pa`, `.pa-rows`, `.pa-r`, `.pa-note`): one per content template, directly under the H1. The bar (a `<p>`, so the outline keeps its own H2s) states the page's finding. Under it, each optional: a `lead` (one decisive number already on the page, as a large Gabarito numeral with its label, `.pa-lead`), a `sentence` (`.pa-sent`), and label/value rows (`.pa-rows`) split by 1px mute rules. A value with `role: 'price'` or `role: 'term'` is set at weight 600 on the mark, with 8px of mark on each side bled into the row's padding (a negative inline margin equal to the padding), so the figure's text lines up with its label when it drops under it and with the row's right edge when it sits at the line end. The lead takes the mark band the same way. A value over 40 characters drops under its label (`data-long`) with no mark.
+- **Calculator panel** (`.et .et-panel`, `.et-bar`, `.et-bar-t`, `.et-out`, `.et-wait`, `.et-msg`; `src/components/edisi-tools/edisi-tools.css`): the same black bar on a paper panel; inputs at least 44px with a 1.5px ink border that turns magenta on focus; a checked option gets a magenta border; the result box (`.et-out`) and the price box (`.et-price`) are mark with a 1.5px ink border; space for the result is reserved so nothing moves when it appears. Bar titles are 18px and panel prose 16px. In the NCD table (`.tg-table`) the 55% tier row (`.tg-max`) is an ink row with paper text. Every selector is scoped under `.et`.
 - **CTA band** (`CtaBand.astro`): a `.mod` with a `.mod-bar` heading and one main button.
 
 ### The answer block and NCD control (home and model pages)
-- `HomeAnswer.astro` and `ModelAnswer.astro` render `.ea`: the H1, the price (`.ea-price`), one support line (`.ea-sub`), the yellow yearly total (`.ea-sum`), the NCD control (`fieldset.ea-ncd`), the buttons (`.ea-cta`) and then the car photo (`.ea-photo`).
-- **NCD control**: six native radios (`#ncd-0`, `#ncd-25`, `#ncd-30`, `#ncd-38`, `#ncd-45`, `#ncd-55`; 55% checked in the HTML) drawn as six bars (`.ea-bar`, `.ea-col`) whose heights are the share you pay, labelled in claim-free years (`.ea-y`) with the percentage below (`.ea-p`). A knob (`.ea-knob`) rides a track under the bars. The chosen bar fills magenta.
+- `HomeAnswer.astro` and `ModelAnswer.astro` render `.ea`: the H1, the price (`.ea-price`), one support line (`.ea-sub`), the yearly total (`.ea-sum`), the NCD control (`fieldset.ea-ncd`), the buttons (`.ea-cta`) and then the car photo (`.ea-photo`).
+- **Yearly total** (`.ea-sum`): mark band with a 1px ink border, the total in Gabarito 800 at 22px.
+- **NCD control**: six native radios (`#ncd-0`, `#ncd-25`, `#ncd-30`, `#ncd-38`, `#ncd-45`, `#ncd-55`; 55% checked in the HTML) drawn as six bars (`.ea-bar`, `.ea-col`) whose heights are the share you pay, labelled in claim-free years (`.ea-y`, 18px) with the percentage below (`.ea-p`, 14px mute). Unchosen bars are paper with a 1.5px mute ring; a hovered one gets a mark fill and an ink ring; the chosen bar fills magenta. A knob (`.ea-knob`) rides a track under the bars.
 - **One value per price element**: every price is a `.px` element (`Px.astro`) whose text is the NCD 55% value; the other five steps are `data-p0` to `data-p45` attributes. Price switching is CSS-driven, with or without JavaScript: `html:has(#ncd-25:checked) .px[data-p25]` hides the text and shows the attribute through `content: attr()`, and the knob position, price fit and ladder-table highlight switch the same way. `src/scripts/edisi-ncd.ts` is a small enhancement on top: it remembers the step (`localStorage` `edisi.ncd`), plays a short tick on the changed figures, keeps the calculator links on the same step, announces the new price and seats the logo. It never writes a price.
 - **Fallback**: all of that sits inside `@supports selector(:has(*))`. Where `:has()` is missing, the bars and marker stay hidden and a static list of all six steps (`.ea-static`) shows instead.
 - **NCD calculator** (`/tools/ncd-calculator/`) reuses the control and opens at 55% with the "Contoh" marker. Its bars always show (the calculator needs them); their selected and focus states use the radio's siblings (`input:checked ~ .ea-col`, `:focus-within`), so they work without `:has()`, where the knob is hidden.
-- **Phone dock** (`Dock.astro`, below 48rem; home, model pages, car hub, NCD calculator): once the answer block has scrolled away, a glass pill at the bottom repeats the context on two lines ("Anggaran <car>" truncating, with "NCD x%" never cut; then "RMa–b/tahun", or the calculator's own result) and one "Tukar" button (44px) that returns to the NCD control. It reads what the page shows (the `data-p*` values or `#result-premium`'s text) and never computes. Rendered `hidden`: without JavaScript it never shows. It steps aside while a native `<dialog>` is open or a consent message is actually visible.
+- **Phone dock** (`Dock.astro`, below 48rem; home, model pages, car hub, NCD calculator): once the answer block has scrolled away, a solid paper pill with a mute edge at the bottom repeats the context on two lines ("Anggaran <car>" truncating, with "NCD x%" never cut; then "RMa–b/tahun", or the calculator's own result) and one "Tukar" button (44px) that returns to the NCD control. With `prefers-reduced-transparency` or `prefers-contrast: more` its edge becomes a 1.5px ink ring. It reads what the page shows (the `data-p*` values or `#result-premium`'s text) and never computes. Rendered `hidden`: without JavaScript it never shows. It steps aside while a native `<dialog>` is open or a consent message is actually visible.
 
 ### Logo
-- The wordmark is an inline SVG in `SiteHeader.astro` (`.wm-svg`, `.ins-word`, `.ins-knob`), so its colours come from the page tokens. The knob rests seated at NCD 55%. For each lower step it rises 80 units (`translateY(calc(var(--ins-stop, 0) * -80px))`, stops 0 to 5 for 55%, 45%, 38.33%, 30%, 25% and 0%). Under the knob a paler slider track (`.ins-ghost`, the `ghost` token) rides up with it, so at every step the knob sits on a track; at 55% the true logo shows. Once a step has been chosen, an "NCD x%" label (`.wm-ncd`, with a screen-reader text) sits over the logo. The step is read from the `localStorage` key `edisi.ncd` before first paint (inline script in `SiteHeader.astro`) and then updated through one shared function, `seatLogo()` in `src/scripts/edisi-logo.ts`, used by the home/model NCD control and the NCD calculator. It is display only, not a control; a tap anywhere on the wordmark goes home.
+- The wordmark is an inline SVG in `SiteHeader.astro` (`.wm-svg`, `.ins-word`, `.ins-knob`), so its colours come from the page tokens. The knob rests seated at NCD 55%. For each lower step it rises 80 units (`translateY(calc(var(--ins-stop, 0) * -80px))`, stops 0 to 5 for 55%, 45%, 38.33%, 30%, 25% and 0%). Under the knob a paler slider track (`.ins-ghost`, `--ghost`, now mute) rides up with it, so at every step the knob sits on a track; at 55% the true logo shows. Once a step has been chosen, an "NCD x%" label (`.wm-ncd`, with a screen-reader text) sits over the logo. The step is read from the `localStorage` key `edisi.ncd` before first paint (inline script in `SiteHeader.astro`) and then updated through one shared function, `seatLogo()` in `src/scripts/edisi-logo.ts`, used by the home/model NCD control and the NCD calculator. It is display only, not a control; a tap anywhere on the wordmark goes home.
 - The masthead tag "Bukan ejen. Bukan broker." shows from 48rem on every page.
 
 ### Car photo and name card (`CarPhoto.astro`)
 - A Wikimedia Commons cut-out of the Malaysian-market car (`.cp`, `.cp-img`) with its credit line (`.cp-credit`, 14px): "Foto: author, licence, diubah suai", the author linked to the source, the licence to its deed, "diubah suai" to `/kredit-foto/#slug`. An AI-retouched photo carries the manifest's wording instead. Data: `src/data/car-photos.json`.
-- In the answer block the cut-out sits on a sky plate with a 2px ink border (`.ea-photo .cp-img`), capped at 9rem tall on phones and 12rem from 48rem, below the buttons.
-- A model without a photo gets a name card (`.cp-card`) in the same slot: sky background, brand and model in Gabarito 800 fitted to the card, segment and engine size, and no pictogram. No "photo missing" wording.
+- In the answer block the cut-out sits on a paper plate with a 2px ink border (`.ea-photo .cp-img`), capped at 9rem tall on phones and 12rem from 48rem, below the buttons.
+- A model without a photo gets a name card (`.cp-card`) in the same slot: paper with a 2px ink border, brand and model in Gabarito 800 fitted to the card, segment and engine size, and no pictogram. No "photo missing" wording.
+- Guide illustrations (`/images/guides/`) render in greyscale, so they read as ink like the car photos.
 
 ### Icons (`Ikon.astro`)
 - An icon must do a job. Keep: the arrow or chevron that marks a link row or an expandable `<summary>` (open/closed); `i-luar` on links that leave the site; `i-amaran` on a genuine warning note; one icon inside a primary calculator button; the header menu/close and the phone dock control; the homepage type tiles (they tell the types apart); the car glyph standing in for a missing car photo.
 - Never decorate: no icon before a title bar (`.mod-bar`, `.mod-lab`, `.ix-bar`, `.et-bar`), an h2/h3, a step heading, a fact or row in an answer box, a table cell, a byline or date, a footer or rail link, or a row that already has a car thumbnail, brand or insurer logo. Removing one leaves no gap: the text sits where the icon was.
-- The set is Phosphor Icons, Bold weight (MIT; licence in `public/ikon-LICENSE.txt`, credited on `/kredit-foto/`). Paths are copied unchanged from the official repository, never redrawn by hand. Single colour: every icon is `currentColor` and takes its text colour (white on a black bar), with no magenta dot or second colour.
+- The set is Phosphor Icons, Bold weight (MIT; licence in `public/ikon-LICENSE.txt`, credited on `/kredit-foto/`). Paths are copied unchanged from the official repository, never redrawn by hand. Single colour: every icon is `currentColor` and takes its text colour (paper on a black bar), with no magenta dot or second colour.
 - One sprite, `public/ikon.svg`, with 18 symbols (256 viewBox, each notes its Phosphor name); the valid ids are in `src/data/ikon-names.json` and an unknown name fails the build. Remove a symbol from both when nothing uses it. Without `label` the icon is decorative (`aria-hidden`); keep a visible word beside it. Default size 20px; type tiles 22px, chevrons in link rows 16 to 18px.
 
 ### Notes
-- `.note-warn`: white, 2px ink border, red heading (`.note-t`). Warnings and exclusions.
-- `.note-term`: yellow, ink border. Totals, limits and policy terms only.
-- `.note-info`: blue. Explanations, short answers, what is covered. `.info-box` is the older blue box.
-- `.note-price`: pink. Price examples and working.
-- `.note-plain`: tray. Neutral asides and disclaimers.
+All notes are paper, 8px radius, ink text; the edge says what kind they are.
+- `.note-warn`: 2px ink border, ink heading (`.note-t`, 600). Warnings and exclusions.
+- `.note-term`: 1px ink border. Totals, limits and policy terms.
+- `.note-info`, `.note-price`, `.note-plain`, `.info-box`: 1px mute border. Explanations, price working, neutral asides.
 
 ### Tables
-- `.table-editorial` and prose tables: black header row with white Gabarito bold, 0.7rem by 0.85rem cells, 1px light row rules, tabular figures. A table sits in `.overflow-x-auto`, which gets a rule border and scrolls on its own.
+- `.table-editorial` and prose tables: a paper head with ink Gabarito bold text and a 2px ink rule under it, 12px cells, 1px mute row rules, tabular figures. A table sits in `.overflow-x-auto`, which gets a mute border and scrolls on its own. From 48rem the first column is at least 12ch.
 - **Plan cards on phones** (`table.plan-table`, below 48rem): each body row becomes a card with a black title bar (first cell, plus `[data-sub]` provider and `[data-chip]` chip cells); every other cell shows its column name from `data-label` and sits in a two-up grid (`[data-wide]` spans both). Because changing `display` strips table semantics in some browsers, the markup carries explicit roles (`role="table"`, `rowgroup`, `row`, `columnheader`, `cell`).
-- **NCD ladder** (`.work`): the same radio group as rows; the chosen row turns yellow.
+- **NCD ladder** (`.work`): the same radio group as rows. The chosen row is an ink row with paper text.
+- **Yearly total row** (`.kb-r.kb-tot`): a mark band, 8px radius, bleeding 8px past the rows on each side; label at 600, the figure in Gabarito 800 at 22px, the same as "Anda bayar" above it.
 
 ### FAQ and disclosures
-- `.faq-item` (and bare `<details>` in prose): hairline bottom rule, 48px summary row, a CSS chevron on the right that turns on open (150ms). Answers max 62ch.
+- `.faq-item` (and bare `<details>` in prose): 1px mute bottom rule, 48px summary row, a CSS chevron on the right that turns on open (150ms). Answers keep the reading measure. The last row's rule is dropped when a ruled H2 follows directly.
 - `.baca`: a "read more" disclosure inside modules, with an `Ikon` that turns 180 degrees.
 
 ### Navigation
-- **Masthead** (`.mast`): logo left; on phones a pill "Menu" button with a `<details>` fallback without JavaScript (`.menu-nojs`); from 48rem section tabs (`.tabs`), the current tab filled ink.
-- **Breadcrumbs** (`Breadcrumbs.astro`, `nav[aria-label="Jejak navigasi"]`): small text above the H1 (below the answer on model pages).
-- **Rails** (`ModelRail.astro`, `ToolsRail.astro`): `.mod` boxes; the model list (`.mlist`) rows are 44px, the current model yellow.
-- **Footer** (`SiteFooter.astro`, `.foot`): tray background, site map in columns, the "Tetapan privasi" button (`[data-privacy-settings]`).
+- **Masthead** (`.mast`): paper with a 1px mute rule under it; logo left; on phones a pill "Menu" button (ink when open) with a `<details>` fallback without JavaScript (`.menu-nojs`); from 48rem section tabs (`.tabs`).
+- **Section tabs**: a pill capsule of solid paper with a 1px mute edge, mute separators between tabs, 44px tabs at 16px weight 600. The current tab is an ink pill; hover is a mark fill. From 70rem the capsule is sticky 8px from the top.
+- **Breadcrumbs** (`Breadcrumbs.astro`, `nav[aria-label="Jejak navigasi"]`): 14px mute text above the H1 (below the answer on model pages).
+- **Rails** (`ModelRail.astro`, `ToolsRail.astro`): `.mod` boxes that do not invert. The model list (`.mlist`) rows are 44px with a 1px mute rule between them; hover is a mark fill; the current model is an ink row with paper text.
+- **Footer** (`SiteFooter.astro`, `.foot`): paper with a 1px mute rule above, site map in columns, the "Tetapan privasi" button (`[data-privacy-settings]`).
 
 ### Byline (`Byline.astro`)
-"Oleh Amir Ariff, Pengasas & Editor. Dikemaskini <date>", small ink-2 text, the name linked to `/penulis/amir-ariff/` with padding for a 44px target. It sits after the answer box.
+"Oleh Amir Ariff, Pengasas & Editor. Dikemas kini <date>", 14px mute text, the name linked to `/penulis/amir-ariff/` in ink with padding for a 44px target. The date is a `<time datetime>` element, so it never breaks across lines. It sits after the answer box.
 
 ### Print
-`@media print` in `global.css` hides the masthead, menus, footer map, privacy button, ads, iframes, rails, breadcrumbs and the NCD control; drops the grids to one column; prints tinted panels and title bars black on white with a black rule; opens collapsed `<details>` where supported; prints the URL after external links; avoids breaks inside notes, cards, modules, figures and table rows.
+`@media print` in `global.css` hides the masthead, menus, footer map, privacy button, ads, iframes, rails, breadcrumbs and the NCD control; drops the grids to one column; prints title bars ink on paper with a 2px ink rule; opens collapsed `<details>` where supported; prints the URL after external links; avoids breaks inside notes, cards, modules, figures and table rows.
 
 ## Motion
 
-Transform and opacity only, ease-out `--ease-out` (`cubic-bezier(0.23, 1, 0.32, 1)`), all 260ms or less: price digits tick in (`.tick`, 260ms); the NCD knob slides between stops (180ms); bars change fill (150ms); the logo knob rises (220ms); chevrons turn (150ms); buttons and tabs change colour (150ms); a pressed NCD bar scales to 0.97. Under `prefers-reduced-motion: reduce` all transitions and animations drop to 0ms, except the price tick, which becomes a 120ms opacity fade.
+Transform and opacity only, ease-out `--ease-out` (`cubic-bezier(0.23, 1, 0.32, 1)`), all 260ms or less: price digits tick in (`.tick`, 260ms); the NCD knob slides between stops (180ms); bars change fill (150ms); the logo knob rises (220ms); the phone dock slides up (200ms); chevrons turn (150ms); buttons, chips and tabs change colour (150ms); a pressed NCD bar scales to 0.97. Under `prefers-reduced-motion: reduce` all transitions and animations drop to 0ms, except the price tick, which becomes a 120ms opacity fade.
 
 ## Accessibility
 
-- **Contrast (AA; ratios computed by the concept's `warna.py` for these same token values):** ink on paper 21:1; ink-2 on paper 8.9:1; ink on pink 15.5:1, on yellow 18.7:1, on sky 16.6:1, on tray 18.9:1, on chip 17.3:1; white on magenta 5.3:1; red on paper 6.2:1, on pink 4.6:1; rule on paper 4.5:1 (UI); placeholder 7.0:1 on paper (from the comment in `global.css`).
+- **Contrast (AA):** ink on paper 21:1; mute on paper 7.0:1; ink on mark 18.7:1; mute on mark 6.2:1; paper on magenta 5.3:1; paper on ink 21:1 (ink rows). Mark on paper is 1.1:1, which is why it is never text or an edge.
 - **Targets:** every control and standalone link is at least 44 by 44px (links inside running text excepted): `.tap-link`, rail rows, table header links, footnote markers.
-- **Focus:** a visible 3px ink ring with 2px offset; on black bars it is white (`--focus-on-dark`).
-- **No blur behind text;** glass falls back to solid (see Elevation).
+- **Focus:** a visible 3px ink ring with 2px offset; on black bars it is paper (`--focus-on-dark`); on the current (ink) tab it is magenta.
+- **No blur anywhere;** with `prefers-reduced-transparency` or `prefers-contrast: more` the tab capsule and the dock take a 1.5px ink ring.
 - **200% text:** container queries and `overflow-wrap` keep prices, rails, the masthead and plan cards inside the screen when text is enlarged.
 - **Without JavaScript:** the NCD control, the phone menu and the FAQ all work; calculators show a notice.
 
@@ -388,34 +411,41 @@ Transform and opacity only, ease-out `--ease-out` (`cubic-bezier(0.23, 1, 0.32, 
 
 ### Do:
 - **Do** open every content page with H1 (`.ea-h1`), the answer box, the byline, then the intro.
+- **Do** use only paper, ink, mute, mark and magenta, and only the spacing (2 to 96px) and type (14 to 36px) scales; run `python3 scripts/design/snap-tokens.py --check` before committing a style change.
 - **Do** keep magenta to three things in the first screen: logo knob, NCD control, one main button.
-- **Do** give each tint its one job: pink price, yellow total or term, blue car, coverage or explanation.
+- **Do** show hierarchy with weight and rules: a 2px ink rule for a section or a table head; mark behind the reader's figure; an ink bar only for a module's finding.
 - **Do** write title bars as a finding, using only words already in the module.
+- **Do** use a mark fill or an ink inversion for hover.
 - **Do** keep one value per price element (`.px` with `data-p*`), so the HTML says one thing.
-- **Do** keep the 14px floor and 44px targets.
+- **Do** keep the 14px floor, 44px targets and the one reading measure (`--measure`, 34rem).
 
 ### Don't:
+- **Don't** bring back a tint to mark a kind of content (price, total, explanation); the old pink and blue tints were removed on 15 Nov 2026, and the yellow came back only as the mark behind the reader's figure.
+- **Don't** use a gradient, a blurred or offset shadow, or a backdrop blur (removed on 15 Nov 2026); depth is rings only.
+- **Don't** invert a side rail or a prose section heading.
+- **Don't** set text, or an edge, in mark.
 - **Don't** put an all-caps kicker or a label above the H1 or above content.
 - **Don't** build meta strings out of middle dots ("Sedan · 1.5L · 2024").
 - **Don't** make every block an identical rounded card; use modules with title bars, rows and tables.
 - **Don't** use text arrows ("→") as decoration on links; use `Ikon` (`i-kanan`) or nothing.
-- **Don't** put magenta or grey text on a tint or a grey chip, or make a warning yellow.
-- **Don't** blur anything behind reading text.
 - **Don't** rename the legacy tokens (`hijau-*`, `emas-*`, `krim-*`, `stone-*`, `.btn-hijau`, `font-serif`) without changing every template that uses them.
 
-## Where the code differs from the concept
+## Where the code differs from the concept and the brief
 
-The concept is `docs/eeat-revamp-2026-11/round4/concepts/edisi/system.md` and `round4/logo-slider/README.md` in the temporary `insurans.co-eeat` worktree. The code wins; these are the differences found on 15 Nov 2026.
+The Edisi concept is `docs/eeat-revamp-2026-11/round4/concepts/edisi/system.md` and `round4/logo-slider/README.md` in the temporary `insurans.co-eeat` worktree. The code wins; these are the differences found on 15 Nov 2026.
 
 1. **Logo knob.** Concept: the logo is a `role="slider"` control with keyboard and drag. Code: display only; it follows the reader's remembered NCD and a tap goes home.
-2. **Colour worlds and dark mode.** Concept: eleven colour worlds and a dark variant. Code: magenta, light only.
-3. **Price size.** Concept: capped at 72px on phones and 104px wide. Code: 4.5rem (72px) and 6rem (96px).
-4. **Not built:** the glass price pane, the pane switch, stories, "Kereta sekelas", "Selak harga", the utility row. "Terkini" is built as a quiet rail and its own pages, not as the concept's strip. There is no `EXTRAS` flag in the code on this branch: these features are simply absent. The phone dock is built, in a simpler form than the concept (a two-line context pill with one action, see "Phone dock").
+2. **Colour worlds and dark mode.** Concept: eleven colour worlds and a dark variant. Code: five colours, light only.
+3. **Price size.** Concept: capped at 72px on phones and 104px wide. Code: 4.5rem (72px) and 6rem (96px), weight 800.
+4. **Not built:** the glass price pane, the pane switch, stories, "Kereta sekelas", "Selak harga", the utility row. "Terkini" is built as a quiet rail and its own pages. The phone dock is built, in a simpler form than the concept (a two-line context pill with one action).
 5. **Photo plate.** Concept: a hard offset shadow. Code: a 2px ink border, no shadow.
-6. **Byline.** Concept: "Disunting dan disemak oleh Amir Ariff" with the editor's photo and an AI-assistance line. Code: "Oleh Amir Ariff, Pengasas & Editor. Dikemaskini <date>", no photo.
+6. **Byline.** Concept: "Disunting dan disemak oleh Amir Ariff" with the editor's photo and an AI-assistance line. Code: "Oleh Amir Ariff, Pengasas & Editor. Dikemas kini <date>", no photo.
 7. **Name card.** Concept: hidden from assistive technology. Code: `role="img"` with the model's full name.
-8. **Magenta roles.** The comment in `tailwind.config.mjs` lists four uses (main button, chosen or focused borders, logo knob, chosen bar); the first-screen limit of three is enforced only as a warning in check 7.
-9. **Middle-dot meta strings remain** in `CarPhoto.astro` (name card), `ModelAnswer.astro`, `HomeAnswer.astro` and `ToolsRail.astro`, against the do-not list.
-10. **A decorative text arrow remains** in `src/pages/motorcycle-insurance/index.astro` (the roadtax calculator link). Other arrows in prose mean "leads to" inside a sentence.
-11. **14px floor:** the plan-card column labels (`table.plan-table > tbody > tr > td::before`) are 0.875rem (14px), at the floor. They are CSS generated content, which check 6 may not measure.
-12. **Two pinks.** `hijau-50` (`#FDEDF4`) is lighter than the price pink (`#FBD3E4`); older templates use it.
+8. **A second fluid size.** The token rebuild says the fitted price is the only fluid size. The car name card (`.cp-card-name`) is also fitted: `clamp(1.5rem, calc(110cqi / var(--fit)), 2.75rem)`, up to 44px, off the type scale. The snap script lists it and does not fail on it.
+9. **What the check covers.** The snap script checks stylesheets and `<style>` blocks only. Tailwind classes in templates are held to the scales by `tailwind.config.mjs`, not by the script, and values inside `calc()`, `clamp()` and `var()` are reported, not failed.
+10. **Middle-dot meta strings remain** in `CarPhoto.astro` (name card), `ModelAnswer.astro`, `HomeAnswer.astro` and `ToolsRail.astro`, against the do-not list.
+11. **A decorative text arrow remains** in `src/pages/motorcycle-insurance/index.astro` (the roadtax calculator link). Other arrows in prose mean "leads to" inside a sentence.
+12. **14px floor:** the plan-card column labels (`table.plan-table > tbody > tr > td::before`) are 0.875rem (14px), at the floor. They are CSS generated content, which check 6 may not measure.
+13. **Mark beyond the reader's figure.** `--tint-yellow` resolves to mark, so `.note-term`, `.risk-sederhana`, the Terkini "pembetulan" chip (`.tk-chip`) and the home tag (`.hp-tag`) are yellow too, against the mark rule. `.note-term` and `.risk-sederhana` are in `global.css`; the other two are in templates.
+14. **Price ranges in page markup.** The car hub's price table cells and opening line (`src/pages/car-insurance/index.astro`) set ranges as plain text, so at 390px and 320px "RM330–670" can still break after the dash. Wrapping each range in `<span class="px">` fixes it.
+15. **Tables beside a rail.** On `/medical-cards/` the comparison table sits inside a two-thirds grid column with the rail beside it, so it cannot take the container width. The rail box ends early and leaves empty space beside the table.

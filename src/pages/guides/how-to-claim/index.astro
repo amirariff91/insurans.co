@@ -87,7 +87,7 @@ const schema = {
       />
       </div>
       <Byline dateModified="2026-10-10" />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed" id="jawapan-ringkas">
+      <p class="text-lg text-stone-900 max-w-2xl leading-relaxed" id="jawapan-ringkas">
         Utamakan keselamatan, simpan bukti kemalangan dan buat laporan polis dalam 24 jam. Hubungi syarikat insurans segera untuk memilih laluan tuntutan serta bengkel yang diluluskan. Own damage biasa boleh menjejaskan NCD. OD-KfK yang layak dan tuntutan cermin di bawah add-on berkenaan boleh mengekalkannya.
       </p>
     </div>
@@ -96,7 +96,7 @@ const schema = {
   <div class="container-article py-10 sm:py-14">
     <article class="prose-editorial prose-bars">
       <figure class="not-prose mb-8">
-        <img src="/images/guides/how-to-claim.webp" alt="Ilustrasi empat langkah tuntutan insurans kereta: kereta rosak, borang, dokumen dan bengkel" width="1200" height="630" class="w-full h-auto rounded-xl" decoding="async" fetchpriority="high" />
+        <img src="/images/guides/how-to-claim.webp" alt="Ilustrasi empat langkah tuntutan insurans kereta: kereta rosak, borang, dokumen dan bengkel" width="1200" height="630" class="w-full h-auto rounded-xl" decoding="async" />
       </figure>
       <h2 id="langkah-1" class="h2-quiet">1. Utamakan keselamatan, kemudian simpan bukti</h2>
       <p>
@@ -158,9 +158,9 @@ const schema = {
       <p>
         Laluan tuntutan bergantung pada perlindungan yang anda beli dan keadaan kemalangan. Menurut PIAM, polisi pihak ketiga melindungi liabiliti terhadap orang atau harta pihak lain. Komprehensif turut melindungi kerosakan kereta sendiri akibat kemalangan, mengikut syarat polisi. Semak jadual polisi sebelum menganggap semua kos baiki kereta anda boleh dituntut. <a href="#rujukan-piam">[4]</a>
       </p>
-      <div class="overflow-x-auto my-8">
+      <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="jadual-laluan">
         <table class="table-editorial">
-          <caption class="text-left text-sm text-stone-600 mb-3">Laluan tuntutan yang perlu dibincangkan dengan syarikat</caption>
+          <caption id="jadual-laluan" class="text-left text-sm text-stone-600 mb-3">Laluan tuntutan yang perlu dibincangkan dengan syarikat</caption>
           <thead>
             <tr><th scope="col">Laluan</th><th scope="col">Tujuan</th><th scope="col">Perkara penting</th></tr>
           </thead>
@@ -312,10 +312,10 @@ const schema = {
   /* Quiet section label: a plain heading where the section opens with a topic, not a finding. */
   /* Step rows: same shape for every step (label above, step name as a link), whatever its length. */
   .hc-steps :global(.pa-r) { display: block; }
-  .hc-steps :global(.pa-r dt) { font-weight: 700; }
+  .hc-steps :global(.pa-r dt) { font-weight: 600; }
   .hc-steps :global(.pa-r dd) { font-weight: 400; }
   .prose-editorial.prose-bars h2.h2-quiet {
     background: none; color: var(--ink); padding: 0; min-height: 0; border-radius: 0;
-    font: 750 1.25rem/1.25 var(--fd); margin-top: 2.5rem; margin-bottom: 0.75rem;
+    font: 800 1.375rem/1.25 var(--fd); margin-top: 3rem; margin-bottom: 0.75rem;
   }
 </style>

@@ -69,7 +69,7 @@ const schema = {
         ]}
       />
       <Byline dateModified="2026-11-15" />
-      <p class="text-lg text-stone-600 max-w-2xl leading-relaxed">
+      <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
         Komprehensif dan pihak ketiga ialah dua jenis insurans kereta yang paling asas. Bezanya ialah siapa yang dilindungi: komprehensif melindungi kereta anda dan orang lain, manakala pihak ketiga hanya melindungi orang lain.
       </p>
     </div>
@@ -109,55 +109,55 @@ const schema = {
         </article>
 
         <!-- Comparison Table -->
-        <div class="overflow-x-auto my-8">
+        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-label="Perbandingan: apa yang dilindungi">
           <table class="table-editorial">
             <thead>
               <tr>
-                <th>Jenis Perlindungan</th>
-                <th>Komprehensif</th>
-                <th>TPFT</th>
-                <th>Pihak Ketiga</th>
+                <th scope="col">Jenis Perlindungan</th>
+                <th scope="col">Komprehensif</th>
+                <th scope="col">TPFT</th>
+                <th scope="col">Pihak Ketiga</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="font-medium">Kerosakan kereta sendiri (kemalangan)</td>
+                <th scope="row" class="font-medium">Kerosakan kereta sendiri (kemalangan)</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kecurian kereta sendiri</td>
+                <th scope="row" class="font-medium">Kecurian kereta sendiri</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kebakaran kereta sendiri</td>
+                <th scope="row" class="font-medium">Kebakaran kereta sendiri</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="mark-no">✗ Tidak</td>
               </tr>
               <tr>
-                <td class="font-medium">Kerosakan kereta orang lain</td>
+                <th scope="row" class="font-medium">Kerosakan kereta orang lain</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
               </tr>
               <tr>
-                <td class="font-medium">Kecederaan orang lain</td>
+                <th scope="row" class="font-medium">Kecederaan orang lain</th>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
                 <td class="text-hijau-700 font-bold">✓ Ya</td>
               </tr>
               <tr>
-                <td class="font-medium">Banjir &amp; bencana alam (special perils)</td>
+                <th scope="row" class="font-medium">Banjir &amp; bencana alam (special perils)</th>
                 <td class="text-stone-500">Add-on</td>
                 <td class="mark-no">✗</td>
                 <td class="mark-no">✗</td>
               </tr>
               <tr>
-                <td class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</td>
+                <th scope="row" class="font-medium">Harga premium (anggaran, NCD 55%, setahun)</th>
                 <td class="font-semibold text-stone-900">{range(lowest55.premiumNCD55Min, highest55.premiumNCD55Max)}</td>
                 <td class="font-semibold text-stone-900">Minta sebut harga</td>
                 <td class="font-semibold text-stone-900">Minta sebut harga</td>
@@ -247,15 +247,15 @@ const schema = {
           <p class="text-sm text-stone-600 mb-4">Anggaran harga insurans komprehensif untuk model popular:</p>
           <ul class="space-y-3">
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
-              <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold hover:underline">{myvi.fullName}</a>
+              <a href="/car-insurance/perodua-myvi/" class="text-hijau-700 font-semibold underline">{myvi.fullName}</a>
               <span class="text-sm text-stone-500">NCD 55%: {tightRange(myvi.premiumNCD55Min, myvi.premiumNCD55Max)}</span>
             </li>
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
-              <a href="/car-insurance/honda-city/" class="text-hijau-700 font-semibold hover:underline">{city.fullName}</a>
+              <a href="/car-insurance/honda-city/" class="text-hijau-700 font-semibold underline">{city.fullName}</a>
               <span class="text-sm text-stone-500">NCD 55%: {tightRange(city.premiumNCD55Min, city.premiumNCD55Max)}</span>
             </li>
             <li class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-lg">
-              <a href="/car-insurance/toyota-corolla-cross/" class="text-hijau-700 font-semibold hover:underline">Toyota Corolla Cross</a>
+              <a href="/car-insurance/toyota-corolla-cross/" class="text-hijau-700 font-semibold underline">Toyota Corolla Cross</a>
               <span class="text-sm text-stone-500">NCD 55%: {tightRange(corollaCross.premiumNCD55Min, corollaCross.premiumNCD55Max)}</span>
             </li>
           </ul>
@@ -268,11 +268,11 @@ const schema = {
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Panduan berkaitan</h3>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/guides/ncd-explained/" class="text-hijau-700 hover:text-hijau-600">NCD: jimat sehingga 55%</a></li>
-              <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 hover:text-hijau-600">10 cara turunkan premium</a></li>
-              <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 hover:text-hijau-600">Insurans kereta banjir</a></li>
-              <li><a href="/guides/how-to-claim/" class="text-hijau-700 hover:text-hijau-600">Cara buat claim</a></li>
-              <li><a href="/companies/" class="text-hijau-700 hover:text-hijau-600">Semua syarikat insurans</a></li>
+              <li><a href="/guides/ncd-explained/" class="text-hijau-700 underline">NCD: jimat sehingga 55%</a></li>
+              <li><a href="/guides/cara-turun-premium-insurans-kereta/" class="text-hijau-700 underline">10 cara turunkan premium</a></li>
+              <li><a href="/guides/insurans-kereta-banjir/" class="text-hijau-700 underline">Insurans kereta banjir</a></li>
+              <li><a href="/guides/how-to-claim/" class="text-hijau-700 underline">Cara buat claim</a></li>
+              <li><a href="/companies/" class="text-hijau-700 underline">Semua syarikat insurans</a></li>
             </ul>
           </div>
         </div>

@@ -61,17 +61,34 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
 
 <style>
   /* The first brand group shows; the rest sit in one <details> so the hub's answer stays near the top. */
-  .hm-more { border-top: 1px solid rgb(0 0 0 / 0.12); }
+  .hm-more { border-top: 1px solid var(--line); }
   .hm-more > summary {
     display: flex;
     align-items: center;
     min-height: 2.75rem;
-    padding: 0.3rem 0.9rem;
-    font: 700 1rem/1.2 var(--f);
+    padding: 0.25rem 1rem;
+    font: 600 1rem/1.2 var(--f);
     color: var(--ink);
     cursor: pointer;
   }
   .hm-more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+  /* Open/closed indicator, the site's disclosure chevron (as .faq-item), and the mark on hover. */
+  .hm-more > summary { justify-content: space-between; gap: 1rem; list-style: none; }
+  .hm-more > summary::-webkit-details-marker { display: none; }
+  .hm-more > summary::after {
+    content: '';
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.25rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 150ms var(--ease-out);
+  }
+  .hm-more[open] > summary::after { transform: rotate(-135deg); }
+  @media (hover: hover) and (pointer: fine) { .hm-more > summary:hover { background: var(--mark); } }
+  @media (prefers-reduced-motion: reduce) { .hm-more > summary::after { transition: none; } }
 
   .hm {
     border: 2px solid var(--ink);
@@ -82,7 +99,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   }
   .hm-bar {
     margin: 0;
-    padding: 0.6rem 0.9rem;
+    padding: 0.5rem 1rem;
     min-height: 3rem;
     display: flex;
     align-items: center;
@@ -93,10 +110,10 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   }
   .hm-cap {
     margin: 0;
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem 1rem;
     font-size: 0.875rem;
     color: var(--ink-2);
-    border-bottom: 1px solid rgb(0 0 0 / 0.15);
+    border-bottom: 1px solid var(--line);
   }
   .hm-groups,
   .hm-list {
@@ -110,20 +127,20 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   .hm-gh {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     margin: 0;
-    padding: 0.4rem 0.9rem;
+    padding: 0.5rem 1rem;
     background: var(--tray);
-    font: 650 0.875rem/1.3 var(--f);
+    font: 600 0.875rem/1.3 var(--f);
     color: var(--ink);
   }
   .hm-list a {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     min-height: 2.875rem;
-    padding: 0.3rem 0.6rem 0.3rem 0.9rem;
-    border-top: 1px solid rgb(0 0 0 / 0.12);
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    border-top: 1px solid var(--line);
     color: var(--ink);
     text-decoration: none;
     flex-wrap: nowrap;
@@ -134,22 +151,35 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
   .hm-name {
     flex: 1 1 6rem;
     min-width: 0;
-    font: 500 1.125rem/1.15 var(--fd);
+    font: 600 1.125rem/1.15 var(--fd);
     overflow-wrap: anywhere;
   }
   .hm-pill {
     flex: none;
-    padding: 0.25rem 0.65rem;
+    padding: 0.25rem 0.75rem;
     border-radius: var(--r-pill);
     background: var(--tint-pink);
     color: var(--ink);
-    font: 700 0.9375rem/1.2 var(--f);
+    font: 600 1rem/1.2 var(--f);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
     max-width: 100%;
   }
-  @media (max-width: 23rem) {
-    .hm-pill { white-space: normal; overflow-wrap: anywhere; }
+  /* A price range stays on one line at every width. On phones the pill sits under the name instead of beside it,
+     so neither the range nor the name ("Alz/a", "Sportag/e") has to break. */
+  @media (max-width: 25rem) {
+    .hm-list a {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: "t n c" "t p c";
+      column-gap: 0.75rem;
+      row-gap: 0.25rem;
+      padding-block: 0.5rem;
+    }
+    .hm-list a > :global(.ct) { grid-area: t; }
+    .hm-name { grid-area: n; overflow-wrap: break-word; }
+    .hm-pill { grid-area: p; justify-self: start; padding: 0; }
+    .hm-chev { grid-area: c; }
   }
   .hm-chev {
     flex: none;
@@ -159,7 +189,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     text-underline-offset: 0.18em;
   }
   .hm-list a:hover {
-    background: var(--tray);
+    background: var(--mark);
   }
   .hm-list a:focus-visible {
     outline: 3px solid var(--focus);
@@ -172,7 +202,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
       column-gap: 0;
     }
     .hm-g {
-      border-right: 1px solid rgb(0 0 0 / 0.12);
+      border-right: 1px solid var(--line);
     }
   }
   @media (min-width: 64rem) {
@@ -183,9 +213,9 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
     .hm > .hm-groups { columns: auto; }
     .hm > .hm-groups > .hm-g { border-right: 0; }
     .hm > .hm-groups .hm-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .hm > .hm-groups .hm-list li { border-right: 1px solid rgb(0 0 0 / 0.12); }
+    .hm > .hm-groups .hm-list li { border-right: 1px solid var(--line); }
     .hm > .hm-groups .hm-list li:nth-child(3n) { border-right: 0; }
     .hm > .hm-groups .hm-list li:nth-child(-n + 3) a { border-top: 0; }
-    .hm > .hm-groups .hm-list li:nth-child(n + 4) a { border-top: 1px solid rgb(0 0 0 / 0.12); }
+    .hm > .hm-groups .hm-list li:nth-child(n + 4) a { border-top: 1px solid var(--line); }
   }
 </style>

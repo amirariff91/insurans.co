@@ -120,7 +120,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     --wm-h: 2.75rem;
     max-width: var(--page-max); margin: 0 auto;
     display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 0 0.75rem;
-    padding: 0.3rem var(--gutter) 0.45rem;
+    padding: 0.25rem var(--gutter) 0.5rem;
   }
   .wm-a { display: block; border-radius: var(--r-1); color: var(--ink); }
   .wm-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
@@ -138,7 +138,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .wm-ncd {
     position: absolute; top: 0; left: 6.4%; max-width: 92%; margin: 0;
     overflow: hidden; white-space: nowrap; pointer-events: none;
-    font: 700 0.875rem/1.2 var(--f); color: var(--ink);
+    font: 600 0.875rem/1.2 var(--f); color: var(--ink);
     transition: opacity 150ms var(--ease-out);
   }
   .wm-ncd b { color: var(--kick); font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -149,22 +149,25 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 
   .menu-btn {
     grid-column: 3; align-self: center;
-    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.75rem; padding: 0 0.9rem 0 0.75rem;
+    display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; padding: 0 1rem 0 0.75rem;
     border: 1.5px solid var(--ink); border-radius: var(--r-pill); background: var(--card); color: var(--ink);
     font: 600 1rem/1 var(--f); cursor: pointer;
     transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
   }
-  .menu-btn[aria-expanded='true'] { background: var(--ink); color: #fff; }
+  .menu-btn[aria-expanded='true'] { background: var(--ink); color: var(--paper); }
   .menu-i { width: 1.25rem; height: 1.25rem; }
 
   .menu-panel { border-top: 1px solid var(--rule); background: var(--card); }
-  .menu-panel ul { margin: 0; padding: 0.5rem var(--gutter) 0.75rem; list-style: none; display: grid; }
-  .menu-panel li + li { border-top: 1px solid var(--chip); }
+  .menu-panel ul { margin: 0; padding: 0.5rem calc(var(--gutter) - 0.5rem) 0.75rem; list-style: none; display: grid; }
+  .menu-panel li + li { border-top: 1px solid var(--line); }
   .menu-panel a {
-    display: flex; align-items: center; min-height: 3rem; padding: 0 0.25rem;
-    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.0625rem;
+    display: flex; align-items: center; min-height: 3rem; padding: 0 0.75rem;
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.125rem;
   }
-  .menu-panel a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; text-decoration-color: var(--sel); }
+  /* The reader's current choice: an ink row with paper text (the same treatment as the current tab). */
+  .menu-panel a { border-radius: var(--r-1); }
+  .menu-panel a[aria-current='page'] { background: var(--ink); color: var(--paper); }
+  .menu-panel a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
   .tabs { display: none; }
 
@@ -172,9 +175,9 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .menu-nojs { grid-column: 3; align-self: center; }
   .menu-nojs > summary { list-style: none; }
   .menu-nojs > summary::-webkit-details-marker { display: none; }
-  .menu-nojs[open] > summary { background: var(--ink); color: #fff; }
+  .menu-nojs[open] > summary { background: var(--ink); color: var(--paper); }
   .menu-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .menu-nojs > .menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.4); }
+  .menu-nojs > .menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; box-shadow: none; border-bottom: 1px solid var(--mute); }
   @media (max-width: 47.99rem) { .mast { position: relative; z-index: 41; } }
 
   /* Narrow bar (rem here follows the root size, so enlarged text lands in these too): at 320 the logo,
@@ -182,46 +185,46 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
      button (its name stays in aria-label) and a logo that shrinks to the space left. */
   @container mast (width < 22.5rem) {
     .mast-in { column-gap: 0.5rem; }
-    .menu-btn { padding: 0 0.75rem 0 0.6rem; }
+    .menu-btn { padding: 0 0.75rem 0 0.5rem; }
   }
   @container mast (width < 19.5rem) {
     .mast-in { grid-template-columns: minmax(0, 1fr) auto; }
     .wm, .wm-a { min-width: 0; justify-self: start; max-width: 100%; }
     .wm-svg { width: 100%; height: auto; max-height: var(--wm-h); }
     .menu-btn, .menu-nojs { grid-column: 2; }
-    .menu-btn { padding: 0 0.6rem; }
+    .menu-btn { padding: 0 0.5rem; }
     .menu-btn > span { display: none; }
   }
 
   @media (min-width: 48rem) {
-    .mast-in { --wm-h: 4.25rem; grid-template-columns: auto auto 1fr; padding: 0.35rem var(--gutter) 0.6rem; }
+    .mast-in { --wm-h: 4.25rem; grid-template-columns: auto auto 1fr; padding: 0.25rem var(--gutter) 0.5rem; }
     .mast-tag {
-      display: block; grid-column: 2; margin: 0 0 0.55rem 0.25rem; padding-left: 1rem;
+      display: block; grid-column: 2; margin: 0 0 0.5rem 0.25rem; padding-left: 1rem;
       border-left: 1.5px solid var(--rule); font-weight: 600; line-height: 1.2; color: var(--ink);
     }
     .menu-btn, .menu-panel, .menu-nojs { display: none; }
 
-    /* Section tabs: a strip on tablet, a glass capsule on desktop (glass only on navigation). */
-    .tabs { display: block; padding: 0 var(--gutter) 0.6rem; }
+    /* Section tabs: a strip on tablet, a capsule on desktop that sits in an opaque paper band when stuck. */
+    .tabs { display: block; padding: 0 var(--gutter) 0.5rem; }
     .tabs ul {
-      display: flex; gap: 0.125rem; width: fit-content; max-width: 100%; margin: 0 auto; padding: 0.25rem;
+      display: flex; gap: 2px; width: fit-content; max-width: 100%; margin: 0 auto; padding: 0.25rem;
       list-style: none; border-radius: var(--r-pill); overflow-x: auto; scrollbar-width: none;
       background: var(--glass);
-      box-shadow: 0 0 0 1px var(--glass-edge), 0 12px 28px -14px rgb(var(--shade) / 0.5), inset 0 1px 0 var(--glass-spec), inset 0 0 0 1px var(--glass-rim);
+      box-shadow: 0 0 0 1px var(--glass-edge), inset 0 1px 0 var(--glass-spec), inset 0 0 0 1px var(--glass-rim);
     }
     .tabs li { flex: none; }
     .tabs li + li { position: relative; }
-    .tabs li + li::before { content: ''; position: absolute; left: -1px; top: 28%; bottom: 28%; width: 1px; background: rgb(var(--shade) / 0.2); }
+    .tabs li + li::before { content: ''; position: absolute; left: -1px; top: 28%; bottom: 28%; width: 1px; background: var(--line); }
     .tabs a {
-      display: flex; align-items: center; min-height: 2.75rem; padding: 0 0.95rem; white-space: nowrap; border-radius: var(--r-pill);
+      display: flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; white-space: nowrap; border-radius: var(--r-pill);
       color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1rem;
       transition: background-color 150ms var(--ease-out);
     }
-    .tabs a[aria-current='page'] { background: var(--ink); color: #fff; }
+    .tabs a[aria-current='page'] { background: var(--ink); color: var(--paper); }
     .tabs a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
     .tabs a[aria-current='page']:focus-visible { outline-color: var(--sel); }
     @media (hover: hover) and (pointer: fine) {
-      .tabs a:not([aria-current]):hover { background: rgb(var(--shade) / 0.08); }
+      .tabs a:not([aria-current]):hover { background: var(--mark); }
     }
   }
 
@@ -229,15 +232,35 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     .mast-in { --wm-h: 4.5rem; padding-bottom: 0.75rem; }
     .mast { position: relative; z-index: 41; display: contents; }
     .mast-in { background: var(--paper); max-width: none; padding-inline: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter))); }
-    .tabs { position: sticky; top: 0.5rem; z-index: 40; margin-top: -0.4rem; padding-bottom: 0; pointer-events: none; }
-    .tabs ul { pointer-events: auto; }
-    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      .tabs ul { background: var(--glass-t); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); }
+    /* The band is always there (paper, 8px above and below the capsule, a 1px mute rule under it), so sticking
+       never shifts layout and no text shows beside or through it. At rest its rule closes the masthead. 69px tall:
+       under html scroll-padding-top (5rem) and the side rails' top (lg:top-20), so it covers neither. */
+    .mast-in { padding-bottom: 0.25rem; }
+    .tabs {
+      position: sticky; top: 0; z-index: 40; padding: 0.5rem var(--gutter);
+      background: var(--paper); border-bottom: 1px solid var(--mute);
     }
+    /* A stuck tab lies inside html's scroll-padding-top (5rem), so focusing one scrolled the page up about 450px per
+       Tab press. Moving its snap area down by the same 5rem marks it as already in view: focus no longer scrolls. */
+    .tabs a { scroll-margin-top: -5rem; }
+  }
+  /* The model pages' sticky left rail (edisi-answer.css, from 80rem) sat at top: 1rem, under the band: it starts
+     below it instead, like the other side rails (lg:top-20). */
+  @media (min-width: 80rem) {
+    :global(.ep .ep-models) { top: 5rem; max-height: calc(100vh - 6rem); }
   }
 
-  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-    .tabs ul { background: var(--card) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 1.5px var(--ink); }
+  /* The strip is already opaque paper; with more contrast its hairline ring becomes ink. */
+  @media (prefers-contrast: more) {
+    .tabs ul { box-shadow: 0 0 0 1.5px var(--ink); }
+    .tabs { border-bottom-color: var(--ink); }
+  }
+  /* Forced colours drop rings and fills: the strip gets a border, the current tab a Highlight fill. */
+  @media (forced-colors: active) {
+    .ins-word { fill: CanvasText; }
+    .tabs ul { border: 1px solid CanvasText; }
+    .tabs a[aria-current='page'] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+    .menu-panel a[aria-current='page'] { forced-color-adjust: none; background: Highlight; color: HighlightText; }
   }
 </style>
 
