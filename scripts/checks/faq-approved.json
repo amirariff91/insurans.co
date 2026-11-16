@@ -1,12 +1,5 @@
 {
- "note": "Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).",
- "baseline": "a5a1c65",
- "entries": [
-  {
-   "url": "/medical-cards/",
-   "path": "FAQPage.mainEntity[3].acceptedAnswer.text",
-   "old": "Kaotim MediKad ialah sijil takaful perubatan langsung dalam talian tanpa komisen ejen. Kelayakan bilik Standard, Pro dan Max ialah RM100, RM150 dan RM200 sehari. Had bersama MediBooster ialah RM550,000, RM825,000 dan RM1,100,000; rider hanya boleh dipilih ketika permohonan. PDS semasa menggunakan nilai templat untuk had tahunan, jadi dapatkan had asas pada sebut harga individu. Pilihan Full Coverage RM0 atau deductible RM2,000/RM3,000 setiap disability mempunyai struktur bayaran sendiri berbeza. Elaun hospital kerajaan RM100 sehari tersedia bagi semua pelan. Perlindungan sehingga 85 ANB, dengan tempoh menunggu dan pengecualian dalam sijil.",
-   "new": "Kaotim MediKad ialah sijil takaful perubatan langsung dalam talian tanpa komisen ejen. Kelayakan bilik Standard, Pro dan Max ialah RM100, RM150 dan RM200 sehari. Had bersama MediBooster ialah RM550,000, RM825,000 dan RM1,100,000; rider hanya boleh dipilih ketika permohonan. Tanpa rider, brosur Kaotim menyatakan had tahunan RM50,000, RM75,000 dan RM100,000. PDS semasa tidak mencetak angka had tahunan, jadi sahkan had pelan anda pada sebut harga. Pilihan Full Coverage RM0 atau deductible RM2,000/RM3,000 setiap disability mempunyai struktur bayaran sendiri berbeza. Elaun hospital kerajaan RM100 sehari tersedia bagi semua pelan. Perlindungan sehingga 85 ANB, dengan tempoh menunggu dan pengecualian dalam sijil."
-  }
- ]
+  "note": "Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).",
+  "baseline": "42cbf2e",
+  "entries": []
 }

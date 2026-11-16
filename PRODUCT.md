@@ -2,7 +2,7 @@
 
 <!-- impeccable:product-schema 1 -->
 
-Updated 15 Nov 2026 for the Edisi redesign (branch `feat/edisi`). Live production is commit `a5a1c65` (15 Nov 2026). The visual system is in `DESIGN.md`.
+Updated 15 Nov 2026 for the Edisi redesign (branch `feat/edisi`). Live production is commit `42cbf2e` (16 Nov 2026). The visual system is in `DESIGN.md`.
 
 ## Platform
 
