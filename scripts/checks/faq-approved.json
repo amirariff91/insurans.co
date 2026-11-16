@@ -1,5 +1,5 @@
 {
   "note": "Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).",
-  "baseline": "42cbf2e",
+  "baseline": "2f5839d",
   "entries": []
 }
