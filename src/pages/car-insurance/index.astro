@@ -6,6 +6,7 @@ import HubModelList from '../../components/edisi/HubModelList.astro';
 import CarThumb from '../../components/CarThumb.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import HubTiles from '../../components/edisi/HubTiles.astro';
+import BarFigure from '../../components/edisi/BarFigure.astro';
 import Dock from '../../components/edisi/Dock.astro';
 import Ikon from '../../components/Ikon.astro';
 import { rmRange } from '../../components/edisi/steps';
@@ -25,6 +26,11 @@ carModels.forEach((car) => {
 const bySlug = Object.fromEntries(carModels.map((car) => [car.slug, car])) as Record<string, any>;
 const num = (value: number) => value.toLocaleString('en-MY');
 const range = (min: number, max: number) => rmRange(min, max, (n) => `RM${num(n)}`);
+const figSlugs = ['perodua-axia', 'proton-saga', 'perodua-myvi', 'toyota-vios', 'honda-city'];
+const figBars = figSlugs.map((slug) => {
+  const car = bySlug[slug];
+  return { label: car.model ?? car.name, from: car.premiumNCD55Min, value: car.premiumNCD55Max, text: `${num(car.premiumNCD55Min)}–${num(car.premiumNCD55Max)}` };
+});
 const leadSmall55 = `RM${num(bySlug['perodua-axia'].premiumNCD55Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD55Max)}`;
 const leadSmall0 = `RM${num(bySlug['perodua-axia'].premiumNCD0Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD0Max)}`;
 const leadMid55 = `RM${num(Math.min(bySlug['honda-city'].premiumNCD55Min, bySlug['toyota-vios'].premiumNCD55Min))}–RM${num(Math.max(bySlug['honda-city'].premiumNCD55Max, bySlug['toyota-vios'].premiumNCD55Max))}`;
@@ -127,6 +133,13 @@ const schema = {
       </section>
 
       <HubModelList />
+
+      <BarFigure
+        class="hub-fig"
+        caption="Anggaran premium komprehensif setahun (RM), NCD 55%."
+        bars={figBars}
+        active={figSlugs.indexOf('perodua-myvi')}
+      />
 
 
       <p class="hub-lead">

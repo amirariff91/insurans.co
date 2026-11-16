@@ -7,6 +7,9 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { docName, readerDate } from '../../../components/edisi-tools/labels';
 import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 import rates from '../../../data/roadtax-rates.json';
+import BarFigure from '../../../components/edisi/BarFigure.astro';
+import { calcRoadtax } from '../../../lib/roadtax';
+import { rtNum } from '../../../components/edisi/steps';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax/';
 const description = 'Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.';
@@ -58,6 +61,12 @@ const schema = {
 const [introLead, ...introMore] = intro.split(/(?<=\.)\s+/);
 const introRest = introMore.join(' ');
 // Worked example for the method sentence, from the same rate table (Semenanjung saloon, 1,601-1,800cc band).
+// Figure: six common engine sizes, each computed by the calculator's own function from the JPJ table.
+const figCc = [1000, 1300, 1500, 1800, 2000, 2500];
+const figBars = figCc.map((cc) => {
+  const { rate } = calcRoadtax('semenanjung', 'saloon', cc);
+  return { label: `${(cc / 1000).toFixed(1)}L`, value: rate, text: `RM${rtNum(rate)}` };
+});
 const exBand = rates.rates.semenanjung.saloon.find((b) => b.minCc === 1601)!;
 const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 ---
@@ -175,6 +184,12 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
         </div>
 
         <article class="prose-editorial mt-10">
+          <BarFigure
+            class="not-prose mb-8"
+            caption="Roadtax setahun kereta saloon di Semenanjung, ikut saiz enjin (1.5L = 1,500cc)."
+            bars={figBars}
+            active={figCc.indexOf(1500)}
+          />
           <h2>Jadual kadar ikut wilayah dan jenis badan, kemudian band cc</h2>
           <p>Kami pilih jadual kadar berdasarkan wilayah dan jenis badan, kemudian cari band yang mengandungi kapasiti enjin anda.</p>
           <ul>

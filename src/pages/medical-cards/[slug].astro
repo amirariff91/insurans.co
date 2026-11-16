@@ -6,6 +6,7 @@ import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
+import BarFigure from '../../components/edisi/BarFigure.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import { archivedCopy, factRole, tarikh } from '../../components/edisi/ProductFormat';
 import medicalCards from '../../data/medical-cards.json';
@@ -125,6 +126,17 @@ const leadValue = /^RM[\d,]+$/.test(card.annualLimit ?? '') ? card.annualLimit :
 const lead = leadValue ? { value: leadValue, label: card.annualLimitLabel ?? 'Had tahunan', role: 'term' as const } : undefined;
 const insurerName = card.insurer.replace(/\.$/, '');
 const finding = `${typeLabel} oleh ${insurerName}`;
+// Figure: "RM50,000 / 100,000 / 150,000 (Plan 1/2/3)" becomes one bar per plan. Anything that does not parse
+// exactly this way (a range, a rider, unequal counts) gets no figure rather than a guessed one.
+const tierMatch = /^((?:RM)?[\d,]+(?: \/ (?:RM)?[\d,]+)+) \(([^();]+)\)$/.exec(card.annualLimit ?? '');
+const tierValues = tierMatch ? tierMatch[1].split(' / ').map((v) => Number(v.replace(/[^\d]/g, ''))) : [];
+const tierNames = tierMatch ? tierMatch[2].replace(/^Plan /, '').split('/').map((n) => n.trim()) : [];
+// Names must be either "Plan 1/2/3" or all words (MPE/MPD/…). "GX200/250/300" mixes the two and is left out.
+const namesClear = tierMatch ? /^Plan \d+(\/\d+)+$/.test(tierMatch[2]) || tierNames.every((n) => /^[A-Za-z-]+$/.test(n)) : false;
+const tierBars =
+  namesClear && tierValues.length >= 2 && tierValues.length === tierNames.length && tierValues.every((v) => v > 0)
+    ? tierValues.map((v, i) => ({ label: /^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i], value: v, text: `RM${v >= 1e6 ? `${v / 1e6} juta` : `${v / 1000}k`}` }))
+    : [];
 const answerSkip: string[] = lead ? ['Had tahunan'] : [];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
   .filter((spec, index, all) => all.findIndex((other) => other.label === spec.label) === index);
@@ -196,6 +208,9 @@ const answerRest = [
 
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
+      {tierBars.length > 0 && (
+        <BarFigure caption={`Had tahunan ${card.planName} ikut pelan.`} bars={tierBars} active={tierBars.length - 1} />
+      )}
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p class="text-lg text-stone-700">{analysis.bestFor}</p>
