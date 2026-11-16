@@ -1,17 +1,4 @@
 {
   "_doc": "Allowed differences from the baseline (check 1), each exact. An entry matches a difference when every field it gives matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|h1|description|canonical|robots|ads|rm|pct|phones|jsonld), url and path (regex), value (regex on the difference text), old/new (exact sides of a change; null = absent), values (exact list of added/removed values). Figures are compared by value (ranges keep both ends; K/ribu/juta/bilion expanded). Not listed here because the check derives them: NCD figures computed from car-models.json with the site helpers, and FAQ wording edits that equal the visible FAQ and carry the same figures. Every entry needs a reason. See docs/checks.md.",
-  "entries": [
-    {
-      "check": "contract",
-      "kind": "added",
-      "field": "rm",
-      "url": "^/medical-cards/takaful-malaysia-kaotim-medikad/$",
-      "values": [
-        "RM50,000",
-        "RM75,000",
-        "RM100,000"
-      ],
-      "reason": "Kaotim MediKad base annual limits (Standard/Pro/Max) now stated: printed in the benefit table on page 2 of the official brochure Risalah-MediKad-EN-RGB-150525.pdf (kaotim.my, linked from the product page, read 15 Nov 2026). Editor approved the fix on 15 Nov 2026; replaces the stale claim that only a template value exists."
-    }
-  ]
+  "entries": []
 }

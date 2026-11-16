@@ -1,6 +1,6 @@
 {
- "commit": "a5a1c65",
- "createdAt": "2026-11-15T16:23:57.257Z",
+ "commit": "42cbf2e",
+ "createdAt": "2026-11-16T00:08:30.916Z",
  "pages": {
   "/404.html": {
    "title": "Halaman Tidak Dijumpai — 404 | Insurans.co",
@@ -13001,7 +13001,7 @@
     "FAQPage.mainEntity[2].name": "Berapa lama kena tunggu sebelum boleh claim medical card?",
     "FAQPage.mainEntity[3].@type": "Question",
     "FAQPage.mainEntity[3].acceptedAnswer.@type": "Answer",
-    "FAQPage.mainEntity[3].acceptedAnswer.text": "Kaotim MediKad ialah sijil takaful perubatan langsung dalam talian tanpa komisen ejen. Kelayakan bilik Standard, Pro dan Max ialah RM100, RM150 dan RM200 sehari. Had bersama MediBooster ialah RM550,000, RM825,000 dan RM1,100,000; rider hanya boleh dipilih ketika permohonan. PDS semasa menggunakan nilai templat untuk had tahunan, jadi dapatkan had asas pada sebut harga individu. Pilihan Full Coverage RM0 atau deductible RM2,000/RM3,000 setiap disability mempunyai struktur bayaran sendiri berbeza. Elaun hospital kerajaan RM100 sehari tersedia bagi semua pelan. Perlindungan sehingga 85 ANB, dengan tempoh menunggu dan pengecualian dalam sijil.",
+    "FAQPage.mainEntity[3].acceptedAnswer.text": "Kaotim MediKad ialah sijil takaful perubatan langsung dalam talian tanpa komisen ejen. Kelayakan bilik Standard, Pro dan Max ialah RM100, RM150 dan RM200 sehari. Had bersama MediBooster ialah RM550,000, RM825,000 dan RM1,100,000; rider hanya boleh dipilih ketika permohonan. Tanpa rider, brosur Kaotim menyatakan had tahunan RM50,000, RM75,000 dan RM100,000. PDS semasa tidak mencetak angka had tahunan, jadi sahkan had pelan anda pada sebut harga. Pilihan Full Coverage RM0 atau deductible RM2,000/RM3,000 setiap disability mempunyai struktur bayaran sendiri berbeza. Elaun hospital kerajaan RM100 sehari tersedia bagi semua pelan. Perlindungan sehingga 85 ANB, dengan tempoh menunggu dan pengecualian dalam sijil.",
     "FAQPage.mainEntity[3].name": "Kaotim MediKad okay ke?",
     "FAQPage.mainEntity[4].@type": "Question",
     "FAQPage.mainEntity[4].acceptedAnswer.@type": "Answer",
@@ -13329,6 +13329,7 @@
     "RM1,000",
     "RM1,100,000",
     "RM100",
+    "RM100,000",
     "RM100–250",
     "RM150",
     "RM150,000–500,000",
@@ -13337,6 +13338,7 @@
     "RM2,000",
     "RM200",
     "RM3,000",
+    "RM50,000",
     "RM500",
     "RM51.7",
     "RM550,000",
@@ -13346,6 +13348,7 @@
     "RM623",
     "RM63.57",
     "RM691",
+    "RM75,000",
     "RM825,000",
     "RM900,000–1,500,000"
    ],
