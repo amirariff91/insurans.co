@@ -176,7 +176,7 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
       row-gap: 0.25rem;
       padding-block: 0.5rem;
     }
-    .hm-list a > :first-child { grid-area: t; }
+    .hm-list a > :global(.ct) { grid-area: t; }
     .hm-name { grid-area: n; overflow-wrap: break-word; }
     .hm-pill { grid-area: p; justify-self: start; padding: 0; }
     .hm-chev { grid-area: c; }

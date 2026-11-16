@@ -40,7 +40,7 @@ export default {
       stone: ramp({ [paper]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900, 950] }),
       hijau: ramp({ [paper]: [50, 100], [mute]: [200, 300, 600], [magenta]: [400, 500], [ink]: [700, 800, 900, 950] }),
       emas: ramp({ [paper]: [50, 100], [mute]: [200, 300, 400, 500, 600], [ink]: [700, 800, 900] }),
-      krim: ramp({ [paper]: [50, 100, 200], [mute]: [300] }),
+      krim: ramp({ [paper]: [50, 100], [mute]: [200, 300] }),
       red: ramp({ [paper]: [50], [mute]: [200], [ink]: [700] }),
       verdict: {
         best: { bg: paper, ink, border: magenta },
