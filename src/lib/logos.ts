@@ -23,6 +23,8 @@ export interface LogoRecord {
   scale?: number;
   /** A very wide logo (about 5:1 or wider): LogoTile trims the side padding so its type stays readable. */
   wide?: boolean;
+  /** A stacked logo (mark above its name, about 3:2 or taller): LogoTile trims the top and bottom padding so the name stays readable. */
+  tall?: boolean;
 }
 
 export const BRAND_LOGOS = brandLogos.records as LogoRecord[];
