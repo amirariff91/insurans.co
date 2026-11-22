@@ -73,7 +73,7 @@ async function derivedSets(repo) {
 
 // ---------- 1. contract against live ----------
 export async function contract(dist, baseline, allow, repo, faq, pending = null) {
-  const r = mk(1, 'Contract against live (2f5839d)');
+  const r = mk(1, 'Contract against live (a78c50a)');
   const cur = snapshot(dist, true);
   const base = baseline.pages;
   const derived = await derivedSets(repo);
