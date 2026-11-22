@@ -3,8 +3,15 @@
  * One icon from the sprite public/ikon.svg (Phosphor Icons, Bold weight, MIT; ids in src/data/ikon-names.json).
  * Without `label` the icon is decorative and hidden from assistive technology; keep a visible word beside it.
  * Single colour: the icon is drawn in currentColor, so it takes the colour of the text around it.
+ *
+ * The sprite address carries a hash of the file (`/ikon.svg?v=…`). The file is cached for a day at a fixed path, so
+ * without the hash a browser holding yesterday's sprite draws nothing for an icon added today.
  */
+import { createHash } from 'node:crypto';
 import ikonNames from '../data/ikon-names.json';
+import sprite from '../../public/ikon.svg?raw';
+
+const SPRITE = `/ikon.svg?v=${createHash('sha256').update(sprite).digest('hex').slice(0, 8)}`;
 
 interface Props {
   /** Symbol id, e.g. "i-kereta". */
@@ -26,11 +33,11 @@ if (!(ikonNames as string[]).includes(name)) {
 {label ? (
   <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 256 256" role="img" aria-label={label} focusable="false">
     <title>{label}</title>
-    <use href={`/ikon.svg#${name}`} />
+    <use href={`${SPRITE}#${name}`} />
   </svg>
 ) : (
   <svg class:list={['ikon', className]} width={size} height={size} viewBox="0 0 256 256" aria-hidden="true" focusable="false">
-    <use href={`/ikon.svg#${name}`} />
+    <use href={`${SPRITE}#${name}`} />
   </svg>
 )}
 
