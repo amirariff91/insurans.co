@@ -169,7 +169,41 @@ async function contextual(dist, cur, repo, r) {
   const host = (x) => { try { return new URL(x).hostname; } catch { return String(x); } };
   if (rows.length !== direct.length) fail('/insurans-online/', 'buy-direct', `${rows.length} rows, data has ${direct.length}`, 'src/pages/insurans-online/index.astro');
   else direct.forEach((d, i) => { if (links[i] !== d.url || host(links[i]) !== host(d.url)) fail('/insurans-online/', 'buy-direct', `row ${i + 1} ${d.company}: links ${links[i]} expected ${d.url}`); });
-  r.contextual = `${n} answer blocks × 6 steps, ${leads} plan leads, ${rows.length} buy-direct rows`;
+  // (d) Bar figures (BarFigure.astro): on every page with a figure.bf, each bar's printed figure and spoken phrase
+  //     equal the page's data source, recomputed here. A figure on a page with no entry below fails, so a new
+  //     figure cannot ship unverified. Each entry is one [figure, spoken phrase] per bar, in order.
+  const en = (v) => v.toLocaleString('en-MY');
+  const saloon = read('roadtax-rates.json').rates.semenanjung.saloon;
+  const cards = Object.fromEntries(read('medical-cards.json').records.map((c) => [c.slug, c]));
+  const want = {
+    '/guides/ncd-explained/': h.STEPS.map((s) => [String(s.tier), s.aria]),
+    '/tools/kalkulator-roadtax/': [1000, 1300, 1500, 1800, 2000, 2500].map((cc) => {
+      const b = saloon.find((x) => cc >= x.minCc && cc <= x.maxCc);
+      const rate = h.rtNum(Math.round((b.base + b.perCc * (cc - (b.minCc - 1))) * 100) / 100);
+      return [rate, `${en(cc)}cc: RM${rate}`];
+    }),
+    '/car-insurance/': ['perodua-axia', 'proton-saga', 'perodua-myvi', 'toyota-vios', 'honda-city'].map((slug) => {
+      const m = bySlug[slug], lo = en(m.premiumNCD55Min), hi = en(m.premiumNCD55Max);
+      return [`${lo}–${hi}`, `${m.model ?? m.fullName}: RM${lo} hingga RM${hi}`];
+    }),
+  };
+  // Plan pages with a figure: annualLimit reads "RM50,000 / 100,000 / 150,000 (Plan 1/2/3)", one bar per plan.
+  for (const slug of ['etiqa-one-medical', 'takaful-ikhlas-ikhlas-medik']) {
+    const [, limits = '', plans = ''] = /^(.+) \(Plan (.+)\)$/.exec(cards[slug]?.annualLimit ?? '') ?? [];
+    const v = limits.split(' / ').map((x) => en(Number(x.replace(/\D/g, ''))));
+    want[`/medical-cards/${slug}/`] = plans.split('/').map((p, i) => [v[i], `Plan ${p}: RM${v[i]}`]);
+  }
+  let figs = 0;
+  for (const u of new Set([...Object.keys(want), ...Object.keys(cur)])) {
+    const root = cur[u]?.root;
+    if (!root?.querySelector('figure.bf')) { if (want[u]) fail(u, 'bar-figure', 'no figure.bf on a page that should have one', 'scripts/checks/static.mjs'); continue; }
+    if (!want[u]) { fail(u, 'bar-figure', 'figure.bf with no expectation: add this page to the bar-figure assertion', 'scripts/checks/static.mjs'); continue; }
+    const got = root.querySelectorAll('figure.bf .bf-i').map((li) => ['.bf-t', '.sr-only'].map((sel) => norm(li.querySelector(sel)?.textContent || '')));
+    const bad = want[u].length !== got.length ? `${got.length} bars, data gives ${want[u].length}`
+      : want[u].map((w, i) => (w.join(' | ') === got[i].join(' | ') ? '' : `bar ${i + 1}: got "${got[i].join(' | ')}" expected "${w.join(' | ')}"`)).filter(Boolean).join('; ');
+    if (bad) fail(u, 'bar-figure', bad, 'src/components/edisi/BarFigure.astro'); else figs++;
+  }
+  r.contextual = `${n} answer blocks × 6 steps, ${leads} plan leads, ${rows.length} buy-direct rows, ${figs} bar figures`;
 }
 
 // ---------- 2. ads and indexing ----------

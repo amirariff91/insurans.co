@@ -1,0 +1,183 @@
+---
+/**
+ * Number-led figure (illustration direction B): the page's own figures drawn as bars, in the shape of the site's
+ * NCD control. Every bar is a real value from the page's data; nothing here is decorative and nothing is generated.
+ * The chosen bar sits on the yellow mark with the magenta knob on top, like the logo's i.
+ *
+ *   <BarFigure
+ *     caption="Diskaun NCD kereta persendirian ikut tahun tanpa claim"
+ *     bars={[{ label: '0', value: 0, text: '0%' }, …]}
+ *     active={5}
+ *   />
+ *
+ * value: sets the bar's top. from: optional bottom, for a range (the bar floats between from and value).
+ * text: what is printed above the bar (already formatted), as a bare number: the caption names the unit ("(RM)",
+ * "(%)"), so a figure stays narrow enough for its column on a 320px phone at the site's 14px minimum.
+ * label: what is printed under it. sr: the whole bar as one spoken phrase with its unit ("1 tahun tanpa claim, NCD
+ * 25%"); the visible figure and label are hidden from screen readers, so the default "label: text" lacks the unit.
+ * active: index of the reader's figure; omit it and no bar is marked.
+ * The list is an ordinary <ol>, so a screen reader hears each bar's sr phrase in order.
+ */
+interface Bar {
+  label: string;
+  value: number;
+  from?: number;
+  text: string;
+  sr?: string;
+}
+interface Props {
+  bars: Bar[];
+  active?: number;
+  caption: string;
+  class?: string;
+}
+
+const { bars, active, caption, class: className } = Astro.props;
+const top = Math.max(...bars.map((b) => b.value));
+if (!(top > 0)) throw new Error('BarFigure: at least one bar needs a value above 0.');
+// Shares of the tallest bar, in whole percent. A zero stays a thin line so the step is still seen.
+const pct = (n: number) => Math.round((n / top) * 1000) / 10;
+---
+
+<figure class:list={['bf', className]}>
+  <ol class="bf-bars" style={`--n:${bars.length}`}>
+    {bars.map((b, i) => (
+      <li class:list={['bf-i', i === active && 'is-on', b.from != null && 'is-range']} style={`--bf-top:${pct(b.value)};--bf-from:${pct(b.from ?? 0)};--len:${b.text.length}`}>
+        <span class="bf-track" aria-hidden="true">
+          <span class="bf-t">{b.text}</span>
+          <span class="bf-b" />
+        </span>
+        <span class="bf-l" aria-hidden="true">{b.label}</span>
+        <span class="sr-only">{b.sr ?? `${b.label}: ${b.text}`}</span>
+      </li>
+    ))}
+  </ol>
+  <figcaption class="bf-c">{caption}</figcaption>
+</figure>
+
+<style>
+  .bf {
+    --bf-h: 9; /* track height in rem; the tallest bar fills it less the room for its figure */
+    --bf-room: 2.5rem; /* space above the tallest bar for its figure */
+    margin: 0;
+    max-inline-size: var(--measure);
+  }
+  .bf-bars {
+    display: grid;
+    grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+  /* A range figure may break onto two lines on a phone, so its tallest bar needs a second line of room. */
+  .bf:has(.is-range) { --bf-room: 3.75rem; }
+  /* The baseline: one unbroken rule under the bars and above their labels. */
+  .bf-bars::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: calc(var(--bf-h) * 1rem + var(--bf-room));
+    border-block-start: 2px solid var(--ink);
+  }
+  /* Two classes: prose pages space their list items, and that would lift every bar but the first off the baseline. */
+  .bf-bars > .bf-i {
+    margin: 0;
+    padding: 0;
+  }
+  .bf-i {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+    container-type: inline-size; /* the figure above a bar sizes itself to the bar's column (cqi) */
+  }
+  .bf-track {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    block-size: calc(var(--bf-h) * 1rem + var(--bf-room));
+  }
+  .bf-t {
+    font-family: var(--f);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    overflow-wrap: normal; /* list items inherit "anywhere"; a figure must never break inside a number */
+    margin-block-end: 0.25rem;
+  }
+  .bf-b {
+    position: relative;
+    inline-size: 100%;
+    flex: none; /* a long figure above must never squeeze the bar shorter than its value */
+    /* height = the bar's share of the track between its bottom and top; never thinner than its own outline */
+    block-size: max(4px, calc((var(--bf-top) - var(--bf-from)) * var(--bf-h) * 0.01rem));
+    margin-block-end: calc(var(--bf-from) * var(--bf-h) * 0.01rem);
+    box-sizing: border-box;
+    border: 2px solid var(--ink);
+    border-block-end: 0;
+    background: var(--paper);
+  }
+  .is-range .bf-b { border-block-end: 2px solid var(--ink); }
+  /* "690–1,270" is wider than a fifth of a phone screen: let it break after the dash, never mid-number. */
+  .is-range .bf-t {
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
+  .bf-l {
+    order: 2;
+    padding-block: 0.5rem 0;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    color: var(--mute);
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  /* The reader's figure: yellow mark, ink figure, magenta knob resting on the bar's top edge. */
+  .is-on .bf-b { background: var(--mark); }
+  .is-on .bf-b::before {
+    content: '';
+    position: absolute;
+    inset-block-start: -0.5rem;
+    inset-inline-start: 50%;
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+    margin-inline-start: -0.4375rem;
+    box-sizing: border-box;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background: var(--magenta);
+  }
+  .is-on .bf-t {
+    font-family: var(--fd);
+    /* Full size where the column allows; on a phone, shrink until the figure (--len characters, about 0.65em
+       each in the display face) fits its own column, but never below the body figure size. */
+    font-size: clamp(0.875rem, calc(100cqi / (var(--len) * 0.7)), 1.375rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin-block-end: 0.75rem;
+  }
+  .is-on .bf-l { color: var(--ink); font-weight: 600; }
+  /* A range is a longer figure: one step down, so it stays inside its own column on a phone. */
+  .is-range.is-on .bf-t { font-size: 1.125rem; }
+  /* A range wraps instead of shrinking, so it keeps its fixed step-down size. */
+  .bf-c {
+    margin-block-start: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--mute);
+  }
+  /* On the narrowest phones the gaps give their width to the columns. */
+  @media (max-width: 24rem) {
+    .bf-bars { gap: 0.25rem; }
+  }
+  @media (min-width: 40rem) {
+    .bf { --bf-h: 11; }
+    .bf-bars { gap: 0.75rem; }
+  }
+</style>
