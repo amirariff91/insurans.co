@@ -65,7 +65,7 @@ const introRest = introMore.join(' ');
 const figCc = [1000, 1300, 1500, 1800, 2000, 2500];
 const figBars = figCc.map((cc) => {
   const { rate } = calcRoadtax('semenanjung', 'saloon', cc);
-  return { label: `${(cc / 1000).toFixed(1)}L`, value: rate, text: `RM${rtNum(rate)}` };
+  return { label: `${(cc / 1000).toFixed(1)}L`, value: rate, text: rtNum(rate) };
 });
 const exBand = rates.rates.semenanjung.saloon.find((b) => b.minCc === 1601)!;
 const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
@@ -186,7 +186,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
         <article class="prose-editorial mt-10">
           <BarFigure
             class="not-prose mb-8"
-            caption="Roadtax setahun kereta saloon di Semenanjung, ikut saiz enjin (1.5L = 1,500cc)."
+            caption="Roadtax setahun (RM) kereta saloon di Semenanjung, ikut saiz enjin (1.5L = 1,500cc)."
             bars={figBars}
             active={figCc.indexOf(1500)}
           />

@@ -135,7 +135,7 @@ const tierNames = tierMatch ? tierMatch[2].replace(/^Plan /, '').split('/').map(
 const namesClear = tierMatch ? /^Plan \d+(\/\d+)+$/.test(tierMatch[2]) || tierNames.every((n) => /^[A-Za-z-]+$/.test(n)) : false;
 const tierBars =
   namesClear && tierValues.length >= 2 && tierValues.length === tierNames.length && tierValues.every((v) => v > 0)
-    ? tierValues.map((v, i) => ({ label: /^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i], value: v, text: `RM${v >= 1e6 ? `${v / 1e6} juta` : `${v / 1000}k`}` }))
+    ? tierValues.map((v, i) => ({ label: /^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i], value: v, text: v >= 1e6 ? `${v / 1e6} juta` : `${v / 1000}k` }))
     : [];
 const answerSkip: string[] = lead ? ['Had tahunan'] : [];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
@@ -209,7 +209,7 @@ const answerRest = [
   <div class="container-article py-8 sm:py-12">
     <div class="space-y-10 sm:space-y-14">
       {tierBars.length > 0 && (
-        <BarFigure caption={`Had tahunan ${card.planName} ikut pelan.`} bars={tierBars} active={tierBars.length - 1} />
+        <BarFigure caption={`Had tahunan ${card.planName} ikut pelan (RM).`} bars={tierBars} />
       )}
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>

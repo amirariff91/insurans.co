@@ -11,7 +11,9 @@
  *   />
  *
  * value: sets the bar's top. from: optional bottom, for a range (the bar floats between from and value).
- * text: what is printed above the bar (already formatted). label: what is printed under it.
+ * text: what is printed above the bar (already formatted), as a bare number: the caption names the unit ("(RM)",
+ * "(%)"), so a figure stays narrow enough for its column on a 320px phone at the site's 14px minimum.
+ * label: what is printed under it.
  * active: index of the reader's figure; omit it and no bar is marked.
  * The list is an ordinary <ol>, so a screen reader hears "label: text" for each bar in order.
  */
@@ -38,7 +40,7 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
 <figure class:list={['bf', className]}>
   <ol class="bf-bars" style={`--n:${bars.length}`}>
     {bars.map((b, i) => (
-      <li class:list={['bf-i', i === active && 'is-on', b.from != null && 'is-range']} style={`--h:${pct(b.value)};--f:${pct(b.from ?? 0)}`}>
+      <li class:list={['bf-i', i === active && 'is-on', b.from != null && 'is-range']} style={`--h:${pct(b.value)};--f:${pct(b.from ?? 0)};--len:${b.text.length}`}>
         <span class="bf-track">
           <span class="bf-t">{b.text}</span>
           <span class="bf-b" aria-hidden="true" />
@@ -53,6 +55,7 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
 <style>
   .bf {
     --bf-h: 9; /* track height in rem; the tallest bar fills it less the room for its figure */
+    --bf-room: 2.5rem; /* space above the tallest bar for its figure */
     margin: 0;
     max-inline-size: var(--measure);
   }
@@ -65,12 +68,14 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
     list-style: none;
     position: relative;
   }
+  /* A range figure may break onto two lines on a phone, so its tallest bar needs a second line of room. */
+  .bf:has(.is-range) { --bf-room: 3.75rem; }
   /* The baseline: one unbroken rule under the bars and above their labels. */
   .bf-bars::after {
     content: '';
     position: absolute;
     inset-inline: 0;
-    inset-block-start: calc(var(--bf-h) * 1rem + 2.5rem);
+    inset-block-start: calc(var(--bf-h) * 1rem + var(--bf-room));
     border-block-start: 2px solid var(--ink);
   }
   /* Two classes: prose pages space their list items, and that would lift every bar but the first off the baseline. */
@@ -82,13 +87,14 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
     display: flex;
     flex-direction: column;
     min-inline-size: 0;
+    container-type: inline-size; /* the figure above a bar sizes itself to the bar's column (cqi) */
   }
   .bf-track {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    block-size: calc(var(--bf-h) * 1rem + 2.5rem);
+    block-size: calc(var(--bf-h) * 1rem + var(--bf-room));
   }
   .bf-t {
     font-family: var(--f);
@@ -112,6 +118,12 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
     background: var(--paper);
   }
   .is-range .bf-b { border-block-end: 2px solid var(--ink); }
+  /* "690–1,270" is wider than a fifth of a phone screen: let it break after the dash, never mid-number. */
+  .is-range .bf-t {
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
   .bf-l {
     order: 2;
     padding-block: 0.5rem 0;
@@ -138,7 +150,9 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
   }
   .is-on .bf-t {
     font-family: var(--fd);
-    font-size: 1.375rem;
+    /* Full size where the column allows; on a phone, shrink until the figure (--len characters, about 0.65em
+       each in the display face) fits its own column, but never below the body figure size. */
+    font-size: clamp(0.875rem, calc(100cqi / (var(--len) * 0.7)), 1.375rem);
     font-weight: 800;
     color: var(--ink);
     margin-block-end: 0.75rem;
@@ -146,11 +160,16 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
   .is-on .bf-l { color: var(--ink); font-weight: 600; }
   /* A range is a longer figure: one step down, so it stays inside its own column on a phone. */
   .is-range.is-on .bf-t { font-size: 1.125rem; }
+  /* A range wraps instead of shrinking, so it keeps its fixed step-down size. */
   .bf-c {
     margin-block-start: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.4;
     color: var(--mute);
+  }
+  /* On the narrowest phones the gaps give their width to the columns. */
+  @media (max-width: 24rem) {
+    .bf-bars { gap: 0.25rem; }
   }
   @media (min-width: 40rem) {
     .bf { --bf-h: 11; }
