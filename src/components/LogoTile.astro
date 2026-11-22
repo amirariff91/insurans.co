@@ -25,7 +25,7 @@ const label = rec?.name ?? brand ?? '';
 const dims = { s: [80, 30], m: [112, 40], l: [144, 52] }[size];
 ---
 {rec && (rec.kind === 'logo' || wordmark) && (
-  <span class:list={['lt', `lt-${size}`, rec.kind === 'wordmark' && 'lt-word', rec.wide && 'lt-wide', className]}>
+  <span class:list={['lt', `lt-${size}`, rec.kind === 'wordmark' && 'lt-word', rec.wide && 'lt-wide', rec.tall && 'lt-tall', className]}>
     {rec.kind === 'logo' && rec.path ? (
       <img class="lt-img" style={rec.scale ? `scale:${rec.scale}` : undefined} src={rec.path} alt={`Logo ${label}`} width={dims[0]} height={dims[1]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
     ) : (
@@ -64,6 +64,9 @@ const dims = { s: [80, 30], m: [112, 40], l: [144, 52] }[size];
   }
   /* Very wide logos (a long name set beside the mark): use the tile's full width so the type stays readable. */
   .lt-wide .lt-img { inset-inline: 0.2rem; inline-size: calc(100% - 0.4rem); }
+  /* Stacked logos (mark above its name): use the tile's full height, or the name under the mark is too small to read. */
+  .lt-tall .lt-img { inset-block: 0.1875rem; block-size: calc(100% - 0.375rem); }
+  .lt-s.lt-tall .lt-img { inset-block: 0.125rem; block-size: calc(100% - 0.25rem); }
   .lt-name {
     font: 800 0.875rem/1 var(--fd, inherit);
     letter-spacing: -0.01em;
