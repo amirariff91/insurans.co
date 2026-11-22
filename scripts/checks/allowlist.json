@@ -1,4 +1,125 @@
 {
   "_doc": "Allowed differences from the baseline (check 1), each exact. An entry matches a difference when every field it gives matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|h1|description|canonical|robots|ads|rm|pct|phones|jsonld), url and path (regex), value (regex on the difference text), old/new (exact sides of a change; null = absent), values (exact list of added/removed values). Figures are compared by value (ranges keep both ends; K/ribu/juta/bilion expanded). Not listed here because the check derives them: NCD figures computed from car-models.json with the site helpers, and FAQ wording edits that equal the visible FAQ and carry the same figures. Every entry needs a reason. See docs/checks.md.",
-  "entries": []
+  "entries": [
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM1,270"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM1,270 = Toyota Vios premiumNCD55Max in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM1,490"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM1,490 = Honda City premiumNCD55Max in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM330"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM330 = Perodua Axia premiumNCD55Min in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM670"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM670 = Perodua Axia premiumNCD55Max in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM690"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM690 = Toyota Vios premiumNCD55Min in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM750"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM750 = Honda City premiumNCD55Min in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM860"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM860 = Proton Saga premiumNCD55Max in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/$",
+      "values": [
+        "RM970"
+      ],
+      "reason": "Bar figure (illustration direction B) on the car hub, screen-reader text of each bar: RM970 = Perodua Myvi premiumNCD55Max in src/data/car-models.json (comprehensive premium at NCD 55%, the same record the hub's model list prints as a range)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "values": [
+        "RM70"
+      ],
+      "reason": "Bar figure (illustration direction B) on the road tax calculator, screen-reader text of each bar: Semenanjung saloon roadtax for 1,300cc (band 1,201-1,400cc), computed at build time by the calculator's own calcRoadtax() from src/data/roadtax-rates.json (JPJ rate table; site check 9 tests that function)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "values": [
+        "RM90"
+      ],
+      "reason": "Bar figure (illustration direction B) on the road tax calculator, screen-reader text of each bar: Semenanjung saloon roadtax for 1,500cc (band 1,401-1,600cc), computed at build time by the calculator's own calcRoadtax() from src/data/roadtax-rates.json (JPJ rate table; site check 9 tests that function)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "values": [
+        "RM380"
+      ],
+      "reason": "Bar figure (illustration direction B) on the road tax calculator, screen-reader text of each bar: Semenanjung saloon roadtax for 2,000cc (RM280 + RM0.50 x 200cc), computed at build time by the calculator's own calcRoadtax() from src/data/roadtax-rates.json (JPJ rate table; site check 9 tests that function)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "values": [
+        "RM880"
+      ],
+      "reason": "Bar figure (illustration direction B) on the road tax calculator, screen-reader text of each bar: Semenanjung saloon roadtax for 2,500cc (RM380 + RM1.00 x 500cc), computed at build time by the calculator's own calcRoadtax() from src/data/roadtax-rates.json (JPJ rate table; site check 9 tests that function)."
+    }
+  ]
 }

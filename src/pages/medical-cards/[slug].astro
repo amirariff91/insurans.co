@@ -135,7 +135,7 @@ const tierNames = tierMatch ? tierMatch[2].replace(/^Plan /, '').split('/').map(
 const namesClear = tierMatch ? /^Plan \d+(\/\d+)+$/.test(tierMatch[2]) || tierNames.every((n) => /^[A-Za-z-]+$/.test(n)) : false;
 const tierBars =
   namesClear && tierValues.length >= 2 && tierValues.length === tierNames.length && tierValues.every((v) => v > 0)
-    ? tierValues.map((v, i) => ({ label: /^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i], value: v, text: v >= 1e6 ? `${v / 1e6} juta` : `${v / 1000}k` }))
+    ? tierValues.map((v, i) => ({ label: /^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i], value: v, text: v.toLocaleString('en-MY'), sr: `${/^\d+$/.test(tierNames[i]) ? `Plan ${tierNames[i]}` : tierNames[i]}: RM${v.toLocaleString('en-MY')}` }))
     : [];
 const answerSkip: string[] = lead ? ['Had tahunan'] : [];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]

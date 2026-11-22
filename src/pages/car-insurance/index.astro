@@ -29,7 +29,13 @@ const range = (min: number, max: number) => rmRange(min, max, (n) => `RM${num(n)
 const figSlugs = ['perodua-axia', 'proton-saga', 'perodua-myvi', 'toyota-vios', 'honda-city'];
 const figBars = figSlugs.map((slug) => {
   const car = bySlug[slug];
-  return { label: car.model ?? car.name, from: car.premiumNCD55Min, value: car.premiumNCD55Max, text: `${num(car.premiumNCD55Min)}–${num(car.premiumNCD55Max)}` };
+  return {
+    label: car.model ?? car.fullName,
+    from: car.premiumNCD55Min,
+    value: car.premiumNCD55Max,
+    text: `${num(car.premiumNCD55Min)}–${num(car.premiumNCD55Max)}`,
+    sr: `${car.model ?? car.fullName}: RM${num(car.premiumNCD55Min)} hingga RM${num(car.premiumNCD55Max)}`,
+  };
 });
 const leadSmall55 = `RM${num(bySlug['perodua-axia'].premiumNCD55Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD55Max)}`;
 const leadSmall0 = `RM${num(bySlug['perodua-axia'].premiumNCD0Min)}–RM${num(bySlug['perodua-myvi'].premiumNCD0Max)}`;

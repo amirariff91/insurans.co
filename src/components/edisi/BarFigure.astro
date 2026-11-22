@@ -13,15 +13,17 @@
  * value: sets the bar's top. from: optional bottom, for a range (the bar floats between from and value).
  * text: what is printed above the bar (already formatted), as a bare number: the caption names the unit ("(RM)",
  * "(%)"), so a figure stays narrow enough for its column on a 320px phone at the site's 14px minimum.
- * label: what is printed under it.
+ * label: what is printed under it. sr: the whole bar as one spoken phrase with its unit ("1 tahun tanpa claim, NCD
+ * 25%"); the visible figure and label are hidden from screen readers, so the default "label: text" lacks the unit.
  * active: index of the reader's figure; omit it and no bar is marked.
- * The list is an ordinary <ol>, so a screen reader hears "label: text" for each bar in order.
+ * The list is an ordinary <ol>, so a screen reader hears each bar's sr phrase in order.
  */
 interface Bar {
   label: string;
   value: number;
   from?: number;
   text: string;
+  sr?: string;
 }
 interface Props {
   bars: Bar[];
@@ -40,12 +42,13 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
 <figure class:list={['bf', className]}>
   <ol class="bf-bars" style={`--n:${bars.length}`}>
     {bars.map((b, i) => (
-      <li class:list={['bf-i', i === active && 'is-on', b.from != null && 'is-range']} style={`--h:${pct(b.value)};--f:${pct(b.from ?? 0)};--len:${b.text.length}`}>
-        <span class="bf-track">
+      <li class:list={['bf-i', i === active && 'is-on', b.from != null && 'is-range']} style={`--bf-top:${pct(b.value)};--bf-from:${pct(b.from ?? 0)};--len:${b.text.length}`}>
+        <span class="bf-track" aria-hidden="true">
           <span class="bf-t">{b.text}</span>
-          <span class="bf-b" aria-hidden="true" />
+          <span class="bf-b" />
         </span>
-        <span class="bf-l">{b.label}</span>
+        <span class="bf-l" aria-hidden="true">{b.label}</span>
+        <span class="sr-only">{b.sr ?? `${b.label}: ${b.text}`}</span>
       </li>
     ))}
   </ol>
@@ -104,14 +107,16 @@ const pct = (n: number) => Math.round((n / top) * 1000) / 10;
     color: var(--mute);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
+    overflow-wrap: normal; /* list items inherit "anywhere"; a figure must never break inside a number */
     margin-block-end: 0.25rem;
   }
   .bf-b {
     position: relative;
     inline-size: 100%;
-    /* height = the bar's share of the track between its bottom (--f) and top (--h); never thinner than its own outline */
-    block-size: max(4px, calc((var(--h) - var(--f)) * var(--bf-h) * 0.01rem));
-    margin-block-end: calc(var(--f) * var(--bf-h) * 0.01rem);
+    flex: none; /* a long figure above must never squeeze the bar shorter than its value */
+    /* height = the bar's share of the track between its bottom and top; never thinner than its own outline */
+    block-size: max(4px, calc((var(--bf-top) - var(--bf-from)) * var(--bf-h) * 0.01rem));
+    margin-block-end: calc(var(--bf-from) * var(--bf-h) * 0.01rem);
     box-sizing: border-box;
     border: 2px solid var(--ink);
     border-block-end: 0;
