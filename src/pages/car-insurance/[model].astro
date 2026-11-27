@@ -11,7 +11,6 @@ import ModelRail from '../../components/edisi/ModelRail.astro';
 import ToolsRail from '../../components/edisi/ToolsRail.astro';
 import TerkiniRail from '../../components/edisi/TerkiniRail.astro';
 import '../../styles/edisi-answer.css';
-import NcdLadder from '../../components/NcdLadder.astro';
 import carModels from '../../data/car-models.json';
 import companies from '../../data/companies.json';
 import { monthly, rm } from '../../lib/ncd';
@@ -285,10 +284,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
       <section id="ncd" class="mod" data-tint="sky" aria-labelledby="ncd-h">
         <h2 class="mod-bar" id="ncd-h">Diskaun NCD ikut berapa tahun anda tidak claim</h2>
         <div class="mod-in">
-          <details class="baca">
-            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: tangga NCD</span></summary>
-            <div class="baca-in"><NcdLadder mode="diagram" selectedTier={55} /></div>
-          </details>
+          <p class="ix-s">Tangga NCD yang sama ada pada <a href="#ncd-kawalan">pemilih NCD di atas</a>. Pilih tahap anda untuk melihat harganya.</p>
           <p class="ix-s">Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.</p>
           <p><a href="/guides/ncd-explained/" class="inline-flex min-h-11 items-center">Panduan NCD →</a></p>
         </div>
