@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
@@ -56,6 +57,7 @@ const specItems = analysis.facts.filter((fact) =>
   ['Penyakit yang dilindungi', 'Bayaran mengikut peringkat', 'Tempoh perlindungan'].includes(fact.label),
 );
 
+const documents = ('documents' in record ? record.documents : undefined) as PlanDocument[] | undefined;
 const title = buildTitle(`${record.planName} — Penyakit Kritikal`);
 const description = buildDescription(
   `${record.planName}: kelayakan, manfaat penyakit kritikal, had tuntutan dan perbandingan dengan ${sibling.planName} berdasarkan dokumen rasmi.`,
@@ -219,6 +221,8 @@ const answerRest = [
           {' '}untuk melihat kesan perbezaan ini pada pilihan perlindungan anda.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={record.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">

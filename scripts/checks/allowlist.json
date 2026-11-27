@@ -214,6 +214,30 @@
       "old": null,
       "new": "2026-09-28",
       "reason": "Trust strip (Nov 2026): the page already printed home.asAt as its update date; the JSON-LD now carries the same date."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/critical-illness/aia-a-life-beyond-critical-care/$",
+      "values": ["RM1,000"],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the AIA brochure names page 29, the annual premium rates per RM1,000 of cover, as printed in the brochure."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/critical-illness/prudential-crisis-cover-benefit/$",
+      "values": ["RM212"],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the Prudential PDS names the example yearly premium RM212 printed on its page 2."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/home-insurance/berjaya-sompo-houseowner-householder/$",
+      "values": ["RM100"],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the Berjaya Sompo PDS names the RM100 excess for accidental damage printed on its page 2."
     }
   ]
 }
