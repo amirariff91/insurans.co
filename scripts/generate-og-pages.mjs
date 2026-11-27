@@ -73,7 +73,7 @@ function readPage(html, route) {
     family,
     logo: logo ? { src: logo[1], alt: logo[2] } : null,
     wordmark: !logo && word ? text(word[1]) : null,
-    lead: leadV ? { value: text(leadV[1]).replace(/\s/g, ''), label: leadL ? text(leadL[1]) : '' } : null,
+    lead: leadV ? { value: text(leadV[1]).replace(/\s/g, ''), label: leadL ? text(leadL[1]).replace(/\s*\[\d+\]/g, '').trim() : '' } : null,
   };
 }
 

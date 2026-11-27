@@ -16,7 +16,7 @@ bun run preview        # serve ./dist locally
 
 `bun run check:site` compares the build with live production and with the design rules: facts and prices, ads and indexing, structure, copy, photo credits, layout at 320/390/1280px, the first phone screen, the NCD control, the calculators and console errors. What each check guards, its options and how to update its baseline and allowlist are in `docs/checks.md`. Checks 6 to 10 need playwright-core and a Chromium; when either is missing they are SKIPPED and `check:site` fails. Point `CHROME_PATH` at a Chromium or Chrome binary and, if the project has no playwright-core, `PLAYWRIGHT_CORE` at an installed copy (see `docs/checks.md`). `check:site:static` runs only the browser-free checks 1 to 5.
 
-Other scripts: `bun run assets:brand` and `bun run assets:og` (brand and share images), `bun run data:merge-enriched` (model data). `python3 scripts/ads-gate-audit.py dist /tmp/ads-gate.json` (build folder, then the JSON report to write) reports pages that load ads while failing the content gate (see `PRODUCT.md`).
+Other scripts: `bun run assets:brand`, `bun run assets:og` and `bun run assets:og:pages` (brand and share images; the last one reads `dist/`, so build first and again after), `bun run data:merge-enriched` (model data). `python3 scripts/ads-gate-audit.py dist /tmp/ads-gate.json` (build folder, then the JSON report to write) reports pages that load ads while failing the content gate (see `PRODUCT.md`).
 
 ## Deploy
 
