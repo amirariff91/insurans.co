@@ -22,17 +22,10 @@ const typeLabels: Record<string, string> = {
   'comprehensive-takaful': 'Comprehensive / takaful',
   'motorcycle-add-on': 'Add-on motosikal',
 };
-const typeDescriptions: Record<string, string> = {
-  'third-party': 'Liabiliti kepada pihak ketiga; motosikal sendiri tidak termasuk dalam cover asas.',
-  comprehensive: 'Perlindungan motosikal sendiri dan liabiliti pihak ketiga, tertakluk pada wording polisi.',
-  'comprehensive-takaful': 'Struktur perlindungan berasaskan sijil takaful; semak manfaat dan pengecualian setiap produk.',
-  'motorcycle-add-on': 'Manfaat pilihan yang ditambah pada polisi motosikal utama; bukan perlindungan motosikal berdiri sendiri.',
-};
 const recordGroups = typeOrder
   .map((type) => ({
     type,
     label: typeLabels[type],
-    description: typeDescriptions[type],
     records: records.filter((record) => record.type === type),
   }))
   .filter((group) => group.records.length > 0);
@@ -40,11 +33,33 @@ const recordGroups = typeOrder
 // every fact they hold. A fact the record does not have is shown as "Tiada data".
 const tableRows = recordGroups.flatMap((group) => group.records.map((record) => ({ record, typeLabel: group.label })));
 const noData = 'Tiada data';
+// Which document each source URL is, as read from the document itself (the records hold bare URLs).
+// brand names the provider in the page-level source list; label is the link text in the table row.
+const sourceDocs: Record<string, { brand: string; label: string }> = {
+  'https://www.kurnia.com/download/pds/motorcycle-third-party-eng.pdf': { brand: 'Kurnia', label: 'PDS' },
+  'https://online.berjayasompo.com.my/motorcycle/docs/Motorcycle%20PDS%20_ENG%20(042023).pdf': { brand: 'Berjaya Sompo', label: 'PDS' },
+  'https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Insurance+Add-On.pdf': { brand: 'Etiqa', label: 'PDS MyRider' },
+  'https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Plus+Insurance+Add+On.pdf': { brand: 'Etiqa', label: 'PDS MyRider Plus' },
+  'https://www.etiqa.com.my/motorcycle/myRider-insurance': { brand: 'Etiqa', label: 'Halaman produk' },
+  'https://www.etiqa.com.my/motorcycle': { brand: 'Etiqa', label: 'Halaman insurans motosikal' },
+  'https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb_z-rider_pds_eng.pdf': { brand: 'Zurich', label: 'PDS (insurans)' },
+  'https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb_z-rider_pds_eng.pdf': { brand: 'Zurich', label: 'PDS (takaful)' },
+  'https://www.zurich.com.my/insurance-products/protection/for-my-vehicle/z-rider': { brand: 'Zurich', label: 'Halaman produk' },
+  'https://www.msig.com.my/products/personal/motor/motorcycle-3pa/': { brand: 'MSIG', label: 'Halaman produk' },
+  'https://www.msig.com.my/media/stqgr0ef/mcrmcy_pds_cr_20260401_eng_bm.pdf': { brand: 'MSIG', label: 'PDS' },
+  'https://takeiteasy.msig.com.my/msigonline/products/product-landing-page.html?product=mcy': { brand: 'MSIG', label: 'Halaman beli online' },
+};
+// A URL added to the data without an entry here fails the build rather than printing a bare hostname.
+const sourceDoc = (url: string) => {
+  const doc = sourceDocs[url];
+  if (!doc) throw new Error(`motorcycle-insurance: no document label for ${url} (add it to sourceDocs)`);
+  return doc;
+};
 const sourceLinks = [
   { label: 'JPJ: Garis Panduan LKM', url: jpjSource },
   ...records.flatMap((record) =>
     record.sources.map((url) => ({
-      label: new URL(url).hostname.replace(/^www\./, ''),
+      label: `${sourceDoc(url).brand}: ${sourceDoc(url).label}`,
       url,
     })),
   ),
@@ -64,7 +79,7 @@ const canonicalUrl = 'https://insurans.co/motorcycle-insurance/';
 const faqs = [
   {
     q: 'Bagaimana renew insurans motosikal online?',
-    a: 'Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis cover, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.',
+    a: 'Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis perlindungan, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.',
   },
   {
     q: 'Apa beza third party dengan comprehensive untuk motosikal?',
@@ -84,7 +99,7 @@ const faqs = [
   },
   {
     q: 'Bagaimana cari insurans motosikal murah?',
-    a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
+    a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis perlindungan, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
   },
 ];
 const schema = {
@@ -290,10 +305,11 @@ const schema = {
 
         <div class="my-6 overflow-x-auto" role="region" tabindex="0" aria-labelledby="produk">
           <table class="table-editorial">
+            <caption class="sr-only">Senarai produk insurans motosikal: jenis perlindungan, apa yang dinyatakan dokumen, asas premium, contoh premium dan sumber</caption>
             <thead>
               <tr>
                 <th scope="col">Produk dan syarikat</th>
-                <th scope="col">Jenis cover</th>
+                <th scope="col">Jenis perlindungan</th>
                 <th scope="col">Apa yang dinyatakan dokumen</th>
                 <th scope="col">Asas premium</th>
                 <th scope="col">Contoh premium PDS</th>
@@ -309,14 +325,14 @@ const schema = {
                     <span class="mt-1 block text-xs font-normal leading-5 text-stone-600">{record.insurer}</span>
                   </th>
                   <td class="align-top">{typeLabel}</td>
-                  <td class="min-w-[20rem] align-top text-sm leading-6">{record.figureVerified && record.coversWhat ? record.coversWhat : noData}</td>
-                  <td class="min-w-[16rem] align-top text-sm leading-6">{record.figureVerified && record.premiumBasis ? record.premiumBasis : noData}</td>
-                  <td class="min-w-[12rem] align-top text-sm leading-6">{record.figureVerified && record.workedExample ? record.workedExample : noData}</td>
-                  <td class="align-top text-sm leading-6">
+                  <td class="min-w-[20rem] align-top text-sm leading-6">{record.coversWhat || noData}</td>
+                  <td class="min-w-[16rem] align-top text-sm leading-6">{record.premiumBasis || noData}</td>
+                  <td class="min-w-[12rem] align-top text-sm leading-6">{record.workedExample || noData}</td>
+                  <td class="min-w-[10rem] align-top text-sm leading-6">
                     {record.sources.length > 0 ? (
-                      <ul>
+                      <ul class="space-y-1">
                         {record.sources.map((url) => (
-                          <li><a href={url} rel="noopener">{new URL(url).hostname.replace(/^www\./, '')}</a></li>
+                          <li><a href={url} rel="noopener">{sourceDoc(url).label}</a></li>
                         ))}
                       </ul>
                     ) : noData}
@@ -336,7 +352,7 @@ const schema = {
           </p>
           <ol class="list-decimal space-y-3 pl-5">
             <li>Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan NCD yang hendak disemak.</li>
-            <li>Dapatkan quotation daripada penyedia; pilih jenis cover dan add-on hanya selepas membaca skopnya.</li>
+            <li>Dapatkan quotation daripada penyedia; pilih jenis perlindungan dan add-on hanya selepas membaca skopnya.</li>
             <li>Semak nama pemilik, nombor pendaftaran, tempoh, jumlah diinsuranskan, excess dan pengecualian pada dokumen.</li>
             <li>Simpan e-policy atau cover note yang sah, kemudian uruskan roadtax melalui saluran JPJ yang berkenaan.</li>
           </ol>
