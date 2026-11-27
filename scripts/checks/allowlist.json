@@ -214,6 +214,29 @@
       "old": null,
       "new": "2026-09-28",
       "reason": "Trust strip (Nov 2026): the page already printed home.asAt as its update date; the JSON-LD now carries the same date."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/medical-cards/$",
+      "values": [
+        "RM1,000,000–4,000,000",
+        "RM1,650,000",
+        "RM100–200",
+        "RM150–400",
+        "RM150–500",
+        "RM160–360",
+        "RM200–500",
+        "RM250,000–1,000,000",
+        "RM3,650,000",
+        "RM350–400",
+        "RM50,000–100,000",
+        "RM50,000–150,000",
+        "RM550,000–1,100,000",
+        "RM60,000–500,000"
+      ],
+      "reason": "Phone layout (q/layout, Nov 2026): multi-value 'Had tahunan' and 'Room & board' cells in the hub table read 'min–max, n pilihan', both ends being amounts the cell already prints (no rounding), and list every option under 'Semua pilihan' with the ringgit sign the cell's first amount carries (RM1,650,000 and RM3,650,000 were printed as '1,650,000' and '3,650,000' inside an RM slash run). No amount changes or leaves the page; src/lib/multi-value.ts derives these from medical-cards.json."
     }
   ]
 }

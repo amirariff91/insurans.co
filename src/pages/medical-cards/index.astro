@@ -10,6 +10,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import MultiValueCell from '../../components/edisi/MultiValueCell.astro';
 
 const cards = medicalCards.records;
 const updatedAt = '2026-10-10';
@@ -153,8 +154,8 @@ const schema = {
                     </th>
                     <td role="cell" data-label="Penyedia" data-sub>{card.insurer || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[card.type] ?? 'Tidak dinyatakan'}</span></td>
-                    <td role="cell" data-label="Had tahunan">{card.annualLimit || 'Tidak dinyatakan'}</td>
-                    <td role="cell" data-label="Room &amp; board">{card.roomBoard || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Had tahunan" data-wide><MultiValueCell text={card.annualLimit || 'Tidak dinyatakan'} /></td>
+                    <td role="cell" data-label="Room &amp; board" data-wide><MultiValueCell text={card.roomBoard || 'Tidak dinyatakan'} /></td>
                     <td role="cell" data-label="Ciri utama" data-wide>{card.standoutFeature || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Sumber" data-wide>
                       {card.sources[0] ? (
