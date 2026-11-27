@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import companies from '../../data/companies.json';
@@ -181,6 +182,8 @@ const answerFacts = [
   ads={false}
 >
   <Hero title={seo.h1}>
+    {/* No licensed logo is on file for these platforms (company-logos.json): a plain wordmark of the platform name. */}
+    <LogoTile slot="mark" company={platform.name} name={platform.name} size="m" eager wordmark />
     <TrustStrip slot="trust" date={platform.asAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"

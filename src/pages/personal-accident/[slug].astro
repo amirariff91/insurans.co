@@ -5,6 +5,8 @@ import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
+import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
@@ -121,6 +123,9 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   modifiedTime={record.analysisAsAt}
 >
   <Hero title={`Insurans kemalangan diri: ${record.planName}`}>
+    {/* Insurer logo (identification only); a plain wordmark when no licensed logo is on file. A government
+        scheme carries no insurer mark. */}
+    <LogoTile slot="mark" company={record.insurer} name={/^kerajaan/i.test(record.insurer) ? undefined : shortCompanyName(record.insurer)} size="m" eager wordmark />
     <TrustStrip slot="trust" date={record.analysisAsAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
