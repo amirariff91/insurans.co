@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 
 const schema = {
@@ -57,6 +57,7 @@ const faqSchema = {
     <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Takaful', href: '/takaful/' }, { label: 'Beza Takaful dan Insurans' }]} />
       <h1 class="ea-h1 mb-1">Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026</h1>
+      <TrustStrip date="2026-11-15" />
       <PageAnswer
         finding="Takaful patuh Syariah; manfaat dan syarat bergantung pada produk"
         facts={[
@@ -65,7 +66,6 @@ const faqSchema = {
           { label: 'Yang berbeza', value: 'Konsep dan prinsip di sebaliknya' },
         ]}
       />
-      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
         Takaful dan insurans konvensional boleh menyediakan jenis perlindungan yang serupa, tetapi manfaat serta syarat bergantung pada produk.
         Panduan ini menerangkan perbezaan takaful dan insurans konvensional secara ringkas, supaya anda boleh membuat keputusan yang tepat untuk 2026.

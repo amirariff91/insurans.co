@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
@@ -138,7 +138,7 @@ const answerRest = [
   modifiedTime={record.analysisAsAt}
 >
   <Hero title={`Insurans penyakit kritikal: ${record.planName}`}>
-    <Byline slot="byline" dateModified={record.analysisAsAt} />
+    <TrustStrip slot="trust" date={record.analysisAsAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

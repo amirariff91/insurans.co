@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
@@ -73,6 +73,7 @@ const schema = {
     <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Kereta', href: '/car-insurance/' }, { label: 'Renew Online' }]} />
       <h1 class="ea-h1 mb-1">Cara Renew Insurans Kereta Online</h1>
+      <TrustStrip date="2026-10-10" />
       <PageAnswer
         finding="Semak tarikh tamat dan NCD, bandingkan sebut harga, kemudian renew roadtax secara berasingan"
         facts={[
@@ -82,7 +83,6 @@ const schema = {
           { label: 'Roadtax', value: 'JPJ memerlukan insurans yang meliputi seluruh tempoh roadtax yang dipohon' },
         ]}
       />
-      <Byline dateModified="2026-10-10" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed" id="jawapan-ringkas">
         Untuk renew insurans kereta di Malaysia, semak tarikh tamat dan NCD. Bandingkan sebut harga dengan perlindungan yang sama. Kemudian, bayar melalui saluran rasmi. Pastikan polisi baharu dikeluarkan dengan tarikh kuat kuasa yang betul. Selepas itu, renew roadtax secara berasingan. JPJ memerlukan insurans yang meliputi seluruh tempoh roadtax yang dipohon.
       </p>

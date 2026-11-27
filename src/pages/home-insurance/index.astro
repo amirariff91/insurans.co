@@ -4,7 +4,7 @@ import LogoTile from '../../components/LogoTile.astro';
 import { homeFacts } from '../../data/home-facts';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -133,6 +133,7 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Insurans Rumah Malaysia 2026</h1>
+      <TrustStrip date={updatedAt} sources={sourceLinks} />
       <PageAnswer
         finding="Fahami beza houseowner, householder dan fire-only"
         lead={{ value: homeFacts.home.value, label: `Kadar asas ${homeFacts.home.construction}, ${homeFacts.home.cover} (peratus ${homeFacts.home.basis})`, role: 'term' }}
@@ -141,7 +142,6 @@ const schema = {
         ]}
         note={`Dikemas kini ${tarikh(homeInsurance.asAt)}.`}
       />
-      <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Sebelum mendapatkan quotation, semak kadar tariff dalam sumber rasmi,
         asas jumlah diinsuranskan dan butiran produk.

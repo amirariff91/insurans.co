@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogoTile from '../../components/LogoTile.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -129,6 +129,7 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Compare Insurance Malaysia &amp; Beli Insurance Online</h1>
+      <TrustStrip date={updatedAt} />
       <PageAnswer
         finding={`Beli terus daripada ${directOnline.records.length} syarikat insurans atau ${platforms.records.length} platform`}
         note="Senarai ini bukan kedudukan atau cadangan."
@@ -137,7 +138,6 @@ const schema = {
           { label: 'Data dikemas kini', value: tarikh(platforms.asAt) },
         ]}
       />
-      <Byline dateModified={updatedAt} />
     </div>
   </section>
 

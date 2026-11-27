@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
@@ -128,6 +128,7 @@ const faqSchema = {
         ]}
       />
       <h1 class="ea-h1 mb-1">Checklist Travel Insurance Sebelum Fly — 8 Perkara Wajib Semak</h1>
+      <TrustStrip date={asAt} />
       <PageAnswer
         finding="Semak 8 perkara ini sehari sebelum bayar"
         facts={[
@@ -136,7 +137,6 @@ const faqSchema = {
           { label: 'Sumber', value: 'Ciri sebenar plan yang kami rekodkan', href: '/travel-insurance/' },
         ]}
       />
-      <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Semua perkara di bawah datang daripada ciri sebenar plan yang kami rekodkan di <a href="/travel-insurance/">/travel-insurance/</a>. Kami bukan ejen, bukan broker; kami tak jual plan dan tak ambil komisen.
       </p>

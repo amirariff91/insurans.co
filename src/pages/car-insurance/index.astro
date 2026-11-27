@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import HubModelList from '../../components/edisi/HubModelList.astro';
 import CarThumb from '../../components/CarThumb.astro';
@@ -98,6 +98,7 @@ const schema = {
       <h1 class="ea-h1">
         {pageTitle}
       </h1>
+      <TrustStrip date={schema.dateModified} />
       <!-- Quick summary card -->
       <section class="mod hub-sum" aria-labelledby="ringkasan">
         <h2 class="mod-bar" id="ringkasan">Wajib third-party, NCD sehingga 55%</h2>
@@ -132,7 +133,6 @@ const schema = {
       <p class="hub-lead">
         Insurans kereta wajib di Malaysia: tanpa polisi sah, anda tidak boleh renew roadtax. Premium komprehensif untuk Axia/Myvi sekitar {leadSmall55} setahun (NCD 55%) dan {leadSmall0} (NCD 0%); City/Vios {leadMid55} dengan NCD penuh.
       </p>
-      <Byline dateModified={schema.dateModified} />
 
       <HubTiles tiles={jumpTiles} label="Bahagian panduan" />
     </div>

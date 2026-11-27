@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogoTile from '../../components/LogoTile.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -106,12 +106,12 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
+      <TrustStrip date={updatedAt} />
       <PageAnswer
         finding={`${cards.length} pelan medical card: standalone, rider, takaful`}
         sentence="Mulakan dengan had tahunan, kemudian semak room & board, co-payment atau deductible dan tempoh menunggu."
         note="Kami tidak menganggarkan premium; semak quotation dan syarat terkini dengan penyedia."
       />
-      <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Manfaat di halaman ini diambil daripada PDS atau brosur rasmi.
       </p>

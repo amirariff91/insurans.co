@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -105,7 +105,7 @@ const schema = {
         { label: 'Literasi Kewangan' },
       ]}
     />
-    <Byline slot="byline" dateModified={asAt} />
+    <TrustStrip slot="trust" date={asAt} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-900">
       Siri bacaan ringkas untuk buat keputusan kewangan dengan lebih tenang, dengan memahami bajet, risiko, syarat dan susunan
       perlindungan sebelum bercakap dengan mana-mana penyedia.

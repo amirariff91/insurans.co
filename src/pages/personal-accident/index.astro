@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogoTile from '../../components/LogoTile.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -120,6 +120,7 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Insurans Kemalangan Diri (PA) Malaysia 2026</h1>
+      <TrustStrip date={updatedAt} sources={sourceLinks} />
       <PageAnswer
         finding={`${records.length} pelan PA; angka diterbitkan untuk ${publishedRecords.length}`}
         sentence="Mulakan dengan AD dan PPD: semak jumlah perlindungan dan jadual peratusan untuk kecederaan tertentu."
@@ -128,7 +129,6 @@ const schema = {
         ]}
         note="Kami tidak menganggar atau mengira semula harga."
       />
-      <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Fahami apa yang PA lindungi, beza polisi konvensional dan sijil takaful, serta angka yang diterbitkan oleh sumber rasmi.
       </p>

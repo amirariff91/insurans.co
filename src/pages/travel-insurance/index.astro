@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogoTile from '../../components/LogoTile.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -89,12 +89,12 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Travel Insurance Malaysia 2026</h1>
+      <TrustStrip date={updatedAt} />
       <PageAnswer
         finding={`${plans.length} pelan travel insurance: single dan annual`}
         sentence="Mulakan dengan destinasi dan jenis perjalanan, kemudian semak had perubatan, pengecualian, claim window dan proses bantuan."
         note="Kami tidak menganggarkan premium, dan had atau syarat yang tiada dalam sumber tidak kami isi sendiri; semak quotation dan PDS terkini dengan penyedia."
       />
-      <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Bandingkan insurans perjalanan berdasarkan manfaat yang dinyatakan dalam sumber rasmi.
       </p>

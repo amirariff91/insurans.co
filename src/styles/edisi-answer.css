@@ -237,8 +237,6 @@
 .rel dl div { display: flex; justify-content: space-between; gap: 0.5rem; }
 .rel dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 .ep-crumbs nav { margin: 0; }
-/* Model page: the breadcrumb comes first in the DOM (and in tab order) but shows below the answer. */
-.ep-main > .ep-crumbs + .ea { order: -1; }
 /* Very large text: long words in collapsed lists and rows break inside their module instead of being clipped. */
 .baca-in > *, .rows li > div { min-width: 0; overflow-wrap: break-word; }
 
@@ -277,4 +275,16 @@
   .mlist a[aria-current="page"] .mp { color: HighlightText; }
   .ea-btn, .btn-outline, .type-chips a, .tk-chip, .ea-mark { border: 1px solid CanvasText; }
   .overflow-x-auto:has(> table)::before, .overflow-x-auto:has(> table)::after { background: CanvasText; }
+}
+
+/* Model page opening (trust strip, Nov 2026): breadcrumb, then the H1 and the trust strip, then the price.
+   The breadcrumb sits 16px above the H1 instead of the 48px module gap; the strip sits a little closer to the H1
+   and the price than the answer block's 12px row gap, so the two buttons stay in the 390x844 first screen.
+   Below 48rem the brand tile leaves the breadcrumb row, so the trail fits one line; the brand still shows on
+   the photo (or on the name card that replaces it). */
+.ep-main > .ep-crumbs + .ea { margin-top: -2rem; }
+.ea > .ts { margin: -0.25rem 0 -0.5rem; row-gap: 0; }
+@media (max-width: 47.99rem) {
+  .ep-crumb-row > .lt { display: none; }
+  .ep:has(> .ep-main > .ep-crumbs + .ea) { padding-top: 0.5rem; }
 }

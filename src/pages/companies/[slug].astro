@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import { companyLogo } from '../../lib/logos';
@@ -139,7 +139,7 @@ const schema = {
       ]}
     />
     <PageAnswer slot="answer" finding={finding} facts={answerFacts} />
-    <Byline slot="byline" dateModified={company.asAt} />
+    <TrustStrip slot="trust" date={company.asAt} />
     <div slot="description" class="max-w-2xl">
       <p class="mb-2 text-base leading-6 text-stone-700">
         {company.fullName}{company.parent && <span>, {company.parent}</span>}
