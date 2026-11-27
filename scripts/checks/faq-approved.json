@@ -1,42 +1,5 @@
 {
  "note": "Reviewed FAQ wording changes against the live baseline: exact old and new text per page and JSON-LD path. Regenerate only after reviewing: node scripts/checks/run.mjs --approve-faq (docs/checks.md).",
- "baseline": "a78c50a",
- "entries": [
-  {
-   "url": "/car-insurance/honda-crv/",
-   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
-   "old": "Cermin besar sekitar RM900–RM1,800, ditambah penentukuran kamera/radar Honda Sensing yang kosnya ratusan ringgit. Sebab itu windscreen cover dan ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V. Tanpa perlindungan ini, sekali retak sudah mencecah ribuan ringgit.",
-   "new": "Cermin depan CR-V besar, dan selepas diganti kamera/radar Honda Sensing perlu ditentukur semula. Minta harga cermin dan penentukuran daripada bengkel panel. Sebab itu windscreen cover dan ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V. Tanpa perlindungan ini, anda tanggung sendiri kos cermin dan penentukuran."
-  },
-  {
-   "url": "/car-insurance/honda-crv/",
-   "path": "FAQPage.mainEntity[2].name",
-   "old": "Tukar cermin CR-V, kenapa jumlah claim mencecah RM2,000?",
-   "new": "Tukar cermin CR-V, kenapa jumlah claim tinggi?"
-  },
-  {
-   "url": "/car-insurance/perodua-axia/",
-   "path": "FAQPage.mainEntity[2].acceptedAnswer.text",
-   "old": "Jika ada windscreen cover, claim cermin tidak menjejaskan NCD, jadi claim sahaja. Jika tiada perlindungan ini dan retak kecil bawah RM300, bayar sendiri lebih jimat daripada hilang NCD 55% (jimat RM410–RM810/tahun).",
-   "new": "Jika ada windscreen cover, claim cermin tidak menjejaskan NCD, jadi claim sahaja. Jika tiada perlindungan ini, minta harga baiki dahulu: untuk kos yang kecil, bayar sendiri boleh lebih jimat daripada hilang NCD 55% (jimat RM410–RM810/tahun)."
-  },
-  {
-   "url": "/motorcycle-insurance/",
-   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
-   "old": "Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis cover, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.",
-   "new": "Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis perlindungan, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai."
-  },
-  {
-   "url": "/motorcycle-insurance/",
-   "path": "FAQPage.mainEntity[5].acceptedAnswer.text",
-   "old": "Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.",
-   "new": "Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis perlindungan, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi."
-  },
-  {
-   "url": "/tools/kalkulator-roadtax/",
-   "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
-   "old": "Kalkulator ini untuk kereta persendirian sahaja: saloon seperti sedan dan hatchback, atau non-saloon seperti MPV, SUV dan pikap. Kenderaan syarikat, EV dan motosikal menggunakan jadual berasingan.",
-   "new": "Kalkulator ini untuk kereta persendirian: saloon seperti sedan dan hatchback, atau bukan saloon seperti MPV, SUV dan pikap. Hanya saloon milik syarikat di Semenanjung ada jadual berasingan, dan jadual itu ada di halaman ini. Saloon milik syarikat di Sabah dan Sarawak serta semua kereta bukan saloon membayar kadar yang sama dengan kereta milik individu. EV dan motosikal menggunakan jadual berasingan."
-  }
- ]
+ "baseline": "36f97cc",
+ "entries": []
 }
