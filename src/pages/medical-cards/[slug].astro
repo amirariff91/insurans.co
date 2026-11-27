@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
@@ -92,6 +93,9 @@ const faqs = freshFaqs(
 );
 
 const title = buildTitle(`${card.planName} — Medical Card`);
+const documents = ('documents' in card ? card.documents : undefined) as PlanDocument[] | undefined;
+// "Pautan brosur dan PDS rasmi." was considered for the description; on 27 Nov 2026 no plan's line had room for it
+// within 155 characters, so the description is unchanged.
 const description = buildDescription(
   `${card.planName} oleh ${card.insurer}: kelayakan, manfaat, kos sendiri, pengecualian dan perbandingan dengan ${sibling.planName}, berserta rujukan dokumen rasmi.`,
 );
@@ -237,6 +241,8 @@ const answerRest = [
           <a href="/medical-cards/"> panduan perbandingan medical card</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={card.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">

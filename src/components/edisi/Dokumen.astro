@@ -1,0 +1,139 @@
+---
+/**
+ * "Brosur dan PDS": links to a plan's official documents on the insurer's or operator's own site, with a page guide.
+ *
+ *   <Dokumen documents={card.documents} company={card.insurer} />
+ *
+ * Rules: we link only. No copy of any file is hosted here and no link carries a download attribute.
+ * Every value comes from the document itself as opened on `openedOn`: the title, date or version code exactly as
+ * printed (absent when none is printed), the PDF page count, and what a reader finds on each page.
+ * Page numbers are pages of the PDF file, not the page numbers printed on it.
+ * Outbound links carry data-direct-insurer so the existing click tracking (src/lib/track.ts) applies.
+ * Renders nothing when the record has no documents.
+ */
+
+export interface PlanDocumentPage {
+  page: number;
+  what: string;
+}
+
+export interface PlanDocument {
+  kind: 'brosur' | 'pds' | 'jadual-premium' | 'polisi' | string;
+  title: string;
+  url: string;
+  language: string;
+  documentDate?: string;
+  versionCode?: string;
+  pages: number;
+  openedOn: string;
+  index: PlanDocumentPage[];
+}
+
+interface Props {
+  documents?: PlanDocument[];
+  /** Company name for click tracking. */
+  company: string;
+  id?: string;
+}
+
+const { documents, company, id = 'dokumen' } = Astro.props;
+const list = Array.isArray(documents) ? documents : [];
+
+const kindLabels: Record<string, string> = {
+  brosur: 'Brosur',
+  pds: 'PDS',
+  'jadual-premium': 'Jadual premium',
+  polisi: 'Kontrak polisi',
+};
+
+function tarikhBuka(value: string): string {
+  const d = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return value;
+  const bulan = ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sep', 'Okt', 'Nov', 'Dis'];
+  return `${d.getUTCDate()} ${bulan[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+---
+
+{list.length > 0 && (
+  <section id={id} class="dok scroll-mt-24" aria-labelledby={`${id}-tajuk`}>
+    <div class="prose-editorial prose-bars">
+      <h2 id={`${id}-tajuk`}>Brosur dan PDS</h2>
+      <p>
+        Fail di bawah milik syarikat sendiri dan disimpan di laman mereka. Syarikat boleh menukar atau mengalihkannya,
+        jadi semak tarikh pada dokumen sebelum bergantung padanya. Nombor m.s. ialah halaman dalam fail PDF.
+      </p>
+    </div>
+    <ul class="dok-list">
+      {list.map((doc) => (
+        <li class="dok-item">
+          <p class="dok-title">
+            <a href={doc.url} target="_blank" rel="noopener" data-direct-insurer={company}>
+              {doc.title}<span class="sr-only"> (PDF di laman {company}, buka tab baharu)</span> ↗
+            </a>
+          </p>
+          <p class="dok-meta">
+            <span>{kindLabels[doc.kind] ?? doc.kind}</span>
+            <span>{doc.language}</span>
+            <span>{doc.pages} m.s.</span>
+            {doc.documentDate && <span>Tarikh pada dokumen: {doc.documentDate}</span>}
+            {doc.versionCode && <span>Kod versi: {doc.versionCode}</span>}
+            <span>dibuka pada <time datetime={doc.openedOn}>{tarikhBuka(doc.openedOn)}</time></span>
+          </p>
+          {doc.index.length > 0 && (
+            <ul class="dok-index">
+              {doc.index.map((entry) => (
+                <li><span class="dok-ms">m.s. {entry.page}:</span> {entry.what}</li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .dok-list {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dok-item {
+    border-top: 1px solid var(--mute);
+    padding: 1rem 0;
+  }
+  .dok-title {
+    margin: 0;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  .dok-title a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .dok-meta {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    row-gap: 0.25rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    color: var(--mute);
+    overflow-wrap: anywhere;
+  }
+  .dok-index {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .dok-index li + li {
+    margin-top: 0.25rem;
+  }
+  .dok-ms {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>
