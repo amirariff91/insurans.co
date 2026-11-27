@@ -1,9 +1,15 @@
 ---
-/** "Tukar model": every model by brand with its NCD 55% range. Desktop left rail; below the answer on phones. */
+/**
+ * "Tukar model": every model by brand with its NCD 55% range. Desktop left rail; below the answer on phones.
+ * Below 48rem the list sits in a native <details> drawer, closed by default, so it no longer adds ~3,500px to
+ * the bottom of the page; every link stays in the HTML. From 48rem the drawer is always open: CSS shows its
+ * content (::details-content) and hides the summary, and a small script sets `open` for browsers without it.
+ */
 import carModels from '../../data/car-models.json';
 import { span } from './steps';
 import CarThumb from '../CarThumb.astro';
 import LogoTile from '../LogoTile.astro';
+import Ikon from '../Ikon.astro';
 
 interface Props { current: string }
 const { current } = Astro.props;
@@ -15,6 +21,8 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
 <nav class="mod" aria-labelledby="tukar-model">
   <h2 class="mod-bar mod-lab" id="tukar-model">Tukar model</h2>
   <p class="mod-cap">Insurans setahun, NCD 55%</p>
+  <details class="mr-d" data-model-rail>
+  <summary class="mr-sum"><span>Semua {carModels.length} model</span><Ikon name="i-bawah" size={20} class="mr-i" /></summary>
   <ul class="mlist">
     {groups.map((g) => (
       <li>
@@ -27,4 +35,12 @@ const groups = ordered.map((brand) => ({ brand, models: carModels.filter((c) => 
       </li>
     ))}
   </ul>
+  </details>
 </nav>
+<script>
+  // From 48rem the rail is a full list, not a drawer (CSS does this where ::details-content is supported).
+  const wide = window.matchMedia('(min-width: 48rem)');
+  const sync = () => document.querySelectorAll<HTMLDetailsElement>('details[data-model-rail]').forEach((d) => { d.open = wide.matches; });
+  sync();
+  wide.addEventListener('change', sync);
+</script>
