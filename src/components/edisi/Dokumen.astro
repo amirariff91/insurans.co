@@ -73,7 +73,7 @@ function tarikhBuka(value: string): string {
       {list.map((doc) => (
         <li class="dok-item">
           <p class="dok-title">
-            <a class="tap-link" href={doc.url} target="_blank" rel="noopener" data-direct-insurer={company}>
+            <a class="tap-link" href={doc.url} target="_blank" rel="noopener noreferrer" data-direct-insurer={company}>
               <span>{doc.title}<span class="sr-only"> (PDF di laman {company}, buka tab baharu)</span> ↗</span>
             </a>
           </p>

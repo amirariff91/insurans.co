@@ -41,15 +41,15 @@ const lists = lines.filter((l): l is Extract<typeof l, { values: string[] }> => 
 <style is:global>
   .mv { display: grid; gap: 0.25rem; }
   .mv-l { display: grid; }
-  .mv-r { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .mv-r { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .mv-n { font-size: 0.875rem; color: var(--ink-2); }
   /* Doubled class: beats `.prose-editorial ul` (margin, indent, item spacing) when the table sits in prose. */
   .mv-list.mv-list { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
-  :is(td, th) .mv-list.mv-list > li:not([hidden]) { margin: 0; padding-block: 0.125rem; }
+  :is(td, th) .mv-list.mv-list > li:not([hidden]) { margin: 0; padding-block: 2px; }
   .mv-list.mv-list > li + li { border-top: 1px solid var(--line); }
   .mv-t { display: block; font-size: 0.875rem; color: var(--ink-2); margin-top: 0.25rem; }
   .mv-d > summary {
-    display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; cursor: pointer;
     font-size: 0.875rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px;
     list-style: none;
   }
