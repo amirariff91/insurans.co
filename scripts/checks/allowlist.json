@@ -194,8 +194,8 @@
       "url": "^/tools/kalkulator-roadtax/$",
       "path": "^WebApplication\\.dateModified$",
       "old": null,
-      "new": "2026-09-12",
-      "reason": "Trust strip (Nov 2026): the page already printed rates.asAt as its update date; the JSON-LD now carries the same date, as the EV calculator's does."
+      "new": "2026-11-27",
+      "reason": "Trust strip (Nov 2026): the page already printed rates.asAt as its update date; the JSON-LD now carries the same date, as the EV calculator's does. The date is 27 Nov 2026 because the rates were re-read against JPJ's schedule that day."
     },
     {
       "kind": "changed",
