@@ -27,6 +27,8 @@ export interface PlanDocument {
   /** The heading exactly as printed, when it differs from `title` (for example only "PRODUCT DISCLOSURE SHEET"). */
   printedTitle?: string;
   url: string;
+  /** Where the file sits when that is not the company's own site (a bank's site, the insurer's file storage). */
+  hostedAt?: string;
   language: string;
   documentDate?: string;
   versionCode?: string;
@@ -74,7 +76,7 @@ function tarikhBuka(value: string): string {
         <li class="dok-item">
           <p class="dok-title">
             <a class="tap-link" href={doc.url} target="_blank" rel="noopener noreferrer" data-direct-insurer={company}>
-              <span>{doc.title}<span class="sr-only"> (PDF di laman {company}, buka tab baharu)</span> ↗</span>
+              <span>{doc.title}<span class="sr-only"> (PDF di {doc.hostedAt ?? `laman ${company}`}, buka tab baharu)</span> ↗</span>
             </a>
           </p>
           <p class="dok-meta">
