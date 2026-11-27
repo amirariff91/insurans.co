@@ -303,7 +303,8 @@ export function copyHygiene(pages) {
         r.fails.push({ page: url, check: label, value: visible.slice(Math.max(0, m.index - 40), m.index + 40) });
       }
     }
-    if (!url.startsWith('/insurans-online/')) {
+    // /kredit-foto/ is exempt: it must link each logo's source file, and a platform's logo comes from its own site.
+    if (!url.startsWith('/insurans-online/') && url !== '/kredit-foto/') {
       for (const a of root.querySelectorAll('a[href]')) {
         const h = a.getAttribute('href');
         if (/bjak\.my|policystreet\.com|fincrew/i.test(h)) { bad = true; r.fails.push({ page: url, check: 'aggregator link outside /insurans-online/', value: h }); }
@@ -395,7 +396,33 @@ export function photoCredits(dist, pages, repo) {
       else r.passes++;
     }
   }
-  r.info = `${used.size} photo files used, ${logoFiles} logo files`;
+  // Illustrations (/images/ilustrasi/): every file needs a record in illustrations.json, /kredit-foto/ must link it,
+  // and every page showing one must print the record's caption.
+  const ilusFile = path.join(repo, 'src/data/illustrations.json');
+  const ilusRecs = fs.existsSync(ilusFile) ? JSON.parse(fs.readFileSync(ilusFile, 'utf8')).records : [];
+  const ilusDir = path.join(dist, 'images', 'ilustrasi');
+  let ilusFiles = 0;
+  if (fs.existsSync(ilusDir)) {
+    for (const f of fs.readdirSync(ilusDir)) {
+      ilusFiles++;
+      const src = `/images/ilustrasi/${f}`;
+      const rec = ilusRecs.find((x) => x.path === src);
+      if (!rec || rec.kind !== 'illustration' || !rec.madeFor || !rec.created) r.fails.push({ page: src, check: 'illustration without kind/madeFor/created record', value: f, source: 'src/data/illustrations.json' });
+      else if (!kfHtml.includes(`href="${src}"`)) r.fails.push({ page: '/kredit-foto/', check: 'illustration not listed on the credits page', value: src, source: 'src/pages/kredit-foto/index.astro' });
+      else r.passes++;
+    }
+  }
+  for (const { url, root } of pages) {
+    for (const img of root.querySelectorAll('img')) {
+      const s = img.getAttribute('src') || '';
+      if (!s.startsWith('/images/ilustrasi/') || url === '/kredit-foto/') continue;
+      const cap = img.closest('figure')?.querySelector('figcaption')?.text.replace(/\s+/g, ' ').trim() || '';
+      const capRec = ilusRecs.find((x) => x.path === s);
+      if (!capRec || cap !== capRec.caption.replace(/\s+/g, ' ').trim()) r.fails.push({ page: url, check: 'illustration without its record caption', value: s, source: 'src/components/Ilustrasi.astro' });
+      else r.passes++;
+    }
+  }
+  r.info = `${used.size} photo files used, ${logoFiles} logo files, ${ilusFiles} illustration files`;
   return r;
 }
 

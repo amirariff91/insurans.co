@@ -1,17 +1,17 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
   {
     q: "Insurans kereta standard cover banjir ke?",
-    a: "Tidak. Insurans komprehensif standard tidak melindungi kerosakan banjir. Anda perlu tambah add-on 'Special Perils' atau 'Bencana Khas' secara berasingan untuk mendapat perlindungan banjir."
+    a: "Tidak. Insurans komprehensif standard tidak melindungi kerosakan banjir. Anda perlu menambah perlindungan tambahan 'Special Perils' atau 'Bencana Khas' secara berasingan untuk mendapat perlindungan banjir."
   },
   {
-    q: "Berapa kos add-on special perils untuk banjir?",
-    a: "Kos add-on special perils dikira sebagai peratusan daripada sum insured, lazimnya 0.2% hingga 0.5% setahun, bergantung kepada syarikat insurans dan tahap perlindungan. Contohnya, untuk kereta dengan sum insured RM50,000, premium tambahan ialah sekitar RM100 hingga RM250 setahun. Minta sebut harga untuk angka tepat."
+    q: "Berapa kos special perils untuk banjir?",
+    a: "Kadar berbeza mengikut syarikat dan jenis perlindungan. PIAM menyatakan lanjutan ini lazimnya kurang daripada 0.5% daripada jumlah diinsuranskan (sum insured) pada 14 Nov 2025. RHB dan MSIG menerbitkan contoh pada nilai kenderaan RM50,000: RHB RM125 penuh dan RM50 terhad, MSIG RM100 penuh dan RM62.50 terhad. Semua angka itu sebelum cukai dan contoh syarikat itu sendiri, bukan kadar pasaran. Minta sebut harga untuk angka tepat."
   },
   {
     q: "Kereta kena banjir, apa yang perlu dibuat?",
@@ -25,10 +25,10 @@ const schema = {
     {
       "@type": "Article",
       "headline": "Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?",
-      "description": "Panduan lengkap insurans kereta banjir — special perils, apa yang dilindungi, cara tambah coverage, kos, negeri berisiko tinggi, dan langkah tuntutan.",
+      "description": "Panduan insurans kereta banjir — special perils, kadar PIAM, contoh RHB dan MSIG, kesan NCD, takaful, dan langkah tuntutan.",
       "url": "https://insurans.co/guides/insurans-kereta-banjir/",
       "datePublished": "2026-01-15",
-      "dateModified": "2026-11-15",
+      "dateModified": "2026-11-27",
       "inLanguage": "ms",
       "publisher": { "@type": "Organization", "name": "Insurans.co", "url": "https://insurans.co" }
     },
@@ -54,11 +54,11 @@ const schema = {
 
 <Base
   title="Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi? — Insurans.co"
-  description="Adakah insurans kereta anda melindungi banjir? Panduan special perils: apa yang dilindungi, kos 0.2%–0.5% daripada sum insured, dan cara buat tuntutan."
+  description="Adakah insurans kereta anda melindungi banjir? Panduan special perils: apa dilindungi, kadar PIAM, contoh RHB dan MSIG, NCD, dan tuntutan."
   schema={schema}
   ogType="article"
   publishedTime="2026-01-15"
-  modifiedTime="2026-11-15"
+  modifiedTime="2026-11-27"
   ads={true}
 >
   <section class="bg-white">
@@ -67,17 +67,17 @@ const schema = {
       <h1 class="ea-h1 mb-1">
         Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?
       </h1>
+      <TrustStrip date="2026-11-27" />
       <PageAnswer
         finding="Insurans komprehensif standard tidak melindungi kerosakan akibat banjir."
         facts={[
-          { label: 'Perlu tambah add-on', value: 'Special Perils' },
-          { label: 'Kos add-on special perils', value: '0.2%–0.5% daripada sum insured setahun', role: 'price' },
-          { label: 'Kenderaan bermotor dengan perlindungan banjir', value: 'Hanya 13%' },
+          { label: 'Perlu tambah', value: 'Special Perils' },
+          { label: 'Polisi kebakaran dan motor dengan lanjutan banjir (PIAM, 6 Nov 2026)', value: '28% hingga 30%' },
+          { label: 'Kadar lazim bagi jumlah diinsuranskan (PIAM, 14 Nov 2025)', value: 'Kurang daripada 0.5%', role: 'price' },
         ]}
       />
-      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
-        Hanya 13% kenderaan bermotor di Malaysia mempunyai perlindungan banjir (PIAM, Oktober 2026, dilaporkan oleh <a href="https://ringgitplus.com/ms/blog/utama/piam-monsun-hampir-tiba-87-kenderaan-masih-tiada-perlindungan-banjir.html" class="underline" target="_blank" rel="noopener noreferrer">RinggitPlus</a>).
+        PIAM (Persatuan Insurans Am Malaysia) menulis: "Only 28% to 30% of fire and motor insurance policies in Malaysia include flood extension coverage" (6 Nov 2026). Angka itu merangkumi polisi kebakaran serta motor, bukan kenderaan semata-mata. <a href="#rujukan-piam-30" class="underline">[4]</a>
       </p>
     </div>
   </section>
@@ -89,81 +89,163 @@ const schema = {
         <!-- Warning box -->
         <div class="not-prose note-warn mb-8">
           <p class="text-sm leading-relaxed">
-            Jika anda tinggal di kawasan banjir dan tiada add-on <strong>Special Perils</strong>,
+            Jika anda tinggal di kawasan banjir dan tiada perlindungan tambahan
+            <strong>special perils (banjir, tanah runtuh, ribut)</strong>,
             anda menanggung sepenuhnya kos kerosakan banjir.
           </p>
         </div>
 
-        <h2>Special perils (Bencana Khas) melindungi banjir, ribut dan tanah runtuh</h2>
+        <h2>Komprehensif tidak melindungi banjir tanpa lanjutan</h2>
         <p>
-          <em>Special Perils</em> atau <em>Bencana Khas</em> ialah add-on kepada polisi
-          insurans kereta anda yang melindungi kerosakan akibat bencana alam dan kejadian luar biasa.
-          Ini termasuk:
+          Polisi komprehensif standard mengecualikan kerosakan banjir. PIAM menyatakan polisi itu
+          "does not cover loss or damage caused by or arising from flood, landslide and landslip",
+          tetapi polisi boleh dilanjutkan dengan premium tambahan (11 Jan 2021). <a href="#rujukan-piam-2021">[2]</a>
         </p>
-        <ul>
-          <li><strong>Banjir dan banjir kilat</strong>, termasuk air masuk ke dalam kereta</li>
-          <li><strong>Ribut dan angin kencang</strong>, seperti pokok tumbang ke atas kereta</li>
-          <li><strong>Tanah runtuh dan runtuhan</strong></li>
-          <li><strong>Letupan gunung berapi</strong> (jarang berlaku di Malaysia)</li>
-          <li><strong>Gempa bumi</strong></li>
-        </ul>
         <p>
-          Tanpa add-on ini, insurans kereta anda, walaupun polisi komprehensif penuh, tidak akan
-          membayar sebarang tuntutan berkaitan banjir.
+          BNM (Bank Negara Malaysia) turut menyenaraikan "Loss/damage arising from an act of nature,
+          such as flood, storm and landslide" sebagai pengecualian. BNM menyatakan anda boleh membayar
+          tambahan untuk meluaskan perlindungan. <a href="#rujukan-bnm">[1]</a>
         </p>
 
-        <h2><span aria-hidden="true">Kos special perils: sekitar 0.2%–0.5% daripada sum insured setahun</span><span class="sr-only">Berapa kos special perils?</span></h2>
-        <p>Kadarnya dikira daripada sum insured kereta anda:</p>
+        <h2>Special perils melindungi banjir, ribut dan tanah runtuh</h2>
+        <p>
+          Special perils ialah perlindungan tambahan pada polisi insurans kereta anda.
+          Ia melindungi kerosakan akibat bencana alam dan kejadian luar biasa:
+        </p>
         <ul>
-          <li>Kadar lazim: <strong>sekitar 0.2%–0.5% daripada sum insured setahun</strong></li>
-          <li>Contoh: sum insured RM50,000, sekitar RM100–RM250 setahun</li>
-          <li>Kadar dan tahap perlindungan (penuh atau separa) berbeza mengikut syarikat insurans</li>
+          <li><strong>Banjir dan banjir kilat</strong></li>
+          <li><strong>Ribut, taufan dan angin kencang</strong></li>
+          <li><strong>Tanah runtuh dan gelinciran tanah</strong></li>
+          <li><strong>Gempa bumi dan letusan gunung berapi</strong></li>
+          <li><strong>Penenggelaman tanah</strong></li>
         </ul>
-        <p class="text-sm text-stone-500">
-          Sumber: <a href="https://www.kurnia.com/blog/special-perils-coverage" target="_blank" rel="noopener noreferrer">Kurnia, Special Perils Coverage</a>.
+        <p>
+          Senarai PIAM menyebut banjir, taufan, hurikan, ribut, letusan gunung berapi, gempa bumi,
+          tanah runtuh, gelinciran tanah, penenggelaman tanah dan "other convulsions of nature".
+          <a href="#rujukan-piam-faq">[3]</a>
+        </p>
+
+        <h2>Kadar special perils lazimnya kurang daripada 0.5% daripada jumlah diinsuranskan (sum insured)</h2>
+        <p>
+          PIAM menulis lanjutan ini "typically costs less than 0.5% of the insured value".
+          Bagi kereta berharga RM100,000, itu sekitar RM42 sebulan (14 Nov 2025).
+          <a href="#rujukan-piam-2025">[5]</a>
         </p>
         <p>
-          Kos membaiki kereta yang rosak akibat banjir boleh mencecah ribuan ringgit, bergantung pada tahap kerosakan. Bandingkan kos itu dengan premium tambahan special perils untuk kereta anda.
+          Dua syarikat menerbitkan contoh penuh dan terhad pada nilai kenderaan RM50,000:
+        </p>
+        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="jadual-kadar">
+          <table class="table-editorial">
+            <caption id="jadual-kadar" class="text-left text-sm text-stone-600 mb-3">Contoh terbitan RHB dan MSIG pada nilai kenderaan RM50,000. RHB: dokumen bertarikh 02/2025; MSIG berkuat kuasa 1 Mac 2024. Ini contoh syarikat itu sendiri, bukan kadar pasaran.</caption>
+            <thead>
+              <tr><th scope="col">Syarikat dan dokumen</th><th scope="col">Perlindungan</th><th scope="col">Jumlah diinsuranskan</th><th scope="col">Premium setahun</th><th scope="col">Kos baiki contoh</th><th scope="col">Bayaran maksimum</th><th scope="col">Baki anda tanggung</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">RHB (02/2025)</th><td>Penuh</td><td>RM50,000</td><td>RM125 sebelum cukai</td><td>RM15,000</td><td>RM15,000</td><td>RM0</td></tr>
+              <tr><th scope="row">RHB (02/2025)</th><td>Terhad (contoh 25%)</td><td>RM12,500</td><td>RM50 sebelum cukai</td><td>RM15,000</td><td>RM12,500</td><td>RM2,500</td></tr>
+              <tr><th scope="row">MSIG (1 Mac 2024)</th><td>Penuh</td><td>RM50,000</td><td>RM100 sebelum cukai</td><td>RM30,000</td><td>RM30,000</td><td>RM0</td></tr>
+              <tr><th scope="row">MSIG (1 Mac 2024)</th><td>Terhad (contoh 25%)</td><td>RM12,500</td><td>RM62.50 sebelum cukai</td><td>RM30,000</td><td>RM12,500</td><td>RM17,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-600">
+          RHB membenarkan pemegang polisi memilih peratusan perlindungan terhad, dihadkan pada 50%;
+          25% ialah contoh dalam brosur itu. RHB juga menyatakan "Premiums shown are subject to applicable tax as
+          imposed by the relevant authorities". MSIG menyatakan premiumnya
+          "exclusive of 8% ST" dalam dokumen 1 Mac 2024. Kedua-duanya ialah contoh terbitan syarikat
+          itu sendiri, bukan kadar pasaran atau sebut harga untuk kereta anda.
+          <a href="#rujukan-rhb">[6]</a> <a href="#rujukan-msig">[7]</a>
+        </p>
+
+        <h2>Contoh kiraan: perlindungan terhad RHB pada RM50,000</h2>
+        <div class="info-box my-6">
+          <p><strong>Contoh andaian, bukan sebut harga:</strong> nilai kenderaan RM50,000 dan anda pilih Perlindungan Terhad Bencana Khas RHB pada 25% daripada nilai kenderaan.</p>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Jumlah diinsuranskan = RM50,000 × 25 ÷ 100 = <strong>RM12,500</strong>.</li>
+            <li>Premium = RM12,500 × 0.40 ÷ 100 = <strong>RM50 setahun</strong>.</li>
+            <li>Banjir menyebabkan kos baiki RM15,000. Bayaran maksimum terhad kepada jumlah diinsuranskan: <strong>RM12,500</strong>.</li>
+            <li>Baki = RM15,000 − RM12,500 = <strong>RM2,500 anda tanggung</strong>.</li>
+          </ul>
+          <p>
+            Perlindungan penuh pada kadar 0.25% pula berharga RM50,000 × 0.25 ÷ 100 = RM125, dan
+            membayar kos RM15,000 itu sepenuhnya. RHB menyatakan "any repair cost that is greater
+            than the sum insured will be borne by the policyholder". Bayaran tertakluk pada
+            excess (ekses); premium pula pada cukai. <a href="#rujukan-rhb">[6]</a>
+          </p>
+        </div>
+
+        <h2>Tuntutan di bawah perlindungan tambahan RHB menjejaskan NCD</h2>
+        <p>
+          RHB menyatakan dalam brosurnya: "If there is a claim under this add-on, your NCD entitlement
+          will be affected." NCD (diskaun tanpa tuntutan) ialah diskaun yang anda kumpul untuk setiap
+          tahun tanpa tuntutan. Itu kata-kata RHB, bukan peraturan semua syarikat.
+          <a href="#rujukan-rhb">[6]</a>
+        </p>
+        <p>
+          BNM menyatakan tuntutan own damage yang anda salah akan menghilangkan NCD.
+          <a href="#rujukan-bnm">[1]</a> PIAM menyenaraikan "current year NCD relief" sebagai
+          perlindungan tambahan berasingan yang membayar balik NCD yang hilang.
+          <a href="#rujukan-piam-faq">[3]</a>
+        </p>
+        <p>
+          Bandingkan kos baiki dengan nilai NCD anda sebelum membuat tuntutan. Minta syarikat anda
+          mengesahkan kesan tuntutan itu pada NCD anda, kerana brosur RHB hanya mengikat RHB.
+        </p>
+
+        <h2>Dokumen takaful memerlukan sumbangan tambahan untuk banjir</h2>
+        <p>
+          Dokumen takaful yang kami semak mengecualikan banjir pada sijil asas. PDS Etiqa
+          (01/01/2026) menyenaraikan "Kerugian, kerosakan atau liabiliti yang berlaku daripada
+          tindakan alam semulajadi, contoh banjir, ribut atau tanah runtuh" sebagai pengecualian.
+          <a href="#rujukan-etiqa">[8]</a>
+        </p>
+        <p>
+          Etiqa menyenaraikan "Banjir dan cuaca melampau" di bawah perlindungan manfaat tambahan
+          pilihan pada halaman produk takaful keretanya. Ia melindungi kerosakan akibat ribut, hujan
+          lebat atau banjir kilat. <a href="#rujukan-etiqa-takaful">[10]</a>
+        </p>
+        <p>
+          Zurich menulis bahawa banjir dan ribut ialah pengecualian yang "can be covered if You make
+          additional contribution". Endorsement 57 berkuat kuasa "in consideration of the additional
+          contribution that You made". <a href="#rujukan-zurich">[9]</a>
+        </p>
+        <p>
+          Istilah dokumen takaful berbeza sedikit. Etiqa menggunakan "sumbangan", "Amaun yang
+          Dilindungi" dan DTT (diskaun tanpa tuntutan) menggantikan premium, jumlah diinsuranskan dan
+          NCD. Perlindungan banjir tetap datang melalui lanjutan berbayar, bukan pada sijil asas.
         </p>
 
 
-        <h2>Negeri berisiko tinggi banjir</h2>
+        <h2>Semak panduan negeri anda sebelum musim banjir</h2>
         <p>
-          Jika anda tinggal atau selalu memandu di negeri-negeri berikut, special perils wajar dipertimbangkan. Ia add-on pilihan, bukan kewajipan undang-undang:
+          Special perils ialah perlindungan tambahan pilihan, bukan kewajipan undang-undang.
+          Risiko banjir berbeza mengikut tempat. Panduan negeri kami menerangkan konteks setiap negeri.
         </p>
-        <ul>
-          <li><a href="/negeri/kelantan/" class="text-hijau-700 underline">Kelantan</a>: antara negeri paling kerap dilanda banjir di Malaysia</li>
-          <li><a href="/negeri/terengganu/" class="text-hijau-700 underline">Terengganu</a>: pesisiran Laut China Selatan, monsun timur laut</li>
-          <li><a href="/negeri/pahang/" class="text-hijau-700 underline">Pahang</a>: banjir sungai dan kawasan pedalaman</li>
-          <li><a href="/negeri/kedah/" class="text-hijau-700 underline">Kedah</a>: banjir musim tengkujuh</li>
-          <li><a href="/negeri/selangor/" class="text-hijau-700 underline">Selangor</a>: kawasan Klang, Shah Alam, Subang kerap banjir kilat</li>
-          <li>Johor: banjir besar pernah berlaku di Johor Bahru</li>
-        </ul>
         <p>
-          Lihat <a href="/negeri/" class="text-hijau-700 underline">panduan insurans mengikut negeri</a>
-          untuk maklumat risiko banjir bagi setiap negeri di Malaysia.
+          Mulakan dengan <a href="/negeri/" class="text-hijau-700 underline">panduan insurans mengikut negeri</a>
+          untuk senarai penuh 16 negeri.
         </p>
 
         <div class="not-prose grid grid-cols-2 sm:grid-cols-3 gap-2 my-6">
           <a href="/negeri/kelantan/" class="tile-link group">
             <span class="block font-semibold">Kelantan</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
+            <span class="text-sm text-stone-700">Panduan negeri</span>
           </a>
           <a href="/negeri/terengganu/" class="tile-link group">
             <span class="block font-semibold">Terengganu</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
+            <span class="text-sm text-stone-700">Panduan negeri</span>
           </a>
           <a href="/negeri/pahang/" class="tile-link group">
             <span class="block font-semibold">Pahang</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
+            <span class="text-sm text-stone-700">Panduan negeri</span>
           </a>
           <a href="/negeri/kedah/" class="tile-link group">
             <span class="block font-semibold">Kedah</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
+            <span class="text-sm text-stone-700">Panduan negeri</span>
           </a>
           <a href="/negeri/selangor/" class="tile-link group">
             <span class="block font-semibold">Selangor</span>
-            <span class="text-sm font-semibold text-edisi-red">Risiko banjir: tinggi</span>
+            <span class="text-sm text-stone-700">Panduan negeri</span>
           </a>
           <a href="/negeri/" class="tile-link group">
             <span class="block font-semibold">Semua negeri</span>
@@ -178,7 +260,7 @@ const schema = {
         <ol>
           <li>
             <strong>Semasa renew insurans:</strong> cara paling mudah. Tandakan
-            pilihan "Special Perils" atau "Bencana Khas" dalam senarai add-on.
+            pilihan "Special Perils" atau "Bencana Khas" dalam senarai perlindungan tambahan.
           </li>
           <li>
             <strong>Endorsement kepada polisi sedia ada:</strong> Jika polisi anda masih aktif,
@@ -187,19 +269,25 @@ const schema = {
             tarikh kuat kuasa dan syarat perlindungan sebelum menganggapnya aktif.
           </li>
           <li>
-            <strong>Melalui platform perbandingan:</strong> Platform perbandingan yang diluluskan BNM biasanya membolehkan anda memilih add-on ini semasa membandingkan harga (lihat <a href="/insurans-online/">semakan platform insurans online</a>).
+            <strong>Melalui platform perbandingan:</strong> Platform perbandingan yang diluluskan BNM biasanya membolehkan anda memilih perlindungan tambahan ini semasa membandingkan harga (lihat <a href="/insurans-online/">semakan platform insurans online</a>).
           </li>
         </ol>
 
-        <h2>Special perils pun ada had</h2>
+        <h2>Had perlindungan bergantung pada dokumen polisi anda</h2>
         <p>
-          Kerosakan atau kerugian ini mungkin tidak dibayar:
+          Dua had yang perlu anda semak. Pertama, jumlah diinsuranskan bagi lanjutan itu: perlindungan
+          terhad membayar sehingga had tersebut sahaja, dan bakinya anda tanggung.
+          <a href="#rujukan-rhb">[6]</a> <a href="#rujukan-msig">[7]</a>
         </p>
-        <ul>
-          <li>Kerosakan akibat anda sengaja meredah air yang dalam (boleh menjejaskan claim; semak terma polisi)</li>
-          <li>Kehilangan barang peribadi di dalam kereta semasa banjir (perlukan add-on berbeza)</li>
-          <li>Kerosakan elektrikal jika anda cuba hidupkan enjin kereta yang dilanda banjir. Jangan sekali-kali cuba start enjin kereta yang terendam air</li>
-        </ul>
+        <p>
+          Kedua, pengecualian dalam sijil asas. Zurich menulis bahawa tiada perlindungan bagi
+          kerosakan akibat banjir "unless specifically obtained". Lanjutan itu mesti dibeli; ia tidak
+          datang bersama sijil asas. <a href="#rujukan-zurich">[9]</a>
+        </p>
+        <p>
+          Minta senarai pengecualian penuh daripada syarikat anda. Dokumen setiap syarikat berbeza,
+          dan ringkasan di halaman ini bukan pengganti polisi anda.
+        </p>
 
         <h2>Langkah tuntutan insurans selepas banjir</h2>
         <ol>
@@ -210,21 +298,24 @@ const schema = {
           </li>
           <li>
             <strong>Ambil gambar dan video</strong> kerosakan secara menyeluruh sebelum mana-mana
-            kerja pembersihan dilakukan.
+            kerja pembersihan dilakukan. PIAM menyatakan anda perlu memberikan gambar jika kerosakan
+            itu kecil. <a href="#rujukan-piam-2021">[2]</a>
           </li>
           <li>
-            <strong>Maklumkan syarikat insurans secepat mungkin</strong> dan semak tempoh pemberitahuan
-            dalam polisi anda. Ikut arahan claim yang diberikan oleh syarikat.
+            <strong>Maklumkan syarikat insurans secepat mungkin</strong> dengan butiran penuh kejadian.
+            PIAM menyatakan anda perlu menyemak tempoh pemberitahuan dalam polisi anda.
+            <a href="#rujukan-piam-2021">[2]</a>
           </li>
           <li>
             <strong>Buat laporan polis</strong> jika diperlukan oleh syarikat insurans anda.
           </li>
           <li>
             <strong>Hantar ke panel bengkel</strong> yang dilantik oleh syarikat insurans anda.
-            Bengkel panel akan hubungi adjuster insurans untuk penilaian kerosakan.
+            Etiqa menyatakan anda boleh menghantar kereta ke bengkel dalam panelnya yang diluluskan.
+            <a href="#rujukan-etiqa">[8]</a>
           </li>
           <li>
-            <strong>Simpan semua resit</strong> berkaitan kos towing, penginapan sementara, dan
+            <strong>Simpan semua resit</strong> berkaitan kos tunda, penginapan sementara, dan
             perbelanjaan lain yang mungkin boleh dituntut.
           </li>
         </ol>
@@ -241,6 +332,22 @@ const schema = {
           </details>
         ))}
 
+        <section id="rujukan" class="border-t border-stone-200 pt-6 mt-8" aria-labelledby="tajuk-rujukan">
+          <h2 id="tajuk-rujukan" class="h2-quiet">Rujukan</h2>
+          <ol class="list-decimal pl-5 space-y-2 text-sm">
+            <li id="rujukan-bnm"><a href="https://www.bnm.gov.my/faqs/ins-tkf/motor" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia: Soalan lazim insurans dan takaful motor (pengecualian bencana alam, lanjutan berbayar, kesan tuntutan own damage pada NCD).</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-piam-2021"><a href="https://piam.org.my/news-media/stay-ahead/press-releases/article/PIAM-Member-Companies-Expediting-Flood-Claims/" target="_blank" rel="noopener noreferrer">PIAM (11 Jan 2021): polisi komprehensif standard tidak melindungi banjir, tanah runtuh dan gelinciran tanah; lanjutan dengan premium tambahan.</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-piam-faq"><a href="https://www.piam.org.my/pdf/consumer-guide/PIAM-FAQ-Sheet-Motor-Insurance-Consumer-Guide.pdf" target="_blank" rel="noopener noreferrer">PIAM: Helaian soalan lazim insurans motor (senarai bencana khas dan "current year NCD relief").</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-piam-30"><a href="https://piam.org.my/news-media/stay-ahead/articles/page/only-30-of-fire-motor-insurance-policies-include-flood-coverage/" target="_blank" rel="noopener noreferrer">PIAM (6 Nov 2026): hanya 28% hingga 30% polisi kebakaran dan motor mempunyai lanjutan banjir.</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-piam-2025"><a href="https://piam.org.my/news-media/stay-ahead/articles/page/Stronger-Storms-Ahead-How-Malaysians-Can-Prepare-for-the-Monsoon" target="_blank" rel="noopener noreferrer">PIAM (14 Nov 2025): lanjutan banjir lazimnya kurang daripada 0.5% daripada jumlah diinsuranskan, sekitar RM42 sebulan bagi kereta berharga RM100,000.</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-rhb"><a href="https://www.rhbgroup.com/insurance/personal-insurance/motor-addon/-/media/Assets/Corporate-Website/Document/Insurance/Personal-Insurance/Motor-Add-On/Special_Perils_Add_on_Covers_Brochure.pdf" target="_blank" rel="noopener noreferrer">RHB Insurance: brosur Special Perils Add-on Covers, bertarikh 02/2025 (kod M/Special Perils/022025) (contoh RM50,000 penuh dan terhad, kesan NCD, baki kos baiki).</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-msig"><a href="https://www.msig.com.my/media/pxakjygr/msig-motor-add-on-special-perils-f-ad-s78-v2.pdf" target="_blank" rel="noopener noreferrer">MSIG Insurance: risalah Special Perils dan Limited Special Perils, F-AD-S78-V2, berkuat kuasa 1 Mac 2024 (contoh RM50,000, premium sebelum cukai).</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-etiqa"><a href="https://www.etiqa.com.my/pdfs/my/takaful/Helaian-Pendedahan-Produk-Takaful-Kereta-Persendirian.pdf" target="_blank" rel="noopener noreferrer">Etiqa: Helaian Pendedahan Produk Takaful Kereta Persendirian, 01/01/2026, versi 2609V0.3 (pengecualian bencana alam, sumbangan, DTT).</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-zurich"><a href="https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/takaful-products/certificate-wordings/zgtmb-z-driver-cw_eng.pdf?rev=2fe90ddb31de47f1a279d23f200d7fe2" target="_blank" rel="noopener noreferrer">Zurich: Z-Driver Takaful Enhanced Private Car Certificate, versi CW-BI-062024 (pengecualian banjir dan Endorsement 57 dengan sumbangan tambahan).</a> Sumber disemak 27 Nov 2026.</li>
+            <li id="rujukan-etiqa-takaful"><a href="https://www.etiqa.com.my/kereta/komprehensif-kereta-takaful" target="_blank" rel="noopener noreferrer">Etiqa: halaman produk Takaful Kereta Komprehensif ("Banjir dan cuaca melampau" sebagai manfaat tambahan pilihan).</a> Sumber disemak 27 Nov 2026.</li>
+          </ol>
+        </section>
+
       </article>
 
       <!-- Sidebar -->
@@ -250,7 +357,7 @@ const schema = {
           <div class="note-warn">
             <h3 class="note-t mb-2 text-base">Perlu special perils?</h3>
             <p class="text-sm mb-3 leading-relaxed">
-              Jika anda tinggal di kawasan yang kerap banjir, semak kos add-on special perils semasa renew. Lazimnya 0.2%–0.5% daripada sum insured setahun.
+              Jika anda tinggal di kawasan yang kerap banjir, semak kos perlindungan tambahan special perils semasa renew. PIAM menyatakan lanjutan ini lazimnya kurang daripada 0.5% daripada jumlah diinsuranskan.
             </p>
             <a href="/insurans-online/#beli-terus"
                class="btn-outline w-full justify-center text-center text-sm">
@@ -270,7 +377,7 @@ const schema = {
 
           <div class="card-editorial">
             <h3 class="font-semibold text-sm text-stone-900 mb-3">Contoh syarikat dengan special perils</h3>
-            <p class="text-xs text-stone-500 mb-3">Antara syarikat yang menawarkan add-on special perils:</p>
+            <p class="text-xs text-stone-500 mb-3">Antara syarikat yang menawarkan perlindungan tambahan special perils:</p>
             <ul class="tap-links space-y-2 text-sm">
               <li><a href="/companies/etiqa/" class="text-hijau-700 underline">Etiqa</a></li>
               <li><a href="/companies/allianz/" class="text-hijau-700 underline">Allianz</a></li>

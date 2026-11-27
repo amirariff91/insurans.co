@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -172,21 +172,13 @@ const schema = {
     </Fragment>
     <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan', href: '/perbandingan/' }, { label: `${nameA} vs ${nameB}` }]} />
     <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt) }]} />
-    <Byline slot="byline" dateModified={comp.asAt} />
+    <TrustStrip slot="trust" date={comp.asAt} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-700">{comp.summary}</p>
   </Hero>
 
   <div class="container-wide py-10 sm:py-14">
     <div class="grid lg:grid-cols-3 gap-10 lg:gap-14">
       <div class="lg:col-span-2">
-        <section class="prose-editorial prose-bars mb-8">
-          <h2 class="h2-quiet">Skop perbandingan</h2>
-          <p>
-            Untuk produk yang anda pertimbangkan, minta jadual manfaat dan dokumen polisi terkini supaya
-            anda membandingkan perlindungan yang sama.
-          </p>
-        </section>
-
         <section aria-labelledby="dimensions-heading" class="mb-12">
           <div class="prose-editorial prose-bars mb-5">
             <h2 id="dimensions-heading">Perbezaan mengikut kriteria</h2>
@@ -195,24 +187,35 @@ const schema = {
               sebut harga yang tersedia kepada anda.
             </p>
           </div>
-          <div class="compare-rows">
+          {/* Side by side at every width, phones included; the head naming the two companies sticks while the
+              rows scroll. One tbody per criterion: its name, the two sides, then the note across both. */}
+          <table class="cg">
+            <caption class="sr-only">{nameA} dan {nameB} mengikut kriteria</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="cg-co"><LogoTile company={comp.company1} size="s" />{nameA}</span></th>
+                <th scope="col"><span class="cg-co"><LogoTile company={comp.company2} size="s" />{nameB}</span></th>
+              </tr>
+            </thead>
             {dims.map((dimension) => (
-              <article class="compare-row">
-                <h3 class="compare-row-t">{dimension.label}</h3>
-                <div class="compare-cols">
-                  <div>
-                    <h4 class="compare-name">{nameA}</h4>
-                    <p>{buyerCopy(dimension.a)}</p>
-                  </div>
-                  <div>
-                    <h4 class="compare-name">{nameB}</h4>
-                    <p>{buyerCopy(dimension.b)}</p>
-                  </div>
-                </div>
-                <p class="compare-note">{buyerCopy(dimension.note)}</p>
-              </article>
+              <tbody>
+                <tr><th scope="rowgroup" colspan="2" class="cg-k">{dimension.label}</th></tr>
+                <tr class="cg-v">
+                  <td data-empty={dimension.a ? undefined : ''}>{dimension.a ? buyerCopy(dimension.a) : 'Tiada data'}</td>
+                  <td data-empty={dimension.b ? undefined : ''}>{dimension.b ? buyerCopy(dimension.b) : 'Tiada data'}</td>
+                </tr>
+                {dimension.note && <tr><td colspan="2" class="cg-note">{buyerCopy(dimension.note)}</td></tr>}
+              </tbody>
             ))}
-          </div>
+          </table>
+        </section>
+
+        <section class="prose-editorial prose-bars mb-8">
+          <h2 class="h2-quiet">Skop perbandingan</h2>
+          <p>
+            Untuk produk yang anda pertimbangkan, minta jadual manfaat dan dokumen polisi terkini supaya
+            anda membandingkan perlindungan yang sama.
+          </p>
         </section>
 
         <section aria-labelledby="choose-heading" class="mb-12">
@@ -335,16 +338,27 @@ const schema = {
 </Base>
 
 <style>
-  .compare-rows { border-top: 2px solid var(--ink); }
-  .compare-row { padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
-  .compare-row-t { font: 800 1.125rem/1.25 var(--fd, inherit); color: var(--ink); margin: 0 0 0.75rem; }
-  .compare-cols { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
-  @media (min-width: 48rem) {
-    .compare-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
-    .compare-cols > div + div { border-left: 1px solid var(--line); padding-left: 1.5rem; }
-    .compare-cols > div:first-child { padding-right: 1.5rem; }
+  .cg { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; font-size: 0.875rem; line-height: 1.5; color: var(--ink); }
+  .cg thead th {
+    position: sticky; top: 0; z-index: 3; background: var(--paper); text-align: left; vertical-align: bottom;
+    padding: 0.5rem 0.5rem 0.5rem 0; border-bottom: 2px solid var(--ink);
+    font: 800 1rem/1.2 var(--fd, inherit);
   }
-  .compare-name { font-weight: 600; color: var(--ink); margin: 0 0 0.25rem; }
-  .compare-cols p, .compare-note { font-size: 1rem; line-height: 1.55; color: var(--ink); margin: 0; }
-  .compare-note { margin-top: 1rem; color: var(--ink-2, var(--ink)); }
+  .cg thead th + th, .cg-v > td + td { padding-left: 0.75rem; border-left: 1px solid var(--line); }
+  .cg-co { display: flex; align-items: center; gap: 0.5rem; min-width: 0; overflow-wrap: anywhere; }
+  .cg-co > :global(*) { flex: none; }
+  .cg-k { text-align: left; padding: 1rem 0 0.5rem; font: 800 1rem/1.25 var(--fd, inherit); }
+  .cg tbody + tbody .cg-k { border-top: 1px solid var(--line); }
+  .cg-v > td { vertical-align: top; padding: 0 0.75rem 0.75rem 0; overflow-wrap: break-word; hyphens: auto; }
+  .cg-v > td[data-empty] { color: var(--ink-2); }
+  .cg-note { padding: 0 0 1rem; color: var(--ink-2); }
+  @media (min-width: 48rem) {
+    .cg { font-size: 1rem; line-height: 1.55; }
+    .cg thead th { font-size: 1.125rem; padding-block: 0.75rem; }
+    .cg thead th + th, .cg-v > td + td { padding-left: 1.5rem; }
+    .cg-v > td { padding-right: 1.5rem; }
+    .cg-k { font-size: 1.125rem; padding-top: 1.5rem; }
+  }
+  /* From 70rem the section tabs stick at the top (69px band, SiteHeader.astro): the head sits under them. */
+  @media (min-width: 70rem) { .cg thead th { top: 4.375rem; } }
 </style>

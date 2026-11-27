@@ -1,12 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
+import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { containedMarks, sourceMark } from '../../lib/fact-sources';
 import { archivedCopy, factRole, tarikh } from '../../components/edisi/ProductFormat';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -90,6 +96,9 @@ const faqs = freshFaqs(
 );
 
 const title = buildTitle(`${card.planName} — Medical Card`);
+const documents = ('documents' in card ? card.documents : undefined) as PlanDocument[] | undefined;
+// "Pautan brosur dan PDS rasmi." was considered for the description; on 27 Nov 2026 no plan's line had room for it
+// within 155 characters, so the description is unchanged.
 const description = buildDescription(
   `${card.planName} oleh ${card.insurer}: kelayakan, manfaat, kos sendiri, pengecualian dan perbandingan dengan ${sibling.planName}, berserta rujukan dokumen rasmi.`,
 );
@@ -122,7 +131,9 @@ const schema = {
 // the full "Had tahunan" fact row then moves to the details list under the box. The plan type sits in the bar.
 const leadValue = /^RM[\d,]+$/.test(card.annualLimit ?? '') ? card.annualLimit : undefined;
 // The lead label comes from the record when it scopes the limit (AIA: benefits 1–14); otherwise 'Had tahunan'.
-const lead = leadValue ? { value: leadValue, label: card.annualLimitLabel ?? 'Had tahunan', role: 'term' as const } : undefined;
+// Its marker is the "Had tahunan" fact's own source, and only when that fact states the same figure.
+const leadFact = analysis.facts.find((fact) => fact.label === 'Had tahunan' && leadValue && fact.value.includes(leadValue));
+const lead = leadValue ? { value: leadValue, label: card.annualLimitLabel ?? 'Had tahunan', role: 'term' as const, source: sourceMark(sourceUrls, leadFact?.source) } : undefined;
 const insurerName = card.insurer.replace(/\.$/, '');
 const finding = `${typeLabel} oleh ${insurerName}`;
 const answerSkip: string[] = lead ? ['Had tahunan'] : [];
@@ -135,6 +146,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceUrls, spec.source),
 }));
 const answerRest = [
   ...specItems.filter((spec) => answerSkip.includes(spec.label)),
@@ -154,7 +166,10 @@ const answerRest = [
   modifiedTime={card.analysisAsAt}
 >
   <Hero title={`Medical card ${card.planName}`}>
-    <Byline slot="byline" dateModified={card.analysisAsAt} />
+    {/* Insurer logo (identification only); a plain wordmark when no licensed logo is on file. A government
+        scheme carries no insurer mark. */}
+    <LogoTile slot="mark" company={card.insurer} name={/^kerajaan/i.test(card.insurer) ? undefined : shortCompanyName(card.insurer)} size="m" eager wordmark />
+    <TrustStrip slot="trust" date={card.analysisAsAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -177,7 +192,7 @@ const answerRest = [
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceUrls, spec.source)]} /></dd>
             </div>
           ))}
         </dl>
@@ -199,6 +214,7 @@ const answerRest = [
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p class="text-lg text-stone-700">{analysis.bestFor}</p>
+        <SourceNote text={analysis.bestFor} facts={analysis.facts} list={sourceUrls} />
 
         <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
@@ -216,14 +232,17 @@ const answerRest = [
             </div>
           ))}
         </dl>
+        {['etiqa-one-medical', 'takaful-malaysia-kaotim-medikad', 'great-eastern-great-medcare', 'tokio-marine-medic-plus', 'great-eastern-smartmedic-shield'].includes(card.slug) && <p>Jadual rasmi ikut umur untuk pelan ini, bersama syaratnya: <a href="/medical-cards/harga-ikut-umur/">harga medical card ikut umur</a>.</p>}
 
         <h2 id="pertimbangan">Had dan perkara yang perlu ditimbang</h2>
         <p>{analysis.tradeoffs}</p>
+        <SourceNote text={analysis.tradeoffs} facts={analysis.facts} list={sourceUrls} />
 
         <h2 id="perbandingan">{card.planName} berbanding {sibling.planName}</h2>
         <ul>
           {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={analysis.siblingDifferences} facts={analysis.facts} list={sourceUrls} sibling={{ name: sibling.planName, href: `/medical-cards/${sibling.slug}/#fakta`, facts: sibling.analysis.facts }} />
         <p>
           <a href={`/medical-cards/${sibling.slug}/`}>Baca manfaat dan syarat {sibling.planName}</a>.
         </p>
@@ -232,6 +251,8 @@ const answerRest = [
           <a href="/medical-cards/"> panduan perbandingan medical card</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={card.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">
@@ -242,7 +263,7 @@ const answerRest = [
             {faqs.map((faq, index) => (
               <details class="faq-item" open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <p>{faq.a}<SourceMark marks={containedMarks(faq.a, analysis.facts, sourceUrls)} /></p>
               </details>
             ))}
           </div>

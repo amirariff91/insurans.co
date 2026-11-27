@@ -2,7 +2,7 @@
 import Ikon from '../../../components/Ikon.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { docName, readerDate } from '../../../components/edisi-tools/labels';
 import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
@@ -55,6 +55,7 @@ const schema = {
   operatingSystem: 'All',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'MYR' },
   inLanguage: 'ms',
+  dateModified: home.asAt,
   publisher: {
     '@type': 'Organization',
     name: 'Insurans.co',
@@ -82,6 +83,7 @@ const introRest = introMore.join(' ');
   pageType="tool"
 >
   <ToolOpening title="Kalkulator Insurans Rumah 2026">
+    <TrustStrip slot="trust" date={home.asAt} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -190,7 +192,6 @@ const introRest = introMore.join(' ');
         </section>
 
         <div class="et-after">
-          <Byline dateModified={home.asAt} />
           {introRest && <p>{introRest}</p>}
           <p>Kiraan houseowner/householder menggunakan kadar tarif kebakaran awam, dan alat ini percuma.</p>
         </div>

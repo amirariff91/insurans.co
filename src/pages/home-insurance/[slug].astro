@@ -1,12 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
+import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { containedMarks, sourceMark } from '../../lib/fact-sources';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import homeInsurance from '../../data/home-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -85,6 +91,7 @@ const faqs = freshFaqs(faqCandidates, [
   ...record.analysis.siblingDifferences,
 ]);
 
+const documents = ('documents' in record ? record.documents : undefined) as PlanDocument[] | undefined;
 const title = buildTitle(`${record.planName} — Insurans Rumah`);
 const description = buildDescription(
   `${record.planName} oleh ${record.insurer}: kesesuaian pemilik, fakta perlindungan, had, contoh premium rasmi dan perbandingan pelan.`,
@@ -130,6 +137,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceLinks, spec.source),
 }));
 const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
@@ -146,7 +154,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   modifiedTime={record.analysisAsAt}
 >
   <Hero title={`Insurans rumah: ${record.planName}`}>
-    <Byline slot="byline" dateModified={record.analysisAsAt} />
+    {/* Insurer logo (identification only); a plain wordmark when no licensed logo is on file. A government
+        scheme carries no insurer mark. */}
+    <LogoTile slot="mark" company={record.insurer} name={/^kerajaan/i.test(record.insurer) ? undefined : shortCompanyName(record.insurer)} size="m" eager wordmark />
+    <TrustStrip slot="trust" date={record.analysisAsAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -168,7 +179,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceLinks, spec.source)]} /></dd>
             </div>
           ))}
         </dl>
@@ -190,6 +201,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{record.analysis.bestFor}</p>
+        <SourceNote text={record.analysis.bestFor} facts={record.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="fakta">Perlindungan, had dan syarat</h2>
         <dl class="mt-5 space-y-5">
@@ -210,16 +222,20 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
         <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
         <p>{record.analysis.tradeoffs}</p>
+        <SourceNote text={record.analysis.tradeoffs} facts={record.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="banding">{record.planName} berbanding {siblingRecord.planName} ({siblingRecord.insurer})</h2>
         <ul>
           {record.analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={record.analysis.siblingDifferences} facts={record.facts} list={sourceLinks} fallbackHref="#sumber" sibling={{ name: siblingRecord.planName, href: `/home-insurance/${siblingRecord.slug}/#fakta`, facts: siblingRecord.facts }} />
         <p>
           Baca <a href={`/home-insurance/${siblingRecord.slug}/`}>{siblingRecord.planName} oleh {siblingRecord.insurer}</a> untuk butiran pelan perbandingan.
           Asas bangunan dan isi rumah diterangkan dalam <a href="/home-insurance/">panduan insurans rumah</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={record.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">
@@ -230,7 +246,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
             {faqs.map((faq, index) => (
               <details class="faq-item" open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <p>{faq.a}<SourceMark marks={containedMarks(faq.a, record.facts, sourceLinks)} /></p>
               </details>
             ))}
           </div>

@@ -1,0 +1,150 @@
+---
+/**
+ * "Brosur dan PDS": links to a plan's official documents on the insurer's or operator's own site (or, with `hostedAt`, its file storage or its distributor's site), with a page guide.
+ *
+ *   <Dokumen documents={card.documents} company={card.insurer} />
+ *
+ * Rules: we link only. No copy of any file is hosted here and no link carries a download attribute.
+ * Every value comes from the document itself as opened on `openedOn`: the date or version code exactly as printed
+ * (absent when none is printed), the PDF page count, and what a reader finds on each page.
+ * `title` is the link text and names the document: the heading as printed when it names the product, otherwise
+ * "<product name as it appears in the document> Product Disclosure Sheet" (or the kind in the document's words).
+ * `printedTitle` holds the heading exactly as printed when it is only generic words ("PRODUCT DISCLOSURE SHEET"),
+ * so the record never claims a printed title that is not printed.
+ * Page numbers are pages of the PDF file, not the page numbers printed on it.
+ * Outbound links carry data-direct-insurer so the existing click tracking (src/lib/track.ts) applies.
+ * Renders nothing when the record has no documents.
+ */
+
+export interface PlanDocumentPage {
+  page: number;
+  what: string;
+}
+
+export interface PlanDocument {
+  kind: 'brosur' | 'pds' | 'jadual-premium' | 'polisi' | string;
+  title: string;
+  /** The heading exactly as printed, when it differs from `title` (for example only "PRODUCT DISCLOSURE SHEET"). */
+  printedTitle?: string;
+  url: string;
+  /** Where the file sits when that is not the company's own site (a bank's site, the insurer's file storage). */
+  hostedAt?: string;
+  language: string;
+  documentDate?: string;
+  versionCode?: string;
+  pages: number;
+  openedOn: string;
+  index: PlanDocumentPage[];
+}
+
+interface Props {
+  documents?: PlanDocument[];
+  /** Company name for click tracking. */
+  company: string;
+  id?: string;
+}
+
+const { documents, company, id = 'dokumen' } = Astro.props;
+const list = Array.isArray(documents) ? documents : [];
+
+const kindLabels: Record<string, string> = {
+  brosur: 'Brosur',
+  pds: 'PDS',
+  'jadual-premium': 'Jadual premium',
+  polisi: 'Kontrak polisi',
+};
+
+function tarikhBuka(value: string): string {
+  const d = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return value;
+  const bulan = ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sep', 'Okt', 'Nov', 'Dis'];
+  return `${d.getUTCDate()} ${bulan[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+---
+
+{list.length > 0 && (
+  <section id={id} class="dok scroll-mt-24" aria-labelledby={`${id}-tajuk`}>
+    <div class="prose-editorial prose-bars">
+      <h2 id={`${id}-tajuk`}>Brosur dan PDS</h2>
+      <p>
+        Fail di bawah milik syarikat sendiri dan disimpan di laman atau storan fail mereka, atau di laman bank yang menjual pelan itu. Syarikat boleh menukar atau mengalihkannya,
+        jadi semak tarikh pada dokumen sebelum bergantung padanya. Nombor m.s. ialah halaman dalam fail PDF.
+      </p>
+    </div>
+    <ul class="dok-list">
+      {list.map((doc) => (
+        <li class="dok-item">
+          <p class="dok-title">
+            <a class="tap-link" href={doc.url} target="_blank" rel="noopener noreferrer" data-direct-insurer={company}>
+              <span>{doc.title}<span class="sr-only"> (PDF di {doc.hostedAt ?? `laman ${company}`}, buka tab baharu)</span> ↗</span>
+            </a>
+          </p>
+          <p class="dok-meta">
+            <span>{kindLabels[doc.kind] ?? doc.kind}</span>
+            <span>{doc.language}</span>
+            <span>{doc.pages} m.s.</span>
+            {doc.documentDate && <span>Tarikh pada dokumen: {doc.documentDate}</span>}
+            {doc.versionCode && <span>Kod versi: {doc.versionCode}</span>}
+            <span>dibuka pada <time datetime={doc.openedOn}>{tarikhBuka(doc.openedOn)}</time></span>
+          </p>
+          {doc.index.length > 0 && (
+            <ul class="dok-index">
+              {doc.index.map((entry) => (
+                <li><span class="dok-ms">m.s. {entry.page}:</span> {entry.what}</li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .dok-list {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dok-item {
+    border-top: 1px solid var(--mute);
+    padding: 1rem 0;
+  }
+  .dok-title {
+    margin: 0;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  /* A standalone link: at least 44px tall, as .tap-link in global.css (DESIGN.md "Targets"). */
+  .dok-title a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.25rem 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .dok-meta {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    row-gap: 0.25rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    color: var(--mute);
+    overflow-wrap: anywhere;
+  }
+  .dok-index {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .dok-index li + li {
+    margin-top: 0.25rem;
+  }
+  .dok-ms {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>

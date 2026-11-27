@@ -1,0 +1,20 @@
+---
+/**
+ * One numbered source marker, the same superscript the plan pages' fact list prints after each row:
+ * "[n]" linking to the source document, n being its place in the page's source list.
+ * Styles: global.css `main sup` (14px, padded tap target) and `.src-mark`.
+ */
+import type { SourceMark } from '../../lib/fact-sources';
+
+interface Props {
+  marks?: Array<SourceMark | undefined>;
+}
+
+const marks = (Astro.props.marks ?? []).filter((mark): mark is SourceMark => Boolean(mark));
+---
+
+{marks.length > 0 && (
+  <>{' '}{marks.map((mark) => (
+    <sup class="src-mark"><a href={mark.href} aria-label={`Sumber ${mark.n}`}>[{mark.n}]</a></sup>
+  ))}</>
+)}

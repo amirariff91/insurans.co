@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogoTile from '../../components/LogoTile.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -10,6 +10,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TypeChips from '../../components/edisi/TypeChips.astro';
 import medicalCards from '../../data/medical-cards.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
+import MultiValueCell from '../../components/edisi/MultiValueCell.astro';
 
 const cards = medicalCards.records;
 const updatedAt = '2026-10-10';
@@ -106,12 +107,12 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Medical Card Malaysia 2026</h1>
+      <TrustStrip date={updatedAt} />
       <PageAnswer
         finding={`${cards.length} pelan medical card: standalone, rider, takaful`}
         sentence="Mulakan dengan had tahunan, kemudian semak room & board, co-payment atau deductible dan tempoh menunggu."
         note="Kami tidak menganggarkan premium; semak quotation dan syarat terkini dengan penyedia."
       />
-      <Byline dateModified={updatedAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Manfaat di halaman ini diambil daripada PDS atau brosur rasmi.
       </p>
@@ -153,8 +154,8 @@ const schema = {
                     </th>
                     <td role="cell" data-label="Penyedia" data-sub>{card.insurer || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Jenis pelan" data-chip><span class="plan-chip">{typeLabels[card.type] ?? 'Tidak dinyatakan'}</span></td>
-                    <td role="cell" data-label="Had tahunan">{card.annualLimit || 'Tidak dinyatakan'}</td>
-                    <td role="cell" data-label="Room &amp; board">{card.roomBoard || 'Tidak dinyatakan'}</td>
+                    <td role="cell" data-label="Had tahunan" data-wide><MultiValueCell text={card.annualLimit || 'Tidak dinyatakan'} /></td>
+                    <td role="cell" data-label="Room &amp; board" data-wide><MultiValueCell text={card.roomBoard || 'Tidak dinyatakan'} /></td>
                     <td role="cell" data-label="Ciri utama" data-wide>{card.standoutFeature || 'Tidak dinyatakan'}</td>
                     <td role="cell" data-label="Sumber" data-wide>
                       {card.sources[0] ? (
@@ -182,6 +183,7 @@ const schema = {
             <li>Baca pengecualian, syarat pembaharuan dan PDS setiap pelan. Jangan bandingkan premium sahaja.</li>
             <li>Sahkan deductible, co-payment dan syarat pembaharuan melalui pautan sumber rasmi sebelum memilih pelan.</li>
           </ol>
+          <p>Untuk jadual premium dan sumbangan yang syarikat terbitkan ikut umur, baca <a href="/medical-cards/harga-ikut-umur/">harga medical card ikut umur</a>.</p>
         </article>
 
         <details class="pp-more mt-8 sm:mt-10">

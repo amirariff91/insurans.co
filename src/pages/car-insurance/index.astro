@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import HubModelList from '../../components/edisi/HubModelList.astro';
 import CarThumb from '../../components/CarThumb.astro';
@@ -98,6 +98,7 @@ const schema = {
       <h1 class="ea-h1">
         {pageTitle}
       </h1>
+      <TrustStrip date={schema.dateModified} />
       <!-- Quick summary card -->
       <section class="mod hub-sum" aria-labelledby="ringkasan">
         <h2 class="mod-bar" id="ringkasan">Wajib third-party, NCD sehingga 55%</h2>
@@ -132,7 +133,6 @@ const schema = {
       <p class="hub-lead">
         Insurans kereta wajib di Malaysia: tanpa polisi sah, anda tidak boleh renew roadtax. Premium komprehensif untuk Axia/Myvi sekitar {leadSmall55} setahun (NCD 55%) dan {leadSmall0} (NCD 0%); City/Vios {leadMid55} dengan NCD penuh.
       </p>
-      <Byline dateModified={schema.dateModified} />
 
       <HubTiles tiles={jumpTiles} label="Bahagian panduan" />
     </div>
@@ -163,23 +163,25 @@ const schema = {
         </article>
 
         <!-- Price Table -->
-        <div class="overflow-x-auto my-8" role="region" tabindex="0" aria-labelledby="harga">
-          <table class="table-editorial">
-            <thead>
-              <tr>
-                <th scope="col">Kereta</th>
-                <th scope="col">Nilai pasaran</th>
-                <th scope="col">Premium (0% NCD)</th>
-                <th scope="col">Premium (55% NCD)</th>
+        <!-- Below 40rem each row stacks (car name, then three labelled figures), so no column is off screen.
+             Changing display strips table semantics in some browsers, so the roles are explicit. -->
+        <div class="overflow-x-auto cv-wrap my-8" role="region" tabindex="0" aria-labelledby="harga">
+          <table class="table-editorial cv-table" role="table">
+            <thead role="rowgroup">
+              <tr role="row">
+                <th role="columnheader" scope="col">Kereta</th>
+                <th role="columnheader" scope="col">Sum insured andaian</th>
+                <th role="columnheader" scope="col">Premium (0% NCD)</th>
+                <th role="columnheader" scope="col">Premium (55% NCD)</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody role="rowgroup">
               {tableRows.map(({ label, marketValue, car }) => (
-                <tr>
-                  <th scope="row" class="font-medium text-stone-900">{label}</th>
-                  <td>{marketValue}</td>
-                  <td><span class="hub-nw">{range(car.premiumNCD0Min, car.premiumNCD0Max)}</span></td>
-                  <td class="font-semibold text-hijau-700"><span class="hub-nw">{range(car.premiumNCD55Min, car.premiumNCD55Max)}</span></td>
+                <tr role="row">
+                  <th role="rowheader" scope="row" class="font-medium text-stone-900">{label}</th>
+                  <td role="cell" data-label="Sum insured andaian"><span class="hub-nw">{marketValue}</span></td>
+                  <td role="cell" data-label="Premium (0% NCD)"><span class="hub-nw">{range(car.premiumNCD0Min, car.premiumNCD0Max)}</span></td>
+                  <td role="cell" data-label="Premium (55% NCD)" class="font-semibold text-hijau-700"><span class="hub-nw">{range(car.premiumNCD55Min, car.premiumNCD55Max)}</span></td>
                 </tr>
               ))}
             </tbody>
@@ -747,6 +749,18 @@ const schema = {
   @media (prefers-reduced-motion: reduce) { .hub-fold > summary :global(.hub-fold-i) { transition: none; } }
   /* Price ranges never break at the dash; a narrow table scrolls inside its wrapper instead. */
   .hub-nw { white-space: nowrap; }
+  /* Car value table, phones: one ruled block per car instead of four columns that run off screen. */
+  @media (max-width: 39.99rem) {
+    .cv-wrap { display: block; container-type: normal; overflow: visible; border: 0; border-radius: 0; background: transparent; border-top: 2px solid var(--ink); }
+    .cv-wrap::before, .cv-wrap::after { content: none; }
+    .cv-table, .cv-table > tbody { display: block; width: 100%; }
+    .cv-table > thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .cv-table > tbody > tr { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+    .hub-body .cv-table > tbody > tr > :is(th, td) { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0; border: 0; }
+    .hub-body .cv-table > tbody > tr > th { font-size: 1rem; line-height: 1.4; padding-bottom: 0.25rem; }
+    .cv-table > tbody > tr > td::before { content: attr(data-label); color: var(--ink-2); font-weight: 400; font-size: 0.875rem; }
+    .cv-table > tbody > tr > td { min-height: 1.75rem; font-size: 1rem; }
+  }
   @media (max-width: 47.99rem) {
     .hub-body :global(.table-editorial :is(th, td)) { padding: 0.5rem; }
   }

@@ -1,12 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
+import LogoTile from '../../components/LogoTile.astro';
+import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { sourceMark } from '../../lib/fact-sources';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import personalAccident from '../../data/personal-accident.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -59,6 +65,7 @@ const specItems = [
   ].includes(fact.label)),
 ];
 const pageTitle = `${record.planName} — PA`;
+const documents = ('documents' in record ? record.documents : undefined) as PlanDocument[] | undefined;
 const description = buildDescription(
   `${record.planName}: kelayakan, skala hilang upaya, had manfaat dan pengecualian. Bandingan dengan ${siblingRecord.planName} menggunakan dokumen rasmi.`,
 );
@@ -105,6 +112,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceLinks, 'source' in spec ? spec.source : undefined),
 }));
 const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
@@ -121,7 +129,10 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
   modifiedTime={record.analysisAsAt}
 >
   <Hero title={`Insurans kemalangan diri: ${record.planName}`}>
-    <Byline slot="byline" dateModified={record.analysisAsAt} />
+    {/* Insurer logo (identification only); a plain wordmark when no licensed logo is on file. A government
+        scheme carries no insurer mark. */}
+    <LogoTile slot="mark" company={record.insurer} name={/^kerajaan/i.test(record.insurer) ? undefined : shortCompanyName(record.insurer)} size="m" eager wordmark />
+    <TrustStrip slot="trust" date={record.analysisAsAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -143,7 +154,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceLinks, 'source' in spec ? spec.source : undefined)]} /></dd>
             </div>
           ))}
         </dl>
@@ -165,6 +176,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
+        <SourceNote text={analysis.bestFor} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
@@ -185,11 +197,13 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
         <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
         <p>{analysis.tradeoffs}</p>
+        <SourceNote text={analysis.tradeoffs} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="bandingan">{record.planName} berbanding {siblingRecord.planName}</h2>
         <ul>
           {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={analysis.siblingDifferences} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" sibling={{ name: siblingRecord.planName, href: `/personal-accident/${siblingRecord.slug}/#fakta`, facts: siblingRecord.analysis.facts }} />
         <p>
           <a href={`/personal-accident/${siblingRecord.slug}/`}>Lihat manfaat dan syarat {siblingRecord.planName}</a>
         </p>
@@ -197,6 +211,8 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           Untuk penerangan AD, PPD dan cara membandingkan polisi, baca <a href="/personal-accident/">panduan insurans kemalangan diri</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={record.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">

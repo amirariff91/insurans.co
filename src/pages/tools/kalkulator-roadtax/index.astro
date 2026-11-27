@@ -2,19 +2,21 @@
 import Ikon from '../../../components/Ikon.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { docName, readerDate } from '../../../components/edisi-tools/labels';
 import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 import rates from '../../../data/roadtax-rates.json';
+import { calcRoadtax, type RoadtaxBand, type RoadtaxBody, type RoadtaxRegion } from '../../../lib/roadtax';
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax/';
-const description = 'Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.';
-const intro = 'Masukkan cc kereta dan wilayah untuk melihat roadtax JPJ setahun. Ini roadtax sahaja, belum termasuk premium insurans, dan nombornya ikut jadual JPJ awam.';
+const pageTitle = 'Harga roadtax kereta ikut cc 2026 + kalkulator JPJ';
+const description = 'Jadual harga roadtax kereta ikut cc daripada JPJ untuk Semenanjung, Sabah dan Sarawak. Semenanjung: saloon 1.5L RM90, 1,800cc RM280; bukan saloon (MPV/SUV) RM120 dan RM360. Kalkulator percuma.';
+const intro = 'Roadtax kereta persendirian di Semenanjung ialah RM20 setahun untuk enjin 1,000cc ke bawah. Saloon 1.3L membayar RM70 dan saloon 1.5L hingga 1,600cc RM90; bukan saloon (MPV, SUV, pikap) membayar RM100 dan RM120. Pada 1,800cc, saloon membayar RM280 dan bukan saloon RM360; pada 2,000cc, RM380 dan RM440. Di Sabah dan Sarawak, saloon 1.5L membayar RM72 dan bukan saloon RM60.';
 const faqs = [
   {
     q: 'Roadtax ini untuk kereta apa?',
-    a: 'Kalkulator ini untuk kereta persendirian sahaja: saloon seperti sedan dan hatchback, atau non-saloon seperti MPV, SUV dan pikap. Kenderaan syarikat, EV dan motosikal menggunakan jadual berasingan.',
+    a: 'Kalkulator ini untuk kereta persendirian: saloon seperti sedan dan hatchback, atau bukan saloon seperti MPV, SUV dan pikap. Hanya saloon milik syarikat di Semenanjung ada jadual berasingan, dan jadual itu ada di halaman ini. Saloon milik syarikat di Sabah dan Sarawak serta semua kereta bukan saloon membayar kadar yang sama dengan kereta milik individu. EV dan motosikal menggunakan jadual berasingan.',
   },
   {
     q: 'Macam mana kadar roadtax dikira?',
@@ -40,6 +42,7 @@ const schema = {
   operatingSystem: 'All',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'MYR' },
   inLanguage: 'ms',
+  dateModified: rates.asAt,
   publisher: {
     '@type': 'Organization',
     name: 'Insurans.co',
@@ -54,22 +57,75 @@ const schema = {
     ],
   },
 };
-// The opening shows the intro's first sentence; the rest follows the tool.
-const [introLead, ...introMore] = intro.split(/(?<=\.)\s+/);
-const introRest = introMore.join(' ');
+// Reader-facing ringgit: no sen when whole (RM280), sen kept otherwise (RM200.40), as docs/gaya-bahasa.md.
+const round2 = (v: number) => Math.round(v * 100) / 100;
+const fmtRm = (v: number) => `RM${Number.isInteger(round2(v)) ? round2(v).toLocaleString('en-MY') : round2(v).toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const fmtCc = (v: number) => v.toLocaleString('en-MY');
+const rt = (region: RoadtaxRegion, body: RoadtaxBody, cc: number) => calcRoadtax(region, body, cc).rate;
+const bandLabel = (b: RoadtaxBand) => b.minCc === 0 ? `${fmtCc(b.maxCc)}cc ke bawah` : b.maxCc === 99999 ? `Melebihi ${fmtCc(b.minCc - 1)}cc` : `${fmtCc(b.minCc)}–${fmtCc(b.maxCc)}cc`;
+const rateLabel = (b: RoadtaxBand) => b.perCc === 0 ? `${fmtRm(b.base)} rata` : `${fmtRm(b.base)} + RM${b.perCc.toFixed(2)} setiap cc melebihi ${fmtCc(b.minCc - 1)}cc`;
+const topLabel = (b: RoadtaxBand) => b.maxCc === 99999 ? 'Tiada had' : fmtRm(b.base + b.perCc * (b.maxCc - (b.minCc - 1)));
+// Quick table: the engine sizes searchers ask for. Every figure comes from calcRoadtax on the JPJ bands.
+const commonCc = [1000, 1300, 1500, 1600, 1800, 2000, 2500, 3000];
+const regionList: { key: RoadtaxRegion; label: string }[] = [
+  { key: 'semenanjung', label: 'Semenanjung' },
+  { key: 'sabahSarawak', label: 'Sabah dan Sarawak' },
+];
+// Full JPJ tables in the order of the PDF (section numbers in each note).
+const fullTables: { id: string; title: string; note: string; bands: RoadtaxBand[] }[] = [
+  { id: 'jadual-semenanjung-saloon', title: 'Semenanjung: saloon milik individu', note: 'Kod kegunaan AB, seksyen 1.1.2 PDF JPJ.', bands: rates.rates.semenanjung.saloon },
+  { id: 'jadual-semenanjung-nonsaloon', title: 'Semenanjung: bukan saloon (MPV, SUV, pikap)', note: 'Kod AD (individu) dan AE (syarikat), seksyen 1.1.4. Kadar sama untuk individu dan syarikat.', bands: rates.rates.semenanjung.nonSaloon },
+  { id: 'jadual-semenanjung-syarikat', title: 'Semenanjung: saloon milik syarikat', note: 'Kod AC, seksyen 1.1.3. Kalkulator di atas tidak mengira jadual ini.', bands: rates.companySaloonSemenanjung },
+  { id: 'jadual-sabah-sarawak-saloon', title: 'Sabah dan Sarawak: saloon', note: 'Kod AB (individu) dan AC (syarikat), seksyen 2.1.2 (Sabah) dan 3.2 (Sarawak). Kadar sama untuk individu dan syarikat.', bands: rates.rates.sabahSarawak.saloon },
+  { id: 'jadual-sabah-sarawak-nonsaloon', title: 'Sabah dan Sarawak: bukan saloon (MPV, SUV, pikap)', note: 'Kod AD dan AE, seksyen 2.1.3 (Sabah) dan 3.3 (Sarawak).', bands: rates.rates.sabahSarawak.nonSaloon },
+];
+const sourcePdf = rates.sources[0];
+// Build-time guard (as checkEvData on the EV page): bands are contiguous, each progressive band starts where the
+// previous progressive band ends, and every testCases entry (including the company table) matches. A failure stops the build.
+(() => {
+  const tables: Record<string, readonly RoadtaxBand[]> = {
+    'semenanjung.saloon': rates.rates.semenanjung.saloon,
+    'semenanjung.nonSaloon': rates.rates.semenanjung.nonSaloon,
+    'semenanjung.companySaloon': rates.companySaloonSemenanjung,
+    'sabahSarawak.saloon': rates.rates.sabahSarawak.saloon,
+    'sabahSarawak.nonSaloon': rates.rates.sabahSarawak.nonSaloon,
+  };
+  const at = (b: RoadtaxBand, cc: number) => Math.round((b.base + b.perCc * (cc - (b.minCc - 1))) * 100) / 100;
+  const errors: string[] = [];
+  for (const [name, bands] of Object.entries(tables)) {
+    if (bands[0].minCc !== 0) errors.push(`${name}: first band starts at ${bands[0].minCc}cc`);
+    if (bands[bands.length - 1].maxCc !== 99999) errors.push(`${name}: last band is not open-ended`);
+    for (let i = 1; i < bands.length; i += 1) {
+      const prev = bands[i - 1];
+      const cur = bands[i];
+      if (cur.minCc !== prev.maxCc + 1) errors.push(`${name}: gap or overlap at ${cur.minCc}cc`);
+      if (prev.perCc > 0 && cur.perCc > 0 && cur.base !== at(prev, prev.maxCc)) errors.push(`${name}: base at ${cur.minCc}cc is not the previous band's top`);
+    }
+  }
+  for (const t of rates.testCases) {
+    const bands = tables[`${t.region}.${t.body}`];
+    const band = bands?.find((b) => t.cc >= b.minCc && t.cc <= b.maxCc);
+    const got = band ? at(band, t.cc) : Number.NaN;
+    if (got !== t.expect) errors.push(`${t.region} ${t.body} ${t.cc}cc: got ${got}, expected ${t.expect}`);
+    if (t.body !== 'companySaloon' && rt(t.region as RoadtaxRegion, t.body as RoadtaxBody, t.cc) !== t.expect) errors.push(`calcRoadtax ${t.region} ${t.body} ${t.cc}cc differs`);
+  }
+  if (errors.length) throw new Error(`roadtax-rates.json is invalid:\n- ${errors.join('\n- ')}`);
+})();
 // Worked example for the method sentence, from the same rate table (Semenanjung saloon, 1,601-1,800cc band).
 const exBand = rates.rates.semenanjung.saloon.find((b) => b.minCc === 1601)!;
 const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 ---
 
 <Base
-  title="Kalkulator Roadtax Kereta"
+  title={pageTitle}
+  siteSuffix={false}
   description={description}
   canonical={canonicalUrl}
   schema={schema}
   pageType="tool"
 >
-  <ToolOpening title="Kalkulator Roadtax Kereta 2026">
+  <ToolOpening title="Harga roadtax kereta ikut cc 2026 dan kalkulator">
+    <TrustStrip slot="trust" date={rates.asAt} sources={rates.sources.map((url) => ({ url }))} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -78,7 +134,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
         { label: 'Kalkulator Roadtax Kereta' },
       ]}
     />
-    <p class="et-lede">{introLead}</p>
+    <p class="et-lede">{intro}</p>
   </ToolOpening>
 
   <div class="container-wide py-10 sm:py-14 et">
@@ -139,7 +195,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
                 </label>
                 <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
                   <input type="radio" name="body" value="nonSaloon" class="h-4 w-4 accent-hijau-700" />
-                  <span>Non-saloon (MPV/SUV/pikap)</span>
+                  <span>Bukan saloon (MPV/SUV/pikap)</span>
                 </label>
               </div>
             </fieldset>
@@ -169,34 +225,138 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
         </section>
 
         <div class="et-after">
-          <Byline dateModified={rates.asAt} />
-          {introRest && <p>{introRest}</p>}
-          <p>Kiraan untuk kereta persendirian menggunakan jadual kadar awam JPJ, dan alat ini percuma.</p>
+          <p>Roadtax (cukai jalan) ialah Lesen Kenderaan Motor (LKM) yang dikeluarkan oleh JPJ. Angka di halaman ini roadtax sahaja, belum termasuk premium insurans. Semua kadar diambil daripada garis panduan kadar LKM yang JPJ terbitkan.</p>
         </div>
 
         <article class="prose-editorial mt-10">
-          <h2>Jadual kadar ikut wilayah dan jenis badan, kemudian band cc</h2>
-          <p>Kami pilih jadual kadar berdasarkan wilayah dan jenis badan, kemudian cari band yang mengandungi kapasiti enjin anda.</p>
+          <h2 id="harga-ikut-cc">Harga roadtax kereta ikut cc yang biasa</h2>
+          <p>Jadual ini menunjukkan roadtax setahun untuk kereta persendirian milik individu, pada cc yang paling kerap dicari. Bahan api petrol dan diesel menggunakan jadual yang sama untuk kereta persendirian, kecuali pacuan empat roda diesel di Sabah (lihat nota di bawah).</p>
+          {regionList.map((region) => (
+            <div class="overflow-x-auto rt-wrap" role="region" tabindex="0" aria-labelledby={`cepat-${region.key}`}>
+              <table class="rt-table">
+                <caption id={`cepat-${region.key}`}>{region.label}: roadtax setahun ikut cc</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Enjin</th>
+                    <th scope="col" class="num">Saloon</th>
+                    <th scope="col" class="num">MPV/SUV/pikap</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {commonCc.map((cc) => (
+                    <tr>
+                      <th scope="row">{fmtCc(cc)}cc</th>
+                      <td class="num">{fmtRm(rt(region.key, 'saloon', cc))}</td>
+                      <td class="num">{fmtRm(rt(region.key, 'nonSaloon', cc))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+          <p>Enjin 3.0L diesel milik individu di Semenanjung membayar {fmtRm(rt('semenanjung', 'saloon', 3000))} (saloon) atau {fmtRm(rt('semenanjung', 'nonSaloon', 3000))} (pikap atau SUV), sama seperti enjin petrol. Untuk cc lain, masukkan angka dalam geran ke dalam kalkulator di atas.</p>
+
+          <h2 id="jadual-penuh">Jadual penuh kadar JPJ untuk kereta persendirian: kadar asas dan kadar progresif</h2>
+          <p>Lajur terakhir ialah roadtax pada cc tertinggi dalam band itu. Di skrin kecil, leret jadual ke kiri untuk melihat semua lajur.</p>
+          {fullTables.map((table) => (
+            <>
+              <h3 id={table.id}>{table.title}</h3>
+              <div class="overflow-x-auto rt-wrap" role="region" tabindex="0" aria-labelledby={table.id}>
+                <table class="rt-table">
+                  <caption class="sr-only">{table.title}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Kapasiti enjin</th>
+                      <th scope="col">Kadar setahun</th>
+                      <th scope="col" class="num">Pada cc tertinggi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.bands.map((band) => (
+                      <tr>
+                        <th scope="row">{bandLabel(band)}</th>
+                        <td>{rateLabel(band)}</td>
+                        <td class="num">{topLabel(band)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p class="rt-note">{table.note}</p>
+            </>
+          ))}
+
+          <h2 id="contoh-model">Contoh roadtax untuk model popular</h2>
+          <p>Contoh ini menggunakan cc nominal model. Semak cc tepat dalam geran atau VOC kereta anda, kerana band ditentukan oleh angka itu.</p>
           <ul>
-            <li>Roadtax ialah kadar asas band itu, ditambah kadar per-cc bagi setiap cc daripada cc pertama band sehingga cc enjin anda. Contoh: kereta saloon {exBand.maxCc.toLocaleString("en-MY")}cc di Semenanjung berada dalam band {exBand.minCc.toLocaleString("en-MY")}–{exBand.maxCc.toLocaleString("en-MY")}cc, iaitu RM{exBand.base} + RM{exBand.perCc.toFixed(2)} × {exBand.maxCc - (exBand.minCc - 1)}cc = RM{exRate.toFixed(2)}.</li>
-            <li>Kadar rata kekal sebagai kadar asas; band progresif menambah kadar per-cc mengikut cc tambahan dalam band.</li>
-            <li>Nilai sen dikekalkan. Alat ini tidak membundarkan kadar ke RM penuh.</li>
+            <li><a href="/car-insurance/perodua-axia/">Perodua Axia</a> 998cc (saloon): {fmtRm(rt('semenanjung', 'saloon', 998))} di Semenanjung, {fmtRm(rt('sabahSarawak', 'saloon', 998))} di Sabah dan Sarawak.</li>
+            <li><a href="/car-insurance/perodua-myvi/">Perodua Myvi</a> 1.3L: {fmtRm(rt('semenanjung', 'saloon', 1300))} di Semenanjung, {fmtRm(rt('sabahSarawak', 'saloon', 1300))} di Sabah dan Sarawak. Myvi 1.5L: {fmtRm(rt('semenanjung', 'saloon', 1500))} dan {fmtRm(rt('sabahSarawak', 'saloon', 1500))}.</li>
+            <li><a href="/car-insurance/proton-saga/">Proton Saga</a> 1,332cc: {fmtRm(rt('semenanjung', 'saloon', 1332))} di Semenanjung. Saga 1,499cc: {fmtRm(rt('semenanjung', 'saloon', 1499))}.</li>
+            <li><a href="/car-insurance/proton-persona/">Proton Persona</a> 1,597cc: {fmtRm(rt('semenanjung', 'saloon', 1597))} di Semenanjung, {fmtRm(rt('sabahSarawak', 'saloon', 1597))} di Sabah dan Sarawak. Enjin ini masih dalam band rata 1,401–1,600cc.</li>
+            <li><a href="/car-insurance/toyota-vios/">Toyota Vios</a> 1.5L: {fmtRm(rt('semenanjung', 'saloon', 1500))} di Semenanjung, {fmtRm(rt('sabahSarawak', 'saloon', 1500))} di Sabah dan Sarawak.</li>
+            <li><a href="/car-insurance/toyota-hilux/">Toyota Hilux</a> (pikap diesel, bukan saloon): jika geran menunjukkan 2,400cc, roadtax di Semenanjung ialah {fmtRm(rt('semenanjung', 'nonSaloon', 2400))}. Pada 2,800cc, ia {fmtRm(rt('semenanjung', 'nonSaloon', 2800))}. Di Sarawak, angka itu {fmtRm(rt('sabahSarawak', 'nonSaloon', 2400))} dan {fmtRm(rt('sabahSarawak', 'nonSaloon', 2800))}. Untuk pacuan empat roda diesel di Sabah, lihat nota di bawah.</li>
           </ul>
+
+          <h2 id="cara-kira">Cara JPJ mengira roadtax: kadar asas + kadar progresif</h2>
+          <p>Enjin 1,600cc ke bawah membayar kadar rata mengikut band. Enjin melebihi 1,600cc membayar kadar asas band, ditambah kadar progresif bagi setiap cc melebihi had bawah band. Contohnya, had bawah band 1,601–1,800cc ialah 1,600cc.</p>
+          <ul>
+            <li>Contoh: kereta saloon {exBand.maxCc.toLocaleString("en-MY")}cc di Semenanjung berada dalam band {exBand.minCc.toLocaleString("en-MY")}–{exBand.maxCc.toLocaleString("en-MY")}cc, iaitu RM{exBand.base} + RM{exBand.perCc.toFixed(2)} × {exBand.maxCc - (exBand.minCc - 1)}cc = RM{exRate.toFixed(2)}.</li>
+            <li>Saloon 2,500cc di Semenanjung: {fmtRm(380)} + RM1.00 × 500cc = {fmtRm(rt('semenanjung', 'saloon', 2500))}.</li>
+            <li>Nilai sen dikekalkan. Kalkulator ini tidak membundarkan kadar ke ringgit penuh.</li>
+          </ul>
+          <p>Lompatan besar berlaku pada 1,601cc. Saloon di Semenanjung naik daripada {fmtRm(rt('semenanjung', 'saloon', 1600))} pada 1,600cc kepada {fmtRm(rt('semenanjung', 'saloon', 1601))} pada 1,601cc. Selepas itu, kadar asas setiap band sama dengan roadtax pada cc tertinggi band sebelumnya, jadi roadtax naik sedikit demi sedikit.</p>
+
+          <h2 id="wilayah">Sabah, Sarawak, Langkawi, Pangkor dan Labuan ada kadar sendiri</h2>
+          <ul>
+            <li><strong>Sabah dan Sarawak</strong> menggunakan jadual yang lebih rendah daripada Semenanjung. Saloon milik syarikat membayar kadar yang sama dengan saloon milik individu.</li>
+            <li><strong>Langkawi dan Pangkor:</strong> kereta 1,000cc ke bawah membayar RM20. Melebihi 1,000cc, kadarnya 50% daripada kadar petrol Semenanjung. Contoh: saloon 1.5L membayar {fmtRm(rt('semenanjung', 'saloon', 1500) / 2)}.</li>
+            <li><strong>Labuan:</strong> kereta 1,000cc ke bawah membayar RM20. Melebihi 1,000cc, kadarnya 50% daripada kadar petrol Sabah. Contoh: saloon 1.5L membayar {fmtRm(rt('sabahSarawak', 'saloon', 1500) / 2)}.</li>
+            <li><strong>Pacuan empat roda diesel di Sabah</strong> kekal pada kadar sedia ada, menurut PDF JPJ. Angkanya tidak tertera dalam PDF itu, jadi kalkulator ini tidak sesuai untuk kenderaan tersebut. Semak dengan JPJ Sabah.</li>
+          </ul>
+          <p>Kalkulator di atas hanya mengira Semenanjung serta Sabah dan Sarawak. Untuk Sabah, Sarawak dan pulau bebas cukai, JPJ meminta borang perakuan kawasan pengisytiharan dan pengisytiharan kastam (K3) atau resit pelabuhan semasa renew di kaunter.</p>
 
           <h3>Perkara penting</h3>
           <ul>
-            <li>{rates.displayNotes.company}</li>
-            <li>{rates.displayNotes.ev} <a href="/tools/kalkulator-roadtax-ev/">Kira roadtax kereta elektrik ikut kW →</a></li>
-            <li>{rates.displayNotes.motorcycle}</li>
+            <li>{rates.displayNotes.company} Jadual saloon syarikat Semenanjung ada di atas.</li>
             <li>{rates.displayNotes['>3000cc']}</li>
+          </ul>
+
+          <h2 id="ev-motosikal">Kereta elektrik dan motosikal guna jadual lain</h2>
+          <ul>
+            <li>{rates.displayNotes.ev} <a href="/tools/kalkulator-roadtax-ev/">Kira roadtax kereta elektrik ikut kW →</a></li>
+            <li>{rates.displayNotes.motorcycle} <a href="/tools/kalkulator-roadtax-motosikal/">Kira roadtax motosikal ikut cc →</a></li>
+          </ul>
+
+          <h2 id="cara-renew">Renew roadtax melalui MyJPJ, MyEG atau kaunter</h2>
+          <p>Syarat renew roadtax kereta persendirian, menurut panduan pembaharuan LKM JPJ dan soalan lazim MyJPJ:</p>
+          <ul>
+            <li>Roadtax anda akan tamat dalam masa kurang daripada dua bulan.</li>
+            <li>Insurans kereta sah untuk tempoh roadtax yang dipohon, iaitu enam atau 12 bulan.</li>
+            <li>Kenderaan atau pemilik tidak disekat oleh JPJ.</li>
+            <li>Jika roadtax terakhir luput lebih tiga tahun, kereta mesti lulus pemeriksaan PUSPAKOM dahulu.</li>
+          </ul>
+          <p>Saluran renew yang JPJ senaraikan: aplikasi MyJPJ, portal mySIKAP, kaunter JPJ, pejabat pos, MyEG, PUSPAKOM, kios JPJ dan JPJ Mobile. MyJPJ hanya untuk kereta persendirian milik individu warganegara Malaysia. Bayaran di MyJPJ guna kad kredit atau kad debit tempatan. Roadtax digital (e-LKM) dipaparkan dalam MyJPJ, dan anda tidak perlu melekatkan cakera roadtax pada cermin.</p>
+          <p>Insurans perlu dibeli dahulu. Langkah penuh ada dalam <a href="/panduan/renew-insurans-roadtax/">panduan renew insurans dan roadtax</a>, dan anda boleh <a href="/tools/ncd-calculator/">menyemak NCD (diskaun tanpa tuntutan)</a> sebelum membeli.</p>
+
+          <h2 id="tidak-pasti">Apa yang kami tidak pasti</h2>
+          <ul>
+            <li>PDF JPJ tidak mentakrifkan jenis badan "saloon". Kami anggap sedan dan hatchback sebagai saloon, serta MPV, SUV dan pikap sebagai bukan saloon. Ikut kategori dalam geran atau VOC anda.</li>
+            <li>PDF itu tidak menyatakan tarikh kuat kuasa. JPJ masih menerbitkannya di halaman panduan kadar LKM pada 27 Nov 2026.</li>
+            <li>Kami tidak menemui jumlah denda atau kompaun untuk roadtax tamat tempoh dalam halaman JPJ yang kami baca. Kami tidak menerbitkan angka itu.</li>
+            <li>Kadar renew enam bulan untuk kereta persendirian tidak dinyatakan dalam sumber yang kami baca, jadi kami tidak mengiranya.</li>
+            <li>Untuk saloon syarikat di Langkawi dan Pangkor, PDF menyebut "50% dari kadar LKM petrol Semenanjung" tanpa menyatakan jadual individu atau syarikat.</li>
+            <li>Kadar pacuan empat roda diesel di Sabah tidak tertera dalam PDF.</li>
           </ul>
 
           <div class="info-box mt-8">
             <p class="mb-0 text-sm leading-5 text-stone-700">
-              <strong>Penafian:</strong> Anggaran ikut jadual kadar JPJ awam (disemak {readerDate(rates.asAt)}). Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
+              <strong>Disemak {readerDate(rates.asAt)}:</strong> kami membaca semula <a href={sourcePdf} target="_blank" rel="noopener">PDF Garis Panduan Pengiraan LKM JPJ</a> (pindaan selepas Bajet 2009) dan memadankan setiap band kereta persendirian Semenanjung, Sabah dan Sarawak dengan kalkulator ini. Semua band sepadan. Kami juga membaca halaman panduan kadar LKM, panduan pembaharuan LKM dan soalan lazim e-LKM MyJPJ di laman JPJ pada hari yang sama.
+            </p>
+            <p class="mt-3 mb-0 text-sm leading-5 text-stone-700">
+              <strong>Penafian:</strong> Anggaran ikut jadual kadar JPJ awam. Roadtax sahaja, bukan premium insurans. Kadar muktamad ikut JPJ/MyEG. Kami bukan ejen, bukan broker.
             </p>
             <div class="mt-3 text-sm leading-5 text-stone-700">
-              <strong>Sumber:</strong>
+              <strong>Sumber (dibaca {readerDate(rates.asAt)}):</strong>
               <ul class="mt-1 list-disc pl-5">
                 {rates.sources.map((source) => (
                   <li><a href={source} target="_blank" rel="noopener" class="text-hijau-700 underline decoration-hijau-300 underline-offset-2 hover:decoration-ink">{docName(source)}</a></li>
@@ -263,6 +423,27 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
     })),
   })} />
 </Base>
+
+<style>
+  /* The shared scrolling-table wrapper (.overflow-x-auto:has(> table), global.css) supplies the border and edge hints. */
+  .rt-wrap { margin: 1rem 0 0.5rem; }
+  .rt-table { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.35; margin: 0; }
+  .rt-table caption { text-align: left; font-weight: 600; padding: 0.5rem 0.75rem; }
+  .rt-table th, .rt-table td { padding: 0.5rem 0.75rem; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .rt-table thead th { border-top: 0; border-bottom: 2px solid var(--ink); font-weight: 600; }
+  .rt-table .num { text-align: right; white-space: nowrap; }
+  /* The last header ("Pada cc tertinggi") may wrap, so the table fits a 390px phone without scrolling. */
+  .rt-table thead th.num { white-space: normal; }
+  .rt-table tr > :first-child { position: sticky; left: 0; background: var(--paper); white-space: nowrap; }
+  /* Narrow phones: a sticky first column would cover the middle column, so it scrolls with the rest, and band labels
+     may wrap so the three columns fit 320px without sideways scrolling. */
+  @media (max-width: 30rem) {
+    .rt-table tr > :first-child { position: static; white-space: normal; }
+    .rt-table th, .rt-table td { padding-inline: 0.5rem; }
+  }
+  .rt-table tbody th { font-weight: 600; }
+  .rt-note { font-size: 0.875rem; color: var(--mute); margin-top: 0.25rem; }
+</style>
 
 <script>
   import { calcRoadtax, type RoadtaxBody, type RoadtaxRegion } from '../../../lib/roadtax';

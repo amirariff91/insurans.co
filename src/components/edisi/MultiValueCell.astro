@@ -1,0 +1,64 @@
+---
+/**
+ * One table cell value that may hold several options ("RM1,000,000 / 1,650,000 / … (bergantung plan)").
+ * A plain slash list of amounts reads as "min–max, n pilihan" with its unit and note kept beside it, and every
+ * value stays in the same cell under "Semua pilihan". Other multi-part text is stacked one part per line,
+ * verbatim. See src/lib/multi-value.ts for when a range is derived.
+ */
+import { multiValue } from '../../lib/multi-value';
+
+interface Props { text: string }
+const mv = multiValue(Astro.props.text);
+const lines = mv.kind === 'range' ? mv.lines : [];
+const lists = lines.filter((l): l is Extract<typeof l, { values: string[] }> => 'values' in l);
+---
+{mv.kind === 'single' && mv.text}
+{mv.kind === 'list' && (
+  <ul class="mv-list">{mv.items.map((item) => <li>{item}</li>)}</ul>
+)}
+{mv.kind === 'range' && (
+  <span class="mv">
+    {lines.map((l) => 'verbatim' in l ? (
+      <span class="mv-l">{l.verbatim}</span>
+    ) : (
+      <span class="mv-l">
+        <span><b class="mv-r">{l.min}–{l.max}</b>{l.tail && ` ${l.tail}`}, {l.count} pilihan</span>
+        {l.note && <span class="mv-n">({l.note})</span>}
+      </span>
+    ))}
+    <details class="mv-d">
+      <summary>Semua pilihan</summary>
+      {lists.map((l) => (
+        <>
+          {lists.length > 1 && l.tail && <span class="mv-t">{l.tail[0].toUpperCase() + l.tail.slice(1)}:</span>}
+          <ul class="mv-list">{l.values.map((v) => <li>{v}{l.tail === 'sehari' && ' sehari'}</li>)}</ul>
+        </>
+      ))}
+    </details>
+  </span>
+)}
+
+<style is:global>
+  .mv { display: grid; gap: 0.25rem; }
+  .mv-l { display: grid; }
+  .mv-r { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .mv-n { font-size: 0.875rem; color: var(--ink-2); }
+  /* Doubled class: beats `.prose-editorial ul` (margin, indent, item spacing) when the table sits in prose. */
+  .mv-list.mv-list { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
+  :is(td, th) .mv-list.mv-list > li:not([hidden]) { margin: 0; padding-block: 2px; }
+  .mv-list.mv-list > li + li { border-top: 1px solid var(--line); }
+  .mv-t { display: block; font-size: 0.875rem; color: var(--ink-2); margin-top: 0.25rem; }
+  .mv-d > summary {
+    display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; cursor: pointer;
+    font-size: 0.875rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px;
+    list-style: none;
+  }
+  .mv-d > summary::-webkit-details-marker { display: none; }
+  .mv-d > summary::after {
+    content: ''; width: 0.4rem; height: 0.4rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg); transition: transform 150ms var(--ease-out);
+  }
+  .mv-d[open] > summary::after { transform: translateY(1px) rotate(225deg); }
+  .mv-d > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .mv-d > summary::after { transition: none; } }
+</style>

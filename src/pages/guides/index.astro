@@ -1,4 +1,5 @@
 ---
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -44,6 +45,7 @@ const schema = {
     <div class="container-wide py-8 sm:py-12">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
       <h1 class="ea-h1 mb-1">Panduan insurans kereta</h1>
+      <TrustStrip />
       <section class="mod gl-list" aria-labelledby="senarai-panduan">
         <h2 id="senarai-panduan" class="mod-bar">{guides.length} panduan insurans kereta: mulakan dengan renew dan NCD</h2>
         <ul class="gl-rows">

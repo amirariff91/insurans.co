@@ -1,0 +1,255 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
+import PageAnswer from '../../../components/edisi/PageAnswer.astro';
+import ageRates from '../../../data/medical-card-age-rates.json';
+import medicalCards from '../../../data/medical-cards.json';
+
+const PAGE_URL = 'https://insurans.co/medical-cards/harga-ikut-umur/';
+const updatedAt = '2026-11-27';
+const title = 'Harga Medical Card Ikut Umur: Jadual Rasmi';
+const description =
+  'Jadual premium dan sumbangan medical card ikut umur daripada brosur dan PDS rasmi lima pelan, dengan syarat setiap angka. Dibaca 27 Nov 2026.';
+
+const typeLabels: Record<string, string> = {
+  standalone: 'Pelan standalone',
+  rider: 'Rider perubatan',
+  takaful: 'Takaful',
+};
+const typeOf = (slug: string) => medicalCards.records.find((r) => r.slug === slug)?.type ?? '';
+
+// Numbered sources. Plan documents first, in the order the plan sections appear; then Bank Negara.
+const bnm = {
+  ar: {
+    id: 'sumber-bnm-ar2024',
+    url: 'https://www.bnm.gov.my/documents/20124/17493532/ar2024_en_box5.pdf',
+    label: 'Bank Negara Malaysia, Laporan Tahunan 2024, rencana kotak tentang insurans dan takaful perubatan (PDF, Bahasa Inggeris)',
+  },
+  interim: {
+    id: 'sumber-bnm-interim',
+    url: 'https://www.bnm.gov.my/-/mhit-pr',
+    label: 'Bank Negara Malaysia, kenyataan media 20 Dis 2024: langkah sementara untuk pemegang polisi medical card (Bahasa Inggeris)',
+  },
+  copay: {
+    id: 'sumber-bnm-copay',
+    url: 'https://www.bnm.gov.my/-/mhit-req-en',
+    label: 'Bank Negara Malaysia, kenyataan media 6 Jul 2024: keperluan pilihan co-payment (Bahasa Inggeris)',
+  },
+};
+const plans = ageRates.plans;
+const sources = [
+  ...plans.map((p, i) => ({ id: `sumber-${i + 1}`, url: p.documentUrl, label: `${p.provider}: ${p.documentTitle} (PDF, Bahasa Inggeris)` })),
+  bnm.ar,
+  bnm.interim,
+  bnm.copay,
+];
+const num = (id: string) => sources.findIndex((s) => s.id === id) + 1;
+const planSourceId = (i: number) => `sumber-${i + 1}`;
+
+const pagesOf = (plan: (typeof plans)[number]) =>
+  [...new Set(plan.tables.flatMap((t) => [t.page, ...t.rows.map((r) => ('page' in r ? (r.page as number) : t.page))]))].sort((a, b) => a - b);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      url: PAGE_URL,
+      datePublished: updatedAt,
+      dateModified: updatedAt,
+      inLanguage: 'ms',
+      publisher: { '@type': 'Organization', name: 'Insurans.co', url: 'https://insurans.co' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Utama', item: 'https://insurans.co/' },
+        { '@type': 'ListItem', position: 2, name: 'Medical Card', item: 'https://insurans.co/medical-cards/' },
+        { '@type': 'ListItem', position: 3, name: 'Harga ikut umur', item: PAGE_URL },
+      ],
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={PAGE_URL}
+  schema={schema}
+  ogType="article"
+  publishedTime={updatedAt}
+  modifiedTime={updatedAt}
+  ads={false}
+>
+  <section class="bg-white">
+    <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
+      <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Medical Card', href: '/medical-cards/' }, { label: 'Harga ikut umur' }]} />
+      <h1 class="ea-h1 mb-1">Harga medical card ikut umur</h1>
+      <TrustStrip date={updatedAt} sources={sources} />
+      <PageAnswer
+        finding="Harga naik dengan umur, dan setiap syarikat mencetak jadual sendiri"
+        sentence="Lima pelan mencetak jadual ikut umur dalam dokumen awam. Setiap jadual di bawah membawa syarat dan halaman sumbernya."
+        note="Angka disalin seperti dicetak. Ia bukan sebut harga dan tidak disusun ikut murah atau mahal."
+      />
+      <p class="max-w-2xl text-lg leading-relaxed text-stone-900" id="jawapan-ringkas">
+        Harga medical card naik apabila umur bertambah. BNM (Bank Negara Malaysia) melaporkan satu produk sampel dengan 30 tuntutan bagi setiap 100 pemegang polisi berumur 70–79 tahun. Bagi umur 20–29 tahun, angkanya tujuh tuntutan. Setiap syarikat mencetak jadual sendiri, jadi kami menyalin angka daripada lima dokumen rasmi bersama syaratnya. <a href={`#${bnm.ar.id}`}>[{num(bnm.ar.id)}]</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="container-article py-10 sm:py-14">
+    <article class="prose-editorial">
+      <h2 id="jadual">Jadual ikut umur daripada dokumen rasmi</h2>
+      <p>
+        Setiap jadual di bawah ialah bayaran setahun dalam ringgit, seperti dicetak oleh syarikat. Umur ialah umur pada hari jadi berikutnya (ANB, age next birthday). Jika umur anda 30 tahun, ANB anda ialah 31.
+      </p>
+      <ul>
+        <li>Kami memilih jalur termuda, jalur sekitar 21–25, 31–35, 41–45, 51–55 dan 61–65, serta jalur tertua dalam setiap jadual.</li>
+        <li>Jalur bertanda * hanya untuk pembaharuan. Anda tidak boleh membeli pelan baharu pada umur itu.</li>
+        <li>Kami tidak mengira kadar bulanan, tidak mengisi jalur yang tiada, dan tidak membundarkan angka.</li>
+        <li>Susunan pelan tidak mengikut harga, dan kami tidak mencadangkan mana-mana pelan.</li>
+      </ul>
+
+      {plans.map((plan, i) => (
+        <section class="ar-plan" aria-labelledby={`pelan-${plan.slug}`}>
+          <h3 id={`pelan-${plan.slug}`}>{plan.planName}</h3>
+          <p class="ar-meta">
+            {plan.provider}. {typeLabels[typeOf(plan.slug)] ?? ''}. Asas: {plan.basis}, ikut {plan.ageBasis}. {plan.printedDate}.
+          </p>
+          {plan.tables.map((table) => (
+            <>
+            <p class="ar-cap" aria-hidden="true">
+              <span class="ar-cap-title">{plan.planName}: {table.gender}</span>
+              <span class="ar-cap-cond">{table.deductible}. RM setahun. Jadual “{table.title}”, m.s. {table.page}.</span>
+            </p>
+            <div class="rt-wrap">
+              <table class="rt-table">
+                <caption class="sr-only">{plan.planName}: {table.gender}. {table.deductible}. RM setahun. Jadual “{table.title}”, m.s. {table.page}.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">ANB</th>
+                    {table.columns.map((c) => <th scope="col" class="num">{c}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {table.rows.map((row) => (
+                    <tr>
+                      <th scope="row">{row.bandLabel}</th>
+                      {row.amounts.map((a) => <td class="num">{a}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            </>
+          ))}
+          <p class="rt-note">
+            {plan.printedNotes}{' '}
+            Sumber: <a href={plan.documentUrl} target="_blank" rel="noopener noreferrer">dokumen rasmi, m.s. {pagesOf(plan).join(', ')}</a> <a href={`#${planSourceId(i)}`}>[{i + 1}]</a>. Baca juga <a href={`/medical-cards/${plan.slug}/`}>manfaat dan syarat {plan.planName}</a>.
+          </p>
+        </section>
+      ))}
+
+      <h2 id="kenapa-naik">Premium naik dengan umur kerana tuntutan meningkat</h2>
+      <p>
+        Medical card dalam bahasa BNM ialah MHIT (medical and health insurance/takaful). BNM menulis bahawa umur ialah faktor biasa untuk menetapkan premium. Secara umum, premium naik dengan umur kerana risiko kesihatan dan kemungkinan mendapatkan rawatan turut meningkat. <a href={`#${bnm.ar.id}`}>[{num(bnm.ar.id)}]</a>
+      </p>
+      <p>
+        Dalam satu kumpulan risiko, premium boleh berbeza ikut umur, jantina, sejarah perubatan, risiko pekerjaan, gaya hidup dan jenis pelan. Itu sebabnya jadual di atas berpecah ikut jantina, pelan dan deductible. <a href={`#${bnm.ar.id}`}>[{num(bnm.ar.id)}]</a>
+      </p>
+      <p>
+        Kos tuntutan juga naik lebih cepat daripada premium. Menurut BNM, jumlah kos tuntutan MHIT naik 73% antara 2021 dan 2023. Premium MHIT yang dikutip naik 21% dalam tempoh yang sama. Syarikat insurans dan takaful biasanya membuat penetapan semula harga (repricing) setiap satu hingga tiga tahun. <a href={`#${bnm.ar.id}`}>[{num(bnm.ar.id)}]</a>
+      </p>
+
+      <h2 id="langkah-sementara">Langkah sementara hingga akhir 2026 tidak meliputi kenaikan jalur umur</h2>
+      <p>
+        Pada 20 Dis 2024, BNM mengumumkan langkah sementara. Syarikat perlu menyebarkan kenaikan premium akibat repricing sekurang-kurangnya tiga tahun bagi semua pemegang polisi yang terkesan. Langkah ini kekal hingga akhir 2026. <a href={`#${bnm.interim.id}`}>[{num(bnm.interim.id)}]</a>
+      </p>
+      <p>
+        <strong>Langkah sementara ini tidak terpakai pada kenaikan premium apabila pemegang polisi berpindah ke jalur umur yang lebih tinggi.</strong> BNM menyatakan kenaikan itu diurus secara berasingan oleh syarikat. Jadi, apabila anda masuk jalur baharu dalam jadual di atas, kenaikan itu tidak dihadkan oleh langkah sementara. <a href={`#${bnm.interim.id}`}>[{num(bnm.interim.id)}]</a>
+      </p>
+      <p>
+        Bagi pemegang polisi berumur 60 tahun ke atas yang memegang pelan minimum dalam produk mereka, syarikat menangguhkan kenaikan akibat inflasi tuntutan perubatan selama setahun dari ulang tahun polisi. <a href={`#${bnm.interim.id}`}>[{num(bnm.interim.id)}]</a>
+      </p>
+
+      <h2 id="co-payment">Co-payment dan deductible menurunkan premium</h2>
+      <p>
+        Co-payment ialah bahagian bil yang anda bayar sendiri, sama ada peratus atau amaun tetap. Deductible ialah amaun tetap yang anda bayar dahulu sebelum syarikat membayar. Mulai 1 Sep 2024, syarikat insurans dan takaful mesti menawarkan pilihan medical card dengan co-payment. <a href={`#${bnm.copay.id}`}>[{num(bnm.copay.id)}]</a>
+      </p>
+      <p>
+        BNM memerhatikan premium atau sumbangan produk dengan co-payment 19% hingga 68% lebih rendah berbanding produk serupa tanpa co-payment. Julat itu bergantung pada tahap co-payment. <a href={`#${bnm.copay.id}`}>[{num(bnm.copay.id)}]</a>
+      </p>
+      <p>Dokumen dalam jadual di atas menunjukkan kesan yang sama, dengan cara masing-masing:</p>
+      <ul>
+        <li>OneMedical mencetak dua jadual: tanpa deductible dan dengan deductible RM1,000. Contohnya, ANB 41–45 Plan 1 ialah RM1,049 tanpa deductible dan RM855 dengan deductible RM1,000. <a href={`#${planSourceId(0)}`}>[1]</a></li>
+        <li>Kaotim MediKad memberi diskaun sumbangan 20% untuk deductible RM2,000 dan 30% untuk deductible RM3,000. <a href={`#${planSourceId(1)}`}>[2]</a></li>
+        <li>GREAT MedCare memberi diskaun premium 5% hingga 50% untuk deductible pilihan RM2,000 hingga RM20,000. <a href={`#${planSourceId(2)}`}>[3]</a></li>
+      </ul>
+
+      <h2 id="tidak-setara">Rider, standalone dan takaful tidak boleh dibandingkan terus</h2>
+      <p>
+        Angka dalam jadual di atas tidak berada pada asas yang sama. Letakkan dua angka bersebelahan hanya selepas anda menyemak perkara ini:
+      </p>
+      <ul>
+        <li><strong>Rider.</strong> SmartMedic Shield ialah rider. Angkanya ialah caj insurans (cost of insurance) tahunan, bukan jumlah yang anda bayar. Rider perlu dilampirkan pada pelan asas, dan premium pelan asas tidak termasuk dalam jadual ini. BNM sendiri mengasingkan premium produk MHIT daripada caj insurans bagi rider. <a href={`#${planSourceId(4)}`}>[5]</a> <a href={`#${bnm.ar.id}`}>[{num(bnm.ar.id)}]</a></li>
+        <li><strong>Takaful.</strong> Kaotim MediKad ialah takaful, jadi bayarannya disebut sumbangan, bukan premium. <a href={`#${planSourceId(1)}`}>[2]</a></li>
+        <li><strong>Pelan standalone.</strong> OneMedical, GREAT MedCare dan Medic Plus ialah polisi sendiri, tetapi had tahunan, bilik dan deductible setiap pelan berbeza. Medic Plus, contohnya, mempunyai deductible RM10,000 atau RM15,000 setiap disability. <a href={`#${planSourceId(3)}`}>[4]</a></li>
+        <li><strong>Jantina dan tarikh.</strong> Sesetengah jadual berpecah ikut jantina; OneMedical dan Medic Plus mencetak satu kadar. Tarikh kadar pun berbeza, dan dua dokumen tidak mencetak tarikh pada halaman jadual.</li>
+        <li><strong>Cukai dan duti.</strong> GREAT MedCare menyatakan premiumnya tidak termasuk cukai 8% (jika berkenaan) dan duti setem RM10. Dokumen lain menulis syarat ini dengan cara berbeza. <a href={`#${planSourceId(2)}`}>[3]</a></li>
+      </ul>
+
+      <h2 id="tidak-jumpa">Apa yang kami tidak jumpa</h2>
+      <ul>
+        <li><strong>myMedik (Takaful Malaysia).</strong> Alamat PDF PDS di laman syarikat membawa ke halaman utama laman itu, bukan PDF, ketika kami cuba pada 27 Nov 2026. Kami tidak menyalin jadualnya daripada salinan di laman lain.</li>
+        <li><strong>A-Plus Health360 (AIA).</strong> Brosur menunjukkan satu contoh premium bulanan untuk satu profil pakej, bukan jadual ikut umur.</li>
+        <li><strong>PRUMillion Med 2.0 (Prudential).</strong> PDS mempunyai jadual unjuran caj insurans untuk satu profil contoh, dengan andaian inflasi perubatan. Ia bukan jadual kadar untuk semua pembeli, jadi kami tidak menyalinnya.</li>
+        <li><strong>i-MedicalCard Elite (Etiqa).</strong> Brosur menunjukkan dua contoh sumbangan pada umur 25 dan 28, bukan jadual ikut umur.</li>
+        <li><strong>IKHLAS Medik (Takaful Ikhlas).</strong> Risalah awam tidak mencetak sumbangan. Minta PDS dan ilustrasi daripada ejen.</li>
+        <li><strong>Lajur yang tidak disalin.</strong> Kami tidak menyalin lajur SmartMedic Shield Extender, jadual bulanan MediKad dan jadual MediBooster. Sebahagian teks dalam PDF brosur GREAT MedCare tidak boleh dibaca oleh mesin, tetapi digit jadual premiumnya jelas dan sama pada versi Inggeris (m.s. 4) dan Bahasa Malaysia (m.s. 12).</li>
+        <li><strong>Profil yang sama untuk semua syarikat.</strong> Kami tidak jumpa satu dokumen yang menyenaraikan harga semua syarikat untuk profil yang sama.</li>
+      </ul>
+
+      <h2 id="sebut-harga">Cara baca sebut harga anda sendiri</h2>
+      <ul>
+        <li>Cari jalur ANB anda dalam jadual syarikat, bukan umur sekarang.</li>
+        <li>Semak sama ada angka itu premium pelan sendiri, sumbangan takaful atau caj rider.</li>
+        <li>Semak deductible atau co-payment yang dipilih, had tahunan dan kelas bilik.</li>
+        <li>Tanya sama ada cukai, duti setem atau loading kesihatan sudah dimasukkan.</li>
+        <li>Lihat jalur seterusnya dalam jadual. Itulah kenaikan apabila anda masuk jalur umur baharu, dan langkah sementara BNM tidak menghadkannya.</li>
+      </ul>
+      <p>
+        Untuk membandingkan had tahunan, bilik dan tempoh menunggu, buka <a href="/medical-cards/">perbandingan semua pelan medical card</a>.
+      </p>
+
+      <section id="sumber" class="border-t border-stone-200 pt-6 mt-8" aria-labelledby="tajuk-sumber">
+        <h2 id="tajuk-sumber">Sumber</h2>
+        <p class="rt-note">Semua dokumen dibaca 27 Nov 2026.</p>
+        <ol class="list-decimal pl-5 space-y-2">
+          {sources.map((s) => (
+            <li id={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>, dibaca 27 Nov 2026.</li>
+          ))}
+        </ol>
+      </section>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .ar-plan { margin-top: 3rem; }
+  .ar-meta { font-size: 1rem; color: var(--mute); margin-top: 0.25rem; }
+  .rt-wrap { overflow-x: auto; margin: 1rem 0 0.5rem; border: 1px solid var(--rule); }
+  .rt-table { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.35; margin: 0; }
+  .ar-cap { margin: 1.5rem 0 0; }
+  .ar-cap-title { display: block; font-weight: 600; font-size: 1rem; line-height: 1.4; }
+  .ar-cap-cond { display: block; font-size: 0.875rem; color: var(--mute); }
+  .rt-table th, .rt-table td { padding: 0.5rem 0.75rem; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .rt-table thead th { border-top: 0; border-bottom: 2px solid var(--ink); font-weight: 600; }
+  .rt-table .num { text-align: right; white-space: nowrap; }
+  .rt-table tr > :first-child { position: sticky; left: 0; background: var(--paper); white-space: nowrap; }
+  .rt-table tbody th { font-weight: 600; }
+  .rt-note { font-size: 0.875rem; color: var(--mute); margin-top: 0.25rem; }
+</style>

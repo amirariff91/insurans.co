@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const schema = {
@@ -45,6 +45,7 @@ const schema = {
       <h1 class="ea-h1 mb-1">
         10 Cara Turunkan Premium Insurans Kereta Anda
       </h1>
+      <TrustStrip date="2026-11-15" />
       <PageAnswer
         finding="NCD: diskaun sehingga 55% selepas 5 tahun tanpa tuntutan"
         facts={[
@@ -54,7 +55,6 @@ const schema = {
           { label: 'Bandingkan harga', value: 'Harga premium untuk kereta yang sama boleh berbeza antara syarikat insurans' },
         ]}
       />
-      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
         Ada sepuluh cara yang sah untuk mengurangkan premium tanpa mengurangkan perlindungan penting.
       </p>

@@ -167,7 +167,50 @@
             "source": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+TripCare+360+Insurance.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "TripCare 360 Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+TripCare+360+Insurance.pdf",
+          "language": "Inggeris",
+          "documentDate": "01/06/2026",
+          "versionCode": "PMG/EGIB/TRIPCARE360/PDS/ENG/2605V0.2",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "senarai perlindungan asas dan perlindungan tambahan berbayar (aktiviti lasak, COVID-19, penjagaan di rumah, golf)"
+            },
+            {
+              "page": 1,
+              "what": "talian bantuan perjalanan dan perubatan 24 jam: +603 2785 6565"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk keadaan sedia ada dan perjalanan haji"
+            },
+            {
+              "page": 1,
+              "what": "contoh premium perjalanan 8 hari, Pelan Gold, Area 3: jumlah RM159.50 termasuk duti setem"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan: paling lewat 30 hari selepas kejadian"
+            },
+            {
+              "page": 2,
+              "what": "kawasan perlindungan, jenis pelan dan tempoh maksimum setiap perjalanan"
+            },
+            {
+              "page": 2,
+              "what": "cara membatalkan polisi"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "zurich-z-travel-international",
@@ -311,7 +354,54 @@
             "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "Z-Travel Insurance (International) Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/insurance-products/product-disclosure-sheets/gi_z-travel-insurance-int_pds_bi_bm_final_20220316.pdf",
+          "language": "Inggeris dan Bahasa Malaysia",
+          "documentDate": "01 Sep 2025",
+          "versionCode": "Z- Travel Insurance (International)PDS/20250901",
+          "pages": 4,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual manfaat utama Pelan Silver seluruh dunia, dengan jumlah diinsuranskan setiap manfaat"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk keadaan sedia ada dan aktiviti melebihi 3,000 meter"
+            },
+            {
+              "page": 1,
+              "what": "manfaat tambahan COVID-19 dengan premium tambahan"
+            },
+            {
+              "page": 2,
+              "what": "contoh premium tahunan RM352.00, duti setem dan komisen"
+            },
+            {
+              "page": 2,
+              "what": "cara tuntutan: notis dalam 14 hari selepas pulang"
+            },
+            {
+              "page": 2,
+              "what": "tempoh perjalanan maksimum dan had umur"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan: perjalanan tunggal tiada bayaran balik; polisi tahunan ikut kadar jangka pendek"
+            },
+            {
+              "page": 3,
+              "what": "permulaan versi Bahasa Malaysia (m.s. 3 hingga 4)"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "zurich-travel-takaful",
@@ -510,7 +600,87 @@
             "source": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-domestic-pds.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "Zurich Travel Takaful (International) Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-international-pds.pdf",
+          "language": "Inggeris dan Bahasa Malaysia",
+          "documentDate": "01 Sep 2025",
+          "versionCode": "Zurich Travel Takaful (International)PDS/20250901",
+          "pages": 4,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "Zurich Travel Takaful (International): konsep Syariah yang digunakan"
+            },
+            {
+              "page": 1,
+              "what": "manfaat utama Basic Plan seluruh dunia dan senarai pengecualian"
+            },
+            {
+              "page": 2,
+              "what": "contoh caruman tahunan RM217.10, yuran wakalah dan diskaun kumpulan"
+            },
+            {
+              "page": 2,
+              "what": "cara tuntutan: notis dalam 14 hari selepas pulang"
+            },
+            {
+              "page": 2,
+              "what": "tempoh perjalanan maksimum dan had umur"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan sijil perjalanan tunggal dan tahunan"
+            },
+            {
+              "page": 3,
+              "what": "permulaan versi Bahasa Malaysia (m.s. 3 hingga 4)"
+            }
+          ]
+        },
+        {
+          "kind": "pds",
+          "title": "Zurich Travel Takaful (Domestic) Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.zurich.com.my/-/media-assets/project/zurich-headless/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb-shopee-travel-takaful-domestic-pds.pdf",
+          "language": "Inggeris dan Bahasa Malaysia",
+          "documentDate": "01 Sep 2025",
+          "versionCode": "Zurich Travel Takaful (Domestic)PDS/20250901",
+          "pages": 4,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "Zurich Travel Takaful (Domestic): satu pelan, contoh RM59.00 untuk 60 hari perjalanan"
+            },
+            {
+              "page": 1,
+              "what": "manfaat utama, termasuk perbelanjaan perubatan kemalangan hingga RM50,000, dan senarai pengecualian"
+            },
+            {
+              "page": 2,
+              "what": "jumlah caruman setiap perjalanan dan yuran yang dikenakan"
+            },
+            {
+              "page": 2,
+              "what": "cara tuntutan dan had umur"
+            },
+            {
+              "page": 2,
+              "what": "cara membatalkan sijil sebelum perjalanan bermula"
+            },
+            {
+              "page": 3,
+              "what": "permulaan versi Bahasa Malaysia (m.s. 3 hingga 4)"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "allianz-travel-insurance",
@@ -712,7 +882,80 @@
             "source": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "brosur",
+          "title": "ALLIANZ TRAVEL EASY",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-brochure-ENG.pdf",
+          "language": "Inggeris",
+          "documentDate": "30/06/2026",
+          "versionCode": "AZ06/26",
+          "pages": 1,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual manfaat domestik dan luar negara (Asia dan Worldwide)"
+            },
+            {
+              "page": 1,
+              "what": "kadar premium dewasa, kanak-kanak dan warga emas ikut bilangan hari, serta pelan tahunan"
+            },
+            {
+              "page": 1,
+              "what": "diskaun premium 5% untuk 5 orang atau lebih dan 20% untuk kanak-kanak, dengan contoh kiraan"
+            },
+            {
+              "page": 1,
+              "what": "langkah tuntutan dan dokumen yang perlu dimuat naik"
+            },
+            {
+              "page": 1,
+              "what": "kemasukan hospital tanpa tunai untuk bil RM20,000 ke atas: talian 24/7 +603 7628 3617"
+            },
+            {
+              "page": 1,
+              "what": "senarai sukan dikecualikan, kawasan geografi dan negara dikecualikan"
+            }
+          ]
+        },
+        {
+          "kind": "pds",
+          "title": "Allianz Travel Easy Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/ATE-PDS_ENG.pdf",
+          "language": "Inggeris",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "contoh perlindungan pelan Worldwide tahunan RM553.00 dan senarai pengecualian"
+            },
+            {
+              "page": 1,
+              "what": "talian pelanggan 1 300 22 5542"
+            },
+            {
+              "page": 2,
+              "what": "contoh premium dengan manfaat pilihan High Altitude Mountaineering, yuran IMA dan duti setem"
+            },
+            {
+              "page": 2,
+              "what": "kelayakan, had umur dan tempoh maksimum setiap perjalanan"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan bertulis dalam 30 hari selepas pulang"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan polisi dan jadual kadar jangka pendek"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "tune-protect-travel-airasia",
@@ -856,7 +1099,91 @@
             "source": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/airasia/tpaa/PDS-AA-WPUA_International-Return.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "polisi",
+          "title": "Tune Protect Travel - AirAsia Return International Plan (WPUA)",
+          "url": "https://www.tuneprotect.com/airasia/wpua/en/ENG_WPUA-Return-International-2025.pdf",
+          "language": "Inggeris",
+          "versionCode": "VerMay2026",
+          "pages": 20,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "ringkasan manfaat: kemalangan diri hingga RM200,000, pembatalan perjalanan, bagasi dan kelewatan penerbangan"
+            },
+            {
+              "page": 2,
+              "what": "baki ringkasan manfaat, bantuan perjalanan 24 jam dan had lain"
+            },
+            {
+              "page": 3,
+              "what": "permulaan wording polisi"
+            },
+            {
+              "page": 6,
+              "what": "Seksyen 1: manfaat kemalangan diri dan jadual pampasan"
+            },
+            {
+              "page": 11,
+              "what": "Seksyen 3: perbelanjaan perubatan dan pemindahan; talian Europ Assistance 24 jam (603) 7628 3647"
+            },
+            {
+              "page": 14,
+              "what": "pengecualian am untuk semua seksyen"
+            },
+            {
+              "page": 16,
+              "what": "bukti kerugian bertulis dalam 90 hari"
+            },
+            {
+              "page": 20,
+              "what": "notis penting: cara membuat aduan"
+            }
+          ]
+        },
+        {
+          "kind": "polisi",
+          "title": "Tune Protect Travel - AirAsia One-Way Domestic Plan (WPUA)",
+          "url": "https://www.tuneprotect.com/airasia/wpua/en/ENG_WPUA-One-Way-Domestic-2025.pdf",
+          "language": "Inggeris",
+          "versionCode": "VerMay2026",
+          "pages": 17,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "ringkasan manfaat: kemalangan diri hingga RM300,000, pembatalan perjalanan, bagasi dan kelewatan penerbangan"
+            },
+            {
+              "page": 2,
+              "what": "permulaan wording polisi"
+            },
+            {
+              "page": 5,
+              "what": "Seksyen 1: manfaat kemalangan diri"
+            },
+            {
+              "page": 9,
+              "what": "Seksyen 3: pemindahan perubatan kecemasan; talian Europ Assistance 24 jam (603) 7628 3647"
+            },
+            {
+              "page": 11,
+              "what": "pengecualian am untuk semua seksyen"
+            },
+            {
+              "page": 13,
+              "what": "bukti kerugian bertulis dalam 90 hari"
+            },
+            {
+              "page": 17,
+              "what": "notis penting: cara membuat aduan"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "generali-smarttraveller-enhanced",
@@ -1132,7 +1459,53 @@
             "source": "https://www.msig.com.my/media/1ojng4w4/msig-travel-safeguard-ins-broc.pdf"
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "brosur",
+          "title": "MSIG Travel SafeGuard Insurance",
+          "url": "https://www.msig.com.my/media/1ojng4w4/msig-travel-safeguard-ins-broc.pdf",
+          "language": "Inggeris dan Bahasa Malaysia",
+          "documentDate": "Effective 2 July 2026",
+          "versionCode": "F-AD-B87-V2",
+          "pages": 73,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 5,
+              "what": "jadual manfaat luar negara pelan Travel Shield, Travel Max dan Golden Joy, dengan kelayakan umur"
+            },
+            {
+              "page": 10,
+              "what": "bantuan perjalanan seluruh dunia: talian +603 2166 3080 dan bantuan kecemasan WhatsApp"
+            },
+            {
+              "page": 12,
+              "what": "premium satu perjalanan (pemegang polisi sahaja) ikut kawasan dan tempoh"
+            },
+            {
+              "page": 15,
+              "what": "premium perlindungan tahunan"
+            },
+            {
+              "page": 21,
+              "what": "pengecualian am untuk semua seksyen"
+            },
+            {
+              "page": 24,
+              "what": "soalan lazim: cara membatalkan polisi dan mendapatkan bayaran balik premium"
+            },
+            {
+              "page": 26,
+              "what": "PDS Travel SafeGuard, perjalanan tunggal dan tahunan (m.s. 26 hingga 29)"
+            },
+            {
+              "page": 36,
+              "what": "permulaan versi Bahasa Malaysia (m.s. 36 hingga 72)"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

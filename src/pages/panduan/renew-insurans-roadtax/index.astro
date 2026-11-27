@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
@@ -85,6 +85,7 @@ const faqSchema = {
         ]}
       />
       <h1 class="ea-h1 mb-1">Renew Insurans + Roadtax Online — 7 Langkah Tanpa Panik</h1>
+      <TrustStrip date={asAt} />
       <PageAnswer
         finding="Ikut turutan, jangan langkau langkah 1 (NCD)"
         facts={[
@@ -93,7 +94,6 @@ const faqSchema = {
           { label: 'Langkah 6', value: 'Renew roadtax', href: '#langkah-6' },
         ]}
       />
-      <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Ini ritual tahunan setiap pemilik kereta. Dalam 10–15 minit semuanya boleh diselesaikan dalam talian. Kami bukan ejen, bukan broker: kami tunjukkan alirannya, anda pilih sendiri di mana mahu membeli.
       </p>

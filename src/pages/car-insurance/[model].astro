@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import CtaBand from '../../components/CtaBand.astro';
@@ -11,7 +11,6 @@ import ModelRail from '../../components/edisi/ModelRail.astro';
 import ToolsRail from '../../components/edisi/ToolsRail.astro';
 import TerkiniRail from '../../components/edisi/TerkiniRail.astro';
 import '../../styles/edisi-answer.css';
-import NcdLadder from '../../components/NcdLadder.astro';
 import carModels from '../../data/car-models.json';
 import companies from '../../data/companies.json';
 import { monthly, rm } from '../../lib/ncd';
@@ -76,7 +75,7 @@ const marketValueText = Number.isFinite(model.marketValueMin) && Number.isFinite
   ? rmRange(model.marketValueMin, model.marketValueMax)
   : model.marketValueRange;
 const specialPerils = specialPerilsRange(model);
-const specialPerilsEstimate = specialPerils ? ` untuk sum insured ${marketValueText}: sekitar ${specialPerils} setahun, sebelum cukai` : '';
+const specialPerilsEstimate = specialPerils ? ` untuk sum insured anggapan kami ${marketValueText}: sekitar ${specialPerils} setahun, sebelum cukai` : '';
 const hasPremiumRange = Number.isFinite(model.premiumNCD55Min) && Number.isFinite(model.premiumNCD55Max);
 const hasRoadtax = Number.isFinite(model.roadtaxMin) && Number.isFinite(model.roadtaxMax);
 // JPJ roadtax can carry sen (e.g. RM754.40); show it exactly so the row matches the roadtax note.
@@ -140,10 +139,16 @@ const description = descriptionCandidates.find((d) => d.length <= 155)
   ?? `${model.fullName}: anggaran premium ikut NCD 0–55%, add-on yang penting dan cara renew insurans kereta. Banding syarikat dan perlindungan sebelum bayar.`;
 const initialMonthly = monthly(model.premiumNCD55Min, model.premiumNCD55Max);
 const zeroMonthly = monthly(model.premiumNCD0Min, model.premiumNCD0Max);
-// Bold only the price range of the windscreen string; the variant note after it stays plain.
-const windscreenMatch = typeof model.windscreenPrice === 'string' ? model.windscreenPrice.match(/^(RM[\d,]+–RM[\d,]+)(.*)$/) : null;
-const windscreenRange = windscreenMatch ? windscreenMatch[1] : model.windscreenPrice;
-const windscreenRest = windscreenMatch ? windscreenMatch[2] : '';
+// The maker's own sum insured for a NEW car, from its price list (car-models.json makerSumInsured); absent for most models.
+const makerSi = model.makerSumInsured && Number.isFinite(model.makerSumInsured.min) ? model.makerSumInsured : null;
+const fmtDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+// Where a used-car owner looks up their own market value. Values are never copied from MyCarInfo (its terms forbid reuse).
+// Read 2026-11-27: BNM guideline para 5.2 (ISM-ABI); PIAM article (MyCarInfo "Vehicle Value Check"); ISM home page (MyCarInfo is ISM's public site).
+const valueSources = {
+  bnm: 'https://www.bnm.gov.my/documents/20124/948107/20110108_BC_G_0002.pdf',
+  piam: 'https://piam.org.my/news-media/stay-ahead/articles/page/how-to-check-your-car-insurance-expiry-and-ncd-online-2026/',
+  ism: 'https://www.ism.net.my/',
+};
 const modelYearNotes = isEnriched && Array.isArray(model.modelYearNotes) ? model.modelYearNotes : [];
 const addOnsDetail = isEnriched && Array.isArray(model.addOnsDetail) ? model.addOnsDetail : [];
 // Published add-on rates, shared by every model page and linked from the note in #addons (#nota-addon).
@@ -212,16 +217,15 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
         />
         <LogoTile brand={model.brand} eager />
         </div>
-        <Byline dateModified={articleDate} />
-        <div class="mt-4">
+      </div>
+      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl}><TrustStrip slot="trust" date={articleDate} sources={model.sources} /></ModelAnswer>
+      <div class="mt-4">
           <EditorialStamp
             articleDate={schema.dateModified}
             premiumReviewed={model.premiumReviewed}
             sources={model.sources}
           />
-        </div>
       </div>
-      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl} />
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">
@@ -240,29 +244,30 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
           <ul class="rows">
             <li id="nota-banjir"><div><b>Banjir (special perils)</b><p>{model.floodRiskNote || model.riskProfile.notes}{specialPerilsEstimate && <> Anggaran{specialPerilsEstimate}.</>}</p></div></li>
           </ul>
-          {model.windscreenPrice && (
-            <>
-            <h3 class="rows-h">Kos gantian cermin</h3>
-            <ul class="rows">
-              <li><div><b>Cermin depan</b><p>Anggaran <strong>{windscreenRange}</strong>{windscreenRest}. Sahkan harga dan keperluan penentukuran (calibration) dengan bengkel panel sebelum memilih windscreen cover.</p></div></li>
-            </ul>
-            </>
-          )}
+          <h3 class="rows-h">Kos gantian cermin</h3>
+          <ul class="rows">
+            <li><div><b>Cermin depan</b><p>Kami tidak meletakkan harga gantian cermin {model.model} kerana tiada senarai harga rasmi untuk dirujuk. Minta harga dan keperluan penentukuran (calibration) daripada bengkel panel sebelum memilih windscreen cover. Premium windscreen cover pula dikira sebagai peratus jumlah diinsuranskan cermin: <a href="#nota-addon">lihat kadar dalam PDS</a>.</p></div></li>
+          </ul>
         </div>
       </section>
 
       <!-- Butiran model -->
       <section class="mod" aria-labelledby="butiran">
-        <h2 class="mod-bar" id="butiran">Nilai pasaran {model.fullName} dianggarkan {marketValueText}</h2>
+        <h2 class="mod-bar" id="butiran">Nilai pasaran dan sum insured {model.fullName}</h2>
         <div class="mod-in">
+          {makerSi && (
+            <p class="ix-s" data-maker-si>Untuk {model.model} <strong>baharu</strong>, {makerSi.maker} menyenaraikan "{makerSi.label}" <strong class="numeric">{rmRange(makerSi.min, makerSi.max)}</strong> ({makerSi.scope}). Sumber: <a href={makerSi.url}>{makerSi.docLabel}</a>, dibaca <time datetime={makerSi.retrieved}>{fmtDate(makerSi.retrieved)}</time>. Ini angka pengilang untuk kereta baharu, bukan nilai kereta terpakai.</p>
+          )}
+          <p class="ix-s" data-value-check>Kereta terpakai: semak nilai pasaran (market value) kereta anda sendiri di MyCarInfo, laman awam <a href={valueSources.ism}>ISM (Insurance Services Malaysia)</a>. <a href={valueSources.bnm}>Garis panduan Bank Negara</a> menetapkan nasihat nilai pasaran kepada pengguna mesti berasaskan sistem ISM-ABI atau pangkalan data penilaian kenderaan lain yang boleh dipercayai. <a href={valueSources.piam}>PIAM</a> mengesyorkan semakan nilai MyCarInfo supaya sum insured tidak terlalu rendah atau terlalu tinggi semasa renew.</p>
           <dl class="facts">
             <div><dt>Enjin / kapasiti</dt><dd>{model.engineCC}</dd></div>
             <div><dt>Varian</dt><dd>{model.variants.join(', ')}</dd></div>
             <div><dt>Tahun model</dt><dd>{model.yearRange}</dd></div>
             <div><dt>Segmen</dt><dd>{model.segment}</dd></div>
-            <div><dt>Nilai pasaran</dt><dd>{marketValueText}</dd></div>
+            <div><dt>Sum insured untuk anggaran (andaian kami)</dt><dd>{marketValueText}</dd></div>
           </dl>
-          <details class="baca">
+          <p class="ix-s">Anggaran premium di atas menganggap sum insured {marketValueText}. Julat ini andaian kami untuk kiraan, bukan nilai pasaran rasmi kereta anda.</p>
+          <details class="baca" id="cara-kira">
             <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: cara harga dianggar{modelYearNotes.length > 0 && ' & nota mengikut tahun'}</span></summary>
             <div class="baca-in">
               <p>{model.premiumMethodology || 'Harga ialah anggaran premium polisi komprehensif; umur kereta, lokasi, varian, rekod pemanduan dan syarikat boleh mengubah quotation.'}</p>
@@ -285,10 +290,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
       <section id="ncd" class="mod" data-tint="sky" aria-labelledby="ncd-h">
         <h2 class="mod-bar" id="ncd-h">Diskaun NCD ikut berapa tahun anda tidak claim</h2>
         <div class="mod-in">
-          <details class="baca">
-            <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: tangga NCD</span></summary>
-            <div class="baca-in"><NcdLadder mode="diagram" selectedTier={55} /></div>
-          </details>
+          <p class="ix-s">Tangga NCD yang sama ada pada <a href="#ncd-kawalan">pemilih NCD di atas</a>. Pilih tahap anda untuk melihat harganya.</p>
           <p class="ix-s">Sesetengah tuntutan boleh menjejaskan NCD. Semak jenis tuntutan dan syarat polisi sebelum membuat keputusan.</p>
           <p><a href="/guides/ncd-explained/" class="inline-flex min-h-11 items-center">Panduan NCD →</a></p>
         </div>
@@ -299,6 +301,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
         <h2 class="mod-bar" id="addons-h">Perlindungan tambahan bukan automatik untuk semua polisi</h2>
         <div class="mod-in">
           <p class="ix-s">Pilih berdasarkan penggunaan kereta, lokasi dan kos yang anda sanggup tanggung sendiri.</p>
+          <p class="ix-s" id="nota-addon">Sumber kadar: <a href={addOnRateSources.zurich}>PDS Zurich Z-Driver bertarikh 15 Nov 2025</a> menyenaraikan kadar berikut untuk risiko standard. Windscreen cover: 15% daripada jumlah diinsuranskan cermin {model.model}. Special perils: 0.2% daripada jumlah diinsuranskan {model.model}. <a href={addOnRateSources.hsbc}>Contoh PDS HSBC/Allianz</a>, sah pada 1 Jan 2026, menghasilkan peratus yang sama melalui kiraan. Kadar sebenar bergantung pada penilaian risiko syarikat.</p>
           {addOnsDetail.length > 0 ? (
             <ul class="rows">
               {addOnsDetail.map((addon: any) => (
@@ -323,9 +326,7 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
               ))}
             </ul>
           )}
-          <p class="ix-s" id="nota-addon">Harga perlindungan tambahan {model.model} di halaman ini ialah anggaran kami. Ini bukan quotation (sebut harga).</p>
-          <p class="ix-s"><a href={addOnRateSources.zurich}>PDS Zurich Z-Driver bertarikh 15 Nov 2025</a> menyenaraikan kadar berikut untuk risiko standard. Windscreen cover: 15% daripada jumlah diinsuranskan cermin {model.model}. Special perils: 0.2% daripada jumlah diinsuranskan {model.model}.</p>
-          <p class="ix-s"><a href={addOnRateSources.hsbc}>Contoh PDS HSBC/Allianz</a>, sah pada 1 Jan 2026, menghasilkan peratus yang sama melalui kiraan. Kadar sebenar bergantung pada penilaian risiko syarikat. Semak quotation {model.model} anda.</p>
+          <p class="ix-s">Harga perlindungan tambahan {model.model} dalam senarai ini ialah anggaran kami, bukan quotation (sebut harga). Semak quotation {model.model} anda.</p>
         </div>
       </section>
 

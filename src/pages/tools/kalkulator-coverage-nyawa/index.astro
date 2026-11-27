@@ -2,7 +2,7 @@
 import Ikon from '../../../components/Ikon.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CtaBand from '../../../components/CtaBand.astro';
 import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
@@ -66,6 +66,7 @@ const introRest = introMore.join(' ');
   pageType="tool"
 >
   <ToolOpening title="Kalkulator Coverage Nyawa — Berapa Cukup Untuk Keluarga?">
+    <TrustStrip slot="trust" />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -214,7 +215,6 @@ const introRest = introMore.join(' ');
         </section>
 
         <div class="et-after">
-          <Byline />
           {introRest && <p>{introRest}</p>}
           <p>Ini alat pendidikan. Ia tidak meminta nama dan tidak menggunakan andaian pasaran; kiraan hanya memakai pendapatan, tanggungan dan sumber yang anda masukkan.</p>
         </div>

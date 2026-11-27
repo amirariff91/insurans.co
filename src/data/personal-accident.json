@@ -111,7 +111,46 @@
             "a": "Polisi boleh diperbaharui sehingga umur 80 dan perlindungan tamat pada umur 81. Kadar boleh berubah apabila umur beralih kepada 66. Tempoh penelitian percuma ialah 15 hari. Tuntutan perlu diberitahu dalam 30 hari. Had perjalanan luar negara ialah 3 bulan berturut-turut bagi keadaan yang dinyatakan polisi."
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "Buddy PA - Weekend Warrior Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Weekend_Warrior_Insurance.pdf",
+          "language": "Inggeris",
+          "documentDate": "01/06/2026",
+          "versionCode": "PMG/EGIB/BUDDYPA/WW/PDS/ENG/ECHANNEL/2605V0.2",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual manfaat Basic, Good, Better dan Best Plan untuk dewasa dan kanak-kanak"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk sukan berbahaya dan sukan profesional"
+            },
+            {
+              "page": 1,
+              "what": "talian Etiqa Oneline 1-300-13-8888"
+            },
+            {
+              "page": 2,
+              "what": "contoh premium tahunan Better Plan: RM337.24 selepas diskaun, cukai perkhidmatan dan duti setem"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan: paling lewat 30 hari selepas kejadian"
+            },
+            {
+              "page": 2,
+              "what": "cara membatalkan polisi dan bayaran balik sebahagian premium"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "tune-protect-pa-easy",
@@ -125,6 +164,46 @@
       "figureVerified": true,
       "sources": [
         "https://www.tuneprotect.com/my/products/pa-easy/"
+      ],
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "PA Easy Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://s3.ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_TuneProtectPAEasy.pdf",
+          "hostedAt": "storan fail Tune Protect (Amazon S3)",
+          "language": "Inggeris",
+          "documentDate": "28/12/2025",
+          "versionCode": "VerJan26",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "contoh perlindungan untuk RM27.00 setahun: kematian dan hilang upaya kekal akibat kemalangan RM50,000, belanja perubatan sehingga RM2,000 setiap kejadian"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk menunggang motosikal dan sukan profesional"
+            },
+            {
+              "page": 1,
+              "what": "premium kasar RM36.00 setahun, rebat terus 25% dan cukai perkhidmatan 8%"
+            },
+            {
+              "page": 2,
+              "what": "senarai pekerjaan yang dikecualikan"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan: dalam 14 hari selepas kejadian"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan: bayaran balik ikut kadar jangka pendek, premium minimum RM10.00"
+            }
+          ]
+        }
       ],
       "asAt": "2026-09-12",
       "analysisAsAt": "2026-10-10",
@@ -221,6 +300,50 @@
       "sources": [
         "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/Tune_Protect_PA_Shield_Brochure.pdf",
         "https://www.tuneprotect.com/my/products/pa-shield/"
+      ],
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "PA Shield Product Disclosure Sheet",
+          "printedTitle": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://s3-ap-southeast-1.amazonaws.com/tuneprotect.com/tpr/wp-content/uploads/pdf/PDS_PA_Shield.pdf",
+          "hostedAt": "storan fail Tune Protect (Amazon S3)",
+          "language": "Inggeris",
+          "documentDate": "1/1/2026",
+          "versionCode": "VerJan26",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "contoh Plan 1 untuk RM256.24 setahun termasuk cukai perkhidmatan dan duti setem: kematian RM100,000, belanja perubatan RM5,000"
+            },
+            {
+              "page": 1,
+              "what": "andaian contoh premium: individu, pekerja pejabat, Kelas 1, umur 30 tahun, dengan manfaat mingguan"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk sukan berbahaya dan keadaan sedia ada"
+            },
+            {
+              "page": 1,
+              "what": "pecahan premium: perlindungan asas RM188.00, perlindungan tambahan RM40.00, duti setem RM10.00, komisen 25%"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan: dalam 30 hari dari tarikh kemalangan, dokumen dalam 14 hari selepas notis"
+            },
+            {
+              "page": 2,
+              "what": "had umur: 1 hingga 60 tahun, boleh diperbaharui sehingga 75 tahun; kelas pekerjaan 1, 2 dan 3 sahaja"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan: bayaran balik ikut kadar jangka pendek jika tiada tuntutan, caj minimum RM50.00"
+            }
+          ]
+        }
       ],
       "asAt": "2026-09-12",
       "analysisAsAt": "2026-10-10",
@@ -448,7 +571,64 @@
             "a": "Jika orang diinsuranskan menetap di luar Malaysia, Singapura dan Brunei melebihi 90 hari berturut-turut, polisi mengehadkan bayaran kepada kematian serta hilang upaya kekal. Rawatan luar Malaysia yang layak dibayar dalam Ringgit Malaysia mengikut kadar tukaran. Batas ini penting jika anda merancang tinggal lama di negara lain."
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "brosur",
+          "title": "ALLIANZ INDIVIDUAL PA",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/PA-flyer_ENG.pdf",
+          "language": "Inggeris",
+          "versionCode": "AZ04/25",
+          "pages": 1,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual jumlah diinsuranskan Plan A hingga Plan E dan premium RM10 hingga RM50"
+            },
+            {
+              "page": 1,
+              "what": "syarat kelayakan: boleh melakukan sekurang-kurangnya 3 aktiviti harian (ADL)"
+            },
+            {
+              "page": 1,
+              "what": "kelayakan umur 3 hingga 70 tahun dan syarat pengunderaitan"
+            }
+          ]
+        },
+        {
+          "kind": "pds",
+          "title": "Personal Accident (PA) Product Disclosure Sheet",
+          "printedTitle": "Product Disclosure Sheet",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PDS_PersonalAccident_ENG_AZ0624.pdf",
+          "language": "Inggeris",
+          "documentDate": "01/06/2024",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "perlindungan asas dan manfaat tambahan berbayar"
+            },
+            {
+              "page": 1,
+              "what": "yuran dan caj: komisen, duti setem dan cukai perkhidmatan"
+            },
+            {
+              "page": 2,
+              "what": "had umur kelayakan dan pembaharuan"
+            },
+            {
+              "page": 2,
+              "what": "pengecualian utama"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan polisi dan cara membuat tuntutan"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

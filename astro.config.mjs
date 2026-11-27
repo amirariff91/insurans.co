@@ -39,13 +39,31 @@ function pageContentDate(url) {
   return undefined;
 }
 
+// True when the built page at this path declares robots noindex. Runs after the HTML is written.
+function builtPageIsNoindex(path) {
+  const file = join(distDir, path, 'index.html');
+  if (!existsSync(file)) throw new Error(`sitemap filter: no built page for ${path} (looked in ${file})`);
+  return /<meta name="robots" content="noindex/.test(readFileSync(file, 'utf8'));
+}
+
 export default defineConfig({
   site: 'https://insurans.co',
   integrations: [
     sitemap({
-      // The 16 /negeri/<state>/ pages are noindex (their facts live in the /negeri/ hub table);
-      // the hub itself stays in the sitemap.
-      filter: (page) => !/\/negeri\/[^/]+\/$/.test(new URL(page).pathname),
+      // Noindex pages stay reachable but leave the sitemap; each hub stays in it.
+      // - The 16 /negeri/<state>/ pages: their facts live in the /negeri/ hub table.
+      // - The /motorcycle-insurance/<product>/ pages: near-duplicates of each other; their facts live in the
+      //   comparison table on /motorcycle-insurance/ (AdSense "low-value content" review, November 2026).
+      // - /terkini/<entry>/ pages under TERKINI_INDEX_MIN_WORDS (src/lib/terkini.ts): too short to stand
+      //   alone; /terkini/ lists and links them all. The word count is decided in the page, so this reads
+      //   the built page's robots meta instead of repeating the rule.
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        if (/^\/negeri\/[^/]+\/$/.test(path)) return false;
+        if (/^\/motorcycle-insurance\/[^/]+\/$/.test(path)) return false;
+        if (/^\/terkini\/[^/]+\/$/.test(path)) return !builtPageIsNoindex(path);
+        return true;
+      },
       serialize(item) {
         const date = pageContentDate(item.url);
         // Content dates are Malaysian calendar dates: midnight MYT, not midnight UTC, so a page

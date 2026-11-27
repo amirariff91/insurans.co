@@ -1,14 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import LogoTile from '../../components/LogoTile.astro';
 import { homeFacts } from '../../data/home-facts';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
-import Ikon from '../../components/Ikon.astro';
 import { tarikh } from '../../components/edisi/ProductFormat';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import TypeChips from '../../components/edisi/TypeChips.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import motorcycleInsurance from '../../data/motorcycle-insurance.json';
@@ -16,7 +13,7 @@ import { buildDescription, buildTitle } from '../../lib/seo';
 
 const records = motorcycleInsurance.records;
 const asAt = motorcycleInsurance.asAt;
-const jpjSource = 'https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf';
+const jpjSource = 'https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-A-Garis_Panduan_Pengiraan_LKM_Bajet_20092-2.pdf';
 const roadtaxCalculatorUrl = '/tools/kalkulator-roadtax-motosikal/';
 const typeOrder = ['third-party', 'comprehensive', 'comprehensive-takaful', 'motorcycle-add-on'];
 const typeLabels: Record<string, string> = {
@@ -25,25 +22,44 @@ const typeLabels: Record<string, string> = {
   'comprehensive-takaful': 'Comprehensive / takaful',
   'motorcycle-add-on': 'Add-on motosikal',
 };
-const typeDescriptions: Record<string, string> = {
-  'third-party': 'Liabiliti kepada pihak ketiga; motosikal sendiri tidak termasuk dalam cover asas.',
-  comprehensive: 'Perlindungan motosikal sendiri dan liabiliti pihak ketiga, tertakluk pada wording polisi.',
-  'comprehensive-takaful': 'Struktur perlindungan berasaskan sijil takaful; semak manfaat dan pengecualian setiap produk.',
-  'motorcycle-add-on': 'Manfaat pilihan yang ditambah pada polisi motosikal utama; bukan perlindungan motosikal berdiri sendiri.',
-};
 const recordGroups = typeOrder
   .map((type) => ({
     type,
     label: typeLabels[type],
-    description: typeDescriptions[type],
     records: records.filter((record) => record.type === type),
   }))
   .filter((group) => group.records.length > 0);
+// One row per product, in type order. The product pages are noindex (see [slug].astro), so this table carries
+// every fact they hold. A fact the record does not have is shown as "Tiada data".
+const tableRows = recordGroups.flatMap((group) => group.records.map((record) => ({ record, typeLabel: group.label })));
+const noData = 'Tiada data';
+// Which document each source URL is, as read from the document itself (the records hold bare URLs).
+// brand names the provider in the page-level source list; label is the link text in the table row.
+const sourceDocs: Record<string, { brand: string; label: string }> = {
+  'https://www.kurnia.com/download/pds/motorcycle-third-party-eng.pdf': { brand: 'Kurnia', label: 'PDS' },
+  'https://online.berjayasompo.com.my/motorcycle/docs/Motorcycle%20PDS%20_ENG%20(042023).pdf': { brand: 'Berjaya Sompo', label: 'PDS' },
+  'https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Insurance+Add-On.pdf': { brand: 'Etiqa', label: 'PDS MyRider' },
+  'https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+MyRider+Plus+Insurance+Add+On.pdf': { brand: 'Etiqa', label: 'PDS MyRider Plus' },
+  'https://www.etiqa.com.my/motorcycle/myRider-insurance': { brand: 'Etiqa', label: 'Halaman produk' },
+  'https://www.etiqa.com.my/motorcycle': { brand: 'Etiqa', label: 'Halaman insurans motosikal' },
+  'https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/insurance-products/product-disclosure-sheets/zgimb_z-rider_pds_eng.pdf': { brand: 'Zurich', label: 'PDS (insurans)' },
+  'https://www.zurich.com.my/-/media/project/zwp/malaysia/docs/takaful-products/product-disclosure-sheets/zgtmb_z-rider_pds_eng.pdf': { brand: 'Zurich', label: 'PDS (takaful)' },
+  'https://www.zurich.com.my/insurance-products/protection/for-my-vehicle/z-rider': { brand: 'Zurich', label: 'Halaman produk' },
+  'https://www.msig.com.my/products/personal/motor/motorcycle-3pa/': { brand: 'MSIG', label: 'Halaman produk' },
+  'https://www.msig.com.my/media/stqgr0ef/mcrmcy_pds_cr_20260401_eng_bm.pdf': { brand: 'MSIG', label: 'PDS' },
+  'https://takeiteasy.msig.com.my/msigonline/products/product-landing-page.html?product=mcy': { brand: 'MSIG', label: 'Halaman beli online' },
+};
+// A URL added to the data without an entry here fails the build rather than printing a bare hostname.
+const sourceDoc = (url: string) => {
+  const doc = sourceDocs[url];
+  if (!doc) throw new Error(`motorcycle-insurance: no document label for ${url} (add it to sourceDocs)`);
+  return doc;
+};
 const sourceLinks = [
   { label: 'JPJ: Garis Panduan LKM', url: jpjSource },
   ...records.flatMap((record) =>
     record.sources.map((url) => ({
-      label: new URL(url).hostname.replace(/^www\./, ''),
+      label: `${sourceDoc(url).brand}: ${sourceDoc(url).label}`,
       url,
     })),
   ),
@@ -63,7 +79,7 @@ const canonicalUrl = 'https://insurans.co/motorcycle-insurance/';
 const faqs = [
   {
     q: 'Bagaimana renew insurans motosikal online?',
-    a: 'Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis cover, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.',
+    a: 'Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis perlindungan, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.',
   },
   {
     q: 'Apa beza third party dengan comprehensive untuk motosikal?',
@@ -83,7 +99,7 @@ const faqs = [
   },
   {
     q: 'Bagaimana cari insurans motosikal murah?',
-    a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
+    a: 'Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis perlindungan, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.',
   },
 ];
 const schema = {
@@ -129,6 +145,7 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Insurans Motosikal Malaysia 2026</h1>
+      <TrustStrip date={asAt} sources={sourceLinks} />
       <PageAnswer
         finding={`${homeFacts.motorcycle.roadtax}; premium perlu quotation`}
         sentence="Roadtax motosikal mengikut jadual JPJ, ikut cc dan wilayah. Premium insurans tidak mengikut jadual cc: dapatkan quotation daripada insurer."
@@ -137,7 +154,6 @@ const schema = {
         ]}
         note="Rujukan neutral, bukan ejen. Satu contoh premium yang diterbitkan ada di bawah; ia bukan jadual harga atau quotation untuk semua motosikal."
       />
-      <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang diterbitkan
         dan pautan quotation rasmi. Kami tidak menganggarkan premium motosikal mengikut cc.
@@ -159,9 +175,10 @@ const schema = {
             memisahkan angka yang ada sumber daripada premium yang hanya boleh diketahui melalui quotation.
           </p>
           <p>
-            Maklumat {records.length} produk di bawah datang daripada sumber rasmi. Setiap kad membawa ke ringkasan
-            dan sumber produk itu. Jika sumber yang kami baca belum cukup untuk menyatakan manfaat atau harga, kad itu
-            menyebutnya dan kami tidak mengisinya dengan anggaran.
+            Maklumat {records.length} produk di bawah datang daripada sumber rasmi. Jadual produk menyenaraikan apa yang
+            dinyatakan oleh dokumen setiap produk, asas premium, contoh premium, sumber dan tarikh kami menyemaknya. Jika
+            sumber yang kami baca tidak menyatakan sesuatu fakta, jadual menulis “Tiada data” dan kami tidak mengisinya
+            dengan anggaran.
           </p>
 
           <h2 id="roadtax">Kadar roadtax motosikal JPJ ikut cc</h2>
@@ -280,57 +297,51 @@ const schema = {
         <article class="prose-editorial prose-bars">
           <h2 id="produk">Senarai produk</h2>
           <p>
-            Produk dikelompokkan mengikut jenis perlindungan, dan setiap kad membawa ke halaman butiran produk itu.
+            Satu baris bagi setiap produk, disusun mengikut jenis perlindungan. Lajur “Apa yang dinyatakan dokumen”
+            meringkaskan PDS atau halaman rasmi produk itu; syarat sebenar ada dalam polisi atau sijil. Nama produk
+            membawa ke halaman butiran yang sama.
           </p>
         </article>
 
-        <TypeChips class="mt-5" label="Senarai produk" groups={recordGroups.map((group) => ({ id: group.type, label: group.label }))} />
-
-        <div class="mt-6 space-y-10">
-          {recordGroups.map((group) => (
-            <section id={group.type}>
-              <div class="flex flex-wrap items-baseline justify-between gap-3">
-                <div>
-                  <h3 class="font-serif text-headline-md text-stone-900">{group.label}</h3>
-                  <p class="mt-1 text-sm text-stone-600">{group.description}</p>
-                </div>
-                <span class="text-sm text-stone-500">{group.records.length} produk</span>
-              </div>
-
-              <div class="mt-5 grid gap-4 sm:grid-cols-2">
-                {group.records.map((record) => (
-                  <a href={`/motorcycle-insurance/${record.slug}/`} class="card-editorial group block">
-                    <div class="flex items-start justify-between gap-3">
-                      <LogoTile company={record.insurer} />
-                      <div class="min-w-0 flex-1">
-                        <h4 class="font-semibold text-stone-900 group-hover:text-hijau-700">{record.planName}</h4>
-                        <p class="mt-1 text-xs leading-5 text-stone-500">{record.insurer}</p>
-                      </div>
-                      <span class="max-w-[50%] rounded-full border border-stone-200 bg-edisi-chip px-2.5 py-1 text-center text-xs font-semibold text-edisi-ink">
-                        {group.label}
-                      </span>
-                    </div>
-                    {record.figureVerified ? (
-                      <>
-                        <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.coversWhat}</p>
-                        {record.premiumBasis && (
-                          <p class="mt-3 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">{record.premiumBasis}</p>
-                        )}
-                        {record.workedExample && (
-                          <p class="mt-3 border-t border-stone-200 pt-3 text-sm leading-5 font-semibold text-hijau-800">Contoh premium PDS: {record.workedExample}</p>
-                        )}
-                      </>
-                    ) : (
-                      <p class="mt-4 border-t border-stone-200 pt-3 text-sm leading-5 text-stone-600">
-                        Kami belum menemui manfaat dan premium produk ini dalam sumber primer yang dibaca.
-                      </p>
-                    )}
-                    <span class="pp-arrow mt-4 text-sm font-semibold text-hijau-700">Lihat butiran <Ikon name="i-kanan" size={16} /></span>
-                  </a>
-                ))}
-              </div>
-            </section>
-          ))}
+        <div class="my-6 overflow-x-auto" role="region" tabindex="0" aria-labelledby="produk">
+          <table class="table-editorial">
+            <caption class="sr-only">Senarai produk insurans motosikal: jenis perlindungan, apa yang dinyatakan dokumen, asas premium, contoh premium dan sumber</caption>
+            <thead>
+              <tr>
+                <th scope="col">Produk dan syarikat</th>
+                <th scope="col">Jenis perlindungan</th>
+                <th scope="col">Apa yang dinyatakan dokumen</th>
+                <th scope="col">Asas premium</th>
+                <th scope="col">Contoh premium PDS</th>
+                <th scope="col">Sumber</th>
+                <th scope="col">Tarikh semak</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableRows.map(({ record, typeLabel }) => (
+                <tr>
+                  <th scope="row" class="min-w-[11rem] align-top font-medium text-stone-900">
+                    <a href={`/motorcycle-insurance/${record.slug}/`}>{record.planName}</a>
+                    <span class="mt-1 block text-xs font-normal leading-5 text-stone-600">{record.insurer}</span>
+                  </th>
+                  <td class="align-top">{typeLabel}</td>
+                  <td class="min-w-[20rem] align-top text-sm leading-6">{record.coversWhat || noData}</td>
+                  <td class="min-w-[16rem] align-top text-sm leading-6">{record.premiumBasis || noData}</td>
+                  <td class="min-w-[12rem] align-top text-sm leading-6">{record.workedExample || noData}</td>
+                  <td class="min-w-[10rem] align-top text-sm leading-6">
+                    {record.sources.length > 0 ? (
+                      <ul class="space-y-1">
+                        {record.sources.map((url) => (
+                          <li><a href={url} rel="noopener">{sourceDoc(url).label}</a></li>
+                        ))}
+                      </ul>
+                    ) : noData}
+                  </td>
+                  <td class="align-top whitespace-nowrap text-sm">{record.asAt ? <time datetime={record.asAt}>{tarikh(record.asAt)}</time> : noData}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <article class="prose-editorial prose-bars">
@@ -341,7 +352,7 @@ const schema = {
           </p>
           <ol class="list-decimal space-y-3 pl-5">
             <li>Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan NCD yang hendak disemak.</li>
-            <li>Dapatkan quotation daripada penyedia; pilih jenis cover dan add-on hanya selepas membaca skopnya.</li>
+            <li>Dapatkan quotation daripada penyedia; pilih jenis perlindungan dan add-on hanya selepas membaca skopnya.</li>
             <li>Semak nama pemilik, nombor pendaftaran, tempoh, jumlah diinsuranskan, excess dan pengecualian pada dokumen.</li>
             <li>Simpan e-policy atau cover note yang sah, kemudian uruskan roadtax melalui saluran JPJ yang berkenaan.</li>
           </ol>

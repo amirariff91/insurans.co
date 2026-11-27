@@ -1,0 +1,43 @@
+---
+/**
+ * An illustration made for Insurans.co, from src/data/illustrations.json (looked up by path).
+ *
+ *   <Ilustrasi path="/images/ilustrasi/langkah-selepas-kemalangan.webp" />
+ *
+ * Always lazy: never place one in the first screen. The caption comes from the record, and
+ * /kredit-foto/#ilustrasi lists every record. A path without a record fails the build.
+ */
+import illustrations from '../data/illustrations.json';
+
+interface Props {
+  path: string;
+  class?: string;
+}
+
+const { path, class: className } = Astro.props;
+const rec = illustrations.records.find((r) => r.path === path);
+if (!rec) throw new Error(`Ilustrasi: no record in src/data/illustrations.json for ${path}`);
+---
+
+<figure class:list={['ilus not-prose', className]}>
+  <img src={rec.path} width={rec.width} height={rec.height} alt={rec.alt} loading="lazy" decoding="async" />
+  <figcaption>{rec.caption}</figcaption>
+</figure>
+
+<style>
+  .ilus {
+    margin: 2rem 0;
+  }
+  .ilus img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border: 1px solid var(--rule);
+  }
+  .ilus figcaption {
+    margin-block-start: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--mute);
+  }
+</style>

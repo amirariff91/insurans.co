@@ -1,8 +1,9 @@
 ---
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
+import Ilustrasi from '../../../components/Ilustrasi.astro';
 
 const faqItems = [
   {
@@ -73,6 +74,7 @@ const schema = {
     <div class="container-wide pt-6 pb-4 sm:pt-8 sm:pb-6">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Insurans Kereta', href: '/car-insurance/' }, { label: 'Cara Claim' }]} />
       <h1 class="ea-h1 mb-1">Cara Buat Claim Insurans Kereta</h1>
+      <TrustStrip date="2026-10-10" />
       <div class="hc-steps">
       <PageAnswer
         finding="Utamakan keselamatan, simpan bukti dan buat laporan polis dalam 24 jam"
@@ -86,7 +88,6 @@ const schema = {
         ]}
       />
       </div>
-      <Byline dateModified="2026-10-10" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed" id="jawapan-ringkas">
         Utamakan keselamatan, simpan bukti kemalangan dan buat laporan polis dalam 24 jam. Hubungi syarikat insurans segera untuk memilih laluan tuntutan serta bengkel yang diluluskan. Own damage biasa boleh menjejaskan NCD. OD-KfK yang layak dan tuntutan cermin di bawah add-on berkenaan boleh mengekalkannya.
       </p>
@@ -121,6 +122,7 @@ const schema = {
         <li><strong>Hubungi saluran rasmi:</strong> semak nombor bantuan pada polisi, aplikasi atau laman syarikat. Pastikan destinasi tunda ialah bengkel yang syarikat benarkan.</li>
       </ul>
       <p>Panduan kemalangan Etiqa menerangkan langkah pengumpulan maklumat dan larangan mengaku salah ini. <a href="#rujukan-kemalangan">[1]</a></p>
+      <Ilustrasi path="/images/ilustrasi/langkah-selepas-kemalangan.webp" />
 
       <h2 id="langkah-2" class="h2-quiet">2. Buat laporan polis dalam 24 jam</h2>
       <p>
