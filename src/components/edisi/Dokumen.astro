@@ -1,6 +1,6 @@
 ---
 /**
- * "Brosur dan PDS": links to a plan's official documents on the insurer's or operator's own site, with a page guide.
+ * "Brosur dan PDS": links to a plan's official documents on the insurer's or operator's own site (or, with `hostedAt`, its file storage or its distributor's site), with a page guide.
  *
  *   <Dokumen documents={card.documents} company={card.insurer} />
  *
@@ -67,7 +67,7 @@ function tarikhBuka(value: string): string {
     <div class="prose-editorial prose-bars">
       <h2 id={`${id}-tajuk`}>Brosur dan PDS</h2>
       <p>
-        Fail di bawah milik syarikat sendiri dan disimpan di laman mereka. Syarikat boleh menukar atau mengalihkannya,
+        Fail di bawah milik syarikat sendiri dan disimpan di laman atau storan fail mereka, atau di laman bank yang menjual pelan itu. Syarikat boleh menukar atau mengalihkannya,
         jadi semak tarikh pada dokumen sebelum bergantung padanya. Nombor m.s. ialah halaman dalam fail PDF.
       </p>
     </div>
