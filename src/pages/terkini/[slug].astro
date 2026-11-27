@@ -5,7 +5,7 @@ import Ikon from '../../components/Ikon.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import { withAuthor } from '../../lib/schema';
-import { terkini, KIND_LABEL, TERKINI_URL, formatTarikh, bodySegments, type TerkiniItem } from '../../lib/terkini';
+import { terkini, KIND_LABEL, TERKINI_URL, formatTarikh, bodySegments, mainWordCount, TERKINI_INDEX_MIN_WORDS, type TerkiniItem } from '../../lib/terkini';
 import '../../styles/terkini.css';
 
 export function getStaticPaths() {
@@ -20,6 +20,8 @@ const facts = [
   ...(item.effectiveDate ? [{ label: 'Berkuat kuasa', value: formatTarikh(item.effectiveDate) }] : []),
   { label: 'Sumber', value: item.sources[0].label, href: item.sources[0].url },
 ];
+// Short entries leave the index; the /terkini/ list still links them (see TERKINI_INDEX_MIN_WORDS).
+const thin = mainWordCount(item) < TERKINI_INDEX_MIN_WORDS;
 const description = item.summary.length > 160 ? `${item.summary.slice(0, 157).trimEnd()}…` : item.summary;
 
 const schema = {
@@ -58,6 +60,8 @@ const schema = {
   publishedTime={item.date}
   modifiedTime={item.date}
   ads={false}
+  noindex={thin}
+  noindexFollow={thin}
   rss={{ href: '/terkini/rss.xml', title: 'Insurans.co Terkini' }}
 >
   <article class="bg-white">

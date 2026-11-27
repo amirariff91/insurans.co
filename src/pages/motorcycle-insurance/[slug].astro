@@ -14,11 +14,10 @@ import { freshFaqs } from '../../lib/plan-faq';
 
 type MotorcycleRecord = (typeof motorcycleInsurance.records)[number];
 
-// Ads opt-in (Base defaults to ads off). From the programmatic audit on 2026-11-15: at least
-// 700 words in <main> and a 5-gram Jaccard below 0.35 against every sibling.
-const adsEnabledSlugs = new Set([
-  'zurich-z-rider',
-]);
+// Product pages are noindex, follow and carry no ads (AdSense "low-value content" review, November 2026):
+// at 460-790 words with a third to a half of their text shared with siblings, they are near-duplicates.
+// Every fact they hold is in the comparison table on /motorcycle-insurance/, the page that stays indexed.
+// The pages stay reachable and linked; astro.config.mjs leaves them out of the sitemap.
 const records = motorcycleInsurance.records;
 const typeLabels: Record<string, string> = {
   'third-party': 'Third party',
@@ -145,7 +144,9 @@ const answerFacts = [
   ogType="article"
   publishedTime={record.asAt}
   modifiedTime={record.asAt}
-  ads={adsEnabledSlugs.has(record.slug)}
+  ads={false}
+  noindex
+  noindexFollow
 >
   <Hero title={`Insurans motosikal: ${record.planName}`}>
     <Byline slot="byline" dateModified={record.asAt} />

@@ -87,3 +87,16 @@ export function bodySegments(text: string): ({ text: string } | { text: string; 
   if (last < text.length) out.push({ text: text.slice(last) });
   return out;
 }
+
+/**
+ * Entries whose own text (summary plus body, link labels counted, markup not) is under this many words are
+ * noindex, follow: too short to stand alone in search (AdSense "low-value content" review, November 2026).
+ * The /terkini/ index stays indexed and lists and links every entry with its date. The sitemap filter in
+ * astro.config.mjs drops these pages by reading their built robots meta.
+ */
+export const TERKINI_INDEX_MIN_WORDS = 300;
+
+export function mainWordCount(item: TerkiniItem): number {
+  const text = [item.summary, ...item.body.map((para) => bodySegments(para).map((seg) => seg.text).join(''))].join(' ');
+  return text.split(/\s+/).filter(Boolean).length;
+}

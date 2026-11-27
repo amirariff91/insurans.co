@@ -1,4 +1,85 @@
 {
   "_doc": "Allowed differences from the baseline (check 1), each exact. An entry matches a difference when every field it gives matches: check, kind (pageAdded|pageRemoved|changed|added|removed), field (page|title|h1|description|canonical|robots|ads|rm|pct|phones|jsonld), url and path (regex), value (regex on the difference text), old/new (exact sides of a change; null = absent), values (exact list of added/removed values). Figures are compared by value (ranges keep both ends; K/ribu/juta/bilion expanded). Not listed here because the check derives them: NCD figures computed from car-models.json with the site helpers, and FAQ wording edits that equal the visible FAQ and carry the same figures. Every entry needs a reason. See docs/checks.md.",
-  "entries": []
+  "entries": [
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/motorcycle-insurance/berjaya-sompo-motorcycle/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Motorcycle product pages are near-duplicates (AdSense low-value content review, Nov 2026); noindex, follow, their facts are in the /motorcycle-insurance/ comparison table."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/motorcycle-insurance/etiqa-myrider/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Motorcycle product pages are near-duplicates (AdSense low-value content review, Nov 2026); noindex, follow, their facts are in the /motorcycle-insurance/ comparison table."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/motorcycle-insurance/kurnia-motorcycle-third-party/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Motorcycle product pages are near-duplicates (AdSense low-value content review, Nov 2026); noindex, follow, their facts are in the /motorcycle-insurance/ comparison table."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/motorcycle-insurance/msig-motorcycle-online/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Motorcycle product pages are near-duplicates (AdSense low-value content review, Nov 2026); noindex, follow, their facts are in the /motorcycle-insurance/ comparison table."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/motorcycle-insurance/zurich-z-rider/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Motorcycle product pages are near-duplicates (AdSense low-value content review, Nov 2026); noindex, follow, their facts are in the /motorcycle-insurance/ comparison table."
+    },
+    {
+      "kind": "changed",
+      "field": "ads",
+      "url": "^/motorcycle-insurance/zurich-z-rider/$",
+      "old": true,
+      "new": false,
+      "reason": "Motorcycle product pages are noindex, follow and carry no ads (AdSense low-value content review, Nov 2026)."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/terkini/harga-special-perils-dibetulkan/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Terkini entry under 300 words of own text (TERKINI_INDEX_MIN_WORDS, src/lib/terkini.ts); noindex, follow, /terkini/ still lists and links it."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/terkini/manfaat-pemulihan-zurich-early-care-dibetulkan/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Terkini entry under 300 words of own text (TERKINI_INDEX_MIN_WORDS, src/lib/terkini.ts); noindex, follow, /terkini/ still lists and links it."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/terkini/ncd-od-kfk-dan-julat-proton-saga/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Terkini entry under 300 words of own text (TERKINI_INDEX_MIN_WORDS, src/lib/terkini.ts); noindex, follow, /terkini/ still lists and links it."
+    },
+    {
+      "kind": "changed",
+      "field": "robots",
+      "url": "^/terkini/roadtax-kereta-elektrik-ikut-kw/$",
+      "old": "index, follow, max-snippet:-1, max-image-preview:large",
+      "new": "noindex, follow",
+      "reason": "Terkini entry under 300 words of own text (TERKINI_INDEX_MIN_WORDS, src/lib/terkini.ts); noindex, follow, /terkini/ still lists and links it."
+    }
+  ]
 }
