@@ -1,0 +1,253 @@
+{
+  "readOn": "2026-11-27",
+  "note": "Amounts and age bands are copied as printed in each document. Bands are a selection: the youngest band, about 21-25, 31-35, 41-45, 51-55 and 61-65, and the oldest band each table prints. Nothing is interpolated, converted to monthly or rounded. 'band' is the band as printed (whitespace collapsed); 'bandLabel' is the same band written for the page.",
+  "plans": [
+    {
+      "slug": "etiqa-one-medical",
+      "planName": "OneMedical",
+      "provider": "Etiqa Life Insurance Berhad",
+      "documentTitle": "OneMedical - Table of Annual Premium Rates (Male & Female)",
+      "documentUrl": "https://www.etiqa.com.my/pdfs/en/insurance/Premium_Table_OM_%28EV%29_Jun2026.pdf",
+      "localText": "etiqa-one-medical/premium.pdf",
+      "printedDate": "Tiada tarikh dicetak pada jadual; nama fail berakhir dengan Jun2026",
+      "basis": "premium tahunan",
+      "ageBasis": "umur hari jadi berikutnya (ANB)",
+      "printedNotes": "Kadar untuk kelas pekerjaan 1 dan 2 sahaja; kelas 3 dan 4 dikenakan 1.25 dan 1.5 kali kadar. Kadar tidak dijamin. Umur bertanda * untuk pembaharuan sahaja.",
+      "tables": [
+        {
+          "title": "No Deductible",
+          "page": 1,
+          "gender": "Lelaki dan perempuan (satu jadual: Male & Female)",
+          "deductible": "Tanpa deductible",
+          "columns": ["Plan 1", "Plan 2", "Plan 3"],
+          "rows": [
+            { "band": "1–5", "bandLabel": "1–5", "amounts": ["956", "1,218", "1,390"] },
+            { "band": "21 – 25", "bandLabel": "21–25", "amounts": ["608", "759", "909"] },
+            { "band": "31 – 35", "bandLabel": "31–35", "amounts": ["662", "831", "977"] },
+            { "band": "41 – 45", "bandLabel": "41–45", "amounts": ["1,049", "1,539", "1,870"] },
+            { "band": "51 – 55", "bandLabel": "51–55", "amounts": ["2,014", "3,206", "3,599"] },
+            { "band": "61*", "bandLabel": "61*", "renewalOnly": true, "amounts": ["3,240", "4,812", "5,795"] },
+            { "band": "84*", "bandLabel": "84*", "renewalOnly": true, "amounts": ["14,010", "18,165", "22,240"] }
+          ]
+        },
+        {
+          "title": "RM1,000 Deductible",
+          "page": 1,
+          "gender": "Lelaki dan perempuan (satu jadual: Male & Female)",
+          "deductible": "Deductible RM1,000",
+          "columns": ["Plan 1", "Plan 2", "Plan 3"],
+          "rows": [
+            { "band": "1–5", "bandLabel": "1–5", "amounts": ["662", "842", "1,071"] },
+            { "band": "21 – 25", "bandLabel": "21–25", "amounts": ["470", "558", "739"] },
+            { "band": "31 – 35", "bandLabel": "31–35", "amounts": ["488", "610", "770"] },
+            { "band": "41 – 45", "bandLabel": "41–45", "amounts": ["855", "1,208", "1,426"] },
+            { "band": "51 – 55", "bandLabel": "51–55", "amounts": ["1,639", "2,510", "2,745"] },
+            { "band": "61*", "bandLabel": "61*", "renewalOnly": true, "amounts": ["2,699", "3,855", "4,528"] },
+            { "band": "84*", "bandLabel": "84*", "renewalOnly": true, "amounts": ["11,689", "14,626", "17,406"] }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "takaful-malaysia-kaotim-medikad",
+      "planName": "Kaotim MediKad",
+      "provider": "Syarikat Takaful Malaysia Keluarga Berhad (platform Kaotim)",
+      "documentTitle": "MediKad Product Disclosure Sheet, Appendix: Annual Contribution for MediKad",
+      "documentUrl": "https://kaotim.my/wp-content/uploads/2026/08/PDS-MediKad-EN-29072026.pdf",
+      "localText": "takaful-malaysia-kaotim-medikad/pds.pdf",
+      "printedDate": "PDS menyatakan maklumatnya sah setakat Mei 2025 (valid as at May 2025)",
+      "basis": "sumbangan tahunan (takaful)",
+      "ageBasis": "umur hari jadi berikutnya (ANB)",
+      "printedNotes": "Sumbangan untuk kes standard. Diskaun sumbangan 20% untuk deductible RM2,000 dan 30% untuk deductible RM3,000. Jadual tidak menandakan umur untuk pembaharuan sahaja.",
+      "tables": [
+        {
+          "title": "Annual Contribution for MediKad (MALE)",
+          "page": 8,
+          "gender": "Lelaki",
+          "deductible": "Kadar asas jadual; deductible RM2,000 atau RM3,000 memberi diskaun 20% atau 30%",
+          "columns": ["Standard", "Pro", "Max"],
+          "rows": [
+            { "band": "6 - 10", "bandLabel": "6–10", "amounts": ["607.00", "613.00", "727.00"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["562.00", "623.00", "691.00"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["545.00", "605.00", "757.00"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["761.00", "846.00", "1,019.00"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["1,261.00", "1,401.00", "1,564.00"] },
+            { "band": "61", "bandLabel": "61", "amounts": ["2,052.00", "2,282.00", "2,486.00"] },
+            { "band": "84", "bandLabel": "84", "amounts": ["9,455.00", "11,819.00", "14,334.00"] }
+          ]
+        },
+        {
+          "title": "Annual Contribution for MediKad (FEMALE)",
+          "page": 8,
+          "printedAfterColumns": 3,
+          "gender": "Perempuan",
+          "deductible": "Kadar asas jadual; deductible RM2,000 atau RM3,000 memberi diskaun 20% atau 30%",
+          "columns": ["Standard", "Pro", "Max"],
+          "rows": [
+            { "band": "6 - 10", "bandLabel": "6–10", "amounts": ["527.00", "533.00", "590.00"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["476.00", "530.00", "615.00"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["586.00", "651.00", "780.00"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["849.00", "943.00", "1,130.00"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["1,316.00", "1,463.00", "1,795.00"] },
+            { "band": "61", "bandLabel": "61", "amounts": ["2,145.00", "2,383.00", "2,802.00"] },
+            { "band": "84", "bandLabel": "84", "amounts": ["9,254.00", "11,569.00", "14,019.00"] }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "great-eastern-great-medcare",
+      "planName": "GREAT MedCare",
+      "provider": "Great Eastern General Insurance (Malaysia) Berhad",
+      "documentTitle": "GREAT Med Care brochure: Premium, Individual Plan",
+      "documentUrl": "https://www.greateasternlife.com/content/dam/corp-site/my/en/content-fragment/personal-insurance/our-products/hospital-surgical-insurance/great-medcare/gegm-da-pd-medcare-brochure.pdf",
+      "localText": "great-eastern-great-medcare/brosur.pdf",
+      "printedDate": "Tiada tarikh dicetak pada halaman jadual",
+      "basis": "premium tahunan",
+      "ageBasis": "umur hari jadi berikutnya (ANB)",
+      "printedNotes": "Premium termasuk komisen dan fi pentadbir pihak ketiga (TPA), tetapi tidak termasuk cukai 8% (jika berkenaan) dan duti setem RM10. Kadar untuk kesihatan standard. Jalur bertanda * untuk pembaharuan sahaja. Jadual manfaat (m.s. 3) mencetak co-payment RM500 setahun polisi. Deductible pilihan RM2,000 hingga RM20,000 memberi diskaun premium 5% hingga 50%. Angka yang sama dicetak dalam versi Bahasa Malaysia, m.s. 12.",
+      "crossCheckPage": 12,
+      "tables": [
+        {
+          "title": "Individual Plan – Male",
+          "page": 4,
+          "gender": "Lelaki",
+          "deductible": "Tanpa deductible pilihan; co-payment RM500 setahun polisi (m.s. 3)",
+          "columns": ["GX500", "GX300", "GX250", "GX200"],
+          "rows": [
+            { "band": "1 -6", "bandLabel": "1–6", "amounts": ["2,740", "2,295", "2,125", "1,610"] },
+            { "band": "20 - 25", "bandLabel": "20–25", "amounts": ["1,392", "1,168", "1,082", "823"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["1,939", "1,625", "1,505", "1,142"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["3,101", "2,596", "2,404", "1,821"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["5,531", "4,628", "4,284", "3,240"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["9,886", "8,269", "7,653", "5,783"] },
+            { "band": "81 - 85*", "bandLabel": "81–85*", "renewalOnly": true, "amounts": ["37,998", "31,770", "29,397", "22,196"] }
+          ]
+        },
+        {
+          "title": "Individual Plan – Female",
+          "page": 4,
+          "gender": "Perempuan",
+          "deductible": "Tanpa deductible pilihan; co-payment RM500 setahun polisi (m.s. 3)",
+          "columns": ["GX500", "GX300", "GX250", "GX200"],
+          "rows": [
+            { "band": "1 -6", "bandLabel": "1–6", "amounts": ["2,493", "2,088", "1,934", "1,466"] },
+            { "band": "20 - 25", "bandLabel": "20–25", "amounts": ["1,164", "977", "906", "690"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["1,620", "1,358", "1,259", "956"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["3,442", "2,882", "2,668", "2,020"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["5,531", "4,628", "4,284", "3,240"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["10,088", "8,437", "7,808", "5,900"] },
+            { "band": "81 - 85*", "bandLabel": "81–85*", "renewalOnly": true, "amounts": ["37,998", "31,770", "29,397", "22,196"] }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tokio-marine-medic-plus",
+      "planName": "Medic Plus",
+      "provider": "Tokio Marine Insurans (Malaysia) Berhad",
+      "documentTitle": "MedicPlus brochure: Annual Premium",
+      "documentUrl": "https://www.tokiomarine.com/content/dam/tokiomarine/my/non-life/products/personal/health/medic-plus/documents/Medic%20Plus%20Brochure-English.pdf",
+      "localText": "tokio-marine-medic-plus/brosur.pdf",
+      "printedDate": "Kadar berkuat kuasa 01/06/2026 (nota m.s. 6)",
+      "basis": "premium tahunan",
+      "ageBasis": "umur hari jadi berikutnya",
+      "printedNotes": "Satu kadar tanpa mengira jantina (One common level of premium regardless of gender, m.s. 2). Kadar untuk kesihatan standard; loading dikenakan untuk keadaan kesihatan. Kelas pekerjaan 3 dikenakan loading 15%. Premium tertakluk pada duti setem RM10. Deductible setiap disability: RM10,000 untuk MPA hingga MPD, RM15,000 untuk MPE (m.s. 4).",
+      "tables": [
+        {
+          "title": "Annual Premium",
+          "page": 5,
+          "gender": "Satu kadar untuk lelaki dan perempuan",
+          "deductible": "Deductible RM10,000 setiap disability (MPA hingga MPD) atau RM15,000 (MPE)",
+          "columns": ["Plan MPA", "Plan MPB", "Plan MPC", "Plan MPD", "Plan MPE"],
+          "rows": [
+            { "band": "30 days to 18 years", "bandLabel": "30 hari hingga 18", "amounts": ["193.00", "166.00", "146.00", "127.00", "118.00"] },
+            { "band": "19 - 35 years", "bandLabel": "19–35", "amounts": ["267.00", "229.00", "201.00", "174.00", "160.00"] },
+            { "band": "41 - 45 years", "bandLabel": "41–45", "amounts": ["353.00", "301.00", "264.00", "227.00", "209.00"] },
+            { "band": "51 - 55 years", "bandLabel": "51–55", "amounts": ["600.00", "510.00", "446.00", "383.00", "300.00"] },
+            { "band": "61 years", "bandLabel": "61", "amounts": ["752.00", "640.00", "559.00", "478.00", "373.00"] },
+            { "band": "100 years (renewal only)", "bandLabel": "100*", "renewalOnly": true, "page": 6, "amounts": ["14,148.00", "12,032.00", "10,536.00", "8,981.00", "6,914.00"] }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "great-eastern-smartmedic-shield",
+      "planName": "SmartMedic Shield",
+      "provider": "Great Eastern Life Assurance (Malaysia) Berhad",
+      "documentTitle": "SMARTMEDIC Shield + SMARTMEDIC Shield Plus brochure: Annual Insurance Charge Table",
+      "documentUrl": "https://www.greateasternlife.com/content/dam/dmassets/great-eastern/malaysia/gelm-mcm-marcom/product-/health-insurance/smartmedic-shield--smartmedic-shield-plus/gelm-mmc-pd-sms-smsp-brochure.pdf",
+      "localText": "great-eastern-smartmedic-shield/brosur.pdf",
+      "printedDate": "Kod versi MCM/SMS+SMSP/V5/03/2024",
+      "basis": "caj insurans tahunan rider (cost of insurance)",
+      "ageBasis": "umur dicapai pada hari jadi berikutnya",
+      "printedNotes": "Caj untuk kelas pekerjaan 1 dan 2 sahaja. Caj ikut umur, jantina, status merokok, pekerjaan, kesihatan dan pelan. Caj tidak dijamin; kenaikan dimaklumkan secara bertulis sekurang-kurangnya tiga bulan lebih awal. Jalur bertanda * atas dasar pembaharuan. Deductible setiap disability RM300 (m.s. 6). Lajur SmartMedic Shield Extender (SMSE) tidak disalin.",
+      "tables": [
+        {
+          "title": "Annual Insurance Charge Table, Male",
+          "page": 9,
+          "gender": "Lelaki",
+          "deductible": "Deductible RM300 setiap disability (pelan -D)",
+          "columns": ["SMS-150-D", "SMS-250-D", "SMS-400-D"],
+          "rows": [
+            { "band": "0-5", "bandLabel": "0–5", "amounts": ["669", "894", "1,427"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["783", "974", "1,486"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["787", "976", "1,488"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["978", "1,216", "1,853"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["1,877", "2,340", "3,561"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["3,151", "3,936", "5,982"] },
+            { "band": "96 - 99*", "bandLabel": "96–99*", "renewalOnly": true, "amounts": ["23,997", "29,424", "42,764"] }
+          ]
+        },
+        {
+          "title": "Annual Insurance Charge Table, Female",
+          "page": 10,
+          "gender": "Perempuan",
+          "deductible": "Deductible RM300 setiap disability (pelan -D)",
+          "columns": ["SMS-150-D", "SMS-250-D", "SMS-400-D"],
+          "rows": [
+            { "band": "0-5", "bandLabel": "0–5", "amounts": ["642", "862", "1,376"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["762", "953", "1,515"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["800", "1,000", "1,591"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["1,054", "1,317", "2,094"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["1,551", "1,943", "3,083"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["2,572", "3,227", "5,117"] },
+            { "band": "96 - 99*", "bandLabel": "96–99*", "renewalOnly": true, "amounts": ["20,419", "24,938", "37,596"] }
+          ]
+        },
+        {
+          "title": "Annual Insurance Charge Table for SmartMedic Shield Plus, Male",
+          "page": 16,
+          "gender": "Lelaki",
+          "deductible": "SmartMedic Shield Plus: caj tambahan yang mengecualikan deductible RM300 (m.s. 14)",
+          "columns": ["SMSP-150", "SMSP-250", "SMSP-400"],
+          "rows": [
+            { "band": "0-5", "bandLabel": "0–5", "amounts": ["201", "286", "419"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["186", "239", "329"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["175", "222", "303"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["222", "281", "382"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["412", "524", "720"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["717", "914", "1,260"] },
+            { "band": "96 - 99*", "bandLabel": "96–99*", "renewalOnly": true, "amounts": ["5,291", "6,591", "8,690"] }
+          ]
+        },
+        {
+          "title": "Annual Insurance Charge Table for SmartMedic Shield Plus, Female",
+          "page": 17,
+          "gender": "Perempuan",
+          "deductible": "SmartMedic Shield Plus: caj tambahan yang mengecualikan deductible RM300 (m.s. 14)",
+          "columns": ["SMSP-150", "SMSP-250", "SMSP-400"],
+          "rows": [
+            { "band": "0-5", "bandLabel": "0–5", "amounts": ["183", "261", "380"] },
+            { "band": "21 - 25", "bandLabel": "21–25", "amounts": ["175", "225", "319"] },
+            { "band": "31 - 35", "bandLabel": "31–35", "amounts": ["175", "223", "314"] },
+            { "band": "41 - 45", "bandLabel": "41–45", "amounts": ["242", "308", "432"] },
+            { "band": "51 - 55", "bandLabel": "51–55", "amounts": ["367", "469", "661"] },
+            { "band": "61 - 65", "bandLabel": "61–65", "amounts": ["607", "779", "1,108"] },
+            { "band": "96 - 99*", "bandLabel": "96–99*", "renewalOnly": true, "amounts": ["4,539", "5,629", "7,612"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
