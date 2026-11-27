@@ -149,7 +149,7 @@ const rmSen = (n: number) => `RM${n.toLocaleString('ms-MY', { minimumFractionDig
           <thead><tr><th scope="col">Syarikat dan dokumen</th><th scope="col">Profil seperti dicetak</th><th scope="col">Jumlah perlu dibayar</th></tr></thead>
           <tbody>
             {examples.map((ex) => (
-              <tr><th scope="row">{ex.insurer}<br /><a href={ex.url}>{ex.document}</a>, <time datetime={ex.docDate}>{ex.docDateText}</time></th><td>{ex.profile}</td><td><b>{rmSen(ex.total)}</b></td></tr>
+              <tr><th scope="row">{ex.insurer}<br /><a href={ex.url}>{ex.document}</a><br /><time datetime={ex.docDate}>{ex.docDateText}</time></th><td>{ex.profile}</td><td><b>{rmSen(ex.total)}</b></td></tr>
             ))}
           </tbody>
         </table></div>
