@@ -1,0 +1,18 @@
+{
+  "note": "Illustrations made for Insurans.co with an AI image model and checked by the editor. Every file under /images/ilustrasi/ needs a record here, and /kredit-foto/#ilustrasi lists every record (check 5, docs/checks.md). The caption under each one ends 'Ilustrasi dijana AI, disemak editor.' (src/components/Ilustrasi.astro).",
+  "records": [
+    {
+      "path": "/images/ilustrasi/langkah-selepas-kemalangan.webp",
+      "title": "Langkah selepas kemalangan jalan raya",
+      "width": 1600,
+      "height": 533,
+      "alt": "Empat panel ilustrasi. Panel 1: seorang pemandu meletakkan segi tiga amaran di jalan di belakang keretanya yang lampu kecemasannya menyala. Panel 2: dia mengambil gambar kesan calar pada dua kereta dengan telefon. Panel 3: dia dan pemandu kereta yang satu lagi bertukar maklumat melalui telefon. Panel 4: dia mengisi borang laporan di meja di hadapan seorang pegawai.",
+      "caption": "Selepas kemalangan: pasang lampu kecemasan dan amaran jika selamat, ambil gambar kerosakan, tukar maklumat dengan pihak lain, kemudian buat laporan polis dalam 24 jam (langkah 2).",
+      "kind": "ai-generated",
+      "madeFor": "Insurans.co",
+      "created": "2026-11-27",
+      "reviewedBy": "editor",
+      "usedOn": ["/guides/how-to-claim/"]
+    }
+  ]
+}

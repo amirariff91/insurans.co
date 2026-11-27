@@ -396,7 +396,32 @@ export function photoCredits(dist, pages, repo) {
       else r.passes++;
     }
   }
-  r.info = `${used.size} photo files used, ${logoFiles} logo files`;
+  // AI-generated illustrations (/images/ilustrasi/): every file needs a record in illustrations.json, /kredit-foto/ must
+  // link it, and every page showing one must print the "Ilustrasi dijana AI, disemak editor." caption.
+  const ilusFile = path.join(repo, 'src/data/illustrations.json');
+  const ilusRecs = fs.existsSync(ilusFile) ? JSON.parse(fs.readFileSync(ilusFile, 'utf8')).records : [];
+  const ilusDir = path.join(dist, 'images', 'ilustrasi');
+  let ilusFiles = 0;
+  if (fs.existsSync(ilusDir)) {
+    for (const f of fs.readdirSync(ilusDir)) {
+      ilusFiles++;
+      const src = `/images/ilustrasi/${f}`;
+      const rec = ilusRecs.find((x) => x.path === src);
+      if (!rec || rec.kind !== 'ai-generated' || !rec.madeFor || !rec.created) r.fails.push({ page: src, check: 'illustration without kind/madeFor/created record', value: f, source: 'src/data/illustrations.json' });
+      else if (!kfHtml.includes(`href="${src}"`)) r.fails.push({ page: '/kredit-foto/', check: 'illustration not listed on the credits page', value: src, source: 'src/pages/kredit-foto/index.astro' });
+      else r.passes++;
+    }
+  }
+  for (const { url, root } of pages) {
+    for (const img of root.querySelectorAll('img')) {
+      const s = img.getAttribute('src') || '';
+      if (!s.startsWith('/images/ilustrasi/') || url === '/kredit-foto/') continue;
+      const cap = img.closest('figure')?.querySelector('figcaption')?.text.replace(/\s+/g, ' ').trim() || '';
+      if (!cap.endsWith('Ilustrasi dijana AI, disemak editor.')) r.fails.push({ page: url, check: 'illustration without the AI caption', value: s, source: 'src/components/Ilustrasi.astro' });
+      else r.passes++;
+    }
+  }
+  r.info = `${used.size} photo files used, ${logoFiles} logo files, ${ilusFiles} illustration files`;
   return r;
 }
 

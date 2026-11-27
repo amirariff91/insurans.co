@@ -5,6 +5,7 @@ import carModels from '../../data/car-models.json';
 import { PUBLISHER } from '../../lib/schema';
 import { BRAND_LOGOS, COMPANY_LOGOS } from '../../lib/logos';
 import LogoTile from '../../components/LogoTile.astro';
+import illustrations from '../../data/illustrations.json';
 
 const ALL_LOGOS = [...BRAND_LOGOS, ...COMPANY_LOGOS].filter((r) => r.kind === 'logo');
 const commonsCount = ALL_LOGOS.filter((r) => r.source === 'Wikimedia Commons').length;
@@ -118,6 +119,21 @@ const schema = {
           {noPhoto.length} model belum ada foto kereta pasaran Malaysia di Wikimedia Commons: {noPhoto.join(', ')}.
           Halaman model itu memaparkan kad nama model; kami tidak guna foto kereta pasaran lain.
         </p>
+
+        <h2 id="ilustrasi">Ilustrasi yang dijana AI</h2>
+        <p>
+          Ilustrasi yang kapsyennya berakhir dengan "Ilustrasi dijana AI, disemak editor." dihasilkan dengan model
+          penjana imej AI untuk Insurans.co dan disemak oleh editor sebelum diterbitkan. Ilustrasi ini bukan foto, dan
+          orang di dalamnya bukan orang sebenar.
+        </p>
+        <ul>
+          {illustrations.records.map((r) => (
+            <li>
+              <a href={r.path}><strong>{r.title}</strong></a>: ilustrasi dijana AI untuk {r.madeFor}, {tarikh(r.created)}.
+              Digunakan di {r.usedOn.map((u, i) => <>{i > 0 && ', '}<a href={u}>{u}</a></>)}.
+            </li>
+          ))}
+        </ul>
 
         <h2 id="tanda-dagangan">Logo dan tanda dagangan</h2>
         <p>
