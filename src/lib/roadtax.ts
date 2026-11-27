@@ -40,5 +40,5 @@ export function calcRoadtax(region: RoadtaxRegion, body: RoadtaxBody, cc: number
   };
 }
 
-// Self-check: every rates.testCases entry should match calcRoadtax exactly.
+// rates.testCases are checked at build time by the roadtax page (src/pages/tools/kalkulator-roadtax/index.astro).
 export { rm } from './ncd';
