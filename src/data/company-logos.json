@@ -281,6 +281,124 @@
       "retrieved": "2026-11-15",
       "source": "official site",
       "sourceUrl": "https://www.takaful-ikhlas.com.my/assets/images/logos/Takaful-Ikhlas_logo.svg"
+    },
+    {
+      "company": "chubb",
+      "name": "Chubb",
+      "match": [
+        "^chubb"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/chubb.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-25",
+      "source": "official site",
+      "sourceUrl": "https://www.chubb.com/content/dam/chubb-sites/chubb/us-en/home_page/chubb-logo-black.png",
+      "wide": true
+    },
+    {
+      "company": "fwd",
+      "name": "FWD",
+      "match": [
+        "^fwd"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/fwd.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-25",
+      "source": "official site",
+      "sourceUrl": "https://images.contentstack.io/v3/assets/bltca8cd6b067df6d1c/blt9c118c33b1f05398/64b8a2cc5a919d6f41efb837/FWDLogoD.svg?branch=capricorn"
+    },
+    {
+      "company": "pacific-insurance",
+      "name": "The Pacific Insurance",
+      "match": [
+        "^the pacific insurance"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/pacific-insurance.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-26",
+      "source": "official site",
+      "sourceUrl": "https://www.pacificinsurance.com.my",
+      "note": "Fail logo daripada kit data v7.1; kit tidak merekodkan URL fail yang tepat, jadi sumber yang dipautkan ialah laman rasmi syarikat."
+    },
+    {
+      "company": "shopee",
+      "name": "Shopee",
+      "match": [
+        "^shopee"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/shopee.webp",
+      "commonsFile": "File:Shopee.svg",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:Shopee.svg",
+      "licence": "Domain awam (PD-textlogo: logo teks/bentuk ringkas, tidak layak hak cipta); tanda dagangan berdaftar",
+      "commonsLicence": "Public domain",
+      "retrieved": "2026-11-27",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shopee.svg",
+      "wide": true
+    },
+    {
+      "company": "bjak",
+      "name": "Bjak",
+      "match": [
+        "^bjak"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/bjak.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-27",
+      "source": "official site",
+      "sourceUrl": "https://bjak.my/images/bjak-brand-blue-logo.webp",
+      "wide": true
+    },
+    {
+      "company": "kaotim",
+      "name": "Kaotim",
+      "match": [
+        "^kaotim"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/kaotim.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-27",
+      "source": "official site",
+      "sourceUrl": "https://kaotim.my/wp-content/uploads/2025/03/logo.3f7af6c5.svg",
+      "wide": true
+    },
+    {
+      "company": "myeg",
+      "name": "MyEG",
+      "match": [
+        "^myeg"
+      ],
+      "kind": "logo",
+      "path": "/images/syarikat/myeg.webp",
+      "commonsFile": null,
+      "commonsPage": null,
+      "licence": "trademark; shown for identification",
+      "commonsLicence": null,
+      "retrieved": "2026-11-27",
+      "source": "official site",
+      "sourceUrl": "https://www.myeg.com.my/assets/svg/logo-myeg.svg",
+      "wide": true
     }
   ]
 }
