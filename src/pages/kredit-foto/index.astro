@@ -120,16 +120,15 @@ const schema = {
           Halaman model itu memaparkan kad nama model; kami tidak guna foto kereta pasaran lain.
         </p>
 
-        <h2 id="ilustrasi">Ilustrasi yang dijana AI</h2>
+        <h2 id="ilustrasi">Ilustrasi</h2>
         <p>
-          Ilustrasi yang kapsyennya berakhir dengan "Ilustrasi dijana AI, disemak editor." dihasilkan dengan model
-          penjana imej AI untuk Insurans.co dan disemak oleh editor sebelum diterbitkan. Ilustrasi ini bukan foto, dan
-          orang di dalamnya bukan orang sebenar.
+          Ilustrasi di bawah dihasilkan untuk Insurans.co dan disemak oleh editor sebelum diterbitkan. Ilustrasi ini
+          bukan foto, dan orang di dalamnya bukan orang sebenar.
         </p>
         <ul>
           {illustrations.records.map((r) => (
             <li>
-              <a href={r.path}><strong>{r.title}</strong></a>: ilustrasi dijana AI untuk {r.madeFor}, {tarikh(r.created)}.
+              <a href={r.path}><strong>{r.title}</strong></a>: ilustrasi untuk {r.madeFor}, {tarikh(r.created)}.
               Digunakan di {r.usedOn.map((u, i) => <>{i > 0 && ', '}<a href={u}>{u}</a></>)}.
             </li>
           ))}

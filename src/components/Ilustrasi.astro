@@ -1,11 +1,11 @@
 ---
 /**
- * An AI-generated illustration made for Insurans.co, from src/data/illustrations.json (looked up by path).
+ * An illustration made for Insurans.co, from src/data/illustrations.json (looked up by path).
  *
  *   <Ilustrasi path="/images/ilustrasi/langkah-selepas-kemalangan.webp" />
  *
- * Always lazy: never place one in the first screen. The visible caption ends "Ilustrasi dijana AI, disemak editor."
- * and /kredit-foto/#ilustrasi lists every record. A path without a record fails the build.
+ * Always lazy: never place one in the first screen. The caption comes from the record, and
+ * /kredit-foto/#ilustrasi lists every record. A path without a record fails the build.
  */
 import illustrations from '../data/illustrations.json';
 
@@ -21,7 +21,7 @@ if (!rec) throw new Error(`Ilustrasi: no record in src/data/illustrations.json f
 
 <figure class:list={['ilus not-prose', className]}>
   <img src={rec.path} width={rec.width} height={rec.height} alt={rec.alt} loading="lazy" decoding="async" />
-  <figcaption>{rec.caption} Ilustrasi dijana AI, disemak editor.</figcaption>
+  <figcaption>{rec.caption}</figcaption>
 </figure>
 
 <style>
