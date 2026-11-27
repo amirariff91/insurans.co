@@ -5,6 +5,8 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import ThirdPartyScripts from '../components/ThirdPartyScripts.astro';
 import { ADSENSE_CLIENT } from '../lib/third-party';
+// Per-page share cards drawn by scripts/generate-og-pages.mjs (bun run assets:og:pages), keyed by path.
+import ogPages from '../data/og-pages.json';
 interface Props {
   title: string;
   description: string;
@@ -34,8 +36,8 @@ const {
   title,
   description,
   canonical = Astro.url.href,
-  ogImage = '/og-default.png',
-  ogImageAlt,
+  ogImage: ogImageProp,
+  ogImageAlt: ogImageAltProp,
   lang = 'ms',
   schema,
   ogType = 'website',
@@ -50,6 +52,10 @@ const {
   preloadImage,
 } = Astro.props;
 
+// A page that passes no ogImage uses its own drawn card when one exists, else the site default.
+const pageCard = ogImageProp ? undefined : (ogPages as Record<string, { image: string; alt: string }>)[Astro.url.pathname];
+const ogImage = ogImageProp ?? pageCard?.image ?? '/og-default.png';
+const ogImageAlt = ogImageAltProp ?? pageCard?.alt;
 const siteName = 'Insurans.co';
 const trimmedTitle = title.trim();
 const fullTitle = !siteSuffix || trimmedTitle.toLowerCase().endsWith(siteName.toLowerCase())

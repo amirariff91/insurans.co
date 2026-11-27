@@ -57,10 +57,19 @@ function findTtfUrl(css, spec) {
   return url;
 }
 
-export async function loadFonts() {
+/** Gabarito (display) and Figtree (text), the site's own faces, for the directory share cards. */
+export const DIREKTORI_FONTS_URL =
+  'https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Figtree:wght@400;600&display=swap';
+export const DIREKTORI_FONT_SPECS = [
+  { family: 'Gabarito', weight: 800, file: 'gabarito-800.ttf' },
+  { family: 'Figtree', weight: 400, file: 'figtree-400.ttf' },
+  { family: 'Figtree', weight: 600, file: 'figtree-600.ttf' },
+];
+
+export async function loadFonts(specs = FONT_SPECS, fontsUrl = GOOGLE_FONTS_URL) {
   await mkdir(FONT_DIR, { recursive: true });
   const cached = await Promise.all(
-    FONT_SPECS.map(async (spec) => {
+    specs.map(async (spec) => {
       try {
         return await readFile(path.join(FONT_DIR, spec.file));
       } catch (error) {
@@ -72,7 +81,7 @@ export async function loadFonts() {
 
   if (cached.every(Boolean)) return cached;
 
-  const cssResponse = await fetch(GOOGLE_FONTS_URL, {
+  const cssResponse = await fetch(fontsUrl, {
     headers: { 'User-Agent': GOOGLE_FONTS_USER_AGENT },
   });
   if (!cssResponse.ok) {
@@ -81,7 +90,7 @@ export async function loadFonts() {
   const css = await cssResponse.text();
 
   return Promise.all(
-    FONT_SPECS.map(async (spec, index) => {
+    specs.map(async (spec, index) => {
       if (cached[index]) return cached[index];
 
       const fontResponse = await fetch(findTtfUrl(css, spec), {
@@ -102,8 +111,8 @@ function asArrayBuffer(buffer) {
   return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
 }
 
-export function createSatoriFonts(fontBuffers) {
-  return FONT_SPECS.map((spec, index) => ({
+export function createSatoriFonts(fontBuffers, specs = FONT_SPECS) {
+  return specs.map((spec, index) => ({
     name: spec.family,
     data: asArrayBuffer(fontBuffers[index]),
     weight: spec.weight,

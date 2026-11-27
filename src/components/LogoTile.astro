@@ -16,10 +16,14 @@ interface Props {
   eager?: boolean;
   /** Show a name tile when there is no logo file. Only where no name is printed beside the tile. */
   wordmark?: boolean;
+  /** With `wordmark`: the short name to print when the data has no record for this brand or insurer at all. */
+  name?: string;
   class?: string;
 }
-const { brand, company, size = 'm', eager = false, wordmark = false, class: className } = Astro.props;
-const rec = brand ? brandLogo(brand) : companyLogo(company);
+const { brand, company, size = 'm', eager = false, wordmark = false, name, class: className } = Astro.props;
+const found = brand ? brandLogo(brand) : companyLogo(company);
+// No record and a name given: a plain wordmark (text only, never a drawn logo).
+const rec = found ?? (wordmark && name ? { name, kind: 'wordmark' as const, path: null, scale: undefined, wide: undefined } : undefined);
 const label = rec?.name ?? brand ?? '';
 // Intrinsic box for width/height attributes (the img is contained in the tile, so only the ratio matters).
 const dims = { s: [80, 30], m: [112, 40], l: [144, 52] }[size];

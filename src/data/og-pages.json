@@ -1,0 +1,386 @@
+{
+ "/": {
+  "image": "/og/pages/index.png",
+  "alt": "Harga Insurans Kereta Malaysia 2026."
+ },
+ "/about/": {
+  "image": "/og/pages/about.png",
+  "alt": "Panduan insurans yang kita semua patut ada sejak dulu.."
+ },
+ "/bantuan-insurans/": {
+  "image": "/og/pages/bantuan-insurans.png",
+  "alt": "Bantuan Insurans & Skim Perlindungan 2026."
+ },
+ "/bantuan-insurans/mysalam/": {
+  "image": "/og/pages/bantuan-insurans/mysalam.png",
+  "alt": "mySalam 2026 — Kelayakan, Manfaat & Cara Tuntutan. Bantuan Insurans."
+ },
+ "/bantuan-insurans/perkeso/": {
+  "image": "/og/pages/bantuan-insurans/perkeso.png",
+  "alt": "PERKESO — Skim Keilatan & Perlindungan Pekerjaan Sendiri. Bantuan Insurans. Caruman SPS Pelan 1 sebulan (RM157.20 setahun): RM13.10."
+ },
+ "/bantuan-insurans/perlindungan-tenang/": {
+  "image": "/og/pages/bantuan-insurans/perlindungan-tenang.png",
+  "alt": "Perlindungan Tenang & Baucar PTV — Insurans Mikro Mampu Milik. Bantuan Insurans."
+ },
+ "/car-insurance/": {
+  "image": "/og/pages/car-insurance.png",
+  "alt": "Insurans Kereta 2026: Harga 39 Model & Roadtax. Anggaran premium komprehensif Myvi, NCD 55%: RM500–970/tahun."
+ },
+ "/companies/": {
+  "image": "/og/pages/companies.png",
+  "alt": "Syarikat Insurans & Takaful di Malaysia: Senarai, Profil & Nombor Claim."
+ },
+ "/critical-illness/": {
+  "image": "/og/pages/critical-illness.png",
+  "alt": "Insurans Penyakit Kritikal Malaysia."
+ },
+ "/critical-illness/aia-a-life-beyond-critical-care/": {
+  "image": "/og/pages/critical-illness/aia-a-life-beyond-critical-care.png",
+  "alt": "Insurans penyakit kritikal: A-Life Beyond Critical Care. Insurans Penyakit Kritikal. Logo AIA. keadaan merentas 76 kategori: 180."
+ },
+ "/critical-illness/etiqa-critical-care-plus/": {
+  "image": "/og/pages/critical-illness/etiqa-critical-care-plus.png",
+  "alt": "Insurans penyakit kritikal: Etiqa Critical Care Plus Insurance. Insurans Penyakit Kritikal. Logo Etiqa. penyakit kritikal: 42."
+ },
+ "/critical-illness/etiqa-critical-care-takaful/": {
+  "image": "/og/pages/critical-illness/etiqa-critical-care-takaful.png",
+  "alt": "Insurans penyakit kritikal: Etiqa Critical Care Takaful. Insurans Penyakit Kritikal. Logo Etiqa. penyakit kritikal menurut FAQ dan risalah: 39."
+ },
+ "/critical-illness/great-eastern-smart-early-payout-criticalcare/": {
+  "image": "/og/pages/critical-illness/great-eastern-smart-early-payout-criticalcare.png",
+  "alt": "Insurans penyakit kritikal: SMART Early Payout CriticalCare. Insurans Penyakit Kritikal. Logo Great Eastern. kejadian dilindungi pada 3 tahap keparahan: 20."
+ },
+ "/critical-illness/mysalam/": {
+  "image": "/og/pages/critical-illness/mysalam.png",
+  "alt": "Insurans penyakit kritikal: mySalam. Insurans Penyakit Kritikal. penyakit kritikal dalam 12 kumpulan: 50."
+ },
+ "/critical-illness/prudential-crisis-cover-benefit/": {
+  "image": "/og/pages/critical-illness/prudential-crisis-cover-benefit.png",
+  "alt": "Insurans penyakit kritikal: Crisis Cover Benefit. Insurans Penyakit Kritikal. Logo Prudential. penyakit kritikal disenaraikan dalam PDS: 36."
+ },
+ "/critical-illness/senarai-penyakit-kritikal/": {
+  "image": "/og/pages/critical-illness/senarai-penyakit-kritikal.png",
+  "alt": "Senarai Penyakit Kritikal Malaysia: 36 Critical Illness List. Insurans Penyakit Kritikal."
+ },
+ "/critical-illness/zurich-early-care-critical-illness/": {
+  "image": "/og/pages/critical-illness/zurich-early-care-critical-illness.png",
+  "alt": "Insurans penyakit kritikal: Early Care Critical Illness. Insurans Penyakit Kritikal. Logo Zurich. kategori penyakit dengan definisi peringkat awal dan peringkat akhir masing-masing: 36."
+ },
+ "/guides/": {
+  "image": "/og/pages/guides.png",
+  "alt": "Panduan insurans kereta."
+ },
+ "/guides/cara-turun-premium-insurans-kereta/": {
+  "image": "/og/pages/guides/cara-turun-premium-insurans-kereta.png",
+  "alt": "10 Cara Turunkan Premium Insurans Kereta Anda. Panduan."
+ },
+ "/guides/how-to-claim/": {
+  "image": "/og/pages/guides/how-to-claim.png",
+  "alt": "Cara Buat Claim Insurans Kereta. Insurans Kereta."
+ },
+ "/guides/insurance-vs-takaful/": {
+  "image": "/og/pages/guides/insurance-vs-takaful.png",
+  "alt": "Beza Takaful dan Insurans: Panduan Lengkap Malaysia 2026. Takaful."
+ },
+ "/guides/insurans-kereta-banjir/": {
+  "image": "/og/pages/guides/insurans-kereta-banjir.png",
+  "alt": "Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?. Panduan."
+ },
+ "/guides/insurans-komprehensif-vs-pihak-ketiga/": {
+  "image": "/og/pages/guides/insurans-komprehensif-vs-pihak-ketiga.png",
+  "alt": "Insurans Komprehensif vs Pihak Ketiga: Mana Lebih Baik untuk Anda?. Panduan."
+ },
+ "/guides/ncd-explained/": {
+  "image": "/og/pages/guides/ncd-explained.png",
+  "alt": "NCD (No Claim Discount): Maksud, Pindah & Kesan Claim. Insurans Kereta."
+ },
+ "/guides/renew-car-insurance/": {
+  "image": "/og/pages/guides/renew-car-insurance.png",
+  "alt": "Cara Renew Insurans Kereta Online. Insurans Kereta."
+ },
+ "/health-insurance/": {
+  "image": "/og/pages/health-insurance.png",
+  "alt": "Insurans Kesihatan & Medical Card Malaysia."
+ },
+ "/home-insurance/": {
+  "image": "/og/pages/home-insurance.png",
+  "alt": "Insurans Rumah Malaysia 2026. Kadar asas 1A landed, houseowner (peratus setahun daripada jumlah diinsuranskan): 0.090%."
+ },
+ "/home-insurance/allianz-smart-home-cover/": {
+  "image": "/og/pages/home-insurance/allianz-smart-home-cover.png",
+  "alt": "Insurans rumah: Smart Home Cover (Annual or Multi Year). Insurans Rumah. Logo Allianz."
+ },
+ "/home-insurance/berjaya-sompo-houseowner-householder/": {
+  "image": "/og/pages/home-insurance/berjaya-sompo-houseowner-householder.png",
+  "alt": "Insurans rumah: Houseowner / Householder. Insurans Rumah. Logo Berjaya Sompo."
+ },
+ "/home-insurance/bsn-chubb-houseowner/": {
+  "image": "/og/pages/home-insurance/bsn-chubb-houseowner.png",
+  "alt": "Insurans rumah: BSN Houseowner Insurance. Insurans Rumah. Logo Chubb."
+ },
+ "/home-insurance/etiqa-hohh/": {
+  "image": "/og/pages/home-insurance/etiqa-hohh.png",
+  "alt": "Insurans rumah: Houseowner/Householder Insurance. Insurans Rumah. Logo Etiqa."
+ },
+ "/home-insurance/pacific-houseowner-householder/": {
+  "image": "/og/pages/home-insurance/pacific-houseowner-householder.png",
+  "alt": "Insurans rumah: Houseowner dan/atau Householder. Insurans Rumah. Logo The Pacific Insurance."
+ },
+ "/home-insurance/takaful-malaysia-myhouseowner-householder/": {
+  "image": "/og/pages/home-insurance/takaful-malaysia-myhouseowner-householder.png",
+  "alt": "Insurans rumah: Takaful myHouseowner/Householder. Insurans Rumah. Logo Takaful Malaysia."
+ },
+ "/home-insurance/zurich-z-homeprotect/": {
+  "image": "/og/pages/home-insurance/zurich-z-homeprotect.png",
+  "alt": "Insurans rumah: Z-HomeProtect. Insurans Rumah. Logo Zurich."
+ },
+ "/hubungi/": {
+  "image": "/og/pages/hubungi.png",
+  "alt": "Hubungi Kami."
+ },
+ "/i-lindung/": {
+  "image": "/og/pages/i-lindung.png",
+  "alt": "i-Lindung — Beli Insurans Guna Duit KWSP Sendiri. Harga permulaan setahun, untuk produk tertentu: RM12."
+ },
+ "/insurans-online/": {
+  "image": "/og/pages/insurans-online.png",
+  "alt": "Compare Insurance Malaysia & Beli Insurance Online."
+ },
+ "/insurans-online/bjak/": {
+  "image": "/og/pages/insurans-online/bjak.png",
+  "alt": "Bjak: Insurance Online & Renew Roadtax. Insurans Online. Logo Bjak."
+ },
+ "/insurans-online/fwd/": {
+  "image": "/og/pages/insurans-online/fwd.png",
+  "alt": "FWD: Beli Insurans & Takaful Online Tanpa Ejen. Insurans Online. Logo FWD."
+ },
+ "/insurans-online/kaotim/": {
+  "image": "/og/pages/insurans-online/kaotim.png",
+  "alt": "Kaotim Medical Card Review: MediKad. Insurans Online. Logo Kaotim."
+ },
+ "/insurans-online/myeg/": {
+  "image": "/og/pages/insurans-online/myeg.png",
+  "alt": "MyEG: Insurance & Roadtax Online. Insurans Online. Logo MyEG."
+ },
+ "/insurans-online/policystreet/": {
+  "image": "/og/pages/insurans-online/policystreet.png",
+  "alt": "PolicyStreet: Insurance Online & Roadtax. Insurans Online. PolicyStreet."
+ },
+ "/insurans-online/shopee/": {
+  "image": "/og/pages/insurans-online/shopee.png",
+  "alt": "Shopee Insurance: Apa Deal Sebenarnya?. Insurans Online. Logo Shopee."
+ },
+ "/kaedah-editorial/": {
+  "image": "/og/pages/kaedah-editorial.png",
+  "alt": "Kaedah editorial."
+ },
+ "/kredit-foto/": {
+  "image": "/og/pages/kredit-foto.png",
+  "alt": "Kredit foto kereta."
+ },
+ "/life-insurance/": {
+  "image": "/og/pages/life-insurance.png",
+  "alt": "Insurans Nyawa Malaysia 2026."
+ },
+ "/literasi-kewangan/": {
+  "image": "/og/pages/literasi-kewangan.png",
+  "alt": "Literasi Kewangan Malaysia: Panduan Praktikal."
+ },
+ "/literasi-kewangan/36-penyakit-kritikal-bnm/": {
+  "image": "/og/pages/literasi-kewangan/36-penyakit-kritikal-bnm.png",
+  "alt": "36 Penyakit Kritikal: Apa Standard BNM Sebenarnya Cover?. Literasi Kewangan."
+ },
+ "/literasi-kewangan/deductible-co-insurance/": {
+  "image": "/og/pages/literasi-kewangan/deductible-co-insurance.png",
+  "alt": "Maksud Deductible & Co-Insurance (Contoh Bil). Literasi Kewangan."
+ },
+ "/literasi-kewangan/epf-simpanan-insurans/": {
+  "image": "/og/pages/literasi-kewangan/epf-simpanan-insurans.png",
+  "alt": "EPF, Simpanan & Insurans: Mana Dulu?. Literasi Kewangan. Panduan kasar: dana kecemasan, perbelanjaan asas: 3–6bulan."
+ },
+ "/literasi-kewangan/gaji-dan-perlindungan/": {
+  "image": "/og/pages/literasi-kewangan/gaji-dan-perlindungan.png",
+  "alt": "Gaji RM3,000: Berapa Sebenarnya Untuk Perlindungan?. Literasi Kewangan. Siling kasar sebulan untuk gaji RM3,000: RM300–600."
+ },
+ "/literasi-kewangan/renew-tanpa-panik/": {
+  "image": "/og/pages/literasi-kewangan/renew-tanpa-panik.png",
+  "alt": "Renew Roadtax & Insurans Tanpa Panik Setiap Tahun. Literasi Kewangan."
+ },
+ "/literasi-kewangan/travel-bila-perlu/": {
+  "image": "/og/pages/literasi-kewangan/travel-bila-perlu.png",
+  "alt": "Travel Insurance: Bila Perlu, Bila Membazir?. Literasi Kewangan."
+ },
+ "/medical-cards/": {
+  "image": "/og/pages/medical-cards.png",
+  "alt": "Medical Card Malaysia 2026."
+ },
+ "/medical-cards/aia-a-plus-health-360/": {
+  "image": "/og/pages/medical-cards/aia-a-plus-health-360.png",
+  "alt": "Medical card A-Plus Health360. Medical Card. Logo AIA. Had tahunan untuk manfaat 1–14: RM3,000,000."
+ },
+ "/medical-cards/etiqa-i-medicalcard-elite/": {
+  "image": "/og/pages/medical-cards/etiqa-i-medicalcard-elite.png",
+  "alt": "Medical card i-MedicalCard Elite. Medical Card. Logo Etiqa."
+ },
+ "/medical-cards/etiqa-one-medical/": {
+  "image": "/og/pages/medical-cards/etiqa-one-medical.png",
+  "alt": "Medical card OneMedical. Medical Card. Logo Etiqa."
+ },
+ "/medical-cards/great-eastern-great-medcare/": {
+  "image": "/og/pages/medical-cards/great-eastern-great-medcare.png",
+  "alt": "Medical card GREAT MedCare. Medical Card. Logo Great Eastern."
+ },
+ "/medical-cards/great-eastern-smartmedic-shield/": {
+  "image": "/og/pages/medical-cards/great-eastern-smartmedic-shield.png",
+  "alt": "Medical card SmartMedic Shield. Medical Card. Logo Great Eastern."
+ },
+ "/medical-cards/prudential-prumillion-med-2/": {
+  "image": "/og/pages/medical-cards/prudential-prumillion-med-2.png",
+  "alt": "Medical card PRUMillion Med 2.0. Medical Card. Logo Prudential. Had tahunan: RM2,000,000."
+ },
+ "/medical-cards/takaful-ikhlas-ikhlas-medik/": {
+  "image": "/og/pages/medical-cards/takaful-ikhlas-ikhlas-medik.png",
+  "alt": "Medical card IKHLAS Medik. Medical Card. Logo Takaful Ikhlas."
+ },
+ "/medical-cards/takaful-malaysia-kaotim-medikad/": {
+  "image": "/og/pages/medical-cards/takaful-malaysia-kaotim-medikad.png",
+  "alt": "Medical card Kaotim MediKad. Medical Card. Logo Takaful Malaysia."
+ },
+ "/medical-cards/takaful-malaysia-mymedik/": {
+  "image": "/og/pages/medical-cards/takaful-malaysia-mymedik.png",
+  "alt": "Medical card myMedik. Medical Card. Logo Takaful Malaysia."
+ },
+ "/medical-cards/tokio-marine-medic-plus/": {
+  "image": "/og/pages/medical-cards/tokio-marine-medic-plus.png",
+  "alt": "Medical card Medic Plus. Medical Card. Logo Tokio Marine."
+ },
+ "/motorcycle-insurance/": {
+  "image": "/og/pages/motorcycle-insurance.png",
+  "alt": "Insurans Motosikal Malaysia 2026."
+ },
+ "/negeri/": {
+  "image": "/og/pages/negeri.png",
+  "alt": "Panduan Insurans Kereta Mengikut Negeri di Malaysia."
+ },
+ "/panduan/": {
+  "image": "/og/pages/panduan.png",
+  "alt": "Panduan Insurans untuk Print."
+ },
+ "/panduan/checklist-medical-card/": {
+  "image": "/og/pages/panduan/checklist-medical-card.png",
+  "alt": "Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan. Panduan."
+ },
+ "/panduan/checklist-travel/": {
+  "image": "/og/pages/panduan/checklist-travel.png",
+  "alt": "Checklist Travel Insurance Sebelum Fly — 8 Perkara Wajib Semak. Panduan."
+ },
+ "/panduan/renew-insurans-roadtax/": {
+  "image": "/og/pages/panduan/renew-insurans-roadtax.png",
+  "alt": "Renew Insurans + Roadtax Online — 7 Langkah Tanpa Panik. Panduan."
+ },
+ "/penulis/amir-ariff/": {
+  "image": "/og/pages/penulis/amir-ariff.png",
+  "alt": "Amir Ariff."
+ },
+ "/perbandingan/": {
+  "image": "/og/pages/perbandingan.png",
+  "alt": "Perbandingan Syarikat Insurans Kereta Malaysia 2026."
+ },
+ "/personal-accident/": {
+  "image": "/og/pages/personal-accident.png",
+  "alt": "Insurans Kemalangan Diri (PA) Malaysia 2026."
+ },
+ "/personal-accident/allianz-personal-accident/": {
+  "image": "/og/pages/personal-accident/allianz-personal-accident.png",
+  "alt": "Insurans kemalangan diri: Allianz Personal Accident (Individual PA). Insurans Kemalangan Diri. Logo Allianz."
+ },
+ "/personal-accident/etiqa-buddy-pa-weekend-warrior/": {
+  "image": "/og/pages/personal-accident/etiqa-buddy-pa-weekend-warrior.png",
+  "alt": "Insurans kemalangan diri: Buddy PA Insurance – Weekend Warrior. Insurans Kemalangan Diri. Logo Etiqa."
+ },
+ "/personal-accident/tune-protect-pa-easy/": {
+  "image": "/og/pages/personal-accident/tune-protect-pa-easy.png",
+  "alt": "Insurans kemalangan diri: Tune Protect PA Easy. Insurans Kemalangan Diri. Logo Tune Protect."
+ },
+ "/personal-accident/tune-protect-pa-shield/": {
+  "image": "/og/pages/personal-accident/tune-protect-pa-shield.png",
+  "alt": "Insurans kemalangan diri: PA Shield. Insurans Kemalangan Diri. Logo Tune Protect."
+ },
+ "/privacy/": {
+  "image": "/og/pages/privacy.png",
+  "alt": "Dasar Privasi."
+ },
+ "/takaful/": {
+  "image": "/og/pages/takaful.png",
+  "alt": "Takaful Malaysia — Apa Beza Dengan Insurans?."
+ },
+ "/terkini/": {
+  "image": "/og/pages/terkini.png",
+  "alt": "Terkini: perubahan harga dan peraturan insurans."
+ },
+ "/terms/": {
+  "image": "/og/pages/terms.png",
+  "alt": "Terma Penggunaan."
+ },
+ "/tools/": {
+  "image": "/og/pages/tools.png",
+  "alt": "Tools Insurans."
+ },
+ "/tools/kalkulator-coverage-nyawa/": {
+  "image": "/og/pages/tools/kalkulator-coverage-nyawa.png",
+  "alt": "Kalkulator Coverage Nyawa — Berapa Cukup Untuk Keluarga?. Tools."
+ },
+ "/tools/kalkulator-insurans-rumah/": {
+  "image": "/og/pages/tools/kalkulator-insurans-rumah.png",
+  "alt": "Kalkulator Insurans Rumah 2026. Tools."
+ },
+ "/tools/kalkulator-roadtax-ev/": {
+  "image": "/og/pages/tools/kalkulator-roadtax-ev.png",
+  "alt": "Roadtax kereta elektrik (EV) 2026: kadar ikut kuasa motor. Tools."
+ },
+ "/tools/kalkulator-roadtax-motosikal/": {
+  "image": "/og/pages/tools/kalkulator-roadtax-motosikal.png",
+  "alt": "Kalkulator Roadtax Motosikal 2026. Tools."
+ },
+ "/tools/kalkulator-roadtax/": {
+  "image": "/og/pages/tools/kalkulator-roadtax.png",
+  "alt": "Harga roadtax kereta ikut cc 2026 dan kalkulator. Tools."
+ },
+ "/tools/ncd-calculator/": {
+  "image": "/og/pages/tools/ncd-calculator.png",
+  "alt": "Jadual NCD & Kalkulator NCD Insurans Kereta 2026. Tools."
+ },
+ "/travel-insurance/": {
+  "image": "/og/pages/travel-insurance.png",
+  "alt": "Travel Insurance Malaysia 2026."
+ },
+ "/travel-insurance/allianz-travel-insurance/": {
+  "image": "/og/pages/travel-insurance/allianz-travel-insurance.png",
+  "alt": "Travel insurance Allianz Travel Easy. Travel Insurance. Logo Allianz."
+ },
+ "/travel-insurance/etiqa-tripcare-360/": {
+  "image": "/og/pages/travel-insurance/etiqa-tripcare-360.png",
+  "alt": "Travel insurance TripCare 360 Insurance. Travel Insurance. Logo Etiqa."
+ },
+ "/travel-insurance/generali-smarttraveller-enhanced/": {
+  "image": "/og/pages/travel-insurance/generali-smarttraveller-enhanced.png",
+  "alt": "Travel insurance SmartTraveller Enhanced. Travel Insurance. Logo Generali."
+ },
+ "/travel-insurance/msig-travel-safeguard/": {
+  "image": "/og/pages/travel-insurance/msig-travel-safeguard.png",
+  "alt": "Travel insurance Travel SafeGuard. Travel Insurance. Logo MSIG."
+ },
+ "/travel-insurance/tune-protect-travel-airasia/": {
+  "image": "/og/pages/travel-insurance/tune-protect-travel-airasia.png",
+  "alt": "Travel insurance AirAsia Travel Protection (Lite / Plus). Travel Insurance. Logo Tune Protect."
+ },
+ "/travel-insurance/zurich-travel-takaful/": {
+  "image": "/og/pages/travel-insurance/zurich-travel-takaful.png",
+  "alt": "Travel insurance Zurich Travel Takaful. Travel Insurance. Logo Zurich."
+ },
+ "/travel-insurance/zurich-z-travel-international/": {
+  "image": "/og/pages/travel-insurance/zurich-z-travel-international.png",
+  "alt": "Travel insurance Z-Travel Insurance (International) / Z-Travel Lite. Travel Insurance. Logo Zurich."
+ }
+}

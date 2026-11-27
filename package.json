@@ -11,6 +11,7 @@
     "check": "astro check",
     "assets:brand": "bun scripts/generate-brand-assets.mjs",
     "assets:og": "bun scripts/generate-og.mjs",
+    "assets:og:pages": "bun scripts/generate-og-pages.mjs",
     "data:merge-enriched": "bun scripts/merge-enriched-models.mjs",
     "preview": "astro preview",
     "astro": "astro",

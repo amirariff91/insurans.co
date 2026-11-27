@@ -303,7 +303,8 @@ export function copyHygiene(pages) {
         r.fails.push({ page: url, check: label, value: visible.slice(Math.max(0, m.index - 40), m.index + 40) });
       }
     }
-    if (!url.startsWith('/insurans-online/')) {
+    // /kredit-foto/ is exempt: it must link each logo's source file, and a platform's logo comes from its own site.
+    if (!url.startsWith('/insurans-online/') && url !== '/kredit-foto/') {
       for (const a of root.querySelectorAll('a[href]')) {
         const h = a.getAttribute('href');
         if (/bjak\.my|policystreet\.com|fincrew/i.test(h)) { bad = true; r.fails.push({ page: url, check: 'aggregator link outside /insurans-online/', value: h }); }

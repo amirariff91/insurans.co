@@ -49,3 +49,12 @@ export const companyLogo = (nameOrSlug: string | null | undefined) => {
     COMPANY_LOGOS.find((r) => (r.match ?? []).some((m) => new RegExp(m).test(n)))
   );
 };
+
+/** A short insurer name for a wordmark tile ("The Pacific Insurance Berhad" -> "Pacific"): the words before the
+ * first legal or generic word. Used only when no logo record exists. */
+export const shortCompanyName = (insurer: string) => {
+  const words = insurer.replace(/\(.*?\)/g, '').replace(/^The\s+/i, '').trim().split(/\s+/);
+  const stop = /^(insurance|insurans|assurance|takaful|general|life|family|malaysia|berhad|bhd\.?|am|keluarga)$/i;
+  const cut = words.findIndex((w, i) => i > 0 && stop.test(w));
+  return words.slice(0, cut === -1 ? words.length : cut).join(' ');
+};
