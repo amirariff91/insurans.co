@@ -12,6 +12,7 @@ import Px from './Px.astro';
 import { STEPS, carSteps, span, rmRange } from './steps';
 import { rm } from '../../lib/ncd';
 import { MODEL_PHOTO_SIZES } from './photo';
+import roadtaxRates from '../../data/roadtax-rates.json';
 
 interface Props {
   model: any;
@@ -33,6 +34,18 @@ const rmExact = (n: number) => {
   return `RM ${n.toLocaleString('ms-MY', { minimumFractionDigits: hasSen ? 2 : 0, maximumFractionDigits: 2 })}`;
 };
 const kiraanId = `kiraan-${model.slug}`;
+// Sources beside the figures. JPJ: the rate schedule PDF the roadtax data was read from. PIAM: the NCD article already in
+// the model's sources. BNM (read 2026-11-27): press release of 21 Apr 2017 and the FAQ on motor detariffing.
+const jpjUrl: string = roadtaxRates.sources[0];
+const piamNcd = (model.sources ?? []).find((src: any) => /piam\.org\.my/.test(src.url));
+const bnm = {
+  release: 'https://www.bnm.gov.my/-/liberalisation-of-motor-insurance-1',
+  faq: 'https://www.bnm.gov.my/documents/20124/761688/faq_motor_detariffing_20170421_en.pdf/2a3b92c9-b100-eda5-8308-a6fdace8d226',
+};
+// Insurers' own worked examples for THIS model, as printed in their product disclosure sheets (car-models.json insurerExamples).
+const examples: any[] = Array.isArray(model.insurerExamples) ? model.insurerExamples : [];
+const fmtRetrieved = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const rmSen = (n: number) => `RM${n.toLocaleString('ms-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 ---
 <div class="ea" data-ea data-slug={model.slug}>
   <h1 class="ea-h1">{h1}</h1>
@@ -106,7 +119,7 @@ const kiraanId = `kiraan-${model.slug}`;
           {totalSign} <strong class="numeric">{formatRange(model.premiumNCD55Min + model.roadtaxMin, model.premiumNCD55Max + model.roadtaxMax, rm)}</strong>.
         </p>
       )}
-      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote.replace(/\.?\s*$/, '.')} Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
+      {model.roadtaxNote && <p class="ix-src">{model.roadtaxNote.replace(/\.?\s*$/, '.')} Sumber roadtax: <a href={jpjUrl}>Garis Panduan Pengiraan LKM, JPJ</a>. Anggaran polisi komprehensif + roadtax sahaja. Tidak termasuk add-on.{s.rtSen && ' Jumlah dibundarkan kepada ringgit terdekat.'}</p>}
       <details class="baca">
         <summary><Ikon name="i-bawah" size={20} class="baca-i" /><span>Baca penuh: jadual {model.fullName} ikut tahap NCD</span></summary>
         <div class="baca-in">
@@ -120,9 +133,30 @@ const kiraanId = `kiraan-${model.slug}`;
           </table></div>
         </div>
       </details>
-      <p class="ix-src">Anggaran editorial, bukan quotation. <a href="/about/">Kaedah &amp; sumber</a></p>
+      <div class="ix-src" data-sumber>
+        <p><b>Sumber dan cara kira.</b> Premium: kiraan kami daripada Jadual Tarif Motor 2015, sebagai julat, untuk sum insured yang kami andaikan (<a href="#cara-kira">cara kira</a>). Tangga NCD 0% hingga 55%: {piamNcd ? <a href={piamNcd.url}>PIAM</a> : 'PIAM'}.{s.hasRt && <> Roadtax: <a href={jpjUrl}>jadual LKM JPJ</a>.</>}</p>
+        <p>Sejak 1 Julai 2017, harga polisi komprehensif dan pihak ketiga, kebakaran &amp; kecurian ditentukan sendiri oleh setiap syarikat insurans dan pengendali takaful (<a href={bnm.release}>Bank Negara Malaysia</a>). Jadi angka berasaskan tarif ini titik permulaan, dan sebut harga sebenar boleh berbeza antara syarikat. Polisi pihak ketiga masih ikut kadar tarif, dan struktur NCD tidak berubah (<a href={bnm.faq}>Soalan lazim BNM</a>).</p>
+        <p>Anggaran editorial, bukan quotation. <a href="/about/">Kaedah &amp; sumber</a></p>
+      </div>
     </div>
   </section>
+  {examples.length > 0 && (
+    <section class="ix" id="contoh-syarikat" aria-labelledby={`${kiraanId}-cs`} data-insurer-examples>
+      <div class="ix-bar"><h2 class="ix-t" id={`${kiraanId}-cs`}>Contoh dalam dokumen syarikat</h2></div>
+      <div class="ix-body">
+        <p class="ix-s">Setiap baris ialah contoh yang dicetak oleh syarikat itu sendiri dalam helaian pendedahan produk (PDS) untuk satu profil {model.model}. Ini bukan sebut harga dan bukan harga pasaran. Profil anda berbeza, jadi jumlahnya juga berbeza.</p>
+        <div class="tbl"><table class="work"><caption>Contoh premium {model.fullName} dalam PDS syarikat</caption>
+          <thead><tr><th scope="col">Syarikat dan dokumen</th><th scope="col">Profil seperti dicetak</th><th scope="col">Jumlah perlu dibayar</th></tr></thead>
+          <tbody>
+            {examples.map((ex) => (
+              <tr><th scope="row">{ex.insurer}<br /><a href={ex.url}>{ex.document}</a>, <time datetime={ex.docDate}>{ex.docDateText}</time></th><td>{ex.profile}</td><td><b>{rmSen(ex.total)}</b></td></tr>
+            ))}
+          </tbody>
+        </table></div>
+        <p class="ix-src">Jumlah termasuk cukai perkhidmatan 8% dan duti setem RM10 seperti dalam contoh PDS. Dibaca {fmtRetrieved(examples[0].retrieved)}.</p>
+      </div>
+    </section>
+  )}
   <p data-ncd-announcement aria-live="polite" aria-atomic="true" class="sr-only"></p>
 </div>
 

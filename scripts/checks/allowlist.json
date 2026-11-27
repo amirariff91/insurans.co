@@ -405,6 +405,447 @@
         "8%"
       ],
       "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/bmw-3-series/$",
+      "values": [
+        "RM1,500–3,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/bmw-x1/$",
+      "values": [
+        "RM1,500–3,000"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-brv/$",
+      "values": [
+        "RM600–1,100"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/honda-city/$",
+      "values": [
+        "8%"
+      ],
+      "reason": "\"Contoh dalam dokumen syarikat\": 8% service tax as printed in the insurer PDS examples."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/honda-city/$",
+      "values": [
+        "RM1,536.98",
+        "RM10",
+        "RM3,621.35",
+        "RM500",
+        "RM84,600",
+        "RM89,000–111,000",
+        "RM90,000"
+      ],
+      "reason": "Insurer PDS examples for Honda City: Etiqa PDS 01/01/2026 (sum insured RM84,600, windscreen RM500, total RM1,536.98) and Allianz Honda Insurance Plus PDS 01/01/2026 (sum insured RM90,000, total RM3,621.35), RM10 stamp duty; Honda Malaysia City price page \"Sum Insured\" RM89,000–111,000 (read 2026-11-27)."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/honda-civic/$",
+      "values": [
+        "RM133,000–167,000"
+      ],
+      "reason": "Honda Malaysia Civic price page \"Sum Insured\" RM133,000–167,000, Peninsular, shown as the maker figure for a new car (read 2026-11-27)."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-civic/$",
+      "values": [
+        "RM700–1,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-crv/$",
+      "values": [
+        "RM2,000",
+        "RM900–1,800"
+      ],
+      "reason": "Windscreen replacement price range (RM900–1,800) and the RM2,000 claim figure in FAQ 3 removed: no primary source exists for windscreen replacement prices. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-hrv/$",
+      "values": [
+        "RM700–1,400"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/honda-jazz/$",
+      "values": [
+        "RM500–1,000"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/hyundai-elantra/$",
+      "values": [
+        "RM600–1,200"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/hyundai-tucson/$",
+      "values": [
+        "RM800–1,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/kia-sportage/$",
+      "values": [
+        "RM800–1,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mazda-2/$",
+      "values": [
+        "RM500–950"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mazda-3/$",
+      "values": [
+        "RM700–1,400"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mazda-cx5/$",
+      "values": [
+        "RM800–1,600"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mercedes-c-class/$",
+      "values": [
+        "RM1,800–4,000"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mercedes-glb/$",
+      "values": [
+        "RM1,800–3,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mitsubishi-triton/$",
+      "values": [
+        "RM600–1,200"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/mitsubishi-xpander/$",
+      "values": [
+        "RM550–950"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/nissan-almera/$",
+      "values": [
+        "RM450–800"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/nissan-navara/$",
+      "values": [
+        "RM600–1,200"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/perodua-alza/$",
+      "values": [
+        "RM400–750"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/perodua-ativa/$",
+      "values": [
+        "RM500–900"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/perodua-axia/$",
+      "values": [
+        "RM300–600"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/perodua-bezza/$",
+      "values": [
+        "RM300–600"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/perodua-myvi/$",
+      "values": [
+        "RM350–700"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-exora/$",
+      "values": [
+        "RM400–750"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-iriz/$",
+      "values": [
+        "RM350–650"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-persona/$",
+      "values": [
+        "RM350–700"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-saga/$",
+      "values": [
+        "RM300–600"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-x50/$",
+      "values": [
+        "RM600–1,200"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/proton-x70/$",
+      "values": [
+        "RM700–1,400"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/suzuki-swift/$",
+      "values": [
+        "RM450–800"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-corolla-cross/$",
+      "values": [
+        "RM800–1,500"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-corolla/$",
+      "values": [
+        "RM700–1,400"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-hilux/$",
+      "values": [
+        "RM600–1,200"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-raize/$",
+      "values": [
+        "RM550–1,000"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-veloz/$",
+      "values": [
+        "RM600–1,100"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/car-insurance/toyota-vios/$",
+      "values": [
+        "8%"
+      ],
+      "reason": "\"Contoh dalam dokumen syarikat\": 8% service tax as printed in the insurer PDS examples."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-vios/$",
+      "values": [
+        "RM1,000",
+        "RM1,927.54",
+        "RM10",
+        "RM50,000",
+        "RM90,000–109,000"
+      ],
+      "reason": "Insurer PDS example for Toyota Vios: Allianz Private Car PDS 01/01/2026 (sum insured RM50,000, windscreen RM1,000, total RM1,927.54), RM10 stamp duty; UMW Toyota Vios Peninsular price list July 2026 \"Recommended Sum Insured\" RM90,000–109,000 (read 2026-11-27)."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-vios/$",
+      "values": [
+        "RM500–900"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/car-insurance/toyota-yaris/$",
+      "values": [
+        "RM450–800"
+      ],
+      "reason": "Windscreen replacement price range removed from \"Kos gantian cermin\": no primary source exists (no maker or insurer price list). The 15% windscreen cover rate stays, cited to the Zurich PDS. Editor sign-off: the owner approved the car-sources recommendations (no unsourced figures on model pages), 2026-11-27, branch q/car-sources."
     }
   ]
 }

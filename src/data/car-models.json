@@ -171,7 +171,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -357,7 +357,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -526,7 +526,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -706,7 +706,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -886,7 +886,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -1067,7 +1067,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -1245,7 +1245,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -1414,7 +1414,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -1596,7 +1596,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -1778,7 +1778,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -1957,7 +1957,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -2139,14 +2139,46 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
     ],
     "factChecked": "2026-09-10",
     "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
-    "enriched": true
+    "enriched": true,
+    "makerSumInsured": {
+      "maker": "Honda Malaysia",
+      "min": 89000,
+      "max": 111000,
+      "label": "Sum Insured",
+      "scope": "City 1.5L baharu, harga Semenanjung, ikut varian",
+      "docLabel": "Harga Honda City, honda.com.my",
+      "url": "https://www.honda.com.my/model/city/pricing",
+      "retrieved": "2026-11-27"
+    },
+    "insurerExamples": [
+      {
+        "insurer": "Etiqa",
+        "document": "PDS Comprehensive Private Car",
+        "docDate": "2026-01-01",
+        "docDateText": "1 Jan 2026",
+        "profile": "Honda City 1497cc, sum insured RM84,600, umur kereta 5 tahun, NCD 55%, windscreen cover RM500",
+        "total": 1536.98,
+        "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product+Disclosure+Sheet+Private+Car+Insurance.pdf",
+        "retrieved": "2026-11-27"
+      },
+      {
+        "insurer": "Allianz",
+        "document": "PDS Honda Insurance Plus",
+        "docDate": "2026-01-01",
+        "docDateText": "1 Jan 2026",
+        "profile": "Honda City 1,498cc, sum insured RM90,000, umur kereta 1 tahun, NCD 0%, lelaki 30 tahun, windscreen RM1,000 dan special perils",
+        "total": 3621.35,
+        "url": "http://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/home-motor-and-travel/car-and-motorcycle/dealer-motor-packages/Honda-PDS_ENG.pdf",
+        "retrieved": "2026-11-27"
+      }
+    ]
   },
   {
     "slug": "honda-civic",
@@ -2322,14 +2354,24 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
     ],
     "factChecked": "2026-09-10",
     "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
-    "enriched": true
+    "enriched": true,
+    "makerSumInsured": {
+      "maker": "Honda Malaysia",
+      "min": 133000,
+      "max": 167000,
+      "label": "Sum Insured",
+      "scope": "Civic baharu (1.5L dan 2.0L e:HEV), harga Semenanjung, ikut varian",
+      "docLabel": "Harga Honda Civic, honda.com.my",
+      "url": "https://www.honda.com.my/model/civic/pricing",
+      "retrieved": "2026-11-27"
+    }
   },
   {
     "slug": "honda-hrv",
@@ -2504,7 +2546,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -2683,7 +2725,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -2864,14 +2906,36 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
     ],
     "factChecked": "2026-09-10",
     "factCheckNotes": "Tahun/varian/ciri disahkan dari paultan.org, laman pengilang, Wikipedia. Premium tidak dinilai.",
-    "enriched": true
+    "enriched": true,
+    "makerSumInsured": {
+      "maker": "UMW Toyota Motor",
+      "min": 90000,
+      "max": 109000,
+      "label": "Recommended Sum Insured",
+      "scope": "Vios 1.5E, 1.5G, 1.5 HEV dan 1.5 HEV GR-S baharu, persendirian, harga Semenanjung berkuat kuasa 1 Julai 2026",
+      "docLabel": "Senarai harga Toyota Vios (Semenanjung, Julai 2026)",
+      "url": "https://toyota.com.my/content/dam/malaysia/price-list-maintenance-packages/vios-hev/july-2026/1.0-pm(ip)-vios.pdf",
+      "retrieved": "2026-11-27"
+    },
+    "insurerExamples": [
+      {
+        "insurer": "Allianz",
+        "document": "PDS Private Car Comprehensive",
+        "docDate": "2026-01-01",
+        "docDateText": "1 Jan 2026",
+        "profile": "Toyota Vios 1,496cc, sum insured RM50,000, umur kereta 7 tahun, NCD 0%, lelaki 30 tahun, windscreen RM1,000 dan special perils",
+        "total": 1927.54,
+        "url": "https://new.allianz.com.my/documents/34226/0/Private%20Car%20Product%20Disclosure%20Sheet%28ENG%29.pdf",
+        "retrieved": "2026-11-27"
+      }
+    ]
   },
   {
     "slug": "toyota-yaris",
@@ -3033,7 +3097,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -3214,7 +3278,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -3401,7 +3465,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -3587,7 +3651,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -3761,7 +3825,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -3930,7 +3994,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -4098,7 +4162,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -4284,7 +4348,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -4471,7 +4535,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -4643,8 +4707,8 @@
         "a": "Perlindungan komprehensif wajar diutamakan. Tambah kunci stereng yang nampak, parkir di tempat berkunci atau berpagar, dan pertimbangkan tracker GPS untuk keyless. Sesetengah syarikat menawarkan diskaun untuk ciri anti-kecurian yang diluluskan."
       },
       {
-        "q": "Tukar cermin CR-V, kenapa jumlah claim mencecah RM2,000?",
-        "a": "Cermin besar sekitar RM900–RM1,800, ditambah penentukuran kamera/radar Honda Sensing yang kosnya ratusan ringgit. Sebab itu windscreen cover dan ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V. Tanpa perlindungan ini, sekali retak sudah mencecah ribuan ringgit."
+        "q": "Tukar cermin CR-V, kenapa jumlah claim tinggi?",
+        "a": "Cermin depan CR-V besar, dan selepas diganti kamera/radar Honda Sensing perlu ditentukur semula. Minta harga cermin dan penentukuran daripada bengkel panel. Sebab itu windscreen cover dan ADAS calibration cover kedua-duanya wajar dipertimbangkan untuk CR-V. Tanpa perlindungan ini, anda tanggung sendiri kos cermin dan penentukuran."
       }
     ],
     "sources": [
@@ -4659,7 +4723,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -4843,7 +4907,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5021,7 +5085,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5201,7 +5265,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5382,7 +5446,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5562,7 +5626,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5744,7 +5808,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -5918,7 +5982,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -6106,7 +6170,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -6287,7 +6351,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -6470,7 +6534,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -6650,7 +6714,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       }
@@ -6834,7 +6898,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
@@ -7029,7 +7093,7 @@
         "retrieved": "2026-10-10"
       },
       {
-        "label": "MyCarInfo: semakan NCD",
+        "label": "MyCarInfo (ISM): tempat semak nilai pasaran dan NCD anda",
         "url": "https://www.mycarinfo.com.my/ncdcheck/online",
         "retrieved": "2026-10-10"
       },
