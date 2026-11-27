@@ -21,19 +21,27 @@
  * Never put a role on a date or a count.
  * lead: one decisive number already stated on the page, as a large Gabarito numeral; it wraps at a dash.
  * sentence: one plain sentence for pages with no decisive fact (use it instead of a table of filler).
+ * source: optional { n, href } on a row or the lead prints the fact list's superscript "[n]" after the value
+ * (after the lead's label, so the numeral itself stays the record's figure). Without it nothing changes.
  * Styles: global.css, blocks "Edisi shared modules" (.mod, .mod-bar, .pa-*) and "Page answer: lead and sentence".
  */
+import SourceMark from './SourceMark.astro';
+import type { SourceMark as SourceMarkData } from '../../lib/fact-sources';
+
 interface Fact {
   label: string;
   value: string;
   href?: string;
   role?: 'price' | 'term';
+  /** Optional source marker: the fact's source and its place in the page's source list ("[2]"). */
+  source?: SourceMarkData;
 }
 
 interface Lead {
   value: string;
   label: string;
   role?: 'price' | 'term';
+  source?: SourceMarkData;
 }
 
 interface Props {
@@ -77,7 +85,7 @@ function parts(value: string) {
   {lead && (
     <div class="pa-lead" data-role={lead.role}>
       <p class="pa-lead-v">{leadParts.map((p) => <span class="pa-lead-p">{p}</span>)}</p>
-      <p class="pa-lead-l">{lead.label}</p>
+      <p class="pa-lead-l">{lead.label}<SourceMark marks={[lead.source]} /></p>
     </div>
   )}
   {sentence && <p class="pa-sent">{sentence}</p>}
@@ -86,7 +94,7 @@ function parts(value: string) {
       {rows.map((f) => (
         <div class="pa-r" data-role={f.long ? undefined : f.role} data-long={f.long ? '' : undefined}>
           <dt>{f.label}</dt>
-          <dd>{f.href ? <a href={f.href}><span>{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span></a> : <span class="pa-v">{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span>}</dd>
+          <dd>{f.href ? <a href={f.href}><span>{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span></a> : <span class="pa-v">{parts(f.value).map((p) => (p.nw ? <span class="pa-nw">{p.t}</span> : p.t))}</span>}<SourceMark marks={[f.source]} /></dd>
         </div>
       ))}
     </dl>

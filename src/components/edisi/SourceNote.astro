@@ -1,0 +1,42 @@
+---
+/**
+ * One line under a prose block that repeats figures from the fact list: "Sumber: [1], [3]".
+ * Each number is the source the data attaches to a fact stating one of the block's figures (lib/fact-sources.ts),
+ * counted by its place in the page's source list as the fact-list markers count it. Figures that only the
+ * comparison plan's facts state point to that plan's fact list (`sibling`). When no fact can be tied to the
+ * block's figures and `fallbackHref` is given, the line points to the page's source list instead.
+ * Renders nothing for a block with no figures, or with nothing to point to.
+ */
+import { proseMarks } from '../../lib/fact-sources';
+
+interface Props {
+  text: string | ReadonlyArray<string>;
+  facts: ReadonlyArray<{ value: string; source?: string }>;
+  list: ReadonlyArray<string | { url: string }>;
+  sibling?: { name: string; href: string; facts: ReadonlyArray<{ value: string; source?: string }> };
+  fallbackHref?: string;
+}
+
+const { text, facts, list, sibling, fallbackHref } = Astro.props;
+const { marks, figures, inSibling } = proseMarks(text, facts, list, sibling?.facts);
+const other = inSibling ? sibling : undefined;
+const fallback = figures > 0 && marks.length === 0 && !other ? fallbackHref : undefined;
+---
+
+{(marks.length > 0 || other || fallback) && (
+  <p class="src-note">
+    Sumber:{' '}
+    {fallback ? (
+      <a href={fallback}>dokumen dalam senarai sumber di bawah</a>
+    ) : (
+      <>
+        {marks.map((mark, index) => (
+          <>{index > 0 && ', '}<a href={mark.href} aria-label={`Sumber ${mark.n}`}>[{mark.n}]</a></>
+        ))}
+        {other && (
+          <>{marks.length > 0 && '; '}angka {other.name}: <a href={other.href}>sumber di halaman pelan itu</a></>
+        )}
+      </>
+    )}
+  </p>
+)}

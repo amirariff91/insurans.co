@@ -10,6 +10,9 @@ import LogoTile from '../../components/LogoTile.astro';
 import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { containedMarks, sourceMark } from '../../lib/fact-sources';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import travel from '../../data/travel-insurance.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -118,6 +121,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceUrls, spec.source),
 }));
 const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
@@ -160,7 +164,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceUrls, spec.source)]} /></dd>
             </div>
           ))}
         </dl>
@@ -182,6 +186,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
+        <SourceNote text={analysis.bestFor} facts={analysis.facts} list={sourceUrls} />
 
         <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
@@ -198,11 +203,13 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
         <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
         <p>{analysis.tradeoffs}</p>
+        <SourceNote text={analysis.tradeoffs} facts={analysis.facts} list={sourceUrls} />
 
         <h2 id="perbandingan">{planName} berbanding {siblingName}</h2>
         <ul>
           {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={analysis.siblingDifferences} facts={analysis.facts} list={sourceUrls} sibling={{ name: siblingName, href: `/travel-insurance/${sibling.slug}/#fakta`, facts: sibling.analysis.facts }} />
         <p><a href={`/travel-insurance/${sibling.slug}/`}>Lihat manfaat dan syarat {siblingName}</a>.</p>
         <p>
           Untuk membandingkan pilihan perjalanan lain, gunakan <a href="/travel-insurance/">jadual travel insurance Malaysia</a>
@@ -221,7 +228,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
             {faqs.map((faq, index) => (
               <details class="faq-item" open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <p>{faq.a}<SourceMark marks={containedMarks(faq.a, analysis.facts, sourceUrls)} /></p>
               </details>
             ))}
           </div>

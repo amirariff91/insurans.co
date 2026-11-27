@@ -10,6 +10,9 @@ import LogoTile from '../../components/LogoTile.astro';
 import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { sourceMark } from '../../lib/fact-sources';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import personalAccident from '../../data/personal-accident.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -109,6 +112,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceLinks, 'source' in spec ? spec.source : undefined),
 }));
 const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
@@ -150,7 +154,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceLinks, 'source' in spec ? spec.source : undefined)]} /></dd>
             </div>
           ))}
         </dl>
@@ -172,6 +176,7 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
+        <SourceNote text={analysis.bestFor} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="space-y-5">
@@ -192,11 +197,13 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
 
         <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
         <p>{analysis.tradeoffs}</p>
+        <SourceNote text={analysis.tradeoffs} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" />
 
         <h2 id="bandingan">{record.planName} berbanding {siblingRecord.planName}</h2>
         <ul>
           {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={analysis.siblingDifferences} facts={analysis.facts} list={sourceLinks} fallbackHref="#sumber" sibling={{ name: siblingRecord.planName, href: `/personal-accident/${siblingRecord.slug}/#fakta`, facts: siblingRecord.analysis.facts }} />
         <p>
           <a href={`/personal-accident/${siblingRecord.slug}/`}>Lihat manfaat dan syarat {siblingRecord.planName}</a>
         </p>
