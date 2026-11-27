@@ -170,7 +170,7 @@ const schema = {
             <thead role="rowgroup">
               <tr role="row">
                 <th role="columnheader" scope="col">Kereta</th>
-                <th role="columnheader" scope="col">Nilai pasaran</th>
+                <th role="columnheader" scope="col">Sum insured andaian</th>
                 <th role="columnheader" scope="col">Premium (0% NCD)</th>
                 <th role="columnheader" scope="col">Premium (55% NCD)</th>
               </tr>
@@ -179,7 +179,7 @@ const schema = {
               {tableRows.map(({ label, marketValue, car }) => (
                 <tr role="row">
                   <th role="rowheader" scope="row" class="font-medium text-stone-900">{label}</th>
-                  <td role="cell" data-label="Nilai pasaran"><span class="hub-nw">{marketValue}</span></td>
+                  <td role="cell" data-label="Sum insured andaian"><span class="hub-nw">{marketValue}</span></td>
                   <td role="cell" data-label="Premium (0% NCD)"><span class="hub-nw">{range(car.premiumNCD0Min, car.premiumNCD0Max)}</span></td>
                   <td role="cell" data-label="Premium (55% NCD)" class="font-semibold text-hijau-700"><span class="hub-nw">{range(car.premiumNCD55Min, car.premiumNCD55Max)}</span></td>
                 </tr>

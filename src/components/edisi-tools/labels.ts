@@ -1,6 +1,6 @@
 // Reader-facing names for source documents and dates on the /tools/ pages.
 const DOC_NAMES: Record<string, string> = {
-  'https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf': 'JPJ: Garis Panduan Pengiraan LKM (PDF)',
+  'https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-A-Garis_Panduan_Pengiraan_LKM_Bajet_20092-2.pdf': 'JPJ: Garis Panduan Pengiraan LKM (PDF)',
   'https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-A-Garis_Panduan_Pengiraan_LKM_Bajet_20092-2.pdf': 'JPJ: Garis Panduan Pengiraan LKM (PDF)',
   'https://www.jpj.gov.my/panduan-pengiraan-kadar-lkm': 'JPJ: Panduan Kadar Lesen Kenderaan Motor (LKM)',
   'https://www.jpj.gov.my/pusat-media-3/informasi-perkhidmatan-jpj/kenderaan/panduan-pembaharuan-lesen-kenderaan-motor-lkm/': 'JPJ: Panduan Pembaharuan LKM',

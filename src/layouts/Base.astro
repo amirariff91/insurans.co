@@ -55,7 +55,9 @@ const {
 // A page that passes no ogImage uses its own drawn card when one exists, else the site default.
 const pageCard = ogImageProp ? undefined : (ogPages as Record<string, { image: string; alt: string }>)[Astro.url.pathname];
 const ogImage = ogImageProp ?? pageCard?.image ?? '/og-default.png';
-const ogImageAlt = ogImageAltProp ?? pageCard?.alt;
+// The site default card prints the name, the tagline and "Bukan ejen · Bukan broker"; its alt says the same.
+const ogImageAlt = ogImageAltProp ?? pageCard?.alt
+  ?? (ogImage === '/og-default.png' ? 'Insurans.co: panduan insurans untuk rakyat Malaysia biasa. Bukan ejen, bukan broker.' : undefined);
 const siteName = 'Insurans.co';
 const trimmedTitle = title.trim();
 const fullTitle = !siteSuffix || trimmedTitle.toLowerCase().endsWith(siteName.toLowerCase())

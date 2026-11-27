@@ -2,7 +2,7 @@
   "methodologyNote": "Jadual kadar Lesen Kenderaan Motor (LKM/roadtax) JPJ untuk MOTOSIKAL persendirian (kod AA), dibaca terus dari PDF rasmi JPJ 'Garis Panduan Pengiraan LKM (pindaan selepas Bajet 2009)' pada 2026-09-13. Motosikal 150cc dan ke bawah: JPJ menulis 'dikekalkan pada kadar sedia ada' tanpa menyatakan angka dalam garis panduan ini. Kami tidak menggantikannya dengan nombor yang tidak dinyatakan (rate: null). Kadar melebihi 150cc adalah tetap (flat) mengikut band. Sabah dan Sarawak berkongsi jadual yang sama dalam garis panduan ini. Labuan = 50% kadar Sabah; Pulau Pangkor & Langkawi = 50% kadar Semenanjung (bagi >150cc sahaja). Rujuk JPJ. Bukan premium insurans.",
   "asAt": "2026-09-13",
   "sources": [
-    "https://www.jpj.gov.my/wp-content/uploads/2022/11/Garis-Panduan-Pengiraan-LKM-Bajet-20092.pdf"
+    "https://www.jpj.gov.my/wp-content/uploads/2026/07/Lampiran-A-Garis_Panduan_Pengiraan_LKM_Bajet_20092-2.pdf"
   ],
   "rates": {
     "semenanjung": [
