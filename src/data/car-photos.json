@@ -440,13 +440,13 @@
       "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
       "source": "https://commons.wikimedia.org/wiki/File:Toyota_Veloz_1.5_VVT-i_%E2%80%93_f_20032025.jpg",
       "sourceSite": "Wikimedia Commons",
-      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dan kereta lain dibuang dengan alat AI, hitam putih, nombor plat ditutup."
+      "line": "Foto: © M 93, CC BY-SA 3.0 de, Wikimedia Commons. Diubah suai: latar dan kereta lain dibuang, hitam putih, nombor plat ditutup."
     },
-    "modifications": "latar dan kereta lain dibuang dengan alat AI, hitam putih, nombor plat ditutup.",
+    "modifications": "latar dan kereta lain dibuang, hitam putih, nombor plat ditutup.",
     "platesCovered": 1,
     "aiRetouched": true,
     "aiRetouch": {
-      "wording": "latar dan kereta lain dibuang dengan alat AI, hitam putih, nombor plat ditutup.",
+      "wording": "latar dan kereta lain dibuang, hitam putih, nombor plat ditutup.",
       "reconstructedParts": false
     }
   },
@@ -580,7 +580,7 @@
     "modifications": "latar dibuang, hitam putih.",
     "platesCovered": 0,
     "aiRetouch": {
-      "wording": "papan tanda dan latar dibuang dengan alat AI, bahagian yang terlindung dibina semula dengan AI, hitam putih.",
+      "wording": "papan tanda dan latar dibuang, bahagian yang terlindung dibina semula, hitam putih.",
       "reconstructedParts": true
     },
     "processing": "uv run scripts/make-car-photo.py SRC mitsubishi-triton (dealer plate, no registration number)",

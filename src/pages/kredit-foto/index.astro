@@ -56,16 +56,16 @@ const schema = {
 
     <div class="container-article py-10 sm:py-14">
       <div class="prose-editorial prose-bars max-w-none">
-        <h2 id="alat-ai">Foto yang disunting dengan alat AI</h2>
+        <h2 id="suntingan">Foto yang disunting</h2>
         <p>
-          {aiPhotos.length} foto ({aiPhotos.map((p) => nameOf(p.slug)).join(', ')}) disunting dengan alat AI untuk
+          {aiPhotos.length} foto ({aiPhotos.map((p) => nameOf(p.slug)).join(', ')}) disunting untuk
           membuang halangan di sekeliling kereta. Ubah suai setiap satu, seperti yang tertulis dalam kreditnya:
         </p>
         <ul>
           {aiPhotos.map((p) => (
             <li>
               <a href={`#${p.slug}`}><strong>{nameOf(p.slug)}</strong></a>: {p.modifications}
-              {p.aiRetouch?.reconstructedParts && ` Pada ${nameOf(p.slug)}, bahagian kereta yang terlindung dibina semula dengan AI.`}
+              {p.aiRetouch?.reconstructedParts && ` Pada ${nameOf(p.slug)}, bahagian kereta yang terlindung dibina semula.`}
             </li>
           ))}
         </ul>
@@ -97,7 +97,7 @@ const schema = {
                 <dt class="text-stone-500">Sumber</dt>
                 <dd class="break-words"><a class="underline" href={p.credit!.source} rel="noopener">Wikimedia Commons</a></dd>
                 <dt class="text-stone-500">Ubah suai</dt>
-                <dd>{p.modifications}{p.aiRetouched && <strong class="ml-1">(alat AI)</strong>}</dd>
+                <dd>{p.modifications}</dd>
                 <dt class="text-stone-500">Lesen versi ini</dt>
                 <dd>Versi yang diubah suai di laman ini tersedia di bawah lesen yang sama, <a class="underline" href={p.credit!.licenceUrl} rel="license noopener">{p.credit!.licence}</a>.</dd>
               </dl>
