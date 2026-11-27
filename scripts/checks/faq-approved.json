@@ -13,6 +13,24 @@
       "path": "FAQPage.mainEntity[2].name",
       "old": "Tukar cermin CR-V, kenapa jumlah claim mencecah RM2,000?",
       "new": "Tukar cermin CR-V, kenapa jumlah claim tinggi?"
+    },
+    {
+      "url": "/motorcycle-insurance/",
+      "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+      "old": "Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis cover, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai.",
+      "new": "Sediakan nombor pendaftaran, maklumat pemilik, polisi lama dan rekod NCD. Semak quotation terus dengan penyedia melalui pautan rasmi, kemudian periksa jenis perlindungan, jumlah diinsuranskan, add-on dan tarikh kuat kuasa sebelum membayar. Selepas sijil atau cover note sah dikeluarkan, barulah teruskan pembaharuan roadtax melalui saluran JPJ yang sesuai."
+    },
+    {
+      "url": "/motorcycle-insurance/",
+      "path": "FAQPage.mainEntity[5].acceptedAnswer.text",
+      "old": "Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis cover, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi.",
+      "new": "Tiada angka premium per-cc awam yang boleh kami sahkan sebagai kadar umum. Bandingkan quotation sebenar berdasarkan jenis perlindungan, jumlah diinsuranskan, NCD, excess, add-on, SST dan setem yang dinyatakan oleh penyedia. Harga rendah tanpa memahami skop cover bukan ukuran yang mencukupi."
+    },
+    {
+      "url": "/tools/kalkulator-roadtax/",
+      "path": "FAQPage.mainEntity[0].acceptedAnswer.text",
+      "old": "Kalkulator ini untuk kereta persendirian sahaja: saloon seperti sedan dan hatchback, atau non-saloon seperti MPV, SUV dan pikap. Kenderaan syarikat, EV dan motosikal menggunakan jadual berasingan.",
+      "new": "Kalkulator ini untuk kereta persendirian: saloon seperti sedan dan hatchback, atau bukan saloon seperti MPV, SUV dan pikap. Hanya saloon milik syarikat di Semenanjung ada jadual berasingan, dan jadual itu ada di halaman ini. Saloon milik syarikat di Sabah dan Sarawak serta semua kereta bukan saloon membayar kadar yang sama dengan kereta milik individu. EV dan motosikal menggunakan jadual berasingan."
     }
   ]
 }

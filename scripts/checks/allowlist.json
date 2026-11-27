@@ -112,8 +112,16 @@
       "field": "description",
       "url": "^/tools/kalkulator-roadtax/$",
       "old": "Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.",
-      "new": "Jadual harga roadtax kereta ikut cc daripada JPJ: Semenanjung, Sabah dan Sarawak, saloon dan MPV/SUV. 1.5L RM90, 1,800cc RM280. Kalkulator percuma.",
-      "reason": "Roadtax rebuild 2026-11-27: title, H1 and meta lead with the list intent 'harga roadtax kereta ikut cc' (Search Console queries for this page)."
+      "new": "Jadual harga roadtax kereta ikut cc daripada JPJ untuk Semenanjung, Sabah dan Sarawak. Semenanjung: saloon 1.5L RM90, 1,800cc RM280; bukan saloon (MPV/SUV) RM120 dan RM360. Kalkulator percuma.",
+      "reason": "Roadtax rebuild 2026-11-27: title, H1 and meta lead with the list intent 'harga roadtax kereta ikut cc' (Search Console queries for this page). Review fix 2026-11-27: every figure names its body type (saloon or bukan saloon), because the page's private cars include MPV/SUV/pikap."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "values": ["RM4"],
+      "reason": "Not a price: 'RM4.00' appeared only in the uncited aside 'sesetengah laman pihak ketiga tersilap catat RM4.00' in the >3,000cc note, dropped by the roadtax review (K-review-roadtax.md, nit 5). The rate itself, RM4.50 per cc over 3,000cc (JPJ PDF line 57), stays. Removed RM figure: needs the editor's sign-off before merge (docs/checks.md)."
     },
     {
       "check": "contract",
@@ -122,7 +130,7 @@
       "url": "^/tools/kalkulator-roadtax/$",
       "path": "^WebApplication\\.description$",
       "old": "Kira kadar roadtax JPJ untuk kereta persendirian mengikut cc, wilayah dan jenis badan. Kadar awam, bukan premium insurans.",
-      "new": "Jadual harga roadtax kereta ikut cc daripada JPJ: Semenanjung, Sabah dan Sarawak, saloon dan MPV/SUV. 1.5L RM90, 1,800cc RM280. Kalkulator percuma.",
+      "new": "Jadual harga roadtax kereta ikut cc daripada JPJ untuk Semenanjung, Sabah dan Sarawak. Semenanjung: saloon 1.5L RM90, 1,800cc RM280; bukan saloon (MPV/SUV) RM120 dan RM360. Kalkulator percuma.",
       "reason": "WebApplication.description reuses the new meta description."
     },
     {

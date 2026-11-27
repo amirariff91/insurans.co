@@ -11,12 +11,12 @@ import { calcRoadtax, type RoadtaxBand, type RoadtaxBody, type RoadtaxRegion } f
 
 const canonicalUrl = 'https://insurans.co/tools/kalkulator-roadtax/';
 const pageTitle = 'Harga roadtax kereta ikut cc 2026 + kalkulator JPJ';
-const description = 'Jadual harga roadtax kereta ikut cc daripada JPJ: Semenanjung, Sabah dan Sarawak, saloon dan MPV/SUV. 1.5L RM90, 1,800cc RM280. Kalkulator percuma.';
-const intro = 'Roadtax kereta persendirian di Semenanjung ialah RM20 setahun untuk enjin 1,000cc ke bawah, RM70 untuk 1.3L dan RM90 untuk 1.5L hingga 1,600cc. Saloon 1,800cc membayar RM280 dan 2,000cc RM380. Di Sabah dan Sarawak, kereta 1.5L membayar RM72.';
+const description = 'Jadual harga roadtax kereta ikut cc daripada JPJ untuk Semenanjung, Sabah dan Sarawak. Semenanjung: saloon 1.5L RM90, 1,800cc RM280; bukan saloon (MPV/SUV) RM120 dan RM360. Kalkulator percuma.';
+const intro = 'Roadtax kereta persendirian di Semenanjung ialah RM20 setahun untuk enjin 1,000cc ke bawah. Saloon 1.3L membayar RM70 dan saloon 1.5L hingga 1,600cc RM90; bukan saloon (MPV, SUV, pikap) membayar RM100 dan RM120. Pada 1,800cc, saloon membayar RM280 dan bukan saloon RM360; pada 2,000cc, RM380 dan RM440. Di Sabah dan Sarawak, saloon 1.5L membayar RM72 dan bukan saloon RM60.';
 const faqs = [
   {
     q: 'Roadtax ini untuk kereta apa?',
-    a: 'Kalkulator ini untuk kereta persendirian sahaja: saloon seperti sedan dan hatchback, atau non-saloon seperti MPV, SUV dan pikap. Kenderaan syarikat, EV dan motosikal menggunakan jadual berasingan.',
+    a: 'Kalkulator ini untuk kereta persendirian: saloon seperti sedan dan hatchback, atau bukan saloon seperti MPV, SUV dan pikap. Hanya saloon milik syarikat di Semenanjung ada jadual berasingan, dan jadual itu ada di halaman ini. Saloon milik syarikat di Sabah dan Sarawak serta semua kereta bukan saloon membayar kadar yang sama dengan kereta milik individu. EV dan motosikal menggunakan jadual berasingan.',
   },
   {
     q: 'Macam mana kadar roadtax dikira?',
@@ -80,6 +80,37 @@ const fullTables: { id: string; title: string; note: string; bands: RoadtaxBand[
   { id: 'jadual-sabah-sarawak-nonsaloon', title: 'Sabah dan Sarawak: bukan saloon (MPV, SUV, pikap)', note: 'Kod AD dan AE, seksyen 2.1.3 (Sabah) dan 3.3 (Sarawak).', bands: rates.rates.sabahSarawak.nonSaloon },
 ];
 const sourcePdf = rates.sources[0];
+// Build-time guard (as checkEvData on the EV page): bands are contiguous, each progressive band starts where the
+// previous progressive band ends, and every testCases entry (including the company table) matches. A failure stops the build.
+(() => {
+  const tables: Record<string, readonly RoadtaxBand[]> = {
+    'semenanjung.saloon': rates.rates.semenanjung.saloon,
+    'semenanjung.nonSaloon': rates.rates.semenanjung.nonSaloon,
+    'semenanjung.companySaloon': rates.companySaloonSemenanjung,
+    'sabahSarawak.saloon': rates.rates.sabahSarawak.saloon,
+    'sabahSarawak.nonSaloon': rates.rates.sabahSarawak.nonSaloon,
+  };
+  const at = (b: RoadtaxBand, cc: number) => Math.round((b.base + b.perCc * (cc - (b.minCc - 1))) * 100) / 100;
+  const errors: string[] = [];
+  for (const [name, bands] of Object.entries(tables)) {
+    if (bands[0].minCc !== 0) errors.push(`${name}: first band starts at ${bands[0].minCc}cc`);
+    if (bands[bands.length - 1].maxCc !== 99999) errors.push(`${name}: last band is not open-ended`);
+    for (let i = 1; i < bands.length; i += 1) {
+      const prev = bands[i - 1];
+      const cur = bands[i];
+      if (cur.minCc !== prev.maxCc + 1) errors.push(`${name}: gap or overlap at ${cur.minCc}cc`);
+      if (prev.perCc > 0 && cur.perCc > 0 && cur.base !== at(prev, prev.maxCc)) errors.push(`${name}: base at ${cur.minCc}cc is not the previous band's top`);
+    }
+  }
+  for (const t of rates.testCases) {
+    const bands = tables[`${t.region}.${t.body}`];
+    const band = bands?.find((b) => t.cc >= b.minCc && t.cc <= b.maxCc);
+    const got = band ? at(band, t.cc) : Number.NaN;
+    if (got !== t.expect) errors.push(`${t.region} ${t.body} ${t.cc}cc: got ${got}, expected ${t.expect}`);
+    if (t.body !== 'companySaloon' && rt(t.region as RoadtaxRegion, t.body as RoadtaxBody, t.cc) !== t.expect) errors.push(`calcRoadtax ${t.region} ${t.body} ${t.cc}cc differs`);
+  }
+  if (errors.length) throw new Error(`roadtax-rates.json is invalid:\n- ${errors.join('\n- ')}`);
+})();
 // Worked example for the method sentence, from the same rate table (Semenanjung saloon, 1,601-1,800cc band).
 const exBand = rates.rates.semenanjung.saloon.find((b) => b.minCc === 1601)!;
 const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
@@ -164,7 +195,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
                 </label>
                 <label class="flex min-h-11 items-center gap-2 border border-stone-300 px-3 py-3 text-sm text-stone-700 transition-colors hover:border-hijau-500">
                   <input type="radio" name="body" value="nonSaloon" class="h-4 w-4 accent-hijau-700" />
-                  <span>Non-saloon (MPV/SUV/pikap)</span>
+                  <span>Bukan saloon (MPV/SUV/pikap)</span>
                 </label>
               </div>
             </fieldset>
@@ -199,11 +230,11 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 
         <article class="prose-editorial mt-10">
           <h2 id="harga-ikut-cc">Harga roadtax kereta ikut cc yang biasa</h2>
-          <p>Jadual ini menunjukkan roadtax setahun untuk kereta persendirian milik individu, pada cc yang paling kerap dicari. Bahan api petrol dan diesel menggunakan jadual yang sama untuk kereta persendirian.</p>
+          <p>Jadual ini menunjukkan roadtax setahun untuk kereta persendirian milik individu, pada cc yang paling kerap dicari. Bahan api petrol dan diesel menggunakan jadual yang sama untuk kereta persendirian, kecuali pacuan empat roda diesel di Sabah (lihat nota di bawah).</p>
           {regionList.map((region) => (
-            <div class="rt-wrap">
+            <div class="overflow-x-auto rt-wrap" role="region" tabindex="0" aria-labelledby={`cepat-${region.key}`}>
               <table class="rt-table">
-                <caption>{region.label}: roadtax setahun ikut cc</caption>
+                <caption id={`cepat-${region.key}`}>{region.label}: roadtax setahun ikut cc</caption>
                 <thead>
                   <tr>
                     <th scope="col">Enjin</th>
@@ -225,12 +256,12 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
           ))}
           <p>Enjin 3.0L diesel milik individu di Semenanjung membayar {fmtRm(rt('semenanjung', 'saloon', 3000))} (saloon) atau {fmtRm(rt('semenanjung', 'nonSaloon', 3000))} (pikap atau SUV), sama seperti enjin petrol. Untuk cc lain, masukkan angka dalam geran ke dalam kalkulator di atas.</p>
 
-          <h2 id="jadual-penuh">Jadual penuh kadar JPJ: kadar asas dan kadar progresif</h2>
+          <h2 id="jadual-penuh">Jadual penuh kadar JPJ untuk kereta persendirian: kadar asas dan kadar progresif</h2>
           <p>Lajur terakhir ialah roadtax pada cc tertinggi dalam band itu. Di skrin kecil, leret jadual ke kiri untuk melihat semua lajur.</p>
           {fullTables.map((table) => (
             <>
               <h3 id={table.id}>{table.title}</h3>
-              <div class="rt-wrap">
+              <div class="overflow-x-auto rt-wrap" role="region" tabindex="0" aria-labelledby={table.id}>
                 <table class="rt-table">
                   <caption class="sr-only">{table.title}</caption>
                   <thead>
@@ -282,7 +313,7 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
             <li><strong>Labuan:</strong> kereta 1,000cc ke bawah membayar RM20. Melebihi 1,000cc, kadarnya 50% daripada kadar petrol Sabah. Contoh: saloon 1.5L membayar {fmtRm(rt('sabahSarawak', 'saloon', 1500) / 2)}.</li>
             <li><strong>Pacuan empat roda diesel di Sabah</strong> kekal pada kadar sedia ada, menurut PDF JPJ. Angkanya tidak tertera dalam PDF itu, jadi kalkulator ini tidak sesuai untuk kenderaan tersebut. Semak dengan JPJ Sabah.</li>
           </ul>
-          <p>Kalkulator di atas hanya mengira Semenanjung serta Sabah dan Sarawak. Untuk pulau bebas cukai, JPJ meminta borang perakuan kawasan pengisytiharan dan pengisytiharan kastam (K3) atau resit pelabuhan semasa renew di kaunter.</p>
+          <p>Kalkulator di atas hanya mengira Semenanjung serta Sabah dan Sarawak. Untuk Sabah, Sarawak dan pulau bebas cukai, JPJ meminta borang perakuan kawasan pengisytiharan dan pengisytiharan kastam (K3) atau resit pelabuhan semasa renew di kaunter.</p>
 
           <h3>Perkara penting</h3>
           <ul>
@@ -394,13 +425,22 @@ const exRate = exBand.base + exBand.perCc * (exBand.maxCc - (exBand.minCc - 1));
 </Base>
 
 <style>
-  .rt-wrap { overflow-x: auto; margin: 1rem 0 0.5rem; border: 1px solid var(--rule); }
+  /* The shared scrolling-table wrapper (.overflow-x-auto:has(> table), global.css) supplies the border and edge hints. */
+  .rt-wrap { margin: 1rem 0 0.5rem; }
   .rt-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.35; margin: 0; }
   .rt-table caption { text-align: left; font-weight: 600; padding: 0.5rem 0.75rem; }
   .rt-table th, .rt-table td { padding: 0.5rem 0.75rem; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
   .rt-table thead th { border-top: 0; border-bottom: 2px solid var(--ink); font-weight: 600; }
   .rt-table .num { text-align: right; white-space: nowrap; }
+  /* The last header ("Pada cc tertinggi") may wrap, so the table fits a 390px phone without scrolling. */
+  .rt-table thead th.num { white-space: normal; }
   .rt-table tr > :first-child { position: sticky; left: 0; background: var(--paper); white-space: nowrap; }
+  /* Narrow phones: a sticky first column would cover the middle column, so it scrolls with the rest, and band labels
+     may wrap so the three columns fit 320px without sideways scrolling. */
+  @media (max-width: 30rem) {
+    .rt-table tr > :first-child { position: static; white-space: normal; }
+    .rt-table th, .rt-table td { padding-inline: 0.5rem; }
+  }
   .rt-table tbody th { font-weight: 600; }
   .rt-note { font-size: 0.875rem; color: var(--mute); margin-top: 0.25rem; }
 </style>
