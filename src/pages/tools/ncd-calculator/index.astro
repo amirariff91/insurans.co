@@ -1,4 +1,5 @@
 ---
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import Base from '../../../layouts/Base.astro';
 import carModels from '../../../data/car-models.json';
 import { NCD_TIERS, rm, simulate } from '../../../lib/ncd';
@@ -77,6 +78,7 @@ const modelReferences = Object.fromEntries(
       ]}
     />
     <h1 class="et-h1">Jadual NCD &amp; Kalkulator NCD Insurans Kereta 2026</h1>
+    <TrustStrip />
   </div>
 
   <div class="container-wide pb-10 sm:pb-14">

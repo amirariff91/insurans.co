@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import CtaBand from '../../components/CtaBand.astro';
@@ -212,16 +212,15 @@ const primaryCalculatorUrl = `/tools/ncd-calculator/?model=${model.slug}`;
         />
         <LogoTile brand={model.brand} eager />
         </div>
-        <Byline dateModified={articleDate} />
-        <div class="mt-4">
+      </div>
+      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl}><TrustStrip slot="trust" date={articleDate} sources={model.sources} /></ModelAnswer>
+      <div class="mt-4">
           <EditorialStamp
             articleDate={schema.dateModified}
             premiumReviewed={model.premiumReviewed}
             sources={model.sources}
           />
-        </div>
       </div>
-      <ModelAnswer model={model} h1={`Harga insurans & roadtax ${searchName} 2026`} nameWithEngine={nameWithEngine} totalSign={totalSign} calculatorUrl={primaryCalculatorUrl} />
 
       <!-- Apa yang termasuk? -->
       <section class="mod" aria-labelledby="harga">

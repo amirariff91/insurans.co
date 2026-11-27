@@ -1,0 +1,77 @@
+---
+/**
+ * Trust strip: one compact line group directly under the H1 on every content template.
+ * Who wrote the page, when it was last updated, how many source documents it cites, and how we check.
+ *
+ *   <TrustStrip date={record.asAt} sources={record.sources} />
+ *
+ * Rules: every value comes from the page's own data. No default date: without `date` the date part is omitted.
+ * The date is the one the page's JSON-LD carries as dateModified, so the strip and the markup agree.
+ * The source count appears only when the page passes its own list of cited documents; a bare root domain
+ * (a regulator's homepage) is a general reference, not a document, and is not counted (same rule as
+ * EditorialStamp). Duplicate URLs count once.
+ * Links keep a 44px target with vertical padding on an inline box, so a wrapped line stays 20px tall.
+ */
+import { AUTHOR_SLUG } from '../../lib/schema';
+
+interface Source {
+  label?: string;
+  url?: string;
+  href?: string;
+}
+
+interface Props {
+  /** ISO date (YYYY-MM-DD) the page already uses as dateModified. */
+  date?: string;
+  /** The page's own list of cited sources, if it has one. */
+  sources?: Source[];
+}
+
+const { date, sources } = Astro.props;
+
+function formatDate(value: string): string | undefined {
+  const d = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return undefined;
+  return new Intl.DateTimeFormat('ms-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
+}
+
+const dateText = date ? formatDate(date) : undefined;
+const isRootUrl = (u?: string) => !!u && /^https?:\/\/[^/]+\/?$/.test(u);
+const docCount = Array.isArray(sources)
+  ? new Set(sources.map((s) => s.url || s.href).filter((u): u is string => !!u && !isRootUrl(u))).size
+  : 0;
+---
+
+<p class="ts" data-trust-strip>
+  <span>Ditulis oleh <a href={`/penulis/${AUTHOR_SLUG}/`}>Amir Ariff</a></span>
+  {dateText && <span>Dikemas kini <time datetime={date}>{dateText}</time></span>}
+  {docCount > 0 && <span>{docCount} dokumen sumber</span>}
+  <span><a href="/kaedah-editorial/">Cara kami semak</a></span>
+</p>
+
+<style>
+  .ts {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+    margin: 0.5rem 0 0.75rem;
+    max-width: var(--measure);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--mute);
+  }
+  .ts > span {
+    white-space: nowrap;
+  }
+  .ts a {
+    padding: 0.75rem 0;
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--mute);
+    text-underline-offset: 2px;
+  }
+  .ts a:hover {
+    text-decoration-color: var(--ink);
+  }
+</style>

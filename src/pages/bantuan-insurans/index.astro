@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
@@ -103,7 +103,7 @@ const schema = {
   ads={true}
 >
   <Hero title="Bantuan Insurans & Skim Perlindungan 2026">
-    <Byline slot="byline" dateModified={asAt} />
+    <TrustStrip slot="trust" date={asAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

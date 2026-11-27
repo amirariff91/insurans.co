@@ -2,7 +2,7 @@
 import Ikon from '../../../components/Ikon.astro';
 import '../../../components/edisi-tools/edisi-tools.css';
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ToolOpening from '../../../components/edisi-tools/ToolOpening.astro';
 import { readerDate } from '../../../components/edisi-tools/labels';
@@ -112,6 +112,7 @@ const link = 'text-hijau-700 underline decoration-hijau-300 underline-offset-2 h
   ads={false}
 >
   <ToolOpening title="Roadtax kereta elektrik (EV) 2026: kadar ikut kuasa motor">
+    <TrustStrip slot="trust" date={ev.asAt} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[
@@ -180,7 +181,6 @@ const link = 'text-hijau-700 underline decoration-hijau-300 underline-offset-2 h
         </section>
 
         <div class="et-after">
-          <Byline dateModified={ev.asAt} />
           <p>Pengecualian penuh roadtax kereta elektrik (EV) tamat pada 31 Disember 2025. Kadar di halaman ini diambil daripada Pekeliling JPJ Bil.01/2026, jadual kereta elektrik bertarikh 1 April 2026.</p>
           <p>Kiraan untuk kereta elektrik sepenuhnya menggunakan jadual kadar awam JPJ, dan alat ini percuma.</p>
         </div>

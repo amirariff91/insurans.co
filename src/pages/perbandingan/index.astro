@@ -2,7 +2,7 @@
 import Ikon from '../../components/Ikon.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import comparisons from '../../data/comparisons.json';
 import companies from '../../data/companies.json';
 
@@ -43,6 +43,7 @@ function getCompanyName(slug: string) {
       <h1 class="ea-h1 mb-1">
         Perbandingan Syarikat Insurans Kereta Malaysia 2026
       </h1>
+      <TrustStrip date={schema.dateModified} />
       <section class="mod pb-list" id="ringkasan-perbandingan" aria-labelledby="senarai-perbandingan">
         <h2 id="senarai-perbandingan" class="mod-bar">{comparisons.length} pasangan syarikat dan perkara utama untuk dibandingkan</h2>
         <ul class="pb-rows">
@@ -68,7 +69,6 @@ function getCompanyName(slug: string) {
           })}
         </ul>
       </section>
-      <Byline />
       <p class="text-lg text-stone-700 max-w-2xl leading-relaxed">
         Bandingkan pilihan insurans kereta, kesihatan dan hayat sebelum minta sebut harga.
         Semak jenis perlindungan, cara tuntutan dan urusan digital yang sesuai dengan keperluan anda.

@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Ikon from '../../components/Ikon.astro';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -100,6 +100,7 @@ const faqSchema = {
     <div class="container-wide pt-6 pb-6 sm:pt-8 sm:pb-8">
       <Breadcrumbs items={[{ label: 'Utama', href: '/' }, { label: 'Panduan' }]} />
       <h1 class="ea-h1 mb-1">Panduan Insurans untuk Print</h1>
+      <TrustStrip date={asAt} />
       <section class="mod pd-list" aria-labelledby="pilih-panduan">
         <h2 id="pilih-panduan" class="mod-bar"><span aria-hidden="true">{guides.length} panduan ringkas untuk anda semak, print atau Save-as-PDF</span><span class="sr-only">Pilih panduan anda</span></h2>
         <ul class="pd-rows">
@@ -111,7 +112,6 @@ const faqSchema = {
           ))}
         </ul>
       </section>
-      <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Tiga panduan ringkas dalam Bahasa Malaysia untuk anda semak, print atau Save-as-PDF. Kami bukan ejen, bukan broker. Pilih dan semak sendiri berdasarkan PDS atau sijil.
       </p>

@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import carModels from '../../data/car-models.json';
 
@@ -60,6 +60,7 @@ const schema = {
       <h1 class="ea-h1 mb-1">
         Insurans Komprehensif vs Pihak Ketiga: Mana Lebih Baik untuk Anda?
       </h1>
+      <TrustStrip date="2026-11-15" />
       <PageAnswer
         finding="Insurans komprehensif memberi perlindungan paling luas antara tiga jenis polisi."
         facts={[
@@ -68,7 +69,6 @@ const schema = {
           { label: 'Pihak Ketiga', value: 'lindungi orang lain sahaja' },
         ]}
       />
-      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
         Komprehensif dan pihak ketiga ialah dua jenis insurans kereta yang paling asas. Bezanya ialah siapa yang dilindungi: komprehensif melindungi kereta anda dan orang lain, manakala pihak ketiga hanya melindungi orang lain.
       </p>

@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
@@ -79,7 +79,7 @@ const schema = {
         { label: h1 },
       ]}
     />
-    <Byline slot="byline" dateModified={asAt} />
+    <TrustStrip slot="trust" date={asAt} sources={sources} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-900">
       Travel insurance berbaloi bila satu kejadian boleh menghasilkan bil perubatan, evakuasi atau kerugian trip yang besar;
       trip murah dan dekat tidak semestinya memerlukan polisi.

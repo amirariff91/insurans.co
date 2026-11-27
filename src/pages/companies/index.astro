@@ -1,4 +1,5 @@
 ---
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
 import companies from '../../data/companies.json';
@@ -41,6 +42,7 @@ const schema = {
       <h1 class="ea-h1 mb-1">
         Syarikat Insurans & Takaful di Malaysia: Senarai, Profil & Nombor Claim
       </h1>
+      <TrustStrip />
       <section class="mod co-list" aria-labelledby="senarai-syarikat">
         <h2 id="senarai-syarikat" class="mod-bar">{companies.length} syarikat insurans dan takaful berlesen di Malaysia</h2>
         <ul class="co-rows">

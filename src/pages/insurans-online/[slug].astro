@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
@@ -181,7 +181,7 @@ const answerFacts = [
   ads={false}
 >
   <Hero title={seo.h1}>
-    <Byline slot="byline" dateModified={platform.asAt} />
+    <TrustStrip slot="trust" date={platform.asAt} sources={sourceLinks} />
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

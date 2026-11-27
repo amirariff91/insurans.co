@@ -187,6 +187,33 @@
         "RM903"
       ],
       "reason": "Roadtax rebuild 2026-11-27: full JPJ rate tables (Semenanjung saloon, non-saloon, company saloon; Sabah/Sarawak saloon, non-saloon), quick cc table and model examples. Every figure is a band rate read from the JPJ LKM PDF on 2026-11-27 or computed from it by calcRoadtax at build time; no figure removed."
+    },
+    {
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/tools/kalkulator-roadtax/$",
+      "path": "^WebApplication\\.dateModified$",
+      "old": null,
+      "new": "2026-09-12",
+      "reason": "Trust strip (Nov 2026): the page already printed rates.asAt as its update date; the JSON-LD now carries the same date, as the EV calculator's does."
+    },
+    {
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/tools/kalkulator-roadtax-motosikal/$",
+      "path": "^WebApplication\\.dateModified$",
+      "old": null,
+      "new": "2026-09-13",
+      "reason": "Trust strip (Nov 2026): the page already printed rates.asAt as its update date; the JSON-LD now carries the same date."
+    },
+    {
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/tools/kalkulator-insurans-rumah/$",
+      "path": "^WebApplication\\.dateModified$",
+      "old": null,
+      "new": "2026-09-28",
+      "reason": "Trust strip (Nov 2026): the page already printed home.asAt as its update date; the JSON-LD now carries the same date."
     }
   ]
 }

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { homeFacts } from '../../data/home-facts';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
 import { tarikh } from '../../components/edisi/ProductFormat';
@@ -130,6 +130,7 @@ const schema = {
         ]}
       />
       <h1 class="ea-h1">Insurans Motosikal Malaysia 2026</h1>
+      <TrustStrip date={asAt} sources={sourceLinks} />
       <PageAnswer
         finding={`${homeFacts.motorcycle.roadtax}; premium perlu quotation`}
         sentence="Roadtax motosikal mengikut jadual JPJ, ikut cc dan wilayah. Premium insurans tidak mengikut jadual cc: dapatkan quotation daripada insurer."
@@ -138,7 +139,6 @@ const schema = {
         ]}
         note="Rujukan neutral, bukan ejen. Satu contoh premium yang diterbitkan ada di bawah; ia bukan jadual harga atau quotation untuk semua motosikal."
       />
-      <Byline dateModified={asAt} />
       <p class="max-w-2xl text-lg leading-7 text-stone-900">
         Semak jadual roadtax JPJ, jenis perlindungan, satu contoh premium yang diterbitkan
         dan pautan quotation rasmi. Kami tidak menganggarkan premium motosikal mengikut cc.

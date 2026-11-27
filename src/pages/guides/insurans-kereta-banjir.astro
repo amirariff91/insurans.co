@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 
 const faqItems = [
@@ -67,6 +67,7 @@ const schema = {
       <h1 class="ea-h1 mb-1">
         Insurans Kereta Banjir di Malaysia: Apa Yang Dilindungi?
       </h1>
+      <TrustStrip date="2026-11-15" />
       <PageAnswer
         finding="Insurans komprehensif standard tidak melindungi kerosakan akibat banjir."
         facts={[
@@ -75,7 +76,6 @@ const schema = {
           { label: 'Kenderaan bermotor dengan perlindungan banjir', value: 'Hanya 13%' },
         ]}
       />
-      <Byline dateModified="2026-11-15" />
       <p class="text-lg text-stone-900 max-w-2xl leading-relaxed">
         Hanya 13% kenderaan bermotor di Malaysia mempunyai perlindungan banjir (PIAM, Oktober 2026, dilaporkan oleh <a href="https://ringgitplus.com/ms/blog/utama/piam-monsun-hampir-tiba-87-kenderaan-masih-tiada-perlindungan-banjir.html" class="underline" target="_blank" rel="noopener noreferrer">RinggitPlus</a>).
       </p>

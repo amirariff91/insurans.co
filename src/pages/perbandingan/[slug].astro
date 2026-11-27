@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Base from '../../layouts/Base.astro';
-import Byline from '../../components/Byline.astro';
+import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import Ikon from '../../components/Ikon.astro';
@@ -172,7 +172,7 @@ const schema = {
     </Fragment>
     <Breadcrumbs slot="breadcrumbs" items={[{ label: 'Utama', href: '/' }, { label: 'Perbandingan', href: '/perbandingan/' }, { label: `${nameA} vs ${nameB}` }]} />
     <PageAnswer slot="answer" finding={finding} facts={[...answerFacts, { label: 'Tarikh semakan', value: formatDate(comp.asAt) }]} />
-    <Byline slot="byline" dateModified={comp.asAt} />
+    <TrustStrip slot="trust" date={comp.asAt} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-700">{comp.summary}</p>
   </Hero>
 

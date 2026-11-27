@@ -36,6 +36,7 @@ const kiraanId = `kiraan-${model.slug}`;
 ---
 <div class="ea" data-ea data-slug={model.slug}>
   <h1 class="ea-h1">{h1}</h1>
+  <slot name="trust" />
 
   <p class="ea-hero">
     <span class="ea-fit">

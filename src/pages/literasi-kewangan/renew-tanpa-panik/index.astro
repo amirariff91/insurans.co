@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import EditorialStamp from '../../../components/EditorialStamp.astro';
 import Hero from '../../../components/Hero.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
@@ -78,7 +78,7 @@ const schema = {
         { label: h1 },
       ]}
     />
-    <Byline slot="byline" dateModified={asAt} />
+    <TrustStrip slot="trust" date={asAt} sources={sources} />
     <p slot="description" class="max-w-2xl text-lg leading-7 text-stone-900">
       Mula 2–4 minggu sebelum tamat dan ikut satu turutan: semak NCD, nilai pasaran, quotation dan add-on, kemudian bayar,
       simpan e-cover note dan renew roadtax.

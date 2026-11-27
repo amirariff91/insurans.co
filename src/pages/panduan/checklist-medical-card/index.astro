@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Byline from '../../../components/Byline.astro';
+import TrustStrip from '../../../components/edisi/TrustStrip.astro';
 import PageAnswer from '../../../components/edisi/PageAnswer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { buildDescription, buildTitle } from '../../../lib/seo';
@@ -128,6 +128,7 @@ const faqSchema = {
         ]}
       />
       <h1 class="ea-h1 mb-1">Checklist Pilih Medical Card — 8 Perkara Wajib Semak Sebelum Tandatangan</h1>
+      <TrustStrip date={asAt} />
       <PageAnswer
         finding="Kalau jawapannya tak jelas bertulis, jangan sign dulu"
         facts={[
@@ -136,7 +137,6 @@ const faqSchema = {
           { label: 'Contoh nombor', value: 'Data PDS/brosur yang kami rekodkan', href: '/medical-cards/' },
         ]}
       />
-      <Byline dateModified={asAt} />
       <p class="max-w-3xl text-lg leading-7 text-stone-600">
         Print halaman ini. Kami bukan ejen, bukan broker; kami tak jual polisi dan tak tahu premium anda. Nombor-nombor di bawah adalah contoh sebenar daripada data PDS/brosur yang kami rekodkan di <a href="/medical-cards/">/medical-cards/</a>, bukan cadangan produk.
       </p>
