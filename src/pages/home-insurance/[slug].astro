@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
@@ -87,6 +88,7 @@ const faqs = freshFaqs(faqCandidates, [
   ...record.analysis.siblingDifferences,
 ]);
 
+const documents = ('documents' in record ? record.documents : undefined) as PlanDocument[] | undefined;
 const title = buildTitle(`${record.planName} — Insurans Rumah`);
 const description = buildDescription(
   `${record.planName} oleh ${record.insurer}: kesesuaian pemilik, fakta perlindungan, had, contoh premium rasmi dan perbandingan pelan.`,
@@ -225,6 +227,8 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           Asas bangunan dan isi rumah diterangkan dalam <a href="/home-insurance/">panduan insurans rumah</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={record.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">

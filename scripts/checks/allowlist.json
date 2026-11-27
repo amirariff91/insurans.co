@@ -237,6 +237,36 @@
         "RM60,000–500,000"
       ],
       "reason": "Phone layout (q/layout, Nov 2026): multi-value 'Had tahunan' and 'Room & board' cells in the hub table read 'min–max, n pilihan', both ends being amounts the cell already prints (no rounding), and list every option under 'Semua pilihan' with the ringgit sign the cell's first amount carries (RM1,650,000 and RM3,650,000 were printed as '1,650,000' and '3,650,000' inside an RM slash run). No amount changes or leaves the page; src/lib/multi-value.ts derives these from medical-cards.json."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/critical-illness/aia-a-life-beyond-critical-care/$",
+      "values": [
+        "RM1,000"
+      ],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the AIA brochure names page 29, the annual premium rates per RM1,000 of cover, as printed in the brochure."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/critical-illness/prudential-crisis-cover-benefit/$",
+      "values": [
+        "RM212"
+      ],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the Prudential PDS names the example yearly premium RM212 printed on its page 2."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/home-insurance/berjaya-sompo-houseowner-householder/$",
+      "values": [
+        "RM100"
+      ],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the Berjaya Sompo PDS names the RM100 excess for accidental damage printed on its page 2."
     }
   ]
 }
