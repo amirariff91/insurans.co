@@ -267,6 +267,27 @@
         "RM100"
       ],
       "reason": "Brosur dan PDS block (27 Nov 2026): the page index for the Berjaya Sompo PDS names the RM100 excess for accidental damage printed on its page 2."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "phones",
+      "url": "^/travel-insurance/allianz-travel-insurance/$",
+      "values": [
+        "1300225542",
+        "60376283617"
+      ],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index names the insurer's own phone line printed in the linked official document (read on 27 Nov 2026). 1 300 22 5542 is on page 1 of the Allianz Travel Easy PDS; +603 7628 3617 (cashless admission hotline) is in the Allianz Travel Easy brochure."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "phones",
+      "url": "^/personal-accident/etiqa-buddy-pa-weekend-warrior/$",
+      "values": [
+        "1300138888"
+      ],
+      "reason": "Brosur dan PDS block (27 Nov 2026): the page index names the insurer's own phone line printed in the linked official document (read on 27 Nov 2026). 1-300-13-8888 (Etiqa Oneline) is on page 1 of the Weekend Warrior PDS."
     }
   ]
 }

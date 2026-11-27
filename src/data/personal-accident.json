@@ -111,7 +111,45 @@
             "a": "Polisi boleh diperbaharui sehingga umur 80 dan perlindungan tamat pada umur 81. Kadar boleh berubah apabila umur beralih kepada 66. Tempoh penelitian percuma ialah 15 hari. Tuntutan perlu diberitahu dalam 30 hari. Had perjalanan luar negara ialah 3 bulan berturut-turut bagi keadaan yang dinyatakan polisi."
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "pds",
+          "title": "PRODUCT DISCLOSURE SHEET",
+          "url": "https://www.etiqa.com.my/pdfs/en/insurance/Product_Disclosure_Sheet_Weekend_Warrior_Insurance.pdf",
+          "language": "Inggeris",
+          "documentDate": "01/06/2026",
+          "versionCode": "PMG/EGIB/BUDDYPA/WW/PDS/ENG/ECHANNEL/2605V0.2",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual manfaat Basic, Good, Better dan Best Plan untuk dewasa dan kanak-kanak"
+            },
+            {
+              "page": 1,
+              "what": "senarai pengecualian utama, termasuk sukan berbahaya dan sukan profesional"
+            },
+            {
+              "page": 1,
+              "what": "talian Etiqa Oneline 1-300-13-8888"
+            },
+            {
+              "page": 2,
+              "what": "contoh premium tahunan Better Plan: RM337.24 selepas diskaun, cukai perkhidmatan dan duti setem"
+            },
+            {
+              "page": 2,
+              "what": "notis tuntutan: paling lewat 30 hari selepas kejadian"
+            },
+            {
+              "page": 2,
+              "what": "cara membatalkan polisi dan bayaran balik sebahagian premium"
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "tune-protect-pa-easy",
@@ -448,7 +486,63 @@
             "a": "Jika orang diinsuranskan menetap di luar Malaysia, Singapura dan Brunei melebihi 90 hari berturut-turut, polisi mengehadkan bayaran kepada kematian serta hilang upaya kekal. Rawatan luar Malaysia yang layak dibayar dalam Ringgit Malaysia mengikut kadar tukaran. Batas ini penting jika anda merancang tinggal lama di negara lain."
           }
         ]
-      }
+      },
+      "documents": [
+        {
+          "kind": "brosur",
+          "title": "ALLIANZ INDIVIDUAL PA",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/product-document/PA-flyer_ENG.pdf",
+          "language": "Inggeris",
+          "versionCode": "AZ04/25",
+          "pages": 1,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "jadual jumlah diinsuranskan Plan A hingga Plan E dan premium RM10 hingga RM50"
+            },
+            {
+              "page": 1,
+              "what": "syarat kelayakan: boleh melakukan sekurang-kurangnya 3 aktiviti harian (ADL)"
+            },
+            {
+              "page": 1,
+              "what": "kelayakan umur 3 hingga 70 tahun dan syarat pengunderaitan"
+            }
+          ]
+        },
+        {
+          "kind": "pds",
+          "title": "Product Disclosure Sheet – Personal Accident (PA)",
+          "url": "https://www.allianz.com.my/content/dam/onemarketing/azmb/wwwallianzcommy/personal/life-health-and-savings/personal-accident/personal-accident/PDS_PersonalAccident_ENG_AZ0624.pdf",
+          "language": "Inggeris",
+          "documentDate": "01/06/2024",
+          "pages": 2,
+          "openedOn": "2026-11-27",
+          "index": [
+            {
+              "page": 1,
+              "what": "perlindungan asas dan manfaat tambahan berbayar"
+            },
+            {
+              "page": 1,
+              "what": "yuran dan caj: komisen, duti setem dan cukai perkhidmatan"
+            },
+            {
+              "page": 2,
+              "what": "had umur kelayakan dan pembaharuan"
+            },
+            {
+              "page": 2,
+              "what": "pengecualian utama"
+            },
+            {
+              "page": 2,
+              "what": "pembatalan polisi dan cara membuat tuntutan"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

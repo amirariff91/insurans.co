@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
@@ -61,6 +62,7 @@ const specItems = [
   ].includes(fact.label)),
 ];
 const pageTitle = `${record.planName} — PA`;
+const documents = ('documents' in record ? record.documents : undefined) as PlanDocument[] | undefined;
 const description = buildDescription(
   `${record.planName}: kelayakan, skala hilang upaya, had manfaat dan pengecualian. Bandingan dengan ${siblingRecord.planName} menggunakan dokumen rasmi.`,
 );
@@ -202,6 +204,8 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           Untuk penerangan AD, PPD dan cara membandingkan polisi, baca <a href="/personal-accident/">panduan insurans kemalangan diri</a>.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={record.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">

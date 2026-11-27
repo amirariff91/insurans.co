@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TrustStrip from '../../components/edisi/TrustStrip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Dokumen, { type PlanDocument } from '../../components/edisi/Dokumen.astro';
 import EditorialStamp from '../../components/EditorialStamp.astro';
 import Hero from '../../components/Hero.astro';
 import LogoTile from '../../components/LogoTile.astro';
@@ -55,6 +56,7 @@ const specItems = analysis.facts.filter((fact) => [
   'Pembatalan perjalanan',
 ].includes(fact.label));
 const title = buildTitle(`${planName} — Travel Insurance`);
+const documents = ('documents' in plan ? plan.documents : undefined) as PlanDocument[] | undefined;
 const description = buildDescription(
   `${planName} (${plan.insurer}): kelayakan umur, had manfaat, syarat pembatalan dan perbandingan dengan ${siblingName}. Analisis bertarikh ${plan.analysisAsAt}.`,
 );
@@ -207,6 +209,8 @@ const answerRest = answerAll.filter((spec) => !answerTop.includes(spec));
           dan padankan had manfaat dengan destinasi serta tempoh perjalanan anda.
         </p>
       </article>
+
+      <Dokumen documents={documents} company={plan.insurer} />
 
       {faqs.length > 0 && (
         <section id="faq">
