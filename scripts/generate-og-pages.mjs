@@ -148,6 +148,7 @@ const fileFor = (route) => (route === '/' ? 'index.png' : `${route.replace(/^\/|
 const altFor = (p) =>
   [p.title, p.family, p.logo?.alt ?? (p.wordmark ? p.wordmark : null), p.lead ? `${p.lead.label}: ${p.lead.value}` : null]
     .filter(Boolean)
+    .map((part) => String(part).replace(/[.\s]+$/, ''))
     .join('. ') + '.';
 
 async function main() {
