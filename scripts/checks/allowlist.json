@@ -288,6 +288,123 @@
         "1300138888"
       ],
       "reason": "Brosur dan PDS block (27 Nov 2026): the page index names the insurer's own phone line printed in the linked official document (read on 27 Nov 2026). 1-300-13-8888 (Etiqa Oneline) is on page 1 of the Weekend Warrior PDS."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "description",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "Adakah insurans kereta anda melindungi banjir? Panduan special perils: apa yang dilindungi, kos 0.2%–0.5% daripada sum insured, dan cara buat tuntutan.",
+      "new": "Adakah insurans kereta anda melindungi banjir? Panduan special perils: apa dilindungi, kadar PIAM, contoh RHB dan MSIG, NCD, dan tuntutan.",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "2026-11-15",
+      "new": "2026-11-27",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner.",
+      "path": "^Article\\.dateModified$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "Panduan lengkap insurans kereta banjir — special perils, apa yang dilindungi, cara tambah coverage, kos, negeri berisiko tinggi, dan langkah tuntutan.",
+      "new": "Panduan insurans kereta banjir — special perils, kadar PIAM, contoh RHB dan MSIG, kesan NCD, takaful, dan langkah tuntutan.",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner.",
+      "path": "^Article\\.description$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "Tidak. Insurans komprehensif standard tidak melindungi kerosakan banjir. Anda perlu tambah add-on 'Special Perils' atau 'Bencana Khas' secara berasingan untuk mendapat perlindungan banjir.",
+      "new": "Tidak. Insurans komprehensif standard tidak melindungi kerosakan banjir. Anda perlu menambah perlindungan tambahan 'Special Perils' atau 'Bencana Khas' secara berasingan untuk mendapat perlindungan banjir.",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner.",
+      "path": "^FAQPage\\.mainEntity\\[0\\]\\.acceptedAnswer\\.text$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "Kos add-on special perils dikira sebagai peratusan daripada sum insured, lazimnya 0.2% hingga 0.5% setahun, bergantung kepada syarikat insurans dan tahap perlindungan. Contohnya, untuk kereta dengan sum insured RM50,000, premium tambahan ialah sekitar RM100 hingga RM250 setahun. Minta sebut harga untuk angka tepat.",
+      "new": "Kadar berbeza mengikut syarikat dan jenis perlindungan. PIAM menyatakan lanjutan ini lazimnya kurang daripada 0.5% daripada jumlah diinsuranskan (sum insured) pada 14 Nov 2025. RHB dan MSIG menerbitkan contoh pada nilai kenderaan RM50,000: RHB RM125 penuh dan RM50 terhad, MSIG RM100 penuh dan RM62.50 terhad. Semua angka itu sebelum cukai dan contoh syarikat itu sendiri, bukan kadar pasaran. Minta sebut harga untuk angka tepat.",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner.",
+      "path": "^FAQPage\\.mainEntity\\[1\\]\\.acceptedAnswer\\.text$"
+    },
+    {
+      "check": "contract",
+      "kind": "changed",
+      "field": "jsonld",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "old": "Berapa kos add-on special perils untuk banjir?",
+      "new": "Berapa kos special perils untuk banjir?",
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner.",
+      "path": "^FAQPage\\.mainEntity\\[1\\]\\.name$"
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "rm",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "values": [
+        "RM100–250",
+        "RM250"
+      ],
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "rm",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "values": [
+        "RM0",
+        "RM100,000",
+        "RM12,500",
+        "RM125",
+        "RM15,000",
+        "RM17,500",
+        "RM2,500",
+        "RM30,000",
+        "RM42",
+        "RM50",
+        "RM62.5"
+      ],
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "removed",
+      "field": "pct",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "values": [
+        "0.2%",
+        "0.2–0.5%",
+        "13%"
+      ],
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
+    },
+    {
+      "check": "contract",
+      "kind": "added",
+      "field": "pct",
+      "url": "^/guides/insurans-kereta-banjir/$",
+      "values": [
+        "0.25%",
+        "25%",
+        "28%",
+        "30%",
+        "50%",
+        "8%"
+      ],
+      "reason": "Flood guide re-sourced on 27 Nov 2026: the RinggitPlus-sourced 13% and the blog-sourced 0.2%-0.5% are replaced by PIAM's published statements and the RHB and MSIG brochures' printed examples; every new figure was read in its source by the owner."
     }
   ]
 }
