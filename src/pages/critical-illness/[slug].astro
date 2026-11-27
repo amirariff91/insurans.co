@@ -9,6 +9,9 @@ import LogoTile from '../../components/LogoTile.astro';
 import { shortCompanyName } from '../../lib/logos';
 import PageAnswer from '../../components/edisi/PageAnswer.astro';
 import ProductCss from '../../components/edisi/ProductCss.astro';
+import SourceMark from '../../components/edisi/SourceMark.astro';
+import SourceNote from '../../components/edisi/SourceNote.astro';
+import { containedMarks, sourceMark } from '../../lib/fact-sources';
 import { factRole, tarikh } from '../../components/edisi/ProductFormat';
 import ci from '../../data/critical-illness.json';
 import { buildDescription, buildTitle } from '../../lib/seo';
@@ -109,7 +112,7 @@ const schema = {
 // merentas 76 kategori"); the full row moves to the details list under the box. The plan type sits in the bar.
 const coveredFact = analysis.facts.find((fact) => fact.label === 'Penyakit yang dilindungi');
 const coveredMatch = coveredFact?.value.match(/^(\d+)\s+([^.:;,(]+)/);
-const lead = coveredMatch ? { value: coveredMatch[1], label: coveredMatch[2].trim(), role: 'term' as const } : undefined;
+const lead = coveredMatch ? { value: coveredMatch[1], label: coveredMatch[2].trim(), role: 'term' as const, source: sourceMark(sourceUrls, coveredFact?.source) } : undefined;
 const finding = `${typeLabel} oleh ${record.insurer.replace(/\.$/, '')}`;
 const answerSkip: string[] = lead ? ['Penyakit yang dilindungi'] : [];
 const answerAll = [...specItems.filter((spec) => !answerSkip.includes(spec.label))]
@@ -121,6 +124,7 @@ const answerFacts = answerTop.map((spec) => ({
   label: spec.label,
   value: spec.value,
   role: spec.label === 'Jenis pelan' ? undefined : factRole(spec.label),
+  source: sourceMark(sourceUrls, spec.source),
 }));
 const answerRest = [
   ...specItems.filter((spec) => answerSkip.includes(spec.label)),
@@ -165,7 +169,7 @@ const answerRest = [
           {answerRest.map((spec) => (
             <div class="pa-r">
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>{spec.value}<SourceMark marks={[sourceMark(sourceUrls, spec.source)]} /></dd>
             </div>
           ))}
         </dl>
@@ -187,6 +191,7 @@ const answerRest = [
       <article class="prose-editorial prose-bars">
         <h2 id="sesuai">Untuk siapa pelan ini</h2>
         <p>{analysis.bestFor}</p>
+        <SourceNote text={analysis.bestFor} facts={analysis.facts} list={sourceUrls} fallbackHref="#sumber" />
 
         <h2 id="fakta">Manfaat, had dan syarat</h2>
         <dl class="not-prose my-6 divide-y divide-stone-200 border-y border-stone-200">
@@ -209,11 +214,13 @@ const answerRest = [
 
         <h2 id="had">Had dan perkara yang perlu ditimbang</h2>
         <p>{analysis.tradeoffs}</p>
+        <SourceNote text={analysis.tradeoffs} facts={analysis.facts} list={sourceUrls} fallbackHref="#sumber" />
 
         <h2 id="perbandingan">{record.planName} berbanding {sibling.planName}</h2>
         <ul>
           {analysis.siblingDifferences.map((difference) => <li>{difference}</li>)}
         </ul>
+        <SourceNote text={analysis.siblingDifferences} facts={analysis.facts} list={sourceUrls} fallbackHref="#sumber" sibling={{ name: sibling.planName, href: `/critical-illness/${sibling.slug}/#fakta`, facts: sibling.analysis.facts }} />
         <p>
           Baca manfaat dan syarat <a href={`/critical-illness/${sibling.slug}/`}>{sibling.planName}</a>
           {' '}untuk melihat kesan perbezaan ini pada pilihan perlindungan anda.
@@ -229,7 +236,7 @@ const answerRest = [
             {faqs.map((faq, index) => (
               <details class="faq-item" open={index === 0}>
                 <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
+                <p>{faq.a}<SourceMark marks={containedMarks(faq.a, analysis.facts, sourceUrls)} /></p>
               </details>
             ))}
           </div>
